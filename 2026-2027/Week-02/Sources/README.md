@@ -2,8 +2,7 @@
 
 İndirme tarihi: 5 Ekim 2026.
 
-60 kaynak kaydı; 679 PDF dosyası (678 farklı PDF içeriği).
-PDF sayısı kitap bölümleri, ders notları, laboratuvar belgeleri, örnekler ve üretici eklerini kapsar; 60 tam kitap indirildiği anlamına gelmez.
+
 
 | # | Kaynak | Durum | PDF | Klasör |
 |---:|---|---|---:|---|
