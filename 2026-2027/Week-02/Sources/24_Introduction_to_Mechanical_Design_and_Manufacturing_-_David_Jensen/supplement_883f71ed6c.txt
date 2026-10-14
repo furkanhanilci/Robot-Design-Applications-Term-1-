@@ -1,0 +1,235 @@
+Tangible and Intangible Properties of Product Design – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Tangible and Intangible Properties of Product Design
+What makes up a “Design?”
+A product design (
+noun)
+includes aspects that are physical or tangible and easily observed as well as characteristics that are inferred. The overall product look, what components are used and their sizes and materials are usually easily observable. However, the purpose of each component, the justification for why it was manufactured in a certain way, and the overall vision or strategy of the product producer must be inferred using good engineering analysis. Consider
+reverse engineering
+. In reverse engineering, an existing product performance and physical features are measured. However, simply knowing all the dimensions of every part in a new car doesn’t enable someone to make an exact copy of that car. The hard work of reverse engineering is understanding the intangibles. What are the functions, why did the designers choose certain dimensions, materials, and processes, etc.? Answer these questions requires detailed analysis and the end result is often an answer with some underlying uncertainty. In a
+forward design
+,
+process the same works in the opposite direction but the same challenges exist. Defining the functions, behaviors, strategy and vision are the difficult first step. When done correctly, specification of the physical architecture and component specification is straight forward.
+Tangibles – Systems, Subsystems and Assemblies, Components
+Product design is the process of creating a solution that meets the needs and expectations of the customers and the stakeholders. It involves designing and validating systems, assemblies or subsystems, and components that work together to deliver the desired functionality and performance.
+A
+system
+is a set of interrelated subsystems or assemblies that form a whole and perform a specific function. For example, a car is a system that consists of various subsystems such as the engine, the transmission, the brakes, etc. A
+system design
+defines the overall architecture and specifications of the system, such as its inputs, outputs, interfaces, constraints, and requirements.
+An
+assembly
+or a
+subsystem
+is a group of components that work together to perform a sub-function within the system. For example, the engine is a subsystem that converts fuel into mechanical power. An
+assembly design
+defines the structure and configuration of the assembly or subsystem, such as its dimensions, materials, connections, tolerances, and testing methods.
+A
+component
+is a single part or element that performs a specific task within the assembly or subsystem. For example, a piston is a component that moves up and down inside the cylinder of the engine. A
+component design
+defines the shape and properties of the component, such as its geometry, surface finish, strength, durability, and manufacturability. While mostly outside the scope of a mechanical design focus text, software can also be implemented at the component or assembly level.
+By designing and validating systems, assemblies or subsystems, and components in a systematic and iterative way, product designers can create solutions that meet the needs and expectations of the stakeholders. The process of product design moves from the system level to the component level. Components are synthesized into assemblies and assemblies into systems. This process is described in the chapter on detailed design.
+Function, Behavior, Performance, and Strategy/Vision
+A
+function
+is the purpose or goal of a product design. It describes what the product is intended (by designers) to do or achieve for the user or the environment. A function can be expressed as a verb and a noun, such as “to store books” or “to filter water”. A product design can have one or more functions, depending on its complexity and scope. Additionally, a product has both high-level functions (a car transports people) and numerous sub functions (safely secure passengers, cool passengers).
+A function is an essential aspect of product design, as it guides the design process and influences the form, materials, features, and aesthetics of the product. A function also helps to evaluate the effectiveness and efficiency of a product design, by comparing the intended function with the actual performance and user feedback. We will revisit functions and functions structures in Chapter 5 on conceptual design development.
+As function describes the intended actions of a product,
+behavior
+is a description of the actual actions of components and products. Behavior is the physical phenomena needed to express a function. For example, the function of converting electrical energy into rotational mechanical energy is an idea that can be expressed as the electromotive force. Behavior can be described using equations relating parameters. Such as converting electrical voltage and current (electrical power) to torque and rotational speed (mechanical power). Components implement one or more behaviors in order to express a desired function. A DC motor implements the function of conversion of electrical power to mechanical power using the physical principle of the electromotive force. One of the major challenges of design is that components don’t exhibit only a single behavior. A DC motor also exhibits vibration and heat. These are not usually the primary desired functions, however, designers must consider them as well. Functions of heat transfer and vibration management also must be expressed through behavior and ultimately lead to specification of components such as housings and heat sinks. This leads to a few important principles:
+Functions, Behaviors, and Components (sometimes called structures) are closely tied together in the design process. A choice in any domain affects others.
+The same function can be implemented with many different behaviors and components, selecting one solution too early in design process unnecessarily constrains the available design choices later.
+The decision process for function, behavior and component are cyclical. Meaning that new additional functionality is often needed when a behavior or component is specified.
+Structure-Behavior-Function is a formal modeling perspective
+*Watch this
+video
+to learn more about Structure-Behavior-Function.
+The concept of performance or quality was discussed in the previous section. To reiterate here, the choice to what level of behavioral performance (fuel efficiency for example) and which areas of performance to focus on define your technical competitive strategy. As you will see when we discuss developing specifications, setting these targets is essential for developing competitive products.
+Design Strategy and Product Vision
+Finally, we will consider the role of
+design strategy
+or, more elegantly,
+product vision
+. This intangibles concept affects the design decisions and thus the final outcome of the product design process. In the product marketplace, there are often many different manufacturers for the same general product. The sum of what differentiates them is their different design strategies. When designing a product, you will make many choices considering functionality, behaviors, components and levels or performance. What should guide that process is your product vision.
+A vision in the context of product design provides us with a personal, inspiring image of a new future situation created by a designer or a group of designers and/or other professionals. This new future situation may directly concern the new product itself (features, functions etc.), but also the domain and context within which the product will be used, the user(s), the usage (or interaction) of the user(s) with the product, the business or other aspects related to the product design. A design vision includes:
+an insight into or understanding of the product-user-interaction-context system;
+a view on the essence of the problem: “which values are to be fulfilled?”;
+a general idea or direction about the kind of solutions to be expected.
+A strong, convincing vision is often well-founded by arguments based on theories and facts, and is often communicated effectively by using images, text and other presentation techniques. A design vision should be sharable and inspiring. As it is the result of the use of theories, facts and arguments, it should be an ‘objective’ interpretation.
+References
+Daalhuizen, Jaap. 2018. Delft Design Approach, Delft University of Technology.
+Delft Design Guide
+. Delft Design Approach
+. (2016, March 3). TU Delft OCW. https://ocw.tudelft.nl/courses/delft-design-approach/
+‌
+definition
+Reverse engineering is the process of analyzing an existing product or system to understand its design, functionality, and performance. It can be used for various purposes, such as improving the product, creating a compatible or competitive product, or learning from the best practices of others.
+×
+Close definition
+Forward design is a product design approach that starts with defining the desired outcomes and features of a product, and then works forward to create a solution that meets those requirements.
+×
+Close definition
+Previous/next navigation
+Previous: Design Drivers – What is a “Good” solution in the Product Design Context
+Next: Case Study – Design Vision
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

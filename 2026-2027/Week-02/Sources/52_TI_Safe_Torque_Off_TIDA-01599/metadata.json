@@ -1,0 +1,106 @@
+{
+  "id": 52,
+  "name": "TI Safe Torque Off TIDA-01599",
+  "type": "Reference design",
+  "url": "https://www.ti.com/tool/TIDA-01599",
+  "folder": "52_TI_Safe_Torque_Off_TIDA-01599",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.ti.com/tool/TIDA-01599",
+      "final_url": "https://www.ti.com/tool/TIDA-01599",
+      "kind": "html",
+      "bytes": 69127,
+      "sha256": "9a4ec5a4c75b5d487e530843a311a63ccebf9ac0c027a12f38343c4a4a648240"
+    },
+    {
+      "file": "tiduds9b.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDUDS9",
+      "final_url": "https://www.ti.com/lit/ug/tiduds9b/tiduds9b.pdf?ts=1791217172089",
+      "kind": "pdf",
+      "bytes": 3067900,
+      "sha256": "c011fa2afdbfa5a6466b1c24e91435d34250ce935a11734cc107a1dd1a197ea3",
+      "pdf_pages": 35
+    },
+    {
+      "file": "tidrva4a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRVA4",
+      "final_url": "https://www.ti.com/lit/df/tidrva4a/tidrva4a.pdf?ts=1791186286101",
+      "kind": "pdf",
+      "bytes": 347339,
+      "sha256": "6dde34cff9c9194c6cfb95e40f88af2710c55367f0e98b2a30da5a91d7ee0e8c",
+      "pdf_pages": 3
+    },
+    {
+      "file": "tidrva3a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRVA3",
+      "final_url": "https://www.ti.com/lit/df/tidrva3a/tidrva3a.pdf?ts=1791222539421",
+      "kind": "pdf",
+      "bytes": 166544,
+      "sha256": "733f20b3adee34e2667c7d60960ae0e160d43603c5138c4c0e39f47de9467b13",
+      "pdf_pages": 2
+    },
+    {
+      "file": "tidrva5a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRVA5",
+      "final_url": "https://www.ti.com/lit/df/tidrva5a/tidrva5a.pdf?ts=1791186287900",
+      "kind": "pdf",
+      "bytes": 1336259,
+      "sha256": "0c71e9520c8990aade2c9c8f5e4ad18ef0a04e0698f283a155a92245522229f3",
+      "pdf_pages": 11
+    },
+    {
+      "file": "tidrva2a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRVA2",
+      "final_url": "https://www.ti.com/lit/df/tidrva2a/tidrva2a.pdf?ts=1791184759043",
+      "kind": "pdf",
+      "bytes": 877307,
+      "sha256": "a78941c568f28aae7dd44d109f65bbcaf4fb1221104f2b60d62ca634edc6795b",
+      "pdf_pages": 5
+    },
+    {
+      "file": "sffs422.pdf",
+      "url": "https://www.ti.com/lit/pdf/SFFS422",
+      "final_url": "https://www.ti.com/lit/fs/sffs422/sffs422.pdf?ts=1791222542663",
+      "kind": "pdf",
+      "bytes": 927930,
+      "sha256": "62a07999c946eaab934a0e01d09328a5a8d2fe77f9d113c746b2a0648a5145d6",
+      "pdf_pages": 17
+    },
+    {
+      "file": "tiduf02.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDUF02",
+      "final_url": "https://www.ti.com/lit/fs/tiduf02/tiduf02.pdf?ts=1791222543561",
+      "kind": "pdf",
+      "bytes": 682783,
+      "sha256": "bfa3f3fc9cbb7b3da47997148ddaaa84740870e8441750094c69f74c9ece3724",
+      "pdf_pages": 9
+    },
+    {
+      "file": "slvaf31.pdf",
+      "url": "https://www.ti.com/lit/pdf/SLVAF31",
+      "final_url": "https://www.ti.com/lit/fs/slvaf31/slvaf31.pdf?ts=1791139068483",
+      "kind": "pdf",
+      "bytes": 449917,
+      "sha256": "bbbf17d4e2ea09f8ca3da150fdf539818db563f6ba5e1637e2e00266caff2cf8",
+      "pdf_pages": 4
+    },
+    {
+      "file": "ssiy006.pdf",
+      "url": "https://www.ti.com/lit/pdf/SSIY006",
+      "final_url": "https://www.ti.com/lit/eb/ssiy006/ssiy006.pdf?ts=1791202441978&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FLMG1020",
+      "kind": "pdf",
+      "bytes": 3856579,
+      "sha256": "056cc8dabe640a265e39c26e0a86dc8e39c9a428290d91bb606560a4c62998a1",
+      "pdf_pages": 80
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:56+0300",
+  "pdf_count": 9,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

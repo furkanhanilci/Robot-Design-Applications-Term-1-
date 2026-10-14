@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Building and using MCUboot with Espressif’s chips | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Building and using MCUboot with Espressif’s chips" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/readme-espressif.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/readme-espressif.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building and using MCUboot with Espressif’s chips" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"Building and using MCUboot with Espressif’s chips","url":"https://docs.mcuboot.com/readme-espressif.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Building and using MCUboot with Espressif’s chips</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="building-and-using-mcuboot-with-espressifs-chips"><a href="#building-and-using-mcuboot-with-espressifs-chips">Building and using MCUboot with Espressif’s chips</a></h1>
+
+<p>The MCUBoot Espressif’s port depends on HAL (Hardware Abstraction Layer) sources based on ESP-IDF
+or 3rd party frameworks as such as Zephyr-RTOS (<code class="language-plaintext highlighter-rouge">zephyrproject-rtos/hal_espressif/</code>) or NuttX RTOS
+(<code class="language-plaintext highlighter-rouge">espressif/esp-hal-3rdparty</code>). Building the MCUboot Espressif’s port and its features is platform
+dependent, therefore, the system environment including toolchains, must be set accordingly. A
+standalone build version means that ESP-IDF and its toolchain are used as source. For 3rd parties
+framework, HAL path and toolchain must be set.</p>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p><em>Current compatible ESP-IDF version for HAL sources is <code class="language-plaintext highlighter-rouge">v6.0.0</code></em></p>
+
+<hr>
+
+<p>Documentation about the MCUboot bootloader design, operation and features can be found in the
+<a href="/design.html">design document</a>.</p>
+
+<h2 id="soc-support-availability"><a href="#soc-support-availability">SoC support availability</a></h2>
+
+<p>The current port is available for use in the following SoCs within the OSes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">ESP32</th>
+      <th style="text-align: center">ESP32-S2</th>
+      <th style="text-align: center">ESP32-C3</th>
+      <th style="text-align: center">ESP32-S3</th>
+      <th style="text-align: center">ESP32-C2</th>
+      <th style="text-align: center">ESP32-C6</th>
+      <th style="text-align: center">ESP32-H2</th>
+      <th style="text-align: center">ESP32-C5</th>
+      <th style="text-align: center">ESP32-C61</th>
+      <th style="text-align: center">ESP32-P4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Zephyr</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">In progress</td>
+      <td style="text-align: center">In progress</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">NuttX</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">In progress</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">Supported</td>
+      <td style="text-align: center">———–</td>
+      <td style="text-align: center">———–</td>
+      <td style="text-align: center">———–</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notice that any customization in the memory layout from the OS application must be done aware of
+the bootloader own memory layout to avoid overlapping. More information on the section
+<a href="#memory-map-organization-for-os-compatibility">Memory map organization for OS compatibility</a>.</p>
+
+<h2 id="installing-requirements-and-dependencies"><a href="#installing-requirements-and-dependencies">Installing requirements and dependencies</a></h2>
+
+<p>The following instructions considers a MCUboot Espressif port standalone build.</p>
+
+<ol>
+  <li>
+    <p>Install additional packages required for development with MCUboot:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> ~/mcuboot  <span class="c"># or to your directory where MCUboot is cloned</span>
+</code></pre></div>    </div>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> pip3 <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">-r</span> scripts/requirements.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Update the Mbed TLS submodule required by MCUboot:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> git submodule update <span class="nt">--init</span> <span class="nt">--recursive</span> ext/mbedtls-3.6.0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>If ESP-IDF is the chosen option for use as HAL layer and the system already have ESP-IDF
+installed, ensure that it is the current compatible version and the environment is set:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> &lt;IDF_PATH&gt;
+ git checkout v5.1.6
+</code></pre></div>    </div>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> &lt;IDF_PATH&gt;/install.sh
+</code></pre></div>    </div>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">.</span> &lt;IDF_PATH&gt;/export.sh
+</code></pre></div>    </div>
+
+    <hr>
+    <p><strong><em>Note</em></strong></p>
+
+    <p><em>If desirable, instructions for ESP-IDF installation can be found
+ <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#manual-installation">here</a></em></p>
+
+    <hr>
+
+    <hr>
+    <p><strong><em>Note</em></strong></p>
+
+    <p><em>The other HALs mentioned above like <code class="language-plaintext highlighter-rouge">hal_espressif</code> from Zephyr RTOS or <code class="language-plaintext highlighter-rouge">esp-hal-3rdparty</code>
+ from NuttX RTOS environments also can be used for the bootloader standalone build, however as
+ eventually code revision may differ from what is currently expected, it is recommended using
+ them only within their RTOS build system.</em></p>
+
+    <hr>
+  </li>
+  <li>
+    <p>If ESP-IDF is not installed and will not be used, install <code class="language-plaintext highlighter-rouge">esptool</code>:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> pip3 <span class="nb">install </span>esptool
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="building-the-bootloader-itself"><a href="#building-the-bootloader-itself">Building the bootloader itself</a></h2>
+
+<p>The MCUboot Espressif port bootloader is built using the toolchain and tools provided by Espressif.
+Additional configuration related to MCUboot features and slot partitioning may be made using the
+<code class="language-plaintext highlighter-rouge">port/&lt;TARGET&gt;/bootloader.conf</code> file or passing a custom config file using the
+<code class="language-plaintext highlighter-rouge">-DMCUBOOT_CONFIG_FILE</code> argument on the first step below.</p>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p><em>Replace <code class="language-plaintext highlighter-rouge">&lt;TARGET&gt;</code> with the target ESP32 family (like <code class="language-plaintext highlighter-rouge">esp32</code>, <code class="language-plaintext highlighter-rouge">esp32s2</code> and others).</em></p>
+
+<hr>
+
+<ol>
+  <li>
+    <p>Compile and generate the BIN:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> &lt;MCUBOOT_DIR&gt;/boot/espressif
+</code></pre></div>    </div>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> cmake <span class="nt">-DCMAKE_TOOLCHAIN_FILE</span><span class="o">=</span>tools/toolchain-&lt;TARGET&gt;.cmake <span class="nt">-DMCUBOOT_TARGET</span><span class="o">=</span>&lt;TARGET&gt; <span class="nt">-DESP_HAL_PATH</span><span class="o">=</span>&lt;ESP_HAL_PATH&gt; <span class="nt">-DMCUBOOT_FLASH_PORT</span><span class="o">=</span>&lt;PORT&gt; <span class="nt">-B</span> build <span class="nt">-GNinja</span>
+</code></pre></div>    </div>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> ninja <span class="nt">-C</span> build/
+</code></pre></div>    </div>
+
+    <hr>
+    <p><strong><em>Note</em></strong></p>
+
+    <p><em>If using ESP-IDF as HAL layer source, <code class="language-plaintext highlighter-rouge">ESP_HAL_PATH</code> can be ommited.</em></p>
+
+    <p><em>If desirable, <code class="language-plaintext highlighter-rouge">&lt;TOOLCHAIN_BIN_DIR&gt;</code> can be defined with the path for a different compatible
+ toolchain, however it is recommended to actually create a CMake toolchain file and
+ pass it through <code class="language-plaintext highlighter-rouge">&lt;CMAKE_TOOLCHAIN_FILE&gt;</code> variable since it may require a distinct set of
+ compilation flags.</em></p>
+
+    <hr>
+  </li>
+  <li>
+    <p>Flash MCUboot in your device:</p>
+
+    <hr>
+    <p><strong><em>Note</em></strong></p>
+
+    <p><em>Prior to flashing the bootloader and/or application and booting for the first time, ensure
+ that the secondary slot and scratch area are erased. This is important because flash erased
+ value (<code class="language-plaintext highlighter-rouge">0xFF</code> in case of this port) read from the trailer registers are part of MCUboot’s
+ update-state checking mechanism, thus unknown data or garbage could be potentially
+ interpreted as a valid state and lead to an unexpected behavior. Flash can be erased
+ entirely using:</em></p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> esptool.py <span class="nt">-p</span> &lt;PORT&gt; erase_flash
+</code></pre></div>    </div>
+
+    <hr>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> ninja <span class="nt">-C</span> build/ flash
+</code></pre></div>    </div>
+
+    <p>If the below arguments were not passed to <code class="language-plaintext highlighter-rouge">cmake</code> build step, the default values for each on
+ the flashing operation will be as following:</p>
+
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">MCUBOOT_FLASH_PORT</code>: “/dev/ttyUSB0”</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">ESP_BAUD_RATE</code>: 115200</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">ESP_FLASH_MODE</code>: “dio”</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">ESP_FLASH_FREQ</code>: “40m” for ESP32, ESP32-S2, ESP32-S3, ESP32-C3, ESP32-C6, ESP32-C5, ESP32-C61;
+                  “80m” for ESP32-P4;
+                  “60m” for ESP32-C2;
+                  “24m” for ESP32-H2.</li>
+    </ul>
+
+    <p>Alternatively, <code class="language-plaintext highlighter-rouge">esptool</code> can be used for flashing directly:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> &lt;BAUD&gt; <span class="nt">--before</span> default_reset <span class="nt">--after</span> no_reset <span class="nt">--chip</span> &lt;TARGET&gt; write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;BOOTLOADER_FLASH_OFFSET&gt; build/mcuboot_&lt;TARGET&gt;.bin
+</code></pre></div>    </div>
+
+    <hr>
+    <p><strong><em>Note</em></strong></p>
+
+    <p>Ensure that the flash parameters like <code class="language-plaintext highlighter-rouge">&lt;FLASH_FREQ&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;FLASH_MODE&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;FLASH_SIZE&gt;</code> matches
+ the same parameters from <code class="language-plaintext highlighter-rouge">cmake</code> step and configuration file.
+ You may adjust the port <code class="language-plaintext highlighter-rouge">&lt;PORT&gt;</code> (like <code class="language-plaintext highlighter-rouge">/dev/ttyUSB0</code>) and baud rate <code class="language-plaintext highlighter-rouge">&lt;BAUD&gt;</code> (like <code class="language-plaintext highlighter-rouge">2000000</code>)
+ according to the connection with your board. You can also skip <code class="language-plaintext highlighter-rouge">&lt;PORT&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;BAUD&gt;</code> parameters
+ so that esptool tries to automatically detect it.</p>
+
+    <p><em><code class="language-plaintext highlighter-rouge">&lt;FLASH_SIZE&gt;</code> can be found using the command below:</em></p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> &lt;BAUD&gt; flash_id
+</code></pre></div>    </div>
+
+    <p>The output contains device information and its flash size:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> Detected flash size: 4MB
+</code></pre></div>    </div>
+
+    <p><em><code class="language-plaintext highlighter-rouge">&lt;BOOTLOADER_FLASH_OFFSET&gt;</code> value must follow one of the addresses below:</em></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center">ESP32</th>
+          <th style="text-align: center">ESP32-S2</th>
+          <th style="text-align: center">ESP32-C3</th>
+          <th style="text-align: center">ESP32-S3</th>
+          <th style="text-align: center">ESP32-C2</th>
+          <th style="text-align: center">ESP32-C6</th>
+          <th style="text-align: center">ESP32-H2</th>
+          <th style="text-align: center">ESP32-C5</th>
+          <th style="text-align: center">ESP32-C61</th>
+          <th style="text-align: center">ESP32-P4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center">0x1000</td>
+          <td style="text-align: center">0x1000</td>
+          <td style="text-align: center">0x0000</td>
+          <td style="text-align: center">0x0000</td>
+          <td style="text-align: center">0x0000</td>
+          <td style="text-align: center">0x0000</td>
+          <td style="text-align: center">0x0000</td>
+          <td style="text-align: center">0x2000</td>
+          <td style="text-align: center">0x0000</td>
+          <td style="text-align: center">0x2000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+  </li>
+  <li>
+    <p>Reset your device</p>
+  </li>
+</ol>
+
+<h2 id="signing-and-flashing-an-application"><a href="#signing-and-flashing-an-application">Signing and flashing an application</a></h2>
+
+<ol>
+  <li>
+    <p>Images can be regularly signed with the <code class="language-plaintext highlighter-rouge">scripts/imgtool.py</code> script:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> imgtool.py sign <span class="nt">--align</span> 4 <span class="nt">-v</span> 0 <span class="nt">-H</span> 32 <span class="nt">--pad-header</span> <span class="nt">-S</span> &lt;SLOT_SIZE&gt; &lt;BIN_IN&gt; &lt;SIGNED_BIN&gt;
+</code></pre></div>    </div>
+
+    <hr>
+
+    <p><strong><em>Note</em></strong></p>
+
+    <p><code class="language-plaintext highlighter-rouge">&lt;SLOT_SIZE&gt;</code> is the size of the slot to be used.
+ Default slot0 size is <code class="language-plaintext highlighter-rouge">0x100000</code>, but it can change as per application flash partitions.</p>
+
+    <p>For Zephyr images, <code class="language-plaintext highlighter-rouge">--pad-header</code> is not needed as it already has the padding for MCUboot
+ header.</p>
+
+    <hr>
+
+    <p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+    <p><em>This is the basic signing needed for adding MCUboot headers and trailers.
+ For signing with a crypto key and guarantee the authenticity of the image being booted, see the
+ section <a href="#mcuboot-image-signature-verification">MCUboot image signature verification</a> below.</em></p>
+
+    <hr>
+  </li>
+  <li>
+    <p>Flash the signed application:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> &lt;BAUD&gt; <span class="nt">--before</span> default_reset <span class="nt">--after</span> hard_reset <span class="nt">--chip</span> &lt;TARGET&gt;  write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;SLOT_OFFSET&gt; &lt;SIGNED_BIN&gt;
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="downgrade-prevention"><a href="#downgrade-prevention">Downgrade prevention</a></h1>
+
+<p>Downgrade prevention (avoid updating of images to an older version) can be enabled using the
+following configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_DOWNGRADE_PREVENTION=y
+</code></pre></div></div>
+
+<p>MCUboot will then verify and compare the new image version number with the current one before
+perform an update swap.</p>
+
+<p>Version number is added to the image when signing it with <code class="language-plaintext highlighter-rouge">imgtool</code> (<code class="language-plaintext highlighter-rouge">-v</code> parameter, e.g.
+<code class="language-plaintext highlighter-rouge">-v 1.0.0</code>).</p>
+
+<h3 id="downgrade-prevention-with-security-counter"><a href="#downgrade-prevention-with-security-counter">Downgrade prevention with security counter</a></h3>
+
+<p>It is also possible to rely on a security counter, also added to the image when signing with
+<code class="language-plaintext highlighter-rouge">imgtool</code> (<code class="language-plaintext highlighter-rouge">-s</code> parameter), apart from version number. This allows image downgrade at some extent,
+since any update must have greater or equal security counter value. Enable using the following
+configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_DOWNGRADE_PREVENTION_SECURITY_COUNTER=y
+</code></pre></div></div>
+
+<p>E.g.: if the current image was signed using <code class="language-plaintext highlighter-rouge">-s 1</code> parameter, an eventual update image must have
+been signed using security counter <code class="language-plaintext highlighter-rouge">-s 1</code> or greater.</p>
+
+<h1 id="security-chain-on-espressif-port"><a href="#security-chain-on-espressif-port">Security Chain on Espressif port</a></h1>
+
+<p><a href="/encrypted_images.html">MCUboot encrypted images</a> do not provide full code confidentiality when only
+external storage is available (see <a href="/encrypted_images.html#threat-model">Threat model</a>) since by
+MCUboot design the image in Primary Slot, from where the image is executed, is stored plaintext.
+Espressif chips have off-chip flash memory, so to ensure a security chain along with MCUboot image
+signature verification, the hardware-assisted Secure Boot and Flash Encryption were made available
+on the MCUboot Espressif port.</p>
+
+<h2 id="mcuboot-image-signature-verification"><a href="#mcuboot-image-signature-verification">MCUboot image signature verification</a></h2>
+
+<p>The image that MCUboot is booting can be signed with 4 types of keys: RSA-2048, RSA-3072, EC256 and
+ED25519. In order to enable the feature, the <strong>bootloader</strong> must be compiled with the following
+configurations:</p>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p><em>It is strongly recommended to generate a new signing key using <code class="language-plaintext highlighter-rouge">imgtool</code> instead of use the
+existent samples.</em></p>
+
+<hr>
+
+<h4 id="for-ec256-algorithm-use">For EC256 algorithm use</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_SIGN_EC256=y
+
+# Use Tinycrypt lib for EC256 or ED25519 signing
+CONFIG_ESP_USE_TINYCRYPT=y
+
+CONFIG_ESP_SIGN_KEY_FILE=&lt;YOUR_SIGNING_KEY.pem&gt;
+</code></pre></div></div>
+
+<h4 id="for-ed25519-algorithm-use">For ED25519 algorithm use</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_SIGN_ED25519=y
+
+# Use Tinycrypt lib for EC256 or ED25519 signing
+CONFIG_ESP_USE_TINYCRYPT=y
+
+CONFIG_ESP_SIGN_KEY_FILE=&lt;YOUR_SIGNING_KEY.pem&gt;
+</code></pre></div></div>
+
+<h4 id="for-rsa-2048-or-3072-algorithm-use">For RSA (2048 or 3072) algorithm use</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_SIGN_RSA=y
+# RSA_LEN is 2048 or 3072
+CONFIG_ESP_SIGN_RSA_LEN=&lt;RSA_LEN&gt;
+
+# Use Mbed TLS lib for RSA image signing
+CONFIG_ESP_USE_MBEDTLS=y
+
+CONFIG_ESP_SIGN_KEY_FILE=&lt;YOUR_SIGNING_KEY.pem&gt;
+</code></pre></div></div>
+
+<p>Notice that the public key will be embedded in the bootloader code, since the hardware key storage
+is not supported by Espressif port.</p>
+
+<h3 id="signing-the-image"><a href="#signing-the-image">Signing the image</a></h3>
+
+<p>Now you need to sign the <strong>image binary</strong>, use the <code class="language-plaintext highlighter-rouge">imgtool</code> with <code class="language-plaintext highlighter-rouge">-k</code> parameter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>imgtool.py sign <span class="nt">-k</span> &lt;YOUR_SIGNING_KEY.pem&gt; <span class="nt">--pad</span> <span class="nt">--pad-sig</span> <span class="nt">--align</span> 4 <span class="nt">-v</span> 0 <span class="nt">-H</span> 32 <span class="nt">--pad-header</span> <span class="nt">-S</span> 0x00100000 &lt;BIN_IN&gt; &lt;BIN_OUT&gt;
+</code></pre></div></div>
+
+<p>If signing a Zephyr image, the <code class="language-plaintext highlighter-rouge">--pad-header</code> is not needed, as it already have the padding for
+MCUboot header.</p>
+
+<h2 id="secure-boot"><a href="#secure-boot">Secure Boot</a></h2>
+
+<p>The Secure Boot implementation is based on
+<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v2.html">IDF’s Secure Boot V2</a>,
+is hardware-assisted and RSA based - except ESP32-C2 and ESP32-C61, which use ECDSA signing scheme - and has the
+role for ensuring that only authorized code will be executed on the device. This is done through
+bootloader signature checking by the ROM bootloader.</p>
+
+<p><strong><em>Note</em></strong>: ROM bootloader is the First Stage Bootloader, while the Espressif MCUboot port is the
+Second Stage Bootloader.</p>
+
+<h3 id="building-bootloader-with-secure-boot"><a href="#building-bootloader-with-secure-boot">Building bootloader with Secure Boot</a></h3>
+
+<p>In order to build the bootloader with the feature on, the following configurations must be enabled:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_BOOT=1
+CONFIG_SECURE_BOOT_V2_ENABLED=1
+CONFIG_SECURE_SIGNED_ON_BOOT=1
+</code></pre></div></div>
+
+<p>For the currently supported chips, with exception of ESP32-C2 and ESP32-C61, enable RSA signing scheme:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_SIGNED_APPS_RSA_SCHEME=1
+CONFIG_SECURE_BOOT_SUPPORTS_RSA=1
+</code></pre></div></div>
+
+<p>For ESP32-C2 and ESP32-C61, enable ECDSA signing scheme and, if working with Flash Encryption too, enable the
+configuration to burn keys to efuse together:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_SIGNED_APPS_ECDSA_V2_SCHEME=1
+
+CONFIG_SECURE_BOOT_FLASH_ENC_KEYS_BURN_TOGETHER=1
+</code></pre></div></div>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>On development phase is recommended add the following configuration in order to keep the debugging
+enabled and also to avoid any unrecoverable/permanent state change:</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_BOOT_ALLOW_JTAG=1
+CONFIG_SECURE_FLASH_UART_BOOTLOADER_ALLOW_CACHE=1
+
+# Options for enabling eFuse emulation in Flash (adjust
+# CONFIG_EFUSE_VIRTUAL_OFFSET accordingly in order
+# to not overlap with other flash regions)
+CONFIG_EFUSE_VIRTUAL=1
+CONFIG_EFUSE_VIRTUAL_KEEP_IN_FLASH=1
+CONFIG_EFUSE_VIRTUAL_OFFSET=0x10000
+CONFIG_EFUSE_VIRTUAL_SIZE=0x2000
+
+</code></pre></div></div>
+
+<p>Observe that the region defined by <code class="language-plaintext highlighter-rouge">CONFIG_EFUSE_VIRTUAL_OFFSET</code> and <code class="language-plaintext highlighter-rouge">CONFIG_EFUSE_VIRTUAL_SIZE</code>
+must not overlap with other flash regions.</p>
+
+<hr>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>You can disable UART Download Mode by adding the following configuration:</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_DISABLE_ROM_DL_MODE=1
+</code></pre></div></div>
+
+<p><em>This may be suitable for <strong>production</strong> builds. <strong>After disabling UART Download Mode you will not
+be able to flash other images through UART.</strong></em></p>
+
+<p><em>Otherwise, you can switch the UART ROM Download Mode to the Secure Download Mode. It will limit
+the use of Download Mode functions to simple flash read, write and erase operations.</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_ENABLE_SECURE_ROM_DL_MODE=1
+</code></pre></div></div>
+
+<p><em>Once the device makes its first full boot, these configurations cannot be reverted</em></p>
+
+<hr>
+
+<p>Once the <strong>bootloader image</strong> is built, the resulting binary file is required to be signed with
+<code class="language-plaintext highlighter-rouge">espsecure.py</code> tool.</p>
+
+<p>First create a signing key:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espsecure.py generate_signing_key <span class="nt">--version</span> 2 &lt;BOOTLOADER_SIGNING_KEY.pem&gt;
+</code></pre></div></div>
+
+<p>Then sign the bootloader image:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espsecure.py sign_data <span class="nt">--version</span> 2 <span class="nt">--keyfile</span> &lt;BOOTLOADER_SIGNING_KEY.pem&gt; <span class="nt">-o</span> &lt;BOOTLOADER_BIN_OUT&gt; &lt;BOOTLOADER_BIN_IN&gt;
+</code></pre></div></div>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>Once the bootloader is flashed and the device resets, the <strong>first boot will enable Secure Boot</strong>
+and the bootloader and key <strong>no longer can be modified</strong>. So <strong>ENSURE</strong> that both bootloader and
+key are correct and you did not forget anything before flashing.</em></p>
+
+<hr>
+
+<p>Flash the bootloader as following, with <code class="language-plaintext highlighter-rouge">--after no_reset</code> flag, so you can reset the device only
+when assured. Also ensure that the flash parameters like <code class="language-plaintext highlighter-rouge">&lt;FLASH_FREQ&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;FLASH_MODE&gt;</code>,
+<code class="language-plaintext highlighter-rouge">&lt;FLASH_SIZE&gt;</code> matches the same parameters from <code class="language-plaintext highlighter-rouge">cmake</code> step and configuration file, this is
+important because <code class="language-plaintext highlighter-rouge">esptool</code> may modify the binary if it detects that these parameters are
+different from what they were on the building.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> 2000000 <span class="nt">--after</span> no_reset <span class="nt">--chip</span> &lt;ESP_CHIP&gt; write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;BOOTLOADER_FLASH_OFFSET&gt; &lt;SIGNED_BOOTLOADER_BIN&gt;
+</code></pre></div></div>
+
+<h3 id="secure-boot-process"><a href="#secure-boot-process">Secure Boot Process</a></h3>
+
+<p>Secure boot uses a signature block appended to the bootloader image in order to verify the
+authenticity. The signature block contains the RSA-3072 signature of that image and the RSA-3072
+public key.</p>
+
+<p>On its <strong>first boot</strong> the Secure Boot is not enabled on the device eFuses yet, neither the key nor
+digests. So the first boot will have the following process:</p>
+
+<ol>
+  <li>On startup, since it is the first boot, the ROM bootloader will not verify the bootloader image
+(the Secure Boot bit in the eFuse is disabled) yet, so it proceeds to execute it (our MCUboot
+bootloader port).</li>
+  <li>Bootloader calculates the SHA-256 hash digest of the public key and writes the result to eFuse.</li>
+  <li>Bootloader validates the application images and prepare the booting process (MCUboot phase).</li>
+  <li>Bootloader burns eFuse to enable Secure Boot V2.</li>
+  <li>Bootloader proceeds to load the Primary image.</li>
+</ol>
+
+<p>After that the Secure Boot feature is permanently enabled and on every next boot the ROM bootloader
+will verify the MCUboot bootloader image. The process of an usual boot:</p>
+
+<ol>
+  <li>On startup, the ROM bootloader checks the Secure Boot enable bit in the eFuse. If it is enabled,
+the boot will proceed as following.</li>
+  <li>ROM bootloader verifies the bootloader’s signature block integrity (magic number and CRC).
+Interrupt boot if it fails.</li>
+  <li>ROM bootloader verifies the bootloader image, interrupt boot if any step fails:
+    <ol>
+      <li>Compare the SHA-256 hash digest of the public key embedded in the bootloader’s signature
+block with the digest saved in the eFuses.</li>
+      <li>Generate the application image digest and match it with the image digest in the signature
+block.</li>
+      <li>Use the public key to verify the signature of the bootloader image, using RSA-PSS with the
+image digest calculated from previous step for comparison.</li>
+    </ol>
+  </li>
+  <li>ROM bootloader executes the bootloader image.</li>
+  <li>Bootloader does the usual verification (MCUboot phase).</li>
+  <li>Proceeds to boot the Primary image.</li>
+</ol>
+
+<h2 id="flash-encryption"><a href="#flash-encryption">Flash Encryption</a></h2>
+
+<p>The Espressif Flash Encryption is hardware-assisted, transparent to the MCUboot process and is an
+additional security measure beyond MCUboot existent features.
+The Flash Encryption implementation is also based on
+<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/flash-encryption.html">IDF</a>
+and is intended for encrypting off-chip flash memory contents, so it is protected against physical
+reading.</p>
+
+<p>When enabling the Flash Encryption, the user can encrypt the content either using a <strong>device
+generated key</strong> (remains unknown and unreadable) or a <strong>host generated key</strong> (owner is responsible
+for keeping the key private and safe). After the flash encryption gets enabled through eFuse
+burning on the device, all read and write operations are decrypted/encrypted in runtime.</p>
+
+<h3 id="building-bootloader-with-flash-encryption"><a href="#building-bootloader-with-flash-encryption">Building bootloader with Flash Encryption</a></h3>
+
+<p>In order to build the bootloader with the feature on, the following configurations must be enabled:</p>
+
+<p>For <strong>release mode</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_FLASH_ENC_ENABLED=1
+CONFIG_SECURE_FLASH_ENCRYPTION_MODE_RELEASE=1
+</code></pre></div></div>
+
+<p>For <strong>development mode</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_FLASH_ENC_ENABLED=1
+CONFIG_SECURE_FLASH_ENCRYPTION_MODE_DEVELOPMENT=1
+</code></pre></div></div>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>On development phase is strongly recommended adding the following configuration in order to keep
+the debugging enabled and also to avoid any unrecoverable/permanent state change:</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_FLASH_UART_BOOTLOADER_ALLOW_ENC=1
+CONFIG_SECURE_FLASH_UART_BOOTLOADER_ALLOW_DEC=1
+CONFIG_SECURE_FLASH_UART_BOOTLOADER_ALLOW_CACHE=1
+CONFIG_SECURE_BOOT_ALLOW_JTAG=1
+
+# Options for enabling eFuse emulation in Flash (adjust
+# CONFIG_EFUSE_VIRTUAL_OFFSET accordingly in order
+# to not overlap with other flash regions)
+CONFIG_EFUSE_VIRTUAL=1
+CONFIG_EFUSE_VIRTUAL_KEEP_IN_FLASH=1
+CONFIG_EFUSE_VIRTUAL_OFFSET=0x10000
+CONFIG_EFUSE_VIRTUAL_SIZE=0x2000
+
+</code></pre></div></div>
+
+<p>Observe that the region defined by <code class="language-plaintext highlighter-rouge">CONFIG_EFUSE_VIRTUAL_OFFSET</code> and <code class="language-plaintext highlighter-rouge">CONFIG_EFUSE_VIRTUAL_SIZE</code>
+must not overlap with other flash regions.</p>
+
+<hr>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>Unless the recommended flags for <strong>DEVELOPMENT MODE</strong> were enabled, the actions made by Flash
+Encryption process are <strong>PERMANENT</strong>.</em> <br>
+<em>Once the bootloader is flashed and the device resets, the <strong>first boot will enable Flash
+Encryption, encrypt the flash content including bootloader and image slots, burn the eFuses that no
+longer can be modified</strong> and if device generated the key <strong>it will not be recoverable</strong>.</em> <br>
+<em>When on <strong>RELEASE MODE</strong>, <strong>ENSURE</strong> that the application with an update agent is flashed before
+reset the device.</em></p>
+
+<p><em>In the same way as Secure Boot feature, you can disable UART Download Mode by adding the following
+configuration:</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_DISABLE_ROM_DL_MODE=1
+</code></pre></div></div>
+
+<p><em>This may be suitable for <strong>production</strong> builds. <strong>After disabling UART Download Mode you will not
+be able to flash other images through UART.</strong></em></p>
+
+<p><em>Otherwise, you can switch the UART Download Mode to the Secure Download Mode. It will limit the
+use of Download Mode functions to simple flash read, write and erase operations.</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_SECURE_ENABLE_SECURE_ROM_DL_MODE=1
+</code></pre></div></div>
+
+<p><em>These configurations cannot be reverted after the device’s first boot</em></p>
+
+<hr>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p>As recommended, ensure that the secondary slot and scratch area are <strong>erased</strong> prior to
+the first time boot. Hardware flash encryption is transparent to MCUboot and the first boot
+encryption process will encrypt the whole slots and scratch including their trailer regions,
+and as said before, erased value read from trailer registers is also an expected state of
+MCUboot update checking process. Erase flash command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>esptool.py <span class="nt">-p</span> &lt;PORT&gt; erase_flash
+</code></pre></div></div>
+
+<hr>
+
+<h3 id="signing-the-image-when-working-with-flash-encryption"><a href="#signing-the-image-when-working-with-flash-encryption">Signing the image when working with Flash Encryption</a></h3>
+
+<p>When enabling flash encryption, it is required to sign the image using 32-byte alignment and also
+add the padding to fill the image up to the slot size:
+<code class="language-plaintext highlighter-rouge">--pad --align 32 --max-align 32</code>.</p>
+
+<p>Command example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>imgtool.py sign <span class="nt">-k</span> &lt;YOUR_SIGNING_KEY.pem&gt; <span class="nt">--pad</span> <span class="nt">--pad-sig</span> <span class="nt">--align</span> 32 <span class="nt">--max-align</span> 32 <span class="nt">-v</span> 0 <span class="nt">-H</span> 32 <span class="nt">--pad-header</span> <span class="nt">-S</span> &lt;SLOT_SIZE&gt; &lt;BIN_IN&gt; &lt;BIN_OUT&gt;
+</code></pre></div></div>
+
+<h3 id="device-generated-key"><a href="#device-generated-key">Device generated key</a></h3>
+
+<p>First ensure that the application image is able to perform encrypted read and write operations to
+the SPI Flash.</p>
+
+<p>Flash the bootloader and application normally:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> 2000000 <span class="nt">--after</span> no_reset <span class="nt">--chip</span> &lt;ESP_CHIP&gt; write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;BOOTLOADER_FLASH_OFFSET&gt; &lt;BOOTLOADER_BIN&gt;
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> 2000000 <span class="nt">--after</span> no_reset <span class="nt">--chip</span> &lt;ESP_CHIP&gt; write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;PRIMARY_SLOT_FLASH_OFFSET&gt; &lt;APPLICATION_BIN&gt;
+</code></pre></div></div>
+
+<p>On the <strong>first boot</strong>, the bootloader will:</p>
+
+<ol>
+  <li>Generate Flash Encryption key and write to eFuse.</li>
+  <li>Encrypt flash in-place including bootloader, image primary/secondary slot and scratch.</li>
+  <li>Burn eFuse to enable Flash Encryption.</li>
+  <li>Reset system to ensure Flash Encryption cache resets properly.</li>
+</ol>
+
+<h3 id="host-generated-key"><a href="#host-generated-key">Host generated key</a></h3>
+
+<p>First ensure that the application image is able to perform encrypted read and write operations to
+the SPI Flash. Also ensure that the <strong>UART ROM Download Mode is not disabled</strong> - or that the
+<strong>Secure Download Mode is enabled</strong>. Before flashing, generate the encryption key using
+<code class="language-plaintext highlighter-rouge">espsecure.py</code> tool:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espsecure.py generate_flash_encryption_key &lt;FLASH_ENCRYPTION_KEY.bin&gt;
+</code></pre></div></div>
+
+<p>Burn the key into the device’s eFuse (keep a copy on the host), this action can be done <strong>only
+once</strong>:</p>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>eFuse emulation in Flash configuration options do not have any effect, so if the key burning
+command below is used, it will actually burn the physical eFuse.</em></p>
+
+<hr>
+
+<ul>
+  <li>ESP32</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espefuse.py <span class="nt">--port</span> PORT burn_key flash_encryption &lt;FLASH_ENCRYPTION_KEY.bin&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>ESP32S2, ESP32C3 and ESP32S3</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espefuse.py <span class="nt">--port</span> PORT burn_key BLOCK &lt;FLASH_ENCRYPTION_KEY.bin&gt; &lt;KEYPURPOSE&gt;
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">BLOCK</code> is a free keyblock between <code class="language-plaintext highlighter-rouge">BLOCK_KEY0</code> and <code class="language-plaintext highlighter-rouge">BLOCK_KEY5</code>. And <code class="language-plaintext highlighter-rouge">KEYPURPOSE</code> is either
+<code class="language-plaintext highlighter-rouge">XTS_AES_128_KEY</code>, <code class="language-plaintext highlighter-rouge">XTS_AES_256_KEY_1</code>, <code class="language-plaintext highlighter-rouge">XTS_AES_256_KEY_2</code> (AES XTS 256 is available only in
+ESP32S2).</p>
+
+<p>Now, similar as the Device generated key, the bootloader and application can be flashed plaintext.
+The <strong>first boot</strong> will encrypt the flash content using the host key burned in the eFuse instead
+of generate a new one.</p>
+
+<p>Flashing the bootloader and application:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> 2000000 <span class="nt">--after</span> no_reset <span class="nt">--chip</span> &lt;ESP_CHIP&gt; write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;BOOTLOADER_FLASH_OFFSET&gt; &lt;BOOTLOADER_BIN&gt;
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>esptool.py <span class="nt">-p</span> &lt;PORT&gt; <span class="nt">-b</span> 2000000 <span class="nt">--after</span> no_reset <span class="nt">--chip</span> &lt;ESP_CHIP&gt; write_flash <span class="nt">--flash_mode</span> dio <span class="nt">--flash_size</span> &lt;FLASH_SIZE&gt; <span class="nt">--flash_freq</span> &lt;FLASH_FREQ&gt; &lt;PRIMARY_SLOT_FLASH_OFFSET&gt; &lt;APPLICATION_BIN&gt;
+</code></pre></div></div>
+
+<p>On the <strong>first boot</strong>, the bootloader will:</p>
+
+<ol>
+  <li>Encrypt flash in-place including bootloader, image primary/secondary slot and scratch using the
+written key.</li>
+  <li>Burn eFuse to enable Flash Encryption.</li>
+  <li>Reset system to ensure Flash Encryption cache resets properly.</li>
+</ol>
+
+<p>Encrypting data on the host:</p>
+
+<ul>
+  <li>ESP32</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espsecure.py encrypt_flash_data <span class="nt">--keyfile</span> &lt;FLASH_ENCRYPTION_KEY.bin&gt; <span class="nt">--address</span> &lt;FLASH_OFFSET&gt; <span class="nt">--output</span> &lt;OUTPUT_DATA&gt; &lt;INPUT_DATA&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>ESP32-S2, ESP32-C3 and ESP32-S3</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>espsecure.py encrypt_flash_data <span class="nt">--aes_xts</span> <span class="nt">--keyfile</span> &lt;FLASH_ENCRYPTION_KEY.bin&gt; <span class="nt">--address</span> &lt;FLASH_OFFSET&gt; <span class="nt">--output</span> &lt;OUTPUT_DATA&gt; &lt;INPUT_DATA&gt;
+</code></pre></div></div>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p>OTA updates are required to be sent plaintext. The reason is that, as said before, after the Flash
+Encryption is enabled all read/write operations are decrypted/encrypted in runtime, so as e.g. if
+pre-encrypted data is sent for an OTA update, it would be wrongly double-encrypted when the update
+agent writes to the flash.</p>
+
+<p>For updating with an image encrypted on the host, flash it through serial using <code class="language-plaintext highlighter-rouge">esptool.py</code> as
+above. <strong>UART ROM Download Mode must not be disabled</strong>.</p>
+
+<hr>
+
+<h2 id="security-chain-scheme"><a href="#security-chain-scheme">Security Chain scheme</a></h2>
+
+<p>Using the 3 features, Secure Boot, Image signature verification and Flash Encryption, a Security
+Chain can be established so only trusted code is executed, and also the code and content residing
+in the off-chip flash are protected against undesirable reading.</p>
+
+<p>The overall final process when all features are enabled:</p>
+
+<ol>
+  <li>ROM bootloader validates the MCUboot bootloader using RSA signature verification.</li>
+  <li>MCUboot bootloader validates the image using the chosen algorithm EC256/RSA/ED25519. It also
+validates an upcoming image when updating.</li>
+  <li>Flash Encryption guarantees that code and data are not exposed.</li>
+</ol>
+
+<h3 id="size-limitation"><a href="#size-limitation">Size Limitation</a></h3>
+
+<p>When all 3 features are enable at same time, the bootloader size may exceed the fixed limit for
+the ROM bootloader checking on the Espressif chips <strong>depending on which algorithm</strong> was chosen for
+MCUboot image signing. The issue <a href="https://github.com/mcu-tools/mcuboot/issues/1262">https://github.com/mcu-tools/mcuboot/issues/1262</a> was created to
+track this limitation.</p>
+
+<h2 id="multi-image"><a href="#multi-image">Multi image</a></h2>
+
+<p>The multi image feature (currently limited to 2 images) allows the images to be updated separately
+(each one has its own primary and secondary slot) by MCUboot.</p>
+
+<p>The Espressif port bootloader handles the boot in two different approaches:</p>
+
+<h3 id="host-os-boots-second-image"><a href="#host-os-boots-second-image">Host OS boots second image</a></h3>
+
+<p>Host OS from the <em>first image</em> is responsible for booting the <em>second image</em>, therefore the
+bootloader is aware of the second image regions and can update it, however it does not load
+neither boots it.</p>
+
+<p>Configuration example (<code class="language-plaintext highlighter-rouge">bootloader.conf</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_BOOTLOADER_SIZE=0xF000
+CONFIG_ESP_MCUBOOT_WDT_ENABLE=y
+
+# Enables multi image, if it is not defined, its assumed
+# only one updatable image
+CONFIG_ESP_IMAGE_NUMBER=2
+
+# Example of values to be used when multi image is enabled
+# Notice that the OS layer and update agent must be aware
+# of these regions
+CONFIG_ESP_APPLICATION_SIZE=0x50000
+CONFIG_ESP_IMAGE0_PRIMARY_START_ADDRESS=0x10000
+CONFIG_ESP_IMAGE0_SECONDARY_START_ADDRESS=0x60000
+CONFIG_ESP_IMAGE1_PRIMARY_START_ADDRESS=0xB0000
+CONFIG_ESP_IMAGE1_SECONDARY_START_ADDRESS=0x100000
+CONFIG_ESP_SCRATCH_OFFSET=0x150000
+CONFIG_ESP_SCRATCH_SIZE=0x40000
+</code></pre></div></div>
+
+<h3 id="multi-boot"><a href="#multi-boot">Multi boot</a></h3>
+
+<p>In the multi boot approach the bootloader is responsible for booting two different images in two
+different CPUs, firstly the <em>second image</em> on the APP CPU and then the <em>first image</em> on the PRO
+CPU (current CPU), it is also responsible for update both images as well. Thus multi boot will be
+only supported by Espressif multi core chips - currently only ESP32 is implemented.</p>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p><em>The host OSes in each CPU must handle how the resources are divided/controlled between then.</em></p>
+
+<hr>
+
+<p>Configuration example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG_ESP_BOOTLOADER_SIZE=0xF000
+CONFIG_ESP_MCUBOOT_WDT_ENABLE=y
+
+# Enables multi image, if it is not defined, its assumed
+# only one updatable image
+CONFIG_ESP_IMAGE_NUMBER=2
+
+# Enables multi image boot on independent processors
+# (main host OS is not responsible for booting the second image)
+# Use only with CONFIG_ESP_IMAGE_NUMBER=2
+CONFIG_ESP_MULTI_PROCESSOR_BOOT=y
+
+# Example of values to be used when multi image is enabled
+# Notice that the OS layer and update agent must be aware
+# of these regions
+CONFIG_ESP_APPLICATION_SIZE=0x50000
+CONFIG_ESP_IMAGE0_PRIMARY_START_ADDRESS=0x10000
+CONFIG_ESP_IMAGE0_SECONDARY_START_ADDRESS=0x60000
+CONFIG_ESP_IMAGE1_PRIMARY_START_ADDRESS=0xB0000
+CONFIG_ESP_IMAGE1_SECONDARY_START_ADDRESS=0x100000
+CONFIG_ESP_SCRATCH_OFFSET=0x150000
+CONFIG_ESP_SCRATCH_SIZE=0x40000
+</code></pre></div></div>
+
+<h3 id="image-version-dependency"><a href="#image-version-dependency">Image version dependency</a></h3>
+
+<p>MCUboot allows version dependency check between the images when updating them. As <code class="language-plaintext highlighter-rouge">imgtool.py</code>
+allows a version assigment when signing an image, it is also possible to add the version
+dependency constraint:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>imgtool.py sign <span class="nt">--align</span> 4 <span class="nt">-v</span> &lt;VERSION&gt; <span class="nt">-d</span> <span class="s2">"(&lt;IMAGE_INDEX&gt;, &lt;VERSION_DEPENDENCY&gt;)"</span> <span class="nt">-H</span> 32 <span class="nt">--pad-header</span> <span class="nt">-S</span> &lt;SLOT_SIZE&gt; &lt;BIN_IN&gt; &lt;SIGNED_BIN&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">&lt;VERSION&gt;</code> defines the version of the image being signed.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">"(&lt;IMAGE_INDEX&gt;, &lt;VERSION_DEPENDENCY&gt;)"</code> defines the minimum version and from which image is
+needed to satisfy the dependency.</li>
+</ul>
+
+<hr>
+<p>Example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>imgtool.py sign <span class="nt">--align</span> 4 <span class="nt">-v</span> 1.0.0 <span class="nt">-d</span> <span class="s2">"(1, 0.0.1+0)"</span> <span class="nt">-H</span> 32 <span class="nt">--pad-header</span> <span class="nt">-S</span> 0x100000 image0.bin image0-signed.bin
+</code></pre></div></div>
+
+<p>Supposing that the image 0 is being signed, its version is 1.0.0 and it depends on image 1 with
+version at least 0.0.1+0.</p>
+
+<hr>
+
+<h2 id="serial-recovery-mode"><a href="#serial-recovery-mode">Serial recovery mode</a></h2>
+
+<p>Serial recovery mode allows management through MCUMGR (more information and how to install it:
+<a href="https://github.com/apache/mynewt-mcumgr-cli">https://github.com/apache/mynewt-mcumgr-cli</a>) for communicating and uploading a firmware to the
+device.</p>
+
+<p>Configuration example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Enables the MCUboot Serial Recovery, that allows the use of
+# MCUMGR to upload a firmware through the serial port
+CONFIG_ESP_MCUBOOT_SERIAL=y
+# GPIO used to boot on Serial Recovery
+CONFIG_ESP_SERIAL_BOOT_GPIO_DETECT=32
+# GPIO input type (0 for Pull-down, 1 for Pull-up)
+CONFIG_ESP_SERIAL_BOOT_GPIO_INPUT_TYPE=0
+# GPIO signal value
+CONFIG_ESP_SERIAL_BOOT_GPIO_DETECT_VAL=1
+# Delay time for identify the GPIO signal
+CONFIG_ESP_SERIAL_BOOT_DETECT_DELAY_S=5
+# UART port used for serial communication
+CONFIG_ESP_SERIAL_BOOT_UART_NUM=1
+# GPIO for Serial RX signal
+CONFIG_ESP_SERIAL_BOOT_GPIO_RX=25
+# GPIO for Serial TX signal
+CONFIG_ESP_SERIAL_BOOT_GPIO_TX=26
+</code></pre></div></div>
+
+<p>When enabled, the bootloader checks the if the GPIO <code class="language-plaintext highlighter-rouge">&lt;CONFIG_ESP_SERIAL_BOOT_GPIO_DETECT&gt;</code>
+configured has the signal value <code class="language-plaintext highlighter-rouge">&lt;CONFIG_ESP_SERIAL_BOOT_GPIO_DETECT_VAL&gt;</code> for approximately
+<code class="language-plaintext highlighter-rouge">&lt;CONFIG_ESP_SERIAL_BOOT_DETECT_DELAY_S&gt;</code> seconds for entering the Serial recovery mode. Example:
+a button configured on GPIO 32 pressed for 5 seconds.</p>
+
+<p>Serial mode then uses the UART port configured for communication
+(<code class="language-plaintext highlighter-rouge">&lt;CONFIG_ESP_SERIAL_BOOT_UART_NUM&gt;</code>, pins <code class="language-plaintext highlighter-rouge">&lt;CONFIG_ESP_SERIAL_BOOT_GPIO_RX&gt;</code>,
+<code class="language-plaintext highlighter-rouge">&lt;CONFIG_ESP_SERIAL_BOOT_GPIO_RX&gt;</code>).</p>
+
+<h3 id="serial-recovery-through-usb-jtag-serial-port"><a href="#serial-recovery-through-usb-jtag-serial-port">Serial Recovery through USB JTAG Serial port</a></h3>
+
+<p>Some chips, like ESP32-C3, ESP32-S3, ESP32-C6, ESP32-C61, and ESP32-P4 have an integrated USB JTAG Serial Controller that
+implements a serial port (CDC) that can also be used for handling MCUboot Serial Recovery.
+More information about the USB pins and hardware configuration:</p>
+
+<ul>
+  <li>ESP32-C3: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/api-guides/usb-serial-jtag-console.html</a>
+</li>
+  <li>ESP32-S3: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/usb-serial-jtag-console.html</a>
+</li>
+  <li>ESP32-C6: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32c6/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32c6/api-guides/usb-serial-jtag-console.html</a>
+</li>
+  <li>ESP32-H2: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32h2/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32h2/api-guides/usb-serial-jtag-console.html</a>
+</li>
+  <li>ESP32-C5: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32c5/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32c5/api-guides/usb-serial-jtag-console.html</a>
+</li>
+  <li>ESP32-C61: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32c61/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32c61/api-guides/usb-serial-jtag-console.html</a>
+</li>
+  <li>ESP32-P4: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-guides/usb-serial-jtag-console.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-guides/usb-serial-jtag-console.html</a>
+</li>
+</ul>
+
+<p>Configuration example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Use Serial through USB JTAG Serial port for Serial Recovery
+CONFIG_ESP_MCUBOOT_SERIAL_USB_SERIAL_JTAG=y
+# Use sector erasing (recommended) instead of entire image size
+# erasing when uploading through Serial Recovery
+CONFIG_ESP_MCUBOOT_ERASE_PROGRESSIVELY=y
+# GPIO used to boot on Serial Recovery
+CONFIG_ESP_SERIAL_BOOT_GPIO_DETECT=5
+# GPIO input type (0 for Pull-down, 1 for Pull-up)
+CONFIG_ESP_SERIAL_BOOT_GPIO_INPUT_TYPE=0
+# GPIO signal value
+CONFIG_ESP_SERIAL_BOOT_GPIO_DETECT_VAL=1
+# Delay time for identify the GPIO signal
+CONFIG_ESP_SERIAL_BOOT_DETECT_DELAY_S=5
+</code></pre></div></div>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>When working with Flash Encryption enabled, <code class="language-plaintext highlighter-rouge">CONFIG_ESP_MCUBOOT_ERASE_PROGRESSIVELY</code> must be
+<strong>disabled</strong>, although it is recommended for common Serial Recovery usage</em></p>
+
+<hr>
+
+<h3 id="mcumgr-image-upload-example"><a href="#mcumgr-image-upload-example">MCUMGR image upload example</a></h3>
+
+<p>After entering the Serial recovery mode on the device, MCUMGR can be used as following:</p>
+
+<p>Configure the connection:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mcumgr conn add esp <span class="nb">type</span><span class="o">=</span><span class="s2">"serial"</span> <span class="nv">connstring</span><span class="o">=</span><span class="s2">"dev=&lt;PORT&gt;,baud=115200,mtu=256"</span>
+</code></pre></div></div>
+
+<p>Upload the image (the process may take some time):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mcumgr <span class="nt">-c</span> esp image upload &lt;IMAGE_BIN&gt;
+</code></pre></div></div>
+
+<p>Reset the device:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mcumgr <span class="nt">-c</span> esp reset
+</code></pre></div></div>
+
+<hr>
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong><em>ATTENTION</em></strong></p>
+
+<p><em>Serial recovery mode uploads the image to the PRIMARY_SLOT, therefore if the upload process gets
+interrupted the image may be corrupted and unable to boot</em></p>
+
+<hr>
+
+<h2 id="memory-map-organization-for-os-compatibility"><a href="#memory-map-organization-for-os-compatibility">Memory map organization for OS compatibility</a></h2>
+
+<p>When adding support for this MCUboot port to an OS or even customizing an already supported
+application memory layout, it is mandatory for the OS linker script to avoid overlaping on
+<code class="language-plaintext highlighter-rouge">iram_loader_seg</code>, <code class="language-plaintext highlighter-rouge">dram_loader_seg</code>, and <code class="language-plaintext highlighter-rouge">dram_seg</code> bootloader RAM regions. Although part of the RAM
+becomes initially unavailable, it is reclaimable by the OS after boot as heap.</p>
+
+<p>Therefore, the application must be designed aware of the bootloader memory usage.</p>
+
+<hr>
+<p><strong><em>Note</em></strong></p>
+
+<p><em>Mostly of the Espressif chips have a separation on the address space for the same physical memory
+ammount: IRAM (accessed by the instruction bus) and DRAM (accessed by the data bus), which means
+that they need to be accessed by different addresses ranges depending on type, but refer to the
+same region. More information on the
+<a href="https://www.espressif.com/en/support/documents/technical-documents?keys=&amp;field_download_document_type_tid%5B%5D=963">Espressif TRMs</a>.</em></p>
+
+<hr>
+
+<p>The following diagrams illustrate a memory organization from the bootloader point of view (notice
+that the addresses and sizes may vary depending on the chip). These diagrams reflect the addresses for segments and lengths that are defined in <code class="language-plaintext highlighter-rouge">boot/espressif/port/include/&lt;TARGET&gt;/memory.h</code>; the linker script is
+<code class="language-plaintext highlighter-rouge">boot/espressif/port/&lt;TARGET&gt;/ld/bootloader.ld</code>.</p>
+
+<h3 id="esp32">ESP32</h3>
+
+<h4 id="esp32-standard">ESP32 standard</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SRAM0
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40070000 / --------- - SRAM0 START
+ *  |        ^                    |
+ *  |        | PRO CPU Cache      |  *NOT CLAIMABLE BY OS RAM (first 0x8000 of `SRAM0_CACHE_SIZE`)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x40078000 / ----------
+ *  |        ^                    |
+ *  |        |                    |  *NOT CLAIMABLE BY OS RAM
+ *  |        | iram_loader_seg    |  *Region usable as iram_loader_seg during boot
+ *  |        | (APP CPU Cache)    |   as APP CPU is not initialized yet
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4007A800 / ----------
+ *  |        ^                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM (tail of 64 KiB cache window)
+ *  |        v                    |
+ *  +------------------------------+ 0x40080000 / ----------
+ *  |        ^                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        v                    |
+ *  +------------------------------+ 0x40090000 / ----------
+ *  |        ^                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xE800)
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4009E800 / ----------
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +------------------------------+ 0x4009FFFF / ---------- - SRAM0 END
+
+  SRAM1
+                                     IRAM ADDR  / DRAM ADDR
+ *  +------------------------------+ 0x400A0000 / 0x3FFFFFFF - SRAM1 START
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800; IRAM 0x400A0000-0x400A1800,
+ *  |        |                    |   DRAM 0x3FFFE800-0x3FFFFFFF)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x400A1800 / 0x3FFFE800
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xC800; DRAM 0x3FFF2000-0x3FFFE800)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x400AE000 / 0x3FFF2000
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x400BFFFF / 0x3FFE0000 - SRAM1 END
+ Note: On ESP32 the SRAM1 addresses are accessed in reverse order comparing Instruction
+ bus (IRAM) and Data bus (DRAM), but refer to the same location. See the TRM for more
+ information.
+
+  SRAM2
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ ---------- / 0x3FFAE000 - SRAM2 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ ---------- / 0x3FFDFFFF - SRAM2 END
+</code></pre></div></div>
+
+<h4 id="esp32-multi-processor-boot">ESP32 Multi Processor Boot</h4>
+
+<p>This is the linker script mapping when the <code class="language-plaintext highlighter-rouge">CONFIG_ESP_MULTI_PROCESSOR_BOOT</code> is enabled
+(<a href="#multi-boot">Multi boot</a>) since APP CPU Cache region cannot be used for <code class="language-plaintext highlighter-rouge">iram_loader_seg</code> region
+as there would be conflict when the bootloader starts the APP CPU before jump to the main
+application. <code class="language-plaintext highlighter-rouge">iram_loader_seg</code> uses <code class="language-plaintext highlighter-rouge">BOOTLOADER_IRAM_LOADER_SEG_START_MP</code> (0x400AB900, length 0x2800).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SRAM0
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40070000 / --------- - SRAM0 START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | Cache              |  *Used by PRO CPU and APP CPU as Cache (`SRAM0_CACHE_SIZE`)
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x40080000 / ----------
+ *  |        ^                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        v                    |
+ *  +------------------------------+ 0x40090000 / ----------
+ *  |        ^                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xE800)
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4009E800 / ----------
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +------------------------------+ 0x4009FFFF / ---------- - SRAM0 END
+
+  SRAM1
+                                     IRAM ADDR  / DRAM ADDR
+ *  +------------------------------+ 0x400A0000 / 0x3FFFFFFF - SRAM1 START
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800; IRAM 0x400A0000-0x400A1800,
+ *  |        |                    |   DRAM 0x3FFFE800-0x3FFFFFFF)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x400A1800 / 0x3FFFE800
+ *  |        ^                    |
+ *  |        |                    |  
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xC800; DRAM 0x3FFF2000-0x3FFFE800)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x400AE000 / 0x3FFF2000
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | iram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (IRAM 0x400AB900-0x400AE100)
+ *  |        v                    |
+ *  +------------------------------+ 0x400AE100 / 0x3FFF1EFF
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x400BFFFF / 0x3FFE0000 - SRAM1 END
+ Note: On ESP32 the SRAM1 addresses are accessed in reverse order comparing Instruction
+ bus (IRAM) and Data bus (DRAM), but refer to the same location. See the TRM for more
+ information.
+
+  SRAM2
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ ---------- / 0x3FFAE000 - SRAM2 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ ---------- / 0x3FFDFFFF - SRAM2 END
+</code></pre></div></div>
+
+<h3 id="esp32-s2">ESP32-S2</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SRAM0
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40020000 / 0x3FFB0000 - SRAM0 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ 0x40027FFF / 0x3FFB7FFF - SRAM0 END
+
+  SRAM1
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40028000 / 0x3FFB8000 - SRAM1 START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4003BF00 / 0x3FFCBF00
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xD000; IRAM 0x4003BF00-0x40048EFF,
+ *  |        |                    |   DRAM 0x3FFCBF00-0x3FFD8F00)
+ *  |        v                    |
+ *  +------------------------------+ 0x40048F00 / 0x3FFD8F00
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xE000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40056F00 / 0x3FF86F00
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800; IRAM 0x40056F00-0x400586FF,
+ *  |        |                    |   DRAM 0x3FFE6F00-0x3FFE86FF)
+ *  |        v                    |
+ *  +------------------------------+ 0x40058700 / 0x3FFE8700
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2400; IBUS 0x40058700-0x4005AB00)
+ *  |        v                    |
+ *  +------------------------------+ 0x4005AB00 / 0x3FFEAB00
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4006FFFF / 0x3FFFFFFF - SRAM1 END
+</code></pre></div></div>
+
+<h3 id="esp32-s3">ESP32-S3</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SRAM0
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40370000 / ---------- - SRAM0 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ 0x40377FFF / ---------- - SRAM0 END
+
+  SRAM1
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40378000 / 0x3FC88000 - SRAM1 START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x403AB000 / 0x3FCBB000
+ *  |        ^                    |
+ *  |        |                    |  
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xD000; IRAM 0x403AB000-0x403B7FFF,
+ *  |        |                    |   DRAM 0x3FCBB000-0x3FCC8000)
+ *  |        v                    |
+ *  +------------------------------+ 0x403B8000 / 0x3FCC8000
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xE800)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x403C6800 / 0x3FCC6800
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800; IRAM 0x403C6800-0x403C7FFF,
+ *  |        |                    |   DRAM 0x3FCD6800-0x3FCD7FFF)
+ *  |        v                    |
+ *  +------------------------------+ 0x403C8000 / 0x3FCD8000
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2000; IBUS 0x403C8000-0x403CA000)
+ *  |        v                    |
+ *  +------------------------------+ 0x403CA000 / 0x3FCDA000
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x403DFFFF / 0x3FCEFFFF - SRAM1 END
+
+  SRAM2
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ ---------- / 0x3FCF0000 - SRAM2 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ ---------- / 0x3FCFFFFF - SRAM2 END
+</code></pre></div></div>
+
+<h3 id="esp32-c2">ESP32-C2</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SRAM0
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x4037C000 / ---------- - SRAM0 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ 0x4037FFFF / ---------- - SRAM0 END
+
+  SRAM1
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40380000 / 0x3FCA0000 - SRAM1 START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4039E370 / 0x3FCBE370
+ *  |        ^                    |
+ *  |        |                    |  
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000; IRAM 0x4039E370-0x403A936F,
+ *  |        |                    |   DRAM 0x3FCBE370-0x3FCC936F)
+ *  |        v                    |
+ *  +------------------------------+ 0x403A9370 / 0x3FCC9370
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xE000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x403B7370 / 0x3FCD7370
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800; IRAM 0x403B7370-0x403B8B6F,
+ *  |        |                    |   DRAM 0x3FCD7370-0x3FCD8B6F)
+ *  |        v                    |
+ *  +------------------------------+ 0x403B8B70 / 0x3FCD8B70
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2000; IBUS 0x403B8B70-0x403BAB70)
+ *  |        v                    |
+ *  +------------------------------+ 0x403BAB70 / 0x3FCDAB70
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x403BFFFF / 0x3FCDFFFF - SRAM1 END
+</code></pre></div></div>
+
+<h3 id="esp32-c3">ESP32-C3</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SRAM0
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x4037C000 / ---------- - SRAM0 START
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  +--------+--------------+------+ 0x4037FFFF / ---------- - SRAM0 END
+
+  SRAM1
+                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40380000 / 0x3FC80000 - SRAM1 START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x403BDF10 / 0x3FCBDF10
+ *  |        ^                    |
+ *  |        |                    |  
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000; IRAM 0x403BDF10-0x403C8F0F,
+ *  |        |                    |   DRAM 0x3FCBDF10-0x3FCC8F0F)
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x403C8F10 / 0x3FCC8F10
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xE000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x403D6F10 / 0x3FCD6F10
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800; IRAM 0x403D6F10-0x403D870F,
+ *  |        |                    |   DRAM 0x3FCD6F10-0x3FCD870F)
+ *  |        v                    |
+ *  +------------------------------+ 0x403D8710 / 0x3FCD8710
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2000; IBUS 0x403D8710-0x403DA710)
+ *  |        v                    |
+ *  +------------------------------+ 0x403DA710 / 0x3FCDA710
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x403DFFFF / 0x3FCDFFFF - SRAM1 END
+</code></pre></div></div>
+
+<h3 id="esp32-c5">ESP32-C5</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40800000 / 0x40800000 - HP SRAM START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x40837DA0 / 0x40837DA0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000)
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40842DA0 / 0x40842DA0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xF000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40851DA0 / 0x40851DA0
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800)
+ *  |        v                    |
+ *  +------------------------------+ 0x408535A0 / 0x408535A0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x7000)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4085A5A0 / 0x4085A5A0
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4085FFFF / 0x4085FFFF - HP SRAM END
+</code></pre></div></div>
+
+<h3 id="esp32-c6">ESP32-C6</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40800000 / 0x40800000 - HP SRAM START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4085CA10 / 0x4085CA10
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000)
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40867A10 / 0x40867A10
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xF000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40876A10 / 0x40876A10
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800)
+ *  |        v                    |
+ *  +------------------------------+ 0x40878210 / 0x40878210
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2400)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4087A610 / 0x4087A610
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4087FFFF / 0x4087FFFF - HP SRAM END
+</code></pre></div></div>
+
+<h3 id="esp32-c61">ESP32-C61</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40800000 / 0x40800000 - HP SRAM START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4082CE70 / 0x4082CE70
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000)
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40837E70 / 0x40837E70
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xF000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x40846E70 / 0x40846E70
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800)
+ *  |        v                    |
+ *  +------------------------------+ 0x40848670 / 0x40848670
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2400)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4084AA70 / 0x4084AA70 - `BOOTLOADER_RAM_END`
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END`
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4084FFFF / 0x4084FFFF - HP SRAM END
+</code></pre></div></div>
+
+<h3 id="esp32-p4-rev--30">ESP32-P4 (rev &gt;= 3.0)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x4FF00000 / 0x4FF00000 - SRAM START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4FF9D3C0 / 0x4FF9D3C0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000)
+ *  |        v                    |
+ *  +------------------------------+ 0x4FFA83C0 / 0x4FFA83C0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xF000)
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x4FFB73C0 / 0x4FFB73C0
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800)
+ *  |        v                    |
+ *  +------------------------------+ 0x4FFB8BC0 / 0x4FFB8BC0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2400)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4FFBAFC0 / 0x4FFBAFC0 - `BOOTLOADER_RAM_END`
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END`
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4FFBCFC0 / 0x4FFBCFC0 - ROM bootloader stack region
+</code></pre></div></div>
+
+<h3 id="esp32-h2">ESP32-H2</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                     IRAM ADDR  / DRAM ADDR
+ *  +--------+--------------+------+ 0x40800000 / 0x40800000 - HP SRAM START
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | FREE               |  *CLAIMABLE BY OS RAM
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4082D3D0 / 0x4082D3D0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | dram_seg           |  *CLAIMABLE BY OS RAM
+ *  |        |                    |  (length 0xB000)
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x408383D0 / 0x408383D0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_seg           |  *CLAIMABLE BY OS RAM (length 0xF000)
+ *  |        |                    |
+ *  |        |                    |
+ *  |        v                    |
+ *  +------------------------------+ 0x408473D0 / 0x408473D0
+ *  |        ^                    |
+ *  |        |                    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        | dram_loader_seg    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x1800)
+ *  |        v                    |
+ *  +------------------------------+ 0x40848BD0 / 0x40848BD0
+ *  |        ^                    |
+ *  |        |                    |
+ *  |        |                    |
+ *  |        | iram_loader_seg    |  *** SHOULD NOT BE OVERLAPPED ***
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        |                    |  (length 0x2400)
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4084AFD0 / 0x4084AFD0
+ *  |        ^                    |
+ *  |        | FREE               |  above `BOOTLOADER_RAM_END` 
+ *  |        |                    |  *** OS CAN RECLAIM IT AFTER BOOT LATER AS HEAP ***
+ *  |        v                    |
+ *  +--------+--------------+------+ 0x4084FFFF / 0x4084FFFF - HP SRAM END
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

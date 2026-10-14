@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatal Errors &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/other/fatal.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Thread Local Storage (TLS)" href="thread_local_storage.html" />
+    <link rel="prev" title="Assertions" href="assert.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#other">Other</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="atomic.html">Atomic Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="float.html">Floating Point Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="version.html">Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="assert.html">Assertions</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Fatal Errors</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#software-errors-triggered-in-source-code">Software Errors Triggered in Source Code</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#kernel-oops">Kernel Oops</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#kernel-panic">Kernel Panic</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#exceptions">Exceptions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#spurious-interrupts">Spurious Interrupts</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#stack-overflows">Stack Overflows</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#other-exceptions">Other Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#fatal-error-handling">Fatal Error Handling</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="thread_local_storage.html">Thread Local Storage (TLS)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Fatal Errors</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/other/fatal.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fother%2Ffatal%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fother%2Ffatal%0A-+Version%3A+main%0A-+SHA-1%3A+c6b3c3c6af7173752ebba39a583a5fa66ba6de1e&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="fatal-errors">
+<span id="fatal"></span><h1>Fatal Errors<a class="headerlink" href="#fatal-errors" title="Link to this heading"></a></h1>
+<section id="software-errors-triggered-in-source-code">
+<h2>Software Errors Triggered in Source Code<a class="headerlink" href="#software-errors-triggered-in-source-code" title="Link to this heading"></a></h2>
+<p>Zephyr provides several methods for inducing fatal error conditions through
+either build-time checks, conditionally compiled assertions, or deliberately
+invoked panic or oops conditions.</p>
+<p>Failed runtime assertions (<code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> and the legacy <code class="docutils literal notranslate"><span class="pre">__ASSERT()</span></code>) induce
+a fatal error. See <a class="reference internal" href="assert.html#assert"><span class="std std-ref">Assertions</span></a> for details on the assertion APIs and how
+their failure behavior is configured.</p>
+<section id="kernel-oops">
+<h3>Kernel Oops<a class="headerlink" href="#kernel-oops" title="Link to this heading"></a></h3>
+<p>A kernel oops is a software triggered fatal error invoked by
+<a class="reference internal" href="../../../doxygen/html/kernel_8h.html#abde5aa8ca5e64a045b25b88f91370dcd" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_oops()</span></code></a>.  This should be used to indicate an unrecoverable condition
+in application logic.</p>
+<p>The fatal error reason code generated will be <code class="docutils literal notranslate"><span class="pre">K_ERR_KERNEL_OOPS</span></code>.</p>
+</section>
+<section id="kernel-panic">
+<h3>Kernel Panic<a class="headerlink" href="#kernel-panic" title="Link to this heading"></a></h3>
+<p>A kernel error is a software triggered fatal error invoked by
+<a class="reference internal" href="../../../doxygen/html/kernel_8h.html#aedd541f707b1463aaac15c7798340329" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_panic()</span></code></a>.  This should be used to indicate that the Zephyr kernel is
+in an unrecoverable state. Implementations of
+<a class="reference internal" href="../../../doxygen/html/group__fatal__apis.html#ga255cc816d227f0a5c0e80e61bfba11fa" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sys_fatal_error_handler()</span></code></a> should not return if the kernel
+encounters a panic condition, as the entire system needs to be reset.</p>
+<p>Threads running in user mode are not permitted to invoke <a class="reference internal" href="../../../doxygen/html/kernel_8h.html#aedd541f707b1463aaac15c7798340329" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_panic()</span></code></a>,
+and doing so will generate a kernel oops instead. Otherwise, the fatal error
+reason code generated will be <code class="docutils literal notranslate"><span class="pre">K_ERR_KERNEL_PANIC</span></code>.</p>
+</section>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading"></a></h2>
+<section id="spurious-interrupts">
+<h3>Spurious Interrupts<a class="headerlink" href="#spurious-interrupts" title="Link to this heading"></a></h3>
+<p>If the CPU receives a hardware interrupt on an interrupt line that has not had
+a handler installed with <code class="docutils literal notranslate"><span class="pre">IRQ_CONNECT()</span></code> or <a class="reference internal" href="../../../doxygen/html/group__isr__apis.html#ga4e9915b92b09df49b99bc449f0cc31a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_connect_dynamic()</span></code></a>,
+then the kernel will generate a fatal error with the reason code
+<code class="docutils literal notranslate"><span class="pre">K_ERR_SPURIOUS_IRQ()</span></code>.</p>
+</section>
+<section id="stack-overflows">
+<h3>Stack Overflows<a class="headerlink" href="#stack-overflows" title="Link to this heading"></a></h3>
+<p>In the event that a thread pushes more data onto its execution stack than its
+stack buffer provides, the kernel may be able to detect this situation and
+generate a fatal error with a reason code of <code class="docutils literal notranslate"><span class="pre">K_ERR_STACK_CHK_FAIL</span></code>.</p>
+<p>If a thread is running in user mode, then stack overflows are always caught,
+as the thread will simply not have permission to write to adjacent memory
+addresses outside of the stack buffer. Because this is enforced by the
+memory protection hardware, there is no risk of data corruption to memory
+that the thread would not otherwise be able to write to.</p>
+<p>If a thread is running in supervisor mode, or if <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> is
+not enabled, depending on configuration stack overflows may or may not be
+caught.  <a class="reference internal" href="../../../kconfig.html#CONFIG_HW_STACK_PROTECTION" title="CONFIG_HW_STACK_PROTECTION"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_HW_STACK_PROTECTION</span></code></a> is supported on some
+architectures and will catch stack overflows in supervisor mode, including
+when handling a system call on behalf of a user thread. Typically this is
+implemented via dedicated CPU features, or read-only MMU/MPU guard regions
+placed immediately adjacent to the stack buffer. Stack overflows caught in this
+way can detect the overflow, but cannot guarantee against data corruption and
+should be treated as a very serious condition impacting the health of the
+entire system.</p>
+<p>If a platform lacks memory management hardware support,
+<a class="reference internal" href="../../../kconfig.html#CONFIG_STACK_SENTINEL" title="CONFIG_STACK_SENTINEL"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_STACK_SENTINEL</span></code></a> is a software-only stack overflow detection
+feature which periodically checks if a sentinel value at the end of the stack
+buffer has been corrupted. It does not require hardware support, but provides
+no protection against data corruption. Since the checks are typically done at
+interrupt exit, the overflow may be detected a nontrivial amount of time after
+the stack actually overflowed.</p>
+<p>Finally, Zephyr supports GCC compiler stack canaries via
+<a class="reference internal" href="../../../kconfig.html#CONFIG_STACK_CANARIES" title="CONFIG_STACK_CANARIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_STACK_CANARIES</span></code></a>.  If enabled, the compiler will insert a canary
+value randomly generated at boot into function stack frames, checking that the
+canary has not been overwritten at function exit. If the check fails, the
+compiler invokes <code class="xref c c-func docutils literal notranslate"><span class="pre">__stack_chk_fail()</span></code>, whose Zephyr implementation
+invokes a fatal stack overflow error. An error in this case does not indicate
+that the entire stack buffer has overflowed, but instead that the current
+function stack frame has been corrupted. See the compiler documentation for
+more details.</p>
+<p>By default a single canary value, generated at boot, is shared by all threads.
+When <a class="reference internal" href="../../../kconfig.html#CONFIG_STACK_CANARIES_TLS" title="CONFIG_STACK_CANARIES_TLS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_STACK_CANARIES_TLS</span></code></a> is enabled, the canary is
+instead stored in <a class="reference internal" href="thread_local_storage.html#thread-local-storage"><span class="std std-ref">thread-local storage</span></a> so that
+each thread has its own value, making the canary location and value harder to
+predict at the cost of additional per-thread setup.</p>
+<p>As a complementary hardening measure, <a class="reference internal" href="../../../kconfig.html#CONFIG_STACK_POINTER_RANDOM" title="CONFIG_STACK_POINTER_RANDOM"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_STACK_POINTER_RANDOM</span></code></a>
+applies a randomized offset to each thread’s initial stack pointer when the
+thread is created. This is a limited form of address space layout randomization
+that makes the location of any given stack frame non-deterministic, hindering
+some classes of security attack, at the cost of consuming up to the configured
+number of bytes from each thread’s stack region.</p>
+</section>
+<section id="other-exceptions">
+<h3>Other Exceptions<a class="headerlink" href="#other-exceptions" title="Link to this heading"></a></h3>
+<p>Any other type of unhandled CPU exception will generate an error code of
+<code class="docutils literal notranslate"><span class="pre">K_ERR_CPU_EXCEPTION</span></code>.</p>
+</section>
+</section>
+<section id="fatal-error-handling">
+<h2>Fatal Error Handling<a class="headerlink" href="#fatal-error-handling" title="Link to this heading"></a></h2>
+<p>The policy for what to do when encountering a fatal error is determined by the
+implementation of the <a class="reference internal" href="../../../doxygen/html/group__fatal__apis.html#ga255cc816d227f0a5c0e80e61bfba11fa" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sys_fatal_error_handler()</span></code></a> function.  This
+function has a default implementation with weak linkage that calls
+<code class="docutils literal notranslate"><span class="pre">LOG_PANIC()</span></code> to dump all pending logging messages and then unconditionally
+halts the system with <a class="reference internal" href="../../../doxygen/html/group__fatal__apis.html#gaa8c0b43a2360e5319d7910e8e0ceb951" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_fatal_halt()</span></code></a>.</p>
+<p>Applications are free to implement their own error handling policy by
+overriding the implementation of <a class="reference internal" href="../../../doxygen/html/group__fatal__apis.html#ga255cc816d227f0a5c0e80e61bfba11fa" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sys_fatal_error_handler()</span></code></a>.
+If the implementation returns, the faulting thread will be aborted and
+the system will otherwise continue to function. See the documentation for
+this function for additional details and constraints.</p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__fatal__apis.html" title=""><span class="pre">Fatal</span> <span class="pre">error</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Aug 07, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

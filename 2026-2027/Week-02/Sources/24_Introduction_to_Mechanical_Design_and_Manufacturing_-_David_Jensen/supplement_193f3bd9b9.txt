@@ -1,0 +1,199 @@
+Welding Methods – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Welding Methods
+What is Welding?
+Welding is a joining method that involves melting and fusing the edges of two or more metal parts together. There are different types of welding, depending on the equipment, the power source, the shielding gas, and the filler material used. Some of the most common types of welding are:
+MIG (metal inert gas) welding
+: This type of welding uses a continuous wire electrode that is fed through a welding gun and forms an arc with the workpiece. The electrode also acts as a filler metal, and a shielding gas (usually argon or carbon dioxide) protects the weld pool from atmospheric contamination.
+TIG (tungsten inert gas) welding:
+This type of welding uses a non-consumable tungsten electrode that creates an arc with the workpiece. A separate filler metal is added manually or automatically, and a shielding gas (usually argon or helium) protects the weld pool from atmospheric contamination. TIG welding produces high-quality welds but requires more skill and precision than MIG welding.
+Stick (shielded metal arc) welding:
+This type of welding uses a consumable electrode that is coated with a flux that produces a protective gas and slag when burned. The electrode forms an arc with the workpiece and melts both the base metal and the filler metal. Stick welding is simple and versatile, but it produces more spatter and slag than other types of welding.
+Fluxcore (flux-cored arc) welding:
+This type of welding is similar to MIG welding, but it uses a tubular wire electrode that contains a flux core instead of a solid core. The flux core produces a shielding gas and slag when burned, eliminating the need for an external gas supply. Fluxcore welding is suitable for outdoor applications and can weld thicker materials than MIG welding.
+Ultrasonic welding
+: This type of welding uses high-frequency vibrations to create heat and pressure at the interface of two metal parts. The vibrations cause plastic deformation and interlocking of the metal grains, forming a solid-state bond. Ultrasonic welding does not require filler metal or shielding gas, and it can weld dissimilar metals and thin materials.
+Friction welding:
+This type of welding uses rotational or linear motion to generate friction and heat at the interface of two metal parts. The friction causes plastic deformation and interlocking of the metal grains, forming a solid-state bond. Friction welding does not require filler metal or shielding gas, and it can weld dissimilar metals and complex shapes.
+*Watch this
+video
+to learn more about types of welding.
+Avoiding Welding Defects
+There are many potential errors that can occur during metal welding, which can compromise the quality, strength, and appearance of the weld. Some of the common errors are:
+Porosity
+: This is the formation of gas bubbles or holes in the weld, which reduce its density and durability. Porosity can be caused by contamination, improper shielding gas, excessive welding speed, or incorrect electrode angle. To avoid porosity, it is important to clean the base metal and the filler material before welding, use the appropriate gas flow rate and type, adjust the welding parameters, and maintain a steady arc length and travel speed.
+Inclusions
+: These are foreign materials that get trapped in the weld, such as slag, flux, or oxides. Inclusions can weaken the weld and cause cracks or corrosion. Inclusions can be prevented by removing slag or flux between each pass, using a proper welding technique, and choosing a compatible filler material.
+Undercutting
+: This is a groove or notch that forms along the edge of the weld, which reduces its cross-sectional area and makes it prone to cracking. Undercutting can result from excessive heat input, high welding current, incorrect electrode angle, or poor fit-up. To prevent undercutting, it is advisable to use a lower heat input and current, hold the electrode perpendicular to the joint, and ensure a good gap and alignment between the base metal pieces.
+Poor joint penetration:
+This is when the weld does not fully fuse with the base metal, leaving gaps or voids in the joint. Poor joint penetration can affect the strength and performance of the weld. It can be caused by insufficient heat input, low welding current, improper joint design, or incorrect electrode size. To improve joint penetration, it is recommended to use a higher heat input and current, select a suitable joint type and preparation, and use an appropriate electrode diameter.
+Burn-through:
+This is when the weld melts through the base metal, creating holes or excessive reinforcement on the backside of the joint. Burn-through can weaken the weld and cause distortion or leakage. It can be caused by excessive heat input, high welding current, thin base metal, or improper electrode angle. To avoid burn-through, it is necessary to use a lower heat input and current, select a thicker base metal or use a backing plate, and hold the electrode at a low angle to the joint.
+Overlap:
+This is when the weld metal extends beyond the toe of the weld, creating an irregular shape and reducing the contact area between the weld and the base metal. Overlap can reduce the strength and appearance of the weld. It can be caused by low welding speed, high welding current, large electrode size, or incorrect electrode angle. To prevent overlap, it is important to increase the welding speed, reduce the welding current, choose a smaller electrode size, and hold the electrode at a right angle to the joint.
+Craters
+: These are depressions that form at the end of the weld when the arc is terminated abruptly. Craters can create stress concentrations and cracks in the weld. Craters can be avoided by gradually reducing the welding current at the end of the weld, filling the crater with filler metal, or using a crater-fill function on the welding machine.
+Previous/next navigation
+Previous: Manufacturing – Joining Processes
+Next: Brazing and Soldering
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

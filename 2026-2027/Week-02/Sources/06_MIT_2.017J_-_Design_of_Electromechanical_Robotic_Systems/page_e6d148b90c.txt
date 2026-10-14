@@ -1,0 +1,323 @@
+Assignments | Design of Electromechanical Robotic Systems | Mechanical Engineering | MIT OpenCourseWare
+Browse Course Material
+Syllabus
+Calendar
+Lecture Notes
+Open Textbook
+Assignments
+Labs
+Projects
+Course Info
+Instructors
+Prof. Franz Hover
+Harrison (Hsinyung) Chin
+Departments
+Mechanical Engineering
+Civil and Environmental Engineering
+As Taught In
+Fall
+            
+              2009
+Level
+Undergraduate
+Topics
+Engineering
+Electrical Engineering
+Electronics
+Robotics and Control Systems
+Mechanical Engineering
+Mechanical Design
+Systems Engineering
+Systems Design
+Mathematics
+Applied Mathematics
+Learning Resource Types
+menu_book
+Open Textbooks
+assignment
+Problem Sets
+grading
+Projects with Examples
+Download Course
+menu
+search
+Give Now
+About OCW
+Help & Faqs
+Contact Us
+search
+GIVE NOW
+about ocw
+help & faqs
+contact us
+2.017J | Fall 2009 | Undergraduate
+Design of Electromechanical Robotic Systems
+Menu
+More Info
+Syllabus
+Calendar
+Lecture Notes
+Open Textbook
+Assignments
+Labs
+Projects
+Assignments
+The 9 homework assignments for this course is taken from a large compendium of worked problems, meant to accompany the
+course notes
+. Each problem is listed separately in the table below. The entire collection is also available as a single download.
+Hover, Franz S.
+System Design for Uncertainty: Worked Examples.
+Cambridge, MA: MIT Center for Ocean Engineering, 2010. (
+PDF - 2.2MB
+)
+PROBLEMS
+FILES
+Linear time invariance
+(
+PDF
+)
+Convolution
+(
+PDF
+)
+Fourier series
+(
+PDF
+)
+Bretschneider spectrum definition
+(
+PDF
+)
+LTI machine
+(
+PDF
+)
+Convolution of sine and unit step
+(
+PDF
+)
+Fourier series calculations
+(
+PDF
+)
+Probability primer with dice
+(
+PDF
+)
+Autonomous vehicle mission design, with a simple battery model
+(HW 1)
+(
+PDF
+)
+Simulation of a system driven by a random disturbance
+(
+PDF
+)
+Sea spectrum and marine vehicle pitch response
+(
+PDF
+)
+Ranging measurements in three-space
+(HW 2)
+(
+PDF
+)
+Numerical solution of ODE’s
+(
+PDF
+)
+Pendulum dynamics and linearization
+(
+PDF
+)
+Bouncing robot
+(
+PDF
+)
+Road vehicle on random terrain
+(HW 3)
+(
+PDF
+)
+Dynamics calculations using the time and frequency domains
+(
+PDF
+)
+Deck flooding calculation with short-term statistics
+(
+PDF
+)
+Aliasing
+(
+PDF
+)
+Computations on recorded RP data
+(HW 4)
+(
+PDF
+),
+Data (
+DAT
+)
+Hurricane winds
+(
+PDF
+)
+Aircraft in winds
+(
+PDF
+)
+Identification of a response amplitude operator from data
+(HW 5)
+(
+PDF
+),
+Data (
+DAT
+)
+AUV mission optimization
+(
+PDF
+)
+Geometry optimization
+(
+PDF
+)
+Min-max multi-objective optimization
+(
+PDF
+)
+Walking robot constraints
+(
+PDF
+)
+Floating structure in waves
+(
+PDF
+)
+Flight control of a hovercraft
+(HW 6)
+(
+PDF
+)
+Dynamic programming for path design
+(
+PDF
+)
+Identification of a response amplitude operator from data: redux
+(HW 7)
+(
+PDF
+),
+Data (
+DAT
+)
+Motor servo with backlash
+(
+PDF
+)
+Positioning using ranging: 2D case
+(
+PDF
+)
+Dead-reckoning error
+(
+PDF
+)
+Landing vehicle control
+(
+PDF
+)
+Control of a high-speed vehicle
+(
+PDF
+)
+Nyquist plot
+(
+PDF
+)
+Monte Carlo and grid-based techniques for stochastic simulation
+(HW 8)
+(
+PDF
+)
+Hurricane Ida wind record
+(HW 9)
+(
+PDF
+),
+Data (
+TXT
+)
+Metacentric height of a catamaran
+(
+PDF
+)
+Floating structure heave and roll
+(
+PDF
+)
+Submerged body in waves
+(
+PDF
+)
+Spectral analysis to find a hidden message
+(
+PDF
+),
+Data (
+DAT
+)
+Feedback on a highly maneuverable vessel
+(
+PDF
+)
+Course Info
+Instructors
+Prof. Franz Hover
+Harrison (Hsinyung) Chin
+Departments
+Mechanical Engineering
+Civil and Environmental Engineering
+As Taught In
+Fall
+            
+              2009
+Level
+Undergraduate
+Topics
+Engineering
+Electrical Engineering
+Electronics
+Robotics and Control Systems
+Mechanical Engineering
+Mechanical Design
+Systems Engineering
+Systems Design
+Mathematics
+Applied Mathematics
+Learning Resource Types
+menu_book
+Open Textbooks
+assignment
+Problem Sets
+grading
+Projects with Examples
+Download Course
+Over 2,500 courses & materials
+Freely sharing knowledge with learners and educators around the world.
+Learn more
+© 2001–2026 Massachusetts Institute of Technology
+Accessibility
+Creative Commons License
+Terms and Conditions
+Proud member of:
+© 2001–2026 Massachusetts Institute of Technology
+You are leaving MIT OpenCourseWare
+close
+Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+Stay Here
+Continue

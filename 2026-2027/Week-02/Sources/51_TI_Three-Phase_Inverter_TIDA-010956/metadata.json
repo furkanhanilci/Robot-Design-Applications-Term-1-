@@ -1,0 +1,70 @@
+{
+  "id": 51,
+  "name": "TI Three-Phase Inverter TIDA-010956",
+  "type": "Reference design",
+  "url": "https://www.ti.com/tool/TIDA-010956",
+  "folder": "51_TI_Three-Phase_Inverter_TIDA-010956",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.ti.com/tool/TIDA-010956",
+      "final_url": "https://www.ti.com/tool/TIDA-010956",
+      "kind": "html",
+      "bytes": 79573,
+      "sha256": "a21380008fdcc3cd1cb49f77ace6dee687c2396b332e978466f24c14b65ca02a"
+    },
+    {
+      "file": "tiduf82b.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDUF82",
+      "final_url": "https://www.ti.com/lit/ug/tiduf82b/tiduf82b.pdf?ts=1791142995122",
+      "kind": "pdf",
+      "bytes": 2829613,
+      "sha256": "203d035c8eca0e2bd9a009b5f708ffdf12532a7cf5e9372c222e6d68cba0642c",
+      "pdf_pages": 27
+    },
+    {
+      "file": "tidmd39a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDMD39",
+      "final_url": "https://www.ti.com/lit/df/tidmd39a/tidmd39a.pdf?ts=1791222532141",
+      "kind": "pdf",
+      "bytes": 573778,
+      "sha256": "76ddded84f09c3a3d507b6c03b0e794eb28eae02a278ef4e45a2256316208654",
+      "pdf_pages": 3
+    },
+    {
+      "file": "tidmd41a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDMD41",
+      "final_url": "https://www.ti.com/lit/df/tidmd41a/tidmd41a.pdf?ts=1791146268260",
+      "kind": "pdf",
+      "bytes": 167768,
+      "sha256": "6255108199711b41f036c3c4a4d3b85abd03dfb7e456229bd2f21ec73028ac25",
+      "pdf_pages": 5
+    },
+    {
+      "file": "tidmd38a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDMD38",
+      "final_url": "https://www.ti.com/lit/df/tidmd38a/tidmd38a.pdf?ts=1791222534435",
+      "kind": "pdf",
+      "bytes": 4781582,
+      "sha256": "3a2984f344340c83e8682291d2fadc5488e515cab9abccbd11f177af8d7936b6",
+      "pdf_pages": 13
+    },
+    {
+      "file": "tidmd37a.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDMD37",
+      "final_url": "https://www.ti.com/lit/df/tidmd37a/tidmd37a.pdf?ts=1791222536231",
+      "kind": "pdf",
+      "bytes": 869014,
+      "sha256": "c2ceed39d3d5203b3492a9ccb794170fb00e22f825513568c223a92214a570b0",
+      "pdf_pages": 7
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:50+0300",
+  "pdf_count": 5,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

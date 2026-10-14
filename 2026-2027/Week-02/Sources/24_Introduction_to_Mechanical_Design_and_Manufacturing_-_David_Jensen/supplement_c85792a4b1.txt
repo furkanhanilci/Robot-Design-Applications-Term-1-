@@ -1,0 +1,229 @@
+Decision and Selection – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Decision and Selection
+The following is an excerpt from the
+Delft Design Guide
+.
+[1]
+Design is a process of diverging and converging. The design of a product grows from a product idea via solution principles, concepts and preliminary designs to a detailed definitive design. Design is also a process of working from a large number of ideas to a single detailed design. Designing without intuitive decisions is inconceivable. But for new, complex or unknown decision problems, intuitive decision-making is not always successful. Decision methods aim to help people in making a decision.
+In decision methods, you compare alternatives on predefined criteria. You look at how well an alternative performs ‘on the criteria’ and assign a value to this performance. By bringing together the totality of the values of each of the criteria, you calculate an overall score of the alternative. Calculating the overall scores of each of the alternatives and comparing the alternatives facilitates a decision-making process. This is what decision methods are about.
+The manner in which the overall score of an alternative is calculated is called the value function, or decision rule. However, these functions and rules are full of fallacies and pitfalls. Therefore, in using a certain method, you should really see whether the specific decision problem does indeed answer those assumptions, for only then does it make sense to use this method. Decision methods do not guarantee a sound answer! They are mere aids in the process of coming to a sound and wellconsidered decision.
+The decision-maker should always reflect on the verdicts/decisions reached, bearing in mind the initially stated goals and aims of the projects.
+Datum Method
+What Is a Datum Method?
+The Datum Method (see figure 2.61) is a method for evaluation of design alternatives. One of the alternatives is set as datum to which the other alternatives are compared for a range of criteria. Three judgements can be given: ‘worse’, ‘same’ or ‘better’ expressed in ‘–’, ‘0’ and ‘+’. The sum of each of these three values will then help to make a decision. The value of the alternatives is guessed on the basis of the ‘intuitive’ judgements of the decision-makers.
+The method aims to provide the decision-makers with confidence through a systematic discussion of the criteria and by eliciting the advantages and disadvantages of the alternatives.
+A datum chart from student project.
+When Can You Use a Datum Method?
+Whenever a number of alternatives of a product concept need to be compared to reach consensus in the evaluation or to make an intuitive decision, the Datum Method can be used. Although it can be used throughout the whole design process, commonly it is used to select concepts.
+How to Use a Datum Method?
+Starting Point
+Product concepts, developed to an equal, and thus comparable, level of detail. A list of criteria suitable for use in this stage and in relation to the level of detail.
+Expected Outcome
+One or more strong concepts for further development, confidence in the decision for the chosen concept(s). More understanding of the value of all the concepts, more insight in the problems still to be solved and a simple matrix to discuss with others and convince third parties.
+Possible Procedure
+Arrange the concepts and criteria in a matrix (see figure 2.61).
+Choose one of the concepts as ‘datum’. Compare the other concepts to this datum and give a score for each criterium at the time (+ = better than datum, – = worse than datum and s = similar/same).
+Indicate ∑+, ∑S and ∑– for each concept. Usually at least one concept will show more ‘–’ and less ‘+’. Usually a few concepts have minor differences. Discussion can start. An equal spread of pluses, minuses and similars indicates vague and ambiguous criteria.
+When the outcome does not distinguish enough, the process should be repeated until it does. Each time another concept should be taken as datum, leaving out the concept which was definitively worse.
+Tips and Concerns
+Sometimes the designer will not only totalise the score in ∑+, ∑S and ∑–, but also adds up the totals. Like each ‘+’ for one particular concept is compensated by each ‘-’ given to the same concept. A concept with two ‘+’, one ‘S’ and two ‘-’ will have an end score of zero (0). Although it is a way to have some outcome, one must realise that this will fade away the results and doesn’t help to discuss the concepts or criteria. Another concept might score zero (0) also, thus leading to the assumption that both concepts are equal, while the second concept initially scored one ‘+’, three ‘S’ and one ‘-’. It all depends on the weight of each criterion and the possibility to change a ‘-’ into ‘S’ or ‘+’ by redesign. The method is therefore not to be seen as a sort of mathematically justified process, but as an aid to the decision making.
+Another aspect is the selection of criteria. Usually there are a lot of criteria to which the concepts do not comply to, yet. A criterion stating that the product should cost no more than 15 Euro’s, or weigh max 800 grams, cannot be judged in the early stages of the design process. However, one may have some ideas about the relative difference in cost price. E.g. one concept seems to be more expensive than the other one, because of a larger number of parts or a more complex construction. In choosing the (more general reformulated criteria) it seems logical not to have more than eight to ten criteria.
+Weighted Objectives Method
+What Is the Weighted Objectives Method?
+The Weighted Objectives Method (see figure 2.62) is an evaluation method for comparing design concepts based on an overall value per design concept. The biggest disadvantage of using the Datum Method or the Harris Profile is that the scores per criterion cannot be aggregated into an overall score of the design alternative. This makes a direct comparison of the design alternatives difficult. The Weighted Objectives Method does exactly this: it allows the scores of all criteria to be summed up into an overall value per design alternative.
+The Weighted Objective Method assigns scores to the degree to which a design alternative satisfies a criterion. However, the criteria that are used to evaluate the design alternatives might differ in their importance. For example, the ‘cost price’ can be of less importance than ’appealing aesthetics’.
+The Weighted Objectives Method involves assigning weights to the different criteria. This allows the decision-maker to take into account the difference in importance between criteria.
+A weighted matrix from student report.
+When Can You Use the Weighted Objectives Method?
+The Weighted Objectives Method is best used when a decision has to be made between a select number of design alternatives, design concepts or principal solutions. Usually, the Weighted Objectives Method is used when evaluating design concepts, and to make a decision as to which design concept should be developed into a detailed design.
+How to Use the Weighted Objectives Method?
+Starting Point
+A limited number of concepts.
+Expected Outcome
+A chosen concept.
+Possible Procedure
+Select the criteria according to which the selection will be made. These criteria should be derived from the programme of requirements (note that probably not all requirements are applicable at this stage of the design process).
+Choose 3 to 5 concepts for selection.
+Assign weights to the criteria. The criteria should be appointed weights according to their importance for the evaluation. To determine the weight factor of the criteria it is recommended that you compare the criteria in pairs to attribute a weight factor. Rank each of the weights on a scale from 1 to 5 (you can also decide on a total sum of the weights of the criteria, for example 100). Make sure you discuss the tradeoffs between the criteria. Trade-offs will have to be made when weights are assigned to the individual criteria (when you are determining which of the weights are more important).
+Construct a matrix, with the criteria in rows, and the concepts in columns.
+Attribute values to how each concept meets a criterion. Rank the scores of the concepts from 1 to 10.
+Calculate the overall score of each concept by summing up the scores on each criterion (make sure you take into account the weight factor).
+The concept with the highest score is the preferred concept.
+Tips and Concerns
+This method should be carried out intelligibly, while discussing and reviewing both the weights assigned to the criteria and the scores of the concepts according to all the criteria.
+Instructions for using a Pugh Chart
+Read through the guide
+here
+and watch the
+video
+below for detailed instructions.
+References
+Pugh, S. (1981) ‘Concept selection: a method that works’ In: Hubka, V. (ed.) Review of Design Methodology. Proceedings International Conference on Engineering Design, March 1981, Rome. Zürich: Heurista, 1981, pp.497 – 506.
+Roozenburg, N.F.M. and Eekels, J. (1995) Product Design: Fundamentals and Methods, Utrecht: Lemma.
+Roozenburg, N. and Eekels, J. (1998, 2nd ed.) Product Ontwerpen: Structuur en Methoden, Utrecht: Lemma
+Daalhuizen, Jaap. 2018. Delft Design Approach, Delft University of Technology.
+↵
+Previous/next navigation
+Previous: Morphological Chart
+Next: Develop Prototypes to Further Define Concepts
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

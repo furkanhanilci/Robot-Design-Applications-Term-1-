@@ -1,0 +1,198 @@
+Mechanism Synthesis – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Mechanism Synthesis
+Synthesis of Linkage Mechanisms
+Linkage synthesis is the process of designing a linkage mechanism to achieve a desired motion or path. It involves identifying the type of linkage, the desired position of the links, and the length and arrangement of the links. The goal is to create a mechanism that is efficient, accurate, and reliable. It is usually the first step when designing a machine where motion or work is accomplished with a linkage mechanism.
+The desired position of the links is determined by the specific task that the linkage mechanism is designed to perform. For example, a linkage mechanism that is used to move a robotic arm will have different position requirements than a linkage mechanism that is used to open and close a door. For spatial mechanisms, the synthesis involves using
+Inverse kinematics
+to identify what angles of control and link lengths can achieve desired positions. Additionally, a concept call
+p
+ath planning
+is important to avoid collision with other objects. Spatial mechanisms and control are a key topic in robotics. For planar mechanisms, graphical and analytical techniques can be used to synthesis a mechanism.
+A secondary goal for synthesis is ensuring the desired type of mechanism actuate is possible. The type of actuator that is used to drive the linkage mechanism depends on the specific requirements of the application. Continuous rotating motors (DC, AC, and stepper motors as an example) are commonly used for applications where the mechanism is Grashof and the driving link can fully rotate. Servos are used for applications where partial rotations are required (often non-Grashof). Linear actuators are used for applications where linear motion is required.
+General Synthesis Process
+The process of planar mechanism synthesis usually involves the following steps:
+Identify the path or location for a link or part of a link.
+For example, a grasping component attached to a coupler must move a product on a manufacturing line from one machine to another. The exact location of the desired positions is needed to determine link lengths and grounding locations.
+Make design choices for ground location based on the positions or path constraints.
+Any four-bar mechanism can be solved as a system of equations based on ground locations and link positions. Therefore, the design freedom to choose where the linkage will be grounded depends on how completely the path must be planned. For example, in “two-position synthesis,” there are an infinite number of places along two lines where the ground link can be located, while “three-position synthesis” fully constrains the ground locations to two precise points.
+Determine the link lengths and ground locations.
+Once the link lengths and ground locations are determined, the mechanism is defined. Analysis is then needed to ensure that the mechanism moves as desired, to determine what type of actuation is needed to achieve the desired motion, and to define the shape of the links to avoid interference and meet any performance goals. Recall that links can have any desired shape as long as the distance between nodes stays the same. The linkage will have the same kinematic performance regardless of the shape of the links.
+Watch Dr. Slocum’s lecture on Mechanism synthesis below. Follow along on the same document provide on the previous page –
+FUNdeMENTALS of Design – Links 2
+Graphical Linkage Synthesis
+All planar mechanisms can be synthesized (solved) using graphical tools. Paper based methods work well but digital drawing tools allow for more flexibility and accurate drawing.
+The following video will provide you with a step-by-step instruction for how to synthesize a mechanism for various situations. You can either use digital drawing tools like CAD or a pencil, compass, and protractor to follow along on paper. You should follow along, as this is very hard skill to acquire without doing it yourself.
+*Watch this
+video
+to learn more about Graphical Linkage Synthesis.
+Computational Synthesis
+Analytical methods for planar linkage mechanism synthesis are based on the mathematical relationships between the link lengths and the position and orientation of the links. These methods can be used to synthesize linkage mechanisms for a variety of tasks, such as function generation, path generation, and motion amplification.
+There are many tools available to accomplish analytical mechanism synthesis. One very user friendly one is:
+MotionGen Pro.
+The video tutorial series for this software can be found
+here
+.
+Previous/next navigation
+Previous: Motion and Control of Mechanisms
+Next: Mechanism Posture and Position Analysis
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

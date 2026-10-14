@@ -1,0 +1,42 @@
+18-349/14-642: Introduction to Embedded Systems
+18-349/14-642: Introduction to Embedded Systems
+Overview and Resources
+Welcome to 18-349/14-642 Spring 2020.
+This page offers a course overview for audiences other than currently enrolled 
+             students.  Currently enrolled students should use the official course resources linked 
+             below.
+Official course resources for enrolled students:
+Canvas
+/
+Piazza
+/
+Git Hub
+Unofficial and tentative course documents (pdf):
+Syllabus
+/
+Schedule
+/
+Projects In Brief
+Instructor contact:
+Nuno Pereira
+/
+Anthony Rowe
+Meeting times:
+Monday: 7pm-8pm (HH 1303)
+Tuesday: 3.30pm-5.30pm (HH 1303)
+Wednesday: 4:30pm-5:30pm (HH 1303)
+Thursday: 5pm-7pm (HH 1303)
+Friday: 1pm-3pm (HH 1303)
+Hardware Platform
+The hardware platform includes a PCB designed by and custom-made for each
+student team, that interfaces an STM32 Nucleo board to various sensors and peripherals.
+Peripherals include an analog microphone, light sensors, 7-segment display, servo 
+controller port, motor encoder and an H-Bridge circuit for driving motor outputs. The 
+PCB also has a connection to a Raspberry Pi which is used to communicate between the 
+STM32 and the RPi. This allows students to explore big-little architectures
+that run a hybrid of Linux (on the RPi) and real-time firmware on the STM32.
+Catalog Description
+This practical, hands-on course introduces the various building blocks and underlying scientific and engineering principles behind embedded real-time systems. The course covers the integrated hardware and software aspects of embedded processor architectures, along with advanced topics such as real-time, resource/device and memory management. Students can expect to learn how to program with the embedded architecture that is ubiquitous in cell-phones, portable gaming devices, robots, tablets, etc. Students will then go on to learn and apply real-time principles that are used to drive critical embedded systems like automobiles, avionics, medical equipment, wearables, etc. Topics covered include embedded architectures (building up to modern 16/32/64-bit embedded processors); interaction with devices (buses, memory architectures, memory management, device drivers); concurrency (software and hardware interrupts, timers); real-time principles (multi-tasking, scheduling, synchronization); implementation trade-offs, profiling and code optimization (for performance and memory); embedded software (exception handling, loading, mode-switching, programming embedded systems). Through a series of laboratory exercises with state-of-the-art embedded processors and industry-strength development tools, students will acquire skills in the design/implementation/debugging of core embedded real-time functionality.
+Overview and Resources
+Hardware Platform
+Catalog Description

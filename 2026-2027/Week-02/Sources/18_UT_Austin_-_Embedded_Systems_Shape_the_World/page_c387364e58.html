@@ -1,0 +1,3801 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+  
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+
+  
+  
+  <title>Chapter 9: Arrays and Functional Debugging</title>
+  <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Garamond;
+	panose-1:2 2 4 4 3 3 1 1 8 3;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+@font-face
+	{font-family:"ClassGarmnd BT";}
+@font-face
+	{font-family:Geneva;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h2
+	{margin-top:28.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:16.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+h3
+	{margin-top:28.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:28.35pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+h4
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:56.7pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+h5
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+h6
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:8.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:35.45pt;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:49.6pt;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:22.0pt;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:40.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:80.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Garamond","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-link:"Caption Char1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:5.75pt;
+	text-indent:-5.75pt;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoPageNumber
+	{font-weight:bold;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{mso-style-link:"List Bullet Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:74.9pt;
+	text-align:justify;
+	text-indent:-.25in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:78.5pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:1.0in;
+	text-align:justify;
+	text-indent:-.25in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:1.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:100.1pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:121.7pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:141.75pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	background:black;
+	font-size:36.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-name:"Body Text Indent\,Chapter overview";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:85.05pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:56.7pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:right;
+	font-size:22.0pt;
+	font-family:"Arial Narrow","sans-serif";}
+p.MsoBodyTextFirstIndent, li.MsoBodyTextFirstIndent, div.MsoBodyTextFirstIndent
+	{mso-style-link:"Body Text First Indent Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:justify;
+	text-indent:10.5pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:200%;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:8.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:.25in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:.25in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+em
+	{text-transform:uppercase;
+	font-style:normal;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-top:5.0pt;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+address
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+code
+	{font-family:"Courier New";}
+tt
+	{font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Calibri","sans-serif";}
+span.CaptionChar1
+	{mso-style-name:"Caption Char1";
+	mso-style-link:Caption;
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+p.PictureWide, li.PictureWide, div.PictureWide
+	{mso-style-name:"Picture Wide";
+	mso-style-link:"Picture Wide Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.PictureWideChar
+	{mso-style-name:"Picture Wide Char";
+	mso-style-link:"Picture Wide";
+	font-family:"Garamond","serif";}
+p.Checkpoint, li.Checkpoint, div.Checkpoint
+	{mso-style-name:Checkpoint;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:1.0in;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";}
+p.BulletList, li.BulletList, div.BulletList
+	{mso-style-name:"Bullet List";
+	mso-style-link:"Bullet List Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.BulletListChar
+	{mso-style-name:"Bullet List Char";
+	mso-style-link:"Bullet List";
+	font-family:"Garamond","serif";}
+p.BodyText, li.BodyText, div.BodyText
+	{mso-style-name:BodyText;
+	mso-style-link:"BodyText Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+span.BodyTextChar0
+	{mso-style-name:"BodyText Char";
+	mso-style-link:BodyText;}
+span.BodyTextFirstIndentChar
+	{mso-style-name:"Body Text First Indent Char";
+	mso-style-link:"Body Text First Indent";
+	font-family:"Times New Roman","serif";}
+p.CoverSubHeads, li.CoverSubHeads, div.CoverSubHeads
+	{mso-style-name:"Cover SubHeads";
+	margin-top:28.35pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:16.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Garamond","serif";}
+span.ListBulletChar
+	{mso-style-name:"List Bullet Char";
+	mso-style-link:"List Bullet";}
+p.Picture, li.Picture, div.Picture
+	{mso-style-name:Picture;
+	mso-style-link:"Picture Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:9.0in;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.PictureChar
+	{mso-style-name:"Picture Char";
+	mso-style-link:Picture;
+	font-family:"Garamond","serif";}
+p.TableBodyText, li.TableBodyText, div.TableBodyText
+	{mso-style-name:"Table Body Text";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.TableBullet, li.TableBullet, div.TableBullet
+	{mso-style-name:"Table Bullet";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:110.4pt;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"ClassGarmnd BT","serif";
+	color:black;}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{mso-style-name:"Table Heading";
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:.05in;
+	text-indent:0in;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+p.BlockQuotation, li.BlockQuotation, div.BlockQuotation
+	{mso-style-name:"Block Quotation";
+	margin-top:12.0pt;
+	margin-right:.5in;
+	margin-bottom:12.0pt;
+	margin-left:.5in;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Georgia","serif";
+	font-style:italic;}
+p.HeadingBase, li.HeadingBase, div.HeadingBase
+	{mso-style-name:"Heading Base";
+	mso-style-link:"Heading Base Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.HeadingBaseChar
+	{mso-style-name:"Heading Base Char";
+	mso-style-link:"Heading Base";
+	font-family:"Arial","sans-serif";}
+p.FootnoteBase, li.FootnoteBase, div.FootnoteBase
+	{mso-style-name:"Footnote Base";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";
+	font-family:"Arial","sans-serif";}
+p.SubtitleCover, li.SubtitleCover, div.SubtitleCover
+	{mso-style-name:"Subtitle Cover";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:22.0pt;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Bookman Old Style","serif";
+	text-transform:uppercase;
+	letter-spacing:1.5pt;}
+p.TitleCover, li.TitleCover, div.TitleCover
+	{mso-style-name:"Title Cover";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:36.0pt;
+	page-break-after:avoid;
+	font-size:32.0pt;
+	font-family:"Bookman Old Style","serif";
+	text-transform:uppercase;
+	letter-spacing:3.25pt;}
+p.CaptionCenteredBefore12ptNounderl, li.CaptionCenteredBefore12ptNounderl, div.CaptionCenteredBefore12ptNounderl
+	{mso-style-name:"Caption + Centered Before\: 12 pt + No underl\.\.\.";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";
+	font-family:"Calibri","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.5in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.Example, li.Example, div.Example
+	{mso-style-name:Example;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	background:#F3F3F3;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, li.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, div.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth
+	{mso-style-name:"Style Justified Top\: \(Single solid line Auto 0\.75 pt Line width\)";
+	margin-bottom:.0001pt;
+	text-align:justify;
+	border:medium none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman","serif"; margin-left:0in; margin-right:0in; margin-top:0in}
+p.DefinitionTerm, li.DefinitionTerm, div.DefinitionTerm
+	{mso-style-name:"Definition Term";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+p.DefinitionList, li.DefinitionList, div.DefinitionList
+	{mso-style-name:"Definition List";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+span.Definition
+	{mso-style-name:Definition;
+	font-style:italic;}
+p.Address, li.Address, div.Address
+	{mso-style-name:Address;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;
+	font-style:italic;}
+p.Blockquote, li.Blockquote, div.Blockquote
+	{mso-style-name:Blockquote;
+	margin-top:5.0pt;
+	margin-right:.25in;
+	margin-bottom:5.0pt;
+	margin-left:.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+span.CITE
+	{mso-style-name:CITE;
+	font-style:italic;}
+span.CODE0
+	{mso-style-name:CODE;
+	font-family:"Courier New";}
+span.Keyboard
+	{mso-style-name:Keyboard;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.Preformatted, li.Preformatted, div.Preformatted
+	{mso-style-name:Preformatted;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	layout-grid-mode:line;}
+span.Sample
+	{mso-style-name:Sample;
+	font-family:"Courier New";}
+span.Typewriter
+	{mso-style-name:Typewriter;
+	font-family:"Courier New";}
+span.Variable
+	{mso-style-name:Variable;
+	font-style:italic;}
+span.HTMLMarkup
+	{mso-style-name:"HTML Markup";
+	color:red;
+	display:none;}
+span.Comment
+	{mso-style-name:Comment;
+	display:none;}
+p.StyleCourierNew10ptBoldJustified, li.StyleCourierNew10ptBoldJustified, div.StyleCourierNew10ptBoldJustified
+	{mso-style-name:"Style Courier New 10 pt Bold Justified";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+span.texhtml
+	{mso-style-name:texhtml;
+	font-family:"Times New Roman","serif";}
+span.editsection
+	{mso-style-name:editsection;}
+span.CharChar6
+	{mso-style-name:"Char Char6";}
+span.CaptionChar
+	{mso-style-name:"Caption Char";
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+span.CharChar8
+	{mso-style-name:"Char Char8";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+  </style>
+  
+  <script src="ModuleCheckpoints.js"></script>
+</head>
+
+
+<body lang="EN-US" link="blue" vlink="purple">
+
+<div class="WordSection1">
+<p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 14pt;">Chapter 9: Arrays, Time, and Functional
+Debugging</span></p>
+
+<p class="MsoNormal" style="text-align: center;" align="center">Jonathan
+Valvano and
+Ramesh Yerraballi</p>
+
+<p class="MsoNormal"><b>&nbsp;</b></p>
+
+<p class="MsoBodyText">In this chapter, we will illustrate a formal
+method for
+testing. Because embedded systems are deployed in safety-critical
+systems, we
+need to be rigorous in our methods that evaluate if the deployed system
+performs its tasks as required. Embedded systems not only need to
+arrive at the
+correct answer, they need to arrive at it at the correct time. We will
+introduce a simple hardware counter that we can use to measure time.
+The
+testing method we will develop in this chapter will be to create a data
+logger
+to store when and what our system is doing.</p>
+
+<p class="MsoBodyText"></p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+
+    <tr>
+
+      <td>
+ 
+      <p class="MsoNormal"><b>&nbsp;</b></p>
+
+      <p class="MsoNormal"><b>Learning Objectives:</b><i> </i></p>
+
+      <ul style="margin-top: 0in;" type="disc">
+
+  <li class="MsoNormal">Understand the concept of minimally intrusive
+debugging</li>
+
+  <li class="MsoNormal">Learn how the SysTick counter works</li>
+
+  <li class="MsoNormal">Learn about arrays</li>
+
+  <li class="MsoNormal">Learn how to use indexing to access arrays</li>
+
+  <li class="MsoNormal">Understand precision, length and origin</li>
+
+  <li class="MsoNormal">Learn how to create a debugging dump</li>
+
+  <li class="MsoNormal">Understand that a formal method to verify
+program correctness</li>
+
+  <li class="MsoNormal">Learn how to use the dump to collect debugging
+information in real time</li>
+
+      </ul>
+
+      </td>
+
+      <td>
+      
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+ <iframe src="http://www.youtube.com/embed/80saw2XIx8M?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+      </p>
+
+      
+      <p class="MsoCaption"><span lang="en-US">
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Video </span>9.0<span lang="en-US">. Introduction to Arrays and Functional Debugging </span></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="9_1"></a>
+<h2>9.1. Debugging
+Theory</h2>
+
+</div>
+
+<p class="BodyText">Every programmer is faced with the need to debug
+and verify
+the correctness of his or her software. A debugging <b>instrument</b>&nbsp;is
+hardware or software used for the purpose of debugging. In this class,
+we will study
+hardware-level probes like the logic analyzer, oscilloscope, and Joint
+Test
+Action Group (JTAG standardized as the IEEE 1149.1) interface; software-level
+tools like
+simulators, monitors, and profilers; and manual tools like inspection
+and print
+statements. <b>Nonintrusiveness</b>&nbsp;is the characteristic or
+quality of a
+debugger that allows the software/hardware system to operate normally
+as if the
+debugger did not exist. Intrusiveness&nbsp;is used as a measure of the
+degree of
+perturbation caused in system performance by the debugging instrument
+itself.
+For example, a print statement added to your source code is very
+intrusive
+because it significantly affects the real-time interaction of the
+hardware and
+software. It is important to quantify the intrusiveness of an
+instrument. Let <i>t</i>
+be the average time it takes to run the software code comprising
+the debugging instrument.
+This time<i> t</i> is how much less time the system has, in order to perform its
+regular
+duties. Let <i>&Delta;t</i> be the average time between executions of
+the
+instrument. A quantitative measure of intrusiveness is <i>t</i>/<i>&Delta;t</i>,
+which is the fraction of the time consumed by the process of debugging
+itself.
+A debugging instrument is classified as <b>minimally intrusive</b>&nbsp;if
+it has a negligible effect on the system being debugged. In other
+words, if <i>t</i>/<i>&Delta;t</i> is
+so small that the debugging activities have a finite but
+inconsequential effect
+on the system behavior, we classify it as minimally intrusive. In a
+real
+microcomputer system, breakpoints and single-stepping are intrusive,
+because
+the real hardware continues to change while the software has stopped.
+When a
+program interacts with real-time events, the performance can be
+significantly
+altered when using intrusive debugging tools. On the other hand, we
+will learn
+later in this chapter that dumps, dumps with filter, and monitors
+(e.g., which output
+strategic information on LEDs or an OLED display) are much less intrusive. A logic
+analyzer that passively monitors the activity of the software is
+completely
+nonintrusive. Interestingly, breakpoints and single-stepping on a mixed
+hardware/software simulator are often nonintrusive, because the
+simulated
+hardware and the simulated software are affected together.</p>
+
+<p class="BodyText"> For example, the heartbeat code GPIO_PORTF_DATA_R ^= 0x02; requires only 6 bus cycles to execute. 
+If the heartbeat runs every 1ms, and the bus clock is 80 MHz, then is equal to 6/80000. 
+Normally, if this ratio is less than 1/1000 we classify it minimally intrusive.</p>
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint9_1')">Checkpoint 9.1</button>:</span></b>
+What does it mean for a
+debugging instrument to be minimally intrusive? Give both a general
+answer and
+a specific criterion. </p>
+
+<p class="BodyText">Research in the area of program monitoring and
+debugging&nbsp;mirrors the rapid pace of developments in other areas of
+computer architecture and
+software systems. Because of the complexity explosion in computer
+systems,
+effective debugging tools are essential. The critical aspect of
+debugging an
+embedded system is the ability to see what the software is doing, where
+it is
+executing, and when it did it, without the debugger itself modifying
+system
+behavior. Terms such as program testing, diagnostics, performance
+debugging,
+functional debugging, tracing, profiling, instrumentation,
+visualization,
+optimization, verification, performance measurement, and execution
+measurement
+have specialized meanings, but they are also used interchangeably, and
+they
+often describe overlapping functions. For example, the terms profiling,
+tracing, performance measurement, or execution measurement may be used
+to
+describe the process of examining a program from a time perspective. But,
+tracing
+is also a term that may be used to describe the process of monitoring a
+program
+state or history for functional errors, or to describe the process of
+stepping
+through a program with a debugger. Usage of these terms among
+researchers and
+users vary.</p>
+
+<p class="BodyText">Furthermore, the meaning and scope of the term
+debugging
+itself is not clear. In this class the goal of debugging is to maintain
+and
+improve software, and the role of a debugger is to support this
+endeavor. The
+debugging process is defined as testing, stabilizing, localizing, and
+correcting errors. Although testing, stabilizing, and localizing errors
+are
+important and essential to debugging, they are auxiliary processes: the
+primary
+goal of debugging is to remedy faults or to correct errors in a
+program. <b>Stabilization</b>&nbsp;is process of fixing the inputs so
+that the system can be run over and over
+again yielding repeatable outputs.</p>
+
+<p class="BodyText">Although, a wide variety of program monitoring and
+debugging
+tools are available today, in practice it is found that an overwhelming
+majority of users either still prefer or rely mainly on &ldquo;rough
+and ready&rdquo;
+manual methods for locating and correcting program errors. These
+methods
+include desk-checking, dumps, and print statements, with print
+statements being
+one of the most popular manual methods. Manual methods are useful
+because they
+are readily available, and they are relatively simple to use. But, the
+usefulness of manual methods is limited: they tend to be highly
+intrusive, and
+they do not provide adequate control over repeatability, event
+selection, or
+event isolation. A real-time system, where software execution timing is
+critical,
+usually cannot be debugged with simple print statements, because the
+print
+statement itself will require too much time to execute.</p>
+
+<p class="BodyText"><b>Black-box testing</b> is simply observing the
+inputs and
+outputs without looking inside. Black-box testing has an important
+place in
+debugging a module for its functionality. On the other hand, <b>white-box
+testing</b> allows you to control and observe the internal workings of
+a
+system. A common mistake made by new engineers is to just perform black
+box
+testing. Effective debugging uses both. One must always start with
+black-box
+testing by subjecting a hardware or software module to appropriate
+test-cases.
+Once we document the failed test-cases, we can use them to aid us in
+effectively performing the task of white-box testing.</p>
+
+<p class="BodyText">A print statement is a common example of a
+debugging
+instrument. Using the editor, one adds print statements to the code
+that either
+verify proper operation or illustrate the programming errors. If we
+test a
+system, then remove the instruments, the system may actually stop
+working,
+because of the importance of timing in embedded systems. If we leave
+debugging
+instruments in the final product, we can use the instruments to test
+systems on
+the production line, or test systems returned for repair. On the other
+hand,
+sometimes we wish to provide a mechanism to reliably and
+efficiently remove
+all instruments when the debugging is done. Consider the following
+mechanisms
+as you develop your own unique debugging style.</p>
+
+<p class="BulletList"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="X-NONE">&bull;</span><span lang="X-NONE"> Place all instruments in a unique column, so you can
+easily
+distinguish instruments from regular programs.</span></p>
+
+<p class="BulletList"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="X-NONE">&bull;</span><span lang="X-NONE"> Define all debugging instruments as functions that all
+have a
+specific pattern in their names. In this way, the find/replace
+mechanism of the
+editor can be used to find all the calls to the instruments.</span></p>
+
+<p class="BulletList"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="X-NONE">&bull;</span><span lang="X-NONE"> Define the instruments so that they test a run time
+global flag.
+When this flag is turned off, the instruments perform no function.
+Notice that
+this method leaves a permanent copy of the debugging code in the final
+system,
+causing it to suffer a runtime overhead, but the debugging code can be
+activated dynamically without recompiling. Many commercial software
+applications utilize this method because it simplifies
+&ldquo;on-site&rdquo; customer
+support.</span></p>
+
+<p class="BulletList"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="X-NONE">&bull;</span><span lang="X-NONE"> Use conditional compilation (or conditional assembly)
+to turn on
+and off the instruments when the software is compiled. When the
+assembler or
+compiler supports this feature, it can provide both performance and
+effectiveness.</span></p>
+
+<p class="BulletList">&nbsp;</p>
+
+<p class="BodyText">The emergence of concurrent languages and the
+increasing use
+of embedded real-time systems place further demands on debuggers. The
+complexities introduced by the interaction of multiple events or time
+dependent
+processes are much more difficult to debug than errors associated with
+sequential programs. The behavior of non-real-time sequential programs
+is
+reproducible: for a given set of inputs their outputs remain the same.
+In the
+case of concurrent or real-time programs this does not hold true.
+Control over
+repeatability, event selection, and event isolation is even more
+important for
+concurrent or real-time environments.</p>
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint9_2')">Checkpoint 9.2</button>:</span></b>
+Consider the difference
+between a runtime flag that activates a debugging command versus an
+assembly/compile-time flag. In both cases it is easy to
+activate/deactivate the
+debugging statements. For each method, list one factor for which that
+method is
+superior to the other.</p>
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint9_3')">Checkpoint 9.3</button>:</span></b>
+What is the advantage of
+leaving debugging instruments in a final delivered
+product?&nbsp;&nbsp;&nbsp; </p>
+
+<p class="Checkpoint"><b><span style="color: black;">Observation:</span></b><span style="color: black;"> </span>There are two important components of
+debugging:
+having control over events and being able to see what is happening.
+Remember: <b>control</b>
+and <b>observability</b>!</p>
+
+<p class="Checkpoint"><b><span style="color: black;">Common Error:</span></b><span style="color: black;"> </span>The most common debugging mistake new
+programmers
+make is to simply observe the overall inputs and outputs system without
+looking
+inside the device. Then they go to their professor and say, &ldquo;My
+program gives
+incorrect output. Do you know why?&rdquo;</p>
+
+<p class="MsoNormal"><span style="font-size: 10pt;">&nbsp;</span></p>
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="9_2"></a>
+<h2>9.2. SysTick Timer</h2>
+
+</div>
+
+<p class="MsoBodyText">Before we describe the process of instumentation, we will discus a feature 
+that exists on all Cortex<span style="font-family: Symbol;">&Ocirc;</span>-M microcontrollers, a timer, called <b>SysTick</b>.
+Therefore, the use of SysTick in designing your system will assure you that your
+system will easily port to other Cortex-M microcontrollers. SysTick&nbsp;is a simple counter that we can use
+to create time
+delays and generate periodic interrupts. Table 9.1
+shows the
+register definitions for SysTick. The basis of SysTick is a 24-bit down
+counter
+that runs at the bus clock frequency. There are four steps involved in the
+initialization of the
+SysTick timer. First, we clear the <b>ENABLE</b> bit to turn off
+SysTick during
+initialization. Second, we set the <b>RELOAD</b> register. Third, we
+write to
+the <b><span style="font-family: &quot;Courier New&quot;;">NVIC_ST_CURRENT_R</span></b>
+value to clear the counter. Lastly, we write the desired mode to the
+control
+register,<span style="font-size: 9pt;"> </span><b><span style="font-family: &quot;Courier New&quot;;">NVIC_ST_CTRL_R</span></b>. 
+The mode involves the <b>CLK_SRC</b> and the <b>INTEN</b> bits. We set
+the <b>CLK_SRC</b> bit
+specifying the core clock will be used. We will set <b>CLK_SRC</b>=1,
+so the
+counter runs off the system clock. Later, we will set <b>INTEN</b> to
+enable
+interrupts, but in this first example we clear <b>INTEN</b> so
+interrupts will
+not be requested. We need to set the <b>ENABLE</b> bit so the counter
+will run. Once the initialization is complete, the timer starts to count down, i.e., <b>CURRENT</b> is decremented once every clock tick.
+<br>
+
+When the <b>CURRENT</b> value counts down from 1 to 0, the <b>COUNT</b>
+flag is
+set. On the next clock, the <b>CURRENT</b> is loaded with the <b>RELOAD</b>
+value. In this way, the SysTick counter (<b>CURRENT</b>) is
+continuously
+decrementing. If the <b>RELOAD</b> value is <i>n</i>, then the
+SysTick counter
+operates at modulo <i>n</i>+1 (&hellip;<i>n</i>, <i>n</i>-1, <i>n</i>-2
+&hellip; 1, 0, <i>n</i>,
+<i>n</i>-1, &hellip;). In other words, it rolls over every <i>n</i>+1
+counts. In this
+chapter we set <b>RELOAD</b> to 0x00FFFFFF, so the <b>CURRENT</b>
+value is a
+simple indicator of what count is now. Noting what the count was at some point and then what it is now, allows us to calculate the time that has elapsed</p>
+
+<p class="MsoBodyText">&nbsp;</p>
+
+<table class="MsoNormalTable" style="border: medium none ; width: 431.75pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" width="864">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid black; padding: 0in 5.4pt; width: 53.4pt;" valign="top" width="107">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">Address</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 33.25pt;" valign="top" width="67">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">31-24</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 33.2pt;" valign="top" width="66">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">23-17</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 41.8pt;" valign="top" width="84">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">16</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 30.7pt;" valign="top" width="61">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">15-3</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 50.35pt;" valign="top" width="101">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">2</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 37.9pt;" valign="top" width="76">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">1</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 46.3pt;" valign="top" width="93">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">0</span></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 104.85pt;" valign="top" width="210">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">Name</span></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 53.4pt;" valign="top" width="107">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">$E000E010</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 33.25pt;" valign="top" width="67">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">0</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 33.2pt;" valign="top" width="66">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">0</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 41.8pt;" valign="top" width="84">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">COUNT</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 30.7pt;" valign="top" width="61">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">0</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 50.35pt;" valign="top" width="101">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">CLK_SRC</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 37.9pt;" valign="top" width="76">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">INTEN</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 46.3pt;" valign="top" width="93">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">ENABLE</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 104.85pt;" valign="top" width="210">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">NVIC_ST_CTRL_R</span></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 53.4pt;" valign="top" width="107">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">$E000E014</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 33.25pt;" valign="top" width="67">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">0</span></p>
+
+      </td>
+
+      <td colspan="6" style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 240.25pt;" valign="top" width="481">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;" lang="PT-BR">24-bit RELOAD value</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 104.85pt;" valign="top" width="210">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">NVIC_ST_RELOAD_R</span></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 53.4pt;" valign="top" width="107">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">$E000E018</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 33.25pt;" valign="top" width="67">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">0</span></p>
+
+      </td>
+
+      <td colspan="6" style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 240.25pt;" valign="top" width="481">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 9pt;">24-bit CURRENT value of SysTick counter</span></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 104.85pt;" valign="top" width="210">
+      
+      <p class="MsoNormal"><span style="font-size: 9pt;">NVIC_ST_CURRENT_R</span></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="TableHeading">Table 9.1. SysTick registers.</p>
+
+<p class="TableHeading">&nbsp;</p>
+
+<p class="MsoBodyText">Without activating the phase-lock-loop (PLL),
+our TM4C123
+LaunchPad will run at 16 MHz, meaning the SysTick counter decrements
+every 62.5
+ns. If we activate the PLL to run the microcontroller at 80 MHz, then
+the
+SysTick counter decrements every 12.5 ns. In general, if the period of
+the core
+bus clock is <i>t</i>, then the <b>COUNT</b> flag will be set every (<i>n</i>+1)<i>t</i>.
+Note that, reading the<span style="font-family: &quot;Courier New&quot;;"> <b>NVIC_ST_CTRL_R</b></span>
+control register will return the <b>COUNT</b> flag in bit 16. The act of reading this register when the <b>COUNT</b> flag is set will automatically
+clear it (post read). Also, writing any value to the <b><span style="font-family: &quot;Courier New&quot;;">NVIC_ST_CURRENT_R</span>
+</b>&nbsp;register will reset the counter to zero and clear the <b>COUNT</b>
+flag.
+Program 9.1 initializes the SysTick. To determine the time, one simply
+reads
+the <b><span style="font-family: &quot;Courier New&quot;;">NVIC_ST_CURRENT_R</span></b>
+register. </p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+NVIC_ST_CTRL_R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (*((volatile unsigned long
+*)0xE000E010))</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+NVIC_ST_RELOAD_R&nbsp;&nbsp;&nbsp; (*((volatile unsigned long
+*)0xE000E014))</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+NVIC_ST_CURRENT_R&nbsp;&nbsp; (*((volatile unsigned long *)0xE000E018))</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">void
+SysTick_Init(void){</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+NVIC_ST_CTRL_R =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 1) disable SysTick during setup</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+NVIC_ST_RELOAD_R = 0x00FFFFFF;&nbsp; &nbsp;// 2) maximum reload value</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+NVIC_ST_CURRENT_R =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 3)
+any write to current clears it</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+NVIC_ST_CTRL_R = 0x00000005;&nbsp;&nbsp;&nbsp;&nbsp; // 4) enable
+SysTick with core clock</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+<p class="MsoCaption">Program 9.1. Initialization of SysTick.</p>
+
+<!--- Start C9_video_1 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/fMqCBMWZ0pk?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+</p>
+
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>9.1<span lang="en-US">. Working of the Systick Timer</span></p>
+
+<!--- End C9_video_1 --->
+<p class="MsoBodyText">
+Program 9.2 shows how to measure the elapsed time between calls to a
+function.
+Assume the system calls the function <b><span style="font-family: &quot;Courier New&quot;;">Action()
+</span></b>over and over. The variable <b><span style="font-family: &quot;Courier New&quot;;">Now</span></b>
+is the time (in 12.5ns units) when the function has been called. The
+variable <b><span style="font-family: &quot;Courier New&quot;;">Last</span></b>
+is the time (also in 12.5ns
+units) when the function was called previously. To measure elapsed
+time, we
+perform a time subtraction. Since the SysTick counts down we subtract <b><span style="font-family: &quot;Courier New&quot;;">Last-Now</span></b>. Since the
+time is only
+24 bits and the software variables are 32 bits we &ldquo;<b>and&rdquo;</b>
+with 0x00FFFFFF
+to create a 24-bit difference. </p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned long
+Now;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 24-bit time at this call
+(12.5ns)</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned long
+Last;&nbsp;&nbsp;&nbsp;&nbsp; // 24-bit time at previous
+call (12.5ns)</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned long
+Elapsed;&nbsp; // 24-bit time between calls
+(12.5ns)</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">void
+Action(void){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // function under test</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; Now =
+NVIC_ST_CURRENT_R;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+what time is
+it now?</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; Elapsed =
+(Last-Now)&amp;0x00FFFFFF; // 24-bit
+difference</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+Last =
+Now;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// set up for
+next </span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+<p class="MsoCaption" style="margin-left: 62.65pt;">Program 9.2. Use of
+SysTick to
+measure elapsed time.</p>
+
+<p class="MsoBodyText">The first measurement will be wrong because
+there is no
+previous execution from which to measure. The system will be accurate
+as long
+as the elapsed time is less than 0.209 second. More precisely, as long as
+the
+elapsed time is less than 2<sup>24</sup>*12.5ns. This is similar to the
+problem
+of using an analog clock to measure elapsed time. For example you
+notice the
+clock says 10:00 when you go to sleep, and you notice it says 7:00 when
+you
+wake up. As long as you are sure you slept less than 12 hours, you are
+confident you slept for 9 hours.</p>
+
+<p class="MsoBodyText">Our TM4C123 microcontroller has some 32-bit and
+some
+64-bit timers, but we will use SysTick because it is much simpler to
+configure.
+We just have to be aware that we are limited to 24 bits.</p>
+
+<p class="Checkpoint"><b><button onclick="popitup('Checkpoint9_4')">Checkpoint 9.4</button>.</b> If we activate the PLL and
+change
+the bus clock to 50 MHz (20ns), what is the longest elapsed time we
+could
+measure with Program 9.2?</p>
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="9_3"></a>
+<h2>9.3. Arrays</h2>
+
+</div>
+
+<!--- Start C9_video_2 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/ratuOmU_Qkg?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+</p>
+
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>9.2<span lang="en-US">. Introduction to Arrays</span></p>
+
+<!--- End C9_video_2 --->
+
+<p class="BodyText">In developing our instrument we will need a place to put data. One of the
+simplest and
+fastest places to store data is in RAM memory. The TM4C123 has 32
+kibibytes of
+RAM, and we can use it to store temporary data. If the information is a
+constant, and we know its values at compile time, we can place the data
+in ROM.
+The TM4C123 has 256 kibibytes of flash ROM, and we can use it to store
+constant
+data. </p>
+
+<p class="BodyText"><b>Random access</b>&nbsp;means one can read and
+write any element
+in any order. Random access is allowed for all indexable data
+structures. An
+indexed data structure has elements of the same size and can be
+accessed
+knowing the name of the structure, the size of each element, and the
+element
+number. In C, we use the syntax <b><span style="font-family: &quot;Courier New&quot;;">[]</span></b>
+to access an indexed structure. Arrays, matrices, and tables are
+examples of
+indexed structures available in C.</p>
+
+<p class="BodyText"><b>Sequential access</b>&nbsp;means one reads and
+writes the
+elements in order. Pointers are usually employed in these types of data
+structures. Strings, linked-lists, stacks, queues, and trees are
+examples of
+sequential structures. The first in first out circular queue&nbsp;(<b>FIFO</b>)
+is useful for data flow problems.</p>
+
+<p class="BodyText">An <b>array</b>&nbsp;is made of elements of equal
+precision and
+allows random access. The <b>precision</b>&nbsp;is
+the size of each element. Typically, precision is expressed in bits or
+bytes.
+The <b>length</b> is the number of elements. The <b>origin</b> is
+the index of the first element. A data structure with the first element
+existing at index zero is called <b>zero-origin indexing</b>.
+In C, zero-origin index is the default. For example, <b><span style="font-family: &quot;Courier New&quot;;">Data[0]</span></b> is the first
+element of
+the array <b><span style="font-family: &quot;Courier New&quot;;">Data</span></b>.
+</p>
+
+<p class="BodyText">Just like any variable, arrays must be declared
+before they
+can be accessed. The number of elements in an array is determined by
+its
+declaration. Appending a constant expression in square brackets to a
+name in a
+declaration identifies the name as the name of an array with the number
+of
+elements indicated. Multi-dimensional arrays require multiple sets of
+brackets.
+These examples illustrate valid declarations of arrays. Because there
+is no <b><span style="font-family: &quot;Courier New&quot;;">const</span></b>
+modifier, the arrays will be
+defined in RAM. The C compiler will add code that runs before your
+main, which
+will initialize all RAM-based variables to zero.</p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">short
+Data[5];&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;// allocate space for 5 16-bit
+integers</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long
+scores[20];&nbsp; &nbsp;&nbsp;// allocate space for 20 32-bit integers
+</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">int Width[6];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 6 signed, precision depends
+on compiler</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">char
+Image[5][10];&nbsp; // allocate space for 50 8-bit
+integers</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">short
+Points[5][5][5];// allocate space for 125
+16-bit ints</span></b></p>
+
+<p class="BodyText">&nbsp;</p>
+
+<p class="BodyText">If you would like the compiler to initialize to
+something
+other than zero, you can explicitly define the initial values. Again,
+this
+initialization will occur before your main is executed. Even though
+they have
+nonzero initial values, these arrays are in RAM, and thus can be
+modified at
+run time.</p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">short
+Data[5]={1,-1,2,-2,6};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long
+scores[20]={-2,-1,0,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}
+</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">int
+Width[6]={-10,-20,10,100,2000,40}; &nbsp;&nbsp;&nbsp;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">short
+Image[5][10]={</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,1,1,1,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,0,1,0,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,0,1,0,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,0,0,0,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,0,1,1,1,1,1,0,0}};</span></b></p>
+
+<p class="MsoBodyText">&nbsp;</p>
+
+<p class="PictureWide"><span lang="EN-AU"><img style="border: 0px solid ; width: 500px; height: 363px;" alt="Arrays in Memory" src="C9_ArrayFunctionalDebugging_files/image001.gif"></span></p>
+
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt 5.75pt;">Figure
+9.1. The <b><span style="font-family: &quot;Courier New&quot;;">Data</span></b>
+array has <span style="color: black;">5</span> 16-bit elements, and
+the <b><span style="font-family: &quot;Courier New&quot;;">scores</span></b>
+array has <span style="color: black;">20</span> 32-bit elements. </p>
+
+<p class="MsoBodyText">&nbsp;</p>
+
+<p class="BodyText">If the array contains constants, and we know the
+values at
+compile time, we can place the data in ROM using the <b><span style="font-family: &quot;Courier New&quot;;">const</span></b> modifier. For
+ROM-based data, we must define
+the value explicitly in the software. These arrays are in ROM, and thus
+cannot
+be modified at run time.</p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">const short
+Data2[5]={1,2,3,4,5};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">const long
+scores2[20]={-2,-1,0,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}
+</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">const int
+Width2[6]={-10,-20,10,100,2000,40}; &nbsp;&nbsp;&nbsp;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">const short
+Image2[5][10]={</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,1,1,1,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,0,1,0,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,0,1,0,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,1,0,0,0,0,0,1,0},</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+{0,0,0,1,1,1,1,1,0,0}};</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="BodyText">In a formal way, <b><span style="font-family: &quot;Courier New&quot;;">const</span></b>
+actually means &ldquo;constant&rdquo;. More specifically it means the
+executing software
+cannot change the value at run time. This means in C programs not
+implemented
+on an embedded system, <b><span style="font-family: &quot;Courier New&quot;;">const</span></b>
+data could be stored in RAM, initialized at startup. In this case, the <b><span style="font-family: &quot;Courier New&quot;;">const</span></b> modifier simply
+means the
+running program cannot change the values. However, in the class we are
+writing
+C code that will be deployed into a microcontroller as part of an
+embedded
+system, so <b><span style="font-family: &quot;Courier New&quot;;">const</span></b>
+data
+will be stored in ROM.</p>
+
+<p class="MsoBodyText">When an array element is referenced, the
+subscript
+expression designates the desired element by its position in the data.
+The
+first element occupies position zero, the second position one, and so
+on. It
+follows that the last element is subscripted by [N-1] where N is the
+number of
+elements in the array. The statement</p>
+
+<p class="MsoBodyText"><b><span style="font-family: &quot;Courier New&quot;;">scores</span></b><b><span style="font-family: &quot;Courier New&quot;;">[9] = 0;</span></b></p>
+
+<p class="MsoBodyText">for instance, sets the tenth element of the
+array to zero.
+The array subscript can be any expression that results in an integer.
+The
+following for-loop clears 20 elements of the array data to zero.</p>
+
+<p class="MsoBodyText"><b><span style="font-family: &quot;Courier New&quot;;">for(j=0;j&lt;20;j++)
+</span></b><b><span style="font-family: &quot;Courier New&quot;;">scores</span></b><b><span style="font-family: &quot;Courier New&quot;;">[j] = 0;</span></b></p>
+
+<p class="MsoBodyText">If the array has two dimensions, then two
+subscripts are
+specified when referencing. As programmers we may any assign logical
+meaning to
+the first and second subscripts. For example we could consider the
+first
+subscript as the row and the second as the column. Then, the statement</p>
+
+<p class="MsoBodyText"><b><span style="font-family: &quot;Courier New&quot;;">TheValue
+=
+Image[3][5];</span></b></p>
+
+<p class="MsoBodyText">copies the information from the 4th row 6th
+column into
+the variable <b><span style="font-family: &quot;Courier New&quot;;">TheValue</span></b>.
+If
+the array has three dimensions, then three subscripts are specified
+when
+referencing. Again we may assign any logical meaning to the various
+subscripts.
+For example we could consider the first subscript as the x coordinate,
+the
+second subscript as the y coordinate and the third subscript as the z
+coordinate. Then, the statement</p>
+
+<p class="MsoBodyText"><b><span style="font-family: &quot;Courier New&quot;;">Points[2][3][4]=100;</span></b></p>
+
+<p class="MsoBodyText">sets the values at position (2,3,4) to 100.
+Array
+subscripts are treated as signed integers. It is the programmer's
+responsibility to see that only positive values are produced, since a
+negative
+subscript would refer to some point in memory preceding the array. One
+must be
+particularly careful about assuming what existing either in front of or
+behind
+our arrays in memory. </p>
+
+<div style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color windowtext; border-width: medium medium 1.5pt; padding: 0in 0in 3pt;">
+<p class="MsoNormal" style="border: medium none ; padding: 0in; text-align: justify;">&nbsp;</p>
+
+</div>
+
+<p class="BodyText"><b>Example 9.1.</b><i> </i>Assume there are 50
+students in
+the class, and their grades on the first exam are stored in an array.
+Write a
+function that calculates and returns class average. Write a second
+function
+that finds and returns the highest grade on the exam. </p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><b>Solution:</b><i>
+</i>Assuming the grades vary from 0 to 100, the data could be stored in
+<b><span style="font-family: &quot;Courier New&quot;;">char</span></b>, <b><span style="font-family: &quot;Courier New&quot;;">short</span></b> or <b><span style="font-family: &quot;Courier New&quot;;">long</span></b>
+format. To be compatible with the ARM architecture, we will create a
+32-bit
+array. In this example, we will not worry about how grades are entered,
+but
+assume there is data in this array. </p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long Grades[50];</span></b></p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;">To calculate
+average, we sum the values and divide by the number of students. The
+return
+statement will return the 32-bit calculation of sum/50. This will never
+create
+an error, because the sum of 50 numbers ranging from 0 to 100 will
+always be
+less than 4 trillion (2<sup>32</sup>) and the average of these numbers
+will
+never go below 0 or above 100. </p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long
+Average(void){long sum,i;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; sum = 0;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; for(i=0;
+i&lt;50; i++){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+sum = sum+Grades[i];</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; return
+(sum/50);</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt 62.65pt;">Program
+9.3. A function that
+calculates the average of data stored in an array.</p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><span style="font-size: 6pt;">&nbsp;</span></p>
+
+<p class="MsoBodyText">To make this more general, we will pass in the
+array and
+the size.&nbsp; </p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long Average(long
+class[],long size){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long sum,i;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; sum = 0;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; for(i=0;
+i&lt;size; i++){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+sum = sum+class[i];&nbsp; // add up all values</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; return
+(sum/size);</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoBodyText">The array parameter is actually a pointer to the
+array. So
+to use this new function we call</p>
+
+<p class="MsoBodyText"><b><span style="font-family: &quot;Courier New&quot;;">&nbsp;
+MyClassAverage = Average(Grades, 50);</span></b></p>
+
+<p class="MsoBodyText">Similarly to find the largest we will search the
+array. We
+initialized the result parameter (<b>largest</b>) to the smallest possible answer, and
+then
+every time we find one larger, we replace the result parameter.&nbsp; </p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long Max(long
+class[],long size){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long largest,i;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; largest =
+0;&nbsp; // smallest possible value</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; for(i=0;
+i&lt;size; i++){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if(class[i] &gt; largest){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+largest = class[i];&nbsp; // new maximum</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp;&nbsp;}</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; return
+(largest);</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoBodyText">To use this new function we call</p>
+
+<p class="MsoBodyText" style="margin-left: 1in;"><b><span style="font-family: &quot;Courier New&quot;;">&nbsp; HighestsScore = Max(Grades,
+50);</span></b></p>
+
+<div style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth"><span style="font-size: 5pt;">&nbsp;</span></p>
+
+</div>
+
+<p class="MsoBodyText">&nbsp;</p>
+
+<div style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color windowtext; border-width: medium medium 1.5pt; padding: 0in 0in 3pt;">
+<p class="MsoNormal" style="border: medium none ; padding: 0in; text-align: justify;">&nbsp;</p>
+
+</div>
+
+<p class="BodyText"><b>Example 9.2.</b><i> </i>Design an exponential
+function, <i>y</i>
+= 10<i><sup>x</sup></i>, with a<span style="color: black;"> 32-bit
+output. </span></p>
+
+<p class="BodyText"><b>Solution:</b> Since the output is less than
+4,294,967,295,
+the input must be between 0 and 9. One simple solution is to employ a
+constant
+word array, as shown in Figure 9.3. Each element is 32 bits. In
+assembly, we
+define a word constant using <b><span style="font-family: &quot;Courier New&quot;;">DCD</span></b>,
+making sure in exists in ROM.</p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;">In C, the
+syntax for accessing all array types is independent of precision. See
+Program 9.4.
+The compiler automatically performs the correct address correction. We
+will
+assume the input is less than or equal to 9. If <b><span style="font-family: &quot;Courier New&quot;;">x</span></b> is the index and <b><span style="font-family: &quot;Courier New&quot;;">Base</span></b>
+is the base address of the array, then the address of the element at <b><span style="font-family: &quot;Courier New&quot;;">x</span></b> is <b><span style="font-family: &quot;Courier New&quot;;">Base+4*x</span></b>. <span style="color: black;">In assembly, we
+can access the array using indexed addressing. We will assume the
+input (which is in Register R0)
+is less than or equal to 9. We show the asembly equivalent of the C code below (and examples that follow) just to pique your curiosity, you may ignore it if you choose.</span></p>
+
+<table class="MsoNormalTable" style="border: medium none ; margin-left: 167.4pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000134</span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">1</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000138</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">10</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x0000013C</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">100</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000140</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">1,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000144</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">10,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000148</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">100,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x0000014C</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">1,000,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000150</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">10,000,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000154</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">100,000,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0in 5.4pt; width: 76.85pt;" valign="top" width="154">
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: &quot;Courier New&quot;;">0x00000158</span></b></p>
+
+      </td>
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 96.65pt;" valign="top" width="193">
+      
+      <p class="MsoNormal" style="text-align: right;" align="right"><b><span style="font-family: &quot;Courier New&quot;;">1,000,000,000</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt 5.75pt;">Figure
+9.2. A word array with <span style="color: black;">10</span> elements.
+Addresses illustrate the array is
+stored in ROM as 4 bytes each.</p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><span style="font-size: 6pt; color: black;">&nbsp;</span></p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><span style="font-size: 6pt; color: black;">&nbsp;</span></p>
+
+<table class="MsoNormalTable" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 233.4pt;" valign="top" width="467">
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AREA&nbsp; |.text|,CODE,READONLY,ALIGN=2</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">Powers DCD&nbsp;
+1, 10, 100, 1000, 10000</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DCD&nbsp; 100000, 1000000, 10000000</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DCD&nbsp; 100000000, 1000000000</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">; Input:
+R0=x&nbsp;&nbsp;&nbsp; Output: R0=10^x</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">power&nbsp;
+LSL R0, R0, #2&nbsp;&nbsp; ; x = x*4</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">LDR R1,
+=Powers&nbsp; ; R1 = &amp;Powers</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDR R0, [R0, R1] ; y=Powers[x]</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BX&nbsp; LR&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 3in;" valign="top" width="432">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">const unsigned
+long Powers[10]</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;
+={1,10,100,1000,10000,</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+100000,1000000,10000000,</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+100000000,1000000000};</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">unsigned long
+power(unsigned long x){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; return
+Powers[x];&nbsp;&nbsp; </span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt 5.75pt;">Program
+9.4. Array implementation of
+a nonlinear function.</p>
+
+<div style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth"><span style="font-size: 5pt;">&nbsp;</span></p>
+
+</div>
+
+<p class="BodyText">In general, let <b><span style="font-family: &quot;Courier New&quot;;">n</span></b>
+be the precision of a zero-origin indexed array in bytes. If <b><span style="font-family: &quot;Courier New&quot;;">I</span></b> is the index and <b><span style="font-family: &quot;Courier New&quot;;">Base</span></b> is the beginning
+address of
+the array, then the address of the element at <b><span style="font-family: &quot;Courier New&quot;;">I</span></b>
+is</p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Base+n*I</span></b></p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 8pt;">&nbsp;</span></p>
+
+<p class="BodyText">The origin&nbsp;of an array is the index of the
+first element. The
+origin of a zero-origin indexed array is zero. In general, if <b><span style="font-family: &quot;Courier New&quot;;">o</span></b> is the origin of the
+array, then
+the address of the element at <b><span style="font-family: &quot;Courier New&quot;;">I</span></b>
+is</p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">Base+n*(I-o)</span></b></p>
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="9_4"></a>
+<h2>9.4. Strings</h2>
+
+</div>
+
+<p class="BodyText" style="margin-right: 31.15pt;">A <b>string</b>&nbsp;is
+simply an array of ASCII characters. In C, strings are automatically null-terminated by the compiler:</p>
+<p class="MsoNormal" style="margin: 0in 31.15pt 0.0001pt 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">const char
+Hello[] = "Hello world\n\r"; </span></b></p>
+
+<p class="MsoNormal" style="margin: 0in 31.15pt 0.0001pt 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">const char Name[]
+= "Yerraballi"; </span></b></p>
+
+<p class="MsoNormal" style="margin-right: 31.15pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;</span></b></p>
+
+<p class="BodyText" style="margin-right: 31.15pt;"><img style="border: 0px solid ; width: 80px; height: 248px;" alt="Hello" src="C9_ArrayFunctionalDebugging_files/image002.gif">&nbsp;&nbsp;&nbsp; <img style="border: 0px solid ; width: 80px; height: 211px;" alt="Name" src="C9_ArrayFunctionalDebugging_files/image003.gif"></p>
+
+<p class="BodyText" style="margin-right: 31.15pt;">When defining
+constant strings
+or arrays we must specify their value because the data will be loaded
+into ROM
+and cannot be changed at run time. In the previous constant arrays we
+specified
+the size; however for constant arrays the size can be left off and the
+compiler
+will calculate the size automatically. Notice also the string can
+contain
+special characters, some of which are listed in Table 9.1. The <b><span style="font-family: &quot;Courier New&quot;;">Hello</span></b> string has 13
+characters
+followed by a null (0) termination. </p>
+
+<p class="MsoBodyText">&nbsp;</p>
+
+<table class="MsoNormalTable" style="border: medium none ; width: 2.75in; margin-left: 47.4pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" width="396">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border-style: solid none; border-color: black -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><i>Character</i></p>
+
+      </td>
+
+      <td style="border-style: solid none; border-color: black -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><i>Escape
+Sequence</i></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">alert
+(beep) </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\a </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">backslash
+      </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\\ </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">backspace
+      </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\b </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">carriage
+return </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\r </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">double
+quote </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\" </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">form
+feed </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\f </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">horizontal
+tab </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\t </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">newline </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\n </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">null
+character </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\0 </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">single
+quote </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\' </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">vertical
+tab </p>
+
+      </td>
+
+      <td style="border: medium none ; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\v </span></b></p>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color black; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 96pt;" valign="top" width="192">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;">question
+mark </p>
+
+      </td>
+
+      <td style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color black; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 102pt;" valign="top" width="204">
+      
+      <p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span style="font-family: &quot;Courier New&quot;;">\?</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="TableHeading">Table 9.1. Escape sequences.</p>
+
+<p class="BodyText">&nbsp;</p>
+
+<p class="BodyText">Note, that in C, ASCII strings are stored with
+null-termination. So, the C compiler automatically adds the zero at the end, but in
+assembly, the
+zero must be explicitly defined. </p>
+
+<p class="BodyText">&nbsp;</p>
+
+<div style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color windowtext; border-width: medium medium 1.5pt; padding: 0in 0in 3pt;">
+<p class="MsoNormal" style="border: medium none ; padding: 0in; text-align: justify;">&nbsp;</p>
+
+</div>
+
+<p class="BodyText"><b>Example 9.3. </b>Write software to output an
+ASCII string
+an output device. </p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><b>Solution:</b>
+Because the length of the string may be too long to place all the ASCII
+characters into the registers at the same time, call by reference
+parameter
+passing will be used. With call by reference, a pointer to the string
+will be
+passed. The function <b><span style="font-family: &quot;Courier New&quot;;">OutString</span></b>,
+shown in Program 9.5, will output the string data to the display. We will assume the
+function <b><span style="font-family: &quot;Courier New&quot;;">OutChar</span></b>
+is given to us, which outputs a single
+ASCII character. In C, we process one character (<b>*pt</b> gives us the current character) of the string 
+in each iteration of the while loop, which ends when the null value is reached. Each iteration advances the pointer by incrementing it (<b>pt++</b>).  
+In the assembly version, R4 is used as a pointer to the string; one is added
+to the
+pointer each time through the loop because each element in the string
+is one byte. Since this function calls a subfunction it must save its original return address (LR). The POP
+PC operation will perform the function return.</p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><span style="font-size: 6pt;">&nbsp;</span></p>
+
+<table class="MsoNormalTable" style="border: medium none ; margin-left: 41.4pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 221.4pt;" valign="top" width="443">
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">;Input: R0 points
+to string</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">OutString</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">PUSH
+{R4, LR} </span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+MOV&nbsp; R4,
+R0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">loop
+LDRB R0, [R4]</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+ADD&nbsp; R4, #1&nbsp; ;next</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">CMP&nbsp; R0,
+#0&nbsp; ;done?&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+BEQ&nbsp; done&nbsp;&nbsp;&nbsp; ;0
+termination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+BL&nbsp;&nbsp; OutChar ;print character</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+B&nbsp;&nbsp;&nbsp; loop&nbsp;&nbsp; </span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">done POP&nbsp;
+{R4, PC}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 186pt;" valign="top" width="372">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">// displays a
+string</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">void
+OutString(char *pt){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; while(*pt){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+OutChar(*pt); // output</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+pt++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;// next</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt 5.75pt;">Program
+9.5. A variable length string
+contains ASCII data.</p>
+
+<div style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth"><span style="font-size: 5pt;">&nbsp;</span></p>
+
+</div>
+
+<p class="Checkpoint" style="margin-bottom: 0.0001pt;"><b>Observation:</b>
+Most C compilers have standard libraries. If you include
+&ldquo;string.h&rdquo; you will
+have access to many convenient string operations. </p>
+
+<p class="Checkpoint" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+
+<p class="MsoBodyText">When dealing with strings we must remember that
+they are
+arrays of characters with null termination. In C, we can pass a string
+as a
+parameter, but doing so creates a constant string and implements call
+by
+reference. Assuming <b><span style="font-family: &quot;Courier New&quot;;">Hello</span></b>
+is as defined above, these three invocations are identical:</p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+OutString(Hello);</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+OutString(&amp;Hello[0]);</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+OutString("Hello world\n\r");</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoBodyText">&nbsp;Previously we dealt with constant strings.
+With string
+variables, we do not know the length at compile time, so we must
+allocate space
+for the largest possible size the string could be. E.g., if we know the
+string
+size could vary from 0 to 19 characters, we would allocate 20 bytes. </p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">char String1[20];</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 56.9pt;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">char String2[20];</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 3pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoBodyText">In C, we cannot assign one string to another.
+I.e., these
+are illegal</p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+String1 = "Hello";&nbsp;&nbsp; //********illegal************</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+String2 = String1;&nbsp;&nbsp;
+//********illegal************</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="MsoBodyText">We can make this operation occur by calling a
+function
+called <b><span style="font-family: &quot;Courier New&quot;;">strcpy</span></b>,
+which copies one string to another. This function takes two pointers.
+We must
+however make sure the destination string has enough space to hold the
+string
+being copied.</p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+strcpy(String1,"Hello");&nbsp; // copies
+"Hello" into String1</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+strcpy(String2,String1);&nbsp; // copies String1
+into String2</span></b></p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<p class="BodyText">Program 9.6 shows two implementations of this
+string copy&nbsp;function. R0 and R1 are pointers, and R2 contains the
+data as it is being copied.
+In this case, <b><span style="font-family: &quot;Courier New&quot;;">dest++;</span></b>
+is
+implemented as an &ldquo;add 1&rdquo; because the data is one byte
+each (char). In other non-string
+situations, the increment pointer would be &ldquo;add 2&rdquo; for
+halfword data (short) and would
+be &ldquo;add 4&rdquo; for word data(long). Again, the C compiler does this automatically, but when writing in assembly one has to do this explicitly.</p>
+
+<table class="MsoNormalTable" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 221.4pt;" valign="top" width="443">
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">;
+Input: R0=&amp;dest&nbsp;&nbsp;&nbsp; R1=&amp;source</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">strcpy
+LDRB R2,[R1]&nbsp; ;source data</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STRB R2,[R0]&nbsp; ;copy</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">CMP&nbsp;
+R2,#0&nbsp;&nbsp;&nbsp; ;termination?</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BEQ&nbsp; done</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADD&nbsp; R1,#1&nbsp;&nbsp;&nbsp; ;next</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADD&nbsp; R0,#1</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+B&nbsp;&nbsp; &nbsp;strcpy</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">done&nbsp;&nbsp;
+BX&nbsp; &nbsp;LR</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">;faster
+version </span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">strcpy
+LDRB R2,[R1],#1 ;source data</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STRB R2,[R0],#1 ;copy</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">CMP&nbsp;
+R2,#0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;termination?</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BEQ&nbsp; done</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+B&nbsp;&nbsp; &nbsp;strcpy</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">done&nbsp;&nbsp;
+BX&nbsp; &nbsp;LR&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 228pt;" valign="top" width="456">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">// copy string
+from source to dest</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">void strcpy(char
+*dest, char *source){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;
+while(*source){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp;&nbsp;*dest = *source;&nbsp; // copy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+dest++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+next</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+source++;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; *dest =
+*source;&nbsp; &nbsp;// termination </span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">// another version</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">void strcpy(char
+*dest, char *source){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">char data;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; do{</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp; data
+= *dest++ = *source++;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; }
+while(data); </span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoCaption" style="margin-bottom: 7pt;">Program 9.6. Simple
+string copy
+functions.</p>
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></b></p>
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="9_5"></a>
+<h2>9.5. Functional debugging</h2>
+
+</div>
+
+<!--- Start C9_video_3 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/MPMa70YEFB4?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+</p>
+
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>9.3<span lang="en-US">. Testing and Debugging - Intrusiveness</span></p>
+
+<!--- End C9_video_3 --->
+<h3><a name="_Toc357151012"></a><a name="_Toc293059555">9.5.1.
+Stabilization</a></h3>
+
+<p class="BodyText"><b>Functional debugging</b> involves the
+verification of
+input/output parameters. Functional debugging is a static process where
+inputs
+are supplied, the system is run, and the outputs are compared against
+the
+expected results. Four methods of functional debugging&nbsp;are
+presented in this section. There
+are two important aspects of debugging: control and observability. The
+first
+step of debugging is to <b>stabilize</b>&nbsp;the system. In the
+debugging context,
+we stabilize the system by creating a test routine that fixes (or
+stabilizes)
+all the inputs. In this way, we can reproduce the exact inputs over and
+over
+again. Stabilization is an effective approach to debugging because we
+can
+control exactly what software is being executed. Once stabilized, if we
+modify
+the program, we are sure that the change in our outputs is a function
+of the
+modification we made in our software and not due to a change in the
+input
+parameters. When a system has a small number of possible inputs (e.g.,
+less
+than a million), it makes sense to test them all. When the number of
+possible
+inputs is large we need to choose a set of inputs. There are many ways
+to make
+this choice. We can select values: </p>
+
+<p class="BulletList"><span lang="X-NONE">Near the extremes and in the
+middle</span></p>
+
+<p class="BulletList"><span lang="X-NONE">Most typical of how our
+clients will
+properly use the system </span></p>
+
+<p class="BulletList"><span lang="X-NONE">Most typical of how our
+clients will
+improperly </span>attempt to <span lang="X-NONE">use the system </span></p>
+
+<p class="BulletList"><span lang="X-NONE">That differ by one</span></p>
+
+<p class="BulletList"><span lang="X-NONE">You know your system will
+find difficult</span></p>
+
+<p class="BulletList"><span lang="X-NONE">Using a random number
+generator</span></p>
+
+<p class="BulletList"><span lang="X-NONE">&nbsp;</span></p>
+
+<p class="BodyText">To stabilize the system we define a fixed set of
+inputs to test,
+run the system on these inputs, and record the outputs. Debugging is a
+process
+of finding patterns in the differences between recorded behavior and
+expected
+results. The advantage of modular programming is that we can perform
+modular
+debugging. We make a list of modules that might be causing the bug. We
+can then
+create new test routines to stabilize these modules and debug them one
+at a
+time. Unfortunately, sometimes all the modules seem to work, but the
+combination of modules does not. In this case we study the interfaces
+between
+the modules, looking for intended and unintended (e.g., unfriendly
+code)
+interactions.</p>
+
+<h3><a name="_Toc357151013"></a><a name="_Toc293059556">9.5.2. Single
+Stepping</a></h3>
+
+<p class="BodyText">Many debuggers allow you to set the program counter
+to a
+specific address then execute one instruction at a time. The debugger<b>
+</b>provides
+three stepping commands <b>Step</b>,&nbsp; <b>StepOver</b> and <b>StepOut</b>
+commands. <b>Step</b> is the usual execute one assembly instruction.
+However,
+when debugging C we can also execute one line of C. <b>StepOver</b>
+will
+execute one assembly instruction, unless that instruction is a
+subroutine call,
+in which case the debugger will execute the entire subroutine and stop
+at the
+instruction following the subroutine call. <b>StepOut</b> assumes the
+execution
+has already entered a subroutine, and will finish execution of the
+subroutine
+and stop at the instruction following the subroutine call.</p>
+
+<h3><a name="_Toc357151014"></a><a name="_Toc293059557">9.5.3.
+Breakpoints</a></h3>
+
+<p class="BodyText">A <b>breakpoint</b>&nbsp;is a mechanism to tag
+places in our
+software, which when executed will cause the software to stop.
+Normally, you
+can break on any line of your program.</p>
+
+<p class="BodyText">One of the problems with breakpoints is that
+sometimes we
+have to observe many breakpoints before the error occurs. One way to
+deal with
+this problem is the conditional breakpoint. To illustrate the
+implementation of
+conditional breakpoints, add a global variable called <b><span style="font-family: &quot;Courier New&quot;;">Count</span></b> and initialize it
+to 32 in
+the initialization ritual. Add the following conditional breakpoint to
+the
+appropriate location in your software. Using the debugger, we set a
+regular
+breakpoint at <b><span style="font-family: &quot;Courier New&quot;;">bkpt</span></b>.
+We
+run the system again (you can change the 32 to match the situation that
+causes
+the error.)</p>
+
+<table class="MsoNormalTable" style="border: medium none ; margin-left: 35.4pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 306.9pt;" valign="top" width="614">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">PUSH
+{R1, R2}&nbsp;&nbsp; ; save R1 and R2</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">LDR &nbsp;R2,
+=Count ; R2 = Count</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R1, [R2]&nbsp;&nbsp; ; R1 = Count</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SUBS R1, R1, #1 ; Count = Count &ndash; 1</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STR&nbsp; R1, [R2]&nbsp;&nbsp; ; store to Count</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BNE&nbsp; DEBUG_skip ; if Count != 0, skip </span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">DEBUG_bkpt
+NOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; put breakpoint here</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">DEBUG_skip
+POP {R1, R2}&nbsp;&nbsp;&nbsp; ; restore R1 and R2</span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 106.5pt;" valign="top" width="213">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">if(--Count==0)</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;
+bkpt&nbsp; &nbsp;&nbsp; </span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="BodyText">&nbsp;</p>
+
+<p class="BodyText">Notice that the breakpoint occurs only on the 32<sup>nd</sup>
+time the break is encountered. Any appropriate condition can be
+substituted. Most
+modern debuggers allow you to set breakpoints that will trigger on a
+count. However,
+this method allows flexibility of letting you choose the exact
+conditions that
+cause the break.</p>
+
+<h3><a name="_Toc357151015"></a><a name="_Toc293059559">9.5.4.
+Instrumentation:
+Print Statements</a></h3>
+
+<p class="BodyText">The use of print statements is a popular and
+effective means
+for functional debugging. One difficulty with print statements in
+embedded
+systems is that a standard &ldquo;printer&rdquo; may not be available.
+Another problem with
+printing is that most embedded systems involve time-dependent
+interactions with
+its external environment. The print statement itself may be so slow,
+that the
+debugging process itself causes the system to fail. In this regard, the
+print
+statement is <b>intrusive</b>. Therefore, throughout this book we will
+utilize
+debugging methods that do not rely on the availability of a standard
+output
+device.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h3><a name="_Toc357151033"></a><a name="_Toc293059590">9.5.5.
+Instrumentation:
+Dump into Array without Filtering</a></h3>
+
+<p class="BodyText">There are three limitations of using print
+statements to
+debug. First, many embedded systems do not have a standard output
+device onto
+which we could stream debugging information. A second difficulty with
+print
+statements is that they can significantly slow down the execution speed
+in
+real-time systems. The bandwidth of the print functions often cannot
+keep pace
+with the real-time execution. For example, our system may wish to call
+a
+function 1000 times a second (or every 1 ms). If we add print
+statements to it
+that require more than 1 ms to perform, the presence of the print
+statements
+will cause the system to crash. In this situation, the print statements
+would
+be considered extremely intrusive. Another problem with print
+statements occurs
+when the system is using the same output hardware for its normal
+operation, as
+is required to perform the print function. For example, your watch may
+have an
+LCD, but that display is used to implement the watch functionality. If
+we
+output debugging information to the LCD, the debugger output and normal
+system
+output are intertwined. </p>
+
+<p class="BodyText">To solve these limitations, we can add a debugging
+instrument
+that dumps strategic information into an array at run time. We can then
+observe
+the contents of the array at a later time. One of the advantages of
+dumping is
+that the JTAG&nbsp;debugger allows you to visualize memory even when
+the program is
+running. So this technique will be quite useful in systems with a JTAG
+debugger. Assume <b><span style="font-family: &quot;Courier New&quot;;">happy</span></b>
+and <b><span style="font-family: &quot;Courier New&quot;;">sad</span></b> are
+strategic
+8-bit variables. The first step when instrumenting a dump is to define
+a buffer
+in RAM to save the debugging measurements. </p>
+
+<table class="MsoNormalTable" style="border: medium none ; margin-left: 47.4pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 174pt;" valign="top" width="348">
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SIZE&nbsp;&nbsp;&nbsp;&nbsp;
+EQU 20</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">HappyBuf SPACE
+SIZE</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SadBuf&nbsp;&nbsp;
+SPACE SIZE</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Cnt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SPACE 4</span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 220.5pt;" valign="top" width="441">
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define SIZE 20</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned char
+HappyBuf[SIZE];</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned char
+SadBuf[SIZE];</span></b></p>
+
+      
+      <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned long Cnt;</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 8pt;">&nbsp;</span></p>
+
+<p class="BodyText">The <b><span style="font-family: &quot;Courier New&quot;;">Cnt</span></b>
+will be used to index into the buffers. <b><span style="font-family: &quot;Courier New&quot;;">Cnt</span></b>
+must be initialized to zero, before the debugging begins. The debugging
+instrument, shown in Program 9.7, dumps the strategic variables into
+the
+buffers. When writing debugging instruments it is good style to
+preserve all
+registers.</p>
+
+<table class="MsoNormalTable" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 3in;" valign="top" width="432">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">Save
+PUSH {R0-R3,LR}</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R0,=Cnt&nbsp; ;R0 = &amp;Cnt</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R1,[R0]&nbsp; ;R1 = Cnt</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+CMP&nbsp; R1,#SIZE</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">BHS&nbsp;
+done&nbsp;&nbsp;&nbsp;&nbsp; ;full?</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R3,=Happy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">LDRB
+R3,[R3]&nbsp; ;R3 is happy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R2,=HappyBuf</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+STRB R3,[R2,R1] ;save happy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R3,=Sad</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDRB R3,[R3]&nbsp; ;R3 is sad</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R2,=SadBuf</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+STRB R3,[R2,R1] ;save sad</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+ADD&nbsp; R1,#1</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+STR&nbsp; R1,[R0] ;save Cnt&nbsp; </span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">done
+POP&nbsp; {R0-R3,PC}</span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 3in;" valign="top" width="432">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">void Save(void){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; if(Cnt &lt;
+SIZE){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+HappyBuf[Cnt] = happy;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+SadBuf[Cnt] = sad;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Cnt++;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoCaption">Program 9.7. Instrumentation dump.</p>
+
+<p class="BodyText" style="margin-bottom: 0.0001pt;">Next, you add
+<b><span style="font-family: &quot;Courier New&quot;;">BL Save</span></b>
+statements at
+strategic places within the system. You can either use the debugger to
+display
+the results, or add software that prints the results after the program
+has run
+and stopped.</p>
+
+<h3><a name="_Toc357151034"></a><a name="_Toc293059591">9.5.6.
+Instrumentation:
+Dump into Array with Filtering.</a></h3>
+
+<p class="BodyText">One problem with dumps is that they can generate a
+tremendous
+amount of information. If you suspect a certain situation is causing
+the error,
+you can add a <b>filter</b> to the instrument. A filter&nbsp;is a
+software/hardware
+condition that must be true in order to place data into the array. In
+this
+situation, if we suspect the error occurs when another variable gets
+large, we
+could add a filter that saves in the array only when the variable is
+above a
+certain value. In the example shown in Program 9.8, the instrument
+dumps only
+when <b><span style="font-family: &quot;Courier New&quot;;">sad</span></b> is
+greater than
+100.</p>
+
+<table class="MsoNormalTable" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+
+    <tr>
+
+      <td style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 3in;" valign="top" width="432">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">Save
+PUSH {R0-R3,LR}</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R3,=Sad</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDRB R3,[R3]&nbsp; ;R3 is sad</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">CMP&nbsp; R3,#100</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+BLS&nbsp; done&nbsp;&nbsp;&nbsp;&nbsp; ;assuming unsigned</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">LDR&nbsp;
+R0,=Cnt&nbsp; ;R0 = &amp;Cnt</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R1,[R0]&nbsp; ;R1 = Cnt</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">CMP&nbsp; R1,#SIZE</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+BHS&nbsp; done&nbsp;&nbsp;&nbsp;&nbsp; ;full?</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></b><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">LDR&nbsp;
+R2,=SadBuf</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+STRB R3,[R2,R1] ;save sad</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R3,=Happy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDRB R3,[R3]&nbsp; ;R3 is happy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+LDR&nbsp; R2,=HappyBuf</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+STRB R3,[R2,R1] ;save happy</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+ADD&nbsp; R1,#1</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;
+STR&nbsp; R1,[R0] ;save Cnt&nbsp; </span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">done
+POP&nbsp; {R0-R3,PC}&nbsp;&nbsp;&nbsp;&nbsp; </span></b></p>
+
+      </td>
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 3in;" valign="top" width="432">
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">void Save(void){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; if(sad &gt;
+100){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if(Cnt &lt; SIZE*2){</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;HappyBuf[Cnt] = happy;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;SadBuf[Cnt] = sad;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;Cnt++;</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></b></p>
+
+      
+      <p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+      </td>
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<p class="MsoCaption">Program 9.8. Instrumentation dump with filter.</p>
+
+<h3>9.5.7. Prove that our system is functioning as intended.</h3>
+
+<!--- Start C9_video_4 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/zGX-3FEN5IY?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+</p>
+
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>9.4<span lang="en-US">. Making the case for Functional Debugging</span></p>
+
+<!--- End C9_video_4 --->
+
+<p class="BodyText">When embedded systems are deployed in safety
+critical
+situations we need to document how the system was tested, and provide
+proof it
+is functioning as intended. We will illustrate the process with the
+example from
+module 2. In Lab02 the goal was to create a system that toggled the
+light at 5
+Hz. This means the red LED should be on for 0.1 sec and off for 0.1
+sec. If we
+look at the LED with our eyes it looks like it is running correctly. If
+we look
+at the signal on the oscilloscope or logic analyzer, again it looks
+correct.
+But can we prove it? In this first debugging process we will dump the
+value of
+PF1 in one array and the time difference in a second array, see Program
+9.9.
+When we run this program, it reveals all 49 measurements where the average time
+difference is 
+1,599,996 bus cycles, which is 0.09999975 seconds, which is close to
+the
+desired time of 0.1 second.</p>
+
+<!--- Start C9_video_5 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/QLZLfkZn7Jo?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+</p>
+
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>9.5<span lang="en-US">. Functional Debugging with Lab02 modified</span></p>
+
+<!--- End C9_video_5 --->
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">// first data
+point is wrong, the other 49 will be
+correct</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned long
+Time[50];</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned long
+Data[50];</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">int
+main(void){&nbsp; <b>unsigned long i,last,now;</b></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// initialize PF0 and PF4 and make
+them inputs</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+PortF_Init();&nbsp;&nbsp; // make PF3-1 out (PF3-1 built-in
+LEDs)</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+SysTick_Init(); // initialize SysTick, runs at 16
+MHz</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; i =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // array index</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; last =
+NVIC_ST_CURRENT_R;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; while(1){</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Led = GPIO_PORTF_DATA_R;&nbsp;&nbsp; // read previous</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Led =
+Led^0x02;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// toggle red LED</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+GPIO_PORTF_DATA_R = Led;&nbsp;&nbsp; // output </span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if(i&lt;50){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+now = NVIC_ST_CURRENT_R;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Time[i] = (last-now)&amp;0x00FFFFFF;&nbsp; //
+24-bit time difference</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Data[i] = GPIO_PORTF_DATA_R&amp;0x02; //
+record PF1</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+last = now;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i++;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Delay();</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></p>
+
+<p class="MsoCaption" style="margin-left: 41.75pt;">Program 9.9.
+Instrumentation to
+record the first 49 time differences (debugging shown in bold).</p>
+
+<p class="BodyText">However compelling this data is, it doesn&rsquo;t
+prove it is
+always 0.1 sec. Let&rsquo;s further specify the desire is to create a
+system that is
+accurate to &plusmn;0.01%. This means any time difference
+1,600,000&plusmn;160 cycles is
+acceptable. In Program 9.10 we will count the number of times the time
+difference
+is unacceptable. If we run this program for a month we can observe its
+behavior
+over 25 million times. Furthermore, we can leave this debugging code
+into the
+deployed system, and verify the system is running as expected for the
+entire
+life of the system.</p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">// first data
+point is wrong, the others will be
+correct</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">long Errors;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define CORRECT
+1600000</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define TOLERANCE
+160</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">int main(void){<b>&nbsp;
+unsigned long last,now,diff;</b></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// initialize PF0 and PF4 and make
+them inputs</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+PortF_Init();&nbsp;&nbsp; // make PF3-1 out (PF3-1 built-in
+LEDs)</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+SysTick_Init(); // initialize SysTick, runs at 16
+MHz</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; Errors =
+-1;&nbsp;&nbsp; &nbsp;// no errors (ignore first
+measurement)</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; last =
+NVIC_ST_CURRENT_R;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; while(1){</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Led = GPIO_PORTF_DATA_R;&nbsp;&nbsp; // read previous</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Led =
+Led^0x02;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// toggle red LED</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+GPIO_PORTF_DATA_R = Led;&nbsp;&nbsp; // output </span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+now = NVIC_ST_CURRENT_R;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+diff = (last-now)&amp;0x00FFFFFF;&nbsp; // 24-bit
+time difference</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if((diff&lt;(CORRECT-TOLERANCE))||(diff&gt;(CORRECT+TOLERANCE)){</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Error++;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+last = now;</span></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Delay();</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; }</span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></p>
+
+<p class="MsoCaption" style="margin-left: 41.75pt;">Program 9.10.
+Instrumentation
+to count the number of mistakes (debugging shown in bold).</p>
+
+<p class="BodyText">One interesting feature we could add to this system
+is to
+implement the <b><span style="font-family: &quot;Courier New&quot;;">Error</span></b>
+count
+in ROM. The flash ROM allows the running program to change its value.
+The
+disadvantage of storing data in ROM is it takes over 1ms to cause the
+change. In
+situations where we have infrequent but important data, this 1ms
+overhead is
+not significant. The advantage of storing infrequent but important
+debugging information
+in ROM is that this data is available even if power is removed and
+restored.
+For example, if the embedded system were to be involved in a loss of
+life
+accident, the data stored in ROM could be recovered to determine if any
+run-time errors might have contributed to the accident. Conversely,
+this data
+stored in ROM could verify that no errors in the operation of the
+embedded
+system had occurred prior to the accident. If you wish to write to
+flash ROM,
+look at example projects called &ldquo;flash&rdquo; on
+http://users.ece.utexas.edu/~valvano/arm/.
+</p>
+
+<p class="MsoBodyText">&nbsp;</p>
+
+<p class="MsoNormal">Reprinted with approval from <u>Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers</u>, 2014, ISBN:
+978-1477508992, <a href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"><b>http://users.ece.utexas.edu/~valvano/arm/outline1.htm</b></a></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+</div>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded Systems - Shape the World</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://users.ece.utexas.edu/%7Evalvano/" property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano and Ramesh Yerraballi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br>
+Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm" rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+
+</body>
+</html>

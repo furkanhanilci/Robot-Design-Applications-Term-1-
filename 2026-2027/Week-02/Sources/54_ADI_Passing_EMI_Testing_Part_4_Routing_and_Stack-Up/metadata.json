@@ -1,0 +1,26 @@
+{
+  "id": 54,
+  "name": "ADI Passing EMI Testing Part 4 Routing and Stack-Up",
+  "type": "Teknik makale",
+  "url": "https://www.analog.com/en/resources/technical-articles/passing-emi-compliance-testing-first-time-part-4.html",
+  "folder": "54_ADI_Passing_EMI_Testing_Part_4_Routing_and_Stack-Up",
+  "files": [],
+  "errors": [
+    {
+      "url": "https://www.analog.com/en/resources/technical-articles/passing-emi-compliance-testing-first-time-part-4.html",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://www.analog.com/en/resources/technical-articles/passing-emi-compliance-testing-the-first-time-part-4.html",
+      "error": "The read operation timed out"
+    }
+  ],
+  "status": "unavailable",
+  "retrieved_at": "2026-10-05T20:48:59+0300",
+  "pdf_count": 0,
+  "status_tr": "Dosya erişimi sağlanamadı",
+  "notes": [
+    "Verilen makale bağlantısı korundu. Alternatif URL denemesi de kaydedildi; erişim sağlanamadı.",
+    "İndirme istekleri zaman aşımı veya HTTP erişim engeli ile sonuçlandı. Bu kaynak için indirilmiş içerik varmış gibi gösterilmemiştir."
+  ]
+}

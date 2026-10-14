@@ -1,0 +1,324 @@
+ECE445M: EMBEDDED AND REAL-TIME OPERATING SYSTEMS
+Embedded and Real-Time Systems / Real-Time Operating Systems
+ECE445M, Unique: 18305, 18310, 18320, 18325
+Semester: Spring 2026
+Home
+Syllabus
+Lectures
+Labs
+Resources
+Canvas
+Description
+Real-time operating systems; implementation of context switching, threads, multitasking, real-time scheduling, synchronization, communication, storage, file systems, memory management, process linking and loading, hardware interfacing, and networking; debugging and testing; operating system performance, including latency, jitter, deadlines, deadlocks, and starvation; real-time systems, including data acquisition, sensing, actuating, digital control, signal processing, and robotics.
+Prerequisites
+ECE306 (or EE306) or ECE306H (or EE306H); ECE312 (or EE312) or ECE312H (or EE312H); and ECE319K (or EE319K) or ECE319H (or EE319H) with a grade of at least C- in each.
+This class assumes prior knowledge with microcontroller laboratories. 
+We expect you to have experiences with assembly language, 
+serial ports (UART and SPI), periodic interrupts, ADCs, edge-triggered interrupts, 
+FIFO queues, and C programming. 
+We will be using the same ARM Cortex-M0 used in ECE319K since January 2023, 
+but we do not require prior experiences with the same microcontroller. 
+You are also expected to understand how a DFT is used to observe digitally sampled data in the frequency domain.
+Grading
+40% Laboratory assignments
+20% Thur, 2/19, Exam 1, closed book during class
+20% Thur, 4/9, Exam 2, closed book during class
+20% Mon, 5/4, 1-3pm, Final, closed book, UTC 3.104, regularly scheduled
+Textbook
+Main textbook
+Jonathan W. Valvano
+Embedded Systems: Real-Time Operating Systems for ARM® Cortex™-M Microcontrollers
+Volume 3, Sixth printing, January 2026
+ISBN: 978-1466468863
+(
+available from Amazon
+)
+Additional references
+Jean J. Labrosse,
+µC/OS-III: The Real-time Kernel for Texas Instruments Stellaris
+, Micrium. (
+available in electronic format
+) (
+available from Amazon
+)
+This is a nice book. It covers general OS topics, explains the use of µC/OS-III (a minimal but complete RTOS), and includes details of the ARM Cortex-M3 specifically on a Texas Instrument Stellaris LM3S board (not our board, but similar). There is also a
+second edition µC/OS-II
+that covers an earlier, simpler and generic OS not tied to a specific board (
+available on Amazon
+). The 3rd edition is nicely written, but specific to µC/OS-III and a given board.
+Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau,
+Operating Systems: Three Easy Pieces
+(free online version available at
+http://www.ostep.org/
+)
+Thomas Anderson and Michael Dahlin,
+Operating Systems: Principles and Practice
+, ISBN 978-0-9856735-2-9
+Joseph Yiu,
+The Definitive Guide to the ARM Cortex-M3 and Cortex-M4 Processors
+, Third Edition, 2013, ISBN: 978-012408082.
+For programming in C, see the EE312 text, or the
+Embedded Software in C
+online reference by Jon Valvano and Ramesh Yerraballi.
+Introduction to Embedded Systems for the MSPM0G3507
+ECE319K ebook
+ECE445L textbook: Jonathan Valvano,
+Embedded Systems: Real-Time Interfacing to ARM Cortex M Microcontrollers
+, Volume 2, Ninth Edition, 2024, ISBN: 978-1463590154.
+ECE445L ebook
+Data sheets for most of the devices used in this class are available at
+http://users.ece.utexas.edu/~valvano/Datasheets
+Equipment
+Boards
+We will use the TI
+LP-MSPM0G3507 LaunchPad
+. Each student
+         must buy/borrow a LaunchPad. We have been using the MSPM0 board in ECE319K
+         since Spring 2023, so you might be able to find one used. If
+         you do purchase a used board, ask a TA or me to run the board
+         tester to make sure it works. If it still works at the end of
+         the semester, you will be able to sell this board to students
+         in later classes. Otherwise, the easiest way to purchase the
+         LaunchPad is from the
+TI.com
+         E-store
+or any of the buying options listed on
+Octopart.com
+.
+In addition to the LaunchPad, we will provide a
+sensor board
+to each team of 2. The LaunchPad plugs into the sensor board to access additional peripherals, 
+	   such as a display, SD card and Wifi module, as well as various sensors for the robot. 
+	   We will hand out sensor boards at the beginning of the semester. 
+	   You will need to complete
+sensor board construction
+.
+We will hand out
+motor board
+around spring break for each team of four. 
+	   You will need to complete
+motor board construction
+.
+	   You will need to return them at the end of the semester.
+Other Parts
+You will need a
+Sitronix ST7735R
+18-bit color 1.8" TFT LCD display with a MicroSD slot and the exact breakout provided by
+Adafruit (part 358)
+. You can purchase a display yourself, 
+	   e.g. by checking the buying options listed on
+Octopart
+. However, this will require soldering to attach the header. Alternatively, 
+	   The 16-pin HiLetgo, available on Amazon, is another option. For more information on the two possible LCD displays, 
+	   see
+Step 6 of the sensor board construction
+You will also need an ESP8266 Wifi module. Those can be purchased for a few dollars on the internet. If you buy one yourself, try to get the ESP-01 module, not the newer ESP-01S. The ESP-01S requires a pin to be cut to work with our sensor board. Alternatively, we can also lend you an ESP-01.
+We will provide all other components and parts to assemble your final robot, including the mechanical platform as well as an additional motor board next to the sensor board into which you will plug your LaunchPads. All robot components provided by us will need to be returned at the end of the semester. You will, however, be allowed to upgrade your robot with additional sensors, circuitry and parts (except motors and battery, and within a limited budget).
+Tools
+A digital logic analyzer will be needed to optimize and
+         debug your OS. Professional grade logic analyzers are available in the lab. 
+		 However, you may want to invest into a simple USB-based
+         logic analyzer, which will be portable and useful
+         for other projects. There are many options out there,
+         including high-end and versatile ones (e.g. Digilent's
+         Analog/Digital Discovery) that can be an investment for the
+         future. For this class, we will not need very high sampling
+         rates, so an analyzer starting at $20 will suffice, e.g.:
+Search "Logic Analyzer USB" on Amazon.com
+Sparkfun 24Mhz/8-Channel USB Logic Analyzer
+You will need own your own digital multimeter to build and debug
+         your robot. You must be able to measure voltage and resistance,
+         so a meter costing around $20 will suffice.
+Software
+Integrated Development Environment (IDE)
+We will use Code Composer Studio (CCS) version 20.4, see
+Installation instructions
+.
+Starter projects
+Starter projects for all labs 1-5 are
+        available by downloading and unzipping
+ECE445M Lab Projects
+.
+Other Software
+CCS has a serial terminal as part of the debugger. However, some students prefer
+        a stand alone application such as
+PuTTy
+).
+Course Outcomes
+The purpose of ECE445M is to provide students an in depth understanding of real-time operating systems, 
+  real-time debugging, and embedded systems. After the successful conclusion of ECE445M, 
+  students should be able to design real-time embedded systems, 
+  such as motor controllers, data store systems, data acquisition systems, communication systems and robotic systems.
+Specific Objectives
+The primary objective of ECE445M/ECE380L.12 is for students to develop the ability to design real-time systems. This class allows students to combine principles of microcomputer interfacing, software development, digital logic and analog circuits into the design of microcomputer-based systems:
+ARM architecture, and C programming
+Minimally intrusive debugging
+Performance measures
+Synchronization methods
+Busy-wait, interrupt, DMA, periodic polling, priority interrupts
+Embedded Communication Systems
+Serial network protocols, layered software, CAN, Ethernet, and USB
+Real time operating systems
+Foreground and background thread scheduling
+Synchronization using spinlock and blocking semaphores
+Interthread communication
+Digital Device Interfaces
+SD drive interface using SPI, file systems
+Diodes, transistors, DC motors, servos, stepper motors, relays, solenoids
+Optical sensors, IR distance sensors and contact switch sensors
+Time Domain Interfaces
+Input capture/output compare, frequency, period and pulse width measurements
+Pulse-width modulation
+Data Acquisition Systems
+Op amp amplifiers, analog low pass filters, ADC, FIFO queues, digital filters
+Control systems
+Open loop and closed loop, Linear and Nonlinear
+Bang-bang control, incremental control, PID Control
+Policies
+Attendance
+Class attendance will be used for deciding grades in borderline cases. Students are expected to attend all lectures. Fundamental material will be presented in class, and the details can be found in the book, the data sheets and the library files provided by the manufacturer. Some lecture material will be posted on the web, while other material will only be presented in class.  If you decide that you do not want to come to every lecture, please drop this class.
+Lab Partners
+All labs up to and including Lab 5 should be performed with a partner (teams of 2). 
+  Labs 6 and 7 will be performed in teams of 3 to 5 students. The lab partnerships must be 
+  registered with your TA at least a week before the assignment is due. 
+  Once registered, the partnership will continue. A partnership can be dissolved only 
+  after discussion with the TA. All partners must be present during the demonstration. 
+  It is expected that both partners will contribute to all aspects of each lab, and all 
+  partners are expected to be present during the check out. The point values are the same for all labs.
+  The TA will sign your software listing when you demonstrate your system.
+  All parts of the assignment must be demonstrated to a TA by the end of your lab period the week the "Demo/Report" is due. 
+  Any ECE445M TA is authorized to checkout your lab. The report (hardware, software, data and plots) 
+  are due one day after the demonstration is due. Please consult with your TA for specific due dates for your lab section.
+Lab Policies
+The lab preparations (syntax error-free software
+  source code and documentation) are due at the beginning of your lab
+  period. In other words, please type your software into the PC before
+  the lab. Attendance in lab is required. All software for lab, and
+  tests must include comments. Students are encouraged to go to the
+  last 1 hour of the other lab periods, but the first priority will be
+  to the regular students. During the first 15 minutes of lab, the TA
+  will collect preparations. For the next 15 minutes, the TA will lead
+  a lab discussion session. The remaining lab time is available for
+  debugging and lab checkout.
+At the end of the semester, please verify with the instructor and
+  checkout counter that your record is clear and you have returned all
+  equipment or a bar will be put on your registration for next
+  semester. All reports must be given to the TA by the last class day
+  in the semester in order to be considered for grading.
+Academic Dishonesty
+"
+Faculty in the ECE Department are committed to detecting and responding to all instances of scholastic dishonesty and will pursue cases of scholastic dishonesty in accordance with university policy. Scholastic dishonesty, in all its forms, is a blight on our entire academic community. All parties in our community -- faculty, staff, and students -- are responsible for creating an environment that educates outstanding engineers, and this goal entails excellence in technical skills, self-giving citizenry, an ethical integrity. Industry wants engineers who are competent and fully trustworthy, and both qualities must be developed day by day throughout an entire lifetime. Scholastic dishonesty includes, but is not limited to, cheating, plagiarism, collusion, falsifying academic records, or any act designed to give an unfair academic advantage to the student. The fact that you are in this class as an engineering student is testament to your abilities. Penalties for scholastic dishonesty are severe and can include, but are not limited to, a written reprimand, a zero on the assignment/exam, re-taking the exam in question, an F in the course, or expulsion from the University. Don't jeopardize your career by an act of scholastic dishonesty. Details about academic integrity and what constitutes scholastic dishonesty can be found at the website for the UT Dean of Students Office and the General Information Catalog, Section 11-802.
+"
+You are encouraged to study together and to discuss information and concepts with other students. You can give "consulting" help to or receive "consulting" help from such students in oral form. However, this permissible cooperation should never involve one student having possession of a copy of all or part of work done by someone else, in the form of an email, an email attachment file, a portable storage device, or a hard copy. Copying of any part of a program is cheating without explicit reference to its source. We do enter lab assignments turned in by students through a plagiarism checker, comparing them to assignments of this and previous semesters. If we find two programs that are copied, there will be a substantial penalty to both students, e.g., failure in the course. Students who cheat on tests,
+or in lab will fail. Prosecution of cases is very traumatic to both the student and instructor. It is appropriate to use software out of the book, class website as long as all copy-pasted software is explicitly referenced. Copy-pasting software from current or past students is scholastic dishonesty.
+Policies concerning the use of other people's software in this class:
+I strongly encourage you to study existing software.
+All applications and libraries must be legally obtained. E.g.:
+You may use libraries that came when you bought a compiler.
+You may use software obtained from the web.
+You may copy and paste from the existing source code.
+You may use any existing source code that is clearly referenced and categorized including ChatGPT and other
+artifical live forms:
+original
+:	completely written by you,
+derived
+:	fundamental approach is copied but it is your implementation,
+modified
+:	source code significantly edited to serve your purpose,
+copied
+:	source code includes minor modifications.
+Sharing of Course Materials
+Sharing of course materials is prohibited. No materials used in this class, including, but not limited to, 
+lecture hand-outs, videos, assessments (quizzes, exams, papers, projects, homework assignments), in-class materials, review sheets, and additional problem sets, may be shared online or with anyone outside of the class unless you have my explicit, written permission. Unauthorized sharing of materials promotes cheating. It is a violation of the University's Student Honor Code and an act of academic dishonesty. I am well aware of the sites used for sharing materials, and any materials found online that are associated with you, or any suspected unauthorized sharing of materials, will be reported to Student Conduct and Academic Integrity in the Office of the Dean of Students. These reports can result in sanctions, including failure in the course.
+Class Recordings
+Class recordings are reserved only for students in this class for educational purposes and are protected under FERPA. The recordings should not be shared outside the class in any form. Violation of this restriction by a student could lead to Student Misconduct proceedings.
+Electronic Mail Notification Policy
+In this course e-mail will be used as a means of communication with
+students.  You will be responsible for checking your e-mail regularly
+for class work and announcements.  The complete text of the University
+electronic mail notification policy and instructions for updating your
+e-mail address are available at
+https://cio.utexas.edu/policies/university-electronic-mail-student-notification-policy
+.
+Use of Canvas and Class Web Site
+This course uses the class web page and Canvas to distribute
+course materials, to communicate and collaborate online, to submit
+assignments and to post solutions and grades. You will be responsible
+for checking the class web page and the Canvas course site
+regularly for class work and announcements. As with all computer
+systems, there are occasional scheduled downtimes as well as
+unanticipated disruptions.  Notification of disruptions will be posted
+on the Canvas login page. Scheduled downtimes are not an excuse
+for late work.  However, if there is an unscheduled downtime for a
+significant period of time, I will make an adjustment if it occurs
+close to the due date.
+Students with Disabilities
+The University of Texas at Austin provides upon request appropriate academic accommodations for qualified students with disabilities. For more information, contact Disability and Access (D&A), Student Services Building (SSB), 471-6259,
+https://diversity.utexas.edu/disability
+.
+Religious Holidays
+Religious holy days sometimes conflict with class and examination
+schedules.  If you miss an examination, work assignment, or other
+project due to the observance of a religious holy day you will be
+given an opportunity to complete the work missed within a reasonable
+time after the absence.  It is the policy of The University of Texas
+at Austin that you must notify each of your instructors at least
+fourteen days prior to the classes scheduled on dates you will be
+absent to observe a religious holy day.
+Sanger Learning Center
+More than one-third of undergraduates use the
+Sanger Learning Center
+each year to improve their academic performance. All students are welcome to join their classes and workshops and make appointments for their private learning specialists, peer academic coaches, and tutors.
+UT Outpost
+UT Outpost
+is equipped with a food pantry, and a career clothing closet to ensure every Longhorn has access to professional clothes for job and internship interviews. Emergencies and financial hardships can interfere with student success beyond the classroom, and this program will serve as an additional resource for students.
+Counseling and Mental Health
+Do your best to maintain a healthy lifestyle this semester by eating well, exercising, avoiding drugs and alcohol, getting enough sleep and taking some time to relax. This will help you achieve your goals and cope with stress. All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful. If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. The Counseling and Mental Health Center (CMHC) provides counseling, psychiatric, consultation, and prevention services that facilitate students' academic and life goals and enhance their personal growth and well-being:
+https://cmhc.utexas.edu/
+.
+You can also talk to the
+CARE Counselor in the College of Engineering
+, who has drop-in office hours in EER.
+Title IX Reporting
+Title IX is a federal law that protects against sex and gender-based discrimination, sexual harassment, sexual assault, sexual misconduct, dating/domestic violence and stalking at federally funded educational institutions. UT Austin is committed to fostering a learning and working environment free from discrimination in all its forms where all students, faculty, and staff can learn, work, and thrive. When sexual misconduct occurs in our community, the university can:
+Intervene to prevent harmful behavior from continuing or escalating.
+Provide support and remedies to students and employees who have experienced harm or have become involved in a Title IX investigation.
+Investigate and discipline violations of the university's relevant policies.
+Faculty members and certain staff members are considered ``Responsible Employees'' or ``Mandatory Reporters,'' which means that they are required to report violations of Title IX to the Title IX Coordinator at UT Austin. The instructors (myself and the TAs) are Responsible Employees and must report any Title IX related incidents that are disclosed in writing, discussion, or one-on-one. Before talking with me, the TAs, or any faculty or staff member about a Title IX related incident, be sure to ask whether they are a responsible employee. If you want to speak with someone for support or remedies without making an official report to the university, email
+advocate@austin.utexas.edu
+. For more info about reporting options and resources, visit
+https://titleix.utexas.edu/campus-resources
+or contact the Title IX Office at
+titleix@austin.utexas.edu
+.
+Classroom Evacuation and Emergency Management
+All occupants of university buildings are required to evacuate a
+building when a fire alarm and/ or an official announcement is made
+indicating a potentially dangerous situation within the
+building. 
+Familiarize yourself with all exit doors of each classroom
+and building you may occupy. Remember that the nearest exit door may
+not be the one you used when entering the building. 
+If you require assistance in evacuation, inform your instructor in
+writing during the first week of class. 
+For evacuation in your classroom or building:
+Follow the instructions of faculty and
+teaching staff.
+Exit in an orderly fashion and assemble outside.
+Do not re-enter a building unless given instructions by emergency
+personnel.
+Emergency evacuation route information and emergency
+procedures can be found at
+https://emergency.utexas.edu
+and
+https://emergencymanagement.utexas.edu/
+.
+University Honor Code
+"The core values of the University of Texas at Austin are learning, discovery, freedom, leadership, individual opportunity, and responsibility. Each member of the University is expected to uphold these values through integrity, honesty, trust, fairness, and respect toward peers and community."  (see the
+university catalog
+)
+Contents
+© Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano
+http://www.ece.utexas.edu/~valvano/EE445M/
+http://www.ece.utexas.edu/~gerstl/ee445m_s25

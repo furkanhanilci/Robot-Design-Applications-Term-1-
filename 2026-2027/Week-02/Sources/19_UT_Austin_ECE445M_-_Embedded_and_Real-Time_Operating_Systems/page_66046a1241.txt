@@ -1,0 +1,117 @@
+ECE445M: EMBEDDED AND REAL-TIME OPERATING SYSTEMS
+Embedded and Real-Time Systems / Real-Time Operating Systems
+ECE445M, Unique: 18305, 18310, 18320, 18325
+Semester: Spring 2026
+Home
+Syllabus
+Lectures
+Labs
+Resources
+Canvas
+Laboratories
+Lab policies:
+ECE445M Laboratory Policies
+, 
+including
+Grading policy about coding style
+Instructions
+Report
+Task
+Lab 1
+Lab 1 report
+Real-time clock, Sitronix ST7735R Display, ADC and interpreter for the MSPM0G3507 board running on an ARM Cortex-M0 (review of ECE319K and ECE312)
+Lab 2
+Lab 2 report
+Real-time operating system kernel (thread switching and synchronization)
+Cooperative and preemptive schedule
+Periodic and switch interrupts, and spin-lock semaphores
+Lab 3
+Lab 3 report
+Blocking semaphores, priority scheduling, performance measures, dumping RTOS profile data to the PC
+Lab 4
+Lab 4 report
+Solid state disk, SSI, address translation, layered software, file system
+Lab 5
+Lab 5 report
+Memory management, process loader, process creation and linking
+Lab 6
+Lab 6 report
+Robot interfaces, networking, distributed sensor data acquisition, motor PWM (teams of 3, 4 or 5)
+Lab 7
+Lab 7 report
+Formula 0001 Racing Robot (teams of 3, 4 or 5)
+Moving and turning, control algorithm
+Autonomous operation, system performance analysis (pre-qualification)
+Race competition (qualifying & finals)
+Lab Schedule
+Week
+First Session
+Second Session
+Friday 5pm
+Comments
+1/12
+No activities
+Meet the TA
+Install CCS20.4, sensor board demonstration, and lab partner selection.
+1/19
+-
+Lab 1 Prep
+Finalize partners, get sensor board parts
+1/26
+Lab 1 Demo
+Lab 2.1 Prep
+Lab 1 Report
+2/2
+Lab 2.1 Demo
+Lab 2.2 Prep
+Lab 2.1 has no report
+2/9
+Lab 2.2 Demo
+Lab 2.2 Report
+2/16
+Lab 3 Prep
+Exam 1 is 2/19
+2/23
+Lab 3 Demo
+Lab 3 Report
+Hard deadline on Lab 3. If Lab 3 is not demonstrated, revert and complete rest with Lab 2 OS.
+3/2
+Lab 4 Prep
+Demonstrate robot
+3/9
+Lab 4 Demo
+Lab 5 Prep
+Lab 4 Report
+Form robot teams, get motor board parts
+3/16
+Spring Break
+3/23
+Lab 5 Demo
+Lab 6 Prep
+Lab 5 Report
+3/30
+Lab 6 Demo
+Lab 7.A Prep
+Lab 6 Report
+4/6
+Lab 7.A Demo
+Exam 2 is 4/9
+4/13
+Lab 7.B Demo
+4/20
+Lab 7.C Demo
+Lab 7.C Demo
+Lab 7.C Report
+Turn in all reports and equipment by 4/27
+Prep
+: Turn in your lab preparation
+Demo
+: Demonstrate your lab to the TA
+Report
+: Turn in your complete lab report (online on Canvas) and
+               submit all your files (online Github repository)
+Contents
+© Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano
+http://www.ece.utexas.edu/~valvano/EE445M/
+http://www.ece.utexas.edu/~gerstl/ee445m_s25

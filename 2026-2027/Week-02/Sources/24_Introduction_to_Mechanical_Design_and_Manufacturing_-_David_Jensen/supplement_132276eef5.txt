@@ -1,0 +1,184 @@
+Building and Testing Prototypes – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Building and Testing Prototypes
+Guideline for Making Prototypes
+The most important guideline when it comes to making prototypes is to only make what is needed. That is, the time and effort to construct a prototype should be justified by the questions it can answer. For example, if you need to know how heavy something will be, that can be readily answered with any CAD software by specifying the material property. The question “does this feel too heavy” cannot be answered in CAD. Always build just enough to accurately address the current unknowns and move the design process forward. This concept of forward progress can also help you identify what needs to be modeled. The more the prototype moves the design process forward the more value provided and better justified is the effort in building it.
+*Watch this
+video
+to learn more about the Prototyping and Model Making.
+Testing Prototypes
+The value of a prototype in moving the design process forward is also limited by the approach used in testing that prototype to learn more information. Product usability tests are limited by the audience that test. A fairly common mistake is to rely on engineers and others who are familiar with the product and its particular evolution to test usability in the early design stages. It may make sense from a logistical point of view, but it is nearly impossible to quantify all of the biases and preconceived knowledge that we bring to a project. Usability should be tested with actual potential users of the product. This is a best practice for industrial prototypes that demonstrate the look, feel, and interface of a product. Some prototyping is focused on functional testing. That is, addressing unknown interactions and underlying physics to evaluate if a product or concept can achieve the desired function to the desired quality of performance. For these types of prototypes, users are generally not needed. Rather, a robust experimental set up.
+Your testing goals may produce qualitative date, quantitative data or both.
+Qualitative data
+is information that cannot be measured or quantified, but can provide insights into the user’s preferences, opinions, feelings, and behaviors. An example of qualitative data collected in physical product prototype testing is the feedback from users who interact with the prototype and share their thoughts and impressions. This feedback can help the product team understand what aspects of the prototype are appealing, confusing, satisfying, or frustrating to the users, and how they can improve the design and functionality of the product.
+Quantitative data
+is numerical information that can be measured or counted. In physical product prototype testing, quantitative data can help evaluate the performance, usability and functionality of the product. For example, a prototype of a new smartphone can be tested by measuring its battery life, screen resolution, processing speed, memory capacity, etc. These are quantitative data that can indicate how well the product meets the design specifications and user expectations.
+It is important to note that both qualitative data and quantitative data require a rigorous collection approach. Prototype testing is a scientific process, and the scientific method must be applied.
+As you have likely been exposed to the scientific method in prior courses; the scientific method is a systematic process of inquiry that involves making observations, formulating hypotheses, designing experiments, collecting data, analyzing results, and drawing conclusions.  For example, a designer who wants to test a new chair prototype might observe how people sit on different types of chairs, formulate a hypothesis about what makes a chair comfortable and ergonomic, design an experiment to measure the comfort and posture of the users, collect data from the experiment using sensors and surveys, analyze the data using statistical methods, and draw conclusions about the strengths and weaknesses of the prototype.
+Testing of prototypes should always follow a well-structured experimental plan. This is developed using the Design of Experiments (DOE) methodology.
+*Watch this
+video
+to learn more about the experiment and study design.
+Previous/next navigation
+Previous: Prototyping Methods and Technologies
+Next: Wrap-Up – Prototyping Product Concepts
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

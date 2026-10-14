@@ -1,0 +1,372 @@
+Generalized Process for Standard Specifications – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Generalized Process for Standard Specifications
+Primary and Secondary Functions
+The first step in specification of a COT component is the identification of the type of component. This will depend on the primary function of the component. However, there are many components that can implement similar high-level functions. The decision often comes down to secondary functionality. For example, the primary function of “transmit power” can be accomplished with many different types of components such as belts, various types of gearing etc. However, if secondary functionality like changing the direction of the power is also needed, then components like bevel gears make more sense than belts and pulley systems.
+The table below details the primary functional categories for many common mechanical components. Most of these components are COTs but some will require significant work with suppliers to design. The following pages will detail the specification process for some of these components but not all. We will focus on the components that can be readily purchased without needing to work closely with suppliers to customize the component.
+Table of the High-Level Common Mechanical Component Types and their Primary Functionality
+Locate
+Energy Storage
+Energy Conversion
+Energy Transmission
+Threaded Fasteners
+Bolts
+Nuts and locking nuts
+Grub screws
+Studs
+Screws
+Expanding bolts
+Springs
+Compression
+Extension
+Torsion
+Helical
+Leaf
+Flat
+Belleville
+Rubber
+Spiral
+Garter
+Torsion bar
+Wire form
+Turbo Machinery
+Gas turbine
+Rotodynamic pumps and compressors
+Fans
+Propellers
+Turbines
+Gearing
+Spur
+Helical
+Herringbone
+Bevel
+Miter
+Worm
+Conformal
+Cylindrical
+Washers, spacers
+Retaining rings
+Grooves
+Tolerance rings
+Snap Rings
+Circlips
+Thermal/fluid
+Fluid accumulator
+Gas spring
+Reservoir
+Pressure vessel
+Chemical
+Rotary
+Reciprocating
+Fuel cells
+Rockets
+Other Rotary
+Cranks
+Cams
+Ball screws
+Power screws
+Pins
+Cylindrical
+Taper
+Spring
+Chemical
+Battery
+Thermal
+Boilers
+Heat exchangers
+Belts and Chains
+Flat belt
+Vee belt
+Wedge belt
+Round belt
+Synchronous belt
+Roller chain
+Leaf chain
+Conveyor chain
+Silent
+Non-Threaded Fastening
+Rivets
+Nails
+Adhesives
+Welds
+Mechanical
+Fly Wheel
+Solid mass
+Electrical
+Motors
+Solenoids
+Alternators and generators
+Structures
+Linkages
+Pipes and hoses
+Keys and Keyways
+Flat
+Round
+Profiled
+Gib head
+Woodruff
+Mechanical
+Dampers and shock absorbers
+Pumps
+Pneumatic and hydraulic actuators
+Brakes
+Shape
+Shoulders
+Grooves
+Fits
+Motion Support
+Stationary Support
+Sense
+Switch or Control
+Seals
+Rolling Element Bearings
+Deep groove ball
+Angular contact ball
+Cylindrical roller
+Needle roller
+Tapperd roller
+Self aligning
+Thrust
+Recirculating ball
+Housings
+Frame
+Casings
+Enclosures
+Fundamental
+Properties
+Motion
+Dimension
+Mass
+Force
+Torque
+Power
+Strain
+Stress
+Sound
+Humidity
+Clutches
+Square jaw
+Multiple serration
+Sprag
+Roller
+Drum
+Disk
+Magnetic
+Synchromesh
+Dynamic Seals
+Mechanical face
+Lip ring
+Bush
+Labyrinth
+Brush
+Ferrofluidic
+Rim seals
+O Rings
+Packings
+Piston rings
+Sliding Bearings
+Plain rubbing
+Hydrodynamic
+Hydrostatic
+Structures
+Grips
+Guides
+Clamps
+Jigs
+Hooks
+Handles
+Levers
+Pressure
+Pitot tubes
+Static tapping
+Manometers
+Piezoelectric
+Mechanical
+Valves
+Levers
+Ratchet Pawl
+Geneva and other index mechanisms
+Triggers
+Ballistic strips
+Latches
+Static
+Seals
+Gaskets
+O Rings
+Sealants
+Wheels, Rollers, Brushes, Pulleys
+Temperature and Heat Flux
+Thermocouples
+Resistance
+Thermometers
+Pyrometers
+Thermopile
+Gardon gauge
+Hinges, Pivots, Joints
+Mass Flow
+Laser Doppler
+Hot wire
+Ultra sonic
+Previous/next navigation
+Previous: Specification of Standard Mechanical Components
+Next: Fasteners
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

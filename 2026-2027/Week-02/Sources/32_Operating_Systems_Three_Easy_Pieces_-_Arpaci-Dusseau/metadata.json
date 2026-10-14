@@ -1,0 +1,637 @@
+{
+  "id": 32,
+  "name": "Operating Systems Three Easy Pieces - Arpaci-Dusseau",
+  "type": "Ücretsiz çevrimiçi kitap",
+  "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+  "folder": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "kind": "html",
+      "bytes": 51995,
+      "sha256": "120eb97411ed20f2c159062b175cf68886183b07d31dd161d365e7436cdb455c"
+    },
+    {
+      "file": "dedication.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dedication.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dedication.pdf",
+      "kind": "pdf",
+      "bytes": 23356,
+      "sha256": "26fc70ea6b16a4e2c4b26a069e7c5e1e5326796918b6e361ca01e7514990c615",
+      "pdf_pages": 1
+    },
+    {
+      "file": "dialogue-virtualization.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-virtualization.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-virtualization.pdf",
+      "kind": "pdf",
+      "bytes": 29687,
+      "sha256": "2a599f6f4e64a00db08e5ebb739f4b591ace57668b37694ad44d9fd56bb76fbd",
+      "pdf_pages": 4
+    },
+    {
+      "file": "dialogue-vm.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-vm.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-vm.pdf",
+      "kind": "pdf",
+      "bytes": 31767,
+      "sha256": "fad4df33438163d2310f750c686329139ab43f1938edb95418f8e95ee6d529d2",
+      "pdf_pages": 2
+    },
+    {
+      "file": "dialogue-concurrency.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-concurrency.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-concurrency.pdf",
+      "kind": "pdf",
+      "bytes": 32657,
+      "sha256": "b654dd0af273c8e5fdc9ddce5c4097ce7d52f3c1981e5529b6137427207321e3",
+      "pdf_pages": 4
+    },
+    {
+      "file": "dialogue-persistence.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-persistence.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-persistence.pdf",
+      "kind": "pdf",
+      "bytes": 27610,
+      "sha256": "2ac385ca5924e6bad94e721b3e8859e6e93cf6abf3654cd5d31fe2b532bc16ad",
+      "pdf_pages": 4
+    },
+    {
+      "file": "dialogue-security.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-security.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-security.pdf",
+      "kind": "pdf",
+      "bytes": 30567,
+      "sha256": "27b308c25096f73a2cc45f79057077b9a8b6acd9f8bf68ef662f1d7e058a8973",
+      "pdf_pages": 2
+    },
+    {
+      "file": "preface.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/preface.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/preface.pdf",
+      "kind": "pdf",
+      "bytes": 119715,
+      "sha256": "febaeb69aad85f9901959a002a945dcc3620c507232a9dcdbff673cf977b913a",
+      "pdf_pages": 13
+    },
+    {
+      "file": "cpu-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf",
+      "kind": "pdf",
+      "bytes": 106900,
+      "sha256": "d4c7a5200fa104f6d5af7d845dc65b99b17ea55fb1fed6a151a7c4d1353bd6e8",
+      "pdf_pages": 13
+    },
+    {
+      "file": "vm-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf",
+      "kind": "pdf",
+      "bytes": 95320,
+      "sha256": "c57de8420ea7bc8afbca5ce3ba92bcc0b32d5f719f4ab613dd9ceb698d537acc",
+      "pdf_pages": 9
+    },
+    {
+      "file": "threads-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf",
+      "kind": "pdf",
+      "bytes": 125231,
+      "sha256": "04eebf12233463d54c6b39352bbea644241b308312cabd568b24b9aa3b7e4d1e",
+      "pdf_pages": 16
+    },
+    {
+      "file": "file-devices.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-devices.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-devices.pdf",
+      "kind": "pdf",
+      "bytes": 119742,
+      "sha256": "08546bc068699f5a8be8df72417bd2b4e282b08f8c2a1fe056ca09bfdf0533d5",
+      "pdf_pages": 14
+    },
+    {
+      "file": "security-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-intro.pdf",
+      "kind": "pdf",
+      "bytes": 100102,
+      "sha256": "73a56850d907a6b46f05adb88027a91c445d77473e8196cb0afd35f4b5bf0b69",
+      "pdf_pages": 12
+    },
+    {
+      "file": "toc.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/toc.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/toc.pdf",
+      "kind": "pdf",
+      "bytes": 82682,
+      "sha256": "6bf28fd0e16c56c6e82f77bbec48dcbd3d80546852ec1bd0ebc6bd06452fd85f",
+      "pdf_pages": 12
+    },
+    {
+      "file": "cpu-api.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf",
+      "kind": "pdf",
+      "bytes": 122017,
+      "sha256": "00aa608424bbdf5e9d6ef17d47e7595a5455a42e74ad3e6c5913603aa7e8ea7b",
+      "pdf_pages": 15
+    },
+    {
+      "file": "vm-api.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-api.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-api.pdf",
+      "kind": "pdf",
+      "bytes": 97113,
+      "sha256": "959dba1dbd41e3e18e3d97269cc405dcc9ea0872d761d09bf3eec14f3f8273f3",
+      "pdf_pages": 12
+    },
+    {
+      "file": "threads-api.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf",
+      "kind": "pdf",
+      "bytes": 100720,
+      "sha256": "ea053697dcf6480a346dfd2ae4b9c7b5d292ccecfa7e38eb1bd05136a7f96ce6",
+      "pdf_pages": 12
+    },
+    {
+      "file": "file-disks.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-disks.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-disks.pdf",
+      "kind": "pdf",
+      "bytes": 154732,
+      "sha256": "8bebaab15858c28b7d70c72d97d685103714f423b4581b2e0d5fbb1671764e2b",
+      "pdf_pages": 16
+    },
+    {
+      "file": "security-authentication.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-authentication.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-authentication.pdf",
+      "kind": "pdf",
+      "bytes": 166074,
+      "sha256": "384b176f16bbbaaed0d592e845f6a11f73288899f6f94a038279e2ef2758832d",
+      "pdf_pages": 19
+    },
+    {
+      "file": "dialogue-threeeasy.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-threeeasy.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-threeeasy.pdf",
+      "kind": "pdf",
+      "bytes": 40349,
+      "sha256": "eb985b86c08584508ad0731b94a84d28a5c0e8004f5cd4475f722504c0e509b4",
+      "pdf_pages": 2
+    },
+    {
+      "file": "cpu-mechanisms.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-mechanisms.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-mechanisms.pdf",
+      "kind": "pdf",
+      "bytes": 134592,
+      "sha256": "ad9c3ae46f0d695744008a0faa1dd104ebf033eb0d5a0e14411146b2d53d9054",
+      "pdf_pages": 16
+    },
+    {
+      "file": "vm-mechanism.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-mechanism.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-mechanism.pdf",
+      "kind": "pdf",
+      "bytes": 130259,
+      "sha256": "38d81af0ae91743ee39c08c71be620d244b73496536c68c22ccebc2b8a0344a7",
+      "pdf_pages": 15
+    },
+    {
+      "file": "threads-locks.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-locks.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-locks.pdf",
+      "kind": "pdf",
+      "bytes": 171902,
+      "sha256": "349b3b3251a178e8bd725dc710cd2b9a4d30f34a7491390bc7c1b53c015d1515",
+      "pdf_pages": 22
+    },
+    {
+      "file": "file-raid.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-raid.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-raid.pdf",
+      "kind": "pdf",
+      "bytes": 170255,
+      "sha256": "3d88a8b2d47247572a6d424f9b6f5789a6f0b8a39ce1bb8d9f6ef4403fd9e340",
+      "pdf_pages": 18
+    },
+    {
+      "file": "security-access.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-access.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-access.pdf",
+      "kind": "pdf",
+      "bytes": 165431,
+      "sha256": "a56180e8d15f3d6c5355fe1e420d6c18b727cb2c5bc10aa7a5eb3a1b7f4ecc57",
+      "pdf_pages": 18
+    },
+    {
+      "file": "intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/intro.pdf",
+      "kind": "pdf",
+      "bytes": 160075,
+      "sha256": "98e68cadc18468deed74e490b40aa6d414f1536d3ec8e5dc25b156603edf2a19",
+      "pdf_pages": 19
+    },
+    {
+      "file": "cpu-sched.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf",
+      "kind": "pdf",
+      "bytes": 118326,
+      "sha256": "0912b1a34977a70704b921ecfdf0dd65300e038a3eb4e5e57b2d9c38f66b63c3",
+      "pdf_pages": 13
+    },
+    {
+      "file": "vm-segmentation.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-segmentation.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-segmentation.pdf",
+      "kind": "pdf",
+      "bytes": 106854,
+      "sha256": "f9511d43148cc005e9c2d992deff04c16eecbee7269e7568e4b50ab49ddbb2e8",
+      "pdf_pages": 12
+    },
+    {
+      "file": "threads-locks-usage.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-locks-usage.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-locks-usage.pdf",
+      "kind": "pdf",
+      "bytes": 121557,
+      "sha256": "48d67442fc17dc1e0b6d3a68f1e29d2630eb30de4606c1fffe86124424654ea6",
+      "pdf_pages": 16
+    },
+    {
+      "file": "file-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-intro.pdf",
+      "kind": "pdf",
+      "bytes": 212094,
+      "sha256": "35b66794d013dd6d117fba1094256ecb94a488d4c7f852b23903dbf47d987704",
+      "pdf_pages": 29
+    },
+    {
+      "file": "security-crypto.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-crypto.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-crypto.pdf",
+      "kind": "pdf",
+      "bytes": 184464,
+      "sha256": "c07fce07c9fbff3a6d071b14723c9b98826633d8ef161849211d06c9e6dee04c",
+      "pdf_pages": 20
+    },
+    {
+      "file": "cpu-sched-mlfq.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf",
+      "kind": "pdf",
+      "bytes": 115638,
+      "sha256": "96241b4e6708991740560334a1f67516c3c68eb3e6a570af7b03cdb4b32918db",
+      "pdf_pages": 12
+    },
+    {
+      "file": "vm-freespace.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-freespace.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-freespace.pdf",
+      "kind": "pdf",
+      "bytes": 135110,
+      "sha256": "e843d8451f4c030ae2a7b1af0e5fb493bcfbfa9e0bd44681bda030019d974e2e",
+      "pdf_pages": 18
+    },
+    {
+      "file": "threads-cv.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf",
+      "kind": "pdf",
+      "bytes": 128770,
+      "sha256": "77a2fb7913c44af3864afe3dc789b3ce0d875a82df20b9690bba1eb8bee94839",
+      "pdf_pages": 19
+    },
+    {
+      "file": "file-implementation.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-implementation.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-implementation.pdf",
+      "kind": "pdf",
+      "bytes": 160738,
+      "sha256": "f47b3394d05648303f957234dcdc980023ef7d9e11d2b4d02fc042e7d3e3aef7",
+      "pdf_pages": 18
+    },
+    {
+      "file": "security-distributed.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-distributed.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/security-distributed.pdf",
+      "kind": "pdf",
+      "bytes": 159928,
+      "sha256": "98b9ea8e7a3e654b175e22265a22a7af1ce42d9fb42079dca10c84644206efe8",
+      "pdf_pages": 18
+    },
+    {
+      "file": "cpu-sched-lottery.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf",
+      "kind": "pdf",
+      "bytes": 138852,
+      "sha256": "d4443bc142b7c134280c6d284e887b0768642583eaddda674dfa6975f483aa5a",
+      "pdf_pages": 14
+    },
+    {
+      "file": "vm-paging.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-paging.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-paging.pdf",
+      "kind": "pdf",
+      "bytes": 117219,
+      "sha256": "0307d990a5638c37d59fb8ca67de75a0afc439461239fa660a7c948dce3bc6d5",
+      "pdf_pages": 15
+    },
+    {
+      "file": "threads-sema.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-sema.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-sema.pdf",
+      "kind": "pdf",
+      "bytes": 150277,
+      "sha256": "991a6a2edbd604c6e2c9b52c9505ff63db92fd2bca4c294a252bdfc0dbed38fb",
+      "pdf_pages": 20
+    },
+    {
+      "file": "file-ffs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-ffs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-ffs.pdf",
+      "kind": "pdf",
+      "bytes": 126553,
+      "sha256": "95b4b1fd00463e78837c1101f1dc0f9416848025eaffdb2a69c3894d5e5f422a",
+      "pdf_pages": 14
+    },
+    {
+      "file": "cpu-sched-multi.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-multi.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-multi.pdf",
+      "kind": "pdf",
+      "bytes": 118032,
+      "sha256": "302396e55bb9ff0d509a16393ecb46dcb614225a2ee2cf9fef8e8a54eb0dc3e1",
+      "pdf_pages": 13
+    },
+    {
+      "file": "vm-tlbs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-tlbs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-tlbs.pdf",
+      "kind": "pdf",
+      "bytes": 150670,
+      "sha256": "202953f283487b812a9a97c17f4a3cb3a9b3e80a300cc6467c3080ffb0be013e",
+      "pdf_pages": 16
+    },
+    {
+      "file": "threads-bugs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-bugs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-bugs.pdf",
+      "kind": "pdf",
+      "bytes": 130552,
+      "sha256": "dc8c3a7b64ff35fe626838a877cc1759d33bce6104ab30a0221268b3ee9859d4",
+      "pdf_pages": 16
+    },
+    {
+      "file": "file-journaling.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-journaling.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-journaling.pdf",
+      "kind": "pdf",
+      "bytes": 178600,
+      "sha256": "ea284e285705454787f6ea2804af6f62c42839a8bfa58e5ded307961ef459a11",
+      "pdf_pages": 21
+    },
+    {
+      "file": "cpu-dialogue.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-dialogue.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-dialogue.pdf",
+      "kind": "pdf",
+      "bytes": 33322,
+      "sha256": "ba97a33d7b878ccd60915f5397463ca38cbf7530a202fcde4128ad66df35b77e",
+      "pdf_pages": 2
+    },
+    {
+      "file": "vm-smalltables.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-smalltables.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-smalltables.pdf",
+      "kind": "pdf",
+      "bytes": 139762,
+      "sha256": "45eced8581a51497919ed170b4b8631b5ab7ecbad5c77387d0868f52cec6c43f",
+      "pdf_pages": 15
+    },
+    {
+      "file": "threads-events.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-events.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-events.pdf",
+      "kind": "pdf",
+      "bytes": 106082,
+      "sha256": "a8906e84dd6a7fbe9b3f46c9a3a873e084d1928d304591be6d472f5e5fa394c9",
+      "pdf_pages": 12
+    },
+    {
+      "file": "file-lfs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-lfs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-lfs.pdf",
+      "kind": "pdf",
+      "bytes": 156049,
+      "sha256": "8c52ffc98c65bcb56198be9e5b7ebb789e86687751553a298d10b25a4712d1f4",
+      "pdf_pages": 16
+    },
+    {
+      "file": "dialogue-vmm.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-vmm.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-vmm.pdf",
+      "kind": "pdf",
+      "bytes": 21097,
+      "sha256": "7370e7e3168cbe4e7de5fc5afaf85642eafe7b628010c499c078f27316f87ec7",
+      "pdf_pages": 1
+    },
+    {
+      "file": "vm-beyondphys.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-beyondphys.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-beyondphys.pdf",
+      "kind": "pdf",
+      "bytes": 107756,
+      "sha256": "2d59f70e76be4e9a78eec457b8e20e9941c0c6ec91bb158297695900415459d3",
+      "pdf_pages": 11
+    },
+    {
+      "file": "threads-dialogue.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-dialogue.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-dialogue.pdf",
+      "kind": "pdf",
+      "bytes": 32085,
+      "sha256": "02dcd682a855193a904fffb56d17ca27b53681e249ebc0fd282587bfc959e9d6",
+      "pdf_pages": 2
+    },
+    {
+      "file": "file-ssd.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-ssd.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-ssd.pdf",
+      "kind": "pdf",
+      "bytes": 200630,
+      "sha256": "e8de0c6036d75cfb175166c8701055f75c11b576d8283a101ce09bedaf80b223",
+      "pdf_pages": 24
+    },
+    {
+      "file": "vmm-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vmm-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vmm-intro.pdf",
+      "kind": "pdf",
+      "bytes": 119202,
+      "sha256": "413759240b8b7a83ddd6c333e901e365d228cf9157b9c88f998f42fd161c36b6",
+      "pdf_pages": 13
+    },
+    {
+      "file": "vm-beyondphys-policy.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-beyondphys-policy.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-beyondphys-policy.pdf",
+      "kind": "pdf",
+      "bytes": 199152,
+      "sha256": "a6f13af44cae11965876f652e836a1a40603be3e8dfd5336568b69a6007ca4c3",
+      "pdf_pages": 18
+    },
+    {
+      "file": "file-integrity.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-integrity.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-integrity.pdf",
+      "kind": "pdf",
+      "bytes": 129210,
+      "sha256": "e31b73700e69a738092c571845b3a1e48158c0a01783d7d83deb8d34b2271b52",
+      "pdf_pages": 14
+    },
+    {
+      "file": "dialogue-monitors.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-monitors.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-monitors.pdf",
+      "kind": "pdf",
+      "bytes": 21151,
+      "sha256": "e5c6f31e941cec9075ffd4c2edbaa4f0339fe2436d38ab6c1819bbab44ab79a1",
+      "pdf_pages": 1
+    },
+    {
+      "file": "vm-complete.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-complete.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-complete.pdf",
+      "kind": "pdf",
+      "bytes": 172402,
+      "sha256": "c487f8c297177e3f463b21806082537cb9b9f8b0c8c982ca27dc889803ace36c",
+      "pdf_pages": 19
+    },
+    {
+      "file": "file-dialogue.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-dialogue.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/file-dialogue.pdf",
+      "kind": "pdf",
+      "bytes": 26908,
+      "sha256": "814f38effd995ee73a269d1801e3c7bc476c3d0e9b297772ac34811212bce989",
+      "pdf_pages": 2
+    },
+    {
+      "file": "threads-monitors.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-monitors.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/threads-monitors.pdf",
+      "kind": "pdf",
+      "bytes": 99401,
+      "sha256": "b3f4b61356e64e43631cffbbd5308887d81263eabadf6d94f20d27a979cab6ce",
+      "pdf_pages": 13
+    },
+    {
+      "file": "vm-dialogue.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-dialogue.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-dialogue.pdf",
+      "kind": "pdf",
+      "bytes": 34012,
+      "sha256": "8e18d521fe1b6f58761723bd3c02f357defb9f55a43e90e357e60047372808fe",
+      "pdf_pages": 3
+    },
+    {
+      "file": "dialogue-distribution.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-distribution.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-distribution.pdf",
+      "kind": "pdf",
+      "bytes": 24634,
+      "sha256": "7a5453c6c30cb6b0b0b7bb2be7bd27cdd0eca264dfa20391bec2197489a69d6a",
+      "pdf_pages": 2
+    },
+    {
+      "file": "dialogue-labs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-labs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-labs.pdf",
+      "kind": "pdf",
+      "bytes": 29352,
+      "sha256": "0cabda3579f928219376b3cb394dcb33fa55d519ba4f58abdadd9a91210aa9af",
+      "pdf_pages": 2
+    },
+    {
+      "file": "dist-intro.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-intro.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-intro.pdf",
+      "kind": "pdf",
+      "bytes": 139215,
+      "sha256": "92986b546ba992cf20b2826b6805d76ac1baa596e91b138fdf56e63eac644a91",
+      "pdf_pages": 17
+    },
+    {
+      "file": "lab-tutorial.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/lab-tutorial.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/lab-tutorial.pdf",
+      "kind": "pdf",
+      "bytes": 100805,
+      "sha256": "e8daa793fc3e393e491167a0cd0b188059653d94013474d962527d3fb61a6b91",
+      "pdf_pages": 13
+    },
+    {
+      "file": "dist-nfs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-nfs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-nfs.pdf",
+      "kind": "pdf",
+      "bytes": 145901,
+      "sha256": "453691aa33cbd62e23b8cb917068857f250003afdb3994682429a0ebcc75b65e",
+      "pdf_pages": 18
+    },
+    {
+      "file": "lab-projects-systems.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/lab-projects-systems.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/lab-projects-systems.pdf",
+      "kind": "pdf",
+      "bytes": 34602,
+      "sha256": "419c8b651882c8153cd565d2ce66ae8ca25f6f6926595541be0861f65bd959ab",
+      "pdf_pages": 4
+    },
+    {
+      "file": "dist-afs.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-afs.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-afs.pdf",
+      "kind": "pdf",
+      "bytes": 131483,
+      "sha256": "531c303f5d20944c0f7a253c16a2deaaebeaa1039a7a43336637b0a01345724e",
+      "pdf_pages": 14
+    },
+    {
+      "file": "lab-projects-xv6.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/lab-projects-xv6.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/lab-projects-xv6.pdf",
+      "kind": "pdf",
+      "bytes": 31468,
+      "sha256": "69942da33fbca831b461fa74130ec66ea1edeee7ec461e75917f4fc0ce9cb2ec",
+      "pdf_pages": 3
+    },
+    {
+      "file": "dist-dialogue.pdf",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-dialogue.pdf",
+      "final_url": "https://pages.cs.wisc.edu/~remzi/OSTEP/dist-dialogue.pdf",
+      "kind": "pdf",
+      "bytes": 23467,
+      "sha256": "9faa7dcf3c1c8a54339bc6561b57601580b0fce75d7d59c5f10ea764ecf1ef12",
+      "pdf_pages": 2
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:44+0300",
+  "pdf_count": 68,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

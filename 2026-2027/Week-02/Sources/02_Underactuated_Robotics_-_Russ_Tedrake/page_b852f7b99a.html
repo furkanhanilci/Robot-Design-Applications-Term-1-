@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ch. 5 - Highly-articulated Legged
+Robots</title>
+    <meta name="Ch. 5 - Highly-articulated Legged
+Robots" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/humanoids.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+    <script type="text/javascript" src="notebooks.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script src="htmlbook/mathjax-loader.js" defer></script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2024<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="https://underactuated.csail.mit.edu/Spring2024/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2024 semester.  <a
+href="https://www.youtube.com/playlist?list=PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=simple_legs.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=stochastic.html>Next Chapter</a></td>
+</tr></table>
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter style="counter-reset: chapter 4"><h1>Highly-articulated Legged
+Robots</h1>
+
+  <p>The passive dynamic walkers and hopping robots described in the last
+  chapter capture the fundamental dynamics of legged locomotion -- dynamics
+  which are fundamentally nonlinear and punctuated by impulsive events due to
+  making and breaking contact with the environment.  But if you start reading
+  the literature on humanoid robots, or many-legged robots like quadrupeds, then
+  you will find a quite different set of ideas taking center stage: ideas like
+  the "zero-moment point" and footstep planning.  The goal of this chapter is to
+  penetrate that world.</p>
+
+  <p>Perhaps one of the most surprising thing about the world of complex
+  (highly-articulated) legged robots is the dominant use of simple models for
+  estimation, planning, and control.  These abstractions become valuable when you have
+  enough degrees of freedom to move your feet (approximately) independently from how you
+  move your body.</p>
+
+  <p>Since our robots are getting more complicated, I'm going to need a bit
+  stronger notation. In Drake we use <a
+  href="https://drake.mit.edu/doxygen_cxx/group__multibody__notation.html">monogram
+  notation</a> and define its spatial algebra <a
+  href="https://manipulation.csail.mit.edu/pick.html#monogram">here for
+  kinematics</a>, <a
+  href="https://manipulation.csail.mit.edu/pick.html#jacobian">differential
+  kinematics (velocities)</a> and <a
+  href="https://manipulation.csail.mit.edu/clutter.html#spatial_force">here for
+  force</a>.</p>
+
+  <section><h1>A thought experiment</h1>
+
+    <p>Let's start the discussion with a model that might seem quite far from
+    the world of legged robots, but I think it's a very useful way to think
+    about the problem.</p>
+    
+    <subsection><h1>A spacecraft model</h1>
+
+      <todo>Add subscripts to forces on the figure.</todo>
+      <figure><img width="50%" src="figures/zmp_thrusters.svg"/></figure>
+
+      <p>Imagine you have a flying vehicle modeled as a single rigid body in a gravity
+      field with some number of force "thrusters" attached.  We'll describe the pose of
+      the body in the world frame, ${}^WX^B$, parameterized by its position $(x,z)$ and
+      orientation $\theta$, and take the center of mass to be at the origin of this body
+      frame. The vector from the center of mass to thruster $i$ in the world frame is
+      given by ${}^Bp^{B_i}_W$, yielding the equations of motion: \begin{align}
+      m\ddot{x} =& \sum_i f^{B_i}_{i, W_x}, \label{eq:spacecraft_x} \\ m\ddot{z} =&
+      \sum_i f^{B_i}_{i,W_z} - mg,\label{eq:spacecraft_z}\\ I\ddot\theta =& \sum_i
+      \left[ {}^Bp^{B_i}_W(\theta) \times f^{B_i}_{i,W} \right]_y,
+      \label{eq:spacecraft_theta}\end{align} where I've used $f^{B_i}_{i,W_x}$ to
+      represent the $x$-component of the force applied to $B$ at the location of
+      thruster $i$, expressed in the world frame, and we take the $y$-axis component of
+      the cross product on the last line. You might compare this to the equations of
+      motion for the <a href="acrobot.html#planar_quadrotor">planar quadrotor</a>; the
+      only difference is that I've written the force inputs here in world coordinates
+      instead of body coordinates.
+      </p>
+
+      <p>Our goal is to move the spacecraft to a desired position/orientation and to
+      keep it there.  If we take the inputs to be $f^{B_i}_{i,W}$, then the
+      translational dynamics are affine (linear plus a constant term). The rotational
+      dynamics are nonlinear assuming that the positions of the thrusters rotate with
+      the spacecraft. But for small angles, we can stabilize a stabilizable fixed point
+      using linearization plus a change of coordinates then LQR, or even plan/track a
+      desired trajectory using time-varying LQR.  If I were to add additional linear
+      constraints, for instance constraining $f_{min} \le f^{B_i}_{i,W} \le f_{max}$,
+      then I can still use linear model-predictive control (MPC) to plan and stabilize a
+      desired motion. By most accounts, this is a relatively easy control problem. (If
+      we do consider the nonlinear dynamics in $\theta$, then we will resort to
+      nonlinear optimization, but this still feels fairly managable).</p>
+
+      <p>Now imagine that you have just a small number of thrusters (let's say
+      two) each with severe input constraints.  To make things more
+      interesting, let us say that you're allowed to move the thrusters, so
+      ${}^B\text{v}^{B_i} = \frac{d}{dt} {}^Bp^{B_i}$ becomes an additional
+      control input, but with some important limitations:  you have to turn the
+      thrusters off when they are moving (e.g. $f^{B_i}_i = 0$ <i>or</i> ${}^B
+      \text{v}^{B_i} = 0$) and there is a limit to how quickly you can
+      move the thrusters $|{}^B\text{v}^{B_i}| \le \text{v}_{max}$.  This
+      problem is now a lot more difficult, due especially to the fact that
+      constraints of the form "$x=0$ or $y=0$"" are non-convex.</p>
+      
+      <p>I find this a very useful thought exercise; somehow our controller needs to
+      make an effectively discrete decision to turn off a thruster and move it.  The
+      framework of optimal control should support this - you are sacrificing a
+      short-term loss of control authority for the long-term benefit of having the
+      thruster positioned where you would like, but we haven't developed tools yet that
+      deal well with this discrete plus continuous decision making.  We'll need to
+      address that here.</p>
+
+      <p>Unfortunately, although the problem is already difficult, we need a few more
+      constraints to make it relevant for legged robots.  Now let's say additionally,
+      that the thrusters can only be turned on in certain locations (in the world
+      frame), as cartooned here:</p>
+      
+      <figure id="zmp_thrusters_w_regions"><img width="70%"
+      src="figures/zmp_thrusters_w_regions.svg"/><figcaption>What if we can
+      only apply thrust when the thrusters are in a certain (world)
+      position?</figcaption></figure>
+      
+      <p>Even if the individual regions are convex, the union of these regions
+      need not form a convex set.  Furthermore, these locations are often
+      expressed in the world frame, not the robot frame, e.g. $${\bf A}\, {}^W
+      p^{B_i}_W(\theta) \le {\bf b}.$$</p>
+
+    </subsection>
+
+    <subsection><h1>Robots with (massless) legs</h1>
+
+      <p>In my view, the spacecraft with thrusters problem above is a central
+      component of the walking problem.  If we consider a walking robot as our
+      single rigid body, $B$, with massless legs, then the feet are exactly
+      like movable thrusters.  As above, they are highly constrained - they can
+      only produce force when they are touching the ground, and (typically)
+      they can only produce forces in certain directions, for instance as
+      described by a "friction cone" (you can push on the ground but not pull
+      on the ground, and with Coulomb friction the forces tangential to the
+      ground must be smaller than the forces normal to the ground, as described
+      by a coefficient of friction, e.g. $f^{B_i}_{i,C_z} \ge 0, |f^{B_i}_{i,C_x}|
+      < \mu f^{B_i}_{i,C_z}$) where $C$ is the <a
+      href="multibody.html#contact">contact frame</a>.</p>
+
+      <figure><img width="50%" src="figures/hovercraftLegs.svg"/></figure>
+
+      <p>The constraints on where you can put your feet / thrusters will depend on the
+      kinematics of your leg, and the speed at which you can move them will depend on
+      the full dynamics of the leg -- these are difficult constraints to deal with.  But
+      the actual dynamics of the rigid body, $B$, are actually still just the spacecraft
+      dynamics, and are still simple!</p>
+
+    </subsection>
+
+  </section>
+
+  <section><h1>Center of pressure (CoP) and Zero-moment point (ZMP)</h1>
+  
+    <subsection><h1>The special case of flat terrain</h1>
+
+      <p>While not the only important case, it is extremely common for our robots
+      to be walking over flat, or nearly flat terrain.  In this situation, even if
+      the robot is touching the ground in a number of places (e.g., two heels and
+      two toes), the constraints on the center of mass dynamics can be summarized
+      very efficiently.</p>
+
+      <figure>
+        <img width="80%" src="figures/flat_terrain.svg"/>
+        <figcaption>External forces acting on a robot pushing on a flat ground</figcaption>
+      </figure>
+
+      <p>First, on flat terrain $f^{B_i}_{i,W_z}$ represents the normal component of the
+      force contact point $i$.  If we assume that the robot can only push on the ground
+      (and not pull), then this implies $$\forall i, f^{B_i}_{i,W_z} \ge 0 \Rightarrow
+      \sum_i f^{B_i}_{i,W_z} \ge 0 \Rightarrow \ddot{z} \ge -g.$$  In
+      other words, if I cannot pull on the ground, then my center of mass cannot
+      accelerate towards the ground faster than gravity.</p>
+
+      <p>Furthermore, if we use a Coulomb model of friction on the ground, with
+      friction coefficient $\mu$, then $$\forall i, |f^{B_i}_{i,W_x}| \le \mu
+      f^{B_i}_{i,W_z} \Rightarrow \sum_i |f^{B_i}_{i,W_x}| \le \mu \sum_i
+      f^{B_i}_{i,W_z} \Rightarrow |\ddot{x}| \le \mu (\ddot{z} + g).$$  For
+      instance, if I keep my center of mass height at a constant velocity, then
+      $\ddot{z}=0$ and $|\ddot{x}| \le \mu g$; this is a nice reminder of just
+      how important friction is if you want to be able to move around in the
+      world.</p>
+
+      <p>Even better, let us define the "center of pressure" (CoP) as the point on the
+      ground where $$\begin{bmatrix} x_{cp} \\ z_{cp}\end{bmatrix} \equiv
+      \,{}^Wp^{R_{cp}}_W = \frac{\sum_i {}^Wp^{B_i}_{W}\, f^{B_i}_{W_z}}{\sum_i
+      f^{B_i}_{W_z}}.$$ Since all ${}^Wp^{B_i}_{W_z}$ are equal on flat terrain,
+      $z_{cp}$ is just the height of the terrain.  It turns out that the center of
+      pressure is a "zero-moment point" (ZMP) -- a property that we will demonstrate
+      below -- and a moment-balance equation (see below) gives us a very important
+      relationship between the location of the CoP and the dynamics of the CoM:
+      \begin{equation} (m\ddot{z} + mg) (x_{cp} - x) = (z_{cp} - z) m\ddot{x} -
+      I\ddot\theta. \label{eq:cop} \end{equation} If $\ddot{z} = \ddot{\theta} = 0$, or
+      more generally if the rate of change in vertical and angular momentum about the
+      center of mass is small, then the result is the famous "ZMP equations":
+      \begin{equation} \ddot{x} = g \frac{(x - x_{cp})}{(z - z_{cp})}. \label{eq:zmp}
+      \end{equation} So the location of the center of pressure completely determines the
+      acceleration of the center of mass, and vice versa!  What's more, when $z -
+      z_{cp}$ is a constant (the center of mass remains at a constant height relative to
+      the ground) or following a predetermined schedule, the remaining relationship is
+      affine -- a property that we can exploit in a number of ways.</p>
+
+      <p> As an example, we can easily relate constraints on the CoP to
+      constraints on $\ddot{x}$. It is easy to verify from the definition that
+      the CoP must live inside the <a
+      href="http://en.wikipedia.org/wiki/Convex_hull">convex hull</a> of the
+      ground contact points.  Therefore, if we use the $\ddot{z}=\ddot\theta=0$
+      strategy, then this directly implies strict bounds on the possible
+      accelerations of the center of mass given the locations of the ground
+      contacts.</p>
+
+    </subsection>
+
+    <subsection><h1>An aside: Zero-moment point derivation</h1>
+
+      <p>The zero-moment point (ZMP) is discussed very frequently in the current
+      literature on legged robots.  It also has an unfortunate tendency to be
+      surrounded by some confusion; a number of people have defined the ZMP is
+      slightly different ways (see e.g. <elib>Goswami99</elib> for a summary).
+      Therefore, it makes sense to provide a simple derivation here.</p>
+
+      <p>First let us recall that for rigid body systems I can always summarize
+      the contributions from many external forces as a single <i>wrench</i>
+      (force and torque) on the object -- this is simply because the $F_i$ terms
+      enter our equations of motion linearly.  Specifically, the position $p^A$ of an arbitrary point $A$:</p> <figure><img
+      width="50%" src="figures/zmp_derivation.svg"/></figure> 
+
+      <p>I can re-write the equations of motion as \begin{align*} m\ddot{x} =&
+      \sum_i f^{B_i}_{W_x} = f^A_{net,W_x},\\ m\ddot{z} =& \sum_i f^{B_i}_{W_z}
+      - mg = f^A_{net,W_z} - mg,\\ I\ddot\theta =& \sum_i \left[ {}^Bp^{B_i}_W
+      \times f^{B_i}_W \right]_y = [{}^Bp^A_W \times f^A_{net,W}]_y +
+      \tau^A_{net,W}, \end{align*} where $f^A_{net} = \sum_i f^{B_i}$ and the
+      value of $\tau^A_{net}$ depends on the position, $p^A$. For some choices
+      of $p^A$, we can make $\tau^A_{net}=0$. We'll call these points
+      $\text{ZMP}$, for which we have \begin{equation} \left[
+      {}^Bp^{\text{ZMP}}_W \times f^{\text{ZMP}}_{net,W} \right]_y =
+      {}^Bp^{\text{ZMP}}_{W_z} f^{\text{ZMP}}_{net,W_x} -
+      {}^Bp^{\text{ZMP}}_{W_x} f^{\text{ZMP}}_{net,W_z} = \sum_i \left[
+      {}^Bp^{B_i}_W \times f^{B_i}_W \right]_y. \label{eq:zmp_def}
+      \end{equation} We can see that whenever we have ground reaction forces
+      ($f^{\text{ZMP}}_{net,W_z} \ne 0$) there is an entire line of solutions,
+      ${}^Bp^{\text{ZMP}}_{W_x} = a\, {}^Bp^{\text{ZMP}}_{W_z} + b$, including
+      one that will intercept the terrain.  For walking robots, it is this
+      point on the ground from which the external wrench can be described by a
+      single force vector (and no moment) that is the famous "zero-moment
+      point" (ZMP).</p>
+
+      <definition id="zmp_def"><h1>Zero-moment point (ZMP)</h1>
+      <p>The total contribution of external forces on our robot can always be summarized as
+      a single <a
+      href="https://manipulation.csail.mit.edu/clutter.html#spatial_force">spatial
+      force</a> applied at any point $P$. We call $P$ a "zero-moment point" if at $P$,
+      the rotational component of the total spatial force (e.g. the torque or moment) is
+      zero.</p>
+
+      <p>For walking on flat terrain, by convection we denote "the ZMP" as the unique
+      zero-moment point on the terrain.</p>
+      </definition>
+
+      <p>We can rewrite the equations of motion in terms of the ZMP.
+      Substituting the equations of motion into equation \ref{eq:zmp_def},
+      to replace the individual terms of $f^{\text{ZMP}}_{net}$, we have \[
+      {}^Bp^{\text{ZMP}}_{W_z} m\ddot{x} - {}^Bp^{\text{ZMP}}_{W_x}
+      (m\ddot{z} + mg) = I \ddot{\theta}. \] But this is precisely the
+      equation \ref{eq:cop} presented above.</p>
+
+      <p>Furthermore, since \[\sum_i \left[ {}^Bp^{B_i}_W \times f^{B_i}_W
+      \right]_y = \sum_i \left( {}^Bp^{B_i}_{W_z} f^{B_i}_{W_x} -
+      {}^Bp^{B_i}_{W_x} f^{B_i}_{W_z} \right), \] and for <i>flat terrain</i>
+      we have \[ \sum_i {}^Bp^{B_i}_{W_z} f^{B_i}_{W_x} =
+      {}^Bp^{\text{ZMP}}_{W_z} \sum_i f^{B_i}_{W_x} = {}^Bp^\text{ZMP}_{W_z}
+      f^\text{ZMP}_{net, W_x}, \] then we can see that this ZMP is exactly the
+      CoP: \[ {}^Bp^\text{ZMP}_{W_x} = \frac{\sum_i {}^Bp^{B_i}_{W_x}
+      f^{B_i}_{W_z}}{\sum_i f^{B_i}_{W_z} }. \] </p>
+
+      <p>In three dimensions, we solve for the point on the ground where
+      $\tau^\text{ZMP}_{net,W_y} = \tau^\text{ZMP}_{net,W_x} = 0$, but allow $\tau^\text{ZMP}_{net,W_z} \ne 0$ to
+      extract the analogous equations in the $y$-axis:  \[
+      {}^Bp^{\text{ZMP}}_{W_z} m\ddot{y} - {}^Bp^{\text{ZMP}}_{W_y} (m\ddot{z}
+      + mg) = I \ddot{\theta}. \] </p>
+    </subsection>
+
+    <subsection><h1>A note about impact dynamics</h1>
+
+      <p>In the previous chapter we devoted relatively a lot of attention to
+      dynamics of impact, characterized for instance by a guard that resets
+      dynamics in a hybrid dynamical system.  In those models we used impulsive
+      ground-reaction forces (these forces are instantaneously infinite, but
+      doing finite work) in order to explain the discontinuous change in
+      velocity required to avoid penetration with the ground.  This story can be
+      extended naturally to the dynamics of the center of mass.<p>
+
+      <p>For an articulated robot, though, there are a number of possible
+      strategies for the legs which can affect the dynamics of the center of
+      mass.  For example, if the robot hits the ground with a stiff leg like the
+      rimless wheel, then the angular momentum about the point of collision will
+      be conserved, but any momentum going into the ground will be lost.
+      However, if the robot has a spring leg and a massless toe like the SLIP
+      model, then no energy need be lost.</p>
+
+      <p>One strategy that many highly-articulated legged robots use is to keep the
+      vertical component of their <i>center of mass</i> at a constant velocity,
+      $$\dot{z} = c \quad \Rightarrow \quad \ddot{z} = 0,$$  and minimize their angular
+      momentum about the center of mass (here $I\dot\theta=0 \Rightarrow I\ddot\theta =
+      0$).  Using this strategy, if the swinging foot lands roughly below the center of
+      mass, then even with a stiff leg there is no energy dissipated in the collision -
+      all of the momentum is conserved.  This the common approach/justification for most
+      of the humanoid literature ignoring the impact dynamics when reasoning about the
+      centroidal dynamics.</p>
+
+    </subsection>
+  </section>
+
+  <section><h1>ZMP-based planning</h1>
+
+    <p>Understanding the relationship between the center of pressure and the
+    center of mass motion gives us a number of important tools for planning
+    motions of our complex robots. I'll describe one of the most common
+    pipeline for planning these motions, which decomposes the problem into:
+    <ol>
+      <li>planning the footstep (or more generally the contact) positions, then</li>
+      <li>planning the motion of the center of mass, and finally</li>
+      <li>calculating the individual joint motions to realize the desired
+      center of mass and footstep trajectories</li>
+    </ol>
+    This pipeline started with the famous ZMP walkers (like Honda's ASIMO),
+    with a focus on walking on flat terrain, but many of the concepts
+    generalize naturally to 3D and more general robot motion.</p>
+    
+    <p>Most notable here is the decision to separate the complicated planning
+    problem into a sequence of simpler planning problems. Of course, one pays
+    some price for the decomposition -- footstep plans tend to be conservative
+    and kinematic because they do not reason directly about the dynamics of the
+    robot. And the centroidal planning cannot accurately account for
+    joint-level constraints, such as joint-position limits or effort limits.
+    But these approximations enable dramatically simpler planning solutions.
+    </p>
+
+    <subsection><h1>Heuristic footstep planning</h1>
+    
+      <p>Coming soon.  For a description of our approach with Atlas, see
+    <elib>Deits14a+Kuindersma14</elib>.</p>
+
+    </subsection>
+
+    <subsection><h1>Planning trajectories for the center of mass</h1>
+
+      <subsubsection><h1>The ZMP "Stability" Metric</h1>
+      
+
+      </subsubsection>
+
+      <figure><img width="80%" src="figures/zmp_planning.svg"/></figure>
+
+      <p>The implementation that we used in the DARPA Robotics Challenge is described in
+      <elib>Tedrake15</elib> and is available in Drake as <a
+      href="https://drake.mit.edu/doxygen_cxx/classdrake_1_1planning_1_1_zmp_planner.html"><code>ZmpPlanner</code></a>.</p>
+
+      <example><h1>The ZMP Planner</h1>
+      
+        <p>I've coded up a simple example calling the planner with nominal footstep positions, generating a nominal zmp trajectory as a simple trajectory moving between the foot centers, and then calling <code>ZmpPlanner</code> to generate the center of mass trajectory.</p>
+
+        <figure><img width="90%" src="figures/zmp_planner.svg"/></figure>
+
+        <script>document.write(notebook_link('humanoids', "zmp_planner"))</script>
+
+        <p>Please take it for a spin! In particular, I recommend changing the footstep timing to see the impact on the center of mass trajectory.</p>
+
+        <p>Note that the <code>ZmpPlanner</code> also produces a feedback policy (on
+        the center of mass position and velocity) in addition to the nominal plan.</p>
+      </example>
+    </subsection>
+
+    <subsection><h1>From a CoM plan to a whole-body
+    plan</h1></subsection>
+
+  </section>
+  
+  <section><h1>Centroidal dynamics</h1>
+
+    <p>It turns out the specific equations that we used in our thought experiment and
+    ZMP derivation aren't restricted to a single body and massless legs. Although the
+    equations of motion for a full humanoid are indeed complicated, if we write the
+    equations of motion <i>of the center of mass</i>, then those dynamics are
+    essentially the same as the single body case we've derived above.</p>
+
+    <subsection><h1>Spatial momentum</h1>
+    
+      <p>Let's generalize our notation for a single rigid body a bit more before we make
+      things more complex.</p>
+
+      <p>In the simple model above, we chose to use the generalized positions $\bq =
+      [\theta, x, z]$, where $x$ and $z$ were taken to be the position of the center of
+      mass, ${}^Wp^{B_{cm}}$. Let's observe that this particular choice of generalized
+      velocity actually corresponds to an important physical quantity -- the <a
+      href="https://manipulation.csail.mit.edu/pick.html#jacobian">spatial velocity</a>
+      (the concatenation of the angular velocity and the translational velocity). Using
+      the full monogram notation, we can write the spatial velocity of the center of
+      mass of body B, relative to the world frame, as $${}^WV^{B_{cm}} = \begin{bmatrix}
+      {}^W\dot\theta^B \\ {}^W\dot{p}^{B_{cm}} \end{bmatrix}.$$  We can similarly define
+      a <a href="https://manipulation.csail.mit.edu/clutter.html#spatial_force">spatial
+      force</a>, $F^{B_{cm}}_i$, by concatenating the moment and forces, and <i>spatial
+      inertia</i> of the body taken around the center of mass: $$M^{B/B_{cm}} =
+      \begin{bmatrix} I & 0 & 0\\ 0 & m & 0 \\ 0 & 0 & m \end{bmatrix},$$ and the
+      <i>spatial momentum</i> vector (the concatenation of angular momentum +
+      linear/translational momentum) as $${}^W L^{B/B_{cm}}(\dot\bq) = \begin{bmatrix} I
+      \dot\theta \\ m \dot{x} \\ m \dot{z} \end{bmatrix} = M^{B/B_{cm}}
+      {}^WV^{B_{cm}}.$$ Now recognize that the left-hand side of equations
+      (\ref{eq:spacecraft_x}-\ref{eq:spacecraft_theta}) can be written simply as
+      \begin{equation}{}^W\dot{L}^{B/B_{cm}}(\ddot\bq) = \sum_i
+      F^{B_{cm}}_i,\label{eq:Ldot}\end{equation} the rate of change of the spatial
+      momentum is just the sum of the spatial forces applied applied at $B_{cm}$.</p>
+    
+    </subsection>    
+
+    <subsection><h1>Generalization to multibody</h1>
+
+      <p>We can write the <i>configuration-dependent</i> center of mass of the entire
+      robot, $R,$ as the (weighted) sum of the center of masses of the individual links:
+      $$\begin{bmatrix} x_{cm} \\ z_{cm} \end{bmatrix} \equiv {}^Wp^{R_{cm}}(\bq) = \frac{\sum_i {}^W p^{B_{i,cm}}(\bq) \, m_i}{\sum_i m_i} =
+      \frac{\sum_i {}^WX^{B_i}(\bq) \,{}^B_i p^{B_{i,cm}} \, m_i}{\sum_i m_i}.$$</p>
+
+      <p>One can define the spatial momentum of the entire robot, $R,$ about this point.
+      It is now configuration dependent, but takes a particularly simple form: $${}^W
+      L^{R/R_{cm}}(\bq, \dot\bq) = {\bf A}(\bq)\dot\bq,$$ it can be computed in Drake for
+      a <code>MultibodyPlant</code> using the
+      <code>CalcSpatialMomentumInWorldAboutPoint()</code> method. The matrix ${\bf
+      A}(\bq)$ is known as the centroidal momentum matrix<elib>Orin13</elib>. The rate of
+      change of this whole-body spatial momentum is still given by the sum of the forces
+      (once the spatial tranforms are properly applied):
+      \begin{equation}{}^W\dot{L}^{R/R_{cm}}(\bq, \dot\bq, \ddot\bq) = {\bf
+      A}(\bq)\ddot{\bq} + \dot{\bf A}(\bq, \dot\bq)\dot\bq = \sum_i
+      F^{B_{cm}}_i.\label{eq:centroidal} \end{equation}</p>
+
+      <p>I suspect you already know this intuitively. Imagine you are an astronaut
+      experiencing (effectively) zero-gravity. If you are not applying external forces,
+      then your center of mass acceleration will be zero, and your total angular momentum
+      will be conserved. Equation (\ref{eq:centroidal}) simply generalizes to the case
+      where forces are still applied.</p>
+
+      <p>Let me make one important point very clear: <b>this is not an
+      approximation</b>. This equations exactly describe the motion of the center of
+      mass (and angular momentum about the center of mass). The simplification here is
+      not because we are approximating the dynamics, but rather because we have not yet
+      captured all of the constraints we might need to put on the forces we can produce
+      with our limbs (due to kinematic constraints) and our actuators (due to e.g.
+      torque limits).</p>
+    </subsection>
+  </section>
+
+  <section><h1>Whole-Body Control</h1>
+
+    <p>Coming soon.  See, for instance,
+    <elib>Kuindersma13+Kuindersma14</elib>.</p>
+
+  </section>
+
+  <section id="footstep"><h1>Footstep planning and push recovery</h1>
+
+    <p>Coming soon.  See, for instance,
+    <elib>Deits14a+Kuindersma14</elib>.  For nice geometric insights on push
+    recovery, see <elib>Koolen12</elib>.</p>
+
+  </section>
+
+  <section><h1>Beyond ZMP planning</h1>
+
+    <p>Coming soon.  See, for instance, 
+    <elib>Dai14+Kuindersma14</elib>.</p>
+
+    <example><h1>LittleDog gait optimization</h1>
+    
+      <script>document.write(notebook_link('humanoids', "littledog"))</script>
+
+    </example>
+
+  </section>
+
+  <section><h1>Exercises</h1>
+
+    <exercise id="MIQP_footstep_planning"><h1>Footstep Planning via Mixed-Integer Optimization</h1>
+
+      <p>In this exercise we implement a simplified version of the footstep
+      planning method proposed in <elib>Deits14a</elib>.  You will find all the
+      details <script>document.write(notebook_link('humanoids', 'exercises/footstep_planning', link_text='this python notebook'))</script>.
+      Your goal is to code most of the components of the mixed-integer program
+      at the core of the footstep planner:</p>
+
+      <ol type="a">
+
+        <li>The constraint that limits the maximum step length.</li>
+
+        <li>The constraint for which a foot cannot be in two stepping stones at
+        the same time.</li>
+
+        <li>The constraint that assigns each foot to a stepping stone, for each
+        step of the robot.</li>
+
+        <li>The objective function that minimizes the sum of the squares of the
+        step lengths.</li>
+
+      </ol>
+
+    </exercise>
+
+    <exercise><h1>Understanding the zero-moment point</h1>
+      <figure>
+        <img width="50%" src="figures/exercises/foot_on_ground.svg"/>
+        <figcaption>Model of a simplified legged robot on flat ground.</figcaption>
+      </figure>
+      Consider an abstracted legged robot.
+      The foot (enclosed by points HTP) and the leg of length $l$ are assumed to be massless.
+      The point mass $m$ at the end of the leg represents the robot's body.
+      The foot and the leg are connected via a pin joint at P.
+      For parts (a,b,c,d), assume that there is no actuator at the pin joint P.
+    <ol type = "a">
+      <li> 
+        Please draw separate free body diagrams for the bob, the leg, and the foot. 
+        For the foot, assume that the ground reaction forces are only applied at the heel and at the toe.
+      </li>
+
+      <li> 
+          Is the system stable at $\theta = \pi/2 + 10^{-3}$?
+      </li>
+
+      <li>
+        For the foot, compute the zero-moment point (ZMP) on the ground as a function of $\theta$ and the constants $m, h, g, l, L_{1}, L_{2}$ (as needed).
+      </li>
+
+      <li>
+        <ol type = i>
+          <li>
+            For what value of $\theta$ does the ZMP reach the toe $T$?
+          </li>
+          <li>
+            For what value of $\theta$ does the heel $H$ of the robot begin to lift?
+          </li>
+        </ol>
+      </li>
+
+      
+      <li>
+        For the rest of this problem, assume that there is an actuator at the ankle with a controller that perfectly cancels out the gravitational torque due to the bob around $P$, so that $\ddot{\theta} = 0$. 
+        Suppose that the robot is about to fall down.
+        What can you say about the ground reaction forces at the heel and at the toe?
+      </li>
+
+      <li>
+        What range of values of $\theta$ can you achieve without falling down? 
+        Express your answer in terms of the constants $m, h, l, L_{1}, L_{2}$ (as needed).
+      </li>
+
+      <li>
+        Suppose you are designing a (massless) foot that maximizes the range of postures that the robot can assume without falling down. 
+        Suppose we can apply a torque at the ankle without torque limits.<ol type = i>
+          <li>
+            Would you want a taller or a flatter foot (bigger or smaller $h$)?
+          </li>
+          <li>
+            Would you want a longer or a shorter foot (bigger or smaller $L_1 + L_2$)?
+          </li>
+          <li>
+            Where would you put the ankle with respect to the heel and toe?
+          </li>  
+        </ol>
+      </li>
+
+      <li>
+        Suppose you are designing a (massless) foot for a robot that will only walk forward.
+        You thus wish to make it easier for the robot's heel to lift off the ground.
+        Suppose we can apply a torque at the ankle without torque limits.
+          <ol type = i>
+          <li>
+            Would a taller or a flatter foot (bigger or smaller $h$) make it easier to walk forward?
+          </li>
+          <li>
+            Would a longer and a shorter $L_{1}$ make it it easier to walk forward?
+          </li>
+          <li>
+            Would a longer and a shorter $L_{2}$ make it it easier to walk forward?
+          </li>  
+        </ol>
+      </li>
+    </ol>
+
+    </exercise>
+
+    <exercise id="GCS_footstep_planning"><h1>Footstep Planning via Graph of
+    Convex Sets (GCS)</h1>
+
+      <p>In this exercise we implement a simplified version of the footstep
+      planning problem formulated as a shortest path problem (SPP) in GCS
+      (proposed in <elib>Marcucci21</elib>). Compared to the MIQP formulation
+      seen in <a href="humanoids.html#MIQP_footstep_planning">this
+      exercise</a>, the convex relaxation problem using GCS reduces to a linear
+      program (LP) -- it is much more computationally efficient and
+      consequently scales better. You will find all the
+      details in <script>document.write(notebook_link('humanoids', 'exercises/footstep_planning_gcs', link_text='this python notebook'))</script>.
+      Your goal is to code most of the components that transcribe the planning
+      task as a shortest path problem in GCS at the core of the footstep
+      planner:</p>
+
+      <ol type="a">
+
+        <li>Construct vertices of the GCS based on the stepping stones.</li>
+
+        <li>Construct valid edges of the GCS between vertices.</li>
+
+        <li>Add constraints associated with each edge that reflect the
+        kinematic constraints of the robot.</li>
+
+        <li>Add edge costs that reflect the optimization objective: minimizes
+        the total number of steps.</li>
+
+      </ol>
+
+    </exercise>
+
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Goswami99>
+<span class="author">A. Goswami</span>, 
+<span class="title">"Postural stability of biped robots and the foot rotation indicator (FRI) point"</span>, 
+<span class="publisher">International Journal of Robotics Research</span>, vol. 18, no. 6, <span class="year">1999</span>.
+
+</li><br>
+<li id=Deits14a>
+<span class="author">Robin Deits and Russ Tedrake</span>, 
+<span class="title">"Footstep Planning on Uneven Terrain with Mixed-Integer Convex Optimization"</span>, 
+<span class="publisher">Proceedings of the 2014 IEEE/RAS International Conference on Humanoid Robots (Humanoids 2014)</span> , <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Deits14a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Kuindersma14>
+<span class="author">Scott Kuindersma and Robin Deits and Maurice Fallon and Andr&eacute;s Valenzuela and Hongkai Dai and Frank Permenter and Twan Koolen and Pat Marion and Russ Tedrake</span>, 
+<span class="title">"Optimization-based Locomotion Planning, Estimation, and Control Design for the Atlas Humanoid Robot"</span>, 
+<span class="publisher">Autonomous Robots</span>, vol. 40, no. 3, pp. 429--455, <span class="year">2016</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Kuindersma14.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Tedrake15>
+<span class="author">Russ Tedrake and Scott Kuindersma and Robin Deits and Kanako Miura</span>, 
+<span class="title">"A closed-form solution for real-time ZMP gait generation and feedback stabilization"</span>, 
+<span class="publisher">Proceedings of the International Conference on Humanoid Robotics</span> , November, <span class="year">2015</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Tedrake15.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Orin13>
+<span class="author">David E. Orin and Ambarish Goswami and Sung-Hee Lee</span>, 
+<span class="title">"Centroidal dynamics of a humanoid robot"</span>, 
+<span class="publisher">Autonomous Robots</span>, no. September 2012, pp. 1--16, jun, <span class="year">2013</span>.
+
+</li><br>
+<li id=Kuindersma13>
+<span class="author">Scott Kuindersma and Frank Permenter and Russ Tedrake</span>, 
+<span class="title">"An Efficiently Solvable Quadratic Program for Stabilizing Dynamic Locomotion"</span>, 
+<span class="publisher">Proceedings of the International Conference on Robotics and Automation</span> , May, <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Kuindersma13.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Koolen12>
+<span class="author">Twan Koolen and Tomas de Boer and John Rebula and Ambarish Goswami and Jerry Pratt</span>, 
+<span class="title">"Capturability-based analysis and control of legged locomotion, Part 1: Theory and application to three simple gait models"</span>, 
+<span class="publisher">The International Journal of Robotics Research</span>, vol. 31, no. 9, pp. 1094-1113, <span class="year">2012</span>.
+
+</li><br>
+<li id=Dai14>
+<span class="author">Hongkai Dai and Andr&eacute;s Valenzuela and Russ Tedrake</span>, 
+<span class="title">"Whole-body Motion Planning with Centroidal Dynamics and Full Kinematics"</span>, 
+<span class="publisher">IEEE-RAS International Conference on Humanoid Robots</span>, <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Dai14.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Marcucci21>
+<span class="author">Tobia Marcucci and Jack Umenberger and Pablo A. Parrilo and Russ Tedrake</span>, 
+<span class="title">"Shortest Paths in Graphs of Convex Sets"</span>, 
+<span class="publisher">arxiv</span>, <span class="year">2023</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci21.pdf">link</a>&nbsp;]
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=simple_legs.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=stochastic.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2024</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>

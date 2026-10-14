@@ -1,0 +1,38 @@
+{
+  "id": 49,
+  "name": "maxon Motor Data Sheets Explained",
+  "type": "Üretici teknik kılavuzu",
+  "url": "https://support.maxongroup.com/hc/en-us/articles/4415193250578-maxon-motor-data-sheets-explained",
+  "folder": "49_maxon_Motor_Data_Sheets_Explained",
+  "files": [
+    {
+      "file": "open_material_49.pdf",
+      "url": "https://support.maxongroup.com/hc/en-us/article_attachments/4415193502226",
+      "final_url": "https://support.maxongroup.com/hc/en-us/article_attachments/4415193502226",
+      "kind": "pdf",
+      "bytes": 1519497,
+      "sha256": "ac83fe0a0fabce1d3c2b12611bc9ba25eb420fb6e5c2c7db22a875ce1da4c1ad",
+      "pdf_pages": 20
+    },
+    {
+      "file": "8a871a8f_open_material_49.pdf",
+      "url": "https://support.maxongroup.com/hc/en-us/article_attachments/4415181729042",
+      "final_url": "https://support.maxongroup.com/hc/en-us/article_attachments/4415181729042",
+      "kind": "pdf",
+      "bytes": 2447061,
+      "sha256": "137db9377660198c178f000e97e7274ff2d935f50fa8b71ea57bfc50693b8e59",
+      "pdf_pages": 34
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://support.maxongroup.com/hc/en-us/articles/4415193250578-maxon-motor-data-sheets-explained",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:49+0300",
+  "pdf_count": 2,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": []
+}

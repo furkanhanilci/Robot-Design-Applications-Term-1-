@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>mcuboot | Secure boot for 32-bit Microcontrollers!</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="mcuboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/serial_recovery.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/serial_recovery.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="mcuboot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"mcuboot","url":"https://docs.mcuboot.com/serial_recovery.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">mcuboot</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <!--
+  - SPDX-License-Identifier: Apache-2.0
+
+  - Copyright (c) 2022 Nordic Semiconductor ASA
+
+  - Original license:
+
+  - Licensed to the Apache Software Foundation (ASF) under one
+  - or more contributor license agreements.  See the NOTICE file
+  - distributed with this work for additional information
+  - regarding copyright ownership.  The ASF licenses this file
+  - to you under the Apache License, Version 2.0 (the
+  - "License"); you may not use this file except in compliance
+  - with the License.  You may obtain a copy of the License at
+
+  -  http://www.apache.org/licenses/LICENSE-2.0
+
+  - Unless required by applicable law or agreed to in writing,
+  - software distributed under the License is distributed on an
+  - "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  - KIND, either express or implied.  See the License for the
+  - specific language governing permissions and limitations
+  - under the License.
+-->
+
+<h1 id="serial-recovery">Serial recovery</h1>
+
+<p>MCUboot implements a Simple Management Protocol (SMP) server.
+SMP is a basic transfer encoding for use with the MCUmgr management protocol. 
+See the Zephyr <a href="https://docs.zephyrproject.org/latest/services/device_mgmt/index.html#device-mgmt">Device Management</a> documentation for more information about MCUmgr and SMP.</p>
+
+<p>MCUboot supports the following subset of the MCUmgr commands:</p>
+<ul>
+  <li>echo (OS group)</li>
+  <li>reset (OS group)</li>
+  <li>MCUmgr parameters SMP buffer size (OS group), when <code class="language-plaintext highlighter-rouge">MCUBOOT_BOOT_MGMT_MCUMGR_PARAMS</code> is enabled</li>
+  <li>image list (IMG group)</li>
+  <li>image upload (IMG group)</li>
+</ul>
+
+<p>It can also support system-specific MCUmgr commands depending on the given mcuboot-port
+if the <code class="language-plaintext highlighter-rouge">MCUBOOT_PERUSER_MGMT_GROUP_ENABLED</code> option is enabled.</p>
+
+<p>The serial recovery feature can use any serial interface provided by the platform.</p>
+
+<h2 id="transport-encoding">Transport encoding</h2>
+
+<p>By default, SMP packets are exchanged using the <em>SMP over console</em> encoding:
+each packet is prefixed with a two-byte length, protected with a CRC16,
+base64-encoded and split into <code class="language-plaintext highlighter-rouge">\n</code>-terminated frames marked with start and
+continuation markers.</p>
+
+<p>When the <code class="language-plaintext highlighter-rouge">MCUBOOT_SERIAL_RAW_PROTOCOL</code> option is enabled (on Zephyr,
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_RAW_PROTOCOL</code>), the <em>raw</em> encoding is used instead.
+The SMP packet (header directly followed by the payload) is transferred as
+binary without base64 encoding, length prefix, CRC or console framing. Packet
+boundaries are derived from the length field of the SMP header.</p>
+
+<p>Compared to SMP over console, the raw encoding uses less flash and RAM and
+allows faster transfers, at the cost of requiring a binary-capable serial link.
+The two encodings are mutually exclusive and selected at build time; the mcumgr
+client must be configured to use a matching raw transport (for example a Zephyr
+application built with <code class="language-plaintext highlighter-rouge">CONFIG_UART_MCUMGR_RAW_PROTOCOL</code>).</p>
+
+<p>Because the raw encoding has no CRC or framing to detect a truncated packet, a
+stalled or malformed transfer would otherwise wedge serial recovery. To prevent
+this, <code class="language-plaintext highlighter-rouge">BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT</code> (Zephyr:
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT</code>) discards a partially received
+packet after <code class="language-plaintext highlighter-rouge">BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT_MS</code> milliseconds without
+new data and awaits a fresh command. It is enabled by default whenever the raw encoding is used, and
+mirrors Zephyr’s <code class="language-plaintext highlighter-rouge">CONFIG_MCUMGR_TRANSPORT_RAW_UART_INPUT_TIMEOUT</code>.</p>
+
+<p>Because the raw encoding has no per-line delimiter, each receive interrupt is
+delivered as its own fragment, so the <code class="language-plaintext highlighter-rouge">BOOT_LINE_BUFS</code> receive buffers are
+consumed faster than with the console encoding. If a link can deliver data
+faster than recovery drains it (received bytes are dropped when the buffers are
+exhausted), increase <code class="language-plaintext highlighter-rouge">BOOT_LINE_BUFS</code>.</p>
+
+<h2 id="image-uploading">Image uploading</h2>
+
+<p>Uploading an image is targeted to the primary slot by default.</p>
+
+<p>An image can be loaded to other slots only when the <code class="language-plaintext highlighter-rouge">MCUBOOT_SERIAL_DIRECT_IMAGE_UPLOAD</code> option is enabled for the platform.</p>
+
+<p>MCUboot supports progressive erasing of a slot to which an image is uploaded to if the <code class="language-plaintext highlighter-rouge">MCUBOOT_ERASE_PROGRESSIVELY</code> option is enabled.
+As a result, a device can receive images smoothly, and can erase required part of a flash automatically.</p>
+
+<h2 id="configuration-of-serial-recovery">Configuration of serial recovery</h2>
+
+<p>How to enable and configure the serial recovery feature depends on the given mcuboot-port implementation.
+Refer to the respective documentation and source code for more details.</p>
+
+<h2 id="entering-serial-recovery-mode">Entering serial recovery mode</h2>
+
+<p>Entering the serial recovery mode is usually possible right after a device reset, for instance as a reaction on a GPIO pin state.
+Refer to the given mcuboot-port details to get information on how to enter the serial recovery mode.</p>
+
+<h2 id="serial-recovery-mode-usage">Serial recovery mode usage</h2>
+
+<h3 id="mcu-manager-cli-installation">MCU Manager CLI installation</h3>
+
+<p>The MCUmgr command line tool can be used as an SMP client for evaluation purposes.
+The tool is available under the <a href="https://github.com/apache/mynewt-mcumgr-cli">MCU Manager</a>
+Github page and is described in the Zephyr 
+<a href="https://docs.zephyrproject.org/latest/services/device_mgmt/mcumgr.html#mcumgr-cli">MCU Manager CLI</a> documentation.</p>
+
+<p>Use the following command to install the MCU Manager CLI tool:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">go install github.com/apache/mynewt-mcumgr-cli/mcumgr@latest
+</span></code></pre></div></div>
+<p>Enter serial recovery mode in the device and use an SMP client application for communication with the MCUboot’s SMP server.</p>
+
+<h3 id="connection-configuration">Connection configuration</h3>
+
+<p>Use the following command to set the connection configuration,
+for linux:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">mcumgr conn add serial_1 type="serial" connstring="dev=/dev/ttyACM0,baud=115200"
+</span></code></pre></div></div>
+<p>for windows:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">mcumgr conn add serial_1 type="serial" connstring="COM1,baud=115200"
+</span></code></pre></div></div>
+
+<h3 id="image-management">Image management</h3>
+
+<p>The connection configuration must be established to perform the following image-related commands:</p>
+
+<ul>
+  <li>Upload the image:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">mcumgr image upload &lt;path-to-signed-image-bin-file&gt;</span><span class="w"> </span><span class="nt">-c</span> serial_1
+</code></pre></div>    </div>
+
+    <p>Once done successfully, the following notification will be displayed:</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">20.25 KiB / 20.25 KiB [=================================] 100.00% 3.08 KiB/s 6s
+Done
+</span></code></pre></div>    </div>
+  </li>
+  <li>List all images:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">mcumgr image list -c serial_1
+</span></code></pre></div>    </div>
+    <p>The terminal will show the response from the module:</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Images:
+ image=0 slot=0
+    version: 0.0.0.0
+    bootable: false
+    flags: 
+    hash: Unavailable
+Split status: N/A (0)
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="device-reset">Device reset</h3>
+
+<p>Reset your device with the following command:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">mcumgr reset -c serial_1
+</span></code></pre></div></div>
+<p>The terminal should respond:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Done
+</span></code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kernel Timing &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/timing/clocks.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Timers" href="timers.html" />
+    <link rel="prev" title="Pipes" href="../data_passing/pipes.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#timing">Timing</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Kernel Timing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#time-units">Time Units</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#runtime-system-timer-frequency">Runtime System Timer Frequency</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#conversion">Conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#uptime">Uptime</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#timeouts">Timeouts</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#timing-internals">Timing Internals</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#timeout-queue">Timeout Queue</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#timer-drivers">Timer Drivers</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#time-slicing">Time Slicing</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#subsystems-that-keep-millisecond-apis">Subsystems that keep millisecond APIs</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#subsystems-using-k-timeout-t">Subsystems using <code class="docutils literal notranslate"><span class="pre">k_timeout_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="timers.html">Timers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="system_timer_drivers.html">System Timer Drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Kernel Timing</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/timing/clocks.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Ftiming%2Fclocks%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Ftiming%2Fclocks%0A-+Version%3A+main%0A-+SHA-1%3A+5a0e1f9eb7fa3efad990b89d50257296d7d85724&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="kernel-timing">
+<span id="id1"></span><h1>Kernel Timing<a class="headerlink" href="#kernel-timing" title="Link to this heading"></a></h1>
+<p>Zephyr provides a robust and scalable timing framework to enable
+reporting and tracking of timed events from hardware timing sources of
+arbitrary precision.</p>
+<section id="time-units">
+<h2>Time Units<a class="headerlink" href="#time-units" title="Link to this heading"></a></h2>
+<p>Kernel time is tracked in several units which are used for different
+purposes.</p>
+<p>Real time values, typically specified in milliseconds or microseconds,
+are the default presentation of time to application code.  They have
+the advantages of being universally portable and pervasively
+understood, though they may not match the precision of the underlying
+hardware perfectly.</p>
+<p>The kernel presents a “cycle” count via the <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga208687de625e0036558343b4e66143d3" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cycle_get_32()</span></code></a>
+and <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gae09f509d02bf75a7b45d2800d823bb3a" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cycle_get_64()</span></code></a> APIs.  The intent is that this counter
+represents the fastest cycle counter that the operating system is able
+to present to the user (for example, a CPU cycle counter) and that the
+read operation is very fast.  The expectation is that very sensitive
+application code might use this in a polling manner to achieve maximal
+precision.  The frequency of this counter is available from
+<a class="reference internal" href="../../../doxygen/html/group__timeutil__unit__apis.html#gafe3ef19636d5002350794fa01b480d16" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_hw_cycles_per_sec()</span></code></a>. On most platforms this is a runtime
+constant that evaluates to <a class="reference internal" href="../../../kconfig.html#CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC" title="CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC</span></code></a>
+and is fixed for the lifetime of the system. On platforms where the system
+timer frequency is not fixed, <a class="reference internal" href="../../../doxygen/html/group__timeutil__unit__apis.html#gafe3ef19636d5002350794fa01b480d16" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_hw_cycles_per_sec()</span></code></a> returns a
+runtime value and application code must not assume a single immutable
+frequency.</p>
+<section id="runtime-system-timer-frequency">
+<h3>Runtime System Timer Frequency<a class="headerlink" href="#runtime-system-timer-frequency" title="Link to this heading"></a></h3>
+<p>Some platforms need the system timer frequency to be available at runtime,
+either because the timer driver discovers the clock rate from hardware or
+because the timer clock rate can change after boot.</p>
+<p>Platforms that can change the active system timer frequency at runtime must
+enable <a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_UPDATE" title="CONFIG_SYSTEM_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_UPDATE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_UPDATE</span></code></a> and:</p>
+<ul class="simple">
+<li><p>Call <code class="xref c c-func docutils literal notranslate"><span class="pre">z_sys_clock_hw_cycles_per_sec_update()</span></code> after applying the clock change.</p></li>
+<li><p>If the system timer driver caches derived constants (e.g. cycles-per-tick) or
+needs to reprogram hardware when the clock changes, provide a timer-driver
+override of <code class="xref c c-func docutils literal notranslate"><span class="pre">z_sys_clock_hw_cycles_per_sec_update()</span></code>.</p></li>
+</ul>
+<p>The default implementation of <code class="xref c c-func docutils literal notranslate"><span class="pre">z_sys_clock_hw_cycles_per_sec_update()</span></code> only updates
+the stored frequency value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_UPDATE" title="CONFIG_SYSTEM_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_UPDATE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_UPDATE</span></code></a> tracks
+the system timer frequency as a single <strong>global</strong> value. It is not compatible
+with per-CPU frequency scaling configurations where different CPUs could
+observe different system timer frequencies.</p>
+<p>When enabled, <a class="reference internal" href="../../../doxygen/html/group__timeutil__unit__apis.html#gafe3ef19636d5002350794fa01b480d16" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_hw_cycles_per_sec()</span></code></a> and time unit conversions
+follow the current runtime value.</p>
+</div>
+<p>For asynchronous timekeeping, the kernel defines a “ticks” concept.  A
+“tick” is the internal count in which the kernel does all its internal
+uptime and timeout bookkeeping.  Interrupts are expected to be
+delivered on tick boundaries to the extent practical, and no
+fractional ticks are tracked.  The choice of tick rate is configurable
+via <a class="reference internal" href="../../../kconfig.html#CONFIG_SYS_CLOCK_TICKS_PER_SEC" title="CONFIG_SYS_CLOCK_TICKS_PER_SEC"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYS_CLOCK_TICKS_PER_SEC</span></code></a>.  Defaults on most
+hardware platforms (ones that support setting arbitrary interrupt
+timeouts) are expected to be in the range of 10 kHz, with software
+emulation platforms and legacy drivers using a more traditional 100 Hz
+value.</p>
+</section>
+<section id="conversion">
+<h3>Conversion<a class="headerlink" href="#conversion" title="Link to this heading"></a></h3>
+<p>Zephyr provides an extensively enumerated conversion library with
+rounding control for all time units.  Any unit of “ms” (milliseconds),
+“us” (microseconds), “tick”, or “cyc” can be converted to any other.
+Control of rounding is provided, and each conversion is available in
+“floor” (round down to nearest output unit), “ceil” (round up) and
+“near” (round to nearest).  Finally the output precision can be
+specified as either 32 or 64 bits.</p>
+<p>For example: <a class="reference internal" href="../../../doxygen/html/group__timeutil__unit__apis.html#gac74a319bcb69cc714818413ae15af7a2" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_ms_to_ticks_ceil32()</span></code></a> will convert a
+millisecond input value to the next higher number of ticks, returning
+a result truncated to 32 bits of precision; and
+<a class="reference internal" href="../../../doxygen/html/group__timeutil__unit__apis.html#gad3376aa7ab36b6b7f5a1f9c9977cee4a" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cyc_to_us_floor64()</span></code></a> will convert a measured cycle count
+to an elapsed number of microseconds in a full 64 bits of precision.
+See the reference documentation for the full enumeration of conversion
+routines.</p>
+<p>On most platforms, where the various counter rates are integral
+multiples of each other and where the output fits within a single
+word, these conversions expand to a 2-4 operation sequence, requiring
+full precision only where actually required and requested.</p>
+</section>
+</section>
+<section id="uptime">
+<span id="kernel-timing-uptime"></span><h2>Uptime<a class="headerlink" href="#uptime" title="Link to this heading"></a></h2>
+<p>The kernel tracks a system uptime count on behalf of the application.
+This is available at all times via <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gae3e992cd3257c23d5b26d765fcbb2b69" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_uptime_get()</span></code></a>, which
+provides an uptime value in milliseconds since system boot.  This is
+expected to be the utility used by most portable application code.</p>
+<p>The internal tracking, however, is as a 64 bit integer count of ticks.
+Apps with precise timing requirements (that are willing to do their
+own conversions to portable real time units) may access this with
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga8f143af2ee4ad42d9f7817ef161cbd13" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_uptime_ticks()</span></code></a>.</p>
+<p><a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gad748b2fe83b36884dc087b4af367de80" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_uptime_delta()</span></code></a> can be used to get the time elapsed between a reference
+and the current time. The referenced time will be updated to the current uptime,
+to easily calculate the next elapsed time.</p>
+</section>
+<section id="timeouts">
+<h2>Timeouts<a class="headerlink" href="#timeouts" title="Link to this heading"></a></h2>
+<p>The Zephyr kernel provides many APIs with a “timeout” parameter.
+Conceptually, this indicates the time at which an event will occur.
+For example:</p>
+<ul class="simple">
+<li><p>Kernel blocking operations like <a class="reference internal" href="../../../doxygen/html/group__semaphore__apis.html#gac71e2383c1920dddc45a561cacfef090" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sem_take()</span></code></a> or
+<a class="reference internal" href="../../../doxygen/html/group__queue__apis.html#ga0a77d8556e7d253319275de034f01619" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_queue_get()</span></code></a> may provide a timeout after which the
+routine will return with an error code if no data is available.</p></li>
+<li><p>Kernel <a class="reference internal" href="../../../doxygen/html/structk__timer.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_timer</span></code></a> objects must specify delays for
+their duration and period.</p></li>
+<li><p>The kernel <a class="reference internal" href="../../../doxygen/html/structk__work__delayable.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_delayable</span></code></a> API provides a timeout parameter
+indicating when a work queue item will be added to the system queue.</p></li>
+</ul>
+<p>All these values are specified using a <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> value.  This is
+an opaque struct type that must be initialized using one of a family
+of kernel timeout macros.  The most common, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga302af954e87b10a9b731f1ad07775e9f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_MSEC</span></code></a>, defines
+a time in milliseconds after the current time.</p>
+<p>What is meant by “current time” for relative timeouts depends on the context:</p>
+<ul class="simple">
+<li><p>When scheduling a relative timeout from within a timeout callback (e.g. from
+within the expiry function passed to <a class="reference internal" href="../../../doxygen/html/group__timer__apis.html#ga318c846a740b901e5d56876a47ad7f61" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_timer_init()</span></code></a> or the work handler
+passed to <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga2876c5d82fb2340a093bc4d689a55465" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_init_delayable()</span></code></a>), “current time” is the exact time at
+which the currently firing timeout was originally scheduled even if the “real
+time” will already have advanced. This is to ensure that timers scheduled from
+within another timer’s callback will always be calculated with a precise offset
+to the firing timer. It is thereby possible to fire at regular intervals without
+introducing systematic clock drift over time.</p></li>
+<li><p>When scheduling a timeout from application context, “current time” means the
+value returned by <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga8f143af2ee4ad42d9f7817ef161cbd13" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_uptime_ticks()</span></code></a> at the time at which the kernel
+receives the timeout value.</p></li>
+</ul>
+<p>Other options for timeout initialization follow the unit conventions
+described above: <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gae2f3a80170afc5fbce0337cdf5a4ce4c" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NSEC()</span></code></a>, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga91198e325210ec052a8308e642058c0b" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_USEC</span></code></a>, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaeda983960bd25f1dba7a386ad720e395" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_TICKS</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gab41f59fd2b724cb1279e4f6821154b33" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_CYC()</span></code></a> specify timeout values that will expire after specified
+numbers of nanoseconds, microseconds, ticks and cycles, respectively.</p>
+<p>Precision of <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> values is configurable, with the default
+being 32 bits.  Large uptime counts in non-tick units will experience
+complicated rollover semantics, so it is expected that
+timing-sensitive applications with long uptimes will be configured to
+use a 64 bit timeout type.</p>
+<p>Finally, it is possible to specify timeouts as absolute times since
+system boot.  A timeout initialized with <code class="xref c c-macro docutils literal notranslate"><span class="pre">K_TIMEOUT_ABS_MS</span></code>
+indicates a timeout that will expire after the system uptime reaches
+the specified value.  There are likewise nanosecond, microsecond,
+cycles and ticks variants of this API.</p>
+</section>
+<section id="timing-internals">
+<h2>Timing Internals<a class="headerlink" href="#timing-internals" title="Link to this heading"></a></h2>
+<section id="timeout-queue">
+<h3>Timeout Queue<a class="headerlink" href="#timeout-queue" title="Link to this heading"></a></h3>
+<p>All Zephyr <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> events specified using the API above are
+managed in a single, global queue of events.  The action to take on an
+event is specified as a callback function pointer provided by the
+subsystem requesting the event, along with a <code class="xref c c-struct docutils literal notranslate"><span class="pre">_timeout</span></code>
+tracking struct that is expected to be embedded within subsystem-defined
+data structures (for example: a <code class="xref c c-struct docutils literal notranslate"><span class="pre">wait_q</span></code> struct, or a
+<a class="reference internal" href="../../../doxygen/html/kernel_2thread_8h.html#a6379f5a1f19ffbc262a6877c4f6e3647" title=""><code class="xref c c-type docutils literal notranslate"><span class="pre">k_tid_t</span></code></a> thread struct).</p>
+<p>Note that all variant units passed via a <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> are
+converted to ticks once on insertion into the queue.  There are no
+multiple-conversion steps internal to the kernel, so precision is
+guaranteed at the tick level no matter how many events exist or how long
+a timeout might be.</p>
+<p>The data structure that holds the queue is selected at build time
+through the <a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BACKEND" title="CONFIG_TIMEOUT_BACKEND"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BACKEND</span></code></a> choice.  Only the
+front end is shared between backends (the announce path, the SMP
+re-entry handling, and the relative versus absolute timeout rules); each
+backend supplies the queue itself, so an integrator can match the data
+structure to the workload without touching the common code.</p>
+<p>The default, <a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BACKEND_DLIST" title="CONFIG_TIMEOUT_BACKEND_DLIST"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BACKEND_DLIST</span></code></a>, stores
+events in a doubly linked list sorted by expiry, each holding a delta
+count in ticks from its predecessor.  Insertion is O(N) in the number of
+pending timeouts: inexpensive for the handful a typical system has
+pending, but it scales poorly when many are outstanding.  The four
+alternative backends, all currently experimental, trade extra memory or
+behaviour for faster insertion at scale:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BACKEND_MINHEAP" title="CONFIG_TIMEOUT_BACKEND_MINHEAP"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BACKEND_MINHEAP</span></code></a> keeps the events in a
+binary min-heap keyed on absolute expiry, making insertion and removal
+O(log N).  It requires 64-bit ticks
+(<a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_64BIT" title="CONFIG_TIMEOUT_64BIT"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_64BIT</span></code></a>) and a fixed-capacity heap
+(<a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_HEAP_MAX_ENTRIES" title="CONFIG_TIMEOUT_HEAP_MAX_ENTRIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_HEAP_MAX_ENTRIES</span></code></a>, whose overflow is
+fatal), and it does not preserve the firing order of timeouts that
+expire on the same tick.</p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BACKEND_WHEEL" title="CONFIG_TIMEOUT_BACKEND_WHEEL"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BACKEND_WHEEL</span></code></a> is a hierarchical timer
+wheel with O(1) insertion and removal for the near future and a sorted
+overflow list beyond.  It has the largest per-event and static
+footprint, does not preserve same-tick firing order, and wakes a
+tickless-idle CPU periodically because its next-timeout estimate is
+bounded by the wheel period (a power cost the other backends avoid).</p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BACKEND_BUCKET" title="CONFIG_TIMEOUT_BACKEND_BUCKET"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BACKEND_BUCKET</span></code></a> is a single-level
+bucketed delta list, a simpler relative of the wheel.  It gives O(1)
+insertion within a tunable near-future window
+(<a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BUCKET_LISTS" title="CONFIG_TIMEOUT_BUCKET_LISTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BUCKET_LISTS</span></code></a>) and falls back to a
+sorted overflow list beyond it.  It also requires 64-bit ticks, but
+unlike the wheel it preserves same-tick firing order and adds no
+idle-wakeup cost.</p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_BACKEND_SKIPLIST" title="CONFIG_TIMEOUT_BACKEND_SKIPLIST"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_BACKEND_SKIPLIST</span></code></a> is a Pugh skip list
+keyed on absolute expiry.  Expected insertion and removal are O(log N)
+with no capacity limit, and same-tick firing order is FIFO.  It
+requires 64-bit ticks.  Each event stores
+<a class="reference internal" href="../../../kconfig.html#CONFIG_TIMEOUT_SKIPLIST_MAX_LEVEL" title="CONFIG_TIMEOUT_SKIPLIST_MAX_LEVEL"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMEOUT_SKIPLIST_MAX_LEVEL</span></code></a> forward pointers,
+so per-event RAM is higher than the delta list or min-heap.</p></li>
+</ul>
+<p>The non-default backends target systems that hold many concurrent
+timeouts, especially ones clustered in the near future.  For most
+applications the delta list remains the appropriate default.</p>
+</section>
+<section id="timer-drivers">
+<h3>Timer Drivers<a class="headerlink" href="#timer-drivers" title="Link to this heading"></a></h3>
+<p>Kernel timing at the tick level is driven by a timer driver.  That interface
+and the locking it runs under are described in <a class="reference internal" href="system_timer_drivers.html#system-timer-drivers"><span class="std std-ref">System Timer Drivers</span></a>.</p>
+</section>
+<section id="time-slicing">
+<h3>Time Slicing<a class="headerlink" href="#time-slicing" title="Link to this heading"></a></h3>
+<p>An auxiliary job of the timing subsystem is to provide tick counters
+to the scheduler that allow implementation of time slicing of threads.
+A thread time-slice cannot be a timeout value, as it does not reflect
+a global expiration but instead a per-CPU value that needs to be
+tracked independently on each CPU in an SMP context.</p>
+<p>Because there may be no other hardware available to drive timeslicing,
+Zephyr multiplexes the existing timer driver.  This means that the
+value passed to <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> may be clamped to a
+smaller value than the current next timeout when a time sliced thread
+is currently scheduled.</p>
+</section>
+<section id="subsystems-that-keep-millisecond-apis">
+<h3>Subsystems that keep millisecond APIs<a class="headerlink" href="#subsystems-that-keep-millisecond-apis" title="Link to this heading"></a></h3>
+<p>In general, code like this will port just like applications code will.
+Millisecond values from the user may be treated any way the subsystem
+likes, and then converted into kernel timeouts using
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga302af954e87b10a9b731f1ad07775e9f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_MSEC()</span></code></a> at the point where they are presented to the
+kernel.</p>
+<p>Obviously this comes at the cost of not being able to use new
+features, like the higher precision timeout constructors or absolute
+timeouts.  But for many subsystems with simple needs, this may be
+acceptable.</p>
+<p>One complexity is <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga0bb4b83f0222193b21a8910311bab0ca" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FOREVER</span></code></a>.  Subsystems that might have
+been able to accept this value to their millisecond API in the past no
+longer can, because it is no longer an integral type.  Such code
+will need to use a different, integer-valued token to represent
+“forever”.  <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code></a> has the same typesafety concern too,
+of course, but as it is (and has always been) simply a numerical zero,
+it has a natural porting path.</p>
+</section>
+<section id="subsystems-using-k-timeout-t">
+<h3>Subsystems using <code class="docutils literal notranslate"><span class="pre">k_timeout_t</span></code><a class="headerlink" href="#subsystems-using-k-timeout-t" title="Link to this heading"></a></h3>
+<p>Ideally, code that takes a “timeout” parameter specifying a time to
+wait should be using the kernel native abstraction where possible.
+But <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> is opaque, and needs to be converted before
+it can be inspected by an application.</p>
+<p>Some conversions are simple.  Code that needs to test for
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga0bb4b83f0222193b21a8910311bab0ca" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FOREVER</span></code></a> can simply use the <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9abf00b34e16ab7ad0883603b6778b1b" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_TIMEOUT_EQ()</span></code></a>
+macro to test the opaque struct for equality and take special action.</p>
+<p>The more complicated case is when the subsystem needs to take a
+timeout and loop, waiting for it to finish while doing some processing
+that may require multiple blocking operations on underlying kernel
+code.  For example, consider this design:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">my_wait_for_event</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_subsys</span><span class="w"> </span><span class="o">*</span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">timeout_in_ms</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k_uptime_get_32</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_event_complete</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* Wait for notification of state change */</span>
+<span class="w">        </span><span class="n">k_sem_take</span><span class="p">(</span><span class="n">obj</span><span class="o">-&gt;</span><span class="n">sem</span><span class="p">,</span><span class="w"> </span><span class="n">timeout_in_ms</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* Subtract elapsed time */</span>
+<span class="w">        </span><span class="n">timeout_in_ms</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="p">(</span><span class="n">k_uptime_get_32</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code requires that the timeout value be inspected, which is no
+longer possible.  For situations like this, the new API provides the
+internal <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga509cf4599c1f162c97540743e8c21d33" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_timepoint_calc()</span></code></a> and <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga6f6d06ef8c13e2fa54c63831fc00ecaa" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_timepoint_timeout()</span></code></a> routines
+that converts an arbitrary timeout to and from a timepoint value based on
+an uptime tick at which it will expire.  So such a loop might look like:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">my_wait_for_event</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_subsys</span><span class="w"> </span><span class="o">*</span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">k_timeout_t</span><span class="w"> </span><span class="n">timeout</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Compute the end time from the timeout */</span>
+<span class="w">    </span><span class="n">k_timepoint_t</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys_timepoint_calc</span><span class="p">(</span><span class="n">timeout</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_event_complete</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* Update timeout with remaining time */</span>
+<span class="w">        </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys_timepoint_timeout</span><span class="p">(</span><span class="n">end</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* Wait for notification of state change */</span>
+<span class="w">        </span><span class="n">k_sem_take</span><span class="p">(</span><span class="n">obj</span><span class="o">-&gt;</span><span class="n">sem</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">K_TIMEOUT_EQ</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga509cf4599c1f162c97540743e8c21d33" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_timepoint_calc()</span></code></a> accepts special values <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga0bb4b83f0222193b21a8910311bab0ca" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FOREVER</span></code></a>
+and <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code></a>, and works identically for absolute timeouts as well
+as conventional ones. Conversely, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga6f6d06ef8c13e2fa54c63831fc00ecaa" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_timepoint_timeout()</span></code></a> may return
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga0bb4b83f0222193b21a8910311bab0ca" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FOREVER</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code></a> if those were used to create
+the timepoint, the later also being returned if the timepoint is now in the
+past. For simple cases, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga87d0d7a0f7bcdcc8c4909962eac12985" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_timepoint_expired()</span></code></a> can be used as well.</p>
+<p>But some care is still required for subsystems that use those.  Note that
+delta timeouts need to be interpreted relative to a “current time”,
+and obviously that time is the time of the call to
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga509cf4599c1f162c97540743e8c21d33" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_timepoint_calc()</span></code></a>.  But the user expects that the time is
+the time they passed the timeout to you.  Care must be taken to call
+this function just once, as synchronously as possible to the timeout
+creation in user code.  It should not be used on a “stored” timeout
+value, and should never be called iteratively in a loop.</p>
+<section id="api-reference">
+<h4>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h4>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__clock__apis.html" title=""><span class="pre">System</span> <span class="pre">Clock</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Aug 25, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

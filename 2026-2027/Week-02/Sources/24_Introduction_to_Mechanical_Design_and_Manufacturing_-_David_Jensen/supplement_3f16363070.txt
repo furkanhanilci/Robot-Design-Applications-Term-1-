@@ -1,0 +1,205 @@
+Creativity Techniques – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Creativity Techniques
+A Word about Creativity
+Research shows that, on average, the more schooling one has the less creative they are on divergent thinking scores. See
+this for example.
+Unfortunately, you have had a lot of school to get to this point! However, creativity is NOT an inherent property of some people and not others. Research continues to show that being creative and innovative are learnable skills. Do not sell yourself short. But also, be prepared to work hard if you want to become more creative!
+*Watch this
+video
+to learn more about Creative Thinking.
+What Are Creativity Techniques?
+The following text is from the
+Delft Design Guide
+.
+[1]
+The techniques for thinking up solutions to problems are called ‘creativity techniques’ or ‘creativity methods’. Most of these methods are general – they are applicable to a wide variety of problems. Creativity techniques are very useful in the design process, generating large amounts of ideas in a short time. There are many different creativity techniques, often classified according to structures like the following one (see Marc Tassoul, 2007):
+Inventorying techniques:
+Techniques used to collect and recall all kinds of information around an issue. This helps in making an inventory of what we have in terms of ideas, or data, or whatever. Examples are
+Mind Maps (see ‘Mind Map’ in this section)
+.
+Associative Techniques
+: With associative techniques, great numbers of ideas and options are generated through association within a relatively short time. Association techniques encourage spontaneous reactions to ideas expressed earlier. An example of an associative technique is the brainstorming method (see
+‘The Brainstorming Method’ in this section
+)
+Confrontational Techniques
+: With confrontational techniques, ideas are generated by thinking outside one’s familiar frame of reference. By identifying and breaking assumptions, you are able to open up a wider solution space. New connections are made between the original issues in hand and a new idea through bisociation or force-fit. Completely new, unexpected combinations of viewpoints can arise, which bring the solution of the problem one step closer.
+Provocative Techniques:
+With provocative techniques, assumptions and preconceptions are identified and broken from inside the familiar frame of reference (e.g. by asking questions like: “What if not?” and “What else?”). Provocative techniques make use of analogies, metaphors and random stimuli. Ideas will seem strange at first, but when force-fitted on the original issues they provoke new insights. Both confrontational and provocative techniques contain the principle of (1) making the strange familiar and (2) the familiar strange.
+Intuitive Techniques:
+With intuitive techniques you develop a vision, or a new perspective on the original issue in hand. Intuitive techniques are useful for letting go: to guide the idea generation techniques by whatever comes to mind. It is a technique that allows for spontaneous and intuitive idea generation and reflecting upon the generated ideas. These techniques have a great influence on enthusiasm, motivation and courage of the team members.
+Analytic-Systematic Techniques:
+Analytic-systematic methods are based on the analysis and systematic description of a problem, the drawing up of an inventory of solutions, variants to subproblems, and the systematic varying and combining of these solution variants. The morphological method and function analysis are the most typical examples (see ‘Function Analysis’ and ‘Morphological Chart’ in this section). Creative Problem Solving In order to apply the various creativity techniques effectively, a creative process needs to be followed. A very simple model of the creative process is provided by Wallas (1926): (1) preparation, (2) incubation, (3) illumination, and (4) verification. In the preparation phase the problem is defined. During the incubation phase, the issue is let go and attention is focused on other (inspirational) aspects. In the illumination phase an opening is (suddenly) found, from which an approach is developed to deal with the issue in hand. During the verification phase the idea is tested and evaluated. Tassoul and Buijs (2005) have modelled the creative problem-solving process in a more elaborate model, called the CPS model revisited (see figure 2.18). This model consists of three phases: (1) problem statement, (2) idea generation, and (3) concept development.
+Model of Creative problem solving
+When Can You Use Creativity Techniques?
+Creativity techniques are mostly used in a creative workshop, or in a brainstorm setting typically taking place at the beginning of the conceptual design phase, starting the phase of creating product ideas and concepts.
+References
+Tassoul, M. (2006) Creative Facilitation: a Delft Approach, Delft: VSSD.
+Roozenburg, N.F.M. and Eekels, J. (1995) Product Design: Fundamentals and Methods, Utrecht: Lemma.
+Roozenburg, N. and Eekels, J. (1998, 2nd ed.) Product Ontwerpen: Structuur en Methoden, Utrecht: Lemma.
+Wallas, G. (1926, 1970) ‘The art of thought’, In: Vernon, P.E. (ed.) Creativity, Harmondsworth: Penguin.
+Daalhuizen, Jaap. 2018. Delft Design Approach, Delft University of Technology.
+↵
+Previous/next navigation
+Previous: Conceptual Design Process and Tool
+Next: Tools for Supporting Creative Design Solutioning
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timers &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/timing/timers.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="System Timer Drivers" href="system_timer_drivers.html" />
+    <link rel="prev" title="Kernel Timing" href="clocks.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#timing">Timing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="clocks.html">Kernel Timing</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Timers</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#concepts">Concepts</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#timer-observers">Timer Observers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#defining-a-timer">Defining a Timer</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#using-a-timer-expiry-function">Using a Timer Expiry Function</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#reading-timer-status">Reading Timer Status</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#using-timer-status-synchronization">Using Timer Status Synchronization</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="system_timer_drivers.html">System Timer Drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Timers</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/timing/timers.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Ftiming%2Ftimers%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Ftiming%2Ftimers%0A-+Version%3A+main%0A-+SHA-1%3A+c80184273b2120074fdde8b7bd9dfcfd94c4fdb8&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="timers">
+<span id="timers-v2"></span><h1>Timers<a class="headerlink" href="#timers" title="Link to this heading"></a></h1>
+<p>A <em class="dfn">timer</em> is a kernel object that measures the passage of time
+using the kernel’s system clock. When a timer’s specified time limit
+is reached it can perform an application-defined action,
+or it can simply record the expiration and wait for the application
+to read its status.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#concepts" id="id1">Concepts</a></p></li>
+<li><p><a class="reference internal" href="#timer-observers" id="id2">Timer Observers</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id3">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#defining-a-timer" id="id4">Defining a Timer</a></p></li>
+<li><p><a class="reference internal" href="#using-a-timer-expiry-function" id="id5">Using a Timer Expiry Function</a></p></li>
+<li><p><a class="reference internal" href="#reading-timer-status" id="id6">Reading Timer Status</a></p></li>
+<li><p><a class="reference internal" href="#using-timer-status-synchronization" id="id7">Using Timer Status Synchronization</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id8">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id9">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id10">API Reference</a></p></li>
+</ul>
+</nav>
+<section id="concepts">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<p>Any number of timers can be defined (limited only by available RAM). Each timer
+is referenced by its memory address.</p>
+<p>A timer has the following key properties:</p>
+<ul class="simple">
+<li><p>A <strong>duration</strong> specifying the time interval before the timer
+expires for the first time.  This is a <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> value that
+may be initialized via different units.</p></li>
+<li><p>A <strong>period</strong> specifying the time interval between all timer
+expirations after the first one, also a <code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code>. It must be
+non-negative.  A period of <code class="docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code> (i.e. zero) or
+<code class="docutils literal notranslate"><span class="pre">K_FOREVER</span></code> means that the timer is a one-shot timer that stops
+after a single expiration. (For example then, if a timer is started
+with a duration of 200 and a period of 75, it will first expire
+after 200 ms and then every 75 ms after that.)</p></li>
+<li><p>An <strong>expiry function</strong> that is executed each time the timer expires.
+The function is executed by the system clock interrupt handler.
+If no expiry function is required a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> function can be specified.</p></li>
+<li><p>A <strong>stop function</strong> that is executed if the timer is stopped prematurely
+while running. The function is executed by the thread that stops the timer.
+If no stop function is required a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> function can be specified.</p></li>
+<li><p>A <strong>status</strong> value that indicates how many times the timer has expired
+since the status value was last read.</p></li>
+</ul>
+<p>A timer must be initialized before it can be used. This specifies its
+expiry function and stop function values, sets the timer’s status to zero,
+and puts the timer into the <strong>stopped</strong> state.</p>
+<p>A timer is <strong>started</strong> by specifying a duration and a period.
+The timer’s status is reset to zero, and then the timer enters
+the <strong>running</strong> state and begins counting down towards expiry.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The timer’s duration is a <strong>minimum</strong> delay relative to the time the timer
+was started. The timer’s period is a <strong>minimum</strong> delay relative to the last
+time the timer “should” have expired. This means that a periodic timer will
+not drift relative to the system timer, and that its periodic delay can be
+shorter or longer than the specified period.</p>
+<p>To ensure a minimum delay until the timer expires, restart the timer from
+within the <strong>expiry function</strong> or after the timer expired.</p>
+<p>The variability of the delays stem from system variables like interrupt
+handling delays and execution time of preceding timer handlers.</p>
+</div>
+<p>When a running timer expires its status is incremented
+and the timer executes its expiry function, if one exists;
+If a thread is waiting on the timer, it is unblocked.
+If the timer’s period is zero the timer enters the stopped state;
+otherwise, the timer restarts with a new duration equal to the delta between
+the time the timer “should” have expired and its period.</p>
+<p>A running timer can be stopped in mid-countdown, if desired.
+The timer’s status is left unchanged, then the timer enters the stopped state
+and executes its stop function, if one exists.
+If a thread is waiting on the timer, it is unblocked.
+Attempting to stop a non-running timer is permitted,
+but has no effect on the timer since it is already stopped.</p>
+<p>A running timer can be restarted in mid-countdown, if desired.
+The timer’s status is reset to zero, then the timer begins counting down
+using the new duration and period values specified by the caller.
+If a thread is waiting on the timer, it continues waiting.</p>
+<p>A timer’s status can be read directly at any time to determine how many times
+the timer has expired since its status was last read.
+Reading a timer’s status resets its value to zero.
+The amount of time remaining before the timer expires can also be read;
+a value of zero indicates that the timer is stopped.</p>
+<p>A thread may read a timer’s status indirectly by <strong>synchronizing</strong>
+with the timer. This blocks the thread until the timer’s status is non-zero
+(indicating that it has expired at least once) or the timer is stopped;
+if the timer status is already non-zero or the timer is already stopped
+the thread continues without waiting. The synchronization operation
+returns the timer’s status and resets it to zero.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only a single user should examine the status of any given timer,
+since reading the status (directly or indirectly) changes its value.
+Similarly, only a single thread at a time should synchronize
+with a given timer. ISRs are not permitted to synchronize with timers,
+since ISRs are not allowed to block.</p>
+</div>
+</section>
+<section id="timer-observers">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Timer Observers</a><a class="headerlink" href="#timer-observers" title="Link to this heading"></a></h2>
+<p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_TIMER_OBSERVER" title="CONFIG_TIMER_OBSERVER"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMER_OBSERVER</span></code></a> is enabled, code can register
+<em class="dfn">timer observers</em> that are notified of timer lifecycle events across all
+timers in the system. An observer is a set of optional callbacks invoked when a
+timer is initialized, started, stopped, or expires. This allows external modules
+– for example tracing, profiling, or power-management code – to react to timer
+activity without modifying kernel internals or the individual timers.</p>
+<p>An observer is defined statically with <code class="xref c c-macro docutils literal notranslate"><span class="pre">K_TIMER_OBSERVER_DEFINE</span></code>, which
+takes pointers to the <code class="docutils literal notranslate"><span class="pre">on_init</span></code>, <code class="docutils literal notranslate"><span class="pre">on_start</span></code>, <code class="docutils literal notranslate"><span class="pre">on_stop</span></code>, and <code class="docutils literal notranslate"><span class="pre">on_expiry</span></code>
+callbacks; any callback that is not needed may be passed as <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. Because the
+expiry callback runs in interrupt context, it must be kept short and
+non-blocking.</p>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="defining-a-timer">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Defining a Timer</a><a class="headerlink" href="#defining-a-timer" title="Link to this heading"></a></h3>
+<p>A timer is defined using a variable of type <a class="reference internal" href="../../../doxygen/html/structk__timer.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_timer</span></code></a>.
+It must then be initialized by calling <a class="reference internal" href="../../../doxygen/html/group__timer__apis.html#ga318c846a740b901e5d56876a47ad7f61" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_timer_init()</span></code></a>.</p>
+<p>The following code defines and initializes a timer.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">k_timer</span><span class="w"> </span><span class="n">my_timer</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_expiry_function</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">k_timer</span><span class="w"> </span><span class="o">*</span><span class="n">timer_id</span><span class="p">);</span>
+
+<span class="n">k_timer_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_timer</span><span class="p">,</span><span class="w"> </span><span class="n">my_expiry_function</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, a timer can be defined and initialized at compile time
+by calling <a class="reference internal" href="../../../doxygen/html/group__timer__apis.html#gaa267fcb0a2e18cd0da29e9f9612510a6" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_TIMER_DEFINE</span></code></a>.</p>
+<p>The following code has the same effect as the code segment above.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">K_TIMER_DEFINE</span><span class="p">(</span><span class="n">my_timer</span><span class="p">,</span><span class="w"> </span><span class="n">my_expiry_function</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="using-a-timer-expiry-function">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Using a Timer Expiry Function</a><a class="headerlink" href="#using-a-timer-expiry-function" title="Link to this heading"></a></h3>
+<p>The following code uses a timer to perform a non-trivial action on a periodic
+basis. Since the required work cannot be done at the interrupt level,
+the timer’s expiry function submits a work item to the
+<a class="reference internal" href="../threads/workqueue.html#workqueues-v2"><span class="std std-ref">system workqueue</span></a>, whose thread performs the work.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">my_work_handler</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">k_work</span><span class="w"> </span><span class="o">*</span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* do the processing that needs to be done periodically */</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="n">K_WORK_DEFINE</span><span class="p">(</span><span class="n">my_work</span><span class="p">,</span><span class="w"> </span><span class="n">my_work_handler</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_timer_handler</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">k_timer</span><span class="w"> </span><span class="o">*</span><span class="n">dummy</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">k_work_submit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_work</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">K_TIMER_DEFINE</span><span class="p">(</span><span class="n">my_timer</span><span class="p">,</span><span class="w"> </span><span class="n">my_timer_handler</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="cm">/* start a periodic timer that expires once every second */</span>
+<span class="n">k_timer_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_timer</span><span class="p">,</span><span class="w"> </span><span class="n">K_SECONDS</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">K_SECONDS</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-timer-status">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Reading Timer Status</a><a class="headerlink" href="#reading-timer-status" title="Link to this heading"></a></h3>
+<p>The following code reads a timer’s status directly to determine
+if the timer has expired or not.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">K_TIMER_DEFINE</span><span class="p">(</span><span class="n">my_status_timer</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="cm">/* start a one-shot timer that expires after 200 ms */</span>
+<span class="n">k_timer_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_status_timer</span><span class="p">,</span><span class="w"> </span><span class="n">K_MSEC</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">);</span>
+
+<span class="cm">/* do work */</span>
+<span class="p">...</span>
+
+<span class="cm">/* check timer status */</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_timer_status_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_status_timer</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* timer has expired */</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_timer_remaining_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_status_timer</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* timer was stopped (by someone else) before expiring */</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* timer is still running */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="using-timer-status-synchronization">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Using Timer Status Synchronization</a><a class="headerlink" href="#using-timer-status-synchronization" title="Link to this heading"></a></h3>
+<p>The following code performs timer status synchronization to allow a thread
+to do useful work while ensuring that a pair of protocol operations
+are separated by the specified time interval.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">K_TIMER_DEFINE</span><span class="p">(</span><span class="n">my_sync_timer</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="cm">/* do first protocol operation */</span>
+<span class="p">...</span>
+
+<span class="cm">/* start a one-shot timer that expires after 500 ms */</span>
+<span class="n">k_timer_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sync_timer</span><span class="p">,</span><span class="w"> </span><span class="n">K_MSEC</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">);</span>
+
+<span class="cm">/* do other work */</span>
+<span class="p">...</span>
+
+<span class="cm">/* ensure timer has expired (waiting for expiry, if necessary) */</span>
+<span class="n">k_timer_status_sync</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sync_timer</span><span class="p">);</span>
+
+<span class="cm">/* do second protocol operation */</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the thread had no other work to do it could simply sleep
+between the two protocol operations, without using a timer.</p>
+</div>
+</section>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use a timer to initiate an asynchronous operation after a specified
+amount of time.</p>
+<p>Use a timer to determine whether or not a specified amount of time has
+elapsed.  In particular, timers should be used when higher precision
+and/or unit control is required than that afforded by the simpler
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga093ac91db17ec33696168801d01efe75" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sleep()</span></code></a> and <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab761f90082335d57e3c6cd4013c819e6" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_usleep()</span></code></a> calls.</p>
+<p>Use a timer to perform other work while carrying out operations
+involving time limits.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a thread needs to measure the time required to perform an operation
+it can read the <a class="reference internal" href="clocks.html#kernel-timing"><span class="std std-ref">system clock or the hardware clock</span></a>
+directly, rather than using a timer.</p>
+</div>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>Related configuration options:</p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__timer__apis.html" title=""><span class="pre">Timer</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Jun 29, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

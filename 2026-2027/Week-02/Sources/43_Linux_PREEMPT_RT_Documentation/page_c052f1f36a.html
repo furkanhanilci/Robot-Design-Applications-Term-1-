@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Real-Time Kernel configuration &#8212; The Linux Kernel  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Housekeeping" href="../housekeeping.html" />
+    <link rel="prev" title="Porting an architecture to support PREEMPT_RT" href="architecture-porting.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/logo.svg" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../../index.html">The Linux Kernel</a></h1>
+
+
+
+<p class="blurb">7.3.0-rc6</p>
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+<p>
+<h3 class="kernel-toc-contents">Contents</h3>
+<input type="checkbox" class="kernel-toc-toggle" id = "kernel-toc-toggle" checked>
+<label class="kernel-toc-title" for="kernel-toc-toggle"></label>
+
+<div class="kerneltoc" id="kerneltoc">
+<p class="caption" role="heading"><span class="caption-text">Working with the development community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../process/development-process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process/submitting-patches.html">Submitting patches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process/code-of-conduct.html">Code of conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../maintainer/index.html">Maintainer handbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process/index.html">All development-process docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Core API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core-utilities">Core utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../kernel-api.html">The Linux Kernel API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../workqueue.html">Workqueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../watch_queue.html">General notification mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../printk-basics.html">Message logging with printk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../printk-formats.html">How to get printk format specifiers right</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../printk-index.html">Printk Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../symbol-namespaces.html">Symbol Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../asm-annotations.html">Assembler Annotations</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Real-time preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../housekeeping.html">Housekeeping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#data-structures-and-low-level-utilities">Data structures and low-level utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#low-level-entry-and-exit">Low level entry and exit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#concurrency-primitives">Concurrency primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#low-level-hardware-management">Low-level hardware management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#memory-management">Memory management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interfaces-for-kernel-debugging">Interfaces for kernel debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#everything-else">Everything else</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../driver-api/index.html">Driver APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../subsystem-apis.html">Subsystems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../locking/index.html">Locking</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development tools and processes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../process/license-rules.html">Licensing rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc-guide/index.html">Writing documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/index.html">Development tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/testing-overview.html">Testing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kernel-hacking/index.html">Hacking guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trace/index.html">Tracing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fault-injection/index.html">Fault injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../livepatch/index.html">Livepatching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/index.html">Rust</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User-oriented documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../admin-guide/index.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kbuild/index.html">Build system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../admin-guide/reporting-issues.html">Reporting issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Userspace tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userspace-api/index.html">Userspace API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Firmware-related documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../firmware-guide/index.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devicetree/index.html">Firmware and Devicetree</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture-specific documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arch/index.html">CPU architectures</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../staging/index.html">Unsorted documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Translations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../translations/index.html">Translations</a></li>
+</ul>
+
+</div>
+
+<script type="text/javascript"> <!--
+  var sbar = document.getElementsByClassName("sphinxsidebar")[0];
+  let currents = document.getElementsByClassName("current")
+  if (currents.length) {
+    sbar.scrollTop = currents[currents.length - 1].offsetTop;
+  }
+  --> </script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/core-api/real-time/kernel-configuration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+
+
+
+<section id="real-time-kernel-configuration">
+<h1>Real-Time Kernel configuration<a class="headerlink" href="#real-time-kernel-configuration" title="Permalink to this heading">¶</a></h1>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id4">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id5">Configuration options</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cpu-frequency-governors" id="id6">CPU frequency governors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#config-cpu-freq" id="id7"><code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_FREQ</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-cpu-freq-default-gov-performance" id="id8"><code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE</span></code></a></p></li>
+<li><p><a class="reference internal" href="#non-performance-cpu-frequency-governors" id="id9">Non-performance CPU frequency governors</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#config-cpu-idle" id="id10"><code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_IDLE</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-drm" id="id11"><code class="docutils literal notranslate"><span class="pre">CONFIG_DRM</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-efi-disable-runtime" id="id12"><code class="docutils literal notranslate"><span class="pre">CONFIG_EFI_DISABLE_RUNTIME</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-no-hz-config-no-hz-full" id="id13"><code class="docutils literal notranslate"><span class="pre">CONFIG_NO_HZ</span></code> / <code class="docutils literal notranslate"><span class="pre">CONFIG_NO_HZ_FULL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-preempt-rt" id="id14"><code class="docutils literal notranslate"><span class="pre">CONFIG_PREEMPT_RT</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-tracing-and-tracing-options" id="id15"><code class="docutils literal notranslate"><span class="pre">CONFIG_TRACING</span></code> (and tracing options)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#config-irqsoff-tracer-and-config-preempt-tracer" id="id16"><code class="docutils literal notranslate"><span class="pre">CONFIG_IRQSOFF_TRACER</span></code> and <code class="docutils literal notranslate"><span class="pre">CONFIG_PREEMPT_TRACER</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#kernel-debug-options" id="id17">Kernel Debug Options</a></p>
+<ul>
+<li><p><a class="reference internal" href="#config-debug-atomic-sleep" id="id18"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_ATOMIC_SLEEP</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-debug-bugverbose-and-config-debug-info" id="id19"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_BUGVERBOSE</span></code> and <code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_INFO*</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-debug-fs" id="id20"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_FS</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-debug-kernel" id="id21"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_KERNEL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-lockup-detector" id="id22"><code class="docutils literal notranslate"><span class="pre">CONFIG_LOCKUP_DETECTOR</span></code></a></p></li>
+<li><p><a class="reference internal" href="#config-prove-locking" id="id23"><code class="docutils literal notranslate"><span class="pre">CONFIG_PROVE_LOCKING</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#summary" id="id24">Summary</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id25">References</a></p></li>
+</ul>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<p>This document lists the kernel configuration options that might affect a
+real-time kernel’s worst-case latency.  It is intended for system integrators.</p>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Configuration options</a><a class="headerlink" href="#configuration-options" title="Permalink to this heading">¶</a></h2>
+<section id="cpu-frequency-governors">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">CPU frequency governors</a><a class="headerlink" href="#cpu-frequency-governors" title="Permalink to this heading">¶</a></h3>
+<section id="config-cpu-freq">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_FREQ</span></code></a><a class="headerlink" href="#config-cpu-freq" title="Permalink to this heading">¶</a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>high</em></p>
+</dd>
+</dl>
+<p>The CPU frequency scaling subsystem ensures that the processor can operate at
+its maximum supported frequency.  While, in general, bootloaders are tasked
+with setting the CPU clock to the highest speed on boot, some do not.  It is
+thus desirable to keep this option enabled.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>A real-time kernel is not about being “as fast as possible”, however
+real-time requirements may demand that the CPU is clocked at a particular
+speed.</p>
+</div>
+</section>
+<section id="config-cpu-freq-default-gov-performance">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE</span></code></a><a class="headerlink" href="#config-cpu-freq-default-gov-performance" title="Permalink to this heading">¶</a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>high</em></p>
+</dd>
+</dl>
+<p>Real-Time workloads expect a fixed CPU frequency during execution.  Using the
+performance governor is an easy way to achieve that purely from kernel
+configuration.</p>
+<p>This is not an absolute rule.  Some setups might prefer to clock the CPU to
+lower speeds due to thermal packaging or other requirements.  The key is that
+the CPU frequency remains constant once set.</p>
+</section>
+<section id="non-performance-cpu-frequency-governors">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Non-performance CPU frequency governors</a><a class="headerlink" href="#non-performance-cpu-frequency-governors" title="Permalink to this heading">¶</a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>disabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>medium</em></p>
+</dd>
+</dl>
+<p>To ensure reproducible system latency measurements, disable the
+non-<code class="docutils literal notranslate"><span class="pre">PERFORMANCE</span></code> CPU frequency governors whenever possible.  This avoids
+the risk of unknown userspace tasks implicitly or explicitly setting a
+different CPU frequency governor, and thereby changing latency behavior while
+the system is running.</p>
+<p>If disabling other frequency governors is not an option, use a governor that
+keeps the CPU frequency fixed.  For example,
+<code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_FREQ_DEFAULT_GOV_USERSPACE</span></code> can be enabled when userspace is
+responsible for setting a <em>stable</em> frequency during system initialization.</p>
+<p>If a low CPU frequency is desired, then
+<code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE</span></code> can be set.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ONDEMAND</span></code> governor should not be enabled on a real-time system.  Its
+frequency changes depend on workload behavior and can significantly harm
+determinism.</p>
+<p>For more information, see <a class="reference internal" href="../../admin-guide/pm/cpufreq.html"><span class="doc">CPU Performance Scaling</span></a></p>
+</section>
+</section>
+<section id="config-cpu-idle">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_CPU_IDLE</span></code></a><a class="headerlink" href="#config-cpu-idle" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>info</em></p>
+</dd>
+</dl>
+<p>CPU idle states (C-states) allow the processor to enter low-power modes during
+periods of inactivity.  Very-low CPU idle states may require flushing the CPU
+caches and lowering or disabling the clocking.  This can lower power
+consumption, but it also increases the entry and exit latency from such
+states.</p>
+<p>While disabling this option eliminates cpuidle-related latencies, doing so can
+significantly impact hardware longevity, warranty, and thermal behavior.
+Users should cap the maximum C-state to C1 instead.  For ACPI platforms, this
+can be achieved by using the boot parameter <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>processor.max_cstate=1
+</pre></div>
+</div>
+<p>Higher C-states can be acceptable depending on the user workload’s latency
+requirements.  For ACPI-based platforms, use the <code class="docutils literal notranslate"><span class="pre">cpupower</span> <span class="pre">idle-info</span></code>
+command to inspect the available idle states.</p>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linux/tools/power/cpupower</span></code></p></li>
+<li><p><a class="reference internal" href="../../admin-guide/pm/cpuidle.html"><span class="doc">CPU Idle Time Management</span></a></p></li>
+<li><p><a class="reference internal" href="../../admin-guide/pm/index.html"><span class="doc">Power Management</span></a></p></li>
+</ul>
+</section>
+<section id="config-drm">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_DRM</span></code></a><a class="headerlink" href="#config-drm" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>disabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>info</em></p>
+</dd>
+</dl>
+<p>GPU-accelerated workloads can share system resources with the CPU, including
+last-level cache (LLC) and memory bandwidth.  Modern integrated GPUs optimize
+graphics performance at the expense of CPU determinism.</p>
+<p>Examples of affected platforms:</p>
+<ul class="simple">
+<li><p>Intel processors with integrated graphics (Gen9 and later)</p></li>
+<li><p>AMD APUs with Radeon Graphics</p></li>
+<li><p>Xilinx Zynq UltraScale+ MPSoC EG/EV series</p></li>
+</ul>
+<p>If graphics workloads must run alongside real-time tasks, users must conduct
+thorough stress testing using tools like <code class="docutils literal notranslate"><span class="pre">glmark2</span></code> while measuring the
+overall system latency.</p>
+<p>For more information, please check:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="hardware.html"><span class="doc">Considering hardware</span></a> (“Regarding hardware” section)</p></li>
+<li><p><a class="reference internal" href="../../filesystems/resctrl.html"><span class="doc">User Interface for Resource Control feature (resctrl)</span></a></p></li>
+<li><p><a class="reference external" href="https://web.archive.org/web/20221025085614/https://linutronix.de/PDF/Realtime_and_graphics-acontradiction2021.pdf">Real-Time and Graphics: A Contradiction?</a></p></li>
+</ul>
+</section>
+<section id="config-efi-disable-runtime">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_EFI_DISABLE_RUNTIME</span></code></a><a class="headerlink" href="#config-efi-disable-runtime" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>medium</em></p>
+</dd>
+</dl>
+<p>EFI is the standard boot and firmware interface for multiple architectures.
+EFI runtime services provide callback functions to be called from the kernel;
+e.g., as utilized by (<code class="docutils literal notranslate"><span class="pre">CONFIG_EFI_VARS*</span></code>) or (<code class="docutils literal notranslate"><span class="pre">CONFIG_RTC_DRV_EFI</span></code>).  For
+the former, the kernel calls into EFI to update the EFI variables.</p>
+<p>Calling into EFI means invoking firmware callbacks.  During such invocations,
+the system might not be able to react to interrupts and will thus not be able
+to perform a context switch.  This can cause significant latency spikes for
+the real-time system.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONFIG_PREEMPT_RT</span></code> enables this option by default.  If this option is
+manually disabled at build time, the following boot parameter <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> may be used
+to disable EFI runtime at boot up:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>efi=noruntime
+</pre></div>
+</div>
+<p>Alternatively, confine EFI runtime service calls to a housekeeping CPU by
+restricting the <code class="docutils literal notranslate"><span class="pre">efi_runtime</span></code> workqueue CPU affinity.  For example, set that
+workqueue’s affinity to CPU #0 and pin your RT tasks to a different CPU range.
+See <a class="reference internal" href="../workqueue.html"><span class="doc">Workqueue</span></a></p>
+</section>
+<section id="config-no-hz-config-no-hz-full">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_NO_HZ</span></code> / <code class="docutils literal notranslate"><span class="pre">CONFIG_NO_HZ_FULL</span></code></a><a class="headerlink" href="#config-no-hz-config-no-hz-full" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>disabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>medium</em></p>
+</dd>
+</dl>
+<p>Tickless operation can increase kernel-to-userspace transition latency due to
+the extra accounting and state book-keeping.</p>
+<p><em>Guidance by real-time workload type:</em></p>
+<ul class="simple">
+<li><p>For periodic workloads; e.g., control loops executing every 100 µs, avoid
+<code class="docutils literal notranslate"><span class="pre">NO_HZ</span></code> modes.  Consistent kernel ticks are preferable.</p></li>
+<li><p>For computation-intensive workloads; e.g. extended userspace execution,
+<code class="docutils literal notranslate"><span class="pre">NO_HZ_FULL</span></code> may be beneficial.  In such cases, users should offload the
+kernel housekeeping to dedicated CPUs and isolate compute cores.</p></li>
+</ul>
+<p>See also <a class="reference internal" href="../../timers/no_hz.html"><span class="doc">NO_HZ: Reducing Scheduling-Clock Ticks</span></a></p>
+</section>
+<section id="config-preempt-rt">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_PREEMPT_RT</span></code></a><a class="headerlink" href="#config-preempt-rt" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>fatal</strong></p>
+</dd>
+</dl>
+<p>This option must be enabled, or the resulting kernel will not be fully
+preemptible and real-time capable.</p>
+</section>
+<section id="config-tracing-and-tracing-options">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_TRACING</span></code> (and tracing options)</a><a class="headerlink" href="#config-tracing-and-tracing-options" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>info</em></p>
+</dd>
+</dl>
+<p>Shipping kernels with tracing support enabled (but not actively running) is
+highly recommended.  This will allow the users to extract more information if
+latency problems arise.  Nonetheless, some tracers do incur latency overhead
+just by being enabled.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Users should <em>not</em> make use of tracers or trace events during production
+real-time kernel operation as they can add considerable overhead and degrade
+the system’s latency.</p>
+</div>
+<section id="config-irqsoff-tracer-and-config-preempt-tracer">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_IRQSOFF_TRACER</span></code> and <code class="docutils literal notranslate"><span class="pre">CONFIG_PREEMPT_TRACER</span></code></a><a class="headerlink" href="#config-irqsoff-tracer-and-config-preempt-tracer" title="Permalink to this heading">¶</a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>disabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>high</em></p>
+</dd>
+</dl>
+<p>These tracers do incur measurable latency overhead even when tracing is not
+currently active.</p>
+</section>
+</section>
+</section>
+<section id="kernel-debug-options">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Kernel Debug Options</a><a class="headerlink" href="#kernel-debug-options" title="Permalink to this heading">¶</a></h2>
+<p>Most kernel debug options add runtime overhead that increases the worst-case
+latency.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>During development and early testing, users are encouraged to run their
+real-time workloads and peripherals with lockdep (<a class="reference internal" href="#lockdep"><span class="std std-ref">CONFIG_PROVE_LOCKING</span></a>) and other
+kernel debug options enabled, for a considerable amount of time.  Such
+workloads might trigger kernel code paths that were not triggered during the
+internal Linux real-time kernel development, thus helping to uncover locking
+and other types of kernel bugs.</p>
+</div>
+<section id="config-debug-atomic-sleep">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_ATOMIC_SLEEP</span></code></a><a class="headerlink" href="#config-debug-atomic-sleep" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>allowed</p>
+</dd>
+</dl>
+<p>This sanity check catches common kernel programming errors with a tolerable
+latency cost.  It also increases overall scheduling as each <code class="docutils literal notranslate"><span class="pre">might_sleep()</span></code>
+can lead to a context switch.</p>
+</section>
+<section id="config-debug-bugverbose-and-config-debug-info">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_BUGVERBOSE</span></code> and <code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_INFO*</span></code></a><a class="headerlink" href="#config-debug-bugverbose-and-config-debug-info" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>allowed</p>
+</dd>
+</dl>
+<p>These options increase the kernel image size but have no latency impact.  They
+are also essential for meaningful BUG logs, crash dumps, and profiling.</p>
+</section>
+<section id="config-debug-fs">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_FS</span></code></a><a class="headerlink" href="#config-debug-fs" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>allowed</p>
+</dd>
+</dl>
+<p>This is safe to include in real-time kernels, <em>provided that debugfs is not
+accessed during production runtime</em>.</p>
+</section>
+<section id="config-debug-kernel">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_DEBUG_KERNEL</span></code></a><a class="headerlink" href="#config-debug-kernel" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>allowed</p>
+</dd>
+</dl>
+<p>Meta-option which allows debug features to be enabled.  It has no runtime
+impact, but beware of any debug features that it may have implicitly enabled.</p>
+</section>
+<section id="config-lockup-detector">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_LOCKUP_DETECTOR</span></code></a><a class="headerlink" href="#config-lockup-detector" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>disabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>high</em></p>
+</dd>
+</dl>
+<p>The lockup detector creates kernel timer callbacks that execute every few
+seconds, in hard-IRQ context, even on real-time kernels.  These periodic
+interrupts can cause latency spikes.</p>
+<p>Users should use hardware watchdogs instead, which will provide a similar
+functionality without the software-induced latency.</p>
+</section>
+<section id="config-prove-locking">
+<span id="lockdep"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CONFIG_PROVE_LOCKING</span></code></a><a class="headerlink" href="#config-prove-locking" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Expectation<span class="colon">:</span></dt>
+<dd class="field-odd"><p>disabled</p>
+</dd>
+<dt class="field-even">Severity<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>high</em></p>
+</dd>
+</dl>
+<p>Proving the correctness of all kernel locking adds substantial overhead and
+significantly increases worst-case latency.</p>
+</section>
+</section>
+<section id="summary">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Summary</a><a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
+<p>There is no “one size fits all” solution for configuring a real-time Linux
+system.  Beginning with the system real-time requirements, integrators must
+consider the features and functions of the system’s hardware, kernel, and
+userspace.  All such components must be properly configured in order to
+establish and constrain the system’s maximum latency.</p>
+<p>With that in mind, any incorrect real-time kernel configuration could cause a
+new maximum latency that shows up at the wrong time and is catastrophic for
+the real-time system’s latency.</p>
+</section>
+<section id="references">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">References</a><a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>See <a class="reference internal" href="../../admin-guide/kernel-parameters.html"><span class="doc">The kernel’s command-line parameters</span></a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;The kernel development community.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/core-api/real-time/kernel-configuration.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

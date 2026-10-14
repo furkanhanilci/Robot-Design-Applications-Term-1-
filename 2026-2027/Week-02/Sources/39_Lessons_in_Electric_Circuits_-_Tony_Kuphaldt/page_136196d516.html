@@ -1,0 +1,608 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html>
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume IV (Digital) - Chapter 9</title>
+
+<meta name="description" content="Combinational Logic Functions">
+<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="DIGI_8.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_10.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume IV</h1>
+<h1>Chapter 9</h1>
+
+
+<!--Created 2007 Jul 17 to 2007 Oct 30 (DJZ)-->
+<!--2007 Nov 12 (DJZ) Added several ladder logic diagrams-->
+<!--04213.eps stolen from Principles of Digital Computing chapter as 04454.eps.-->
+<!--04214.eps stolen from Principles of Digital Computing chapter as 04475.eps.-->
+<!--first circuit/ladder 04451-->
+<!--last circuit/ladder 04489-->
+<!--first table/equation 14164-->
+<!--last table/equation 14173-->
+<!--2014/02/01 corrections to 7-segment-->
+<!--2014/02/01 04474.png 04488.png freed-up, unused by this sml.-->
+
+
+<h1>COMBINATIONAL LOGIC FUNCTIONS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid92140"><u>Introduction</u></a></li>
+<li><a href="#xtocid92141"><u>A Half-Adder</u></a></li>
+<li><a href="#xtocid92142"><u>A Full-Adder</u></a></li>
+<li><a href="#xtocid92143"><u>Decoder</u></a></li>
+<li><a href="#xtocid92144"><u>Encoder</u></a></li>
+<li><a href="#xtocid92145"><u>Demultiplexers</u></a></li>
+<li><a href="#xtocid92146"><u>Multiplexers</u></a></li>
+<li><a href="#xtocid92147"><u>Using multiple combinational circuits</u></a></li></ul>
+
+<p><b>Original author: David Zitzelsberger</b></p>
+
+
+<h2><u><a name="xtocid92140">Introduction</a></u></h2>
+
+<a name="Combinational logic"></a>
+
+<p>The term "combinational" comes to us from mathematics. In mathematics a
+combination is an unordered set, which is a formal way to say that nobody cares
+which order the items came in. Most games work this way, if you rolled dice one
+at a time and get a 2 followed by a 3 it is the same as if you had rolled a 3
+followed by a 2. With combinational logic, the circuit produces the same output
+regardless of the order the inputs are changed.</p>
+
+<a name=" Sequential logic"></a>
+
+<p>There are circuits which depend on the when the inputs change, these
+circuits are called sequential logic. Even though you will not find the term
+"sequential logic" in the chapter titles, the next several chapters will discuss
+sequential logic.</p>
+
+<p>Practical circuits will have a mix of combinational and sequential logic,
+with sequential logic making sure everything happens in order and combinational
+logic performing functions like arithmetic, logic, or conversion.</p>
+
+<p>You have already used combinational circuits. Each logic gate discussed
+previously is a combinational logic function. Let's follow how two NAND gate
+works if we provide them inputs in different orders.</p>
+
+<p>We begin with both inputs being 0.</p>
+
+<p><p> <img src="04451.png"> </p></p> <!--Pair of NAND gates with both inputs low-->
+
+<p>We then set one input high.</p>
+
+<p><p> <img src="04452.png"> </p></p> <!--Pair of NAND gates, each with one (different) input high-->
+
+<p>We then set the other input high.</p>
+
+<p><p> <img src="04453.png"> </p></p> <!--Pair of NAND gates with both inputs high-->
+
+<p>So NAND gates do not care about the order of the inputs, and you will find
+the same true of all the other gates covered up to this point (AND, XOR, OR,
+NOR, XNOR, and NOT).</p>
+
+
+
+
+<h2><u><a name="xtocid92141">A Half-Adder</a></u></h2>
+
+<a name="Half-adder"></a>
+<a name="Two input adder"></a>
+
+<p>As a first example of useful combinational logic, let's build a device that
+can add two binary digits together. We can quickly calculate what the answers
+should be:</p>
+
+<p><pre>
+0 + 0 = 0          0 + 1 = 1          1 + 0 = 1          1 + 1 = 10<sub>2</sub>
+</pre></p>
+
+<a name="Carry"></a>
+
+<p>So we well need two inputs (a and b) and two outputs. The low order output
+will be called &#931; because it represents the sum, and the high order output
+will be called C<sub>out</sub> because it represents the carry
+out.</p>
+
+<p>The truth table is</p>
+
+<p><p> <img src="14164.png"> </p></p> <!--Half-adder truth table-->
+
+<p>Simplifying boolean equations or making some Karnaugh map will produce the
+same circuit shown below, but start by looking at the results. The &#931;
+column is our familiar XOR gate, while the C<sub>out</sub> column is
+the AND gate. This device is called a half-adder for reasons that will make
+sense in the next section.</p>
+
+<p><p> <img src="04454.png"> </p></p> <!--Half adder circuit-->
+
+<p>or in ladder logic</p>
+
+<p><p> <img src="04475.png"> </p></p> <!--Half adder ladder-->
+
+
+
+
+
+<h2><u><a name="xtocid92142">A Full-Adder</a></u></h2>
+
+<a name="Adder"></a>
+<a name="Addition, binary"></a>
+<a name="Binary addition"></a>
+<a name="Full-adder"></a>
+
+<p>The half-adder is extremely useful until you want to add more that one
+binary digit quantities. The slow way to develop a two binary digit adders would
+be to make a truth table and reduce it. Then when you decide to make a three
+binary digit adder, do it again. Then when you decide to make a four digit
+adder, do it again. Then when ... The circuits would be fast, but development
+time would be slow.</p>
+
+<p>Looking at a two binary digit sum shows what we need to extend addition to
+multiple binary digits.</p>
+
+<p><pre>
+&nbsp;          11
+&nbsp;           11
+&nbsp;           11
+&nbsp;          ---
+&nbsp;          110
+</pre></p>
+
+<a name="Three input adder"></a>
+
+<p>Look at how many inputs the middle column uses. Our adder needs three
+inputs; a, b, and the carry from the previous sum, and we can use our two-input
+adder to build a three input adder.</p>
+
+<a name="Carry"></a>
+
+<p>&#931; is the easy part. Normal arithmetic tells us that if &#931; = a +
+b + C<sub>in</sub> and &#931;<sub>1</sub> = a + b, then
+&#931; = &#931;<sub>1</sub> + C<sub>in</sub>.</p>
+
+<p><p> <img src="04455.png"> </p></p> <!--Three-quarter adder circuit?-->
+
+<p><p> <img src="04476.png"> </p></p> <!--Three-quarter adder ladder?-->
+
+<p>What do we do with C<sub>1</sub> and
+C<sub>2</sub>? Let's look at three input sums and quickly
+calculate:</p>
+
+<p><pre>
+C<sub>in</sub> + a + b = ?
+0 + 0 + 0 = 0       0 + 0 + 1 =  1       0 + 1 + 0 =  1      0 + 1 + 1 = 10
+1 + 0 + 0 = 1       1 + 0 + 1 = 10       1 + 1 + 0 = 10      1 + 1 + 1 = 11
+</pre></p>
+
+<p>If you have any concern about the low order bit, please confirm that the
+circuit and ladder calculate it correctly.</p>
+
+<p>In order to calculate the high order bit, notice that it is 1 in both
+cases when a + b produces a C<sub>1</sub>. Also, the high order bit
+is 1 when a + b produces a &#931;<sub>1</sub> and
+C<sub>in</sub> is a 1. So We will have a carry when
+C<sub>1</sub> OR (&#931;<sub>1</sub> AND
+C<sub>in</sub>). Our complete three input adder is:</p>
+
+<p><p> <img src="04456.png"> </p></p> <!--Full adder circuit-->
+
+<p><p> <img src="04477.png"> </p></p> <!--Full adder ladder-->
+
+<p>For some designs, being able to eliminate one or more types of gates can
+be important, and you can replace the final OR gate with an XOR gate without
+changing the results.</p>
+
+<p>We can now connect two adders to add 2 bit quantities.</p>
+
+<p><p> <img src="04457.png"> </p></p> <!--Funky two-bit adder circuit-->
+
+<p><p> <img src="04478.png"> </p></p> <!--Funky two-bit adder ladder-->
+
+<p>A<sub>0</sub> is the low order bit of A,
+A<sub>1</sub> is the high order bit of A, B<sub>0</sub>
+is the low order bit of B, B<sub>1</sub> is the high order bit of B,
+&#931;<sub>0</sub>is the low order bit of the sum,
+&#931;<sub>1</sub> is the high order bit of the sum, and
+C<sub>out</sub> is the Carry.</p>
+
+<p>A two binary digit adder would never be made this way. Instead the lowest
+order bits would also go through a full adder.</p>
+
+<p><p> <img src="04458.png"> </p></p> <!--Two-bit adder circuit-->
+
+<p></p> <!--spacing-->
+
+<p><p> <img src="04479.png"> </p></p> <!--Two-bit adder ladder-->
+
+<p>There are several reasons for this, one being that we can then allow a
+circuit to determine whether the lowest order carry should be included in the
+sum. This allows for the chaining of even larger sums. Consider two different
+ways to look at a four bit sum.</p>
+
+<p><pre>
+&nbsp;          111            1<-+  11<+-
+&nbsp;           0110             |  01  |  10
+&nbsp;           1011             |  10  |  11
+&nbsp;          -----          -  | ---- | ---
+&nbsp;          10001          1  +-100&nbsp; +-101
+</pre></p>
+
+<!--the strange looking htmlo sp htmlo markup above is to force it to look ok in the html version-->
+
+<p>If we allow the program to add a two bit number and remember the carry for
+later, then use that carry in the next sum the program can add any number of
+bits the user wants even though we have only provided a two-bit adder. Small
+PLCs can also be chained together for larger numbers.</p>
+
+<p>These full adders can also can be expanded to any number of bits space
+allows. As an example, here's how to do an 8 bit adder.</p>
+
+<p><p> <img src="04459.png"> </p></p> <!--Eight-bit adder circuit-->
+
+<p>This is the same result as using the two 2-bit adders to make a 4-bit
+adder and then using two 4-bit adders to make an 8-bit adder or re-duplicating
+ladder logic and updating the numbers.</p>
+
+<p><p> <img src="04460.png"> </p></p> <!--Eight-bit adder explained-->
+
+<p>Each "2+" is a 2-bit adder and made of two full adders. Each "4+" is a
+4-bit adder and made of two 2-bit adders. And the result of two 4-bit adders is
+the same 8-bit adder we used full adders to build.</p>
+
+<p>For any large combinational circuit there are generally two approaches to
+design: you can take simpler circuits and replicate them; or you can design the
+complex circuit as a complete device.</p>
+
+<p>Using simpler circuits to build complex circuits allows a you to spend
+less time designing but then requires more time for signals to propagate through
+the transistors. The 8-bit adder design above has to wait for all the
+C<sub><i>x</i>out</sub> signals to move from
+A<sub>0</sub> + B<sub>0</sub> up to the inputs of
+&#931;<sub>7</sub>.</p>
+
+<p>If a designer builds an 8-bit adder as a complete device simplified to a
+sum of products, then each signal just travels through one NOT gate, one AND
+gate and one OR gate. A seventeen input device has a truth table with 131,072
+entries, and reducing 131,072 entries to a sum of products will take some
+time.</p>
+
+<p>When designing for systems that have a maximum allowed response time to
+provide the final result, you can begin by using simpler circuits and then
+attempt to replace portions of the circuit that are too slow. That way you spend
+most of your time on the portions of a circuit that matter.</p>
+
+
+
+
+
+<h2><u><a name="xtocid92143">Decoder</a></u></h2>
+
+<a name="Decoder"></a>
+
+<p>A decoder is a circuit that changes a code into a set of signals. It is
+called a decoder because it does the reverse of encoding, but we will begin our
+study of encoders and decoders with decoders because they are simpler to
+design.</p>
+
+<a name="1-to-2 line decoder"></a>
+<a name="Decoder, line"></a>
+<a name="Line decoder"></a>
+
+<p>A common type of decoder is the line decoder which takes an n-digit binary
+number and decodes it into 2<sup>n</sup> data lines. The
+simplest is the 1-to-2 line decoder. The truth table is</p>
+
+<p><p> <img src="14165.png"> </p></p> <!--1-to-2 decoder truth table-->
+
+<p>A is the address and D is the dataline. D<sub>0</sub> is NOT A
+and D<sub>1</sub> is A. The circuit looks like</p>
+
+<p><p> <img src="04461.png"> </p></p> <!--1-to-2 decoder circuit-->
+
+<p><p> <img src="04480.png"> </p></p> <!--1-to-2 decoder ladder-->
+
+<a name="2-to-4 line decoder"></a>
+
+<p>Only slightly more complex is the 2-to-4 line decoder. The truth table
+is</p>
+
+<p><p> <img src="14166.png"> </p></p> <!--2-to-4 decoder truth table-->
+
+<p>Developed into a circuit it looks like</p>
+
+<p><p> <img src="04462.png"> </p></p> <!--2-to-4 decoder circuit-->
+
+<p><p> <img src="04481.png"> </p></p> <!--2-to-4 decoder ladder-->
+
+<p>Larger line decoders can be designed in a similar fashion, but just like
+with the binary adder there is a way to make larger decoders by combining
+smaller decoders. An alternate circuit for the 2-to-4 line decoder is</p>
+
+<p><p> <img src="04463.png"> </p></p> <!--built up 2-to-4 line decoder circuit-->
+
+<p>Replacing the 1-to-2 Decoders with their circuits will show that both
+circuits are equivalent. In a similar fashion a 3-to-8 line decoder can be made
+from a 1-to-2 line decoder and a 2-to-4 line decoder, and a 4-to-16 line decoder
+can be made from two 2-to-4 line decoders.</p>
+
+<p>You might also consider making a 2-to-4 decoder ladder from 1-to-2 decoder
+ladders. If you do it might look something like this:</p>
+
+<p><p> <img src="04482.png"> </p></p> <!--built up 2-to-4 line decoder ladder-->
+
+<p>For some logic it may be required to build up logic like this. For an
+eight-bit adder we only know how to sum eight bits by summing one bit at a time.
+Usually it is easier to design ladder logic from boolean equations or truth
+tables rather than design logic gates and then "translate" that into ladder
+logic.</p>
+
+<p>A typical application of a line decoder circuit is to select among
+multiple devices. A circuit needing to select among sixteen devices could have
+sixteen control lines to select which device should "listen". With a decoder
+only four control lines are needed.</p>
+
+
+
+
+
+<h2><u><a name="xtocid92144">Encoder</a></u></h2>
+
+<a name="Encoder"></a>
+
+<p>An encoder is a circuit that changes a set of signals into a code. Let's
+begin making a 2-to-1 line encoder truth table by reversing the 1-to-2 decoder
+truth table.</p>
+
+<p><p> <img src="14167.png"> </p></p> <!--1-to-2 decoder reversed truth
+table.-->
+
+<p>This truth table is a little short. A complete truth table would be</p>
+
+<p><p> <img src="14168.png"> </p></p> <!--2-to-1 decoder with empty entries-->
+
+<p>One question we need to answer is what to do with those other inputs? Do
+we ignore them? Do we have them generate an additional error output? In many
+circuits this problem is solved by adding sequential logic in order to know not
+just what input is active but also which order the inputs became active.</p>
+
+<a name="7-segment encoder"></a>
+<a name="Encoder, 7-segment"></a>
+
+<p>A more useful application of combinational encoder design is a binary to
+7-segment encoder. The seven segments are given according</p>
+
+<a name="7-segment display"></a>
+
+<p><p> <img src="14169.png"> </p></p> <!--7-segment display-->
+
+<p>Our truth table is:</p>
+
+<p><p> <img src="14170.png"> </p></p> <!--7-segment truth table-->
+
+<p>Deciding what to do with the remaining six entries of the truth table is
+easier with this circuit. This circuit should not be expected to encode an
+undefined combination of inputs, so we can leave them as "don't care" when we
+design the circuit. The equations were simplified with karnaugh maps.</p>
+
+<p><p> <img src="14174.png"> </p></p> <!--7-segment D0 D1 k-maps-->
+
+<p><p> <img src="14175.png"> </p></p> <!--7-segment D2 D3 k-maps-->
+
+<p><p> <img src="14176.png"> </p></p> <!--7-segment D4 D5 D6 k-maps-->
+
+<p>The collection of equations is summarised here:</p>
+
+<p><p> <img src="14171.png"> </p></p> <!--7-segment equations-->
+
+
+<p>The circuit is:</p>
+
+
+
+<p><p> <img src="04464.png"> </p></p> <!--7-segment circuit-->
+
+
+<!--04474.eps was formerly a rotated version of 04464.eps-->
+
+
+<p>And the corresponding ladder diagram:</p>
+
+
+<p><p> <img src="04483.png"> </p></p> <!--7-segment ladder-->
+
+
+
+
+
+
+<h2><u><a name="xtocid92145">Demultiplexers</a></u></h2>
+
+<a name="Decoder, line"></a>
+<a name="Demultiplexer"></a>
+<a name="dmux"></a>
+
+<p>A demultiplexer, sometimes abbreviated dmux, is a circuit that has one
+input and more than one output. It is used when a circuit wishes to send a
+signal to one of many devices. This description sounds similar to the
+description given for a decoder, but a decoder is used to select among many
+devices while a demultiplexer is used to send a signal among many
+devices.</p>
+
+<p>A demultiplexer is used often enough that it has its own schematic
+symbol</p>
+
+<p><p> <img src="04465.png"> </p></p> <!--dmux schematic symbol-->
+
+<a name="1-to-2 demultiplexer"></a>
+
+<p>The truth table for a 1-to-2 demultiplexer is</p>
+
+<p><p> <img src="14172.png"> </p></p> <!--dmux truth table-->
+
+<a name="Line decoder"></a>
+
+<p>Using our 1-to-2 decoder as part of the circuit, we can express this
+circuit easily</p>
+
+<p><p> <img src="04466.png"> </p></p> <!--dmux circuit-->
+
+<p><p> <img src="04484.png"> </p></p> <!--dmux ladder-->
+
+<p>This circuit can be expanded two different ways. You can increase the
+number of signals that get transmitted, or you can increase the number of
+inputs that get passed through. To increase the number of inputs that get
+passed through just requires a larger line decoder. Increasing the number of
+signals that get transmitted is even easier.</p>
+
+<p>As an example, a device that passes one set of two signals among four
+signals is a "two-bit 1-to-2 demultiplexer". Its circuit is</p>
+
+<p><p> <img src="04467.png"> </p></p> <!--Expanded dmux-->
+
+<p>or by expressing the circuit as</p>
+
+<p><p> <img src="04468.png"> </p></p> <!--Expanded dmux simplified circuit-->
+
+<p><p> <img src="04485.png"> </p></p> <!--Expanded dmux simplified ladder-->
+
+<p>shows that it could be two one-bit 1-to-2 demultiplexers without changing
+its expected behavior.</p>
+
+<a name="1-to-4 demultiplexer"></a>
+
+<p>A 1-to-4 demultiplexer can easily be built from 1-to-2 demultiplexers as
+follows.</p>
+
+<p><p> <img src="04469.png"> </p></p> <!--2-to-4 demultiplexer-->
+
+
+
+
+
+<h2><u><a name="xtocid92146">Multiplexers</a></u></h2>
+
+<a name="Multiplexer"></a>
+<a name="mux"></a>
+
+<p>A multiplexer, abbreviated mux, is a device that has multiple inputs and
+one output.</p>
+
+<p>The schematic symbol for multiplexers is</p>
+
+<p><p> <img src="04470.png"> </p></p> <!--multiplexer schematic-->
+
+<a name="2-to-1 multiplexer"></a>
+
+<p>The truth table for a 2-to-1 multiplexer is</p>
+
+<p><p> <img src="14173.png"> </p></p> <!--multiplexer truth table-->
+
+<a name="Decoder, line"></a>
+<a name="Line decoder"></a>
+
+<p>Using a 1-to-2 decoder as part of the circuit, we can express this circuit
+easily.</p>
+
+<p><p> <img src="04471.png"> </p></p> <!--2-to-1 multiplexer circuit-->
+
+<p><p> <img src="04486.png"> </p></p> <!--2-to-1 multiplexer ladder-->
+
+<a name="4-to-1 multiplexer"></a>
+
+<p>Multiplexers can also be expanded with the same naming conventions as
+demultiplexers. A 4-to-1 multiplexer circuit is</p>
+
+<p><p> <img src="04472.png"> </p></p> <!--4-to-1 multiplexer-->
+
+<p>That is the formal definition of a multiplexer. Informally, there is a lot
+of confusion. Both demultiplexers and multiplexers have similar names,
+abbreviations, schematic symbols and circuits, so confusion is easy. The term
+multiplexer, and the abbreviation mux, are often used to also mean a
+demultiplexer, or a multiplexer and a demultiplexer working together. So when
+you hear about a multiplexer, it may mean something quite different.</p>
+
+
+
+
+
+<h2><u><a name="xtocid92147">Using multiple combinational circuits</a></u></h2>
+
+
+<p>As an example of using several circuits together, we are going to make a
+device that will have 16 inputs, representing a four digit number, to a four
+digit 7-segment display but using just one binary-to-7-segment encoder.</p>
+
+<p>First, the overall architecture of our circuit provides what looks like
+our the description provided.</p>
+
+<p><p> <img src="04473.png"> </p></p> <!--4 digit display circuit-->
+
+<p>Follow this circuit through and you can confirm that it matches the
+description given above. There are 16 primary inputs. There are two more inputs
+used to select which digit will be displayed. There are 28 outputs to control
+the four digit 7-segment display. Only four of the primary inputs are encoded at
+a time. You may have noticed a potential question though.</p>
+
+<p>When one of the digits are selected, what do the other three digits
+display? Review the circuit for the demultiplexers and notice that any line not
+selected by the A input is zero. So the other three digits are blank. We don't
+have a problem, only one digit displays at a time.</p>
+
+<p>Let's get a perspective on just how complex this circuit is by looking at
+the equivalent ladder logic.</p>
+
+<p><p> <img src="04487.png"> </p></p>
+
+<!--4 digit display circuit-->
+
+<p>Notice how quickly this large circuit was developed from smaller parts.
+This is true of most complex circuits: they are composed of smaller parts
+allowing a designer to abstract away some complexity and understand the circuit
+as a whole. Sometimes a designer can even take components that others have
+designed and remove the detail design work.</p>
+
+<p>In addition to the added quantity of gates, this design suffers from one
+additional weakness. You can only see one display one digit at a time. If there
+was some way to rotate through the four digits quickly, you could have the
+appearance of all four digits being displayed at the same time. That is a job
+for a sequential circuit, which is the subject of the next several chapters.
+</p>
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2023 Tony R. Kuphaldt, under the terms and conditions of the <a href="DIGI_A3.html">CC BY License</a>.
+</p>
+
+<a href="DIGI_8.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_10.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

@@ -1,0 +1,261 @@
+Condition Variables — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Threads
+Scheduling
+CPU Idling
+System Threads
+Workqueue Threads
+Operation without Threads
+Interrupts
+Polling API
+Semaphores
+Mutexes
+Condition Variables
+Concepts
+Implementation
+Defining a Condition Variable
+Waiting on a Condition Variable
+Signaling a Condition Variable
+Suggested Uses
+Configuration Options
+API Reference
+Events
+Spinlocks
+Symmetric Multiprocessing
+Data Passing
+Memory Management
+Timing
+Other
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Condition Variables
+Open on GitHub
+Report an issue with this page
+Condition Variables
+A
+condition variable
+is a synchronization primitive
+that enables threads to wait until a particular condition occurs.
+Concepts
+Implementation
+Defining a Condition Variable
+Waiting on a Condition Variable
+Signaling a Condition Variable
+Suggested Uses
+Configuration Options
+API Reference
+Concepts
+Any number of condition variables can be defined (limited only by available RAM). Each
+condition variable is referenced by its memory address.
+To wait for a condition to become true, a thread can make use of a condition
+variable.
+A condition variable is basically a queue of threads that threads can put
+themselves on when some state of execution (i.e., some condition) is not as
+desired (by waiting on the condition). The function
+k_condvar_wait()
+performs atomically the following steps;
+Releases the last acquired mutex.
+Puts the current thread in the condition variable queue.
+Some other thread, when it changes said state, can then wake one (or more)
+of those waiting threads and thus allow them to continue by signaling on
+the condition using
+k_condvar_signal()
+or
+k_condvar_broadcast()
+then it:
+Re-acquires the mutex previously released.
+Returns from
+k_condvar_wait()
+.
+Regardless of why the wait completes – whether the thread was signaled, the
+supplied timeout elapsed, or the wait was requested without blocking –
+k_condvar_wait()
+always returns with the associated mutex re-locked by
+the calling thread.
+A condition variable must be initialized before it can be used.
+Implementation
+Defining a Condition Variable
+A condition variable is defined using a variable of type
+k_condvar
+.
+It must then be initialized by calling
+k_condvar_init()
+.
+The following code defines a condition variable:
+struct
+k_condvar
+my_condvar
+;
+k_condvar_init
+(
+&
+my_condvar
+);
+Alternatively, a condition variable can be defined and initialized at compile time
+by calling
+K_CONDVAR_DEFINE
+.
+The following code has the same effect as the code segment above.
+K_CONDVAR_DEFINE
+(
+my_condvar
+);
+Waiting on a Condition Variable
+A thread can wait on a condition by calling
+k_condvar_wait()
+.
+The following code waits on the condition variable.
+K_MUTEX_DEFINE
+(
+mutex
+);
+K_CONDVAR_DEFINE
+(
+condvar
+)
+int
+main
+(
+void
+)
+{
+k_mutex_lock
+(
+&
+mutex
+,
+K_FOREVER
+);
+/* block this thread until another thread signals cond. While
+* blocked, the mutex is released, then re-acquired before this
+* thread is woken up and the call returns.
+*/
+k_condvar_wait
+(
+&
+condvar
+,
+&
+mutex
+,
+K_FOREVER
+);
+...
+k_mutex_unlock
+(
+&
+mutex
+);
+}
+Signaling a Condition Variable
+A condition variable is signaled on by calling
+k_condvar_signal()
+for
+one thread or by calling
+k_condvar_broadcast()
+for multiple threads.
+The following code builds on the example above.
+void
+worker_thread
+(
+void
+)
+{
+k_mutex_lock
+(
+&
+mutex
+,
+K_FOREVER
+);
+/*
+* Do some work and fulfill the condition
+*/
+...
+...
+k_condvar_signal
+(
+&
+condvar
+);
+k_mutex_unlock
+(
+&
+mutex
+);
+}
+Suggested Uses
+Use condition variables with a mutex to signal changing states (conditions) from
+one thread to another thread.
+Condition variables are not the condition itself and they are not events.
+The condition is contained in the surrounding programming logic.
+Mutexes alone are not designed for use as a notification/synchronization
+mechanism. They are meant to provide mutually exclusive access to a shared
+resource only.
+Configuration Options
+Related configuration options:
+None.
+API Reference
+Condition
+Variables
+APIs
+Related code samples
+Condition Variables
+Manipulate condition variables in a multithreaded application.
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Jun 29, 2026.

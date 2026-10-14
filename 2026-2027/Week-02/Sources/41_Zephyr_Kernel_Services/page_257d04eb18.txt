@@ -1,0 +1,268 @@
+Semaphores — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Threads
+Scheduling
+CPU Idling
+System Threads
+Workqueue Threads
+Operation without Threads
+Interrupts
+Polling API
+Semaphores
+Concepts
+Implementation
+Defining a Semaphore
+Giving a Semaphore
+Taking a Semaphore
+Suggested Uses
+Configuration Options
+API Reference
+User Mode Semaphore API Reference
+Mutexes
+Condition Variables
+Events
+Spinlocks
+Symmetric Multiprocessing
+Data Passing
+Memory Management
+Timing
+Other
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Semaphores
+Open on GitHub
+Report an issue with this page
+Semaphores
+A
+semaphore
+is a kernel object that implements a traditional
+counting semaphore.
+Concepts
+Implementation
+Defining a Semaphore
+Giving a Semaphore
+Taking a Semaphore
+Suggested Uses
+Configuration Options
+API Reference
+User Mode Semaphore API Reference
+Concepts
+Any number of semaphores can be defined (limited only by available RAM). Each
+semaphore is referenced by its memory address.
+A semaphore has the following key properties:
+A
+count
+that indicates the number of times the semaphore can be taken.
+A count of zero indicates that the semaphore is unavailable.
+A
+limit
+that indicates the maximum value the semaphore’s count
+can reach.
+A semaphore must be initialized before it can be used. Its count must be set
+to a non-negative value that is less than or equal to its limit.
+A semaphore may be
+given
+by a thread or an ISR. Giving the semaphore
+increments its count, unless the count is already equal to the limit.
+A semaphore may be
+taken
+by a thread. Taking the semaphore
+decrements its count, unless the semaphore is unavailable (i.e. at zero).
+When a semaphore is unavailable, a thread may choose to wait for it to be given.
+Any number of threads may wait on an unavailable semaphore simultaneously.
+When the semaphore is given, it is taken by the highest priority thread
+that has waited longest.
+Note
+You may initialize a “full” semaphore (count equal to limit) to limit the number
+of threads able to execute the critical section at the same time. You may also
+initialize an empty semaphore (count equal to 0, with a limit greater than 0)
+to create a gate through which no waiting thread may pass until the semaphore
+is incremented. All standard use cases of the common semaphore are supported.
+Note
+The kernel does allow an ISR to take a semaphore, however the ISR must
+not attempt to wait if the semaphore is unavailable.
+Implementation
+Defining a Semaphore
+A semaphore is defined using a variable of type
+k_sem
+.
+It must then be initialized by calling
+k_sem_init()
+.
+The following code defines a semaphore, then configures it as a binary
+semaphore by setting its count to 0 and its limit to 1.
+struct
+k_sem
+my_sem
+;
+k_sem_init
+(
+&
+my_sem
+,
+0
+,
+1
+);
+Alternatively, a semaphore can be defined and initialized at compile time
+by calling
+K_SEM_DEFINE
+.
+The following code has the same effect as the code segment above.
+K_SEM_DEFINE
+(
+my_sem
+,
+0
+,
+1
+);
+Giving a Semaphore
+A semaphore is given by calling
+k_sem_give()
+.
+The following code builds on the example above, and gives the semaphore to
+indicate that a unit of data is available for processing by a consumer thread.
+void
+input_data_interrupt_handler
+(
+void
+*
+arg
+)
+{
+/* notify thread that data is available */
+k_sem_give
+(
+&
+my_sem
+);
+...
+}
+Taking a Semaphore
+A semaphore is taken by calling
+k_sem_take()
+.
+The following code builds on the example above, and waits up to 50 milliseconds
+for the semaphore to be given.
+A warning is issued if the semaphore is not obtained in time.
+void
+consumer_thread
+(
+void
+)
+{
+...
+if
+(
+k_sem_take
+(
+&
+my_sem
+,
+K_MSEC
+(
+50
+))
+!=
+0
+)
+{
+printk
+(
+"Input data not available!"
+);
+}
+else
+{
+/* fetch available data */
+...
+}
+...
+}
+Suggested Uses
+Use a semaphore to control access to a set of resources by multiple threads.
+Use a semaphore to synchronize processing between producing and consuming
+threads or ISRs.
+Configuration Options
+Related configuration options:
+None.
+API Reference
+Semaphore
+APIs
+Related code samples
+Basic Synchronization
+Manipulate basic kernel synchronization primitives.
+Dining Philosophers
+Implement a solution to the Dining Philosophers problem using Zephyr kernel services.
+User Mode Semaphore API Reference
+The
+sys_sem
+exists in user memory, working as counter semaphore for user mode
+threads, when user mode is enabled. When user mode isn’t enabled,
+sys_sem
+behaves
+like
+k_sem
+.
+User
+mode
+semaphore
+APIs
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Aug 29, 2026.

@@ -1,0 +1,1545 @@
+{
+  "id": 6,
+  "name": "MIT 2.017J - Design of Electromechanical Robotic Systems",
+  "type": "MIT OpenCourseWare ve açık kitap",
+  "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/",
+  "folder": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/",
+      "kind": "html",
+      "bytes": 54150,
+      "sha256": "47dda393fe92ff04004daa4e1c06df4f7d0c2b53a33c3bb66ad19d30c7c84376"
+    },
+    {
+      "file": "page_f8e1d2c405.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/syllabus/",
+      "kind": "html",
+      "bytes": 62371,
+      "sha256": "af2c76b0a13dd022d136eca8e141eafc84ff3e3f5bbc4ab7f12a9115f935346b"
+    },
+    {
+      "file": "page_061897ac32.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 58745,
+      "sha256": "dfa5c30426dccdac5bcd0a3eb676be2333be3d725d52795ba894bad3c1ecc14f"
+    },
+    {
+      "file": "page_fddb9d1420.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_design/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_design/",
+      "kind": "html",
+      "bytes": 58580,
+      "sha256": "f0bedc6468a297e329f9b25cf7dda9c6207b9d58d73100506bbd8b44e439bd2c"
+    },
+    {
+      "file": "page_3a08f736ce.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_experiments/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_experiments/",
+      "kind": "html",
+      "bytes": 58318,
+      "sha256": "13598a5805b33cd4a7f15a5ad441f545152db566af5d73eabc0b67b7c4cd3f32"
+    },
+    {
+      "file": "page_b14ad42e59.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_electronics/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_electronics/",
+      "kind": "html",
+      "bytes": 58512,
+      "sha256": "39d18d0f6a2d2fc3e22619927150a362f94fd27b8206d340e1454c98e0653871"
+    },
+    {
+      "file": "page_ed9418d230.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_oceans/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_oceans/",
+      "kind": "html",
+      "bytes": 58368,
+      "sha256": "21d8a495e11e9b5aad1e3911f97b9f7b7373b6ef5e9016f582b8e8c6c9968817"
+    },
+    {
+      "file": "page_bc32ddd599.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_optimization/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_optimization/",
+      "kind": "html",
+      "bytes": 58461,
+      "sha256": "b8c25b6e5fc91e868954a581d46db29a3f9ab1243a5b4e1e597edc443619efe8"
+    },
+    {
+      "file": "page_8737a5352f.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_stability/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_stability/",
+      "kind": "html",
+      "bytes": 58276,
+      "sha256": "030a124d71c96282a02b14670121dda1d24e5c57d37860c75c7a30ec42308527"
+    },
+    {
+      "file": "page_5eea5fc615.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_presntations/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_presntations/",
+      "kind": "html",
+      "bytes": 58275,
+      "sha256": "93529ff227f71cb708454c43d08e9279a4e69de0c22c5459434180377362de6c"
+    },
+    {
+      "file": "page_10478604c9.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_corrosion/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_corrosion/",
+      "kind": "html",
+      "bytes": 58676,
+      "sha256": "6cb940d4b5220248fa092dcfd8b05acf702940c4c802e45f1f487c956c4ecedd"
+    },
+    {
+      "file": "page_4747b7b8be.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_power/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_power/",
+      "kind": "html",
+      "bytes": 58330,
+      "sha256": "31746b9ef500ec4825ed4be809f97112c8a93a20c96e87cdbf9aa492ce050a5e"
+    },
+    {
+      "file": "page_52e75bd00c.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_machines/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_machines/",
+      "kind": "html",
+      "bytes": 58200,
+      "sha256": "38282b93546e0f3727b9fac206bbc5d4c55f8fbe57374f64f8e4bc2e771fac9d"
+    },
+    {
+      "file": "page_91d1986b96.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_navigation/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_navigation/",
+      "kind": "html",
+      "bytes": 58632,
+      "sha256": "b02817c1bfa9366400ae97589c645db03e2bb5ea9641bacedc70475039182c2a"
+    },
+    {
+      "file": "page_7c7b703efe.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_acoustics/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_acoustics/",
+      "kind": "html",
+      "bytes": 58259,
+      "sha256": "5ab4c776d3e2e2b3bb5f6f6aece19ff628bf62ae4920d1be2d0cf4992d94e78f"
+    },
+    {
+      "file": "page_2632c22ed5.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_discrete/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_discrete/",
+      "kind": "html",
+      "bytes": 58327,
+      "sha256": "fd4540d085307d6f9e0780178a1dd8629f9fd9fe54eb0743441d076bce4c6e8d"
+    },
+    {
+      "file": "page_cb786d81b9.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_feedback/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_feedback/",
+      "kind": "html",
+      "bytes": 58246,
+      "sha256": "2f42997051c80b9cb136d9682640cbc79a7c2267f33a762dca64dc818d783846"
+    },
+    {
+      "file": "page_2875e59e32.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_control/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_control/",
+      "kind": "html",
+      "bytes": 58521,
+      "sha256": "c1de4083253d7061687c14d235f29ca26362b3684ec4e6e856a4ea27b5e31ea1"
+    },
+    {
+      "file": "page_8fb50d82ba.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/open-textbook/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/open-textbook/",
+      "kind": "html",
+      "bytes": 63208,
+      "sha256": "81393d5594325f3e0560d45331d0ab41bbd83088e1dc50b9e465ae6d4bcab7c2"
+    },
+    {
+      "file": "page_c8612bae5c.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_coursetext/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_coursetext/",
+      "kind": "html",
+      "bytes": 59200,
+      "sha256": "ee38960417b5883d666873fd6e8aec61a39816b6b80522a08dd774f58119cee8"
+    },
+    {
+      "file": "page_1751e4ba72.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch01/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch01/",
+      "kind": "html",
+      "bytes": 57934,
+      "sha256": "c0977780169bb51a7f70d2f7ee8dc8ef593057d5bac8deee990cf5e2e1eb7c94"
+    },
+    {
+      "file": "page_d096af2bfd.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch02/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch02/",
+      "kind": "html",
+      "bytes": 59017,
+      "sha256": "153d3c37c21592f294f74b34e4f442e9f7e03d0e18f78cb92415b607ab0170c6"
+    },
+    {
+      "file": "page_1dd6b756c0.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch03/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch03/",
+      "kind": "html",
+      "bytes": 58885,
+      "sha256": "d622198c048b3124add66f472e30ee8eea988b097ed3e3e95e1762702f976360"
+    },
+    {
+      "file": "page_340a52e830.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch04/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch04/",
+      "kind": "html",
+      "bytes": 58567,
+      "sha256": "ac797f9d48dfc4cf3526bd57a98ae4b4a7e6f6df78beef5e68bbda2a46019361"
+    },
+    {
+      "file": "page_5fdb3e2811.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch05/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch05/",
+      "kind": "html",
+      "bytes": 59040,
+      "sha256": "dbfe80be5df6937f127195a74845196464e084ee7b0a256019302c90e8a31dc9"
+    },
+    {
+      "file": "page_9b5bc18365.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch06/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch06/",
+      "kind": "html",
+      "bytes": 58958,
+      "sha256": "6ef48aec4c8d870cdd6b379606e2f9400a136216a9d05886a3efc19acc0453fb"
+    },
+    {
+      "file": "page_e230a82a9b.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch07/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch07/",
+      "kind": "html",
+      "bytes": 58987,
+      "sha256": "1679ca05c820901d5985b78d298a193d6f31970cedfb9f14e77db146131452ee"
+    },
+    {
+      "file": "page_973be25f9e.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch08/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch08/",
+      "kind": "html",
+      "bytes": 58504,
+      "sha256": "9b5aa32c19d916d6b39cac2e65f121d7eb881ddfab1c432cac1290ee3e262a17"
+    },
+    {
+      "file": "page_7023a014a3.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch09/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch09/",
+      "kind": "html",
+      "bytes": 58670,
+      "sha256": "3540eaa77b1fe821b6d7ff216cbe597b20415a69db2abb725ac305af02c3e74c"
+    },
+    {
+      "file": "page_62036a2915.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch10/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch10/",
+      "kind": "html",
+      "bytes": 58968,
+      "sha256": "7ce9b830b5fe4f0f78ae66f7d8a7defe2bf188a792716e1121c1d02c82f9abb6"
+    },
+    {
+      "file": "page_67d35c92b4.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch11/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch11/",
+      "kind": "html",
+      "bytes": 58919,
+      "sha256": "d660242fc5c86b039c2ddbffe66932dcd4efd354a9d9ac68ff2bb9ea556f4d17"
+    },
+    {
+      "file": "page_285d1ac9e7.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch12/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch12/",
+      "kind": "html",
+      "bytes": 58930,
+      "sha256": "b214dd91d8cfdfcf85e0c3d75ba8fdec7e28549b0bfdda0ae3f62cfcd329ba3c"
+    },
+    {
+      "file": "page_cf8347b147.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch13/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_ch13/",
+      "kind": "html",
+      "bytes": 58085,
+      "sha256": "d112d959425a29a428d53493194c82a57d01d69d66e9f8bbb0d806db5a8909b8"
+    },
+    {
+      "file": "page_e6d148b90c.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/assignments/",
+      "kind": "html",
+      "bytes": 65644,
+      "sha256": "2c164439cfdc717ec10d03b5e28d70ec87635223fa53be375525be76b3182d54"
+    },
+    {
+      "file": "page_7f49f7350b.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_problems/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_problems/",
+      "kind": "html",
+      "bytes": 58555,
+      "sha256": "3dc31b0131fb3661ccdac0673cf2c323638cca090b2c23f2f69596a82faf09e9"
+    },
+    {
+      "file": "page_a05d95c208.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p01/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p01/",
+      "kind": "html",
+      "bytes": 58052,
+      "sha256": "488738121cceec88d6e6578815a80525928af53c85a718ddd0d7ccbc534b89d6"
+    },
+    {
+      "file": "page_64b2a8b403.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p02/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p02/",
+      "kind": "html",
+      "bytes": 57953,
+      "sha256": "04995dbe6434c8ecf15c4e0cd88e2dd6a513a34d5efdba5c359e3c2d95d1317e"
+    },
+    {
+      "file": "page_9c989b1c41.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p03/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p03/",
+      "kind": "html",
+      "bytes": 57980,
+      "sha256": "c1827f25f22be796053842c10ff0993362e915898e8d9a0017478b4c43fbc3ac"
+    },
+    {
+      "file": "page_98c6704b3d.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p04/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p04/",
+      "kind": "html",
+      "bytes": 58124,
+      "sha256": "ec170c78ef817dbfe3d954224194bda856f51bf6e4b89df264fa4a4459fe28a9"
+    },
+    {
+      "file": "page_99bb2708f3.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p05/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p05/",
+      "kind": "html",
+      "bytes": 58034,
+      "sha256": "6a603d58ccf345140b2ae96406570d03abc18295437f04e9f4ea07e7746a39cc"
+    },
+    {
+      "file": "page_1e787c6bad.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p06/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p06/",
+      "kind": "html",
+      "bytes": 58151,
+      "sha256": "2d8dc0d6ac9daacce90a75e21f7fa5e25396fe64d9daeb431381077de0e398ff"
+    },
+    {
+      "file": "page_d633fc3033.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p07/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p07/",
+      "kind": "html",
+      "bytes": 58098,
+      "sha256": "6574af31eb4ab95b0423b867790bab2851c06326c34728696c977f89f1707109"
+    },
+    {
+      "file": "page_814deebc80.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p08/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p08/",
+      "kind": "html",
+      "bytes": 58038,
+      "sha256": "04686adc5574a50662fb827e9b29acdbd6311e7455cc4dde4065a65f9f4f06b1"
+    },
+    {
+      "file": "page_a2da2b2cde.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p09/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p09/",
+      "kind": "html",
+      "bytes": 58409,
+      "sha256": "77d1019d9faeb6a576d2ca4c8df708015201422f85d305c1e5278a22a69040bb"
+    },
+    {
+      "file": "page_b90db5cbe3.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p10/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p10/",
+      "kind": "html",
+      "bytes": 58332,
+      "sha256": "444f6e790b804e8bad89d9d19319012c818b0e97bcb70f0ed2c9487db4141b9f"
+    },
+    {
+      "file": "page_f9ac9ad7c4.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p11/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p11/",
+      "kind": "html",
+      "bytes": 58285,
+      "sha256": "b864519c2d17e8af6fb578c8eeccd9de9f96812033b7f31bfa53774b2e7fa218"
+    },
+    {
+      "file": "page_eff6f83303.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p12/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p12/",
+      "kind": "html",
+      "bytes": 58270,
+      "sha256": "3f9a627d290b70d5e170ed5a54c1eca4367fc9ef48e8c2499b93d65a77c1a759"
+    },
+    {
+      "file": "page_1784a51434.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p13/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p13/",
+      "kind": "html",
+      "bytes": 58212,
+      "sha256": "d673808a574911279b4725bd8cbac57d7ae66e2373a7f521e512e92ff9997cd0"
+    },
+    {
+      "file": "page_4b6cd9d928.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p14/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p14/",
+      "kind": "html",
+      "bytes": 58170,
+      "sha256": "ccd0af0e8e7d5c761fe4164502f0f560e99605614d66705eb5fd069fc2849c3f"
+    },
+    {
+      "file": "page_37f6f23b3d.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p15/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p15/",
+      "kind": "html",
+      "bytes": 58208,
+      "sha256": "b6eb88a7a6c51bace55d922479f307a11ba907a9e7635cda8055ae4f65b6553f"
+    },
+    {
+      "file": "page_fdf14c97a3.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p16/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p16/",
+      "kind": "html",
+      "bytes": 58321,
+      "sha256": "19e91e85bfd55748864869f8bd269c4ba8d9ea0bd2eb8130f876f39e5ff25eb9"
+    },
+    {
+      "file": "page_e45be4315c.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p17/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p17/",
+      "kind": "html",
+      "bytes": 58349,
+      "sha256": "30b3651d2feb91c1f3b8ac7efa4c9d08d452d7614959f9bca3a12dfe95b930d9"
+    },
+    {
+      "file": "page_ed1a5ea54a.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p18/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p18/",
+      "kind": "html",
+      "bytes": 58322,
+      "sha256": "641ed6534ed544c38fc8855ca0f72203162fa6833aefe29539bfad51adcea8f9"
+    },
+    {
+      "file": "page_f3d034f6fe.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p19/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p19/",
+      "kind": "html",
+      "bytes": 57999,
+      "sha256": "ff84dfee05b6cd8970e8cdc7a499b043bd33d4bca3db1ba16f0bcb050c393a0f"
+    },
+    {
+      "file": "page_166b711858.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p20/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p20/",
+      "kind": "html",
+      "bytes": 58143,
+      "sha256": "93c8f6ecf3cc6c542bfdc8da9cb885db435c39fa58a3464f8e0f5db28df2466f"
+    },
+    {
+      "file": "page_c67a540853.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework4/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework4/",
+      "kind": "html",
+      "bytes": 57653,
+      "sha256": "045d27dd2f342cc76fd8524babde309fdec52e73412037654ab1057f95a05158"
+    },
+    {
+      "file": "page_9aa92618b1.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p21/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p21/",
+      "kind": "html",
+      "bytes": 58118,
+      "sha256": "17ec1718afaed0b279d1010683be68655e96c232ae76e0d9bc46310151695ccc"
+    },
+    {
+      "file": "page_fa51253aad.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p22/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p22/",
+      "kind": "html",
+      "bytes": 58184,
+      "sha256": "b4212df21bc916777c2633a09038ba91109bdbfc83b298c09125084ad6d02b0a"
+    },
+    {
+      "file": "page_2f1dcecd25.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p23/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p23/",
+      "kind": "html",
+      "bytes": 58368,
+      "sha256": "24a06874a076adbb23c743b05857ff238f3f2ac22f71f0e1a9b5f0004f66c547"
+    },
+    {
+      "file": "page_48d8c4901e.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework5/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework5/",
+      "kind": "html",
+      "bytes": 57714,
+      "sha256": "5cac6fe37f8a65b3cfb231a98ed020c342052d80ed0a132a53b835107f57cb68"
+    },
+    {
+      "file": "page_6b777b1bf3.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p24/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p24/",
+      "kind": "html",
+      "bytes": 58226,
+      "sha256": "af174679ca6961bf0f5d0fd3fc62221a83a48ea404d8b8ed09cc571927cb139e"
+    },
+    {
+      "file": "page_61eb36f9ad.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p25/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p25/",
+      "kind": "html",
+      "bytes": 58043,
+      "sha256": "a3d4ef884ed337177395b79852970cc61ea73f7e6da3cc93a550f0a7ae3fc3f8"
+    },
+    {
+      "file": "page_c551e5fe6f.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p26/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p26/",
+      "kind": "html",
+      "bytes": 58178,
+      "sha256": "ffed781f1c86ea058764710c8bb4856edd77624d33bfd0cbf34e90d221e7ccb5"
+    },
+    {
+      "file": "page_ca82bdd30a.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p27/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p27/",
+      "kind": "html",
+      "bytes": 58284,
+      "sha256": "b229f95c0daeb1e6ab54eda612a2c3c7cf3fe1275f0d0d9ad0dd6c22cdb6c6d2"
+    },
+    {
+      "file": "page_c34330ab5b.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p28/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p28/",
+      "kind": "html",
+      "bytes": 58286,
+      "sha256": "222e573f1befd63422ee49fc020b38ad22bed553d3874c963d101b99f28d0521"
+    },
+    {
+      "file": "page_dff4a8ff56.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p29/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p29/",
+      "kind": "html",
+      "bytes": 58373,
+      "sha256": "b2495ece769d9865166b2a95b487aa10c0803a73ed9b51bba620c95d0227839f"
+    },
+    {
+      "file": "page_393163f417.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p30/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p30/",
+      "kind": "html",
+      "bytes": 58169,
+      "sha256": "b90256d4bce39166a188b333257e44b50efb7855aa532b12d10c41b521f76d90"
+    },
+    {
+      "file": "page_0392b18396.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p31/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p31/",
+      "kind": "html",
+      "bytes": 58403,
+      "sha256": "f1d0ef7896830e38f5d0ede57960be5bce48b7544f97c83e8118d5cc4222618c"
+    },
+    {
+      "file": "page_0ce58de5e0.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework7/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework7/",
+      "kind": "html",
+      "bytes": 57714,
+      "sha256": "a257eaeadcb5c00947dacdd04142471d284c5ba5052082c13040b34d7c974fd9"
+    },
+    {
+      "file": "page_97922c3bc8.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p32/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p32/",
+      "kind": "html",
+      "bytes": 58088,
+      "sha256": "722a2955c115e69dc447339cfef2dad2d29f2dd2fca278c3e4e1bb7aa8af6363"
+    },
+    {
+      "file": "page_bd3fa2fe37.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p33/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p33/",
+      "kind": "html",
+      "bytes": 58185,
+      "sha256": "e30a3fe384ab0f473eeaf823fa619abddab02144ffaf63b4515d022d162f4c01"
+    },
+    {
+      "file": "page_3736faa78f.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p34/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p34/",
+      "kind": "html",
+      "bytes": 58035,
+      "sha256": "c91396f216149bb51d07a6c53a7ab7e09c77bd5ed0370f2b4a0803a9dca5a38c"
+    },
+    {
+      "file": "page_833de27aa3.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p35/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p35/",
+      "kind": "html",
+      "bytes": 58062,
+      "sha256": "67f04bb97c79853642f0662395d8f3acacad7c14b0934ce84edc6531cf3be70b"
+    },
+    {
+      "file": "page_b42ef9a627.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p36/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p36/",
+      "kind": "html",
+      "bytes": 58498,
+      "sha256": "c28ba8aca16634290373b43812181e412c518f49cf719d1a4e2405ff258ba44e"
+    },
+    {
+      "file": "page_bbc84033cd.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p37/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p37/",
+      "kind": "html",
+      "bytes": 57967,
+      "sha256": "d47109a9dca9f944f4fb1299cff9a756defc181e6bb6cd177b9118a4518410c6"
+    },
+    {
+      "file": "page_f594f71c51.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p38/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p38/",
+      "kind": "html",
+      "bytes": 58558,
+      "sha256": "bba70dc9e05a7126b6648f8e074cb57cb0112abd4d4840667a6b1b714cf7984e"
+    },
+    {
+      "file": "page_3b4596cc48.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p39/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p39/",
+      "kind": "html",
+      "bytes": 58200,
+      "sha256": "16d06f65b294cd2e874661346c78fd9c545d055cd72b73502443c1ca15010a39"
+    },
+    {
+      "file": "page_19699a5c75.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework9/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/homework9/",
+      "kind": "html",
+      "bytes": 57913,
+      "sha256": "e558fc983583130b21c56c43e2b978ddff11c26b9ddd65a9fbd748fe821fbf31"
+    },
+    {
+      "file": "page_de8026a720.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p40/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p40/",
+      "kind": "html",
+      "bytes": 58167,
+      "sha256": "95e2d331f526004eafa4c87d8c59d3186c369dfc471d1842b24c8f8eaf6e0915"
+    },
+    {
+      "file": "page_0c3f590f85.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p41/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p41/",
+      "kind": "html",
+      "bytes": 58224,
+      "sha256": "4168a71f7611728abbd739f6a761bec9477ae937da1cd7736a1d6455fece1b4e"
+    },
+    {
+      "file": "page_ca3d8f0718.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p42/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p42/",
+      "kind": "html",
+      "bytes": 58070,
+      "sha256": "a979065b3b978c1d6776c4f17897a4314f8b2aaac4bfa7460ebface3e51e8a69"
+    },
+    {
+      "file": "page_f1ab286804.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p43/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p43/",
+      "kind": "html",
+      "bytes": 58133,
+      "sha256": "4de1c4b857449ae23e9099d7ae1e5659bad53712b493322172ecc36a4efb52f0"
+    },
+    {
+      "file": "page_1b31f2961c.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/computespectra/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/computespectra/",
+      "kind": "html",
+      "bytes": 57563,
+      "sha256": "17658f089f286d0b38ddaedc27cd9e17708affde9a98a56b5006e715e1c1f4be"
+    },
+    {
+      "file": "page_7bfc9cb61b.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p44/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_p44/",
+      "kind": "html",
+      "bytes": 58215,
+      "sha256": "4286aab17efef51ad9787c7a4cbfbcca2ac16b454964e0065a4427f88a88a997"
+    },
+    {
+      "file": "page_668cc83152.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/labs/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/pages/labs/",
+      "kind": "html",
+      "bytes": 58891,
+      "sha256": "812776ebdbfbedb45756cb1a3d5e9d6a4b69ebe107316a1cc66964e34487eb79"
+    },
+    {
+      "file": "page_b05913d7a6.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_rules/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_rules/",
+      "kind": "html",
+      "bytes": 58098,
+      "sha256": "b4a2b7f38f2a0ba5fd4d8c6f8ddc973f7d2ee11a05af907170c7f1d563ce55a6"
+    },
+    {
+      "file": "page_6595a7f210.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides1/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides1/",
+      "kind": "html",
+      "bytes": 58323,
+      "sha256": "67893e3eab7aeaedfe15ee6910d9473318cd16faed3c5095609a894cd1e3d0ab"
+    },
+    {
+      "file": "page_87b5691840.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab1/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab1/",
+      "kind": "html",
+      "bytes": 58469,
+      "sha256": "2fc73c942cb8d96b050018cd03cea9304f25cc97ec3211a2896155e77eb83c35"
+    },
+    {
+      "file": "page_71683b90f0.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides2/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides2/",
+      "kind": "html",
+      "bytes": 58414,
+      "sha256": "d55e1ffc392c9bac421fefd147c8ac34c5725a393ce597222e17867a174af4aa"
+    },
+    {
+      "file": "page_6c1ea73fca.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab2/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab2/",
+      "kind": "html",
+      "bytes": 58392,
+      "sha256": "ea48e8b55c34ad1fe6bc249be011ae99ac3c3bc9b94e09b63f02e67e8d102c5b"
+    },
+    {
+      "file": "page_2359db4202.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides3/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides3/",
+      "kind": "html",
+      "bytes": 58433,
+      "sha256": "dc3dda3f71a850e89d52fd7e3f8d4346c72e7fa75c01d59913e8451606d5bc3f"
+    },
+    {
+      "file": "page_a23844171a.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab3/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab3/",
+      "kind": "html",
+      "bytes": 58409,
+      "sha256": "a38ccf8d10faf64426772e033c35c1f0beb6433c8db7155bd6b0c923fbad341c"
+    },
+    {
+      "file": "page_4d111c2ed7.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/lab3files/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/lab3files/",
+      "kind": "html",
+      "bytes": 58098,
+      "sha256": "8890f7a20df952571bd0743bc466b88a34a1c97274e5a9cfe28363d4f154155c"
+    },
+    {
+      "file": "page_2372c8b439.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides4/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_slides4/",
+      "kind": "html",
+      "bytes": 58320,
+      "sha256": "ca8f3606b8490fd2b11ffc8523795e58457f8ca27c5da3dc1ccf553c6562aabb"
+    },
+    {
+      "file": "page_91f5754fe6.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab4/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/mit2_017jf09_lab4/",
+      "kind": "html",
+      "bytes": 58281,
+      "sha256": "4f630149fb9f2175f4d38feeca228004a73f8645ca42980abeec36e4ca0371f7"
+    },
+    {
+      "file": "page_1c20a4391d.html",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/lab4files/",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/resources/lab4files/",
+      "kind": "html",
+      "bytes": 58072,
+      "sha256": "ce64bbfde2e537832bec525f61ee70187d78250756202cf6d56030a7e65e87b9"
+    },
+    {
+      "file": "3a956ff5ec6e77b46b7632a317546456_MIT2_017JF09_design.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/3a956ff5ec6e77b46b7632a317546456_MIT2_017JF09_design.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/3a956ff5ec6e77b46b7632a317546456_MIT2_017JF09_design.pdf",
+      "kind": "pdf",
+      "bytes": 675187,
+      "sha256": "86e9df14dcfc6c6b18acedda7a54feb1bd79b50a1a7df0bd1bd7fcd73cccaeed",
+      "pdf_pages": 15
+    },
+    {
+      "file": "bd430dfda1e01e3ec4897dca30fc69d2_MIT2_017JF09_experiments.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bd430dfda1e01e3ec4897dca30fc69d2_MIT2_017JF09_experiments.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bd430dfda1e01e3ec4897dca30fc69d2_MIT2_017JF09_experiments.pdf",
+      "kind": "pdf",
+      "bytes": 722101,
+      "sha256": "450f9ebaff14f9ac5429d803cba552adde4efd713dfc1dbd883974757830b8b5",
+      "pdf_pages": 10
+    },
+    {
+      "file": "c3d201dcb167287eea266d41f2cf2d41_MIT2_017JF09_electronics.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c3d201dcb167287eea266d41f2cf2d41_MIT2_017JF09_electronics.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c3d201dcb167287eea266d41f2cf2d41_MIT2_017JF09_electronics.pdf",
+      "kind": "pdf",
+      "bytes": 321754,
+      "sha256": "fb421d33c7d4d3e2dc2b8aef971e4182cb9ce91636b0928b268661af82f0a9e9",
+      "pdf_pages": 16
+    },
+    {
+      "file": "7151e72b8574054869f03394f07a843e_MIT2_017JF09_oceans.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/7151e72b8574054869f03394f07a843e_MIT2_017JF09_oceans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/7151e72b8574054869f03394f07a843e_MIT2_017JF09_oceans.pdf",
+      "kind": "pdf",
+      "bytes": 2294539,
+      "sha256": "3e701c610a45db50b9352a22a60b5816904afd139ad4c439b9591c6fa02b8524",
+      "pdf_pages": 31
+    },
+    {
+      "file": "a1ea4a4b16003ee9f65c83263e182151_MIT2_017JF09_optimization.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a1ea4a4b16003ee9f65c83263e182151_MIT2_017JF09_optimization.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a1ea4a4b16003ee9f65c83263e182151_MIT2_017JF09_optimization.pdf",
+      "kind": "pdf",
+      "bytes": 281087,
+      "sha256": "c274888b768f733116d88ff154956a9c62ec2a86b933530a1abdb48ea919b274",
+      "pdf_pages": 13
+    },
+    {
+      "file": "feba89aba74b6dbf71ead4f18284ccb5_MIT2_017JF09_stability.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/feba89aba74b6dbf71ead4f18284ccb5_MIT2_017JF09_stability.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/feba89aba74b6dbf71ead4f18284ccb5_MIT2_017JF09_stability.pdf",
+      "kind": "pdf",
+      "bytes": 1198668,
+      "sha256": "2473e4103f1dc61a284c3b0803241ca31bec11b8c8df8b659a25141728d6de75",
+      "pdf_pages": 38
+    },
+    {
+      "file": "be41f13797e18e33d89b9132530b2bdc_MIT2_017JF09_presntations.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/be41f13797e18e33d89b9132530b2bdc_MIT2_017JF09_presntations.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/be41f13797e18e33d89b9132530b2bdc_MIT2_017JF09_presntations.pdf",
+      "kind": "pdf",
+      "bytes": 573898,
+      "sha256": "295276a4fb02a8d948b6e60f87db2915763c937388d21a2634199bea20819c95",
+      "pdf_pages": 8
+    },
+    {
+      "file": "a4e4bd7662cd1315f45d1171d75ed7ac_MIT2_017JF09_corrosion.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a4e4bd7662cd1315f45d1171d75ed7ac_MIT2_017JF09_corrosion.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a4e4bd7662cd1315f45d1171d75ed7ac_MIT2_017JF09_corrosion.pdf",
+      "kind": "pdf",
+      "bytes": 236649,
+      "sha256": "629d80377a940216164bcbadad2b3d94a807cd73f5ed8c6b9251971d5c705eb0",
+      "pdf_pages": 9
+    },
+    {
+      "file": "a1619adf73c76ea59f6f7a18a98fb6c3_MIT2_017JF09_power.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a1619adf73c76ea59f6f7a18a98fb6c3_MIT2_017JF09_power.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a1619adf73c76ea59f6f7a18a98fb6c3_MIT2_017JF09_power.pdf",
+      "kind": "pdf",
+      "bytes": 282277,
+      "sha256": "15acf211099e3b61878c910418a4f19538d2540c4f390c09fa834ddd1793ffe7",
+      "pdf_pages": 17
+    },
+    {
+      "file": "16cb0f850752422026a85d838f30e340_MIT2_017JF09_machines.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/16cb0f850752422026a85d838f30e340_MIT2_017JF09_machines.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/16cb0f850752422026a85d838f30e340_MIT2_017JF09_machines.pdf",
+      "kind": "pdf",
+      "bytes": 1008318,
+      "sha256": "5ea6f0781a651adda297bea5da6a734cf1b24328cd6295f2d4240f6bf278a046",
+      "pdf_pages": 21
+    },
+    {
+      "file": "29bd12e4c5efe888fafabfce35a276ce_MIT2_017JF09_navigation.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/29bd12e4c5efe888fafabfce35a276ce_MIT2_017JF09_navigation.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/29bd12e4c5efe888fafabfce35a276ce_MIT2_017JF09_navigation.pdf",
+      "kind": "pdf",
+      "bytes": 373703,
+      "sha256": "daae6025efb004940c7a310e7a8bc8cc48d22f207eebd9ecc9b5ed253acc1b72",
+      "pdf_pages": 17
+    },
+    {
+      "file": "9647b0bb5dbe2f570cb14fe0a4c58d0a_MIT2_017JF09_acoustics.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/9647b0bb5dbe2f570cb14fe0a4c58d0a_MIT2_017JF09_acoustics.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/9647b0bb5dbe2f570cb14fe0a4c58d0a_MIT2_017JF09_acoustics.pdf",
+      "kind": "pdf",
+      "bytes": 308776,
+      "sha256": "b364d704814a50c8ade112a36c5fb0d04df2e2acf2e39af064ce02b10787a0e5",
+      "pdf_pages": 15
+    },
+    {
+      "file": "a0272c475e92eb7dce1a8b9deaac58c4_MIT2_017JF09_discrete.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a0272c475e92eb7dce1a8b9deaac58c4_MIT2_017JF09_discrete.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/a0272c475e92eb7dce1a8b9deaac58c4_MIT2_017JF09_discrete.pdf",
+      "kind": "pdf",
+      "bytes": 565718,
+      "sha256": "796ee491a8cd752e8af50f143c12f5bf185cdb0cd5a78ad7f9b28560c348d7ca",
+      "pdf_pages": 11
+    },
+    {
+      "file": "28a8095968b3e99189fe8c619640a2e1_MIT2_017JF09_feedback.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/28a8095968b3e99189fe8c619640a2e1_MIT2_017JF09_feedback.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/28a8095968b3e99189fe8c619640a2e1_MIT2_017JF09_feedback.pdf",
+      "kind": "pdf",
+      "bytes": 436839,
+      "sha256": "7f7ee22df4e2f08f5e01b55c1336e3c210f8c98d170a748e6e30f4d0e915bd37",
+      "pdf_pages": 23
+    },
+    {
+      "file": "bfcda6f40bad59b61b3f28ab8da1c86f_MIT2_017JF09_control.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bfcda6f40bad59b61b3f28ab8da1c86f_MIT2_017JF09_control.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bfcda6f40bad59b61b3f28ab8da1c86f_MIT2_017JF09_control.pdf",
+      "kind": "pdf",
+      "bytes": 788141,
+      "sha256": "6df15913de80c87c0748b26f9a129c952b875029b89cce9b4940d7f657bbc085",
+      "pdf_pages": 36
+    },
+    {
+      "file": "41e4cc0e5a0ebd845ea4f5e7c055fdf7_MIT2_017JF09_coursetext.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/41e4cc0e5a0ebd845ea4f5e7c055fdf7_MIT2_017JF09_coursetext.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/41e4cc0e5a0ebd845ea4f5e7c055fdf7_MIT2_017JF09_coursetext.pdf",
+      "kind": "pdf",
+      "bytes": 1348909,
+      "sha256": "86a0e802edbd889bca1d0eb59d302133d9e557a807160e6276e6263ba9bc110c",
+      "pdf_pages": 114
+    },
+    {
+      "file": "15bf0a9b95b5ff67e97b4e644824157a_MIT2_017JF09_ch01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/15bf0a9b95b5ff67e97b4e644824157a_MIT2_017JF09_ch01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/15bf0a9b95b5ff67e97b4e644824157a_MIT2_017JF09_ch01.pdf",
+      "kind": "pdf",
+      "bytes": 35453,
+      "sha256": "b52a822a07230c78b7fcb7abbbe3ca2c0c56f24e7be0452f06b71ec060ab2d01",
+      "pdf_pages": 2
+    },
+    {
+      "file": "54feab6afd0ca9bb339e4f38e21d45c3_MIT2_017JF09_ch02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/54feab6afd0ca9bb339e4f38e21d45c3_MIT2_017JF09_ch02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/54feab6afd0ca9bb339e4f38e21d45c3_MIT2_017JF09_ch02.pdf",
+      "kind": "pdf",
+      "bytes": 277851,
+      "sha256": "3bedc651569734d68eae089232f3233a14584ce47f273c6a8990b416f7346775",
+      "pdf_pages": 14
+    },
+    {
+      "file": "1b4873810be344ca68fc663e1b84df87_MIT2_017JF09_ch03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/1b4873810be344ca68fc663e1b84df87_MIT2_017JF09_ch03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/1b4873810be344ca68fc663e1b84df87_MIT2_017JF09_ch03.pdf",
+      "kind": "pdf",
+      "bytes": 139346,
+      "sha256": "02ddee03cd32f4107d0732ae8f1abf7a4cfa39336690ca805f525808a8513f27",
+      "pdf_pages": 9
+    },
+    {
+      "file": "38fd964b9e1810fba2bc811856501762_MIT2_017JF09_ch04.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/38fd964b9e1810fba2bc811856501762_MIT2_017JF09_ch04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/38fd964b9e1810fba2bc811856501762_MIT2_017JF09_ch04.pdf",
+      "kind": "pdf",
+      "bytes": 207138,
+      "sha256": "066972329a9ca36c0ef2cfc88e894c55de17c9bf4b52ff429ec120d7da46780c",
+      "pdf_pages": 7
+    },
+    {
+      "file": "1a8c8210908b4b396ee3d9f5408e6e64_MIT2_017JF09_ch05.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/1a8c8210908b4b396ee3d9f5408e6e64_MIT2_017JF09_ch05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/1a8c8210908b4b396ee3d9f5408e6e64_MIT2_017JF09_ch05.pdf",
+      "kind": "pdf",
+      "bytes": 206408,
+      "sha256": "eeab2edbd177be24fc8cf70a14b6bd98ae06b5cafb004b9f39c5476f6b7cc9b1",
+      "pdf_pages": 7
+    },
+    {
+      "file": "51e6a1ab5a7fa9937bdb7aca645897fd_MIT2_017JF09_ch06.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/51e6a1ab5a7fa9937bdb7aca645897fd_MIT2_017JF09_ch06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/51e6a1ab5a7fa9937bdb7aca645897fd_MIT2_017JF09_ch06.pdf",
+      "kind": "pdf",
+      "bytes": 249401,
+      "sha256": "f8fadf26ce22795550a023fea3637fb72c6f83ae856040829d06178ab6986da7",
+      "pdf_pages": 12
+    },
+    {
+      "file": "d5b0307576977fa9c4fdb7362edc06e2_MIT2_017JF09_ch07.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d5b0307576977fa9c4fdb7362edc06e2_MIT2_017JF09_ch07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d5b0307576977fa9c4fdb7362edc06e2_MIT2_017JF09_ch07.pdf",
+      "kind": "pdf",
+      "bytes": 285033,
+      "sha256": "7d26a6d9ecf74761f88028cb24cda8eb1589a82f9794200468807a7686b7c59f",
+      "pdf_pages": 14
+    },
+    {
+      "file": "063b7432ab71ed5a0ec536a411339f17_MIT2_017JF09_ch08.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/063b7432ab71ed5a0ec536a411339f17_MIT2_017JF09_ch08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/063b7432ab71ed5a0ec536a411339f17_MIT2_017JF09_ch08.pdf",
+      "kind": "pdf",
+      "bytes": 328417,
+      "sha256": "5f015837cd7a61de07bdb79369fbdedea6ebf2c1b828d945150157fca31859d4",
+      "pdf_pages": 9
+    },
+    {
+      "file": "0da9fb3965410fd50979bb179b56805a_MIT2_017JF09_ch09.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0da9fb3965410fd50979bb179b56805a_MIT2_017JF09_ch09.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0da9fb3965410fd50979bb179b56805a_MIT2_017JF09_ch09.pdf",
+      "kind": "pdf",
+      "bytes": 190486,
+      "sha256": "a58a448308157f83832041616fa0a16581a2596deb706930e8115a5a5ecd0b25",
+      "pdf_pages": 7
+    },
+    {
+      "file": "c50dc54cda71f0ec167b6d32c27e2698_MIT2_017JF09_ch10.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c50dc54cda71f0ec167b6d32c27e2698_MIT2_017JF09_ch10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c50dc54cda71f0ec167b6d32c27e2698_MIT2_017JF09_ch10.pdf",
+      "kind": "pdf",
+      "bytes": 142305,
+      "sha256": "3789e078c89d3c9b418da9b3f449207c8c6e88f91600afb9c322e9d61a655a16",
+      "pdf_pages": 11
+    },
+    {
+      "file": "d98dc04f3311eb4e8c786a342dd07f87_MIT2_017JF09_ch11.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d98dc04f3311eb4e8c786a342dd07f87_MIT2_017JF09_ch11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d98dc04f3311eb4e8c786a342dd07f87_MIT2_017JF09_ch11.pdf",
+      "kind": "pdf",
+      "bytes": 153524,
+      "sha256": "cf13282249f46ce3b773ca1875336bcae8eb9601352a5aacfdee21514bdaffb6",
+      "pdf_pages": 12
+    },
+    {
+      "file": "201df1a002af95036094e9034cafd80d_MIT2_017JF09_ch12.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/201df1a002af95036094e9034cafd80d_MIT2_017JF09_ch12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/201df1a002af95036094e9034cafd80d_MIT2_017JF09_ch12.pdf",
+      "kind": "pdf",
+      "bytes": 196863,
+      "sha256": "741856ab2ce5a743d1fe77ac24cb4749598ad8822b8f0a554203b5031b9be546",
+      "pdf_pages": 8
+    },
+    {
+      "file": "b39075d4d69f3064dd175539bed040e7_MIT2_017JF09_ch13.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/b39075d4d69f3064dd175539bed040e7_MIT2_017JF09_ch13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/b39075d4d69f3064dd175539bed040e7_MIT2_017JF09_ch13.pdf",
+      "kind": "pdf",
+      "bytes": 117487,
+      "sha256": "353b296c51deab684ed7f80b1bcbfe401d2b4ff392037daac604ee0737716df9",
+      "pdf_pages": 9
+    },
+    {
+      "file": "19389d6d3e4ceab6d4e307b0fbaf5c1c_MIT2_017JF09_problems.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/19389d6d3e4ceab6d4e307b0fbaf5c1c_MIT2_017JF09_problems.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/19389d6d3e4ceab6d4e307b0fbaf5c1c_MIT2_017JF09_problems.pdf",
+      "kind": "pdf",
+      "bytes": 2340854,
+      "sha256": "88f2234bf055be5a18fb2f3d1a45752b95929e68746c091cdab50466ba59a5f2",
+      "pdf_pages": 193
+    },
+    {
+      "file": "87df6d376cffceefd03be868cd1b7b4a_MIT2_017JF09_p01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/87df6d376cffceefd03be868cd1b7b4a_MIT2_017JF09_p01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/87df6d376cffceefd03be868cd1b7b4a_MIT2_017JF09_p01.pdf",
+      "kind": "pdf",
+      "bytes": 96867,
+      "sha256": "2dc6bb687e6f142fde2c7197e43747f708fa790665afc1ae6798d27f656fac58",
+      "pdf_pages": 3
+    },
+    {
+      "file": "09ea96bff65c4888027f38af2fcc8508_MIT2_017JF09_p02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/09ea96bff65c4888027f38af2fcc8508_MIT2_017JF09_p02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/09ea96bff65c4888027f38af2fcc8508_MIT2_017JF09_p02.pdf",
+      "kind": "pdf",
+      "bytes": 90940,
+      "sha256": "9852670d3d41b254ca78a5286a12933bd0e0ecf52d1d576451842c6f69648a76",
+      "pdf_pages": 2
+    },
+    {
+      "file": "0747eaa01c9169361497ee3e635e45ca_MIT2_017JF09_p03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0747eaa01c9169361497ee3e635e45ca_MIT2_017JF09_p03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0747eaa01c9169361497ee3e635e45ca_MIT2_017JF09_p03.pdf",
+      "kind": "pdf",
+      "bytes": 91896,
+      "sha256": "7812061333beff39a2dd82f1d53409076d72d3a580dbf5a8237b69ce08d62748",
+      "pdf_pages": 2
+    },
+    {
+      "file": "9157c08e1af8a7b42f4d38931c3cd739_MIT2_017JF09_p04.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/9157c08e1af8a7b42f4d38931c3cd739_MIT2_017JF09_p04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/9157c08e1af8a7b42f4d38931c3cd739_MIT2_017JF09_p04.pdf",
+      "kind": "pdf",
+      "bytes": 175179,
+      "sha256": "2a2a9b7be1552e146fb4b45c6481cb721dab63029487f37d3e4bcde3c467b2c6",
+      "pdf_pages": 4
+    },
+    {
+      "file": "23b463837ba870fba4578fd35efa2bdf_MIT2_017JF09_p05.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/23b463837ba870fba4578fd35efa2bdf_MIT2_017JF09_p05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/23b463837ba870fba4578fd35efa2bdf_MIT2_017JF09_p05.pdf",
+      "kind": "pdf",
+      "bytes": 61089,
+      "sha256": "63d5118384436b3bed17c83ab42c39b3a338c7d1cc80337fba5a2dd7234e8180",
+      "pdf_pages": 2
+    },
+    {
+      "file": "d0550de63a1593ef8d9f79fe5b05518c_MIT2_017JF09_p06.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d0550de63a1593ef8d9f79fe5b05518c_MIT2_017JF09_p06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d0550de63a1593ef8d9f79fe5b05518c_MIT2_017JF09_p06.pdf",
+      "kind": "pdf",
+      "bytes": 95099,
+      "sha256": "42388da5cc8d4e567d673daa481c58951718a57cc2fc786187d227841aeed3c4",
+      "pdf_pages": 3
+    },
+    {
+      "file": "421094f04e7f8643e19c7881d3c0af94_MIT2_017JF09_p07.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/421094f04e7f8643e19c7881d3c0af94_MIT2_017JF09_p07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/421094f04e7f8643e19c7881d3c0af94_MIT2_017JF09_p07.pdf",
+      "kind": "pdf",
+      "bytes": 121042,
+      "sha256": "470f4447e24b0068c98721f26c6a92017aece50f13e96210d09c2053923fcb4a",
+      "pdf_pages": 2
+    },
+    {
+      "file": "705ce9d59b51b343608d86d28d23c9c0_MIT2_017JF09_p08.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/705ce9d59b51b343608d86d28d23c9c0_MIT2_017JF09_p08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/705ce9d59b51b343608d86d28d23c9c0_MIT2_017JF09_p08.pdf",
+      "kind": "pdf",
+      "bytes": 63240,
+      "sha256": "0a00af60c32f4c38e13d2bf3412b413318eb0a1608b07b583851f6361ca0af23",
+      "pdf_pages": 2
+    },
+    {
+      "file": "f62b7c484569d6cb2019b419aa9a4045_MIT2_017JF09_p09.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/f62b7c484569d6cb2019b419aa9a4045_MIT2_017JF09_p09.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/f62b7c484569d6cb2019b419aa9a4045_MIT2_017JF09_p09.pdf",
+      "kind": "pdf",
+      "bytes": 153261,
+      "sha256": "401f3356afcd349a82f6349b55be7151beba5a36331618e157dc110a17e76693",
+      "pdf_pages": 5
+    },
+    {
+      "file": "871ec58d04ba152ce2d3fc3c6b55d7be_MIT2_017JF09_p10.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/871ec58d04ba152ce2d3fc3c6b55d7be_MIT2_017JF09_p10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/871ec58d04ba152ce2d3fc3c6b55d7be_MIT2_017JF09_p10.pdf",
+      "kind": "pdf",
+      "bytes": 111443,
+      "sha256": "b880d8e7240c20b911712a7b0b50fefa25ab75a3d920b7234212a68d09fd96fb",
+      "pdf_pages": 5
+    },
+    {
+      "file": "c24a9bb8627ce3c13a07225100bcbcf3_MIT2_017JF09_p11.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c24a9bb8627ce3c13a07225100bcbcf3_MIT2_017JF09_p11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c24a9bb8627ce3c13a07225100bcbcf3_MIT2_017JF09_p11.pdf",
+      "kind": "pdf",
+      "bytes": 175502,
+      "sha256": "e9030e7cea8359f7953a6068a2aacda4658ffba4fc478cb2c45c2be434d3ade4",
+      "pdf_pages": 4
+    },
+    {
+      "file": "fcecfbf0620c93867f2d22ae33e4abe8_MIT2_017JF09_p12.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/fcecfbf0620c93867f2d22ae33e4abe8_MIT2_017JF09_p12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/fcecfbf0620c93867f2d22ae33e4abe8_MIT2_017JF09_p12.pdf",
+      "kind": "pdf",
+      "bytes": 172801,
+      "sha256": "4b44d12e513ec80f214b09a3652965c8b02d9308ec7237bcdf2062d06634b385",
+      "pdf_pages": 5
+    },
+    {
+      "file": "514b90921e17bd618c49c732bd110f82_MIT2_017JF09_p13.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/514b90921e17bd618c49c732bd110f82_MIT2_017JF09_p13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/514b90921e17bd618c49c732bd110f82_MIT2_017JF09_p13.pdf",
+      "kind": "pdf",
+      "bytes": 205358,
+      "sha256": "62c50326dc2c967576c81012d58ed0022324694e0fa9bd59e6923587d9504b9c",
+      "pdf_pages": 8
+    },
+    {
+      "file": "c5163704a9a8fa5454ce57b0d8dc7256_MIT2_017JF09_p14.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c5163704a9a8fa5454ce57b0d8dc7256_MIT2_017JF09_p14.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c5163704a9a8fa5454ce57b0d8dc7256_MIT2_017JF09_p14.pdf",
+      "kind": "pdf",
+      "bytes": 111847,
+      "sha256": "228dd3acd778dbfde5afc8c263cec7cee1ef34764d4eb9e0c1e25cf485cf4d92",
+      "pdf_pages": 3
+    },
+    {
+      "file": "4c5b3a0e9d904dc1cbe3954a4c53c27d_MIT2_017JF09_p15.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/4c5b3a0e9d904dc1cbe3954a4c53c27d_MIT2_017JF09_p15.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/4c5b3a0e9d904dc1cbe3954a4c53c27d_MIT2_017JF09_p15.pdf",
+      "kind": "pdf",
+      "bytes": 95736,
+      "sha256": "901684f17b172bc607a451795cdaa6d2fe95cca913b0d4bcce58eb2193390f18",
+      "pdf_pages": 4
+    },
+    {
+      "file": "8e7a00b7a772030219d70b8936fc67ea_MIT2_017JF09_p16.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/8e7a00b7a772030219d70b8936fc67ea_MIT2_017JF09_p16.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/8e7a00b7a772030219d70b8936fc67ea_MIT2_017JF09_p16.pdf",
+      "kind": "pdf",
+      "bytes": 273214,
+      "sha256": "03938cd73c79ba33b651ccb3ef55e76c84d3093aa5dc440c1da163fecd9c5a80",
+      "pdf_pages": 12
+    },
+    {
+      "file": "39db5be98dd5b0a1479d0f31981bb7fd_MIT2_017JF09_p17.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/39db5be98dd5b0a1479d0f31981bb7fd_MIT2_017JF09_p17.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/39db5be98dd5b0a1479d0f31981bb7fd_MIT2_017JF09_p17.pdf",
+      "kind": "pdf",
+      "bytes": 229871,
+      "sha256": "7e0c3439745957924a4b130f7ed0bb1932e129e062795a7c74da3643364b72dc",
+      "pdf_pages": 6
+    },
+    {
+      "file": "b603f16fbdcc2195c4a16646fcfc2de4_MIT2_017JF09_p18.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/b603f16fbdcc2195c4a16646fcfc2de4_MIT2_017JF09_p18.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/b603f16fbdcc2195c4a16646fcfc2de4_MIT2_017JF09_p18.pdf",
+      "kind": "pdf",
+      "bytes": 92122,
+      "sha256": "edf445a24b27b290b56aabff0a5ed8e48e2338aa2324b0a580d774564bd9e32c",
+      "pdf_pages": 2
+    },
+    {
+      "file": "904f67d66ba34b2dd3b3e9f30a5a1bfc_MIT2_017JF09_p19.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/904f67d66ba34b2dd3b3e9f30a5a1bfc_MIT2_017JF09_p19.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/904f67d66ba34b2dd3b3e9f30a5a1bfc_MIT2_017JF09_p19.pdf",
+      "kind": "pdf",
+      "bytes": 109355,
+      "sha256": "0cf5a6c1f2086a6cba403f58072d4c77786d0b9a54e891cc5be2c247215be297",
+      "pdf_pages": 4
+    },
+    {
+      "file": "94c89cf18d7719bc1c808a4f572f258f_MIT2_017JF09_p20.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/94c89cf18d7719bc1c808a4f572f258f_MIT2_017JF09_p20.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/94c89cf18d7719bc1c808a4f572f258f_MIT2_017JF09_p20.pdf",
+      "kind": "pdf",
+      "bytes": 147321,
+      "sha256": "5f466b28834ec542da61b8fe2752e10cbcaf513f50e11debf605b456bdb86943",
+      "pdf_pages": 6
+    },
+    {
+      "file": "f211578d1a94b4acc1c67f5b1bc3fe9f_MIT2_017JF09_p21.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/f211578d1a94b4acc1c67f5b1bc3fe9f_MIT2_017JF09_p21.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/f211578d1a94b4acc1c67f5b1bc3fe9f_MIT2_017JF09_p21.pdf",
+      "kind": "pdf",
+      "bytes": 134966,
+      "sha256": "1ddfb86dbe4c94bc50257f4f36e1987ae3d3abef255c84cbd680915786bd6af9",
+      "pdf_pages": 5
+    },
+    {
+      "file": "23579815f2dff482081ef182c2ffe423_MIT2_017JF09_p22.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/23579815f2dff482081ef182c2ffe423_MIT2_017JF09_p22.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/23579815f2dff482081ef182c2ffe423_MIT2_017JF09_p22.pdf",
+      "kind": "pdf",
+      "bytes": 290692,
+      "sha256": "5ab26245ba589c8d028a19fffec369107dc34b3ecd361df0a1e49be77689561e",
+      "pdf_pages": 7
+    },
+    {
+      "file": "d3e871d7b14c99434ac1210a333e9d38_MIT2_017JF09_p23.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d3e871d7b14c99434ac1210a333e9d38_MIT2_017JF09_p23.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d3e871d7b14c99434ac1210a333e9d38_MIT2_017JF09_p23.pdf",
+      "kind": "pdf",
+      "bytes": 215886,
+      "sha256": "3b905ff9d0166f5ddb9f9f7298017f436a60a230b5fd7c4d2552d3fc11ada0b1",
+      "pdf_pages": 8
+    },
+    {
+      "file": "16502c29ccc3b3e44e23b485b000d2e9_MIT2_017JF09_p24.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/16502c29ccc3b3e44e23b485b000d2e9_MIT2_017JF09_p24.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/16502c29ccc3b3e44e23b485b000d2e9_MIT2_017JF09_p24.pdf",
+      "kind": "pdf",
+      "bytes": 98597,
+      "sha256": "f3f047c54727c70c5eb0e53d888aa705be23bc54e65ac16d72f1683843c71065",
+      "pdf_pages": 3
+    },
+    {
+      "file": "0c1d6162e720d1f89c4cde9eabbe2e13_MIT2_017JF09_p25.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0c1d6162e720d1f89c4cde9eabbe2e13_MIT2_017JF09_p25.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0c1d6162e720d1f89c4cde9eabbe2e13_MIT2_017JF09_p25.pdf",
+      "kind": "pdf",
+      "bytes": 93328,
+      "sha256": "0e983c1de8fda68bfff47215190e8ac53b8c10e58f42c1dcdbd8e486b2f67146",
+      "pdf_pages": 2
+    },
+    {
+      "file": "b233776f3c6b8fdd3215609162b65241_MIT2_017JF09_p26.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/b233776f3c6b8fdd3215609162b65241_MIT2_017JF09_p26.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/b233776f3c6b8fdd3215609162b65241_MIT2_017JF09_p26.pdf",
+      "kind": "pdf",
+      "bytes": 73555,
+      "sha256": "fa7a08befa6a98e04ab0047063f846fed59ae336cdb4f78215953dc22da084a1",
+      "pdf_pages": 3
+    },
+    {
+      "file": "d068232ab2ffbe66329e224b707fdf8a_MIT2_017JF09_p27.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d068232ab2ffbe66329e224b707fdf8a_MIT2_017JF09_p27.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d068232ab2ffbe66329e224b707fdf8a_MIT2_017JF09_p27.pdf",
+      "kind": "pdf",
+      "bytes": 117718,
+      "sha256": "2d0685f063edd2befde6a2b992fabd1b62fe5d0c110784fb583f7bec6f671b31",
+      "pdf_pages": 6
+    },
+    {
+      "file": "1468c28d65f96b267b230a835cebd293_MIT2_017JF09_p28.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/1468c28d65f96b267b230a835cebd293_MIT2_017JF09_p28.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/1468c28d65f96b267b230a835cebd293_MIT2_017JF09_p28.pdf",
+      "kind": "pdf",
+      "bytes": 155990,
+      "sha256": "4395375ad2eb4d14ebc8829c30bf7fac84bce2f42bc476db734a60c523d5a184",
+      "pdf_pages": 7
+    },
+    {
+      "file": "5c0c140ff75a8325b4f48260be1bd44c_MIT2_017JF09_p29.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/5c0c140ff75a8325b4f48260be1bd44c_MIT2_017JF09_p29.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/5c0c140ff75a8325b4f48260be1bd44c_MIT2_017JF09_p29.pdf",
+      "kind": "pdf",
+      "bytes": 159171,
+      "sha256": "9e4ecc6e367a722e9933502a1d20963abdee24bfff8af60fdea31c26dfc2d9fc",
+      "pdf_pages": 12
+    },
+    {
+      "file": "032c565aba6dd18d97e924050f979ca4_MIT2_017JF09_p30.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/032c565aba6dd18d97e924050f979ca4_MIT2_017JF09_p30.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/032c565aba6dd18d97e924050f979ca4_MIT2_017JF09_p30.pdf",
+      "kind": "pdf",
+      "bytes": 80259,
+      "sha256": "b766c9fc14508daec07b305482eae421acf93490946099ad9f270fdabc3ccbe1",
+      "pdf_pages": 4
+    },
+    {
+      "file": "5c6de1cb4ddb28a3b557a8dfd2694b80_MIT2_017JF09_p31.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/5c6de1cb4ddb28a3b557a8dfd2694b80_MIT2_017JF09_p31.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/5c6de1cb4ddb28a3b557a8dfd2694b80_MIT2_017JF09_p31.pdf",
+      "kind": "pdf",
+      "bytes": 109393,
+      "sha256": "78e9d7bff70a3d226715f0cb5fcbb003e1ec6891dedb63b5c3ec3b8f92d4d46b",
+      "pdf_pages": 3
+    },
+    {
+      "file": "2554612f1e70ba3772ebd24ca9f4558a_MIT2_017JF09_p32.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/2554612f1e70ba3772ebd24ca9f4558a_MIT2_017JF09_p32.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/2554612f1e70ba3772ebd24ca9f4558a_MIT2_017JF09_p32.pdf",
+      "kind": "pdf",
+      "bytes": 283214,
+      "sha256": "e55d9280524cd12f296f5a5baea8a20cea24dc8f94c27829ee911861f7f8c54c",
+      "pdf_pages": 6
+    },
+    {
+      "file": "87f5cf8dbe782c9326ed3bab223b6cab_MIT2_017JF09_p33.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/87f5cf8dbe782c9326ed3bab223b6cab_MIT2_017JF09_p33.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/87f5cf8dbe782c9326ed3bab223b6cab_MIT2_017JF09_p33.pdf",
+      "kind": "pdf",
+      "bytes": 130305,
+      "sha256": "cc3cb02387f77c56a823a984445bca0f1be28005d7319dab402ff7812209d6d0",
+      "pdf_pages": 6
+    },
+    {
+      "file": "e35d34d588a04bbfb1d0f5c6bc865684_MIT2_017JF09_p34.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/e35d34d588a04bbfb1d0f5c6bc865684_MIT2_017JF09_p34.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/e35d34d588a04bbfb1d0f5c6bc865684_MIT2_017JF09_p34.pdf",
+      "kind": "pdf",
+      "bytes": 266517,
+      "sha256": "5a6f29f7eefb346bce3cc35b56fae13fa4d8e14fc12a64e6897d257b050d7bb5",
+      "pdf_pages": 6
+    },
+    {
+      "file": "e989b270bb56accd235ec4a44f8a39e5_MIT2_017JF09_p35.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/e989b270bb56accd235ec4a44f8a39e5_MIT2_017JF09_p35.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/e989b270bb56accd235ec4a44f8a39e5_MIT2_017JF09_p35.pdf",
+      "kind": "pdf",
+      "bytes": 207969,
+      "sha256": "1d5e504ee430776004df6e6b68b7a91b2a4ebea5ab8d6a56845eaa3088f6d1b6",
+      "pdf_pages": 6
+    },
+    {
+      "file": "5f0318fc79b4c8232a60df4031b85144_MIT2_017JF09_p36.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/5f0318fc79b4c8232a60df4031b85144_MIT2_017JF09_p36.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/5f0318fc79b4c8232a60df4031b85144_MIT2_017JF09_p36.pdf",
+      "kind": "pdf",
+      "bytes": 146936,
+      "sha256": "c04dab90a074defee970eb6cc078eea0eff83520088cafbb8c3cb93dc6209981",
+      "pdf_pages": 7
+    },
+    {
+      "file": "c6bffb1288d8b14c3d9bc1ca3e52270a_MIT2_017JF09_p37.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c6bffb1288d8b14c3d9bc1ca3e52270a_MIT2_017JF09_p37.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/c6bffb1288d8b14c3d9bc1ca3e52270a_MIT2_017JF09_p37.pdf",
+      "kind": "pdf",
+      "bytes": 205083,
+      "sha256": "820e4882100a9c97aaf398cc6db94094c744df02271c2cdcfaa13755c0cb4be0",
+      "pdf_pages": 6
+    },
+    {
+      "file": "37ae77bd238ce71b5caa6baec12300aa_MIT2_017JF09_p38.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/37ae77bd238ce71b5caa6baec12300aa_MIT2_017JF09_p38.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/37ae77bd238ce71b5caa6baec12300aa_MIT2_017JF09_p38.pdf",
+      "kind": "pdf",
+      "bytes": 142302,
+      "sha256": "9629a1700638e81533f3c3c3f934939a885ba6a09b9c369d32bd21d6d8a54817",
+      "pdf_pages": 12
+    },
+    {
+      "file": "9763372ceaa0c2a46aa04b8514d0c81a_MIT2_017JF09_p39.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/9763372ceaa0c2a46aa04b8514d0c81a_MIT2_017JF09_p39.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/9763372ceaa0c2a46aa04b8514d0c81a_MIT2_017JF09_p39.pdf",
+      "kind": "pdf",
+      "bytes": 181213,
+      "sha256": "6473b88b9bd6cf2cc9b8185aeec5d886b23a0cdf549115e2375973994c4b568b",
+      "pdf_pages": 9
+    },
+    {
+      "file": "72e4281b25fbcff184d0a001c13d2df4_MIT2_017JF09_p40.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/72e4281b25fbcff184d0a001c13d2df4_MIT2_017JF09_p40.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/72e4281b25fbcff184d0a001c13d2df4_MIT2_017JF09_p40.pdf",
+      "kind": "pdf",
+      "bytes": 91434,
+      "sha256": "8902016cff8de42260af4fdd37e67362a77b40bc799a03c8ca98b1f2e3e708c3",
+      "pdf_pages": 2
+    },
+    {
+      "file": "d6966a806a678be82b5061d58a6e3ad9_MIT2_017JF09_p41.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d6966a806a678be82b5061d58a6e3ad9_MIT2_017JF09_p41.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/d6966a806a678be82b5061d58a6e3ad9_MIT2_017JF09_p41.pdf",
+      "kind": "pdf",
+      "bytes": 152338,
+      "sha256": "6e856cc6fb2a0f1c4179263ed999766c70275223e797b9c10454ecc9ac368b39",
+      "pdf_pages": 10
+    },
+    {
+      "file": "37891dbb8a792018ed9af7aa9d01adaf_MIT2_017JF09_p42.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/37891dbb8a792018ed9af7aa9d01adaf_MIT2_017JF09_p42.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/37891dbb8a792018ed9af7aa9d01adaf_MIT2_017JF09_p42.pdf",
+      "kind": "pdf",
+      "bytes": 117620,
+      "sha256": "b70ae227fc4ee9fb64b2afd67c4522e435a5c86e54f72c6feadbedaca489f8d6",
+      "pdf_pages": 7
+    },
+    {
+      "file": "bdc3491886ebf37068b508f619dcf2e6_MIT2_017JF09_p43.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bdc3491886ebf37068b508f619dcf2e6_MIT2_017JF09_p43.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bdc3491886ebf37068b508f619dcf2e6_MIT2_017JF09_p43.pdf",
+      "kind": "pdf",
+      "bytes": 266524,
+      "sha256": "1f2178ff32254334631da502c6d151d3cd172b5306a5ad4911758ea2b9751435",
+      "pdf_pages": 6
+    },
+    {
+      "file": "376620c35a5f5234861d7709df972cbc_MIT2_017JF09_p44.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/376620c35a5f5234861d7709df972cbc_MIT2_017JF09_p44.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/376620c35a5f5234861d7709df972cbc_MIT2_017JF09_p44.pdf",
+      "kind": "pdf",
+      "bytes": 212739,
+      "sha256": "d689c174e749ec39fd55b1b17c70102a4ba68f07bb8b7d76d3213fb84857cc63",
+      "pdf_pages": 6
+    },
+    {
+      "file": "bfe9a4c7c6a92c7479c9d3ae22914bc9_MIT2_017JF09_rules.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bfe9a4c7c6a92c7479c9d3ae22914bc9_MIT2_017JF09_rules.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/bfe9a4c7c6a92c7479c9d3ae22914bc9_MIT2_017JF09_rules.pdf",
+      "kind": "pdf",
+      "bytes": 194884,
+      "sha256": "843e1560d51766195883c4bda70c9d879216b282c9cb4d335828032e3722d950",
+      "pdf_pages": 14
+    },
+    {
+      "file": "ab1b6da0d64cb2b7ec84315c7be33c0e_MIT2_017JF09_slides1.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/ab1b6da0d64cb2b7ec84315c7be33c0e_MIT2_017JF09_slides1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/ab1b6da0d64cb2b7ec84315c7be33c0e_MIT2_017JF09_slides1.pdf",
+      "kind": "pdf",
+      "bytes": 520099,
+      "sha256": "53ec4932c4c4844996c4d8d67ffc6d16d23ad8419465e456c0f95b3bd5538cd3",
+      "pdf_pages": 12
+    },
+    {
+      "file": "3ccf965e951cf972e6b9e74ba13114b2_MIT2_017JF09_lab1.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/3ccf965e951cf972e6b9e74ba13114b2_MIT2_017JF09_lab1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/3ccf965e951cf972e6b9e74ba13114b2_MIT2_017JF09_lab1.pdf",
+      "kind": "pdf",
+      "bytes": 232975,
+      "sha256": "6cf454a773db3adf310d63f1f1ec6275e3ed0c6777c0e77c3940f6238cd6b307",
+      "pdf_pages": 6
+    },
+    {
+      "file": "ac3910e6ac594f279397c293f547ade4_MIT2_017JF09_slides2.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/ac3910e6ac594f279397c293f547ade4_MIT2_017JF09_slides2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/ac3910e6ac594f279397c293f547ade4_MIT2_017JF09_slides2.pdf",
+      "kind": "pdf",
+      "bytes": 1664785,
+      "sha256": "bbe1a9374a6eaf429889d6f01a8065f856b31f5c1b2157353744194113149b5b",
+      "pdf_pages": 26
+    },
+    {
+      "file": "700e1a9160b8f7baa8dca8676a4c9e69_MIT2_017JF09_lab2.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/700e1a9160b8f7baa8dca8676a4c9e69_MIT2_017JF09_lab2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/700e1a9160b8f7baa8dca8676a4c9e69_MIT2_017JF09_lab2.pdf",
+      "kind": "pdf",
+      "bytes": 258722,
+      "sha256": "f5fb8ee7b6e07efe10373ca41648342ce9305bd6a1b3c19f3bd790be1a134894",
+      "pdf_pages": 6
+    },
+    {
+      "file": "71391f00345485b1e5f78e888ddd089d_MIT2_017JF09_slides3.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/71391f00345485b1e5f78e888ddd089d_MIT2_017JF09_slides3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/71391f00345485b1e5f78e888ddd089d_MIT2_017JF09_slides3.pdf",
+      "kind": "pdf",
+      "bytes": 953496,
+      "sha256": "5ebc8bc8987d884965488e07551c4267fa0a788fd66501f5f3167e4b84993f44",
+      "pdf_pages": 21
+    },
+    {
+      "file": "3b65623c3b6037de5d92178b89b956c8_MIT2_017JF09_lab3.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/3b65623c3b6037de5d92178b89b956c8_MIT2_017JF09_lab3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/3b65623c3b6037de5d92178b89b956c8_MIT2_017JF09_lab3.pdf",
+      "kind": "pdf",
+      "bytes": 127575,
+      "sha256": "f2a6442a01ec82270aeae26c0faa1f9590a3e21119c3067de249422c4b512b42",
+      "pdf_pages": 4
+    },
+    {
+      "file": "0fa2c984f8ba5a090506401ea2f5ff90_MIT2_017JF09_slides4.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0fa2c984f8ba5a090506401ea2f5ff90_MIT2_017JF09_slides4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/0fa2c984f8ba5a090506401ea2f5ff90_MIT2_017JF09_slides4.pdf",
+      "kind": "pdf",
+      "bytes": 1043036,
+      "sha256": "ec717a4ccad4de31334fc195655b67b78e453b927472a58a0873fe0afb14fa39",
+      "pdf_pages": 26
+    },
+    {
+      "file": "6a08e813874b2ea03bf9e4f4e12647b5_MIT2_017JF09_lab4.pdf",
+      "url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/6a08e813874b2ea03bf9e4f4e12647b5_MIT2_017JF09_lab4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-017j-design-of-electromechanical-robotic-systems-fall-2009/6a08e813874b2ea03bf9e4f4e12647b5_MIT2_017JF09_lab4.pdf",
+      "kind": "pdf",
+      "bytes": 238235,
+      "sha256": "a97f2f35c2b05827b815eef3896d13021f60e8f512bf57d8be7e876a6374e8a3",
+      "pdf_pages": 7
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://content.instructables.com/F3J/MTJN/FVW22MXN/F3JMTJNFVW22MXN.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "http://www.atmel.com/dyn/resources/prod_documents/doc8161.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 83,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

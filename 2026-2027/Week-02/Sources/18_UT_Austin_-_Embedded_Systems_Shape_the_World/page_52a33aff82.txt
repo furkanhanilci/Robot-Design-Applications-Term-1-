@@ -1,0 +1,90 @@
+Embedded Systems
+Embedded Systems:  Introduction to ARM Cortex-M Microcontrollers
+Home
+Objectives
+Lectures
+Kit
+Kit overview
+Buying instructions
+Software
+Software Overview
+Software Downloads
+Macintosh
+ISBN: 978-1477508992
+, also on
+CreateSpace
+This course is a hands-on lab, building real-world embedded solutions using a bottom-up approach from simple to complex. 
+								There are five components of the course: book, lab kit, videos, interactive learning modules, and lab software.
+The course is the first in a series of three courses that teach the fundamentals of
+embedded systems
+as applied to the ARM Cortex-M family of microcontrollers.
+							This first course is an introduction to computers and interfacing focusing on assembly language and C programming and 		 
+							could be delivered at the college level with little or no prerequisites. 
+							This is a hand-on, learn-by-doing course that shows students how to build solutions to real-world problems using embedded systems. 
+							Each student will purchase a Texas Instruments TM4C123 microcontroller kit and a few electronic components. 
+							This microcontroller has a state of the art ARM Cortex M4 processor. 
+							The course uses a bottom-up approach to problem-solving building gradually from simple interfacing of switches and LEDs 
+							to complex concepts like display drivers, digital to analog conversion, generation of sound, analog to 
+							digital conversion, graphics, interrupts, and communication. 
+							We will present both general principles and practical tips for building circuits and programming the microcontroller in the C programming language. 
+							Students will develop debugging skills using oscilloscopes, logic analyzers and software instrumentation. 
+							Laboratory assignments are first performed in simulation, and then students will build and debug your labs on the real microcontroller. 
+							At the conclusion of this course students will be able to build your own arcade-style game.
+Detailed Table of Contents
+There is a low-cost textbook for this course.
+1. Introduction to Computers and Electronics
+2. Introduction to Embedded Systems
+3. Introduction to the ARM Cortex-M
+4. Introduction to Input/Output
+5. Modular Programming
+6. Pointers and Data Structures
+7. Variables, Numbers, and Parameter Passing
+8. Serial and Parallel Port Interfacing
+9. Interrupt Programming and Real-time Systems
+10. Analog I/O Interfacing
+11. Communication Systems
+Appendix 1. Glossary
+Appendix 2. Solutions to Checkpoints
+Appendix 3. How to Convert Projects from Keil to CCS
+Appendix 4. Assembly Reference
+Index
+Reference Material
+Buy the book
+Lab kit
+Students will need to purchase a lab kit.
+Kit details
+Advantages of using this book as the textbook
+1) State of the art architecture
+2) Book is filled with both fundamental theories and practical examples
+3) Two web sites with working examples
+-
+Valvano code
+shows the software connection to the physical layer
+-
+Texas Instruments TivaWare
+solves many problems with hardware abstraction
+4) There is a low-cost board available on the Texas Instruments eStore
+5) The student cost for this book is low. The list price is $43.95
+6) Extensive labs and homework questions
+7) Lecture slides available
+Dr. Jonathan W. Valvano
+Professor
+Dr. Jon Valvano is a professor in the Department of Electrical and Computer Engineering at The University of Texas at Austin 
+								and holds the Engineering Foundation Centennial Teaching Fellowship in Electrical Engineering. 
+								He received his S.B. and S.M. in Electrical and Computer Engineering from MIT in 1977 
+								and his Ph.D. in 1981 from the joint Harvard-MIT program in Medical Engineering and Medical Physics. 
+								He joined the faculty at The University of Texas at Austin in 1981 and has 32 years of experience in teaching and research. 
+								He has received numerous teaching awards and authored five widely-used textbooks on embedded microcomputer systems. 
+								He has co-founded a successful medical device company called Admittance Technologies. 
+								His research involves integrated analog/digital processing, low-power design, medical instrumentation, and real-time systems.
+Valvano's Home Page
+Other books in the series
+The second book
+Embedded Systems: Real-Time Interfacing to ARM Cortex-M Microcontrollers
+focuses on hardware/software interfacing and the design of embedded systems.  
+							The third book
+Embedded Systems: Real-Time Operating Systems for ARM Cortex-M Microcontrollers
+is an advanced book 
+							focusing on operating systems, high-speed interfacing, control systems, and robotics. 
+							The third volume could also be used for professionals wishing to design or deploy a real-time operating system onto an ARM platform.
+Feel free to use information on this site for education purposes.

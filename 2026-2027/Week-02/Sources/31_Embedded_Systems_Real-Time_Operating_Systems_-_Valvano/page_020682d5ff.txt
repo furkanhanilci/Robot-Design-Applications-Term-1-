@@ -1,0 +1,113 @@
+ECE445M: EMBEDDED AND REAL-TIME OPERATING SYSTEMS
+Embedded and Real-Time Systems / Real-Time Operating Systems
+ECE445M, Unique: 18305, 18310, 18320, 18325
+Semester: Spring 2026
+Home
+Syllabus
+Lectures
+Labs
+Resources
+Canvas
+Lecture Schedule
+Week
+Notes
+Reading
+Topics
+1
+1/13
+Lecture 1
+1, 2.1-2.5, 2.10,
+2.12
+Introduction - ARM architecture, instruction set, stack, CCS compiler, GPIO, timer, UART, device drivers
+Software design & debugging - Modular programming, call & data flow graphs, debugging instruments, intrusiveness
+2
+1/20
+Lecture 2
+4.1-4.2
+RTOS - Multi-threading/-tasking, OS architecture, OS kernel
+Threads - Context switching, TCB, cooperative & preemptive multitasking, round-robin scheduler
+3
+1/27
+Lecture 3
+4.3-4.6
+Threads - Thread states, suspending/sleeping/killing, operating modes, protection
+Thread communication & synchronization - Critical sections, reentrance, FIFO, mailbox
+4
+2/3
+Lecture 4
+5
+2.11
+Semaphores - Spinlock & blocking semaphores, deadlock, monitors, process networks
+Debugging - Testing, performance measures (response time, jitter, throughput)
+5
+2/10
+Lecture 5
+6
+Scheduling - Real-time scheduling, priority scheduler, scheduling anomalies, fixed-rate scheduler
+Exam 1 is 2/19
+, 12:30-2:00pm, in class
+6
+2/17
+Lecture 6
+2.6, 3
+8
+SD interface - flash disk interface using SSI, high-speed interfacing, DMA
+File system - file system management
+7
+2/24
+Lecture 7
+7
+Memory management - heap, processes
+Process management - process images, loading, linking, relocation, PCBs
+8
+3/3
+1-6
+Finish Lectures 6 and 7
+9
+3/10
+Lecture 8
+2.7, 10
+2.8, 11.2
+Sensing interfacing - Input capture, period measurement, signal processing
+Motor interfacing - Transistor interfaces, pulse width modulation (PWM)
+Break
+3/17
+Spring Break
+10
+3/24
+Lecture 9
+9.1-9.4
+Microcontroller networking - Controller Area Network (CAN), Ethernet, Wifi
+Internet - Protocol stacks, ISO/OSI model, TCP/IP, IoT
+11
+3/31
+Lecture 10
+11
+Robots - Team work, testing and debugging, design process
+Control systems - PID control, fuzzy logic and control
+12
+4/7
+Lecture 11
+Memory management (cont'd) - Protection, virtual memory, paging
+Exam 2 is 4/9
+, 12:30-2:00pm, in class
+13
+4/14
+Lecture 12
+12
+1-11
+Commerical RTOS - µC/OS, VxWorks
+Final exam review
+14
+4/21
+Robot competitions (preliminary and final), EER Atrium
+Finals
+4/28
+1-11
+Final exam, Monday, 5/4, 1:00-3:00pm, UTC 3.104
+(regularly scheduled)
+Contents
+© Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano
+http://www.ece.utexas.edu/~valvano/EE445M/
+http://www.ece.utexas.edu/~gerstl/ee445m_s25

@@ -1,0 +1,4076 @@
+[
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/MR-v2.pdf",
+    "pages": 644,
+    "status": "ok",
+    "sha256": "47f446567bb4ba500fced69890c4c039f8180c2a3dfd0ffdd679d9ac0a421368"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/MR-tablet-v2.pdf",
+    "pages": 644,
+    "status": "ok",
+    "sha256": "f44cde1b1b8ee614c4ad8141e29d306fa0eabce6d85000fde0d69d9dd2aad588"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/MR-largefont-v2.pdf",
+    "pages": 644,
+    "status": "ok",
+    "sha256": "edd31a7cbb8e01dd829bae1c82fc46fb6602c4a669cffac660b4d031d0c3006c"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/MR-2up-v2.pdf",
+    "pages": 322,
+    "status": "ok",
+    "sha256": "9ec223d96fa2217dd96d2d5a62d6a8f1e8b3868c87ae72ac09a5e6a63769efc4"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/MR_practice_exercises.pdf",
+    "pages": 108,
+    "status": "ok",
+    "sha256": "db7ec7df986fd2ba3a0b46da7d651f83ef0bf5805350168209018695f3a815ce"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/SNU-2017-exams.pdf",
+    "pages": 52,
+    "status": "ok",
+    "sha256": "84af3cbb6013e7a5e2b7681c19f16ebaa987d4549577e2d71d6f84e3b7c597aa"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/SNU-2018-exams.pdf",
+    "pages": 44,
+    "status": "ok",
+    "sha256": "29c723c8d8dab369a8bc131697ffb2fb53efe397ca7e727a5e868b49fcca2c7b"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/SNU-2019-exams.pdf",
+    "pages": 43,
+    "status": "ok",
+    "sha256": "d61ed40f9566d153322620ebd0b3e0cd2bb895f437bf91b8f9cd4f34c774ef1a"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/SNU-2020-exams.pdf",
+    "pages": 39,
+    "status": "ok",
+    "sha256": "15b3de9fa8ed5d32b468287d47ca5de113ab0b9775ef6092a4635cac78650cb6"
+  },
+  {
+    "file": "01_Modern_Robotics_-_Lynch_and_Park/UR5-URDF.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "387926cadbec598b8976c875fd0d02789399bbb9b1771a0fad2dfce146fdad20"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Collins05.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "e754fa3922dddba77e107c8c5f9bb2167812841e536f9b32b48b43f82c8a7cb5"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Hsu07.pdf",
+    "pages": 59,
+    "status": "ok",
+    "sha256": "702aa3ef363664d6044a8417973715bfd269b70b828020b79a9d60b1e8da78b9"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Deits14a.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "d8347bf0d9056dc603383b5fbdfde0e2e784df9f1a1c63aaa9eceef93de293e0"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Kuindersma14.pdf",
+    "pages": 46,
+    "status": "ok",
+    "sha256": "97006de32081002d13c188121e521b70edc51da592b7c00be2517d65dd501b30"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Tedrake15.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "aedeaa1accf7d5264011d21a8f53ccc8c0b67f1df9ab7c4fd0a4149080ab7d34"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Kuindersma13.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "68ffc3cdb96f154e32a7f494bc4195a1ec4750ca4a882c3a6596c76184d5025f"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Dai14.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "cb3cb2acffa9e9fb302ab72267a55c5f8a991a446f96c704e8653983eb69d7bd"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Marcucci21.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "e6c5f8d9663a1328ba91ab96e1b3299f4fa96a252b56aa7395b8b242105d51cc"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Suh22a.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "a82d7d709edde61cbc7e72dcf82e0102b34ab941e646da4940d6bebb66956f77"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Pang22.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "01bc984169c687f78ea38e78427213ed1f6070663cf5fb2a45437c9de5c4b54a"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Pang20b.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "b993b903b08c935a1d7b8a472744f9a56a2689092613300d5cc584430b8284b0"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Suh22b.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "a97f82c225d9a329653285ea3d433856fc5eaea139348597c30c2830f2174499"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Posa15.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "42128a19684e09db80614fe9b6759064df0a772ef80a9e24b76b46f67b950b2b"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Sadraddini20.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "0e20d3f68c891f91c615c3578b3a37583f7582cf3ce25fdfd2d19943bb02f831"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Glassman10.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "54653483d80b58daebedcf38d7b385e1e470d32e34af559f5abc8fbe26be7376"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Majumdar12.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "30c780955c4e76739b78c60a51359219cb2fa8eaa8f59ac9ac7e4678faa7df83"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Shen20.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "bc019307b09d39834c0676ce7182bacd5a178b504131f9acd7795975d8a8b8de"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Majumdar16a.pdf",
+    "pages": 136,
+    "status": "ok",
+    "sha256": "b0820f7a2b3a0cef93be0188976b7c5c8dba024b492b2a4389c2b20def0596ba"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Posa17a.pdf",
+    "pages": 141,
+    "status": "ok",
+    "sha256": "4bebad8a2ba6f1e712467e296d53850448aff32a82be2c3e2fecd7401b43a877"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Posa17.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "8789c2032cd26b384e21d5780d69e52ad74eef14508a7e07b96a1374dbf6a4d0"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/majumdar13.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "8f192cb902acaadf759befb265d558d053d67ded257f2ce5c4364dc95751a2be"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Majumdar13b.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "550eaa876e515afd4dc650010a85c947df20cca538eb36d658c2d3298552637d"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Dai21.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "38fe56fb8dbf54a734b81d644a166d6033c39ba7213a1fe38ad3844efa00201e"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/StateSpaceResponse.pdf",
+    "pages": 32,
+    "status": "ok",
+    "sha256": "65226e344923190f1a981f62e911a8bb60e21f1b54686535947140fb405a2584"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Li18.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "55185fba6b2880785e2d7b098f3167a7a8f037c2907d2c21a24429ad1b751ecd"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Li18a.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "f4a6afc712dbf47732528844709465948c04678a12cdf6c090e288275a8a64ab"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Cory08.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "c879e0f5babd11134bf192feebcf6e34b4a717c0e9091836e0417dec0ce398b1"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Roberts09.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "554e949faf056fcd4616f30f743feb5dc2e3d4cfc64d1f1fe9291cf670e9e1dc"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Cory10a.pdf",
+    "pages": 88,
+    "status": "ok",
+    "sha256": "4ea3c2a18b0c21fc8f8157dd83f2a4dbf0fa0fc3a94b8a7e7779f88e020b995a"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Moore11a.pdf",
+    "pages": 113,
+    "status": "ok",
+    "sha256": "e2c37daa0540a69ebcdca0b2864c9fff22616d18640d48047f25c4784baff55d"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Moore12.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "68b8bb307e459da99009ac63e6f0c20a1237c5c4e1a656c129df293db6dc2874"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Deits15.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "59336a0aa44609879c42e1e304726fe63d7801e6076fcffc442ca89c5ff54697"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Landry15b.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "5e19338c8401a64175463874225b6a6950b1d42f3634118fc286de8066a85c3b"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Wrangel24.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "a1ebd252582ef418767d4a99508b95ace21f6ecbf2b7cca50cb72f0e7fa56b96"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Marcucci17.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "1397548e13b58028ad7350fcb017bf9567b81421334f500a7817ea56346f4bb2"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Roberts11.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "dd5fbfcf82243e072e5072ba690da279d1040a95e64f8b720ca99797bcdba4c6"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Amice23.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "65eb1366a693bc44ec44733d1b85cb6f18aef0b8a2cd04bc8abfc8bd5cd056b4"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Scher22.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "ada8a280619906a4debf7db7cbe7483f6d2bf257e9fa2fee4ad42f87c966d279"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Sadraddini19a.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "d9bc3b80c9f751a625e5c7b3072afaa55e2f6714436fdc1e756bc0f4d4d5bbb3"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Chou23.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "04145baa4d33b82f0147f229656bbe8bed0fddb2545c58ef56a14d66dc3a5e19"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Manchester10.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "3793d63ca273dba5a2f45db820f07bf82c788156b79df8c5934e1c13f1493519"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Posa13.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "54f2681061664fdf9938dd53ebfc31eb75d5dce9f2d54c0b0ceff99575c09754"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Hoburg09a.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "cae8ceb6d1c7ecd2dc4d1ea2c4b5e59fcdccff62129719c57ffbb0e7b7a25797"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Moore14.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "84700a9a028578bbe23bb48f0b6ec820474b61299623da1a862dcaec359e9042"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Fazeli17a.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "6b597d52703af53722b8ebc099ef77f26bd96c8952367a5a8809544f1fdca3c5"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Roberts12.pdf",
+    "pages": 153,
+    "status": "ok",
+    "sha256": "e04140713a04ea1bc52288a13b879f1874a55dd33ed729ce0d75df76ef762690"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Florence18a.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "353b4ffa85a814045c747dbd18d9cfdbb385df2503fcccf337ebbfe30d6f95e2"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Florence20.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "e55887486970cd9ee06661a423715be5e93f25d9b7c0d26800a458fe26f82c30"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Manuelli20a.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "75d1e4b155861c946cc755fbdf849999289884a23a03c0d3a694df2990834180"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Yang22.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "c5b76c055ad4f7c48f78fcb7a87e6f7804b740d3bc42401af81f2aa9e1c8080d"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Roberts09a.pdf",
+    "pages": 75,
+    "status": "ok",
+    "sha256": "70360b15924397d209215a2050880b5ba8743821ca441c64be5b4c40fba9b59e"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Permenter17.pdf",
+    "pages": 266,
+    "status": "ok",
+    "sha256": "7dc9ebae3d4d425e5c2515dca46c066b4670df70d9a5aea62524520987bbeaba"
+  },
+  {
+    "file": "02_Underactuated_Robotics_-_Russ_Tedrake/Marcucci24a.pdf",
+    "pages": 188,
+    "status": "ok",
+    "sha256": "a4d818c3871017f593788b2ea6da428e65945eb8e28870a831d8cd64b0c3ae5a"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/Bearing-Basics.pdf",
+    "pages": 24,
+    "status": "ok",
+    "sha256": "1d3b955e03c0cd0d2187036e9fd82ad76a21038909d0f2abc2d0308d1b7988ad"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/7ec8054b49c3fbbd93458a397723c7fa_MIT2_72s09_lec01.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "5b4deb347f355841a9958b6bdd0f8b9a573b4842c771377c7e5e1191cc761fa6"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/9f3d33643809dee01f065ad6d04cd357_MIT2_72s09_lec02.pdf",
+    "pages": 41,
+    "status": "ok",
+    "sha256": "f900013cb6aada36d4dd4b02c0390e3028e29a5a9bb8a2b22b2fc759e004028b"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/130ca461b0fdb9b90a8818fe97d022f9_MIT2_72s09_lec02_shaft.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "ec01c0da9e5392ba1276ca3a9100ae59a3d27598a31169fef20199892c8e7c9a"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/36eed65f96add829d317d8d83b80bf30_MIT2_72s09_lec03.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "16938c3aa2974f68f4f58f34757f75b34e0b27c333ff2960ca3c19da4defdd95"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/567ab24526459b9ff0901d7f2fc13f2c_MIT2_72s09_lec04.pdf",
+    "pages": 58,
+    "status": "ok",
+    "sha256": "9b523d7f24a092379c3c17fae7a6e93a530c8fdc3fa66d83bf3740a849edd969"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/5d64d0616b9fecebbd60f01066008f6a_MIT2_72s09_lec05.pdf",
+    "pages": 44,
+    "status": "ok",
+    "sha256": "7a1932ad0c2eecf130c666082a6588d024c1a0b994126daae0045545ba41deab"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/22c0cb8444c787d92b49afe5ed97ff7b_MIT2_72s09_lec06.pdf",
+    "pages": 36,
+    "status": "ok",
+    "sha256": "2a016af21772630bd73093444dfc2af7a6b29f1b59a599236f7bc47ad39c36cd"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/c34ca2c6fd03a3e45fc9b699c2dbc808_MIT2_72s09_lec07.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "801c700aa7756259f6511d1356bff2ae7fabfeccf63bed49baefa6b849ba3fb5"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/1f5a093dbcb1a8189d6aca0b380b4925_MIT2_72s09_lec08.pdf",
+    "pages": 42,
+    "status": "ok",
+    "sha256": "14ce0cf5e0cbb24710b032012d3fc4dc207925b05184a36695bffed41e8310ce"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/6e4d8a1450451730ac5a92ad3b2f1cb8_MIT2_72s09_lec09.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "5428720605fb586487c6e102f214c8cd2d7d2981c511421e520d7bfe947b9a0f"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/2862ad7e68d45da095524330b10ba4a4_MIT2_72s09_lec10.pdf",
+    "pages": 31,
+    "status": "ok",
+    "sha256": "0a24f916b0af1682d4f5342137d77c94ca644493db9a6fce01b4306556587071"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/d6f35af9874ea263ddf172691926ee5f_MIT2_72s09_lec11.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "4e4cfc5119f41c9397e5590c88619550e0f97f3bc14c157057011db84111abf2"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/83d81a6f63d1c6f0fb775c08b207bc51_MIT2_72s09_lec12.pdf",
+    "pages": 45,
+    "status": "ok",
+    "sha256": "94dadc9fe5814b7c0b8102952c411832d4d314328cfe7b1d12aa751a705b8250"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/b13178aaf27855ba0c63caa5740ed53b_MIT2_72s09_lec13.pdf",
+    "pages": 30,
+    "status": "ok",
+    "sha256": "0538708cf2172180d1b95001535d78636421b9a2bb5f12603b532136fae463d6"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/c4b5aff9cdb21f722034907ac7d071da_MIT2_72s09_lec14.pdf",
+    "pages": 60,
+    "status": "ok",
+    "sha256": "4a58304b70f2b79cff0ff72705e6a2935a2e097af9165cd6d97e2ed737749486"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/eda60f1dbd47e4c1b1786f5c02cf9ee8_MIT2_72s09_lec16.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "ad492a321a8474dd046d35f0f80571036bbe068106557608a64207ed33fa19e6"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/ec9f1a573e6595f9b532756f2d8ded44_MIT2_72s09_lec18.pdf",
+    "pages": 33,
+    "status": "ok",
+    "sha256": "6772e26450d6d21129fcab3fe44834af22d2a340c6db1a8955a385ad9e1114c8"
+  },
+  {
+    "file": "03_MIT_2.72_-_Elements_of_Mechanical_Design/89ba2d05253861cfa410b13369466119_MIT2_72s09_res02.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "dc476d83c2775158ab9da467b27fe3c4c7e9fef2b0987f46235d68d3b0e4aa17"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/29b95c6d8570f9aeb140c151747c96e3_MIT2_007s09_lec01.pdf",
+    "pages": 34,
+    "status": "ok",
+    "sha256": "a5bdc5454268de09e2e2fc318e32aa41bbf9895e13a7152d9343b5185acf4bbe"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/d28a5f0aa61c74a01e83861fc2d618ea_MIT2_007s09_lec01_EVT.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "4726c193973c61fe1387d436e850c59c06be1d5bd3f242766a4af703df18d99d"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/95532fc1350920a78ff28af515ad4d1d_MIT2_007s09_lec01_FSAE.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "75e9ea9c511cfbb89ce4ac5eaabd070cc40cdd5f2cd47ba4de972920689a19c2"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/c6d6a35a25a46a42735735e67b7d4002_MIT2_007s09_lec02.pdf",
+    "pages": 47,
+    "status": "ok",
+    "sha256": "0ecce6a885d365b27683c4704da99fe488e4d3c9f9f1227ff6a9ea682a18b7e0"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/a0a96c0ea55c931debec52394d914008_MIT2_007s09_lec03.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "9b80575111be2c89f6c631800c2edc56e8c2f3a2660d1da8dcba184280a49ea8"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/b5493baa7030edac414ada2a407ae307_MIT2_007s09_lec04.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "3d77b3d9caf2decf4723be26c68b27ec0ba7230addb0b354a7927974248f4935"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/ff23a9ac1c23c8f9df53525c4c8e22a8_MIT2_007s09_lec05.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "8453cc65f71b7cc59698f4008302f531fd30fabb404ae90372c3f7baf8f9a3f4"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/3ad37424e0a9ae4ef3350892aa492ebe_MIT2_007s09_lec06.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "4e768baca407947fbddf58bdc3ce3f9432b545903e5ec5e58c5522653abdde0c"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/0fe84bb65000f7a167a3e4b862805b12_MIT2_007s09_lec07.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "7390e3bc7d9c16d5a129804874332930996e289f7df93d47cf3c273791f90b07"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/bd4ae730bb6e35b131a89fcb3ba935a6_MIT2_007s09_lec08.pdf",
+    "pages": 29,
+    "status": "ok",
+    "sha256": "5a107658fec7963142d1c801c817f9066af7314c0e15b685881d9e9ba25c90f3"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/70bbaae86e99ba362eda5ab415f32ad8_MIT2_007s09_lec12.pdf",
+    "pages": 47,
+    "status": "ok",
+    "sha256": "a84458a19dff307db2a05febbe0883dac6bd92cca9f822536b09663d71d6b269"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/c72e70d7d9ad5e2d5a23bd4fe57734ae_MIT2_007s09_lec12_note.pdf",
+    "pages": 47,
+    "status": "ok",
+    "sha256": "e64920a0ed79994e6c5427f4f8f8c3091140089930aa09ef5a043cd733a34fb6"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/9cb36ff5ff2844014e98d907d020aea8_MIT2_007s09_lec13.pdf",
+    "pages": 37,
+    "status": "ok",
+    "sha256": "0b017c316c0551e3c81589067f00c76584a2555b69c1fd1d8d4bce3e2506f4a5"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/84595ef8ed7ce3595826ed18e8207d7f_MIT2_007s09_lec13_note.pdf",
+    "pages": 39,
+    "status": "ok",
+    "sha256": "7a507a42cd8f44d17cfd19a0135b10f8c023d30bcdff02e53c929750cf8b0f10"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/6131fbc5b63bdbae1e1180dd9940147a_MIT2_007s09_lec14.pdf",
+    "pages": 35,
+    "status": "ok",
+    "sha256": "f612f4a9132f7af17729b18e6d76a68f68b49385e237a9b3d90b41ff2448e89a"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/bd54e0cfe824aa4415c58a9df27d121b_MIT2_007s09_lec14_note.pdf",
+    "pages": 39,
+    "status": "ok",
+    "sha256": "0912bd903da7f5331d468ebe858c02d03ebe938338bb2540ebbec5e6d8ba04a3"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/533fc3963f8014bec362eb34c77b57be_MIT2_007s09_lec16.pdf",
+    "pages": 37,
+    "status": "ok",
+    "sha256": "2abd04ce649905fcae039157114d54d43c2700e022b7609968b9210447d99468"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/97ff543da0c010a44bd1a9fc521b5e8d_MIT2_007s09_lec16_note.pdf",
+    "pages": 37,
+    "status": "ok",
+    "sha256": "8d5ef2ddfda696bd79000669a1389bfd4e1da1cee4e4df5169eb71f4a13e1ee7"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/ecfd249c704b44d30b7d2bb3714a7756_MIT2_007s09_lec18.pdf",
+    "pages": 43,
+    "status": "ok",
+    "sha256": "1dc7607a87f6d962b8ab832eaf257074e1159f441b71c7cf63060fbdf6648036"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/600a242aff347c755535b3c19fa76d78_MIT2_007s09_lec21.pdf",
+    "pages": 46,
+    "status": "ok",
+    "sha256": "1e124b1fe504f9f2fb7f3d8997c34af841636ffbc0c0389aaa118ffe3aeff38d"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/2dbe43551874626b2310937cacb0ff9f_MIT2_007s09_lec22.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "4f6043ce4d6a235034ee2f2f3fa313bfd5fb727af9f64b5e57ce9ecbdc6ab4a2"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/de6b768b017e2f83e47e38d56bbf3a93_MIT2_007s09_hw01.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "b6c69d70b94732526f8cbacf3fab00fc39ec57a043e066a3549c9b755a5287ce"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/1b8c2966e380f73d43017e43db2f5d58_MIT2_007s09_sol_hw01.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "7e5ff49efabd20e4b843ac76e69cadf1e5d71c42839f53beadc05e87cf0eb6f3"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/0b846039032ecacfc4d1ac92f040cbd9_MIT2_007s09_hw02.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "472a80e0cd6887a62f6ada925f81e7ede3c4646a689d44d48f6f890d9ae35cf2"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/a4014b6019c2c4067870fa2d12e463d9_MIT2_007s09_sol_hw02.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "fd0bcd4e9e043edc4aa05989b32d2e8cee2d1d9b23a7029aa684c5ec0486e6f4"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/a1cbfc08452c2b96406f56a1ce952194_MIT2_007s09_hw03.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "a43bebd854ff5f36bc7e9faec86472d4f82f5afbb318d6eb5bb3c4e95d91b018"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/bd44476b9123456c5a282ec5f46fc969_MIT2_007s09_sol_hw03.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "3175d22b680b05657ed30f2f453722a266451e4777eccc6fabb6eac275b0f637"
+  },
+  {
+    "file": "04_MIT_2.007_-_Design_and_Manufacturing_I/57e4a84cbe1fa2b4f89cdf92e91fa099_MIT2_007s09_hw04.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "9770ff2d248b4aad08414a1553f4e92889c1d6a098d55efc073e927068fcb917"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/mit2_14s14_prob_archive.pdf",
+    "pages": 674,
+    "status": "ok",
+    "sha256": "1cbf223a6f41d4da0f078621c99a43dda125537a5983558dee1df0ebff7d835f"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/f088611fd39a0bfaed89fee9e07d4db7_MIT2_737F14_Lab_0-Pre.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "1162217d29a0ef2de962daa47328e37f5c4a34a1cd37365a7f321ee751303493"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/ec25f1465471d73a688de2c4fae0d254_MIT2_737F14_Lab_0.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "fa4c2ca044d0e17f7795cfe8d7140cd83564a8db8ef88b1a2b7b2c422c7c779c"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/9b6dd9e7fb36a4f7ea0dcf143a56dc48_MIT2_737F14_Lab1.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "3baabec57a9dca2b8cb0056c99e3f89aaac5291a763bdf0daa5d3d7315b0cbec"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/fd6ed29a34b398fab44ce00caac528ef_MIT2_737F14_Lab1_Addendum.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "ceda72f9bf546c3e3dd0b14271478cf23a63778752c68d80d22d4923a5244e45"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/da5535c248f23e81c969c9883c0d1198_MIT2_737F14_Lab2.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "2cdb99316f7b9b410cec1dd362b2cf45e86713cd69ff81d0b738276af7c60314"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/eae529082deee2134d6f3c7c83b537d8_MIT2_737F14_Circuit.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "b63b3e882a64b5d21be110dee3382466f34c8a6aa7ed723a4de8faaada5036d1"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/lm741.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "6f3bf3cbce352c73a8f3e7506023ab1f5d12549834840e0227d6bb37de6c48db"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/3e1dc30b6b816a62252496d42fe29e84_MIT2_737F14_Lab3.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5d0665e8a34fc69f3bca40071b3cda3228510e18ac20c01a300ee70537c73ffb"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/30c33b4c225ef504e4ef4d56fca50f9e_MIT2_737F14_Lab4.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "76b0a4ade023f715c5afa4294efa0c8b38830bb1f1a5bee504ffa9582c416fe5"
+  },
+  {
+    "file": "05_MIT_2.737_-_Mechatronics/bf08200e8344f69f5b8a4ac923ea6d53_MIT2_737F14_Lab5.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "f59a789b60a37d5c13d978a415a466a2eaf15e98c0ad57e59bef556926995be8"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/3a956ff5ec6e77b46b7632a317546456_MIT2_017JF09_design.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "86e9df14dcfc6c6b18acedda7a54feb1bd79b50a1a7df0bd1bd7fcd73cccaeed"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/bd430dfda1e01e3ec4897dca30fc69d2_MIT2_017JF09_experiments.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "450f9ebaff14f9ac5429d803cba552adde4efd713dfc1dbd883974757830b8b5"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/c3d201dcb167287eea266d41f2cf2d41_MIT2_017JF09_electronics.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "fb421d33c7d4d3e2dc2b8aef971e4182cb9ce91636b0928b268661af82f0a9e9"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/7151e72b8574054869f03394f07a843e_MIT2_017JF09_oceans.pdf",
+    "pages": 31,
+    "status": "ok",
+    "sha256": "3e701c610a45db50b9352a22a60b5816904afd139ad4c439b9591c6fa02b8524"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/a1ea4a4b16003ee9f65c83263e182151_MIT2_017JF09_optimization.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "c274888b768f733116d88ff154956a9c62ec2a86b933530a1abdb48ea919b274"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/feba89aba74b6dbf71ead4f18284ccb5_MIT2_017JF09_stability.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "2473e4103f1dc61a284c3b0803241ca31bec11b8c8df8b659a25141728d6de75"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/be41f13797e18e33d89b9132530b2bdc_MIT2_017JF09_presntations.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "295276a4fb02a8d948b6e60f87db2915763c937388d21a2634199bea20819c95"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/a4e4bd7662cd1315f45d1171d75ed7ac_MIT2_017JF09_corrosion.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "629d80377a940216164bcbadad2b3d94a807cd73f5ed8c6b9251971d5c705eb0"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/a1619adf73c76ea59f6f7a18a98fb6c3_MIT2_017JF09_power.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "15acf211099e3b61878c910418a4f19538d2540c4f390c09fa834ddd1793ffe7"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/16cb0f850752422026a85d838f30e340_MIT2_017JF09_machines.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "5ea6f0781a651adda297bea5da6a734cf1b24328cd6295f2d4240f6bf278a046"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/29bd12e4c5efe888fafabfce35a276ce_MIT2_017JF09_navigation.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "daae6025efb004940c7a310e7a8bc8cc48d22f207eebd9ecc9b5ed253acc1b72"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/9647b0bb5dbe2f570cb14fe0a4c58d0a_MIT2_017JF09_acoustics.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "b364d704814a50c8ade112a36c5fb0d04df2e2acf2e39af064ce02b10787a0e5"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/a0272c475e92eb7dce1a8b9deaac58c4_MIT2_017JF09_discrete.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "796ee491a8cd752e8af50f143c12f5bf185cdb0cd5a78ad7f9b28560c348d7ca"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/28a8095968b3e99189fe8c619640a2e1_MIT2_017JF09_feedback.pdf",
+    "pages": 23,
+    "status": "ok",
+    "sha256": "7f7ee22df4e2f08f5e01b55c1336e3c210f8c98d170a748e6e30f4d0e915bd37"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/bfcda6f40bad59b61b3f28ab8da1c86f_MIT2_017JF09_control.pdf",
+    "pages": 36,
+    "status": "ok",
+    "sha256": "6df15913de80c87c0748b26f9a129c952b875029b89cce9b4940d7f657bbc085"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/41e4cc0e5a0ebd845ea4f5e7c055fdf7_MIT2_017JF09_coursetext.pdf",
+    "pages": 114,
+    "status": "ok",
+    "sha256": "86a0e802edbd889bca1d0eb59d302133d9e557a807160e6276e6263ba9bc110c"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/15bf0a9b95b5ff67e97b4e644824157a_MIT2_017JF09_ch01.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "b52a822a07230c78b7fcb7abbbe3ca2c0c56f24e7be0452f06b71ec060ab2d01"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/54feab6afd0ca9bb339e4f38e21d45c3_MIT2_017JF09_ch02.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "3bedc651569734d68eae089232f3233a14584ce47f273c6a8990b416f7346775"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/1b4873810be344ca68fc663e1b84df87_MIT2_017JF09_ch03.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "02ddee03cd32f4107d0732ae8f1abf7a4cfa39336690ca805f525808a8513f27"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/38fd964b9e1810fba2bc811856501762_MIT2_017JF09_ch04.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "066972329a9ca36c0ef2cfc88e894c55de17c9bf4b52ff429ec120d7da46780c"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/1a8c8210908b4b396ee3d9f5408e6e64_MIT2_017JF09_ch05.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "eeab2edbd177be24fc8cf70a14b6bd98ae06b5cafb004b9f39c5476f6b7cc9b1"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/51e6a1ab5a7fa9937bdb7aca645897fd_MIT2_017JF09_ch06.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "f8fadf26ce22795550a023fea3637fb72c6f83ae856040829d06178ab6986da7"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/d5b0307576977fa9c4fdb7362edc06e2_MIT2_017JF09_ch07.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "7d26a6d9ecf74761f88028cb24cda8eb1589a82f9794200468807a7686b7c59f"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/063b7432ab71ed5a0ec536a411339f17_MIT2_017JF09_ch08.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "5f015837cd7a61de07bdb79369fbdedea6ebf2c1b828d945150157fca31859d4"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/0da9fb3965410fd50979bb179b56805a_MIT2_017JF09_ch09.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "a58a448308157f83832041616fa0a16581a2596deb706930e8115a5a5ecd0b25"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/c50dc54cda71f0ec167b6d32c27e2698_MIT2_017JF09_ch10.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "3789e078c89d3c9b418da9b3f449207c8c6e88f91600afb9c322e9d61a655a16"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/d98dc04f3311eb4e8c786a342dd07f87_MIT2_017JF09_ch11.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "cf13282249f46ce3b773ca1875336bcae8eb9601352a5aacfdee21514bdaffb6"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/201df1a002af95036094e9034cafd80d_MIT2_017JF09_ch12.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "741856ab2ce5a743d1fe77ac24cb4749598ad8822b8f0a554203b5031b9be546"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/b39075d4d69f3064dd175539bed040e7_MIT2_017JF09_ch13.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "353b296c51deab684ed7f80b1bcbfe401d2b4ff392037daac604ee0737716df9"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/19389d6d3e4ceab6d4e307b0fbaf5c1c_MIT2_017JF09_problems.pdf",
+    "pages": 193,
+    "status": "ok",
+    "sha256": "88f2234bf055be5a18fb2f3d1a45752b95929e68746c091cdab50466ba59a5f2"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/87df6d376cffceefd03be868cd1b7b4a_MIT2_017JF09_p01.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "2dc6bb687e6f142fde2c7197e43747f708fa790665afc1ae6798d27f656fac58"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/09ea96bff65c4888027f38af2fcc8508_MIT2_017JF09_p02.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "9852670d3d41b254ca78a5286a12933bd0e0ecf52d1d576451842c6f69648a76"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/0747eaa01c9169361497ee3e635e45ca_MIT2_017JF09_p03.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "7812061333beff39a2dd82f1d53409076d72d3a580dbf5a8237b69ce08d62748"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/9157c08e1af8a7b42f4d38931c3cd739_MIT2_017JF09_p04.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "2a2a9b7be1552e146fb4b45c6481cb721dab63029487f37d3e4bcde3c467b2c6"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/23b463837ba870fba4578fd35efa2bdf_MIT2_017JF09_p05.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "63d5118384436b3bed17c83ab42c39b3a338c7d1cc80337fba5a2dd7234e8180"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/d0550de63a1593ef8d9f79fe5b05518c_MIT2_017JF09_p06.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "42388da5cc8d4e567d673daa481c58951718a57cc2fc786187d227841aeed3c4"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/421094f04e7f8643e19c7881d3c0af94_MIT2_017JF09_p07.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "470f4447e24b0068c98721f26c6a92017aece50f13e96210d09c2053923fcb4a"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/705ce9d59b51b343608d86d28d23c9c0_MIT2_017JF09_p08.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "0a00af60c32f4c38e13d2bf3412b413318eb0a1608b07b583851f6361ca0af23"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/f62b7c484569d6cb2019b419aa9a4045_MIT2_017JF09_p09.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "401f3356afcd349a82f6349b55be7151beba5a36331618e157dc110a17e76693"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/871ec58d04ba152ce2d3fc3c6b55d7be_MIT2_017JF09_p10.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "b880d8e7240c20b911712a7b0b50fefa25ab75a3d920b7234212a68d09fd96fb"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/c24a9bb8627ce3c13a07225100bcbcf3_MIT2_017JF09_p11.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "e9030e7cea8359f7953a6068a2aacda4658ffba4fc478cb2c45c2be434d3ade4"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/fcecfbf0620c93867f2d22ae33e4abe8_MIT2_017JF09_p12.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "4b44d12e513ec80f214b09a3652965c8b02d9308ec7237bcdf2062d06634b385"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/514b90921e17bd618c49c732bd110f82_MIT2_017JF09_p13.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "62c50326dc2c967576c81012d58ed0022324694e0fa9bd59e6923587d9504b9c"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/c5163704a9a8fa5454ce57b0d8dc7256_MIT2_017JF09_p14.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "228dd3acd778dbfde5afc8c263cec7cee1ef34764d4eb9e0c1e25cf485cf4d92"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/4c5b3a0e9d904dc1cbe3954a4c53c27d_MIT2_017JF09_p15.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "901684f17b172bc607a451795cdaa6d2fe95cca913b0d4bcce58eb2193390f18"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/8e7a00b7a772030219d70b8936fc67ea_MIT2_017JF09_p16.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "03938cd73c79ba33b651ccb3ef55e76c84d3093aa5dc440c1da163fecd9c5a80"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/39db5be98dd5b0a1479d0f31981bb7fd_MIT2_017JF09_p17.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "7e0c3439745957924a4b130f7ed0bb1932e129e062795a7c74da3643364b72dc"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/b603f16fbdcc2195c4a16646fcfc2de4_MIT2_017JF09_p18.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "edf445a24b27b290b56aabff0a5ed8e48e2338aa2324b0a580d774564bd9e32c"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/904f67d66ba34b2dd3b3e9f30a5a1bfc_MIT2_017JF09_p19.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "0cf5a6c1f2086a6cba403f58072d4c77786d0b9a54e891cc5be2c247215be297"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/94c89cf18d7719bc1c808a4f572f258f_MIT2_017JF09_p20.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5f466b28834ec542da61b8fe2752e10cbcaf513f50e11debf605b456bdb86943"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/f211578d1a94b4acc1c67f5b1bc3fe9f_MIT2_017JF09_p21.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "1ddfb86dbe4c94bc50257f4f36e1987ae3d3abef255c84cbd680915786bd6af9"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/23579815f2dff482081ef182c2ffe423_MIT2_017JF09_p22.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "5ab26245ba589c8d028a19fffec369107dc34b3ecd361df0a1e49be77689561e"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/d3e871d7b14c99434ac1210a333e9d38_MIT2_017JF09_p23.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "3b905ff9d0166f5ddb9f9f7298017f436a60a230b5fd7c4d2552d3fc11ada0b1"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/16502c29ccc3b3e44e23b485b000d2e9_MIT2_017JF09_p24.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "f3f047c54727c70c5eb0e53d888aa705be23bc54e65ac16d72f1683843c71065"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/0c1d6162e720d1f89c4cde9eabbe2e13_MIT2_017JF09_p25.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "0e983c1de8fda68bfff47215190e8ac53b8c10e58f42c1dcdbd8e486b2f67146"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/b233776f3c6b8fdd3215609162b65241_MIT2_017JF09_p26.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "fa7a08befa6a98e04ab0047063f846fed59ae336cdb4f78215953dc22da084a1"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/d068232ab2ffbe66329e224b707fdf8a_MIT2_017JF09_p27.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "2d0685f063edd2befde6a2b992fabd1b62fe5d0c110784fb583f7bec6f671b31"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/1468c28d65f96b267b230a835cebd293_MIT2_017JF09_p28.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "4395375ad2eb4d14ebc8829c30bf7fac84bce2f42bc476db734a60c523d5a184"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/5c0c140ff75a8325b4f48260be1bd44c_MIT2_017JF09_p29.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "9e4ecc6e367a722e9933502a1d20963abdee24bfff8af60fdea31c26dfc2d9fc"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/032c565aba6dd18d97e924050f979ca4_MIT2_017JF09_p30.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "b766c9fc14508daec07b305482eae421acf93490946099ad9f270fdabc3ccbe1"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/5c6de1cb4ddb28a3b557a8dfd2694b80_MIT2_017JF09_p31.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "78e9d7bff70a3d226715f0cb5fcbb003e1ec6891dedb63b5c3ec3b8f92d4d46b"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/2554612f1e70ba3772ebd24ca9f4558a_MIT2_017JF09_p32.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "e55d9280524cd12f296f5a5baea8a20cea24dc8f94c27829ee911861f7f8c54c"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/87f5cf8dbe782c9326ed3bab223b6cab_MIT2_017JF09_p33.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "cc3cb02387f77c56a823a984445bca0f1be28005d7319dab402ff7812209d6d0"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/e35d34d588a04bbfb1d0f5c6bc865684_MIT2_017JF09_p34.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5a6f29f7eefb346bce3cc35b56fae13fa4d8e14fc12a64e6897d257b050d7bb5"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/e989b270bb56accd235ec4a44f8a39e5_MIT2_017JF09_p35.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "1d5e504ee430776004df6e6b68b7a91b2a4ebea5ab8d6a56845eaa3088f6d1b6"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/5f0318fc79b4c8232a60df4031b85144_MIT2_017JF09_p36.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "c04dab90a074defee970eb6cc078eea0eff83520088cafbb8c3cb93dc6209981"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/c6bffb1288d8b14c3d9bc1ca3e52270a_MIT2_017JF09_p37.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "820e4882100a9c97aaf398cc6db94094c744df02271c2cdcfaa13755c0cb4be0"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/37ae77bd238ce71b5caa6baec12300aa_MIT2_017JF09_p38.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "9629a1700638e81533f3c3c3f934939a885ba6a09b9c369d32bd21d6d8a54817"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/9763372ceaa0c2a46aa04b8514d0c81a_MIT2_017JF09_p39.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "6473b88b9bd6cf2cc9b8185aeec5d886b23a0cdf549115e2375973994c4b568b"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/72e4281b25fbcff184d0a001c13d2df4_MIT2_017JF09_p40.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "8902016cff8de42260af4fdd37e67362a77b40bc799a03c8ca98b1f2e3e708c3"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/d6966a806a678be82b5061d58a6e3ad9_MIT2_017JF09_p41.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "6e856cc6fb2a0f1c4179263ed999766c70275223e797b9c10454ecc9ac368b39"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/37891dbb8a792018ed9af7aa9d01adaf_MIT2_017JF09_p42.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "b70ae227fc4ee9fb64b2afd67c4522e435a5c86e54f72c6feadbedaca489f8d6"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/bdc3491886ebf37068b508f619dcf2e6_MIT2_017JF09_p43.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "1f2178ff32254334631da502c6d151d3cd172b5306a5ad4911758ea2b9751435"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/376620c35a5f5234861d7709df972cbc_MIT2_017JF09_p44.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "d689c174e749ec39fd55b1b17c70102a4ba68f07bb8b7d76d3213fb84857cc63"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/bfe9a4c7c6a92c7479c9d3ae22914bc9_MIT2_017JF09_rules.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "843e1560d51766195883c4bda70c9d879216b282c9cb4d335828032e3722d950"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/ab1b6da0d64cb2b7ec84315c7be33c0e_MIT2_017JF09_slides1.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "53ec4932c4c4844996c4d8d67ffc6d16d23ad8419465e456c0f95b3bd5538cd3"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/3ccf965e951cf972e6b9e74ba13114b2_MIT2_017JF09_lab1.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "6cf454a773db3adf310d63f1f1ec6275e3ed0c6777c0e77c3940f6238cd6b307"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/ac3910e6ac594f279397c293f547ade4_MIT2_017JF09_slides2.pdf",
+    "pages": 26,
+    "status": "ok",
+    "sha256": "bbe1a9374a6eaf429889d6f01a8065f856b31f5c1b2157353744194113149b5b"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/700e1a9160b8f7baa8dca8676a4c9e69_MIT2_017JF09_lab2.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "f5fb8ee7b6e07efe10373ca41648342ce9305bd6a1b3c19f3bd790be1a134894"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/71391f00345485b1e5f78e888ddd089d_MIT2_017JF09_slides3.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "5ebc8bc8987d884965488e07551c4267fa0a788fd66501f5f3167e4b84993f44"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/3b65623c3b6037de5d92178b89b956c8_MIT2_017JF09_lab3.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "f2a6442a01ec82270aeae26c0faa1f9590a3e21119c3067de249422c4b512b42"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/0fa2c984f8ba5a090506401ea2f5ff90_MIT2_017JF09_slides4.pdf",
+    "pages": 26,
+    "status": "ok",
+    "sha256": "ec717a4ccad4de31334fc195655b67b78e453b927472a58a0873fe0afb14fa39"
+  },
+  {
+    "file": "06_MIT_2.017J_-_Design_of_Electromechanical_Robotic_Systems/6a08e813874b2ea03bf9e4f4e12647b5_MIT2_017JF09_lab4.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "a97f2f35c2b05827b815eef3896d13021f60e8f512bf57d8be7e876a6374e8a3"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/2ba586c8a074124bc6bd80ec6c93882e_MIT2_092F09_lec01.pdf",
+    "pages": 86,
+    "status": "ok",
+    "sha256": "ed7f7ef731e6bae6c92fdf51dfa2e34c86b0e8cf8021a7594fdffcc7017672b1"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/d0761b3b6630ed6970c6aef356554dad_MIT2_092F09_lec02.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "d2ba44866de024abcf080892877f6bc6b81e323278a87af8349c8bae90a4de6b"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/d44c7a907a0577610667821c3f6f98fb_MIT2_092F09_lec03.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "b6a0fa4ea7405b32bc4410a242d645a187cd8da24a3d8f0fdb57a739e1119f30"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/3bfd1ab31d0d622c3d6f151fd0776ab0_MIT2_092F09_lec04.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "49c6c035c5535205c21992efbc30d95162e86da5337da6387fb1da0a0bb9eba0"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/0252bdf2e6c34bca6819c5be82f3bcb0_MIT2_092F09_lec05.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "35255b314c0c07b8b5ddba5b5166ef62673e791c0dc32cd75a79dc71d4cdb445"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/117f4cc28ac685fc73a87c6f9dc44378_MIT2_092F09_lec06.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "d526adb2bc82b9f0dcb38306b26d7a291fe3873014ea43bb168060438eaf33e5"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/c2c7178a0c309877a8da446288ae799c_MIT2_092F09_lec07.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "0744780c18cff9a93aac61b9714b7d49a7709371489b0b3666f33d8e87338310"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/a1d9c261f547d1fd7e0ebc0fbbe64eb5_MIT2_092F09_lec10.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "97e0bd747ee65ddd1e70a3c871ca286f5574e9e120cfbbb1df5783f828bdfd74"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/af12e474276813bbcd3a2a832c24d53e_MIT2_092F09_lec11.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "8aad62057ae83a803cfca2f1ce3aa1279dd11edb0ed08688e744d11271f2b71d"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/b0da5ea63ada722a88cadbdb13df2fe5_MIT2_092F09_lec12.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "0a2f5e8a0398d86158a83955790c30f12b559c97f3bc72002549c3b6e68c3463"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/33a32e69a1ae3686864def4c023e455a_MIT2_092F09_lec13.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "e848236c9faf225056d7e40771628ed2cc263144e3f1da15d7abae1a09e3d273"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/9e6d4eb32acf145eba6ad47a42555b10_MIT2_092F09_lec15.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "a50b2b8dc7bcaeb59083566bca9fd59bd53743c0b94dd44257d18e6d1917cc8f"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/6965d37c42e2f3be7c9f433a7c7d5351_MIT2_092F09_lec16.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "1275a9873ceecf21c62cbb43469d7ba1aee13af227f2739810591104a9716583"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/4ac7bc87c5f192b25242c7f498b760f8_MIT2_092F09_lec18.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "5846493a8cb6a6f400294cab088448cdbe8cfd0220eaa667568361edfd48e4f7"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/bbd2a44be3a8e399aaf8fdb75ad8ae5f_MIT2_092F09_lec19.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "7e47b462be1e9e4ac71d57367f64bde8f536bd64dd7294809f73c70933112d85"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/de3fe8a64f95eb82acd0cd3a279972a4_MIT2_092F09_lec20.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "b668437524ef70e2870d7d2608f133b03d4a1ca174b674e529fc664db3cc1637"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/e120f9512886519dee344f91edf60ac2_MIT2_092F09_lec21.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "ca70e23ccae7aaec551f93ded7fb800bf7e7930dc093c0f401ec6a13620e654b"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/7d9ce6ca8a029d7806751504aa5d04d4_MIT2_092F09_lec23.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "e587a5dc2a4216b22e1d25e0476b24068aecfb5ea66165d2084e3d80db9b50df"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/b292b2f04851a42ac390d834efeba9d6_MIT2_092F09_hw1.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "9ed3bd9e3276051880ee018f09a4d623d7b7301e492f6fc348f3503be1795dbb"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/7952b6d140c4744fa5f4cbbf94316ac8_MIT2_092F09_sol1.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "14bd78748b8f2b029c871a7954780ce347a1506b491592e284c7bb97e9387703"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/1d5c0794670e3c44e26b5563daba5035_MIT2_092F09_hw2.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "4d5fca5af449ac2bc503e4400e9efc161493a4be9a4fa62f03b65adce05dafcf"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/9e579a33fc0b9550354fec352fbf0f0c_MIT2_092F09_sol2.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "69d3bbe9d8e9aeb6fe70ec9ce673b6cecb1f0466c57f93d3fbd1e24a0d8e4681"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/6a6350bb7b1bb3cc03b8ba91f074b2f3_MIT2_092F09_hw3.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "d2541ec2025ace9badad6b800cc12edb1dc2d819f8cfc4e7d6ff505f566c6cec"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/b1bca3bb8d94a627ec9af841f3241e00_MIT2_092F09_sol3.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "52ad95cf77a0e981937788b188d62605a10c35636bd8a1b60297d00aa5214016"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/f47bd518fdc55aaa0530647cf88ef3c2_MIT2_092F09_hw4.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "5ba078b13997ebb414484a45269184dd5da542ed4ca541f814872be034a0bb38"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/8ef710355d45197d3ca089c6a2164504_MIT2_092F09_hw5.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "4a5496e765fb3f2999bce68d60801fc83f85ab5c6f2622644d40bdef1ab1ea58"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/643f8f1bbc0ed5f37463b73995990af3_MIT2_092F09_sol5.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "840b383bf746273d2762109d6a3b8d7125be520e6ce811c6d8a653084bf21092"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/0a1abbd18aa70cfb85fa6e86ad56f7ec_MIT2_092F09_hw6.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "e4f6c3a898f927ec5ca2cd4119d880f0456428f83117103bb72cb37b03e068fb"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/929da16bff2f34d4e371fecb6a0493e9_MIT2_092F09_hw7.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "4ccbbfb5d9bea61b375a94ec9da87f5b95f810d22e6c5e9ad34d1aae9c8db147"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/f1d4dd4191a89694e6896cea637c8fa0_MIT2_092F09_sol7.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "b98e994f10e720991595829e9196c3a5ac5f9cfd8c82446328fdb53c56596531"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/de012d2cd76228480ab6a188543c0acf_MIT2_092F09_hw8.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "3fbb1c797cc4e9ad95cfa312a3548a729485daacb1a4867ddeaf6ed7e26bbd23"
+  },
+  {
+    "file": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I/e34b1f748a10e6c567e54d1a01c0fda7_MIT2_092F09_sol8.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "1eeb46caebe44fb4f7e8baf0f5b16a6929fc4d118d2a7ab9b9b3d012e3f30cbf"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/f6ad70417c73f585b7ca065153d25d25_6002_l1.pdf",
+    "pages": 24,
+    "status": "ok",
+    "sha256": "28461794e57c15e10e1aee87d56860b8839836d01744c1da2ab49a302a96a1b7"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/99b2a662083d1b1f487c55ea0f0d0220_6002_l2.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "4a5d80a6414c0107d49d6d9d0a23e2904835faefb9f421a6981a57f48bb386c6"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/5ec9a8524891d6940e4572e1c97b0cf1_6002_l3.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "96c22aede85777d7b2ed7de15ed8bde2cfcd05f0005b97f3843ae1e7fba851d7"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/f648f9566bf6a6c85b52c43afedf2e20_6002_l4.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "2187ff752d48fd9ffcae9518d4d93fc5fdf8edbe43490f9d58f52a0eae5e8d0a"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/d0413280d1bd2a7f5b7ba1d5a87e9984_6002_l5.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "a46888d28216561efbc8b03f49a2219aa115024fe96d809b9a806bb9eaf69e1a"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/84d1600d783b816b7622e436c6a289ed_6002_l6.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "c65e42d26bc3ba99fabb39c683a9e0c21b389a7f2c80eb858336f14298946718"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/8419449b545945d3988437d9bef23612_6002_l7.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "3dad55c5d3ee6307182f2a3f751258b8d78113aa9879909041b4b299f8d869f6"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/05fef0ad87134781c8f285e47973023b_6002_l8.pdf",
+    "pages": 24,
+    "status": "ok",
+    "sha256": "fe4f7f80c82102721274356646b0148099ad3ae86743b28ca711a573ddb13ede"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/5d9288b54aceb1737d8f831d3c66739b_6002_l9.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "0b871fe828fa64fa476bb45993f3da23709538399b651cb37795f93954e4f70b"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/3fd86dd2d2f64b08e2484dbb73a68b7b_6002_l10.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "fc0da64d61ec30e9da9326bc6be3baa00d65a237c2c7485598837a68b5b7c3ea"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/223a71c6e0b77090a6bdfd3b28aa1d5f_6002_l11.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "339cd415b900a9ac69b9346947223849ff4c80ddfb16d62f3365c2418db73ac8"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/84f4b553fc6a1ddd7007465041c4e213_6002_l12.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "bb37eeeecaec82f02df918b032c3384d120407c5099960e68c1155efa523ad67"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/93f7f25de3c5baf4c514b8add531fa3f_6002_l13.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "f39a0bfce6c3e1fca5a5c794c0f5693f008caf64af62afe317872305b337e173"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/b703ee58f9dd8239b823eb6a4d20de0e_6002_l14.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "d93b445c421644affd1d97659ebb3a6063e6379142872dd34b064be002afc9c7"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/34dd2fd3821b725a8b2191558673296b_6002_l15.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "d3eb6e1eaeae084f83d8750083f05750cfbe71ad214d93c3ce68748502ed8e01"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/c794c9c9e067b6c16274ed844894ace7_6002_l15b.pdf",
+    "pages": 24,
+    "status": "ok",
+    "sha256": "ef2c880583c65ea51e0c14133e0ad730126b43f9a5fd840bf26db7e14b7dce97"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/fed27650027942843313fd984a133e64_6002_l16.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "14d2e6cf8585f2a9e84b32dd2ee93229be500b2e0a77b2af16f0368c29826ebf"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/66adf4d4611a57b949efa1b00a842a46_6002_l17.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "68f8d5a8190dce5ca990764e69a7620f1c883e941ee89d3256edeb1db0b64777"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/d4e136975654a01f7fc2c9b49196d376_6002_l18.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "55283db30f2f66514f628aa4cda623907a9251499eed00a59507247de366b8a7"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/8dcd447b7211b053e4dac01d80555d89_6002_l19.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "bb22f1f2111bc91890e7650ad0a8afad50789d7d9cc7d92b6e72971d6de6ec39"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/e7d4a7f9d1caee6423433e898bd940cc_6002_l20.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "55f6742334c2ed29181767c9b283bd0cc5d1a97142ff49423b5cfe16dad62c6b"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/27776d035c056201a47d86d6d44f361a_6002_l21.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "db1a6e62d04149a3ac3069f723dac555b9f89e0ddc0fc7e0444a3f931d292878"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/62cc78db14ad37dede55c361711ba2ae_6002_l22.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "dbc8d9725c5c81d3cce02bd20b48e3a5d54c393cacbe601ba298896c944e5c56"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/e91dbb295f31c6d799483e77c6b35cbe_6002_l23.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "1ea5ab1a5bc0ca9163ce8681b9b81cccfbd75af734f8ecbc42e88899eb2a3083"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/656bfb530a818da1593fdbf57f997d49_6002_l25.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "fe2a77eb46fae34fce432eff4d2a74c9f9e87c1efff0abb53508a00999315f90"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/Agarwal_and_Lang_2005_Foundations_of_Analog_and_Digital.pdf",
+    "pages": 1009,
+    "status": "ok",
+    "sha256": "b6c4a90e0813d0720a8dab51cfdfa843c2b7d3a1ae276a05d61625914ac20d09"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/8d05b0f4d4ce5dab988346463658efa7_labpractices.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "8ffb64f73bc3fb99503a60ff056f9dac35010fb61aed1210a3ff8ddf95718c67"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/4232f38c3f2a88558a44f62beb490698_eesafety.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "c519f7f39d7ec2830720632fe3ef11c669c6e5c062fd18dcb9844627417a1d55"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/992c85451e40984a2b3a6f4878bb1a76_lab_handout.pdf",
+    "pages": 23,
+    "status": "ok",
+    "sha256": "4b81410c8e1aba21fd399521e0be424e694ecd4cd17b11b5915889052e9338f0"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/8bb4e0f80644d9414bb7cd3b1364e8e3_lab0.pdf",
+    "pages": 1,
+    "status": "ok",
+    "sha256": "a6b79a78d418169925df334c7bea28ff340de10fd366fe7656786ba13af1bb85"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/56d60da013efade4a97056c23c4c9c5a_lab1.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "7ed1994290fa54977f2b6842f6e5b183577399f2dd208b08e9da5b67c66a3b1b"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/56c767318f89cccd7448ac5e8af375bf_lab2.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "b946d16822782b620492090d987c4698ecb4130055e270f81a8eaa98b54c41d6"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/d96ecf98f18cefe60249e8aec9a387ec_lab3.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "1cbd007a345440f41106bea02ee604d95b26d9c3442b808e9737cb23565e884b"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/33d6731c206313c3addd121084d9f3b1_lab4.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "4052ca4141de060ce17a80477e380ed279aac4fc3a3d4f849aaada0b10071daa"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/ab181ec7aec9431046763e8dd8f55286_hw1.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "1b33d080192a80e9716154d8f1fb66587c757372730e5c55bca5a8f5e72cefb4"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/15878f74dcca61c4298c957999778bc0_hw2.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "dbb6f56e326286994d34def6429b4e90198b370de3a0cd85bfa20b356079a3c5"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/78ffb2358df6708444c4b05fc44f920c_hw3.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "6036c9a904a9924159f64e96e2c87a548784852b5d580dd4e7da12d26a8ba72e"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/457f2ef8b94f22ec16e3ff52705c89e6_hw4.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "4bd076584715facaac4f4bfd40f476c7115b52c0da2c23040528f444a6ab9a4a"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/e26921fde419a3632a4241786551171e_hw5.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "0c1830decaa7320ab9e9482efb173f613927feb50c3ed175ae75c677c0c44fe8"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/95e622ad8c877e6c14daafecc0b09516_hw6.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "9c2124ded148073ef45fc73ce6976b922c4826b53c4276643b68c1d8d1c103f3"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/83a70cc0d4a8f73b2dfc8ed329949367_hw7.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "326d314bcdca767169eee431ee98c0dbf03da725e3843e5910acec35538e7199"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/65346a991b4299dfc3e7ce4a8dd6165b_hw8.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "89517884d1acaee96b9f459be377788643dd0217052985988f5726a9f3eae6f3"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/3bcfb33ff7a4e60cee8cf8acbffbd110_hw9.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "57cbe645e254e5f219c9716dfc6b04745038264f6fe7dd317af766b0d6255e6c"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/c9c4deafe4bb5a665d8322778aa5d194_hw10.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "2f9d8d0ae57460f440df61a66dbced8aa469453c555fd61319594706b2dd964a"
+  },
+  {
+    "file": "08_MIT_6.002_-_Circuits_and_Electronics/4cc083a23637573e307b98d0919a8c51_hw11.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5a7e060cbff25ce6596d693fae1414356eb6c1cecb07fb6f9a457a14a01772ab"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec01_hand.pdf",
+    "pages": 26,
+    "status": "ok",
+    "sha256": "a2bd1ea541494ef236aab48aa5845b3fac558acb4ce96091c34f16b528143cd4"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec02_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "038714b404fd580b7b3abdcc250425422d404b56858467e0d45d89fdcc203102"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec03_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "cb2d52354d13be1b2c7cd1e5d63d6a9b5fa8265893e084f3e399ae43db279ab1"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec04_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "b8f9ff9c374df4e9c2b418ea1f26aeecdcf3010f4d894423a6e4eb80ced8ccb2"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec05_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "3755c501aff2bb41c134558d149a34bb889ff3544ebecc6d1e1b555678230c0a"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec06_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "1086ad567d1f46b265ed7535ed8a62ea3307d73f54202aa20413acbaf3705c65"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec07_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "6c770ec3dc322492026510fd1024349cfc3445715d1e0bf9667a0b60012cb4d6"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec08_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "ff5c4e2824b29013e8dde4d15a8ee2b1eb2b043c3122434e4502ecbc154eca26"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec09_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "34b0ae50520f61242c6e16c9a93731d8a5ff31ef775da657bfaf249348c82264"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec10_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "cbdf11382aaec5b71f27ce4c27aa80457df96f2542d589b86212e108ee2dd647"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec11_hand.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "381ec5394a20e0182e9c322486a8577d796cab08362d16949b96c2d2cbc5416e"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec12_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "28753d61743a15c8a02706d86f1f8b4cd767b876ea6279953b598dc5f1a204b5"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec13_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "9aa43359dca8cb6d475a2449f55a357929b8e47dff645c5d212b477e97c2f84a"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec14_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "b0b5dcdda0b0d4b0eefe66cc66557007b08252c9b80f16efe3186bd4568b486d"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec15_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "a6ac13ff0fadfea7a53bb57000210330059aad27d6abb94724307bc56e5fcd12"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec16_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5f114e4b77c843aee308a9233ef8b38dba0ffc7bfc231020f61fd02a4450cc6f"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec17_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "8f9e1683487e901a46562f2b0aeb1bff45605d48262fcc8e1bf5988d23ac88a3"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec18_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "56fba43676bf516af489541563f709e9e0e30269be934bb8a5e8abc171de91fd"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec19_hand.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "558bfb57a69c878c0b5c3aac98f032fc546dd1d056d47ac3697784c0cb06b9a8"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec20_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "29543150c1e2802949654d894d88a418d833550e781e9f3e15e400b2d96431f7"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec21_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "36a2eb18aaa1de4440e97232ba1da42e8da05bcf20809325dbf92cf724287663"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec22_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "f0c0e2038dae12fe4b2737dce1943c9376a7e6de39b142a50cae41a64bc94ab1"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec23_hand.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "2a18b0a9566086a38031626a54cc41d9d2e406420bc227d466e4d9cccb128a94"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec24_hand.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "be6c953e14c6d08baedbc90697cfc9fc53fbdc6bb9e50c045d9b1e071c3ec114"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec25_hand.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "cc472a1457765d38df095c51d88a5f522f71428eaec93f8ce56eb58c3db53981"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec26_hand.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "00050c15d0772c4f58957872c04d04a4fb014de9217a90f022c9a5189f4adf18"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec27_hand.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "6b61615883c12162a143165e6303d76e74af1557e1874448c44354cb73efefc1"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec28_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "0a13b05b0a34a7d2e7a64484e55101d04f17e41ecb769bc8b5edf049e593f7ca"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec29_hand.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "1830f092b4684b7b4fdf59900b5d9c0c54a54fb3372687940f30521e0c74a9d2"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec30_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "0fecf6fc1d4d8787a131eb6f1dea92750cb61a614d59a944689d32be18530b0b"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec31_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "71bd6d3c13f27b978446aef33917322609bc5b5a3ba1612960d6aa202b4bf203"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec32_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "0d7ab17d882b03cb31b49bef8c0fe966bcad756ccf7394ae9b6c01350fca9ebd"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec33_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "cc3825e3600e6bab4194ab0a40f0371441452a83a6018a6300ea019f62a50a71"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec34_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "f56e935813b06b5952d9c7a368123e8dfe69aeb647c325d45699af5420f15c09"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec35_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "2d0721e6faf0a0edcfbd53cda6dedc81a32e66e8212814803d5259bfa021aabc"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec36_hand.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "301768c582f31cf9dd3cce7913bd9ee1e71495d892fee0adc54cfc77762121c4"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec37_hand.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "2cae01715bf8d9468905250c3210076d68861a9f2bae02a3b67db9460c90a999"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec38_hand.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "d1e985e0ac34de1d2c9145ff21d68a78c023533c427989c412bdd8df35e31d38"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec01.pdf",
+    "pages": 26,
+    "status": "ok",
+    "sha256": "4af5bb66005646e226555351942c36c32b86b350233b8269f25b4bc6de8ad9f7"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec02.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "f6631e47487af9fa7a71adf749f6155af727cd078135d7c85902bcc30cb1689c"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec03.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "827f5babe9653d35e47ff3b257dd79c1d030d7880993841c9f47c78851714b30"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec04.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "746b6dcdd0dc7d702e3caca392996e0193063e14522de26317d852b48af428bd"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec05.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "60c987599938d61b555f89a7e20e34259d52156c005465ec2ae8d625765ee0a3"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec06.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "3976a56a5da7e14dadb596674d44fbc6e8cc9ac7889ef4db5fa9070efb7f8460"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec07.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "040c8e55ea07cfedb64c0c2539f1f3d2400e48eb9f3676ae2bf09f02715a814e"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec08.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "ec24dfcd39c216a20fa3a1b9d9111bc5133428922d2d225e5c17f39d4804512a"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec09.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "8dbe10a0b2b37a1164ca4aa972e8476f41886c026f4ac76fb3490e965bf9fb96"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec102.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "700506c791ebcbdb4bd2d1c01f79ed9219834d91d27977b28f62d0453fee9b3a"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec112.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "88522abc1578fbdea0e888bd6aa19c096797815385588dd80047fc75c69e4b38"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec122.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "0d63d53733e6846f86187fbefa0b32710794c7234a60c5c63cba08a6ee8d390f"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec132.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "7dc7e608636b5d00e06ed86d866a48551172ab274990c4eb902f4757bf7374c8"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec142.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "155a65cd2b9f687395d5918b81a543f68aa29a9c3ac2abea4130966f5ac53b64"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec152.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "272a8daf4dbc45d6e43ae3de1736231830dbdc17b00be65aaadb0e70e2e60512"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec162.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "be5ccb7e32721d196fea7e23d7a3848f3150b0ab6504789d544b432da43b9a44"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec172.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "a2a4db5aefb6af750733cfc443f994a9dfde65712944de93fbe25ca60a251f4f"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec182.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "faa4921e9d5a4957cfe8a6db026180c03c5cfbefe8b31374d44b46f7bc21d376"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec192.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "eda6b20f1639b2e721aee5cf787f9a4de152f2d4effa87b40dfd1a86d194346d"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec202.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "21ad148ca8c25e5e26c8b690c9e385d2103f7cc37aa4078dd39c65def9088045"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec212.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "fdf33d88fc59f17f1b08a9aeaf07410e52d839ae354455ba2227c68f1c0887f9"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec222.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "d58bdf21e0a7980314a7d15d7bd9b9b4df5136cf9e7c67d70ab9b5b3a4207dd0"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec232.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "7c7702cae5524ff5f9d41d48899e6c37c054e7a29d534f5d15d4ff44ee163696"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec242.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "db29089421f621bfc563e92bb1a68fc9284e5d95dcc2022f19858fdee35e442b"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec252.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "10f83a0b0d019ca2d7e7836bdb7b4d982705a961af3f4682b5146fadcf8ee1ba"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec262.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "610b3ef5bab5ec0c4e7fb85ffc1034d5bd37e5ab74508f9f7a09826cac063467"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec272.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "e3e7e6b9d056e981331145f2e911219d79aeed5b65af43b86c409043e153cb80"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec282.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "d94538f58b2ca52d97ffb7e7e1ea1554960af598ca47e522b45d371162cfd8a1"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec292.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "ead671ebfcacc2c5ff7278b636641b171e6f3f926a0033fe6d75f9ac9cd1e877"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec302.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "e29d1e4d1e067b48b4af9eec7bad864263bb0b3d3b9c147e9ce8ce32890d6d61"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec312.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "cd2ddeda7ddfdf753bb4eb39b3409c6b16923a104401030c39d149752681c3c9"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec322.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "5afa796c1bb5e75dee7a7e85ab34b84b6568dc4f63da5ba702031f1113cc7317"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec332.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "658f0ba8bf4cdc5a49da1728b7de54d7144fb4e0fe04525ce75671d717859e9b"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec342.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "1b0ead279dc6f496c64c633e58b8e258817df48cc96d86b384b81c03b90caccf"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec352.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "259929647b238adb75045684e8994cf3f300db28094585a79321e760bb10c027"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec362.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5ad93b2534066b8529aa6b87ba7ccdf91052952f413e16a94dcc20d977b7b8f0"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec372.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "0867d26445497addaf39dbff9533d879f653b0365a6c978538e4e8e6c64eae15"
+  },
+  {
+    "file": "09_MIT_6.622_-_Power_Electronics/mit6_622_s23_lec382.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "199a33550ea18a18dc392fd3d8d6ba9b5fb2a24b258d549d1204f0958e8967bc"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/84e2550f31ad2fe837a3a0657739e62b_MIT6_685F13_ps01.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "9df09a351621772959b9d6604597a6d4fcea140749f3d0be2bc93d4dd1c5af46"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/7c2b5d15deca07ca729b6b30359ad665_MIT6_685F13_ps01ans.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "154be7c95eacd893a1a1a0280bcdbb7d38fed7e18524779fe39a0657c8a8c6b1"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/9d5aaec44af1594652e0135475347803_MIT6_685F13_ps02.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "4ab252b7e214da03f35ba24f7cadc1f3a5d85e441fefc941b3bf1903fcfefc77"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/4566242502579275cb62808cf570c7e4_MIT6_685F13_ps02ans.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "4fb15e0cbcfd2d451ac0bcfc72a9cfb3f6e506985cc9882d2429b5d6f4f1f5b2"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/9f694568321d715674a4e1200370f38c_MIT6_685F13_ps03.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "3c41380a9e8f03ce69104448c4aefa9e111eb145c4439e1c013322ab4fe9e05b"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/ea3f819d15ad9cf3dd35fa60f4bda00b_MIT6_685F13_ps03ans.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "9a92d07d4f746b55ca7e76d950c7c3aeb58eaa83d70a9ddb10f1f0bf8d1b176b"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/0b0ba670dc56d31f49a6da63b9495c1c_MIT6_685F13_ps04.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "10340f8cabf829a3c7782daceca5d9726fbde38600464088f31f0ecb6eb38606"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/554f990cde58a5ed659f8dd9afea6793_MIT6_685F13_ps04ans.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "92e21fd84f294dc7f0172d2b2da89e7ffdab9078508e96e777500dcdb7f275cc"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/67ecdbef9c93c00816ea01a32f6425d8_MIT6_685F13_ps05.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "8e1320a79885cbc69c75aec655bc1e787cf4a2b42859a665f62bc8d456402a7e"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/e8cfa53e3645c56ab79ab56ee1b1c67b_MIT6_685F13_ps05ans.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "0ce7cfd6349212ff81f5671a4a38ae2c8e17c7a559255c421fc494a38ec46dcd"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/a0ad8391356431011b346a1fdd6581ea_MIT6_685F13_ps06.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "c6d4725d8b104457b9eb3147d09fd6352e5c7c2c8d7fc75e3df4a4f826a7e1a3"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/aa446a1987ed9ac458eb3b8ef3178f77_MIT6_685F13_ps06ans.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "694665e26528a9473e4b3a38b317edd5a86fa72b057f0799cd68ef2a4430c17e"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/079b5194f57f4a90f6aa027ea54c8925_MIT6_685F13_ps07.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "fd6d8d2d664d43ab0af78b9dae6236b7f6083ad7f5b58d00fe9d53b307f42391"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/545fb7b3d497bf8d11c039d5e0f54b35_MIT6_685F13_ps07ans.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "3d0ba4849ea0e295527955243b3928c870e91190376e4606c308291d7b4cc82b"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/c050bcf86815cbccb6f34d20139c285d_MIT6_685F13_ps08.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "0ed527be8f1216166d82f7671ff2d670376b958ed70256fa133bcdd2a45741db"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/b37ca24c5573d1a3945497519b107eb3_MIT6_685F13_ps08ans.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "170fb069adaf7200d9947545624c49b6a5d3a2ddc28f5d49122a54178ae185f7"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/4b16e7d39b4d903aed3c90a0c869ef22_MIT6_685F13_ps09.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "9d629c93839f5ada2003bd1bdace077cda859db50bcc87703b307836cf75e1cb"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/ee954276168ad9682113ab26969c7743_MIT6_685F13_ps09ans.pdf",
+    "pages": 23,
+    "status": "ok",
+    "sha256": "a82146b4dc32a5d21350dbf8eb6822d694586c7de31507fe53d7b4f8126da411"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/a03f1e53b79ccf908a9c179df55896f5_MIT6_685F13_ps10.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "aee949c7ff1c2009461dcd5c43d8a31289468954e36a3deddf6dd2e2faca6faa"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/42c995f723c364ee7092636cd1323c6f_MIT6_685F13_ps10ans.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "9a82b239984117affd27a6c50875ac01db06d4cef62894138dac1d1e983c565b"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/cb98b77b7910f860dd3aba7dde0c8e28_MIT6_685F13_ps11.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "848130ed4c61acf6ca9d7b2ab1e75be1676abcba004e30ed46836fd0525c96b8"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/75825e109686abbd75d3fd638114e7c8_MIT6_685F13_ps11ans.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "e1735aff4f0e4a49c5e8f44c4d857041078aa9ee67a5aefbf015ae8ee0bf2241"
+  },
+  {
+    "file": "10_MIT_6.685_-_Electric_Machines/64bf1faf0a973d9607334321dd252794_MIT6_685F13_ps03data.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "f2af0b4f14fc77efa23eec9663a5641a3de7f71aa19974ab3b82de810d73548a"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/ca1416c480deca1321a5edd1aa971557_MIT10_626S14_Lec2.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "2c6a0cc385b93419ab19542a87912128f494b995e1b8cb8114defc53a0204e75"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/c301d93e495876a46ea8840b02adfcd1_MIT10_626S14_S11lec01.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "f286e85c413e9c25338a6a647a237e8f751c08ae55af6ea7ae4e575dfd596f09"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/216cf98c12dc8a2cb36a84ea0eea2f4c_MIT10_626S14_S11lec02.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "17b51ce031748faec4ccb0d446051de3819cf49131c8e5a67e741605bada8e1b"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/a92649689a63cbda3675655ea1ea088f_MIT10_626S14_Lec3.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "e6324fee8ed36f35c9beec8412bec95ed2d0adc2ca2a64e4d4b4e6fa9f1d53bc"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/61e55be147e5180b68eaa6b258403322_MIT10_626S14_S11lec03.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "620f9b61ef3a604c19b52020bc09a1767ebd5cf80b98df87b80a842170f37826"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/69e3e6e3329d67ea3ab057ea1eadfc87_MIT10_626S14_S11lec04.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "d88aa56be8f303a39c1663ea63ee3699f351eee42a10ab7f293e6bb56bed7a19"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/d5e1b842d6daa3d9dc1991b916639b09_MIT10_626S14_S11lec05.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "449405c27ae9ba4efdf9ce694eb1e8982edfb92727f023a8df9781f2c796fae8"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/6aacd39911619ff5b669d80a0a0c7bbf_MIT10_626S14_S11lec06.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "95ffeb61dbcf3cef6dadaddb8afc1edd28d09e34cc976a659c0370455c9b9822"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/2de90bc49fe24eecc03095a4f0cb0177_MIT10_626S14_S11lec07.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "0b8424718ed5ef6d9575c30c66f2cf3d20d34a10fef0adf3570b5e6c2622a51d"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/548952ce8b570fbbde640f2e561c4f96_MIT10_626S14_S11lec08.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "36113979f239d2d817f9d25bf12dab09d9cd2a97e170ddf6dfa00be151dfb376"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/e87232109522238685488ab736f21e4d_MIT10_626S14_S11lec09.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "92a6fe679671e4d75659b8993c20521d12eb69c73a16e61272a983f4afee314d"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/3810acd9feaaf35e0f5e0c4f64f8cf84_MIT10_626S14_Lec11.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "d17c05a11ef950cec38f995c48ad47a285dbfd494e91dbaeb9a65061550cc82e"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/385a5dad5f19aeb1c6f46bab2b3877d4_MIT10_626S14_Lec12_ConNo.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "f1849d9ee92ad0ef3947d6e008b9baa164609764d0534f5dc35314740c7450e2"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/e87e16b891cb649be6032e375c30e322_MIT10_626S14_Lec13_Lithi.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "1fdf5c8cf064e655298e3c5d7966ae3e712481e08b7a0ac19300652a964acf94"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/80b52ce12b4eae99b33b388103a4e784_MIT10_626S14_S11lec10.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "481468092ee1489cb886422bc6677be3611cf1ec6036a7e1aa4c8158114e217d"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/99c106537bd38864d4d4efa00c809420_MIT10_626S14_S11lec37.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "1faaf065d0342cdff925e9ef6312f38e693824e55aac94e5a67550453fc8f0bf"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/984202229edbf449848905003e62262a_MIT10_626_S14_Lec14_HW6.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "f7177950f51a25504647ce8ede88c4d11f004c6710b83a31fe02971337d16936"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/3e5dcb3a7d3ad313952caf92c0828482_MIT10_626S14_S11lec11.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "0cc3363504bce536b99d0db808a393de297e70791fb49640c7abc3b01ba70aab"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/ee95cc27e2ce1d5eeef21cebdbf7a393_MIT10_626S14_S11lec14.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "810fed66ec9211a4a2b308084394360cedaf68c047c92ac2438bead176b3ea65"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/c4b64ab4d5bb9fd4d37209cff799bc78_MIT10_626S14_S11lec12.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "ccbceb25680b549ce7f22fa70c8ed4961a7dc6af0f7dffaa7a5112cc8e611eb2"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/56cfa6e0f28bc8fc1a647cbe679384d1_MIT10_626S14_S11lec13.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "8b26f488f236c95739fc112523bdca37ba84a81e7e95e06a145c0fd7948a9a5c"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/6c628dd1022b311872b2ec116c3e8726_MIT10_626S14_Lec19_Elect.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "29e43f9d5cfdbfefdcd4febfe66d438c8edea64a6c44deac735ddb9ad3183606"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/3094956ac103de11c8fa438bca9595ea_MIT10_626S14_S11lec15.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "1d5ceee8f10ed0aa9c8a9aac072058c9c69dc5d9826fa268458e98385cecd5eb"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/08779cb004de2029844084c21eb603a0_MIT10_626_S14_Lec20-21_EPT.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "3472a80e09fc20c7b4b4ab64e9b021b0013abdc2f60ac53a6955df007d50d024"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/383ef68c31f77eefcefaf4737392f4f4_MIT10_626S14_Lec22_Homg.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "2e514939ea5b001e56a253727f91946c477ec9c7754a82a0166a325268799596"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/83fd595de35b5c7dfe6fd2cf563cb5a5_MIT10_626S14_Lec23.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "26283d2574bbb087e9b28e9b655bc5934ca1c49c690ad60f5ed09dfcaf351141"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/6dc46d953a14a4027a52d5f784f89738_MIT10_626S14_Lec24.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "7a4560bd52278a2f3687459ca71b1351d0fcdaf79e691cf92e7116fdd8ba7f21"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/4fc4a8de47107536179698a3b77a77b6_MIT10_626S14_S11lec16.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "f251db65bda9ae6c0ce94127b7248a661f0b5bfd7d14246cd247b661227bbe58"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/4ef6b6701f0fa23dc8e24881fe075abc_MIT10_626S14_S11lec19.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "282856d7ea1b42de06ae90a3dcd154714a761b0f9589d900f7de5e37a1ebb6f7"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/97b6cc88c7020b91df93d8bf2161e61c_MIT10_626S14_S11lec20.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "1d7d29e5f0f362ce0d5973fe0c57a6ddbcabe40970ea51fab4cd34240da2d77f"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/d0c51eb3e2b4620509bc57a228dee0c8_MIT10_626S14_Lec28_ForCon.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "bd19818b0825eec82cb2699deb1a188e814d7ebcebe19911f15284990348cbe0"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/b4ac2821b3a64bdc62cf6c4bf67038c7_MIT10_626S14_S11lec17.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "84b0232b5b6dfe93c9408361eb0dac257f3bca6722dc207fcaf0355f3bdae753"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/e787aa8b689ba9134ab36af3e1d03456_MIT10_626S14_Lec29.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "ee069343c546eacfa06bfecde35aba0bbd036192b3dbe1bd4abb629f307a09c1"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/4ef93014584532e7e5bffff649e3a1c6_MIT10_626S14_S11lec18.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "721a71d35208b8cec9e5aca056bae14f3294b86eb1dd620fcc1c31adefb6c9e0"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/37f511c8f39e16f5df5a3c547201d253_MIT10_626S14_S11lec21.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "f7433ff620cc85c81986a9363715a06e1bc54df49b3f4b3cd0ec8b818571d5cb"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/6da79a1d800758dc711655b543c75391_MIT10_626S14_S11lec22.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "faa40c63003a1d4ce6bc04cdb3bb06c5855eed9cab67f092f51340786417e2f1"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/c6e8efc707921e1bca82e104183e9928_MIT10_626S14_Lec33_elec.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "664dcf0cb7e13e15baf5a985a409c9d96fe31197d49f5d3786fa4c1706d8da0a"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/94d59af721c346ed05c99f6359bf05fb_MIT10_626S14_S11lec23.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "a4a1947886df0223be7a09ed09092f17475c7e437cc3c499c8b3e6cf33cdbd65"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/34aaca3a97887695dd295db7cc0fa3c0_MIT10_626S14_S11lec24.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "4d9f5acdb75e8f10aa6cd6a1e5b8befe36f50e0dd92cfcd82a98e5ba50e5780c"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/b74a3f2744e2c150142cc1eab0d25fdc_MIT10_626S14_S11lec25.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "aa596bf2aa66a99ab74da4102e659a0d8ba74a89c06ee00a6d971511d0c4f722"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/4de0d8a281b0e24b8da33f99eba89f9d_MIT10_626S14_S11lec32.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "294f1a080f92d2bc936dcb2f2cb84f2b9927c26953bf91dfb284d400f3412ca7"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/f30a160dab55806b8b37be1a33af1ab0_MIT10_626S14_S11lec33.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "0fa670cb3d288efe5d4a3064c5c0d58582be46ae88db8b00cd69a34d52e697b8"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/2d1b194970593ddf49ff0a211d669d03_MIT10_626S14_S11lec34.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "889286c69785c3e1e9c8c3d2f16f302e74e9e04ffd88dbcb66cefb2cf4d2e62b"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/2ab6b6a564a2a0f10c552dd386915b94_MIT10_626S14_Lec36-37.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "8d667f4558953ae19890952e36e212230d325253f6577fda145dbc24895a2f47"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/5f6795a0415b647ec8f683a8ed4e4ccf_MIT10_626S14_S11lec35.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "d09602a488e766624e359407d50606b61da64425924bad3aca6c8d2cfdcdbae3"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/19b1662149bf8728ce9d826aec9e3b5b_MIT10_626S14_S11lec36.pdf",
+    "pages": 10,
+    "status": "ok",
+    "sha256": "42d5459a1c4768eeb4be1fa2dd08f53462fed28543496ce031f3e268b481bce3"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/0e17345f816aeeb0f085feef2879ba42_MIT10_626S14_PSet_1_2014.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "cd82815c1ddd2b9f69800e3e4d2d0e6ecd6e38e4f5cbc6e00ce9445815987de2"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/f0051870d26fda1e16e6f09091416553_MIT10_626S14_PSet_2_2014.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "9c416e4c53a940f75ac27879b561608ce3ce5f15b845edd7cc7564dc839e5cd1"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/16491a15ec347fbb4e8e160eec462f71_MIT10_626S14_PSet_3_2014.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "52475033c3936f7acc4ac3a795c2a6e03a868aa6edab5afeae129f4d11c249ef"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/c1859817ae0ef286a055be4b00b2076e_MIT10_626S14_PSet_4_2014.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "5caf548874a02f9ba984d1d96399335bbb23db1f30d04b622d392cfa63f06bc6"
+  },
+  {
+    "file": "11_MIT_10.626_-_Electrochemical_Energy_Systems/8e20d279f9b25f8a050d78041a426470_MIT10_626S14_PSet_5_revis.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "f350a052ab1b44ff3abb31ec538a22e0fc9235b76755037c7473c275d8671799"
+  },
+  {
+    "file": "14_CMU_18-349_-_Introduction_to_Embedded_Systems/18349_S20_Syllabus.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "81fb85fa5640480bf5a00033ae9c9ba2cb9c8df83644b4479ad28ddff3e884ea"
+  },
+  {
+    "file": "14_CMU_18-349_-_Introduction_to_Embedded_Systems/18349_S20_Tentative_Schedule.pdf",
+    "pages": 1,
+    "status": "ok",
+    "sha256": "7da4af4ee1f67996fb7a6576d121bd1e97c6ab727e00f95a17b0def726e45bb4"
+  },
+  {
+    "file": "14_CMU_18-349_-_Introduction_to_Embedded_Systems/18349_S20_Lab_descriptions.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "b2b3275231707cf7dde6052d00a4544222fe8f2fe7705746c9aaaabc0e62480e"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/TM4C123_LaunchPadUsersManual.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "6ebe6a285e52649daab1fd7b990f5e24c1b44709e368b5697a3076630df7eb93"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/CortexM_InstructionSet.pdf",
+    "pages": 221,
+    "status": "ok",
+    "sha256": "6415671b3e94c3ab4cdb11a86260be1b4a7c5fb365a58e9c6aadeb56fd1e3b60"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/CortexM4_TRM_r0p1.pdf",
+    "pages": 121,
+    "status": "ok",
+    "sha256": "d6f12ce12678dcf80aeba3f13c98ce2be5562601b73c18001c83c4c9fae1d735"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/QuickReferenceCard.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "a89d95fb7cfb056e03fc6cb5e1581a0d915f653534dc7d472cb37f3026b91b6e"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/tm4c123gh6pm.pdf",
+    "pages": 1409,
+    "status": "ok",
+    "sha256": "a57ea860f78eb79b86421164705f7ca9e4b40bd20e5385612e6d3ec3c5f79fe9"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/MC34119.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "7f8db5abb52dd4b9a2282991e5534b62e7ce5a621ff941c7f0bab909dbd92af6"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/TIP120.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "894d22530aae9d799b6421d00b1c0ffe67b2c74e890c33d5192dc997a113d48c"
+  },
+  {
+    "file": "18_UT_Austin_-_Embedded_Systems_Shape_the_World/TOC1.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "79ba8aaaa50af65f6c504dab7b5c826d6612ebe9b4b91157cf146e26113a607e"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect1.pdf",
+    "pages": 80,
+    "status": "ok",
+    "sha256": "a13417da47940f39955b15400d39dde32868394e935436873efe578d037ecd54"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect1-after.pdf",
+    "pages": 80,
+    "status": "ok",
+    "sha256": "14d434f53a0b57dd116d58a1c08d21babe00f70b34b30cbdfc8ee0b8149eec4c"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect2.pdf",
+    "pages": 57,
+    "status": "ok",
+    "sha256": "587d1deca065db3285f867e1abb5c7ebbd093b2dc239e96baed7f1011cc5e6b3"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect2-after.pdf",
+    "pages": 57,
+    "status": "ok",
+    "sha256": "c21791b54050001ff80499809a59d5a2df923239c838d2727a6146d45d33217c"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect3.pdf",
+    "pages": 80,
+    "status": "ok",
+    "sha256": "2f262536ad728bbeb69c0ff96d35328d21d54855c20f1c13f0dc394817b726b4"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect3-after.pdf",
+    "pages": 80,
+    "status": "ok",
+    "sha256": "1a9181b618c0038411ece8eabf3e7facd44eb15976e9d2d34e8aa8ac30ccd402"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect4.pdf",
+    "pages": 61,
+    "status": "ok",
+    "sha256": "fe25ff23b413d94c7787ba1c85d0d372b179b74bf10061e87fccf23b4af0da4c"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect4-after.pdf",
+    "pages": 61,
+    "status": "ok",
+    "sha256": "0980feda91f5fc1a3491cc35773ee2211641557bdc82f8b82312e4f7d8fa673c"
+  },
+  {
+    "file": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility/Lect5.pdf",
+    "pages": 87,
+    "status": "ok",
+    "sha256": "35ac9fe8362610287a6b1e8857e8a6ce7b802aef12d7a9a6ef139480f46beb4b"
+  },
+  {
+    "file": "24_Introduction_to_Mechanical_Design_and_Manufacturing_-_David_Jensen/open_material_24.pdf",
+    "pages": 62,
+    "status": "ok",
+    "sha256": "0414f7f95d6fa9f000b8b2b7dc58257660fec3c3f67ca3c67b2972b7b7e43d78"
+  },
+  {
+    "file": "24_Introduction_to_Mechanical_Design_and_Manufacturing_-_David_Jensen/sprocket-engineering-data.pdf",
+    "pages": 32,
+    "status": "ok",
+    "sha256": "54c46722e3db647a936c45ee7184d8aea3875701b566589b32a330994d005174"
+  },
+  {
+    "file": "24_Introduction_to_Mechanical_Design_and_Manufacturing_-_David_Jensen/EML2322L-Tolerances.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "1fbb9f1bdb836e20cf4b444de312cbb089067a5ef0d63e8227e0ed32dc52733d"
+  },
+  {
+    "file": "29_Introduction_to_Embedded_Systems_-_Lee_and_Seshia/LeeSeshia_DigitalV2_2.pdf",
+    "pages": 585,
+    "status": "ok",
+    "sha256": "900384867d4d3eda846c0dcf285ec2a8479654bccfc839bbb63a51623378aa0c"
+  },
+  {
+    "file": "30_Embedded_Systems_Introduction_to_ARM_Cortex-M_-_Valvano/TM4C123_LaunchPadUsersManual.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "6ebe6a285e52649daab1fd7b990f5e24c1b44709e368b5697a3076630df7eb93"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dedication.pdf",
+    "pages": 1,
+    "status": "ok",
+    "sha256": "26fc70ea6b16a4e2c4b26a069e7c5e1e5326796918b6e361ca01e7514990c615"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-virtualization.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "2a599f6f4e64a00db08e5ebb739f4b591ace57668b37694ad44d9fd56bb76fbd"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-vm.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "fad4df33438163d2310f750c686329139ab43f1938edb95418f8e95ee6d529d2"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-concurrency.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "b654dd0af273c8e5fdc9ddce5c4097ce7d52f3c1981e5529b6137427207321e3"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-persistence.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "2ac385ca5924e6bad94e721b3e8859e6e93cf6abf3654cd5d31fe2b532bc16ad"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-security.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "27b308c25096f73a2cc45f79057077b9a8b6acd9f8bf68ef662f1d7e058a8973"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/preface.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "febaeb69aad85f9901959a002a945dcc3620c507232a9dcdbff673cf977b913a"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-intro.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "d4c7a5200fa104f6d5af7d845dc65b99b17ea55fb1fed6a151a7c4d1353bd6e8"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-intro.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "c57de8420ea7bc8afbca5ce3ba92bcc0b32d5f719f4ab613dd9ceb698d537acc"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-intro.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "04eebf12233463d54c6b39352bbea644241b308312cabd568b24b9aa3b7e4d1e"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-devices.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "08546bc068699f5a8be8df72417bd2b4e282b08f8c2a1fe056ca09bfdf0533d5"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/security-intro.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "73a56850d907a6b46f05adb88027a91c445d77473e8196cb0afd35f4b5bf0b69"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/toc.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "6bf28fd0e16c56c6e82f77bbec48dcbd3d80546852ec1bd0ebc6bd06452fd85f"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-api.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "00aa608424bbdf5e9d6ef17d47e7595a5455a42e74ad3e6c5913603aa7e8ea7b"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-api.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "959dba1dbd41e3e18e3d97269cc405dcc9ea0872d761d09bf3eec14f3f8273f3"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-api.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "ea053697dcf6480a346dfd2ae4b9c7b5d292ccecfa7e38eb1bd05136a7f96ce6"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-disks.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "8bebaab15858c28b7d70c72d97d685103714f423b4581b2e0d5fbb1671764e2b"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/security-authentication.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "384b176f16bbbaaed0d592e845f6a11f73288899f6f94a038279e2ef2758832d"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-threeeasy.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "eb985b86c08584508ad0731b94a84d28a5c0e8004f5cd4475f722504c0e509b4"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-mechanisms.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "ad9c3ae46f0d695744008a0faa1dd104ebf033eb0d5a0e14411146b2d53d9054"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-mechanism.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "38d81af0ae91743ee39c08c71be620d244b73496536c68c22ccebc2b8a0344a7"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-locks.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "349b3b3251a178e8bd725dc710cd2b9a4d30f34a7491390bc7c1b53c015d1515"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-raid.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "3d88a8b2d47247572a6d424f9b6f5789a6f0b8a39ce1bb8d9f6ef4403fd9e340"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/security-access.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "a56180e8d15f3d6c5355fe1e420d6c18b727cb2c5bc10aa7a5eb3a1b7f4ecc57"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/intro.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "98e68cadc18468deed74e490b40aa6d414f1536d3ec8e5dc25b156603edf2a19"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-sched.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "0912b1a34977a70704b921ecfdf0dd65300e038a3eb4e5e57b2d9c38f66b63c3"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-segmentation.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "f9511d43148cc005e9c2d992deff04c16eecbee7269e7568e4b50ab49ddbb2e8"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-locks-usage.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "48d67442fc17dc1e0b6d3a68f1e29d2630eb30de4606c1fffe86124424654ea6"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-intro.pdf",
+    "pages": 29,
+    "status": "ok",
+    "sha256": "35b66794d013dd6d117fba1094256ecb94a488d4c7f852b23903dbf47d987704"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/security-crypto.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "c07fce07c9fbff3a6d071b14723c9b98826633d8ef161849211d06c9e6dee04c"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-sched-mlfq.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "96241b4e6708991740560334a1f67516c3c68eb3e6a570af7b03cdb4b32918db"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-freespace.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "e843d8451f4c030ae2a7b1af0e5fb493bcfbfa9e0bd44681bda030019d974e2e"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-cv.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "77a2fb7913c44af3864afe3dc789b3ce0d875a82df20b9690bba1eb8bee94839"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-implementation.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "f47b3394d05648303f957234dcdc980023ef7d9e11d2b4d02fc042e7d3e3aef7"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/security-distributed.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "98b9ea8e7a3e654b175e22265a22a7af1ce42d9fb42079dca10c84644206efe8"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-sched-lottery.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "d4443bc142b7c134280c6d284e887b0768642583eaddda674dfa6975f483aa5a"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-paging.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "0307d990a5638c37d59fb8ca67de75a0afc439461239fa660a7c948dce3bc6d5"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-sema.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "991a6a2edbd604c6e2c9b52c9505ff63db92fd2bca4c294a252bdfc0dbed38fb"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-ffs.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "95b4b1fd00463e78837c1101f1dc0f9416848025eaffdb2a69c3894d5e5f422a"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-sched-multi.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "302396e55bb9ff0d509a16393ecb46dcb614225a2ee2cf9fef8e8a54eb0dc3e1"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-tlbs.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "202953f283487b812a9a97c17f4a3cb3a9b3e80a300cc6467c3080ffb0be013e"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-bugs.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "dc8c3a7b64ff35fe626838a877cc1759d33bce6104ab30a0221268b3ee9859d4"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-journaling.pdf",
+    "pages": 21,
+    "status": "ok",
+    "sha256": "ea284e285705454787f6ea2804af6f62c42839a8bfa58e5ded307961ef459a11"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/cpu-dialogue.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "ba97a33d7b878ccd60915f5397463ca38cbf7530a202fcde4128ad66df35b77e"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-smalltables.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "45eced8581a51497919ed170b4b8631b5ab7ecbad5c77387d0868f52cec6c43f"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-events.pdf",
+    "pages": 12,
+    "status": "ok",
+    "sha256": "a8906e84dd6a7fbe9b3f46c9a3a873e084d1928d304591be6d472f5e5fa394c9"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-lfs.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "8c52ffc98c65bcb56198be9e5b7ebb789e86687751553a298d10b25a4712d1f4"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-vmm.pdf",
+    "pages": 1,
+    "status": "ok",
+    "sha256": "7370e7e3168cbe4e7de5fc5afaf85642eafe7b628010c499c078f27316f87ec7"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-beyondphys.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "2d59f70e76be4e9a78eec457b8e20e9941c0c6ec91bb158297695900415459d3"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-dialogue.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "02dcd682a855193a904fffb56d17ca27b53681e249ebc0fd282587bfc959e9d6"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-ssd.pdf",
+    "pages": 24,
+    "status": "ok",
+    "sha256": "e8de0c6036d75cfb175166c8701055f75c11b576d8283a101ce09bedaf80b223"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vmm-intro.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "413759240b8b7a83ddd6c333e901e365d228cf9157b9c88f998f42fd161c36b6"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-beyondphys-policy.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "a6f13af44cae11965876f652e836a1a40603be3e8dfd5336568b69a6007ca4c3"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-integrity.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "e31b73700e69a738092c571845b3a1e48158c0a01783d7d83deb8d34b2271b52"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-monitors.pdf",
+    "pages": 1,
+    "status": "ok",
+    "sha256": "e5c6f31e941cec9075ffd4c2edbaa4f0339fe2436d38ab6c1819bbab44ab79a1"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-complete.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "c487f8c297177e3f463b21806082537cb9b9f8b0c8c982ca27dc889803ace36c"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/file-dialogue.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "814f38effd995ee73a269d1801e3c7bc476c3d0e9b297772ac34811212bce989"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/threads-monitors.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "b3f4b61356e64e43631cffbbd5308887d81263eabadf6d94f20d27a979cab6ce"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/vm-dialogue.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "8e18d521fe1b6f58761723bd3c02f357defb9f55a43e90e357e60047372808fe"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-distribution.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "7a5453c6c30cb6b0b0b7bb2be7bd27cdd0eca264dfa20391bec2197489a69d6a"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dialogue-labs.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "0cabda3579f928219376b3cb394dcb33fa55d519ba4f58abdadd9a91210aa9af"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dist-intro.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "92986b546ba992cf20b2826b6805d76ac1baa596e91b138fdf56e63eac644a91"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/lab-tutorial.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "e8daa793fc3e393e491167a0cd0b188059653d94013474d962527d3fb61a6b91"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dist-nfs.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "453691aa33cbd62e23b8cb917068857f250003afdb3994682429a0ebcc75b65e"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/lab-projects-systems.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "419c8b651882c8153cd565d2ce66ae8ca25f6f6926595541be0861f65bd959ab"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dist-afs.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "531c303f5d20944c0f7a253c16a2deaaebeaa1039a7a43336637b0a01345724e"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/lab-projects-xv6.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "69942da33fbca831b461fa74130ec66ea1edeee7ec461e75917f4fc0ce9cb2ec"
+  },
+  {
+    "file": "32_Operating_Systems_Three_Easy_Pieces_-_Arpaci-Dusseau/dist-dialogue.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "9faa7dcf3c1c8a54339bc6561b57601580b0fce75d7d59c5f10ea764ecf1ef12"
+  },
+  {
+    "file": "37_Electromagnetic_Compatibility_Engineering_-_Henry_Ott/0470189304.pdf",
+    "pages": 43,
+    "status": "ok",
+    "sha256": "f4bdd6bfe726df42ac83402642f1d486fdce73266d52b4ead79e8788ecc8afe6"
+  },
+  {
+    "file": "37_Electromagnetic_Compatibility_Engineering_-_Henry_Ott/0470189304-1.pdf",
+    "pages": 16,
+    "status": "ok",
+    "sha256": "2912ef5c938d315d4c9fc5f631bacdefbb8e4b2d572d96cc608df15bf3501910"
+  },
+  {
+    "file": "37_Electromagnetic_Compatibility_Engineering_-_Henry_Ott/0470189304-2.pdf",
+    "pages": 30,
+    "status": "ok",
+    "sha256": "b7c55ced9d8efe590ba2e5553e293758f27586bbc09b733d005df49ff55ff19c"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/SEMI.pdf",
+    "pages": 535,
+    "status": "ok",
+    "sha256": "6734b64b5eb916da5641218dbd2fac32f233b9714a11e3c1485f779782b537f1"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/DC.pdf",
+    "pages": 557,
+    "status": "ok",
+    "sha256": "b49dc6038ef2e2988c30e8920451b076602f54c959c5f56949d7fad6f08bf3f0"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/AC.pdf",
+    "pages": 574,
+    "status": "ok",
+    "sha256": "8db75ca8236796eeb329b12fb531b71c807bbdcb2435a8199a149f611c814437"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/EXP.pdf",
+    "pages": 425,
+    "status": "ok",
+    "sha256": "c1ff11ddeed336cad5c842b572cab638943b4fa26af4933682373feb01dfd7bc"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/DIGI.pdf",
+    "pages": 516,
+    "status": "ok",
+    "sha256": "4a75a1f85a2d1396e8ad0cb806474435661c7c01457f9852cb75df92412fd247"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/REF.pdf",
+    "pages": 172,
+    "status": "ok",
+    "sha256": "60e749c4f3e53ad066e69aca3ffdc77f50640d5e730f3547e60167edd4d0b1ed"
+  },
+  {
+    "file": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt/cimtext.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "de8905debf15036b646cadc1443b9352c2af96f210d0b697def0e330c6906c75"
+  },
+  {
+    "file": "40_FreeRTOS_Kernel_Book/open_material_40.pdf",
+    "pages": 304,
+    "status": "ok",
+    "sha256": "577ff48cdc02c8bb1b538fdb37bd90bd0b61efc6017d04f13d47fa0d106d78b8"
+  },
+  {
+    "file": "41_Zephyr_Kernel_Services/zephyr.pdf",
+    "pages": 2584,
+    "status": "ok",
+    "sha256": "d8c2b2cf45c415aa4643ffff65ec4d4bfe65273e36dfcef8b49afd711c157adb"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/lothore-kasan-ebpf.pdf",
+    "pages": 29,
+    "status": "ok",
+    "sha256": "aaacf33fce7e1ae9e03e480415b30368d5ba9aedc889651be0f0936c0a66cff7"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/lothore-rust-no-std.pdf",
+    "pages": 53,
+    "status": "ok",
+    "sha256": "eed99b885171888a19276359cf8ee2eba330794f8e89dc622ead6dc2e56c66d4"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/petazzoni-snagboot.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "a1c46ef3c188a3d1d5a2a1bb5271f5225214a87b6d9624b9e2ff58489238e69d"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/sbom-cve-check.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "f6d7035c4849b90f2b68dd9260d9603768dbfccd5619c9f2d40371c1c0d57bac"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/033df6a5_sbom-cve-check.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "4101a9ebf5abe68404f2c40ef346f25bfa65de8e31511277a50e577d774998df"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/kernel-review.pdf",
+    "pages": 49,
+    "status": "ok",
+    "sha256": "4bd9f452b6318946193b1c9e1d39a627db961d15a689e16805f5e8b588e299f8"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/neon-beat-cdl-en.pdf",
+    "pages": 15,
+    "status": "ok",
+    "sha256": "d090799afc2ca92f7300c26f08f41e880d7630d6ef52b8f58318eddb2104e6c5"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ebpf-workshop.pdf",
+    "pages": 34,
+    "status": "ok",
+    "sha256": "d3b591422e8430b61d72fd6d6ca7a24c9cee170da6d106da18fb2af4f53193af"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/tleb-pm2.pdf",
+    "pages": 35,
+    "status": "ok",
+    "sha256": "e8da20dcb4e2cefdc167662cd5ff154d18de2594c530cf08898aa147c69fa706"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/chauvet-vkms.pdf",
+    "pages": 72,
+    "status": "ok",
+    "sha256": "321cab8c76fe0236dbae5b2f18205894964b3d678badfab8252e4e197d557ece"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/gantois-snagfactory.pdf",
+    "pages": 45,
+    "status": "ok",
+    "sha256": "befab9d29778912bfd38b5d914bf58e376555fd03f7b52ee33c60d728a6f9f59"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/benjamin-security.pdf",
+    "pages": 42,
+    "status": "ok",
+    "sha256": "1671d4fbd0650f60367197e9528b22ce209c8161ee64538af02ae06eb7140eb4"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/codina-pcie-dt-overlay.pdf",
+    "pages": 51,
+    "status": "ok",
+    "sha256": "a4b2acabff2b34950d65d17f99833bf1affac314060abd24101e91b70c6972a5"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/raynal-mtd-updates.pdf",
+    "pages": 48,
+    "status": "ok",
+    "sha256": "d99fdc8bc54d11a1d75326b078fb6abaf5a381657c191c520f71a6e7286b27e6"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-hotplug-status.pdf",
+    "pages": 44,
+    "status": "ok",
+    "sha256": "e0423dfdae758ce8522f2f80c956de6fd7a47341ff49cc8387bf67abf5a0a487"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/lothore-80211.pdf",
+    "pages": 47,
+    "status": "ok",
+    "sha256": "151cbe0fae27459b29636d3e6cf6fced489c9d1aec6a1f8ea3caf96d6e174939"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/vkms.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "fd04810bf98f2bc03266bb6139a23bbdbcf0160218a42360244564223f8c4ba1"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/gazquez-driver-development-for-zephyr.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "e5d30e9268630b2b1049f6bf039899337f1fc938c3c929298666e8cd72fa95de"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-codina-hotplug-overlays.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "1ee6e5ba3f4d818a935b13dbc82f9339f87fda389f7e69e41bbd7b89100f716f"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-drm-hotplug.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "f1f33514149c09c55d6c8e06b153b7d24f7355a3913a7243e847800f78d40697"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/chevallier-phy-port.pdf",
+    "pages": 14,
+    "status": "ok",
+    "sha256": "52713405dd958032efba292602ebf7d34efed30b4c97b9c3ac24cdd3737744ad"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/lebrun-pm.pdf",
+    "pages": 54,
+    "status": "ok",
+    "sha256": "049be9da900c4dc579ba934d4446484e603be9530b7d15848830278d817ff8c4"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/costa-optimizing-memory.pdf",
+    "pages": 35,
+    "status": "ok",
+    "sha256": "d7c05ee23b4facb89bb32bf23b91cfeb79a2f2839703de4e17201402c043fbf9"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/maincent-adding-support-for-poe.pdf",
+    "pages": 34,
+    "status": "ok",
+    "sha256": "240996eeb018e95e1da0c1c81d714a8cf7727b9a92aaae53c3776e41a29a1646"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/clement-s2r-dra821.pdf",
+    "pages": 29,
+    "status": "ok",
+    "sha256": "f40aa5e3d177b08759517256ecfb27aebdb06796aeef109aec43df11125bb70d"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/chevallier-anatomy-net-driver.pdf",
+    "pages": 34,
+    "status": "ok",
+    "sha256": "c16de50042aba1aaeb7be0233c47c6eb6dd00f32e4a1a82a82a9f61ef29fdc2d"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-dapm.pdf",
+    "pages": 40,
+    "status": "ok",
+    "sha256": "33b727492f1631a3116b03f4780ffe897b6475cbe376cb2d1b48355fe226eb68"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/lothore-ebpf-howto.pdf",
+    "pages": 42,
+    "status": "ok",
+    "sha256": "fe608974270a554e5a535b0d983f121385b6dc3558eb393f96f864ff72ba88fe"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/raynal-being-kernel-maintainer.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "d3c3c916e19dbb76817e82da96bf72af1507e94191ce656d88118ccc27c01f60"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/multi-port-multi-phy-interfaces.pdf",
+    "pages": 31,
+    "status": "ok",
+    "sha256": "e4e1496c084eae1222d7f4ec9ad4a182f7001f100b6d8c4553a614244004690d"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/codina-a-tour-of-usb-device-controller.pdf",
+    "pages": 46,
+    "status": "ok",
+    "sha256": "c661fde4191512aa9b78ed0c8636a00ad451afbf6c235a5fc2546a9931adf331"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/kocialkowski-current-overview-drm-kms-driver-side-apis.pdf",
+    "pages": 39,
+    "status": "ok",
+    "sha256": "26f54fd3d68c2f499ec3c8f7353f3e95030731a0a4a71f23c46510eafe12e5c1"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/raynal-ieee802154.pdf",
+    "pages": 32,
+    "status": "ok",
+    "sha256": "673f63a0c5747f9abeeed45045d46a606c282bbaec8ad5a558dc757f7c64e9d6"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-basics-of-i2c-on-linux.pdf",
+    "pages": 47,
+    "status": "ok",
+    "sha256": "1b540ef0fe7cb01c0b8fb1740f97efcf1348809b805bbfd57535fcd020940ba2"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/kocialkowski-walking-through-the-linux-based-graphics-stack.pdf",
+    "pages": 31,
+    "status": "ok",
+    "sha256": "7a15e8f325ae4d5770ac9be8a0d3d19abf98a817c058fc71375bdbe4b2e1baf9"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux.pdf",
+    "pages": 53,
+    "status": "ok",
+    "sha256": "2d4932300d8f24fec6f56417c1e74e9f156544c9feaa30df3c10f8c119b2edb0"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/perrot-optee-pkcs11.pdf",
+    "pages": 19,
+    "status": "ok",
+    "sha256": "a00ba16358ca6791950dd601e4480f1284c0633d75aeb3424a052eaa0a218c56"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/clement-AMP-on-Cortex-A9.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "8575967cce22e618f29bb30472582afdb3aa2ec1b6f3f4a26dc22ec2147385cc"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-llvm-tools-for-linux-kernel.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "af35b82b74d8455b63b63ad7cf83d33d3cf43286d8e808271366b60bb5a57517"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/leger-optee-linux-interaction.pdf",
+    "pages": 45,
+    "status": "ok",
+    "sha256": "09ba0b562183bc26d0f4c5438a1d76f47a8f923eb7561d6f3c069dbf99583549"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/raynal-i3c.pdf",
+    "pages": 52,
+    "status": "ok",
+    "sha256": "896ec6e89e36fbef77bb82fe8617ac9167cc3e9c6f6fede2e80c866805698ad8"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/petazzoni-device-tree-101.pdf",
+    "pages": 81,
+    "status": "ok",
+    "sha256": "3d50f26ce3ce6f8b5eddf62a70133d756eba4348c6e10e59db8cb87b4b1f4759"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/petazzoni-upstreaming-hw-support-in-linux-kernel-why-how.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "70bf6d0cb5239e024e2bc8448913dfe75c4e368a30ca034abdf946db22c8ec61"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ripard-drm.pdf",
+    "pages": 24,
+    "status": "ok",
+    "sha256": "0e12b80b9ffe8fabe65369d84e61e87475d32ca787d2dd2e4421f792bb45598a"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-from-scratch-riscv.pdf",
+    "pages": 67,
+    "status": "ok",
+    "sha256": "4aa819aab6bafdbc894822448cc865e8749c3c73aced71f6ef3d4acf79d46eb0"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/dautheribes-yocto-best-practices.pdf",
+    "pages": 35,
+    "status": "ok",
+    "sha256": "18f0c031462ee0b41f80f9224903cb625364508f5c40d60256be87979fec11a8"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-simple-layer.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "be4b565ea1471e852e014f4e7b73bd3fe7a8d9de0d0314f8850af9b1d3129151"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-how-to-contribute.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "8d230dce21ade74b9f5932da10be86cd8092282b5351e8b8c2da3c0bc56b3664"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/petazzoni-discover-understand-embedded-linux.pdf",
+    "pages": 46,
+    "status": "ok",
+    "sha256": "6f41e55b42fc53d70406216dc2753c50ea59af553d293298a10322e898bbea26"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/ceresoli-gdb-and-remote-gdb.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "28713a73c8db948832743a5bec77711263fd9033310f8483a8d87916627486ce"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-finding-best-block-filesystem.pdf",
+    "pages": 60,
+    "status": "ok",
+    "sha256": "88d5ac39cc53750d26358edfab9d1bca8f660fd47d9c0013e55d554b4b96f68f"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-bitbaking-spdx-sbom.pdf",
+    "pages": 18,
+    "status": "ok",
+    "sha256": "a9274215fdbd92c6309fcdfa9d10609a1d887e6e58e82382152dec9d2da57a0e"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-implementing-A-B-system-updates-with-u-boot.pdf",
+    "pages": 30,
+    "status": "ok",
+    "sha256": "f3a0a7d298f17ed958429706b3880427593eb263d90698922da1f92ae85dcc31"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/belloni-yocto-autobuilders-swat.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "57e7e049503c0941215d55d1691c10b2e533abf39c9ae24f42abdd294962f84c"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/petazzoni-buildroot-whats-new.pdf",
+    "pages": 58,
+    "status": "ok",
+    "sha256": "4519703d65bf474d8bb403048dde162757026deaa232243e9f6a9a8ccb9af4b4"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/michael-opdenacker-contributing-to-yocto-project-yps2022.05.pdf",
+    "pages": 22,
+    "status": "ok",
+    "sha256": "21679ee27ca21d684c6be90ed514d81fac86ef98b94e63e608463dd2cbfff92b"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-buildroot-nuggets.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "2b1542dca47607203b64a54b1826320cb2e66ad51ea248e7684a1653de457b8d"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/petazzoni-buildroot-vulnerability-tracking.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "a8602e9ff258d0c1bd8655efe97916bd84f7091b8858f53d7d55c0b3ebcce2a3"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/perrot-secure-boot.pdf",
+    "pages": 26,
+    "status": "ok",
+    "sha256": "861134f5caa97a8feaaf6f3ece998ea82ed382cc345ace0d5da5f12947e13047"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/maincent-devicetree-overlay-and-uboot-extension-board-management.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "457c0148718a85dbe09d08984176b670ca6d562440a9b427324013ad1253def9"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/bouhara-rauc.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "1624ff5df6f4efe23084fc1c7107e680a1997f38f5e2dac0746e4bada9ac17dc"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/opdenacker-understanding-u-boot-falcon-mode.pdf",
+    "pages": 28,
+    "status": "ok",
+    "sha256": "269333459281be867ddde22bb03cb9e28565d60a254654a88430e0a0905d7df3"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-stm32mp2-labs.pdf",
+    "pages": 70,
+    "status": "ok",
+    "sha256": "a1ef0e7247ebfaaf90c548e4c94d0e49b5168c6d56079b34011a93ce45f28be3"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-stm32mp1-labs.pdf",
+    "pages": 72,
+    "status": "ok",
+    "sha256": "bcdc423b812c7d76d45d19d60a69c4ab9e61b785ab630310bd3128217a8b99d7"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-slides.pdf",
+    "pages": 551,
+    "status": "ok",
+    "sha256": "4692d005cd2447d584ce5fbb0e0f401fe5b7a211e761fa40e1292428e83c07c4"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-qemu-labs.pdf",
+    "pages": 44,
+    "status": "ok",
+    "sha256": "3b84b2e1eaa32e979a04c75bf325f3e3bc1c5a66960d23cb56d25d9603d930cb"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-online-fr-agenda.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "44eb0d5c0050562383dc0ad604d8d882f06e958203b18dec02723de781231ca7"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-online-agenda.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "1c204674714f7ed9da4c3b877087e3af8984c1f19eb8cec2395118d9724616f9"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-imx93-frdm-labs.pdf",
+    "pages": 72,
+    "status": "ok",
+    "sha256": "c880f1f98eb49aae3ed4627f898494bba095cdafb3880495a962e9daaf59d2a7"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-fr-agenda.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "2fb818590915971963b6edc32ecb57f8644cc60e25454b74c97ea14d086241f7"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-beagleplay-labs.pdf",
+    "pages": 75,
+    "status": "ok",
+    "sha256": "8156785866dc9ed485e143b5c0445fd4df475baec9ac955af430ac6f33375aa9"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-bbb-labs.pdf",
+    "pages": 71,
+    "status": "ok",
+    "sha256": "e6da184adba7a6c068f98543fa61f2f23c93ca56f527fa93de85bae828583d2e"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/embedded-linux-agenda.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "cb8b701a2fbeeffaa3f10a61c2da10c1e8b884937baf5a201a9092d08cb26645"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-slides.pdf",
+    "pages": 446,
+    "status": "ok",
+    "sha256": "6cfa456703f737f1a9e98f29a9558e10013f7e28ba062f8b6a4e856c83b7c3db"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-online-fr-agenda.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "6c5b228536a72f44e0a5e14b6a68c58ead58d120e23958bbd711327e61ca4d95"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-online-agenda.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "5cf981dac11011a4d9dcfec9cbb2114b285d9acbb222eb638aa168a0235b4de7"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-imx93-frdm-labs.pdf",
+    "pages": 52,
+    "status": "ok",
+    "sha256": "870de20b22e91064514258972679cf7d6006a2106beda0282029beaf247e98e9"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-fr-agenda.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "9b51315ad17d6ef50e05053d5a421fc6abc606d4c092d299fe6d8c2a0953283a"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-beagleplay-labs.pdf",
+    "pages": 53,
+    "status": "ok",
+    "sha256": "00feb0d33c00572ae26c0edb322515638f0bfc3363bd0b06006f1d6ee556b2b0"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-bbb-labs.pdf",
+    "pages": 55,
+    "status": "ok",
+    "sha256": "1d16598c5dd27798d842837c4be1dc9e11ba006f96eee54c4c6c628dfae59651"
+  },
+  {
+    "file": "42_Bootlin_Embedded_Linux_Training_Materials/linux-kernel-agenda.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "2ef76485c800bbb33d66a8b61e235b905963b5d8cc8266da1d6ac9eecf369a96"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/25_can_1986_to_2021.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "65d188c158da4fb5c9d81c27d377a2331a8b607b4a87413ff8eca6718a03e495"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/can_1986_to_2021.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "d64aa504ac2a7238bb6063ae82815002078d2c44a5a431638ae926a1cc393428"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/construction_machines.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "6eff356f53076969034951b57cd2c52bc73b1ad3c4c08e48831d3ef451ab6f29"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/can_in_rolling_stock.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "193b5983fb27acfb0bb24c5189bd531f6f0546ff9f9f6b07757b8cc2b98caf9e"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/cia_can_fd_light_2025.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "bdf02c9e482ffe4dd05873c59985b4e9588c151a38ba5615e7764e9dd08060d3"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/can_fd_light.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "4349e61fc5eeb97fbb8f7d747f4847983e7d0c0c7fd3bbc5d7d7017a74c4dae3"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/25_cia_embedded_ai.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "a6536c0105b924744a3a2efdc26899783d18f72f4b0d79229f3de1b6c9a9ce96"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/25_cia_documents.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "bd80f8869c7bc88c716365cb6ad8a6897b1f1c331c4c06c324359765814341f0"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/canopen_lift_2025.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "6448b01dd815506cd23d221fa9d6a06771e5557a221d6d9d02d8f4b6111791d6"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/cia_image.pdf",
+    "pages": 8,
+    "status": "ok",
+    "sha256": "2405e899e74288b1b87c99e847e523bb8889e4782781711f248354c256b7d78b"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/25_cia-464_welding_and_cutting.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "199ec18128c7339c6838d4b4c5a7a65031456e9e3696feb01d0ebc0e0c416ca3"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/cia_seminars.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "86d873cf3b3ddcdac7b77d14f93bf77a6223fba906a1b777341b1b6e05b39b4e"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/cia_can-xl.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "7f6753a75486bb285ba8fb319b4b3a2da06d1a7146374afd5bf60b779aef8fe9"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/cia_test_center.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "704a13821878f25710af810ea37d41153d45099e188917d0581d80556b24255c"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/cia_can_fd.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "457c2f4beb687ef81a9fe2972efca6a0422cbcc3fd161d83d0b9e61bdddfe078"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/19_canopen_fd.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "9f47630ac8dda89cd7033cdfa26949952880a8011a72cdc2a7ff8ca5e44e56db"
+  },
+  {
+    "file": "44_CAN_in_Automation_-_CAN_and_CAN_FD/can_dictionary_v13_2026.pdf",
+    "pages": 108,
+    "status": "ok",
+    "sha256": "28be60a46e17557523440e4353edb2445bfe90d3d3012c45c96138c6c832c1b4"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_EN.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "d7e48ae1068180b2b172a94b01748f51943861389790f9a0932d9c4858eda662"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_DE.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "35aca2738150798493b3f1da52281267b672629810365ab21c9cb7233ec1f51d"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_ES.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "51d61540e0990cafed1cd707bba0bb7fefa108a256a44dc3ac7ebcbb9954fad3"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_IT.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "a887bb059dc558f5f228b5b9bb97ba71c30957f3e16c1be99fe77113b89baabe"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_FR.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "5e670d8610bc7a634b8f60ba2fe54a481ac9d1c086d0ea80e176248a8417470e"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_CN.pdf",
+    "pages": 48,
+    "status": "ok",
+    "sha256": "88e5e8d0b7a4333bd17e0a20973d9ed459b505af0e3b8f9563b9b02c0b474f88"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_JP.pdf",
+    "pages": 44,
+    "status": "ok",
+    "sha256": "e70fb0138564c44869647e72a98c5ce0a588975fdf0df21e41e821f5b9575a44"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_KOR.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "584106d56bce0fed68f12e45c1700137904539e6af18f6bed1c05b10c5557268"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/Layering_with_TSN_and_EtherCAT.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "04325b67c08fa7ec297c06cf257aec64adb3fa844c5c5ee37af5d6b4f4729a17"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/Interview_Karl_Weber_Time-Sensitive-Networking_in_der_Automatisierung.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "ca5e7538ce79926b3551c5dd105b83b425e38b338d4b4f7c6540cfb641d65ea7"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/sps-magazin_ethercat_2012_11.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "c4f9688c1f00125c022b3126691e1fee9cb9475afd4b1eda795c807c928e5981"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG_Brochure_PT.pdf",
+    "pages": 25,
+    "status": "ok",
+    "sha256": "8b32830f1b3bdae490986c8ac63b19941de386c4a57262dba8b7acab2d6ca8b7"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Diagnosis_For_Users.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "2f37c0a41f0dfbf83085f067f3be70342411559b2dccd014d7c419c7e4d4cdb3"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Diagnosis_For_Users_DE.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "6c0d444b3a0cc17b6b3c274f5ba0a7da9e9ecb29ee667ccf7cc8f1f0dd79dfe6"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Diagnosis_For_Users_ES.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "5a2d6e6e9715087c0be77a850edbfd0aa8ef3e171dee3ca39fc405269db66ae1"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Diagnosis_For_Users_IT.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "8890cb0b3f8e0370a7a84e9d55385b0249fff2d500e81e2a5cbfb4f7da2ef6f8"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Diagnosis_For_Users_CN.pdf",
+    "pages": 37,
+    "status": "ok",
+    "sha256": "2f477f0b0938b0fd1724fb03802f25d86ea38bd503357eb4cb7d6fe54f9c830d"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Diagnosis_For_Users_JP.pdf",
+    "pages": 38,
+    "status": "ok",
+    "sha256": "d5a3572360192ea2f5f56c9453a51655a8e56783a3216f642f5c0a2fa0a6de37"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG2200_V3i2i3_G_R_EtherCATImplementationGuide.pdf",
+    "pages": 99,
+    "status": "ok",
+    "sha256": "4b8d78dcdfd3505721e7d39d805484054e175fc5765239c61d8a7e12a0aa2ed2"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ETG2200_G_R_V3i1i0_ImplGuide_Slave_J04.pdf",
+    "pages": 82,
+    "status": "ok",
+    "sha256": "7e5129ad0fefa43e53580cebfd14197bef8d6d6e8c6a8f034b27ee3d628da7a2"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/ESC_Overview.pdf",
+    "pages": 6,
+    "status": "ok",
+    "sha256": "6a78101730e12a643fb0ba2b72ebca6220c54d3ec5f4f58e0d2fe81145e7ab1c"
+  },
+  {
+    "file": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology/EtherCAT_Device_Protocol_Poster.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "dc1be3f0a4cbc56506a68e4e4b36c230331b3c2d349419b1e16bf943bd459876"
+  },
+  {
+    "file": "49_maxon_Motor_Data_Sheets_Explained/open_material_49.pdf",
+    "pages": 20,
+    "status": "ok",
+    "sha256": "ac83fe0a0fabce1d3c2b12611bc9ba25eb420fb6e5c2c7db22a875ce1da4c1ad"
+  },
+  {
+    "file": "49_maxon_Motor_Data_Sheets_Explained/8a871a8f_open_material_49.pdf",
+    "pages": 34,
+    "status": "ok",
+    "sha256": "137db9377660198c178f000e97e7274ff2d935f50fa8b71ea57bfc50693b8e59"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/tiducn1.pdf",
+    "pages": 37,
+    "status": "ok",
+    "sha256": "3cc08a48560a6f5a518da7702e69fd21c363f5aaf9e7a8cfa3929d6a12265a9b"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/tidrqy9.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "7db62f770bb8cc60d1c19c31fa7d3cb019be4b95f350620856a736b21b5c113d"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/tidrqy8.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "6629b82d9beb5686ded338c65db57ef24fd2c3de72336e090b45edc3f3db0785"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/tidrqz0.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "176d88a4284874701e03f2e7653b228edd75e92e3ffcdcb84c863b033ba4f0eb"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/tidrqy7.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "22cd4f937fefe746f3bb21c420a825024b8de6d4bb73c504c0907d13993c325a"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/slvu925c.pdf",
+    "pages": 66,
+    "status": "ok",
+    "sha256": "3fd1da76f5c485b19d5158bf49af70123fc34a8bf2fb2edd661454ea05f84e8a"
+  },
+  {
+    "file": "50_TI_Battery_Management_TIDA-00792/sluucm2a.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "8e08b2057db96751fcad4ef3fd1e6fe48379bc040f210f3affcd2007b10044b0"
+  },
+  {
+    "file": "51_TI_Three-Phase_Inverter_TIDA-010956/tiduf82b.pdf",
+    "pages": 27,
+    "status": "ok",
+    "sha256": "203d035c8eca0e2bd9a009b5f708ffdf12532a7cf5e9372c222e6d68cba0642c"
+  },
+  {
+    "file": "51_TI_Three-Phase_Inverter_TIDA-010956/tidmd39a.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "76ddded84f09c3a3d507b6c03b0e794eb28eae02a278ef4e45a2256316208654"
+  },
+  {
+    "file": "51_TI_Three-Phase_Inverter_TIDA-010956/tidmd41a.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "6255108199711b41f036c3c4a4d3b85abd03dfb7e456229bd2f21ec73028ac25"
+  },
+  {
+    "file": "51_TI_Three-Phase_Inverter_TIDA-010956/tidmd38a.pdf",
+    "pages": 13,
+    "status": "ok",
+    "sha256": "3a2984f344340c83e8682291d2fadc5488e515cab9abccbd11f177af8d7936b6"
+  },
+  {
+    "file": "51_TI_Three-Phase_Inverter_TIDA-010956/tidmd37a.pdf",
+    "pages": 7,
+    "status": "ok",
+    "sha256": "c2ceed39d3d5203b3492a9ccb794170fb00e22f825513568c223a92214a570b0"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/tiduds9b.pdf",
+    "pages": 35,
+    "status": "ok",
+    "sha256": "c011fa2afdbfa5a6466b1c24e91435d34250ce935a11734cc107a1dd1a197ea3"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/tidrva4a.pdf",
+    "pages": 3,
+    "status": "ok",
+    "sha256": "6dde34cff9c9194c6cfb95e40f88af2710c55367f0e98b2a30da5a91d7ee0e8c"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/tidrva3a.pdf",
+    "pages": 2,
+    "status": "ok",
+    "sha256": "733f20b3adee34e2667c7d60960ae0e160d43603c5138c4c0e39f47de9467b13"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/tidrva5a.pdf",
+    "pages": 11,
+    "status": "ok",
+    "sha256": "0c71e9520c8990aade2c9c8f5e4ad18ef0a04e0698f283a155a92245522229f3"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/tidrva2a.pdf",
+    "pages": 5,
+    "status": "ok",
+    "sha256": "a78941c568f28aae7dd44d109f65bbcaf4fb1221104f2b60d62ca634edc6795b"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/sffs422.pdf",
+    "pages": 17,
+    "status": "ok",
+    "sha256": "62a07999c946eaab934a0e01d09328a5a8d2fe77f9d113c746b2a0648a5145d6"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/tiduf02.pdf",
+    "pages": 9,
+    "status": "ok",
+    "sha256": "bfa3f3fc9cbb7b3da47997148ddaaa84740870e8441750094c69f74c9ece3724"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/slvaf31.pdf",
+    "pages": 4,
+    "status": "ok",
+    "sha256": "bbbf17d4e2ea09f8ca3da150fdf539818db563f6ba5e1637e2e00266caff2cf8"
+  },
+  {
+    "file": "52_TI_Safe_Torque_Off_TIDA-01599/ssiy006.pdf",
+    "pages": 80,
+    "status": "ok",
+    "sha256": "056cc8dabe640a265e39c26e0a86dc8e39c9a428290d91bb606560a4c62998a1"
+  }
+]

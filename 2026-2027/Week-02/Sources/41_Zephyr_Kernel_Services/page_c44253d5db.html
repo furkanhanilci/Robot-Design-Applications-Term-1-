@@ -1,0 +1,863 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floating Point Services &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/other/float.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Version" href="version.html" />
+    <link rel="prev" title="Atomic Services" href="atomic.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#other">Other</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="atomic.html">Atomic Services</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Floating Point Services</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#no-fp-registers-mode">No FP registers mode</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#unshared-fp-registers-mode">Unshared FP registers mode</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#shared-fp-registers-mode">Shared FP registers mode</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#performing-floating-point-arithmetic">Performing Floating Point Arithmetic</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="version.html">Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="assert.html">Assertions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fatal.html">Fatal Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_local_storage.html">Thread Local Storage (TLS)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Floating Point Services</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/other/float.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fother%2Ffloat%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fother%2Ffloat%0A-+Version%3A+main%0A-+SHA-1%3A+5318ea5e883b4f5c4df1b8490b7ffe9c59abad30&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="floating-point-services">
+<span id="float-v2"></span><h1>Floating Point Services<a class="headerlink" href="#floating-point-services" title="Link to this heading"></a></h1>
+<p>The kernel allows threads to use floating point registers on board
+configurations that support these registers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Floating point services are currently available only for boards
+based on ARM Cortex-M SoCs supporting the Floating Point Extension,
+the Intel x86 architecture, the SPARC architecture and ARCv2 SoCs
+supporting the Floating Point Extension. The services provided
+are architecture specific.</p>
+<p>The kernel does not support the use of floating point registers by ISRs.</p>
+</div>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#concepts" id="id1">Concepts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#no-fp-registers-mode" id="id2">No FP registers mode</a></p></li>
+<li><p><a class="reference internal" href="#unshared-fp-registers-mode" id="id3">Unshared FP registers mode</a></p></li>
+<li><p><a class="reference internal" href="#shared-fp-registers-mode" id="id4">Shared FP registers mode</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implementation" id="id5">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#performing-floating-point-arithmetic" id="id6">Performing Floating Point Arithmetic</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id7">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id8">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id9">API Reference</a></p></li>
+</ul>
+</nav>
+<section id="concepts">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<p>The kernel can be configured to provide only the floating point services
+required by an application. Three modes of operation are supported,
+which are described below. In addition, the kernel’s support for the SSE
+registers can be included or omitted, as desired.</p>
+<p>A thread’s participation in floating point context preservation can also be
+managed at run time. <a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga81fb955ddd41658a9aad5c083f173f77" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_enable()</span></code></a> enables preservation for a thread
+and accepts options – such as <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> and <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gaa5b7de51b26773aa4485a711a041d9a7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_SSE_REGS</span></code></a> –
+that select which register sets are preserved, while <a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga2df4b2550ace30512cddebd36b6a54a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_disable()</span></code></a>
+turns preservation off again. On targets that do not implement floating point
+context management these routines return <code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>, and they return
+<code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code> if the request is otherwise invalid and cannot be performed.</p>
+<section id="no-fp-registers-mode">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">No FP registers mode</a><a class="headerlink" href="#no-fp-registers-mode" title="Link to this heading"></a></h3>
+<p>This mode is used when the application has no threads that use floating point
+registers. It is the kernel’s default floating point services mode.</p>
+<p>If a thread uses any floating point register,
+the kernel generates a fatal error condition and aborts the thread.</p>
+</section>
+<section id="unshared-fp-registers-mode">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Unshared FP registers mode</a><a class="headerlink" href="#unshared-fp-registers-mode" title="Link to this heading"></a></h3>
+<p>This mode is used when the application has only a single thread
+that uses floating point registers.</p>
+<p>On x86 platforms, the kernel initializes the floating point registers so they can
+be used by any thread (initialization in skipped on ARM Cortex-M platforms and
+ARCv2 platforms). The floating point registers are left unchanged whenever a
+context switch occurs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The behavior is undefined, if two or more threads attempt to use
+the floating point registers, as the kernel does not attempt to detect
+(or prevent) multiple threads from using these registers.</p>
+</div>
+</section>
+<section id="shared-fp-registers-mode">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Shared FP registers mode</a><a class="headerlink" href="#shared-fp-registers-mode" title="Link to this heading"></a></h3>
+<p>This mode is used when the application has two or more threads that use
+floating point registers. Depending upon the underlying CPU architecture,
+the kernel supports one or more of the following thread sub-classes:</p>
+<ul class="simple">
+<li><p>non-user: A thread that cannot use any floating point registers</p></li>
+<li><p>FPU user: A thread that can use the standard floating point registers</p></li>
+<li><p>SSE user: A thread that can use both the standard floating point registers
+and SSE registers</p></li>
+</ul>
+<p>The kernel initializes and enables access to the floating point registers,
+so they can be used
+by any thread, then saves and restores these registers during
+context switches to ensure the computations performed by each FPU user
+or SSE user are not impacted by the computations performed by the other users.</p>
+<section id="arm-cortex-m-architecture-with-the-floating-point-extension">
+<h4>ARM Cortex-M architecture (with the Floating Point Extension)<a class="headerlink" href="#arm-cortex-m-architecture-with-the-floating-point-extension" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Shared FP registers mode is the default Floating Point
+Services mode in ARM Cortex-M.</p>
+</div>
+<p>On the ARM Cortex-M architecture with the Floating Point Extension, the kernel
+treats <em>all</em> threads as FPU users when shared FP registers mode is enabled.
+This means that any thread is allowed to access the floating point registers.
+The ARM kernel automatically detects that a given thread is using the floating
+point registers the first time the thread accesses them.</p>
+<p>Pretag a thread that intends to use the FP registers by
+using one of the techniques listed below.</p>
+<ul class="simple">
+<li><p>A statically-created ARM thread can be pretagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> option to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>.</p></li>
+<li><p>A dynamically-created ARM thread can be pretagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> option to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a>.</p></li>
+</ul>
+<p>Pretagging a thread with the <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> option instructs the
+MPU-based stack protection mechanism to properly configure the size of
+the thread’s guard region to always guarantee stack overflow detection,
+and enable lazy stacking for the given thread upon thread creation.</p>
+<p>During thread context switching the ARM kernel saves the <em>callee-saved</em>
+floating point registers, if the switched-out thread has been using them.
+Additionally, the <em>caller-saved</em> floating point registers are saved on
+the thread’s stack. If the switched-in thread has been using the floating
+point registers, the kernel restores the <em>callee-saved</em> FP registers of
+the switched-in thread and the <em>caller-saved</em> FP context is restored from
+the thread’s stack. Thus, the kernel does not save or restore the FP
+context of threads that are not using the FP registers.</p>
+<p>Each thread that intends to use the floating point registers must provide
+an extra 72 bytes of stack space where the callee-saved FP context can
+be saved.</p>
+<p><a class="reference external" href="https://developer.arm.com/documentation/dai0298/a">Lazy Stacking</a>
+is currently enabled in Zephyr applications on ARM Cortex-M
+architecture, minimizing interrupt latency, when the floating
+point context is active.</p>
+<p>When the MPU-based stack protection mechanism is not enabled, lazy stacking
+is always active in the Zephyr application. When the MPU-based stack protection
+is enabled, the following rules apply with respect to lazy stacking:</p>
+<ul class="simple">
+<li><p>Lazy stacking is activated by default on threads that are pretagged with
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a></p></li>
+<li><p>Lazy stacking is activated dynamically on threads that are not pretagged with
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a>, as soon as the kernel detects that they are using the
+floating point registers.</p></li>
+</ul>
+<p>If an ARM thread does not require use of the floating point registers any
+more, it can call <a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga2df4b2550ace30512cddebd36b6a54a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_disable()</span></code></a>. This instructs the kernel
+not to save or restore its FP context during thread context switching.</p>
+</section>
+<section id="arm64-architecture">
+<h4>ARM64 architecture<a class="headerlink" href="#arm64-architecture" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Shared FP registers mode is the default Floating Point
+Services mode on ARM64. The compiler is free to optimize code
+using FP/SIMD registers, and library functions such as memcpy
+are known to make use of them.</p>
+</div>
+<p>On the ARM64 (Aarch64) architecture the kernel treats each thread as a FPU
+user on a case-by-case basis. A “lazy save” algorithm is used during context
+switching which updates the floating point registers only when it is absolutely
+necessary. For example, the registers are <em>not</em> saved when switching from an
+FPU user to a non-user thread, and then back to the original FPU user.</p>
+<p>FPU register usage by ISRs is supported although not recommended. When an
+ISR uses floating point or SIMD registers, then the access is trapped, the
+current FPU user context is saved in the thread object and the ISR is resumed
+with interrupts disabled so to prevent another IRQ from interrupting the ISR
+and potentially requesting FPU usage. Because ISR don’t have a persistent
+register context, there are no provision for saving an ISR’s FPU context
+either, hence the IRQ disabling.</p>
+<p>Each thread object becomes 512 bytes larger when Shared FP registers mode
+is enabled.</p>
+</section>
+<section id="arcv2-architecture">
+<h4>ARCv2 architecture<a class="headerlink" href="#arcv2-architecture" title="Link to this heading"></a></h4>
+<p>On the ARCv2 architecture, the kernel treats each thread as a non-user
+or FPU user and the thread must be tagged by one of the
+following techniques.</p>
+<ul class="simple">
+<li><p>A statically-created ARC thread can be tagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> option to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>.</p></li>
+<li><p>A dynamically-created ARC thread can be tagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a>.</p></li>
+</ul>
+<p>If an ARC thread does not require use of the floating point registers any
+more, it can call <a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga2df4b2550ace30512cddebd36b6a54a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_disable()</span></code></a>. This instructs the kernel
+not to save or restore its FP context during thread context switching.</p>
+<p>During thread context switching the ARC kernel saves the <em>callee-saved</em>
+floating point registers, if the switched-out thread has been using them.
+Additionally, the <em>caller-saved</em> floating point registers are saved on
+the thread’s stack. If the switched-in thread has been using the floating
+point registers, the kernel restores the <em>callee-saved</em> FP registers of
+the switched-in thread and the <em>caller-saved</em> FP context is restored from
+the thread’s stack. Thus, the kernel does not save or restore the FP
+context of threads that are not using the FP registers. An extra 16 bytes
+(single floating point hardware) or 32 bytes (double floating point hardware)
+of stack space is required to load and store floating point registers.</p>
+</section>
+<section id="risc-v-architecture">
+<h4>RISC-V architecture<a class="headerlink" href="#risc-v-architecture" title="Link to this heading"></a></h4>
+<p>On the RISC-V architecture the kernel treats each thread as an FPU
+user on a case-by-case basis with the FPU access allocated on demand.
+A “lazy save” algorithm is used during context switching which updates
+the floating point registers only when it is absolutely necessary.
+For example, the FPU registers are <em>not</em> saved when switching from an
+FPU user to a non-user thread (or an FPU user that doesn’t touch the FPU
+during its scheduling slot), and then back to the original FPU user.</p>
+<p>FPU register usage by ISRs is supported although not recommended. When an
+ISR uses floating point or SIMD registers, then the access is trapped, the
+current FPU user context is saved in the thread object and the ISR is resumed
+with interrupts disabled so to prevent another IRQ from interrupting the ISR
+and potentially requesting FPU usage. Because ISR don’t have a persistent
+register context, there are no provision for saving an ISR’s FPU context
+either, hence the IRQ disabling.</p>
+<p>As an optimization, the FPU context is preemptively restored upon scheduling
+back an “active FPU user” thread that had its FPU context saved away due to
+FPU usage by another thread. Active FPU users are so designated when they
+make the FPU state “dirty” during their most recent scheduling slot before
+being scheduled out. So if a thread doesn’t modify the FPU state within its
+scheduling slot and another thread claims the FPU for itself afterwards then
+that first thread will be subjected to the on-demand regime and won’t have
+its FPU context restored until it attempts to access it again. But if that
+thread does modify the FPU before being scheduled out then it is likely to
+continue using it when scheduled back in and preemptively restoring its FPU
+context saves on the exception trap overhead that would occur otherwise.</p>
+<p>Each thread object becomes 136 bytes (single-precision floating point
+hardware) or 264 bytes (double-precision floating point hardware) larger
+when Shared FP registers mode is enabled.</p>
+</section>
+<section id="sparc-architecture">
+<h4>SPARC architecture<a class="headerlink" href="#sparc-architecture" title="Link to this heading"></a></h4>
+<p>On the SPARC architecture, the kernel treats each thread as a non-user
+or FPU user and the thread must be tagged by one of the
+following techniques:</p>
+<ul class="simple">
+<li><p>A statically-created thread can be tagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> option to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>.</p></li>
+<li><p>A dynamically-created thread can be tagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a>.</p></li>
+</ul>
+<p>During thread context switch at exit from interrupt handler, the SPARC
+kernel saves <em>all</em> floating point registers, if the FPU was enabled in
+the switched-out thread. Floating point registers are saved on the thread’s
+stack. Floating point registers are restored when a thread context is restored
+iff they were saved at the context save. Saving and restoring of the floating
+point registers is synchronous and thus not lazy. The FPU is always disabled
+when an ISR is called (independent of <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU_SHARING" title="CONFIG_FPU_SHARING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU_SHARING</span></code></a>).</p>
+<p>Floating point disabling with <a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga2df4b2550ace30512cddebd36b6a54a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_disable()</span></code></a> is not implemented.</p>
+<p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU_SHARING" title="CONFIG_FPU_SHARING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU_SHARING</span></code></a> is used, then 136 bytes of stack space
+is required for each FPU user thread to load and store floating point
+registers. No extra stack is required if <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU_SHARING" title="CONFIG_FPU_SHARING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU_SHARING</span></code></a> is
+not used.</p>
+</section>
+<section id="x86-architecture">
+<h4>x86 architecture<a class="headerlink" href="#x86-architecture" title="Link to this heading"></a></h4>
+<p>On the x86 architecture the kernel treats each thread as a non-user,
+FPU user or SSE user on a case-by-case basis. A “lazy save” algorithm is used
+during context switching which updates the floating point registers only when
+it is absolutely necessary. For example, the registers are <em>not</em> saved when
+switching from an FPU user to a non-user thread, and then back to the original
+FPU user. The following table indicates the amount of additional stack space a
+thread must provide so the registers can be saved properly.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Thread type</p></th>
+<th class="head"><p>FP register use</p></th>
+<th class="head"><p>Extra stack space required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cooperative</p></td>
+<td><p>any</p></td>
+<td><p>0 bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>preemptive</p></td>
+<td><p>none</p></td>
+<td><p>0 bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>preemptive</p></td>
+<td><p>FPU</p></td>
+<td><p>108 bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>preemptive</p></td>
+<td><p>SSE</p></td>
+<td><p>464 bytes</p></td>
+</tr>
+</tbody>
+</table>
+<p>The x86 kernel automatically detects that a given thread is using
+the floating point registers the first time the thread accesses them.
+The thread is tagged as an SSE user if the kernel has been configured
+to support the SSE registers, or as an FPU user if the SSE registers are
+not supported. If this would result in a thread that is an FPU user being
+tagged as an SSE user, or if the application wants to avoid the exception
+handling overhead involved in auto-tagging threads, it is possible to
+pretag a thread using one of the techniques listed below.</p>
+<ul class="simple">
+<li><p>A statically-created x86 thread can be pretagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gaa5b7de51b26773aa4485a711a041d9a7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_SSE_REGS</span></code></a> option to
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>.</p></li>
+<li><p>A dynamically-created x86 thread can be pretagged by passing the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gaa5b7de51b26773aa4485a711a041d9a7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_SSE_REGS</span></code></a> option to
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a>.</p></li>
+<li><p>An already-created x86 thread can pretag itself once it has started
+by passing the <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gaa5b7de51b26773aa4485a711a041d9a7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_SSE_REGS</span></code></a> option to
+<a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga81fb955ddd41658a9aad5c083f173f77" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_enable()</span></code></a>.</p></li>
+</ul>
+<p>If an x86 thread uses the floating point registers infrequently it can call
+<a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga2df4b2550ace30512cddebd36b6a54a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_disable()</span></code></a> to remove its tagging as an FPU user or SSE user.
+This eliminates the need for the kernel to take steps to preserve
+the contents of the floating point registers during context switches
+when there is no need to do so.
+When the thread again needs to use the floating point registers it can re-tag
+itself as an FPU user or SSE user by calling <a class="reference internal" href="../../../doxygen/html/group__float__apis.html#ga81fb955ddd41658a9aad5c083f173f77" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_float_enable()</span></code></a>.</p>
+</section>
+</section>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="performing-floating-point-arithmetic">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Performing Floating Point Arithmetic</a><a class="headerlink" href="#performing-floating-point-arithmetic" title="Link to this heading"></a></h3>
+<p>No special coding is required for a thread to use floating point arithmetic
+if the kernel is properly configured.</p>
+<p>The following code shows how a routine can use floating point arithmetic
+to avoid overflow issues when computing the average of a series of integer
+values.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num_values</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num_values</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">;</span>
+<span class="w">        </span><span class="n">values</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)((</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">num_values</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use the kernel floating point services when an application needs to
+perform floating point operations.</p>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>To configure unshared FP registers mode, enable the <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU" title="CONFIG_FPU"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU</span></code></a>
+configuration option and leave the <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU_SHARING" title="CONFIG_FPU_SHARING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU_SHARING</span></code></a> configuration
+option disabled.</p>
+<p>To configure shared FP registers mode, enable both the <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU" title="CONFIG_FPU"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU</span></code></a>
+configuration option and the <a class="reference internal" href="../../../kconfig.html#CONFIG_FPU_SHARING" title="CONFIG_FPU_SHARING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_FPU_SHARING</span></code></a> configuration option.
+Also, ensure that any thread that uses the floating point registers has
+sufficient added stack space for saving floating point register values
+during context switches, as described above.</p>
+<p>For x86, use the <a class="reference internal" href="../../../kconfig.html#CONFIG_X86_SSE" title="CONFIG_X86_SSE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_X86_SSE</span></code></a> configuration option to enable
+support for SSEx instructions.</p>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__float__apis.html" title=""><span class="pre">Floating</span> <span class="pre">Point</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Jun 29, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

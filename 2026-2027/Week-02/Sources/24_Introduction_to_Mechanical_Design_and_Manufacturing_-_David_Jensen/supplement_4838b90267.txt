@@ -1,0 +1,213 @@
+Models – The Language of Design – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Models – The Language of Design
+What is a model?
+One of the most important aspects of product design is communication. Communication between designers and developers, between developers and users, between users and other users. How can we ensure that everyone involved in the product development process understands the goals, the features, the constraints, and the feedback of the product? The answer is models.
+Models are the language of product design. They are simplified representations of reality that capture the essential aspects of a product and omit the irrelevant details. Models can take many forms, such as sketches, wireframes, prototypes, mockups, diagrams, flowcharts, user stories, personas, scenarios, etc. Models help designers to explore ideas, test assumptions, validate solutions, and communicate with stakeholders. Models also help developers to implement the product according to the design specifications and user needs. Models also help users to learn how to use the product and provide feedback on their experience.
+Models are not static or final. They are dynamic and iterative. They evolve as the product design process progresses and as new information and insights emerge. Models are not meant to be perfect or complete. They are meant to be useful and meaningful. Models are not meant to be taken literally or rigidly. They are meant to be interpreted and adapted. Models are not meant to be isolated or independent. They are meant to be connected and integrated.
+Models are the language of product design because they enable effective communication across different levels of abstraction, different stages of development, and different perspectives of involvement. By using models, product designers can create products that meet the needs and expectations of their users and stakeholders. Throughout the design process, you will develop and communicate with many different types of models. Let’s look at the most common types and their value.
+Symantec or Text-Based Models
+A semantic model is a way of describing a product or a system using natural language. It can help designers and stakeholders to communicate the purpose, functionality, and structure of the product or system. For example, a semantic model for a car might include statements like “A car is a vehicle that transports people and goods”, “A car has four wheels, an engine, a steering wheel, and a brake pedal”, and “A car can accelerate, decelerate, turn left, and turn right”. A semantic model can convey the essential features and behaviors of the product or system, as well as the relationships and dependencies among its components. Semantic models can also help to identify gaps, inconsistencies, or ambiguities in the design process. Typically, customer needs and engineering requirements are represented as semantic models.
+Semantic models, like any type of model, have some limitations.
+– They may not capture the symbolic qualities of form that convey psychological, social and cultural context to the users. Language is limited to describe the “feel” of a product.
+– They may not account for the diversity of views and interpretations among different users and organizations as it is impossible to capture all views in a limited amount of useful text.
+– They may not communicate effectively with other domains, such as manufacturing and engineering. With different standards and terminology, various misunderstanding can occur.
+Graphical Models
+A graphical model – A CAD based model.
+Source
+.
+Graphical models such as drawings, CAD models, and sketches are essential tools for product design. They allow designers to visualize their ideas, explore different options, and communicate with other designers and stakeholders. Graphical models can also help designers to test their assumptions, identify potential problems, and evaluate the feasibility and usability of their products. Graphical models include: 1)
+Concept sketches
+that are quick and rough drawings that capture the main features and functions of a product. They are used to generate and compare different alternatives in the early stages of design.2)
+Technical drawings
+that are detailed and precise drawings that show the dimensions, materials, and specifications of a product. They are used to document and communicate the final design for manufacturing and assembly. 3)
+CAD models
+that capture the geometric information of components, parts and assemblies. These are useful for developing analytical models and generating technical drawings.
+– However, graphical models also have some limitations such as:
+– They may not capture all the aspects and complexities of a product, such as its behavior, performance, or context of use.
+– They may be misinterpreted or misunderstood by different audiences, especially if they are not accompanied by clear explanations or annotations.
+– They may become outdated or irrelevant as the design process progresses and new information or feedback emerges.
+Analytical Models
+Computational model. Often these are implemented with analysis software like Matlab.
+Analytical models are mathematical representations of physical phenomena or systems that can be used in product design. They can take the form of equations or simulations that describe the behavior, performance, or interactions of a product or its components. For example, an analytical model can be used to calculate the stress and strain on a bridge, the airflow and drag on an airplane, or the heat transfer and energy consumption of a refrigerator.
+Analytical models have several advantages in product design. They can help designers to explore different design alternatives, optimize design parameters, and evaluate design trade-offs. They can also help designers to communicate their design rationale and decisions to other stakeholders, such as customers, managers, or regulators. By using analytical models, designers can demonstrate how their product meets the design specifications, requirements, and constraints.
+However, analytical models also have some limitations in product design. They often rely on simplifying assumptions and idealizations that may not reflect the real-world conditions or uncertainties. They may also be inaccurate or incomplete due to lack of data, measurement errors, or modeling errors. Therefore, analytical models should not be used as the sole basis for design decisions, but rather as a tool to support design reasoning and validation. Analytical models should be verified and validated by comparing them with experimental data, empirical evidence, or other sources of information.
+Physical Models – Prototypes
+Generated image illustrating 3D printing as a method for developing physical prototypes.
+Physical models are tangible representations of a product design that can be used for various purposes, such as testing, evaluation, communication and demonstration. Physical models can range proof-of-concept prototypes and mock-ups to high-fidelity prototypes and final products.
+A
+proof-of-concept prototype
+is a working model that demonstrates the feasibility of an idea. It is used in the early stages of product development to decide whether an idea is feasible enough to develop. A proof-of-concept prototype can help prevent resource waste, inform investors, identify roadblocks, and get ahead of the competition. However, a proof-of-concept prototype also has some limitations. It does not show how the product will look, function, or perform in the real world. It does not test the user experience, usability, or market demand of the product. It does not guarantee the success or profitability of the product. Therefore, a proof-of-concept prototype is only the first step in bringing an idea to life, and it should be followed by other stages of development such as prototyping, piloting, and minimum viable product (MVP).
+An
+industrial prototype
+is a sample of the final product that is used to test and evaluate its usability and aesthetics. It is useful for exploring solutions for the shape, feel, and interactions, identifying potential problems, and making changes before final production. Industrial prototypes can be expensive, time-consuming, and wasteful depending on the number of iterations and revisions required. It can also be challenging to ensure that the prototype matches the final product in terms of quality, performance, and reliability. Developing useful industrial prototypes often requires finding skilled technical artists to properly develop a useful model.
+A
+functional prototype
+is a type of prototype that demonstrates the functionality and performance of a product. It is useful for testing the feasibility, usability and user satisfaction of a product before launching it to the market. However, a functional prototype may not reflect the final appearance, materials or dimensions of a product, and it may require more time and resources to develop than other types of prototypes. A functional prototype will often not address uncertainty in manufacturing methods or consumer satisfaction.
+A
+manufacturing or assembly prototype
+is a physical model of a product that is made using the same materials, manufacturing, and assembly processes as the final product. These are often called “Alpha prototypes” as well. They are useful for testing the functionality, quality and durability of the product before mass production. It is also useful for validating the desired manufacturing and assembly process and procedures. The limitations of a manufacturing prototype are that it can be expensive, time-consuming and risky to produce, and it may not reflect the actual market demand or customer feedback for the product.
+In later chapters we will discuss the development of different types of prototypes and their value in the design process.
+Previous/next navigation
+Previous: Case Study – Design Vision
+Next: Wrap up – Design Primitives and Fundamentals
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

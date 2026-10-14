@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+  <style>
+<!--
+/* Font Definitions */
+@font-face
+{font-family:"Cambria Math";
+panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+{font-family:Calibri;
+panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+{font-family:"Bookman Old Style";
+panose-1:2 5 6 4 5 5 5 2 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+{margin-top:0in;
+margin-right:0in;
+margin-bottom:8.0pt;
+margin-left:0in;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+{mso-style-link:"Body Text Char";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:56.9pt;
+text-align:justify;
+font-size:10.0pt;
+font-family:"Times New Roman","serif";}
+span.BodyTextChar
+{mso-style-name:"Body Text Char";
+mso-style-link:"Body Text";
+font-family:"Times New Roman","serif";}
+p.SubtitleCover, li.SubtitleCover, div.SubtitleCover
+{mso-style-name:"Subtitle Cover";
+margin:0in;
+margin-bottom:.0001pt;
+text-align:center;
+line-height:22.0pt;
+page-break-after:avoid;
+border:none;
+padding:0in;
+font-size:18.0pt;
+font-family:"Bookman Old Style","serif";
+text-transform:uppercase;
+letter-spacing:1.5pt;}
+p.TitleCover, li.TitleCover, div.TitleCover
+{mso-style-name:"Title Cover";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:12.0pt;
+margin-left:0in;
+text-align:center;
+line-height:36.0pt;
+page-break-after:avoid;
+font-size:32.0pt;
+font-family:"Bookman Old Style","serif";
+text-transform:uppercase;
+letter-spacing:3.25pt;}
+.MsoChpDefault
+{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+{margin-bottom:8.0pt;
+line-height:107%;}
+@page WordSection1
+{size:8.5in 11.0in;
+margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+{page:WordSection1;}
+-->
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+  </style>
+  <title>Embedded Systems - Shape The World</title>
+</head>
+<body lang="EN-US">
+<div class="WordSection1">
+<p align="center"><font face="Garamond" size="7"><span lang="X-NONE">E</span>m<span
+ lang="X-NONE">bedded Systems</span>
+- Shape The World</font></p>
+ <p class="MsoNormal"
+ style="text-align: center; font-style: italic;" align="center"><font
+ size="4">Jonathan
+Valvano
+and Ramesh Yerraballi</font></p>
+<h2>Index</h2>
+
+<table >
+<tr><td>2-bit DAC circuit&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_2"target="_blank">eBook Section&nbsp;13.2</a>&nbsp;</td></tr>
+<tr><td>AAPCS&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_5"target="_blank">eBook Section&nbsp;2.5</a>&nbsp;</td></tr>
+<tr><td>Abstraction&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Accuracy of a DAC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_2"target="_blank">eBook Section&nbsp;13.2</a>&nbsp;</td></tr>
+<tr><td>Acknowledge interrupt&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_1"target="_blank">eBook Section&nbsp;12.1</a>&nbsp;</td></tr>
+<tr><td>ADC introduction&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_1"target="_blank">eBook Section&nbsp;14.1</a>&nbsp;</td></tr>
+<tr><td>ADC on the TM4C123&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_2"target="_blank">eBook Section&nbsp;14.2</a>&nbsp;</td></tr>
+<tr><td>ADC software&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_2"target="_blank">eBook Section&nbsp;14.2</a>&nbsp;</td></tr>
+<tr><td>Adder&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_4"target="_blank">eBook Section&nbsp;4.4</a>&nbsp;</td></tr>
+<tr><td>Address map&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_7"target="_blank">eBook Section&nbsp;2.7</a>&nbsp;</td></tr>
+<tr><td>Aliasing&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_3"target="_blank">eBook Section&nbsp;14.3</a>&nbsp;</td></tr>
+<tr><td>AND operation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_2"target="_blank">eBook Section&nbsp;4.2</a>&nbsp;</td></tr>
+<tr><td>Animation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_4"target="_blank">eBook Section&nbsp;15.4</a>&nbsp;</td></tr>
+<tr><td>Arm interrupt&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_1"target="_blank">eBook Section&nbsp;12.1</a>&nbsp;</td></tr>
+<tr><td>Arrays&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_3"target="_blank">eBook Section&nbsp;9.3</a>&nbsp;</td></tr>
+<tr><td>Assembly language&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_6"target="_blank">eBook Section&nbsp;2.6</a>&nbsp;</td></tr>
+<tr><td>Associativity in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_3"target="_blank">eBook Section&nbsp;5.3</a>&nbsp;</td></tr>
+<tr><td>Autonomous robot car&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_5"target="_blank">eBook Section&nbsp;10.5</a>&nbsp;</td></tr>
+<tr><td>B3F switch&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_2"target="_blank">eBook Section&nbsp;8.2</a>&nbsp;</td></tr>
+<tr><td>Bandwidth&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Battery&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Baud rate&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>Baud rate setting&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>Binary&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_1"target="_blank">eBook Section&nbsp;2.1</a>&nbsp;</td></tr>
+<tr><td>Binary weighted DAC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_2"target="_blank">eBook Section&nbsp;13.2</a>&nbsp;</td></tr>
+<tr><td>Bipolar stepper motor&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_5"target="_blank">eBook Section&nbsp;10.5</a>&nbsp;</td></tr>
+<tr><td>Bit specific addressing&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_3"target="_blank">eBook Section&nbsp;6.3</a>&nbsp;</td></tr>
+<tr><td>Black box testing&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_1"target="_blank">eBook Section&nbsp;9.1</a>&nbsp;</td></tr>
+<tr><td>Blind cycle synchronization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>BMP images&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_3"target="_blank">eBook Section&nbsp;15.3</a>&nbsp;</td></tr>
+<tr><td>Boolean Algebra&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_2"target="_blank">eBook Section&nbsp;4.2</a>&nbsp;</td></tr>
+<tr><td>Breakpoint&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_6"target="_blank">eBook Section&nbsp;7.6</a>&nbsp;</td></tr>
+<tr><td>Breakpoint&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_5"target="_blank">eBook Section&nbsp;9.5</a>&nbsp;</td></tr>
+<tr><td>Buffered I/O&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Busy wait&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Call by reference&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_4"target="_blank">eBook Section&nbsp;7.4</a>&nbsp;</td></tr>
+<tr><td>Call by value&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_4"target="_blank">eBook Section&nbsp;7.4</a>&nbsp;</td></tr>
+<tr><td>Call graph&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_1"target="_blank">eBook Section&nbsp;7.1</a>&nbsp;</td></tr>
+<tr><td>Call graph for Lab 15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Chat tool&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_4"target="_blank">eBook Section&nbsp;11.4</a>&nbsp;</td></tr>
+<tr><td>Chord. music&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Circuits&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Complexity&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Context switch&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Control System&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_5"target="_blank">eBook Section&nbsp;14.5</a>&nbsp;</td></tr>
+<tr><td>CPU bound&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Current&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Current divider&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_1"target="_blank">eBook Section&nbsp;3.1</a>&nbsp;</td></tr>
+<tr><td>Current sense amplifier&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_1"target="_blank">eBook Section&nbsp;10.1</a>&nbsp;</td></tr>
+<tr><td>DAC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_2"target="_blank">eBook Section&nbsp;13.2</a>&nbsp;</td></tr>
+<tr><td>Data acquisition&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_1"target="_blank">eBook Section&nbsp;14.1</a>&nbsp;</td></tr>
+<tr><td>Data acquisition system&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_4"target="_blank">eBook Section&nbsp;14.4</a>&nbsp;</td></tr>
+<tr><td>Data flow graph&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_1"target="_blank">eBook Section&nbsp;7.1</a>&nbsp;</td></tr>
+<tr><td>Data flow graph for Lab 15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Data types in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_3"target="_blank">eBook Section&nbsp;5.3</a>&nbsp;</td></tr>
+<tr><td>DC motor&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_6"target="_blank">eBook Section&nbsp;12.6</a>&nbsp;</td></tr>
+<tr><td>Debouncing a switch&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_2"target="_blank">eBook Section&nbsp;8.2</a>&nbsp;</td></tr>
+<tr><td>Debugging&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_1"target="_blank">eBook Section&nbsp;9.1</a>&nbsp;</td></tr>
+<tr><td>Digitization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_1"target="_blank">eBook Section&nbsp;13.1</a>&nbsp;</td></tr>
+<tr><td>Distance sensor&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_5"target="_blank">eBook Section&nbsp;14.5</a>&nbsp;</td></tr>
+<tr><td>Distributed systems&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_4"target="_blank">eBook Section&nbsp;11.4</a>&nbsp;</td></tr>
+<tr><td>DMA&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>do while loop&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_5"target="_blank">eBook Section&nbsp;7.5</a>&nbsp;</td></tr>
+<tr><td>Driver&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_3"target="_blank">eBook Section&nbsp;8.3</a>&nbsp;</td></tr>
+<tr><td>Dump&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_5"target="_blank">eBook Section&nbsp;9.5</a>&nbsp;</td></tr>
+<tr><td>Edge-triggered interrupt&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_4"target="_blank">eBook Section&nbsp;12.4</a>&nbsp;</td></tr>
+<tr><td>Elapsed time&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_2"target="_blank">eBook Section&nbsp;9.2</a>&nbsp;</td></tr>
+<tr><td>Electical circuits&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Enable/disable interrupt&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Energy&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Envelope, music&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Expressions in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_3"target="_blank">eBook Section&nbsp;5.3</a>&nbsp;</td></tr>
+<tr><td>FIFO queue concept&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Finite state machines&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>Flip flop&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_3"target="_blank">eBook Section&nbsp;4.3</a>&nbsp;</td></tr>
+<tr><td>Flowchart&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_0"target="_blank">eBook Section&nbsp;5</a>&nbsp;</td></tr>
+<tr><td>Flowchart for Lab 15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>for loop&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_5"target="_blank">eBook Section&nbsp;7.5</a>&nbsp;</td></tr>
+<tr><td>Frame&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>Friendly code&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_3"target="_blank">eBook Section&nbsp;6.3</a>&nbsp;</td></tr>
+<tr><td>Functional debugging&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_6"target="_blank">eBook Section&nbsp;7.6</a>&nbsp;</td></tr>
+<tr><td>Functional debugging&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_5"target="_blank">eBook Section&nbsp;9.5</a>&nbsp;</td></tr>
+<tr><td>Functions in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_4"target="_blank">eBook Section&nbsp;5.4</a>&nbsp;</td></tr>
+<tr><td>Game engine&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_4"target="_blank">eBook Section&nbsp;15.4</a>&nbsp;</td></tr>
+<tr><td>Gibibyte&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_5"target="_blank">eBook Section&nbsp;4.5</a>&nbsp;</td></tr>
+<tr><td>GPIO registers&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_3"target="_blank">eBook Section&nbsp;6.3</a>&nbsp;</td></tr>
+<tr><td>GPIO registers, detailed&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_4"target="_blank">eBook Section&nbsp;12.4</a>&nbsp;</td></tr>
+<tr><td>Graphics LCD&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_5"target="_blank">eBook Section&nbsp;11.5</a>&nbsp;</td></tr>
+<tr><td>Graphics output&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_3"target="_blank">eBook Section&nbsp;15.3</a>&nbsp;</td></tr>
+<tr><td>Hard fault&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_5"target="_blank">eBook Section&nbsp;15.5</a>&nbsp;</td></tr>
+<tr><td>Heartbeat&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_4"target="_blank">eBook Section&nbsp;6.4</a>&nbsp;</td></tr>
+<tr><td>Hexadecimal&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_1"target="_blank">eBook Section&nbsp;2.1</a>&nbsp;</td></tr>
+<tr><td>HLMP-D150 LED&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_3"target="_blank">eBook Section&nbsp;8.3</a>&nbsp;</td></tr>
+<tr><td>I/O bound&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>I/O pin&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_2"target="_blank">eBook Section&nbsp;6.2</a>&nbsp;</td></tr>
+<tr><td>I/O ports&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_4"target="_blank">eBook Section&nbsp;2.4</a>&nbsp;</td></tr>
+<tr><td>if then&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_5"target="_blank">eBook Section&nbsp;7.5</a>&nbsp;</td></tr>
+<tr><td>Image&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_3"target="_blank">eBook Section&nbsp;15.3</a>&nbsp;</td></tr>
+<tr><td>Information hiding&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Input port&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_2"target="_blank">eBook Section&nbsp;6.2</a>&nbsp;</td></tr>
+<tr><td>Instrument, music&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Interrupt priority&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Interrupt vector&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Interrupts&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_1"target="_blank">eBook Section&nbsp;12.1</a>&nbsp;</td></tr>
+<tr><td>Intrusive&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_1"target="_blank">eBook Section&nbsp;9.1</a>&nbsp;</td></tr>
+<tr><td>IR distance sensor&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_5"target="_blank">eBook Section&nbsp;14.5</a>&nbsp;</td></tr>
+<tr><td>Kibibyte&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_5"target="_blank">eBook Section&nbsp;4.5</a>&nbsp;</td></tr>
+<tr><td>Kirchhoff KCL KVL&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_1"target="_blank">eBook Section&nbsp;3.1</a>&nbsp;</td></tr>
+<tr><td>L293 motor driver&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_5"target="_blank">eBook Section&nbsp;10.5</a>&nbsp;</td></tr>
+<tr><td>Latency&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>LCD&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_5"target="_blank">eBook Section&nbsp;11.5</a>&nbsp;</td></tr>
+<tr><td>LED interface&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_3"target="_blank">eBook Section&nbsp;8.3</a>&nbsp;</td></tr>
+<tr><td>Legacy clock registers&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_5"target="_blank">eBook Section&nbsp;15.5</a>&nbsp;</td></tr>
+<tr><td>Line tracking robot&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>Linear congruential multiplier&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_6"target="_blank">eBook Section&nbsp;15.6</a>&nbsp;</td></tr>
+<tr><td>Logic analyzer&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_5"target="_blank">eBook Section&nbsp;6.5</a>&nbsp;</td></tr>
+<tr><td>Logic operations&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_2"target="_blank">eBook Section&nbsp;4.2</a>&nbsp;</td></tr>
+<tr><td>Loudness of sound&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Low power design&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_1"target="_blank">eBook Section&nbsp;10.1</a>&nbsp;</td></tr>
+<tr><td>Mailbox&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_2"target="_blank">eBook Section&nbsp;12.2</a>&nbsp;</td></tr>
+<tr><td>Maintanence&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_3"target="_blank">eBook Section&nbsp;7.3</a>&nbsp;</td></tr>
+<tr><td>Maintanence&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Matrix&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_3"target="_blank">eBook Section&nbsp;15.3</a>&nbsp;</td></tr>
+<tr><td>MAX3232 serial driver&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>Mealy FSM&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>Mebibyte&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_5"target="_blank">eBook Section&nbsp;4.5</a>&nbsp;</td></tr>
+<tr><td>Memory&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_5"target="_blank">eBook Section&nbsp;4.5</a>&nbsp;</td></tr>
+<tr><td>Modular code&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_4"target="_blank">eBook Section&nbsp;7.4</a>&nbsp;</td></tr>
+<tr><td>Modular design&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Monotonic ADC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_1"target="_blank">eBook Section&nbsp;14.1</a>&nbsp;</td></tr>
+<tr><td>Moore FSM&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>MOS transistors&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_1"target="_blank">eBook Section&nbsp;4.1</a>&nbsp;</td></tr>
+<tr><td>Motor control&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_7"target="_blank">eBook Section&nbsp;12.7</a>&nbsp;</td></tr>
+<tr><td>Motor interface&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_6"target="_blank">eBook Section&nbsp;12.6</a>&nbsp;</td></tr>
+<tr><td>Music introduction&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Network topology&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_4"target="_blank">eBook Section&nbsp;11.4</a>&nbsp;</td></tr>
+<tr><td>Nokia 5110&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_5"target="_blank">eBook Section&nbsp;11.5</a>&nbsp;</td></tr>
+<tr><td>Nonintrusive&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_1"target="_blank">eBook Section&nbsp;9.1</a>&nbsp;</td></tr>
+<tr><td>Number conversion&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_1"target="_blank">eBook Section&nbsp;2.1</a>&nbsp;</td></tr>
+<tr><td>Number conversion example&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_3"target="_blank">eBook Section&nbsp;11.3</a>&nbsp;</td></tr>
+<tr><td>NVIC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Nyquist Theorem&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_1"target="_blank">eBook Section&nbsp;13.1</a>&nbsp;</td></tr>
+<tr><td>Nyquist Theorem, detailed&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_3"target="_blank">eBook Section&nbsp;14.3</a>&nbsp;</td></tr>
+<tr><td>Odd 1's detector&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>Ohm's Law&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Operations in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_3"target="_blank">eBook Section&nbsp;5.3</a>&nbsp;</td></tr>
+<tr><td>OR operation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_2"target="_blank">eBook Section&nbsp;4.2</a>&nbsp;</td></tr>
+<tr><td>Output port&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_2"target="_blank">eBook Section&nbsp;6.2</a>&nbsp;</td></tr>
+<tr><td>Overrun&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>parallel port&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_3"target="_blank">eBook Section&nbsp;6.3</a>&nbsp;</td></tr>
+<tr><td>Parameters in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_4"target="_blank">eBook Section&nbsp;5.4</a>&nbsp;</td></tr>
+<tr><td>Parity&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>PCTL&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_1"target="_blank">eBook Section&nbsp;6.1</a>&nbsp;</td></tr>
+<tr><td>Periodic interrupt&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_5"target="_blank">eBook Section&nbsp;15.5</a>&nbsp;</td></tr>
+<tr><td>Periodic polling&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Periodic polling example&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_5"target="_blank">eBook Section&nbsp;12.5</a>&nbsp;</td></tr>
+<tr><td>Phase Lock Loop (PLL)&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_1"target="_blank">eBook Section&nbsp;10.1</a>&nbsp;</td></tr>
+<tr><td>Pitch&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm"target="_blank">eBook Section&nbsp;13</a>&nbsp;</td></tr>
+<tr><td>Port F initialization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_3"target="_blank">eBook Section&nbsp;6.3</a>&nbsp;</td></tr>
+<tr><td>Port initialization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_3"target="_blank">eBook Section&nbsp;6.3</a>&nbsp;</td></tr>
+<tr><td>Ports&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_4"target="_blank">eBook Section&nbsp;2.4</a>&nbsp;</td></tr>
+<tr><td>Power&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Precedence in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_3"target="_blank">eBook Section&nbsp;5.3</a>&nbsp;</td></tr>
+<tr><td>Precision of a DAC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_2"target="_blank">eBook Section&nbsp;13.2</a>&nbsp;</td></tr>
+<tr><td>printf in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_2"target="_blank">eBook Section&nbsp;5.2</a>&nbsp;</td></tr>
+<tr><td>Priority&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Procedure Call Standard&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_5"target="_blank">eBook Section&nbsp;2.5</a>&nbsp;</td></tr>
+<tr><td>Pull up and pull down&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_4"target="_blank">eBook Section&nbsp;12.4</a>&nbsp;</td></tr>
+<tr><td>Pulse width modulation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_6"target="_blank">eBook Section&nbsp;12.6</a>&nbsp;</td></tr>
+<tr><td>Punctuation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_2"target="_blank">eBook Section&nbsp;5.2</a>&nbsp;</td></tr>
+<tr><td>PWM software&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_6"target="_blank">eBook Section&nbsp;12.6</a>&nbsp;</td></tr>
+<tr><td>R-2R DAC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Random number generator&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_6"target="_blank">eBook Section&nbsp;15.6</a>&nbsp;</td></tr>
+<tr><td>Real time&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Registers&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm#2_5"target="_blank">eBook Section&nbsp;2.5</a>&nbsp;</td></tr>
+<tr><td>Requirements document&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_1"target="_blank">eBook Section&nbsp;7.1</a>&nbsp;</td></tr>
+<tr><td>Requirements document example&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_4"target="_blank">eBook Section&nbsp;8.4</a>&nbsp;</td></tr>
+<tr><td>Requirements document for Lab15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm"target="_blank">eBook Section&nbsp;15.1</a>&nbsp;</td></tr>
+<tr><td>Resistance&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Resistor divider&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_1"target="_blank">eBook Section&nbsp;3.1</a>&nbsp;</td></tr>
+<tr><td>Resolution of a DAC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_2"target="_blank">eBook Section&nbsp;13.2</a>&nbsp;</td></tr>
+<tr><td>Ring network&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_4"target="_blank">eBook Section&nbsp;11.4</a>&nbsp;</td></tr>
+<tr><td>Robot car controller&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_5"target="_blank">eBook Section&nbsp;14.5</a>&nbsp;</td></tr>
+<tr><td>Robot car motor circuit&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_7"target="_blank">eBook Section&nbsp;12.7</a>&nbsp;</td></tr>
+<tr><td>Row major allocation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_3"target="_blank">eBook Section&nbsp;15.3</a>&nbsp;</td></tr>
+<tr><td>RS232&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>Sampling&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_1"target="_blank">eBook Section&nbsp;13.1</a>&nbsp;</td></tr>
+<tr><td>scanf in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_6"target="_blank">eBook Section&nbsp;5.6</a>&nbsp;</td></tr>
+<tr><td>Semaphore&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_2"target="_blank">eBook Section&nbsp;12.2</a>&nbsp;</td></tr>
+<tr><td>Sensors&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm"target="_blank">eBook Section&nbsp;14</a>&nbsp;</td></tr>
+<tr><td>Serial communication&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm"target="_blank">eBook Section&nbsp;11</a>&nbsp;</td></tr>
+<tr><td>Sine wave tone&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Solderless breadboard&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_1"target="_blank">eBook Section&nbsp;8.1</a>&nbsp;</td></tr>
+<tr><td>Sound introduction&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm"target="_blank">eBook Section&nbsp;13</a>&nbsp;</td></tr>
+<tr><td>Sound play Lab 15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_5"target="_blank">eBook Section&nbsp;15.5</a>&nbsp;</td></tr>
+<tr><td>Sound, detailed&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Speaker, squarewave tone&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_5"target="_blank">eBook Section&nbsp;12.5</a>&nbsp;</td></tr>
+<tr><td>Speakers&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_3"target="_blank">eBook Section&nbsp;13.3</a>&nbsp;</td></tr>
+<tr><td>Sprites&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_3"target="_blank">eBook Section&nbsp;15.3</a>&nbsp;</td></tr>
+<tr><td>SSI&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_5"target="_blank">eBook Section&nbsp;11.5</a>&nbsp;</td></tr>
+<tr><td>Stabilization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_1"target="_blank">eBook Section&nbsp;9.1</a>&nbsp;</td></tr>
+<tr><td>Stabilization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_5"target="_blank">eBook Section&nbsp;9.5</a>&nbsp;</td></tr>
+<tr><td>Stepper motor&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_5"target="_blank">eBook Section&nbsp;10.5</a>&nbsp;</td></tr>
+<tr><td>Strings&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_4"target="_blank">eBook Section&nbsp;9.4</a>&nbsp;</td></tr>
+<tr><td>Structured programming&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_2"target="_blank">eBook Section&nbsp;7.2</a>&nbsp;</td></tr>
+<tr><td>Structures in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_3"target="_blank">eBook Section&nbsp;10.3</a>&nbsp;</td></tr>
+<tr><td>Structures in Lab 15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_4"target="_blank">eBook Section&nbsp;15.4</a>&nbsp;</td></tr>
+<tr><td>Successive approximation&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_1"target="_blank">eBook Section&nbsp;14.1</a>&nbsp;</td></tr>
+<tr><td>Successive refinement&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_2"target="_blank">eBook Section&nbsp;7.2</a>&nbsp;</td></tr>
+<tr><td>Successive refinement example&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_3"target="_blank">eBook Section&nbsp;11.3</a>&nbsp;</td></tr>
+<tr><td>Successive refinement Lab 15&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_2"target="_blank">eBook Section&nbsp;15.2</a>&nbsp;</td></tr>
+<tr><td>Switch bounce&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_4"target="_blank">eBook Section&nbsp;12.4</a>&nbsp;</td></tr>
+<tr><td>Switch interface&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_2"target="_blank">eBook Section&nbsp;8.2</a>&nbsp;</td></tr>
+<tr><td>switch statement&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_5"target="_blank">eBook Section&nbsp;7.5</a>&nbsp;</td></tr>
+<tr><td>Synchronization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>SysTick initialization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_2"target="_blank">eBook Section&nbsp;9.2</a>&nbsp;</td></tr>
+<tr><td>SysTick interrupts&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_5"target="_blank">eBook Section&nbsp;12.5</a>&nbsp;</td></tr>
+<tr><td>SysTick_Wait&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_2"target="_blank">eBook Section&nbsp;10.2</a>&nbsp;</td></tr>
+<tr><td>Tactile switch&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm#8_2"target="_blank">eBook Section&nbsp;8.2</a>&nbsp;</td></tr>
+<tr><td>Temp, music&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm#13_4"target="_blank">eBook Section&nbsp;13.4</a>&nbsp;</td></tr>
+<tr><td>Thread synchronization&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_2"target="_blank">eBook Section&nbsp;12.2</a>&nbsp;</td></tr>
+<tr><td>Throughput&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_1"target="_blank">eBook Section&nbsp;11.1</a>&nbsp;</td></tr>
+<tr><td>Time delay&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_2"target="_blank">eBook Section&nbsp;10.2</a>&nbsp;</td></tr>
+<tr><td>Timer periodic interrupt&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_5"target="_blank">eBook Section&nbsp;15.5</a>&nbsp;</td></tr>
+<tr><td>Timer triggered ADC&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_2"target="_blank">eBook Section&nbsp;14.2</a>&nbsp;</td></tr>
+<tr><td>TIP120&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_6"target="_blank">eBook Section&nbsp;12.6</a>&nbsp;</td></tr>
+<tr><td>TIP120 in robot&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_5"target="_blank">eBook Section&nbsp;14.5</a>&nbsp;</td></tr>
+<tr><td>TM4C123 pins&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm#6_1"target="_blank">eBook Section&nbsp;6.1</a>&nbsp;</td></tr>
+<tr><td>Traffic Light Controller&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>Transducer&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_4"target="_blank">eBook Section&nbsp;14.4</a>&nbsp;</td></tr>
+<tr><td>Transistors&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_1"target="_blank">eBook Section&nbsp;4.1</a>&nbsp;</td></tr>
+<tr><td>Trigger&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_1"target="_blank">eBook Section&nbsp;12.1</a>&nbsp;</td></tr>
+<tr><td>Tristate&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_3"target="_blank">eBook Section&nbsp;4.3</a>&nbsp;</td></tr>
+<tr><td>UART&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>UART decimal I/O&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_3"target="_blank">eBook Section&nbsp;11.3</a>&nbsp;</td></tr>
+<tr><td>UART device driver&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm#11_2"target="_blank">eBook Section&nbsp;11.2</a>&nbsp;</td></tr>
+<tr><td>Unipolar stepper motor&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_5"target="_blank">eBook Section&nbsp;10.5</a>&nbsp;</td></tr>
+<tr><td>Variables in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_3"target="_blank">eBook Section&nbsp;5.3</a>&nbsp;</td></tr>
+<tr><td>Vector&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm#12_3"target="_blank">eBook Section&nbsp;12.3</a>&nbsp;</td></tr>
+<tr><td>Vending Machine&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm#10_4"target="_blank">eBook Section&nbsp;10.4</a>&nbsp;</td></tr>
+<tr><td>VIL and VIH&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_1"target="_blank">eBook Section&nbsp;4.1</a>&nbsp;</td></tr>
+<tr><td>VOL and VOH&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm#4_1"target="_blank">eBook Section&nbsp;4.1</a>&nbsp;</td></tr>
+<tr><td>volatile in C&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm#5_7"target="_blank">eBook Section&nbsp;5.7</a>&nbsp;</td></tr>
+<tr><td>Voltage&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm#3_0"target="_blank">eBook Section&nbsp;3</a>&nbsp;</td></tr>
+<tr><td>Wally the wall follower&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm#14_5"target="_blank">eBook Section&nbsp;14.5</a>&nbsp;</td></tr>
+<tr><td>WAV files&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm#15_5"target="_blank">eBook Section&nbsp;15.5</a>&nbsp;</td></tr>
+<tr><td>while loop statement&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm#7_5"target="_blank">eBook Section&nbsp;7.5</a>&nbsp;</td></tr>
+<tr><td>White box testing&nbsp;</td><td><a href = "http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm#9_1"target="_blank">eBook Section&nbsp;9.1</a>&nbsp;</td></tr>
+
+
+</table>
+
+<p class="MsoBodyText" style="text-align: center;" align="center"><span
+ lang="X-NONE">&nbsp;</span></p>
+<p> This material is being developed for an online class that is
+running January 2015 to May 2015 on the EdX platform. This website
+is meant to supplement not replace the content on edX. This site has
+been our sandbox where we first built the information before uploading
+to edX. If you need closed captions, please use the edX site because
+the captions on edX have been reviewed and edited by Valvano and
+Yerraballi.
+When viewing the videos on YouTube you can activate their closed
+captioning, but these captions have not been reviewed or edited.
+However, many students have asked for two things: 1) a more linear or
+book-like resource of the class material; and 2) a list of the video
+links.
+This website provides both. All videos are hosted in two places:
+YouTube and Amazon S3. It is our plan to make the edX pages as accurate
+as possible and will strive to make corrections as we can. Again, this
+website contains the material prior to uploading to edX and hence may
+be more inaccurate. Knowing that however, it is our goal to reach as
+many people as possible and we hope this site makes the class more
+accessible for those having technical issues reading and watching the
+material on edX. All quizzes and labs must be performed on the edX
+site. </p>
+<a target="_blank"
+ href="https://www.edx.org/course/utaustinx/utaustinx-ut-6-02x-embedded-systems-4806">
+https://www.edx.org/course/utaustinx/utaustinx-ut-6-02x-embedded-systems-4806</a>
+<p><iframe
+ src="http://www.youtube.com/embed/0Af7kJ1BJRk?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe><br>
+</p>
+<p class="MsoNormal">Reprinted
+with approval from <u>Embedded
+Systems:
+Introduction to ARM Cortex-M Microcontrollers</u>,
+2014, ISBN:
+978-1477508992, For more
+information about the textbook see<b>
+<a href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"
+ style="color: rgb(255, 135, 0); font-weight: bold; text-decoration: none;">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a></b><a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"
+ style="color: rgb(255, 135, 0); text-decoration: none;">
+</a></p>
+<p class="MsoNormal" style="text-align: center;" align="center">&nbsp;</p>
+<p class="MsoNormal" style="text-align: center;" align="center"></p>
+<span class="MsoBodyText MsoNormal"
+ style="font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;;"></span></div>
+<a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img
+ alt="Creative Commons License" style="border-width: 0pt;"
+ src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded
+Systems - Shape the World</span> by <a
+ xmlns:cc="http://creativecommons.org/ns#"
+ href="http://users.ece.utexas.edu/%7Evalvano/"
+ property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano
+and Ramesh Yerraballi</a> is licensed under a <a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License</a>.<br>
+Based on a work at <a xmlns:dct="http://purl.org/dc/terms/"
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"
+ rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+</body>
+</html>

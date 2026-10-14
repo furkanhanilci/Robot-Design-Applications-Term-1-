@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="utf-8" >
+    <meta name="content-page-ref" content="xoEGEKS8D-qm0DTKPvSlDhk6dg5rM2O8R33inSddaITz9LNUyBs0HPWj4eWxxT2I5N0OKF3xiQyEI82QuRnh_99iAK0lPFZ8LNd2qkI5RvDTCqUlB0gtvaVNMNIKe8uj"/>
+<link rel="canonical" href="https://pbl.ee.ethz.ch/education/embedded-systems.html">
+<link rel="alternate" href="https://pbl.ee.ethz.ch/education/embedded-systems.html" hreflang="en">
+<script>
+
+    // promise polyfill
+    !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t():"function"==typeof define&&define.amd?define(t):t()}(0,function(){"use strict";function e(e){var t=this.constructor;return this.then(function(n){return t.resolve(e()).then(function(){return n})},function(n){return t.resolve(e()).then(function(){return t.reject(n)})})}function t(e){return new this(function(t,n){function o(e,n){if(n&&("object"==typeof n||"function"==typeof n)){var f=n.then;if("function"==typeof f)return void f.call(n,function(t){o(e,t)},function(n){r[e]={status:"rejected",reason:n},0==--i&&t(r)})}r[e]={status:"fulfilled",value:n},0==--i&&t(r)}if(!e||"undefined"==typeof e.length)return n(new TypeError(typeof e+" "+e+" is not iterable(cannot read property Symbol(Symbol.iterator))"));var r=Array.prototype.slice.call(e);if(0===r.length)return t([]);for(var i=r.length,f=0;r.length>f;f++)o(f,r[f])})}function n(e){return!(!e||"undefined"==typeof e.length)}function o(){}function r(e){if(!(this instanceof r))throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=undefined,this._deferreds=[],l(e,this)}function i(e,t){for(;3===e._state;)e=e._value;0!==e._state?(e._handled=!0,r._immediateFn(function(){var n=1===e._state?t.onFulfilled:t.onRejected;if(null!==n){var o;try{o=n(e._value)}catch(r){return void u(t.promise,r)}f(t.promise,o)}else(1===e._state?f:u)(t.promise,e._value)})):e._deferreds.push(t)}function f(e,t){try{if(t===e)throw new TypeError("A promise cannot be resolved with itself.");if(t&&("object"==typeof t||"function"==typeof t)){var n=t.then;if(t instanceof r)return e._state=3,e._value=t,void c(e);if("function"==typeof n)return void l(function(e,t){return function(){e.apply(t,arguments)}}(n,t),e)}e._state=1,e._value=t,c(e)}catch(o){u(e,o)}}function u(e,t){e._state=2,e._value=t,c(e)}function c(e){2===e._state&&0===e._deferreds.length&&r._immediateFn(function(){e._handled||r._unhandledRejectionFn(e._value)});for(var t=0,n=e._deferreds.length;n>t;t++)i(e,e._deferreds[t]);e._deferreds=null}function l(e,t){var n=!1;try{e(function(e){n||(n=!0,f(t,e))},function(e){n||(n=!0,u(t,e))})}catch(o){if(n)return;n=!0,u(t,o)}}var a=setTimeout;r.prototype["catch"]=function(e){return this.then(null,e)},r.prototype.then=function(e,t){var n=new this.constructor(o);return i(this,new function(e,t,n){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof t?t:null,this.promise=n}(e,t,n)),n},r.prototype["finally"]=e,r.all=function(e){return new r(function(t,o){function r(e,n){try{if(n&&("object"==typeof n||"function"==typeof n)){var u=n.then;if("function"==typeof u)return void u.call(n,function(t){r(e,t)},o)}i[e]=n,0==--f&&t(i)}catch(c){o(c)}}if(!n(e))return o(new TypeError("Promise.all accepts an array"));var i=Array.prototype.slice.call(e);if(0===i.length)return t([]);for(var f=i.length,u=0;i.length>u;u++)r(u,i[u])})},r.allSettled=t,r.resolve=function(e){return e&&"object"==typeof e&&e.constructor===r?e:new r(function(t){t(e)})},r.reject=function(e){return new r(function(t,n){n(e)})},r.race=function(e){return new r(function(t,o){if(!n(e))return o(new TypeError("Promise.race accepts an array"));for(var i=0,f=e.length;f>i;i++)r.resolve(e[i]).then(t,o)})},r._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},r._unhandledRejectionFn=function(e){void 0!==console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)};var s=function(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if("undefined"!=typeof global)return global;throw Error("unable to locate global object")}();"function"!=typeof s.Promise?s.Promise=r:s.Promise.prototype["finally"]?s.Promise.allSettled||(s.Promise.allSettled=t):s.Promise.prototype["finally"]=e});
+
+    const storageKeySuffix = '';
+    window.ethSitemap = {
+      storageKey: '/content/specialinterest/itet/center-pbl/en' + storageKeySuffix
+    };
+
+    window.ethSitemap.loaded = new Promise(function (resolve, reject) {
+      const xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+          if (xmlhttp.status == 200) {
+            if (xmlhttp.responseText) {
+              window.ethSitemap.data = JSON.parse(xmlhttp.responseText);
+              resolve(window.ethSitemap.data);
+              window.sessionStorage.setItem(window.ethSitemap.storageKey, xmlhttp.responseText)
+            }
+          } else {
+            reject();
+          }
+        }
+      };
+
+      xmlhttp.open("GET", "/.navigation" + storageKeySuffix + ".json", true);
+      xmlhttp.send();
+    });
+
+  </script>
+<script>    
+    
+    const accountType = window.localStorage.getItem('ch.ethz.user.type');
+
+    var isInternal = window.sessionStorage.getItem('ch.ethz.user.isInternal');
+    if (!isInternal) {
+    	fetch("/bin/ethz/base/stats").then((response) => response.json()).then((data) => {
+    		isInternal = data.is_internal;
+    	    window.sessionStorage.setItem('ch.ethz.user.isInternal', isInternal);
+    	});
+    }
+    
+    const isAuthor = this.getCookieValue('is_author');
+	
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+    });
+
+    dataLayer.push({
+        'event': 'pageData',
+        'ch1': 'education', 
+        'ch2': 'embedded-systems', 
+        'ch3': '', 
+        'page_title': 'Embedded Systems',
+        'internal_page_path': '/education/embedded-systems',
+        'logged_in': 'false',
+        'account_type': accountType ? accountType : '', 
+        'is_author': isAuthor != '' ? 'true' : 'false',
+        'section': 'D-ITET',
+        'institut': '',
+        'group': '',
+        'is_internal': isInternal == 'true' ? 'true' : 'false',
+    });
+    
+    function getCookieValue(cname) {
+        var name = cname + '=';
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return '';
+      };
+    </script>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5KC3PX6');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    
+<meta property="og:url" content="https://pbl.ee.ethz.ch/education/embedded-systems.html" >
+    <meta property="og:title" content="Embedded Systems" >
+    <meta property="og:site_name" content="Center for Project-Based Learning D-ITET" >
+    <meta property="og:image" content="https://ethz.ch/etc/designs/ethz/img/header/eth_default_og.jpg" >
+    <meta property="og:image:alt" content="" ><meta name="Systemueberwachung" content="ETHZ" >
+    <meta name="ethz_lmd" content="2026-06-16T10:47:33.88Z" >
+
+    
+    <meta name="pagetype" content="web" >
+
+
+    
+
+
+
+
+<link rel="stylesheet" href="/etc.clientlibs/ethz/design/clientlibs/css.css" type="text/css">
+<script src="/etc.clientlibs/ethz/design/clientlibs/default.js"></script>
+
+
+<meta name="msapplication-TileColor" content="#215CAF">
+    <meta name="theme-color" content="#215CAF">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#215CAF-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="icon" sizes="192x192" href="https://ethz.ch/etc/designs/ethz/img/icons/ETH-APP-Icons-Theme-white/192-xxxhpdi.png">
+    <meta name="msapplication-TileImage" content="https://ethz.ch/etc/designs/ethz/img/icons/ETH-APP-Icons-Theme-white/144-xxhdpi.png">
+
+    <meta name="content-language" content="en">
+
+    
+
+<title>Embedded Systems – Center for Project-Based Learning D-ITET | ETH Zurich</title>
+<meta name="apple-mobile-web-app-title" content="Embedded Systems – Center for Project-Based Learning D-ITET | ETH Zurich"/>
+
+</head>
+<body class="widepage eth-blue">
+
+    <!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KC3PX6"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+<!-- skipLinks -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="skipLinksDiv">
+        <ul id="skipLinks">
+                    
+            <li data-order="0"><a accesskey="0" href="/" class="accesskey" title="Directly go to the homepage">Homepage</a></li>
+            <li data-order="1"><a accesskey="1" href="#navList" class="accesskey" title="Directly go to the navigation">Navigation</a></li>
+            <li data-order="2"><a accesskey="2" href="https://pbl.ee.ethz.ch/utils/search.html" class="accesskey" title="Directly go to the search">Search</a></li>
+            <li data-order="3"><a accesskey="3" href="#content" class="accesskey" title="Directly go to the content">Content</a></li>
+            <li data-order="4"><a accesskey="4" href="#footer" class="accesskey" title="Directly go to the footer">Footer</a></li>
+
+            
+            
+              
+                  
+              
+              
+            
+            
+                <li data-order="5">
+                    <a accesskey="5" href="#footer-contact" class="accesskey" title="Directly go to the contact">
+                      Contact
+                    </a>
+                </li>
+            
+
+            
+            
+                                    
+	                    <li data-order="6"><a accesskey="6" href="/footer/sitemap.html" class="accesskey" title="Sitemap">Sitemap</a></li>
+                
+            
+            
+        </ul>
+</div>
+
+<div class="site-wrapper">
+        <!-- header -->
+        <header class="site-header header--with-department-breadcrumb">
+    
+<div class="header__logos header__container">
+        <a href="https://ethz.ch/en.html" title="ETH Zurich homepage">
+            <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg" class="main-eth-logo" aria-label="ETH homepage">
+    <path d="M43.6892 7.59685H39.3218L40.8555 0H3.90295L0 19.6252H14.7315L15.7334 14.5606H7.02833L7.52612 12.0283H16.2369L17.1209 7.59685H8.43034L8.92687 5.06457H22.7592L19.8638 19.6252H25.8707L28.7649 5.06457H33.8077L30.9135 19.6252H36.9665L38.4642 12.0283H42.8303L41.3338 19.6252H47.3577L51.2632 0H45.2229L43.6892 7.59685ZM69.4622 2.53228H71.4717L71.9695 0H69.9695L69.4622 2.53228ZM74.616 2.53228H76.6267L77.1232 0H75.1232L74.616 2.53228ZM93.4111 2.53228H95.4205L95.9196 0H93.9183L93.4111 2.53228ZM103.47 6.27247C99.9631 6.27247 97.5024 8.76677 96.7148 13.1172C96.5907 13.7981 96.5275 14.4888 96.5258 15.181C96.5258 18.1527 98.3109 20 101.189 20C102.013 20.0022 102.829 19.8372 103.588 19.515C104.347 19.1928 105.033 18.7199 105.606 18.1248L105.623 18.1058L104.509 16.7333L104.489 16.7093L104.467 16.7321C104.087 17.2105 103.604 17.597 103.055 17.8628C102.506 18.1287 101.905 18.2671 101.295 18.2679C99.9234 18.2679 98.4571 17.4411 98.4571 15.1266C98.4621 14.4552 98.5331 13.786 98.6688 13.1286C98.8751 11.7182 99.4666 10.3928 100.378 9.29981C100.745 8.89298 101.193 8.56784 101.694 8.34522C102.194 8.1226 102.734 8.00742 103.281 8.00708C103.806 7.9833 104.326 8.10937 104.782 8.37067C105.238 8.63197 105.611 9.0178 105.858 9.4834L105.874 9.50999L107.293 8.29956L107.313 8.28183L107.298 8.26031C106.89 7.62018 106.321 7.09939 105.649 6.75041C104.977 6.40142 104.225 6.23657 103.47 6.27247ZM116.295 5.98822C115.59 5.9532 114.886 6.07022 114.23 6.33141C113.573 6.59261 112.98 6.99193 112.49 7.50252L113.998 0H112.054L108.15 19.6252H110.093L111.714 11.3807C112.408 7.90642 115.092 7.73043 115.621 7.73043C115.937 7.69809 116.256 7.73604 116.555 7.84158C116.855 7.94713 117.128 8.11768 117.354 8.3411C117.581 8.56453 117.755 8.83536 117.866 9.13432C117.977 9.43329 118.02 9.75306 117.994 10.0709C117.984 10.4893 117.939 10.9062 117.858 11.3168L116.209 19.6252H118.15L119.855 11.1364C119.943 10.6954 119.989 10.2471 119.991 9.79741C120.026 9.29629 119.955 8.79341 119.783 8.32176C119.611 7.85011 119.342 7.42034 118.993 7.06064C118.644 6.70095 118.223 6.41946 117.758 6.23464C117.293 6.04981 116.795 5.96584 116.295 5.98822ZM90.0967 19.5929L90.0904 19.6258H92.0066L94.6215 6.33134H92.7375L90.0967 19.5929ZM54.9538 8.19447L54.9481 8.23056H61.4522L52.8769 18.021L52.8731 18.0261L52.5511 19.6258H61.7868L62.1503 17.7266H55.2462L63.8466 7.93618L63.8504 7.92985L64.1736 6.33134H55.3129L54.9538 8.19447ZM86.9064 6.16928C86.2145 6.15103 85.5279 6.29363 84.8999 6.58596C84.272 6.87828 83.7198 7.31243 83.2864 7.85451L83.5838 6.3611L83.5888 6.33134H81.6985L79.0854 19.5929L79.0803 19.6258H80.999L82.597 11.4909C83.006 9.4049 84.5932 7.88996 86.3739 7.88996C86.7328 7.88131 87.0882 7.96143 87.4089 8.12327C87.7297 8.28511 88.0059 8.52371 88.2133 8.81805L88.2322 8.8421L89.7879 7.43415L89.7728 7.41516C89.4206 7.00234 88.9794 6.67558 88.4828 6.4597C87.9861 6.24383 87.447 6.1445 86.9064 6.16928ZM75.3318 6.33134H77.275L77.27 6.363L74.6588 19.6258H72.7678L72.7741 19.5929L73.0243 18.2128C72.5408 18.7377 71.9491 19.1504 71.2906 19.422C70.6321 19.6935 69.9226 19.8176 69.2114 19.7854C68.7188 19.8075 68.227 19.7247 67.7685 19.5423C67.31 19.3599 66.8951 19.0821 66.5511 18.727C66.2071 18.372 65.9418 17.9479 65.7726 17.4825C65.6033 17.0171 65.5341 16.521 65.5694 16.0268C65.5748 15.6225 65.6206 15.2198 65.7061 14.8246L65.7282 14.7043L67.3803 6.33134H69.2978L67.6677 14.5283C67.5904 14.9334 67.5468 15.3442 67.5372 15.7565C67.5127 16.0718 67.5576 16.3887 67.6687 16.6847C67.7798 16.9806 67.9545 17.2483 68.1802 17.4688C68.406 17.6892 68.6773 17.857 68.9749 17.9602C69.2724 18.0635 69.589 18.0995 69.902 18.0659C70.4219 18.0659 73.0457 17.8912 73.7306 14.4619L75.3318 6.33134Z"/>
+</svg> </a>
+        <div class="header__headlines">            
+            <h2 class="header__headline--big" aria-label="Header &lt;span&gt;Center for Project-Based Learning D-ITET&lt;/span&gt;
+">
+                <a href="/" title="Home">
+                    <span>Center for Project-Based Learning D-ITET</span>
+</a>
+            </h2>
+        </div>
+    </div>
+
+    <div id="navTopRoot" class="header__nav-primary eth-blue">
+    <div class="header__navbar header__container">
+        <div id="mainNav" data-init="mainNav" data-current="navitem3852270021" data-children="[{&quot;id&quot;:&quot;navitem2159239408&quot;,&quot;title&quot;:&quot;News&quot;},{&quot;id&quot;:&quot;navitem1142807467&quot;,&quot;title&quot;:&quot;Education&quot;},{&quot;id&quot;:&quot;navitem2315641820&quot;,&quot;title&quot;:&quot;Projects&quot;},{&quot;id&quot;:&quot;navitem3348739586&quot;,&quot;title&quot;:&quot;Flagship projects&quot;},{&quot;id&quot;:&quot;navitem2485124668&quot;,&quot;title&quot;:&quot;The Center&quot;},{&quot;id&quot;:&quot;navitem3713220920&quot;,&quot;title&quot;:&quot;Research&quot;},{&quot;id&quot;:&quot;navitem3549323524&quot;,&quot;title&quot;:&quot;Publications&quot;},{&quot;id&quot;:&quot;navitem3582492851&quot;,&quot;title&quot;:&quot;Awards&quot;},{&quot;id&quot;:&quot;navitem2542203855&quot;,&quot;title&quot;:&quot;Workshops&quot;}]">
+            <div class="nav-primary__html">
+                <div class="header__mobile-only">
+                        <hr>
+                        <h3 class="header__nav-primary-title">Services</h3>
+                        <ul>
+        <li>
+        <a href="https://ethz.ch/students/en.html" title="">Student portal</a>
+    </li>
+<li>
+        <a href="https://www.alumni.ethz.ch/en/" title="">Alumni association</a>
+    </li>
+<li>
+            <a href="https://ethz.ch/staffnet/en.html" title="">
+                Staffnet</a>
+        </li>
+        <li>
+                <a class="login footer__login-link" href="/login/en.html?resource=%2Fcontent%2Fspecialinterest%2Fitet%2Fcenter-pbl%2Fen%2Feducation%2Fembedded-systems.html" title="Login with ETH user account">
+        <span aria-hidden="true" class="icon--lock icon--is-before"></span>
+        <span class="footer__login-text">Login</span>
+    </a>
+</li>
+        </ul>
+</div>
+                </div>
+        </div>
+        <div class="header__search-trigger no_translate">
+    <h3 class="screenreader">Search</h3>
+    <div
+      id="search-app"
+      data-init="searchApp"
+      data-is-overlay="true"
+      data-search-page-link="/utils/search.html"
+      data-location-page-link="/utils/location.html"
+      data-api-url="/bin/ethz/search"
+      data-current-site-supported-langs='["en","de"]'
+      data-is-main-site="false"
+      data-all-sites-supported-langs='["de","en","fr","it"]'
+      data-most-searched-quick-links='["ETHIS", "Jobs", "Scholarship", "PhD", "Admission", "Application"]'
+      data-locale="htmlElement">
+    </div>
+</div>
+
+<div class="header__search-link-container no_translate">
+  <a class="header__search-link" href="/utils/search.html"><span aria-hidden="true" class="icon--search"></span><span class="visually-hidden">Search</span></a>
+</div><div class="header__language header__mobile-only">
+            <span class="current-lang">
+            EN</span>
+    </div>
+    </div>
+</div>
+
+<!-- navigation -->
+    <div class="header__nav-meta header__desktop-only">
+        <div class="header__container">
+            <nav aria-labelledby="header__departments-title" class="header__departments">
+                <h3 id="header__departments-title" class="hidden">
+                    Departments</h3>
+                <ul>
+                    <li class="item--organization">
+                        <a href="https://ethz.ch/en.html" title="ETH Zurich homepage">
+                            ETH Zurich<span aria-hidden="true" class="icon--chevron_right icon--is-after"></span>
+                            </a>
+                    </li>
+                    <!-- breadcrumb -->
+                            <li>
+        <a title="Dept. of Information Technology and Electrical Engineering" href="https://ee.ethz.ch/">
+            D-ITET</a>
+    </li>
+</ul>
+            </nav>
+            <nav aria-labelledby="header__services-title" class="header__services">
+                <h3 id="header__services-title" class="hidden">Language Selection</h3>
+                <ul>
+                    <li>
+                        <span class="current-lang">
+            English</span>
+    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    
+</header><!-- content -->
+        <section id="content" class="site-content">
+            <!-- breadcrumb -->
+            
+	
+	    
+	        <nav class="rs_skip breadcrumb breadcrumb--text-width" role="navigation" aria-label="Breadcrumb">
+	            <div class="breadcrumb-inner">
+	                <h3 id="breadcrumb-heading" class="visually-hidden">
+	                    You are here
+	                </h3>
+	                <ul>
+	                    <li>
+	                        <a href="/">
+	                            Homepage
+	                        </a>
+	                        <span aria-hidden="true" class="icon--chevron_right icon--is-after"></span>
+	                    </li>
+	                    
+	                        <li role="presentation">
+	                          
+	                              <a href="/education.html">
+	                                  Education
+	                              </a>
+	                              <span aria-hidden="true" class="icon--chevron_right icon--is-after"></span>
+	                          
+	                          
+	                        </li>
+	                    
+	                        <li role="presentation">
+	                          
+	                          
+	                              <a href="#" aria-current="page">Embedded Systems</a>
+	                          
+	                        </li>
+	                    
+	                </ul>
+	            </div>
+	        </nav>
+	    
+	
+
+<div id="contentContainer" class="site-content__wrapper site-content--wide site-content--with-sidebar">
+                <!-- START main content -->
+                <section class="content-main" id="contentMain">
+                    <h1>Embedded Systems</h1>
+<!-- lead -->
+    <!-- page images -->
+    <!-- children nav -->
+    <div class="childrenNav children basecomponent">
+    
+
+</div>
+<!-- parsys -->
+    <div class="par parsys basecomponent"><div class="par parsys basecomponent contains-twocolumn contains-textimage contains-image">
+
+<div class="textimage basecomponent">
+
+
+    
+        <div class="textimage__wrapper  is-first ">
+            <div class="text-image  cq-dd-image">
+                
+                
+                <p><i>Autumn Semester 2026</i></p>
+            </div>
+        </div>
+    
+    
+
+</div>
+<div class="textimage basecomponent">
+
+
+    
+        <div class="textimage__wrapper  text-image__image--centered ">
+            <div class="text-image  cq-dd-image">
+                
+                	<h2>Course Description<a name="description" id="description"></a></h2>
+                
+                
+                <h3>Contents</h3>
+<p>In this course, students will learn what an embedded system is, how they are designed and what their limits are. Students get familiar with theoretical aspects and paradigms of the design of embedded systems by using formal models and methods as well as computer-based synthesis methods. <br> Besides the theoretical lecture, the course is complemented by practical exercise sessions where students learn to program and communicate with sensors&nbsp;using C,&nbsp;to base their design on the embedded operating system ThreadX, and to edit/debug via an integrated development environment.&nbsp;</p>
+<h3>Learning Goals</h3>
+<ul> 
+ <li>Gain an in-depth understanding of the unique requirements and challenges encountered in embedded system applications.<br> </li> 
+ <li>Explore the intricacies of embedded system architectures and components, with a special focus on the processing unit. This includes studying hardware-software interfaces, memory architecture, and inter-component communication.<br> </li> 
+ <li>Examine key concepts related to embedded operating systems, delve into real-time scheduling theory, learn effective shared resource management, and discover strategies for low-power and low-energy design.<br> </li> 
+ <li>Master the art of hardware architecture synthesis to optimize embedded system designs for efficiency and performance.<br> </li> 
+ <li>Apply formal models and methods effectively in the design of embedded systems, and gain practical hands-on experience using the C programming language.</li> 
+ <li>Familiarize yourself with the operation of the ThreadX operating system, a widely used commercial embedded system platform in the industry.</li> 
+ <li>Utilize a comprehensive design environment to implement embedded system solutions, bridging the gap between theory and practical applications.</li> 
+</ul>
+<h3>Open ETH-PBL Educational Platform for Project-based Learning &nbsp;</h3>
+<p>The embedded systems exercise sessions add to the general understanding of the material covered in the lecture and allow the student to gain experience with the development environment and tools for modern embedded systems.&nbsp;<br> Based on the ARM-based&nbsp;NUCLEO-L476RG development board, a custom learning platform has been designed to maximize the learning experience.<br> <br> Different sensors, such as microphones, an IMU, a temperature sensor, shift registers, as well as buttons, and a potentiometer are used to practice hardware-related programming. On top, two microbus ports allow the integration of further sensors, actuators or custom hardware.<br> </p>
+            </div>
+        </div>
+    
+    
+
+</div>
+<div class="image basecomponent">
+
+
+
+
+    
+
+
+
+
+    
+        
+            
+            
+                <div class="image-component  " >
+                    <div class="image-component__wrapper">
+                        <figure>
+            <img alt="Image showing the Nucleo board and the custom sensor platform" src="/education/embedded-systems/_jcr_content/par/image/image.imageformat.1286.475694814.png" srcset="/education/embedded-systems/_jcr_content/par/image/image.imageformat.1286.dpr1.475694814.png 1x, /education/embedded-systems/_jcr_content/par/image/image.imageformat.1286.dpr2.475694814.png 2x, /education/embedded-systems/_jcr_content/par/image/image.imageformat.1286.dpr3.475694814.png 3x"/>
+			<figcaption>
+			    <div class="image-component__caption">
+			      Left: The ARM-based NUCELO-L476RG development board which hosts the STM32L476RG microcontroller used in the exercises. Right: Custom designed learning platform with several sensors and actuators that can be stacked on top of the NUCELO-L476RG. &nbsp;</div>
+			  </figcaption>
+			</figure>
+    
+                    </div>
+                </div>
+             
+            
+        
+    
+    
+
+
+
+
+</div>
+<div class="twocolumn basecomponent">
+
+
+
+    
+
+
+
+
+
+	<div class="twocolumns twocolumns--narrow ">
+	    <div class="cols-2">
+	        <div class="box left ">
+               
+               <div class="parsys basecomponent ">
+
+<div class="contactbox basecomponent"><div class="contactbox__title">
+            <h3>
+                        Lecturer</h3>
+                </div>
+    <div class="contactbox__wrapper  is-first is-last">
+        <div class="contactbox__content">
+    <div class="contactbox__name donthyphenate">
+            Prof. Dr.  Michele Magno</div>
+    <span class="contactbox__function">
+            Privatdozent/in at the Department of Information Technology and Electrical Engineering<br></span>
+    <ul class="contactbox__list">
+            <li class="contactbox__item">
+                    <a href="/utils/location.html.html?building=ETF&floor=F&room=109" class="eth-link eth-link--no-underline">
+                        <span aria-hidden="true" class="icon--location_on icon--is-before"></span>
+                        <span class="hidden">Location</span>
+                        ETF&#160;F&#160;109</a>
+                </li>
+            <li class="contactbox__item">
+                    <a href="tel:+41446326686" class="eth-link eth-link--no-underline">
+                        <span aria-hidden="true" class="icon--phone icon--is-before"></span>
+                        <span class="hidden">Phone</span>
+                        +41 44 632 66 86</a>
+                </li>
+            <li class="contactbox__item">
+                    <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%63%6c%61%73%73%3d%5c%22%65%74%68%2d%6c%69%6e%6b%20%65%74%68%2d%6c%69%6e%6b%2d%2d%6e%6f%2d%75%6e%64%65%72%6c%69%6e%65%5c%22%20%68%72%65%66%3d%5c%22%6d%61%69%6c%74%6f%3a%6d%69%63%68%65%6c%65%2e%6d%61%67%6e%6f%40%70%62%6c%2e%65%65%2e%65%74%68%7a%2e%63%68%5c%22%20%74%69%74%6c%65%3d%5c%22%53%65%6e%64%20%65%6d%61%69%6c%5c%22%3e%3c%73%70%61%6e%20%61%72%69%61%2d%68%69%64%64%65%6e%3d%5c%22%74%72%75%65%5c%22%20%63%6c%61%73%73%3d%5c%22%69%63%6f%6e%2d%2d%6d%61%69%6c%20%69%63%6f%6e%2d%2d%69%73%2d%62%65%66%6f%72%65%5c%22%3e%3c%5c%2f%73%70%61%6e%3e%45%6d%61%69%6c%3c%5c%2f%61%3e%27%29'))</script></li>
+            </ul>
+    <p class="contactbox__information">
+            Zentr. f. projektbasiertes Lernen<br>
+                    Sternwartstrasse 7<br>
+                8092&#32;
+                Zürich<br>
+            Switzerland<br>
+            </p>
+    <button class="contactbox__toggler">
+          <span aria-hidden="true" class="icon--remove icon--is-before remove"></span>
+          <span aria-hidden="true" class="icon--add icon--is-before add"></span>
+          <span class="add">
+              Show more</span>
+          <span class="remove">
+              Show less</span>
+        </button>
+    </div>
+ </div>
+</div>
+</div>
+	       </div>
+	       <div class="box right ">
+               
+               <div class="parsys basecomponent ">
+
+<div class="contactbox basecomponent"><div class="contactbox__title">
+            <h3>
+                        Course Coordinator</h3>
+                </div>
+    <div class="contactbox__wrapper  is-first is-last">
+        <div class="contactbox__content">
+    <div class="contactbox__name donthyphenate">
+            Julian Moosmann</div>
+    <ul class="contactbox__list">
+            <li class="contactbox__item">
+                    <a href="/utils/location.html.html?building=ETZ&floor=K&room=78.3" class="eth-link eth-link--no-underline">
+                        <span aria-hidden="true" class="icon--location_on icon--is-before"></span>
+                        <span class="hidden">Location</span>
+                        ETZ&#160;K&#160;78.3</a>
+                </li>
+            <li class="contactbox__item">
+                    <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%63%6c%61%73%73%3d%5c%22%65%74%68%2d%6c%69%6e%6b%20%65%74%68%2d%6c%69%6e%6b%2d%2d%6e%6f%2d%75%6e%64%65%72%6c%69%6e%65%5c%22%20%68%72%65%66%3d%5c%22%6d%61%69%6c%74%6f%3a%6a%75%6c%69%61%6e%2e%6d%6f%6f%73%6d%61%6e%6e%40%70%62%6c%2e%65%65%2e%65%74%68%7a%2e%63%68%5c%22%20%74%69%74%6c%65%3d%5c%22%53%65%6e%64%20%65%6d%61%69%6c%5c%22%3e%3c%73%70%61%6e%20%61%72%69%61%2d%68%69%64%64%65%6e%3d%5c%22%74%72%75%65%5c%22%20%63%6c%61%73%73%3d%5c%22%69%63%6f%6e%2d%2d%6d%61%69%6c%20%69%63%6f%6e%2d%2d%69%73%2d%62%65%66%6f%72%65%5c%22%3e%3c%5c%2f%73%70%61%6e%3e%45%6d%61%69%6c%3c%5c%2f%61%3e%27%29'))</script></li>
+            </ul>
+    <p class="contactbox__information">
+            Zentr. f. projektbasiertes Lernen<br>
+                    Gloriastrasse 35<br>
+                8092&#32;
+                Zürich<br>
+            Switzerland<br>
+            </p>
+    <button class="contactbox__toggler">
+          <span aria-hidden="true" class="icon--remove icon--is-before remove"></span>
+          <span aria-hidden="true" class="icon--add icon--is-before add"></span>
+          <span class="add">
+              Show more</span>
+          <span class="remove">
+              Show less</span>
+        </button>
+    </div>
+ </div>
+</div>
+</div>
+	        </div>
+	    </div>
+	</div>
+
+<div style="clear: both;"></div>
+<div class="columnsend basecomponent"></div>
+</div>
+<div class="vvzlist basecomponent"><div
+            id="cmp_par_vvzlist_1704786373"
+            data-init="vvzList"
+            data-json-url="https://pbl.ee.ethz.ch/education/embedded-systems/_jcr_content/par/vvzlist.vvzListComp.json"
+            data-title="Course Catalog Link">
+        </div>
+    </div>
+</div></div>
+<!-- Rightside Parsys -->
+    </section>
+                <!-- END main content -->           
+            </div>        
+        </section>
+
+        <div class="siblingNav sibling basecomponent"><div
+  id="sibling-nav"
+  data-init="siblingNav"
+  data-title-tag="h3">
+  </div></div>
+<!-- footer -->
+        <footer id="footer" class="site-footer">
+    <div class="footer__container">
+        <h2 class="visually-hidden">
+            Footer</h2>
+        <div class="footer__row-main">
+            <div class="footer__row-main__inner footer__row">
+                <div class="footer__search-and-social">
+                    <div class="footer__search no_translate" aria-labelledby="footer-search-heading" role="search">
+                        <h3 id="footer-search-heading" class="footer__section-title">
+                            Search</h3>
+                            <div class="site-search">
+                                <form action="/utils/search.html" method="GET" accept-charset="UTF-8">
+                                    <label for="searchinput" class="hidden">Keyword or person</label>
+                                    <input id="searchinput" class="searchinput" type="text" placeholder="Keyword or person" data-placeholder="Keyword or person" name="q" aria-required="false" />
+                                    <button type="submit" class="searchsubmit" aria-label="Search"><span aria-hidden="true" class="icon--search"></span></button>
+                                    <input type="hidden" name="language" value="en" />
+                                </form>
+                            </div>
+                        </div>
+                    <nav aria-labelledby="footer-social-heading" class="footer__social">
+                            <h3 id="footer-social-heading" class="footer__section-title">
+                                Follow us</h3>
+                            <ul class="social-icons">
+			                    <li>
+		                                <a href="https://www.linkedin.com/company/56402205/admin/dashboard/" class="social-icon" title="Homepage on LinkedIn"><img src="https://ethz.ch/etc/designs/ethz/img/icons/svg/linkedin-white.svg" alt="Homepage on LinkedIn"></a>
+		                                    </li>
+			                    <li>
+		                                <a href="https://www.youtube.com/@d-itetcenterforproject-bas1732/videos" class="social-icon" title="Homepage on YouTube"><img src="https://ethz.ch/etc/designs/ethz/img/icons/svg/youtube-white.svg" alt="Homepage on YouTube"></a>
+		                                    </li>
+			                    <li>
+		                                <a href="https://x.com/pblcenter_itet" class="social-icon" title="Homepage on X"><img src="https://ethz.ch/etc/designs/ethz/img/icons/svg/x-white.svg" alt="Homepage on X"></a>
+		                                    </li>
+			                    </ul>
+                        </nav>
+                    </div>
+
+                <nav aria-labelledby="footer-services-heading" class="footer__services">
+	                  <h3 id="footer-services-heading" class="footer__section-title">
+	                      Services</h3>
+	                  <ul>
+        <li>
+        <a href="https://ethz.ch/students/en.html" title="">Student portal</a>
+    </li>
+<li>
+        <a href="https://www.alumni.ethz.ch/en/" title="">Alumni association</a>
+    </li>
+<li>
+            <a href="https://ethz.ch/staffnet/en.html" title="">
+                Staffnet</a>
+        </li>
+        <li>
+                <a class="login footer__login-link" href="/login/en.html?resource=%2Fcontent%2Fspecialinterest%2Fitet%2Fcenter-pbl%2Fen%2Feducation%2Fembedded-systems.html" title="Login with ETH user account">
+        <span aria-hidden="true" class="icon--lock icon--is-before"></span>
+        <span class="footer__login-text">Login</span>
+    </a>
+</li>
+        </ul>
+</nav>
+                <section aria-labelledby="footer-contact" class="footer__contact">
+                        <h3 id="footer-contact" class="footer__section-title">
+                            Contact</h3>
+                        <div class="footer__row">
+                            <div class="footer__contact__main">
+                               <div class="contactBox contactbox basecomponent"><div class="contactbox__wrapper  is-first is-last is-themed">
+        <div class="contactbox__content">
+    <div class="contactbox__name donthyphenate">
+            Prof. Dr.  Michele Magno</div>
+    <span class="contactbox__function">
+            Privatdozent/in at the Department of Information Technology and Electrical Engineering<br></span>
+    <ul class="contactbox__list">
+            <li class="contactbox__item">
+                    <a href="/utils/location.html.html?building=ETF&floor=F&room=109" class="eth-link eth-link--no-underline">
+                        <span aria-hidden="true" class="icon--location_on icon--is-before"></span>
+                        <span class="hidden">Location</span>
+                        ETF&#160;F&#160;109</a>
+                </li>
+            <li class="contactbox__item">
+                    <a href="tel:+41446326686" class="eth-link eth-link--no-underline">
+                        <span aria-hidden="true" class="icon--phone icon--is-before"></span>
+                        <span class="hidden">Phone</span>
+                        +41 44 632 66 86</a>
+                </li>
+            <li class="contactbox__item">
+                    <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%63%6c%61%73%73%3d%5c%22%65%74%68%2d%6c%69%6e%6b%20%65%74%68%2d%6c%69%6e%6b%2d%2d%6e%6f%2d%75%6e%64%65%72%6c%69%6e%65%5c%22%20%68%72%65%66%3d%5c%22%6d%61%69%6c%74%6f%3a%6d%69%63%68%65%6c%65%2e%6d%61%67%6e%6f%40%70%62%6c%2e%65%65%2e%65%74%68%7a%2e%63%68%5c%22%20%74%69%74%6c%65%3d%5c%22%53%65%6e%64%20%65%6d%61%69%6c%5c%22%3e%3c%73%70%61%6e%20%61%72%69%61%2d%68%69%64%64%65%6e%3d%5c%22%74%72%75%65%5c%22%20%63%6c%61%73%73%3d%5c%22%69%63%6f%6e%2d%2d%6d%61%69%6c%20%69%63%6f%6e%2d%2d%69%73%2d%62%65%66%6f%72%65%5c%22%3e%3c%5c%2f%73%70%61%6e%3e%3c%73%70%61%6e%20%63%6c%61%73%73%3d%5c%22%68%69%64%64%65%6e%5c%22%3e%45%6d%61%69%6c%3c%5c%2f%73%70%61%6e%3e%6d%69%63%68%65%6c%65%2e%6d%61%67%6e%6f%40%70%62%6c%2e%65%65%2e%65%74%68%7a%2e%63%68%3c%5c%2f%61%3e%27%29'))</script></li>
+            </ul>
+    <p class="contactbox__information">
+            Zentr. f. projektbasiertes Lernen<br>
+                    Sternwartstrasse 7<br>
+                8092&#32;
+                Zürich<br>
+            Switzerland<br>
+            </p>
+    <button class="contactbox__toggler">
+          <span aria-hidden="true" class="icon--remove icon--is-before remove"></span>
+          <span aria-hidden="true" class="icon--add icon--is-before add"></span>
+          <span class="add">
+              Show more</span>
+          <span class="remove">
+              Show less</span>
+        </button>
+    </div>
+ </div>
+</div>
+</div>
+                            </div>
+                        </section>
+                </div>
+        </div>
+        
+
+
+    
+
+    <nav aria-labelledby="footer-departments-heading" class="footer__departments footer-accordion-mobile js-footer-accordion-mobile">
+        <div class="footer__section-title footer-accordion-mobile__trigger js-footer-accordion-mobile__trigger">
+            <h3 id="footer-departments-heading">
+                Departments
+            </h3>
+        </div>
+        <div class="footer__row footer-accordion-mobile__content">
+            <ul class="items">
+                
+                    
+                        
+                        
+                        <li class="item">
+                            <a href="https://arch.ethz.ch/en">
+                                <span class="item__title"> D-ARCH</span>
+                                <span class="item__subtitle">Architecture </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://baug.ethz.ch/en/">
+                                <span class="item__title"> D-BAUG</span>
+                                <span class="item__subtitle">Civil, Environmental and Geomatic Engineering </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://biol.ethz.ch/en/">
+                                <span class="item__title"> D-BIOL</span>
+                                <span class="item__subtitle">Biology </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://bsse.ethz.ch/">
+                                <span class="item__title"> D-BSSE</span>
+                                <span class="item__subtitle">Biosystems Science and Engineering </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://chab.ethz.ch/en/">
+                                <span class="item__title"> D-CHAB</span>
+                                <span class="item__subtitle">Chemistry and Applied Biosciences </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://eaps.ethz.ch/en/">
+                                <span class="item__title"> D-EAPS</span>
+                                <span class="item__subtitle">Earth and Planetary Sciences </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://gess.ethz.ch/en/">
+                                <span class="item__title"> D-GESS</span>
+                                <span class="item__subtitle">Humanities, Social and Political Sciences </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://hest.ethz.ch/en">
+                                <span class="item__title"> D-HEST</span>
+                                <span class="item__subtitle">Health Sciences and Technology </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://inf.ethz.ch/">
+                                <span class="item__title"> D-INFK</span>
+                                <span class="item__subtitle">Computer Science </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://ee.ethz.ch/">
+                                <span class="item__title"> D-ITET</span>
+                                <span class="item__subtitle">Information Technology and Electrical Engineering </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://math.ethz.ch/">
+                                <span class="item__title"> D-MATH</span>
+                                <span class="item__subtitle">Mathematics </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://mat.ethz.ch/">
+                                <span class="item__title"> D-MATL</span>
+                                <span class="item__subtitle">Department of Materials </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://mavt.ethz.ch/">
+                                <span class="item__title"> D-MAVT</span>
+                                <span class="item__subtitle">Mechanical and Process Engineering </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://mtec.ethz.ch/">
+                                <span class="item__title"> D-MTEC</span>
+                                <span class="item__subtitle">Management, Technology and Economics </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://www.phys.ethz.ch/">
+                                <span class="item__title"> D-PHYS</span>
+                                <span class="item__subtitle">Physics </span>
+                            </a>
+                        </li>
+                   
+                        
+                        
+                        <li class="item">
+                            <a href="https://usys.ethz.ch/en/">
+                                <span class="item__title"> D-USYS</span>
+                                <span class="item__subtitle">Environmental Systems Science </span>
+                            </a>
+                        </li>
+                   
+                
+            </ul>
+        </div>
+    </nav>
+    <script>
+        jQuery(document).ready(function() {
+            var toggleAccordion = function(e) {
+                e.preventDefault();
+                $(e.target)
+                    .closest('.js-footer-accordion-mobile')
+                    .toggleClass('is-open-mobile');
+            };
+            $('.js-footer-accordion-mobile__trigger').on('click', toggleAccordion);
+        });
+    </script>
+<nav aria-labelledby="footer-resources-heading" class="footer__row footer__resources">
+                <h3 id="footer-resources-heading" class="visually-hidden">
+                  Table of contents and legal</h3>
+                <ul>
+                    <li><a href="/footer/sitemap.html" title="Sitemap"> Sitemap</a></li>
+                    <li><a href="/footer/imprint.html" title="Imprint"> Imprint</a></li>
+                    <li><a href="/footer/accessibility-statement.html" title="Accessibility Statement"> Accessibility Statement</a></li>
+                    <li><a href="/footer/disclaimer-copyright.html" title="Disclaimer &amp; Copyright"> Disclaimer &amp; Copyright</a></li>
+                    <li><a href="/footer/data-protection.html" title="Privacy Policy"> Privacy Policy</a></li>
+                    </ul>
+            </nav>
+        <div class="footer__copyright">
+            &copy; 2026 &nbsp;<a href="https://ethz.ch/">Eidgen&ouml;ssische
+                    Technische Hochschule Z&uuml;rich</a>
+        </div>
+    </div>
+</footer>
+</div>
+    
+    <!-- lightbox by photoswipe -->
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- access statistics -->
+    <!-- Access statistics -->
+        
+
+
+
+<div id="info-banner">JavaScript has been disabled in your browser</div></body>
+</html>

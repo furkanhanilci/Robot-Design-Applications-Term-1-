@@ -1,0 +1,26 @@
+{
+  "id": 25,
+  "name": "Mechatronics - W Bolton",
+  "type": "Ticari ders kitabı",
+  "url": "https://www.pearson.com/en-gb/subject-catalog/p/Bolton-Mechatronics-Electronic-Control-Systems-in-Mechanical-and-Electrical-Engineering-7th-Edition/P200000003775",
+  "folder": "25_Mechatronics_-_W_Bolton",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.pearson.com/en-gb/subject-catalog/p/Bolton-Mechatronics-Electronic-Control-Systems-in-Mechanical-and-Electrical-Engineering-7th-Edition/P200000003775",
+      "final_url": "https://www.pearson.com/en-gb/subject-catalog/p/Bolton-Mechatronics-Electronic-Control-Systems-in-Mechanical-and-Electrical-Engineering-7th-Edition/P200000003775",
+      "kind": "html",
+      "bytes": 1237689,
+      "sha256": "23ea7af242fb595b5607df15a05f992d9466c5103ef506fed73d6537c80c6c2d"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:27+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

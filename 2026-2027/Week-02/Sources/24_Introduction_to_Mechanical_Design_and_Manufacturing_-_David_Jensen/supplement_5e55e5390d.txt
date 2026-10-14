@@ -1,0 +1,196 @@
+Connections and Interfaces – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Connections and Interfaces
+Interfaces control the flow of energy, material, and signal or information between components. They should be designed to consider equilibrium and equivalency of flows. For example, the interface between a power system and power using component should be specified to a consistent power level (voltage and current). Additionally, the same type of flow must be consistent. It may seem obvious that if a liquid exits one component it should not be considered a thermal energy by the next component. However, heat exchangers do this exact behavior. The concept of primary and secondary flow can be useful to ensure that designers are considering all aspects. Using this example, the interfaces must consider both a flow rate, pressure, and thermal energy carried by that flow. Failure to consider all properties of the flow can lead to unexpected failure.
+Interfaces and the connections between components is the course of much of the complexity and required design hours for a product. There are a few principles that can help reduce the time and risk of needed redesign.
+Work from the outside in
+. It is generally best to begin with external interfaces and work your way into the details of the product. Consider the input and output flows of material, energy and information. Things like the power to a product as well as any human interaction interfaces. Next, it is helpful to consider primary flows or primary functions. These are the flows or functions that you as the designer deem are most critical.
+Be prepared for the generation of new functions and requirements.
+When specifying an interface, it can often lead to identifying new functions and requirements. For example, excess heat or vibration from two mating parts needs to be controlled – a new function introduced by the interface.
+Leverage interface design to support functional independence of components and assemblies.
+By keeping assemblies functionally independent, designers reduce the risk of change propagation. That is, if a flow must travel between to component or assemblies to perform a single function, then consider redesigning the component or assembly.
+Consider how the complexity of a product grows with the interactions between components. We can describe these interactions using a design structure matrix. This is a special matrix with all of the components listed in both the columns and rows. This is also called an adjacency matrix in domain of math known as graph theory. The most complexity is when every component is connected with every other component. Imagine a densely interconnect graph or network. Ideally, we want to minimize the number of connections and implied interfaces. One approach to doing this comes from a design theory known as Axiomatic Design.
+Axiomatic Design
+Axiomatic Design is a systems design methodology that uses matrix methods to systematically analyze the transformation of customer needs into functional requirements, design parameters, and process variables. It is based on two design principles or axioms that govern the analysis and decision-making process in developing high quality product or system designs. The two axioms are:
+Axiom 1
+: The Independence Axiom.  Maintain the independence of the functional requirements (FRs).
+Axiom 2:
+The Information Axiom. – Minimize the information content of the design.
+The Independence Axiom states that the FRs should be satisfied independently of each other by the corresponding design parameters (DPs). This ensures that changing one DP does not affect multiple FRs, which would cause coupling or interference among them. The Information Axiom states that the design should have the minimum probability of not satisfying the FRs, which is measured by the information content of the design. This ensures that the design is robust and reliable under various conditions.
+*Watch this
+video
+to learn more about Axiomatic design.
+Types of Physical Interfaces
+A physical interface is the way that two or more components are connected or attached to each other. There are different types of physical interfaces depending on the function and design of the components.
+Fixed and non-adjustable interfaces are used when the components need to be rigidly attached and aligned, and there is no need for adjustment or movement. For example, a bolt and nut can create a fixed and non-adjustable interface between two metal plates.
+Adjustable interfaces are used when the components need to have some degree of flexibility or variability in their position or orientation. For example, a screw and a slot can create an adjustable interface between a bracket and a wall, allowing the bracket to slide along the slot.
+Locator interfaces are used when the components need to be positioned or aligned in a specific way, but not necessarily attached. For example, a pin and a hole can create a locator interface between a lid and a box, ensuring that the lid fits snugly on the box.
+Hinged or pivoting interfaces are used when the components need to have some degree of rotation or angular movement. For example, a hinge can create a hinged or pivoting interface between a door and a frame, allowing the door to swing open and close.
+The Principle of Exact Constraints
+The principle of exact constraints states that a component should be designed with the minimum number of constraints necessary to ensure its proper functioning. This means that the product should have no redundant or over constrained elements that could cause stress, deformation, or failure. For example, a table with four legs is exactly constrained, as each leg supports one corner of the table. A table with five legs is over constrained, as one leg is redundant and could create instability or unevenness. A table with three legs is under constrained, as it could wobble or tip over.
+*Watch this
+video
+to learn more about Minimum Constraint Design.
+Previous/next navigation
+Previous: Configuration and Architecture
+Next: Define Components
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

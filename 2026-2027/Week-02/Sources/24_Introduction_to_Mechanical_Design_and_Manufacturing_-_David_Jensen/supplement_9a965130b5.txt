@@ -1,0 +1,182 @@
+Metal Forming Process Types and Tolerances – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Metal Forming Process Types and Tolerances
+Cold, Warm, and Hot Forming
+Metal forming is the process of shaping metal parts by applying temperature and pressure. The choice of forming method depends on the desired material properties, such as elasticity, strength, and hardness. Different forming methods can affect these properties in different ways. Forming can also involve multiple steps to achieve the required tolerance and desired properties. In addition, secondary machining operations are often used to refine the shape and surface of the formed parts.
+Bulk metal forming
+is a type of forming that involves large deformations of metal. It can be classified into three categories: cold work, warm work, and hot work.
+Cold work
+is performed at room temperature or below the recrystallization temperature of the metal, typically less than 30% of melting temperature.  It has several advantages, such as producing a good surface finish, achieving tight dimensional tolerance, and inducing strain hardening in the material. Strain hardening increases the strength and hardness of the metal, but also reduces its ductility and formability. Cold work also requires high forming force, which can increase the wear and tear of the tools and equipment. Moreover, cold work has limitations on the cross-section size of the metal, as larger sections are more difficult to deform at low temperatures. Cold work is suitable for producing parts with high accuracy and surface finish, but it requires high forces and may cause cracking or fracture.
+Warm work
+is performed above the recrystallization temperature but below the melting point of the metal, typically between 30%-60% of melting temperature. It has some benefits, such as providing a medium surface finish, maintaining medium dimensional tolerance, and causing some strain hardening in the material. Strain hardening in warm work is less than in cold work, as some of the dislocations in the metal are annealed during the process. Warm work also requires medium forming force, which can reduce the energy consumption and tool wear compared to cold work. However, warm work still has some drawbacks, such as possible oxidation and scaling of the metal surface, and potential warping and distortion of the final product. Warm work is suitable for producing parts with moderate accuracy and surface finish, but it requires lower forces and less energy than cold work. Warm work also reduces the residual stresses and improves the microstructure of the metal.
+Hot work
+is performed above the recrystallization temperature and close to the melting point of the metal, typically between 60%-90% of melting temperature. It reduces the strength and hardness of the metal significantly but increases its ductility and formability greatly. It produces a poor surface finish and looser dimensional tolerance than warm and cold work. However, strain hardening in hot work is negligible, as the metal recrystallizes continuously during the process. Hot work also requires low forming force, which can enable large deformations and complex shapes. Furthermore, hot work has no size limitations on the cross section of the metal, as any section can be deformed at high temperatures. Hot work is suitable for producing parts with complex shapes and large deformations, but it requires high temperatures and energy, and may cause oxidation or scaling. Hot work also reduces the residual stresses and improves the microstructure of the metal.
+Watch Professor Cummings
+explain
+how work affects the microstructure and material properties.
+Tolerance Specification
+Suppliers of stock material generated through bulk forming process often provide tolerances which are based on ASTM (American Society of Testing and Materials) standards. It is based on both the geometry of the part and the material. For example, see OnlineMetals tolerance charts for stock material:
+Material Dimensional Tolerances | OnlineMetals.com®
+Previous/next navigation
+Previous: Manufacturing – Forming and Shaping Processes
+Next: Rolling
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

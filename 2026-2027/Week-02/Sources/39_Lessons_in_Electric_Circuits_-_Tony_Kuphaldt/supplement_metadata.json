@@ -1,0 +1,39 @@
+{
+  "id": 39,
+  "files": [
+    {
+      "file": "DC.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC.pdf",
+      "kind": "pdf",
+      "bytes": 4504703,
+      "sha256": "b49dc6038ef2e2988c30e8920451b076602f54c959c5f56949d7fad6f08bf3f0"
+    },
+    {
+      "file": "AC.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/AC.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/AC.pdf",
+      "kind": "pdf",
+      "bytes": 4554561,
+      "sha256": "8db75ca8236796eeb329b12fb531b71c807bbdcb2435a8199a149f611c814437"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Semi/Semi.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/Digital.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Ref/Ref.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/Exper.pdf",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

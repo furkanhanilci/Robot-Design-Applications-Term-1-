@@ -1,0 +1,119 @@
+Embedded Systems - Shape The World
+Embedded Systems - Shape The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+Table of
+ Contents
+Chapter 1:
+Introduction
+Chapter 2:
+Fundamental
+Concepts
+Chapter 3:
+Electronics
+Chapter 4:
+Digital
+Logic
+Chapter 5:
+Introduction
+to C
+Chapter 6:
+Microcontroller
+Ports
+Chapter 7:
+Design and
+Development Process
+Chapter 8:
+Switches
+and LEDs
+EE319K Lab 3
+Chapter 9:
+Arrays
+and
+Functional Debugging
+EE319K Lab 4
+Chapter 10:
+Finite
+State Machines
+EE319K Lab 5
+Chapter 11:
+UART - The
+Serial Interface
+EE319K Lab 9
+Chapter 12:
+Interrupts
+EE319K Lab 6
+Chapter 13:
+DAC
+and
+Sound
+EE319K Lab 6
+Chapter 17:
+Local variables and LCD output
+EE319K Lab 7
+Chapter 14:
+ADC and
+Data Acquisition
+EE319K Lab 8
+Chapter 15:
+Systems
+Approach to Game Design
+EE319K Lab 10
+Chapter 16:
+The Internet of Things
+Appendix:
+Reference
+Material
+Video links:
+Web
+links to videos (All chapters 1 to 16)
+Closed caption files:
+Closed caption srt files
+Index:
+Index of terms and concepts
+This material was originally developed for an online class that is
+running January 2015 to December 2020 on the EdX platform. This website
+is meant to supplement not replace the content on edX. This site has
+been our sandbox where we first built the information before uploading
+to edX. If you need closed captions, please use the edX site because
+the captions on edX have been reviewed and edited by Valvano and
+Yerraballi.
+When viewing the videos on YouTube you can activate their closed
+captioning, but these captions have not been reviewed or edited.
+However, many students have asked for two things: 1) a more linear or
+book-like resource of the class material; and 2) a list of the video
+links.
+This website provides both. All videos are hosted in two places:
+YouTube and Amazon S3. It is our plan to make the edX pages as accurate
+as possible and will strive to make corrections as we can. Again, this
+website contains the material prior to uploading to edX and hence may
+be more inaccurate. Knowing that however, it is our goal to reach as
+many people as possible and we hope this site makes the class more
+accessible for those having technical issues reading and watching the
+material on edX. All quizzes and labs must be performed on the edX
+site.
+https://www.edx.org/course/utaustinx/utaustinx-ut-6-02x-embedded-systems-4806
+Reprinted
+with approval from
+Embedded
+Systems:
+Introduction to ARM Cortex-M Microcontrollers
+,
+2014, ISBN:
+978-1477508992, For more
+information about the textbook see
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+Embedded
+Systems - Shape the World
+by
+Jonathan Valvano
+and Ramesh Yerraballi
+is licensed under a
+Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

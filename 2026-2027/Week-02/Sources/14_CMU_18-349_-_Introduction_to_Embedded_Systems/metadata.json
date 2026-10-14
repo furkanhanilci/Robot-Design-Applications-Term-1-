@@ -1,0 +1,60 @@
+{
+  "id": 14,
+  "name": "CMU 18-349 - Introduction to Embedded Systems",
+  "type": "Üniversite dersi",
+  "url": "https://courses.ece.cmu.edu/18349",
+  "folder": "14_CMU_18-349_-_Introduction_to_Embedded_Systems",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://courses.ece.cmu.edu/18349",
+      "final_url": "https://courses.ece.cmu.edu/18349",
+      "kind": "html",
+      "bytes": 27098,
+      "sha256": "fdc52cb801c4eb062852163bd9a9003a35c343e1926406f904af5a796d797ada"
+    },
+    {
+      "file": "18349_S20_Syllabus.pdf",
+      "url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Syllabus.pdf",
+      "final_url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Syllabus.pdf",
+      "kind": "pdf",
+      "bytes": 166662,
+      "sha256": "81fb85fa5640480bf5a00033ae9c9ba2cb9c8df83644b4479ad28ddff3e884ea",
+      "pdf_pages": 8
+    },
+    {
+      "file": "supplement_a7968d9c67.html",
+      "url": "https://course.ece.cmu.edu/~ece349/",
+      "final_url": "https://course.ece.cmu.edu/~ece349/",
+      "kind": "html",
+      "bytes": 6512,
+      "sha256": "ab4f86cee5329728c39dce62f531ac832b75255ba637579595bb210c80f51d31"
+    },
+    {
+      "file": "18349_S20_Tentative_Schedule.pdf",
+      "url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Tentative_Schedule.pdf",
+      "final_url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Tentative_Schedule.pdf",
+      "kind": "pdf",
+      "bytes": 108155,
+      "sha256": "7da4af4ee1f67996fb7a6576d121bd1e97c6ab727e00f95a17b0def726e45bb4",
+      "pdf_pages": 1
+    },
+    {
+      "file": "18349_S20_Lab_descriptions.pdf",
+      "url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Lab_descriptions.pdf",
+      "final_url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Lab_descriptions.pdf",
+      "kind": "pdf",
+      "bytes": 100360,
+      "sha256": "b2b3275231707cf7dde6052d00a4544222fe8f2fe7705746c9aaaabc0e62480e",
+      "pdf_pages": 2
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:07+0300",
+  "pdf_count": 3,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

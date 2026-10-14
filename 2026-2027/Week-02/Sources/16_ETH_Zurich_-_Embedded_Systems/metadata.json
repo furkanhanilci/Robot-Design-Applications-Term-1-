@@ -1,0 +1,25 @@
+{
+  "id": 16,
+  "name": "ETH Zurich - Embedded Systems",
+  "type": "Üniversite dersi",
+  "url": "https://pbl.ee.ethz.ch/education/embedded-systems.html",
+  "folder": "16_ETH_Zurich_-_Embedded_Systems",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://pbl.ee.ethz.ch/education/embedded-systems.html",
+      "final_url": "https://pbl.ee.ethz.ch/education/embedded-systems.html",
+      "kind": "html",
+      "bytes": 49839,
+      "sha256": "c1f9b520bf12ebe1f510af3fa752c46ba6f1c8497e6e2959e6fa47219dc19817"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:47:09+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

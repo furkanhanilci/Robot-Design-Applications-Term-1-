@@ -1,0 +1,239 @@
+Lecture Notes | Finite Element Analysis of Solids and Fluids I | Mechanical Engineering | MIT OpenCourseWare
+Browse Course Material
+Syllabus
+Calendar
+Lecture Notes
+Assignments
+Exams
+Projects
+Study Materials
+Course Info
+Instructor
+Klaus-Jürgen Bathe
+Departments
+Mechanical Engineering
+As Taught In
+Fall
+            
+              2009
+Level
+Undergraduate
+Topics
+Engineering
+Mechanical Engineering
+Fluid Mechanics
+Solid Mechanics
+Mathematics
+Applied Mathematics
+Differential Equations
+Mathematical Analysis
+Learning Resource Types
+grading
+Exam Solutions
+grading
+Exams
+notes
+Lecture Notes
+assignment_turned_in
+Problem Set Solutions
+assignment
+Problem Sets
+assignment
+Programming Assignments
+grading
+Projects with Examples
+Download Course
+menu
+search
+Give Now
+About OCW
+Help & Faqs
+Contact Us
+search
+GIVE NOW
+about ocw
+help & faqs
+contact us
+2.092 | Fall 2009 | Undergraduate
+Finite Element Analysis of Solids and Fluids I
+Menu
+More Info
+Syllabus
+Calendar
+Lecture Notes
+Assignments
+Exams
+Projects
+Study Materials
+Lecture Notes
+The lecture notes on this page were written by the teaching assistant, Seounghyun Ham, typed by Chang-Yoon Park, and proofread by Seounghyun Ham and Daniel J. Payen.
+SES #
+TOPICS
+NOTES
+1
+Introduction: why to study FEA
+(
+PDF - 7.3MB
+)
+2
+The finite element analysis process
+(
+PDF
+)
+3
+Analysis of solids/structures and fluids
+(
+PDF
+)
+4
+The principle of virtual work
+(
+PDF
+)
+5
+The finite element formulation
+(
+PDF
+)
+6
+Finite element solution process
+(
+PDF
+)
+7
+Finite element solution process, cont’d
+(
+PDF
+)
+8
+Demonstration on using ADINA, part 1
+none
+9
+Demonstration on using ADINA, part 2
+none
+10
+Nonlinear finite element analysis of solids and structures
+(
+PDF
+)
+11
+Heat transfer analysis
+(
+PDF
+)
+12
+Finite element analysis of heat transfer and incompressible fluid flow
+(
+PDF
+)
+13
+Physical explanation of Gauss elimination
+(
+PDF
+)
+14
+Exam 1
+none
+15
+Solution of dynamic equilibrium equations
+(
+PDF
+)
+16
+Solution of dynamic equilibrium equations, cont’d
+(
+PDF
+)
+17
+Demonstration on finite element methods in ADINA; focus on student projects
+none
+18
+Modeling for dynamic analysis and solution
+(
+PDF
+)
+19
+Modeling for dynamic analysis and solution, cont’d
+(
+PDF
+)
+20
+Wave propagation response
+(
+PDF
+)
+21
+Solution of the generalized eigenvalue problem
+(
+PDF
+)
+22
+Exam 2
+none
+23
+Solution of
+Kφ =
+λ
+Mφ
+(
+PDF
+)
+24
+Wrap up, review
+none
+25
+Wrap up, review, cont’d
+none
+Course Info
+Instructor
+Klaus-Jürgen Bathe
+Departments
+Mechanical Engineering
+As Taught In
+Fall
+            
+              2009
+Level
+Undergraduate
+Topics
+Engineering
+Mechanical Engineering
+Fluid Mechanics
+Solid Mechanics
+Mathematics
+Applied Mathematics
+Differential Equations
+Mathematical Analysis
+Learning Resource Types
+grading
+Exam Solutions
+grading
+Exams
+notes
+Lecture Notes
+assignment_turned_in
+Problem Set Solutions
+assignment
+Problem Sets
+assignment
+Programming Assignments
+grading
+Projects with Examples
+Download Course
+Over 2,500 courses & materials
+Freely sharing knowledge with learners and educators around the world.
+Learn more
+© 2001–2026 Massachusetts Institute of Technology
+Accessibility
+Creative Commons License
+Terms and Conditions
+Proud member of:
+© 2001–2026 Massachusetts Institute of Technology
+You are leaving MIT OpenCourseWare
+close
+Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+Stay Here
+Continue

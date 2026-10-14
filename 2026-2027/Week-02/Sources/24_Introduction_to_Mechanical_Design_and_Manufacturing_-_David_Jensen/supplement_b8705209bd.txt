@@ -1,0 +1,244 @@
+Types of Casting Process and Excepted Tolerances – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Types of Casting Process and Excepted Tolerances
+Foundries
+Foundries are the places where the casting process takes place. Different types of casting processes require different types of equipment and expertise. Therefore, most foundries focus on one or a few types of casting, such as sand casting, die casting, investment casting, etc.
+For example, take a tour of the
+Lodge Cast Iron Cookware foundry
+and consider the investment and maintenance of the machines and support infrastructure.
+Material and Process Selection
+One of the main factors that determines the suitability of a metal for a casting process is its melting temperature. Metals with higher melting temperatures require more energy and specialized equipment to melt and cast. Therefore, some metals are more commonly cast with processes that use lower temperatures, such as sand casting or investment casting. Other metals, such as aluminum or zinc, can be cast with processes that use higher temperatures, such as die casting or permanent mold casting. The choice of the casting process also depends on the desired properties and shape of the final product, as well as the cost and availability of the materials and equipment. The table below summarizes the typical casting processes for some common metals.
+Process / Part Material
+Die
+Continuous
+Investment
+Permanent Mold
+Plaster Mold
+Centrifugal
+Resin Shell
+Sand
+Ductile Iron
+X
+X
+X
+X
+X
+Steel
+X
+X
+X
+X
+Stainless Steel
+X
+X
+X
+X
+Aluminum / Magnesium
+X
+X
+X
+X
+X
+X
+Bronze / Brass
+X
+X
+X
+X
+X
+X
+X
+X
+Gray Iron
+X
+X
+X
+X
+X
+Malleable Iron
+X
+X
+Zinc / Lead
+X
+X
+X
+X
+X
+X
+Process and Tolerance Selection
+Metal casting is a process of producing metal parts by pouring molten metal into a mold and letting it solidify. Different types of metal casting processes can result in different expected dimensional tolerances and surface condition tolerances. Dimensional tolerances are the allowable variations in the dimensions of a casting, while surface condition tolerances are the allowable variations in the surface roughness, defects and irregularities of a casting.
+According to
+ISO 8062
+, a standard for castings dimensional tolerances and machining allowances, there are 16 tolerance grades for castings, ranging from CT1 to CT16, with CT1 being the most precise and CT16 being the least precise. The tolerance grade that can be achieved depends on several factors, such as the casting method, the metal type, the casting size, the casting complexity and the production volume.
+In general, die casting and investment casting are considered precision casting methods due to the tighter tolerances that can be achieved compared to other methods. Both methods can produce castings with complex shapes, thin walls and fine details. According to SFSA Supplement 3, die casting can achieve a tolerance grade of CT4-CT6, while investment casting can achieve a tolerance grade of CT5-CT7.
+Other casting methods, such as sand casting, permanent mold casting and centrifugal casting, have lower precision than die casting and investment casting. Sand casting is a process of forming a mold from sand and pouring molten metal into it. Permanent mold casting is a process of using a reusable metal mold to produce castings. Centrifugal casting is a process of rotating a mold while pouring molten metal into it. These methods have limitations in producing complex shapes, thin walls and fine details. According to
+SFSA (Steel Founders of America) Supplement 3
+, sand casting can achieve a tolerance grade of CT9-CT13, permanent mold casting can achieve a tolerance grade of CT7-CT9 and centrifugal casting can achieve a tolerance grade of CT8-CT9.
+Surface condition tolerances are also affected by the casting method, the metal type and the mold material. The surface roughness of a casting is measured by the arithmetic average deviation of the surface profile from a mean line (Ra) or by the maximum peak-to-valley height of the surface profile (Rz). The surface defects and irregularities of a casting include shrinkage, porosity, cracks, cold shuts, misruns, inclusions and flash. Different methods have different capabilities to control the surface quality of castings.
+Die casting and investment casting can produce castings with smooth surfaces and minimal defects. Die casting can achieve an Ra value of 0.8-3.2 µm or an Rz value of 6.3-25 µm. Investment casting can achieve an Ra value of 1.6-6.3 µm or an Rz value of 12.5-50 µm. Both methods can reduce or eliminate shrinkage, porosity, cracks and inclusions by using high pressure, vacuum or controlled solidification.
+Other methods have lower surface quality than die casting and investment casting. Sand casting can achieve an Ra value of 12.5-50 µm or an Rz value of 100-400 µm. Permanent mold casting can achieve an Ra value of 3.2-12.5 µm or an Rz value of 25-100 µm. Centrifugal casting can achieve an Ra value of 6.3-25 µm or an Rz value of 50-200 µm. These methods have more difficulties in preventing shrinkage, porosity, cracks and inclusions due to the lower pressure, higher gas content and less uniform cooling.
+Therefore, different types of metal casting processes can result in different expected dimensional tolerances and surface condition tolerances. For more on various tolerance ranges consult standards associated with the material and process. For example, see:
+Casting Tolerances per. NADCA and ISO (engineersedge.com)
+Previous/next navigation
+Previous: Metal Casting Fundamentals and Terms
+Next: Multiple Use Casting and Molds
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

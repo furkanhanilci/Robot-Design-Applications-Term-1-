@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ch. 18 - System Identification</title>
+    <meta name="Ch. 18 - System Identification" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/sysid.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+    <script type="text/javascript" src="notebooks.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script src="htmlbook/mathjax-loader.js" defer></script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2024<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="https://underactuated.csail.mit.edu/Spring2024/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2024 semester.  <a
+href="https://www.youtube.com/playlist?list=PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=contact.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=state_estimation.html>Next Chapter</a></td>
+</tr></table>
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter style="counter-reset: chapter 17"><h1>System Identification</h1>
+
+  <p>My primary focus in these notes has been to build algorithms that design
+  of analyze a control system <i>given a model</i> of the plant.  In fact, we
+  have in some places gone to great lengths to understand the structure in our
+  models (the structure of the manipulator equations in particular) and tried
+  to write algorithms which exploit that structure.</p>
+
+  <p>Our ambitions for our robots have grown over recent years to where it
+  makes sense to question this assumption.  If we want to program a robot to
+  fold laundry, spread peanut butter on toast, or make a salad, then we should
+  absolutely not assume that we are simply given a model (and the ability to
+  estimate the state of that model).  This has led many researchers to focus on
+  the "model-free" approaches to optimal control that are popular in
+  reinforcement learning.  But I worry that the purely model-free approach is
+  "throwing the baby out with the bathwater".  We have fantastic tools for
+  making long-term decisions given a model; the model-free approaches are
+  correspondingly much much weaker.</p>
+
+  <p>So in this chapter I would like to cover the problem of learning a model.
+  This is far from a new problem.  The field of "system identification" is as
+  old as controls itself, but new results from machine learning have added
+  significantly to our algorithms and our analyses, especially in the
+  high-dimensional and finite-sample regimes.  But well before the recent
+  machine learning boom, system identification as a field had a very strong
+  foundation with thorough statistical understanding of the basic algorithms,
+  at least in the asymptotic regime (the limit where the amount of data goes to
+  infinity).  Machine learning theory has brought a wealth of new results in
+  the online optimization and finite-sample regimes. My goal for this chapter
+  is to establish these foundations, and to provide some pointers so that you
+  can learn more about this rich topic.</p>
+
+  <section><h1>Problem formulation</h1>
+    
+    <subsection><h1>Equation error vs simulation error</h1>
+
+    <figure><img width="80%"" src="data/sysid.svg"/></figure>
+
+    <p>Our problem formulation inevitably begins with the data.  In practice,
+    if we have access to a physical system, instrumented using digital
+    electronics, then we have a system in which we can apply input commands,
+    $\bu_n$, at some discrete rate, and measure the outputs, $\by_n$ of the
+    system at some discrete rate.  We normally assume these rates our fixed,
+    and often attempt to fit a state-space model of the form \begin{equation}
+    \bx[n+1] = f_\balpha(\bx[n], \bu[n]), \qquad \by[n] =
+    g_\balpha(\bx[n],\bu[n]), \label{eq:ss_model}\end{equation} where I have
+    used $\balpha$ again here to indicate a vector of parameters.  In this
+    setting, a natural formulation is to minimize a least-squares estimation
+    objective: $$\min_{\alpha,\bx[0]} \sum_{n=0}^{N-1} \| \by[n] - \by_n
+    \|^2_2, \qquad \subjto \, (\ref{eq:ss_model}).$$  I have written purely
+    deterministic models to start, but in general we expect both the state
+    evolution and the measurements to have randomness.  Sometimes, as I
+    have written, we fit a deterministic model to the data and rely on our
+    least-squares objective to capture the errors; more generally we will look
+    at fitting stochastic models to the data.</p>
+
+    <p>We often separate the identification procedure into two parts, in which
+    we first estimate the state $\hat{\bx}_n$ given the input-output data
+    $\bu_n, \by_n$, and then focus on estimating the state-evolution dynamics
+    in a second step.  The dynamics estimation algorithms fall into two main
+    categories: <ul><li><i>Equation error</i> minimizes only the one-step
+    prediction error: $$\min_{\alpha} \sum_{n=0}^{N-2} \| f_\balpha(\hat\bx_n,
+    \bu_n) - \hat{\bx}_{n+1} \|^2_2.$$  </li><li><i>Simulation error</i>
+    captures the long-term prediction error: $$\min_{\alpha} \sum_{n=1}^{N-1}
+    \| \bx[n] - \hat{\bx}_n \|^2_2, \qquad \subjto \quad \bx[n+1] =
+    f_\balpha(\bx[n], \bu_n),\, \bx[0] = \hat\bx_0,$$ </li></ul>  The
+    equation-error formulations often result in much more tractable
+    optimization problems, but unfortunately we will see that optimizing the
+    one-step error can still result in arbitrarily large simulation errors.
+    Therefore, we generally consider the simulation error to be the true
+    objective we hope to optimize, and the equation error only as a potentially
+    useful surrogate.</p>
+
+    <p>Within this framework of model learning, we will face all of the
+    standard questions from supervised learning about sample efficiency and
+    generalization.</p>
+    
+    <!--
+    <subsection><h1>Preprocessing your data</h1>
+
+      <p>Many of the techniques below can benefit from some basic data
+      preprocessing techniques.  The <a
+      href="https://www.mathworks.com/help/ident/ug/ways-to-prepare-data-for-system-identification.html">MATLAB
+      System Identification Toolbox documentation</a> has some useful advice
+      (with emphasis on the fitting of linear models).  </p>
+    </subsection>
+    -->
+
+    </subsection>
+
+    <subsection><h1>Online optimization</h1>
+    
+      <p>Theoretical machine learning has brought a number of fresh
+      perspectives to this old problem of system identification. Perhaps most
+      relevant is the perspective of online optimization
+      <elib>Rakhlin14+Hazan16+Rakhlin22</elib>. In addition to changing the
+      formulation to considering streaming online data (as opposed to offline,
+      batch analysis), this field has (re)popularized the notion of an old idea
+      from decision theory: using <a
+      href="https://en.wikipedia.org/wiki/Regret_(decision_theory)"><i>regret</i></a>
+      as the loss function for identification.</p>
+
+      <p>In the regret formulation, we acknowledge that the class of
+      parameterized models that we are searching over can likely not perfectly
+      represent the input-output data. Rather than score ourselves directly on
+      the prediction error, we can score ourselves relative to the predictions
+      that would be made by best parameters in our model class. For
+      equation-error formulations, the regret $R$ at step $N$ would take the
+      form $$R[N] = \sum_{n=0}^{N-2} \| f_\balpha(\hat\bx_n, \bu_n) -
+      \hat{\bx}_{n+1} \|^2_2 - \min_{\alpha^*} \sum_{n=0}^{N-2} \|
+      f_{\alpha^*}(\hat\bx_n, \bu_n) - \hat{\bx}_{n+1} \|^2_2.$$ The goal is to
+      produce an online learning algorithm to select $\alpha$ at each step in
+      order to drive the regret to zero. This turns out to be an important
+      distinction, as we will see below.</p>
+
+    </subsection>
+
+    <subsection><h1>Learning models for control</h1>
+    
+      <p>So far we've described the problem purely as capturing
+      the input-output behavior of the system. If our goal is to use this model
+      for control, then that might not be quite the right objective for a
+      number of reasons.</p>
+      
+      <p>First of, predicting the observations might be <i>more</i> than we
+      need for making optimal decisions; <elib>Zhang20a</elib> tells that story
+      nicely. Imagine you are trying to swing-up and balance a cart-pole
+      system, where the only sensor is a camera. The background images are
+      irrelevant; we know that only the state of the cart-pole should matter.
+      If there was a movie playing on a screen in the background, you don't
+      want to spend all of the representational power of your model predicting
+      the next frame of the movie, at the cost of not predicting as well the
+      next state of the cart-pole.  These challenges have led to a nice active
+      area of research on learning <i>task-relevant</i> models/representations;
+      I'll devote a section to it below after we cover the basics.</p>
+
+      <p>There are other considerations, as well. To be useful for control,
+      we'll need the state of our model to be observable (from online
+      observations) and controllable. There may also be trade-offs in model
+      complexity. If we learn a just linear model of the dynamics then we have
+      very powerful control design tools available, but we might not capture
+      the rich dynamics of the world. If we learn too complex of a model, then
+      our online planning and control techniques might become a bottleneck.
+      <elib>Watter15</elib> makes that point nicely. At the time of this
+      writing, I think it's broadly fair to say that deep learning models are
+      able to describe incredibly rich dynamics, but that our control tools for
+      making decisions with these models are still painfully weak.</p>
+    
+    </subsection>
+
+  </section>
+
+  <section id="lumped"><h1>Parameter Identification for Mechanical Systems</h1>
+
+    <p>My primary focus throughout these notes is on (underactuated) mechanical
+    systems, but when it comes to identification there is an important
+    distinction to make.  For some mechanical systems we know the structure of
+    the model, including number of state variables and the topology of the
+    kinematic tree.  Legged robots like Spot or Atlas are good examples here --
+    the dynamics are certainly nontrivial, but the general form of the
+    equations are known.  In this case, the task of identification is really
+    the task of estimating the parameters in a structured model.  That is the
+    subject of this section.</p>
+
+    <p>The examples of folding laundry or making a salad fall into a different
+    category.  In those examples, I might not even know a priori the number of
+    state variables needed to provide a reasonable description of the behavior.
+    That will force a more general examination of the the identification
+    problem, which we will explore in the remaining sections.</p>
+
+    <p>Let's start with the problem of identifying a canonical underactuated
+    mechanical system, like an Acrobot, Cart-Pole or Quadrotor, where we know
+    the structure of the equations, but just need to fit the parameters.  We
+    will further assume that we have the ability to directly observe all of the
+    state variables, albeit with noisy measurements (e.g. from joint sensors
+    and/or inertial measurement units).  The stronger <a
+    href="state_estimation.html">state estimation algorithms</a> that we
+    will discuss soon assume a model, so we typically do not use them directly
+    here.</p>
+
+    <p>Consider taking a minute to review the <a
+    href="multibody.html#double_pendulum">example of deriving the manipulator
+    equations for the double pendulum</a> before we continue.</p>
+
+    <subsection><h1>Kinematic parameters and calibration</h1>
+
+      <p>We can separate the parameters in the multibody equations again into
+      kinematic parameters and dynamic parameters.  The kinematic parameters,
+      like link lengths, describe the coordinate transformation from one joint
+      to another joint in the kinematic tree.  It is certainly possible to
+      write an optimization procedure to calibrate these parameters; you can
+      find a fairly thorough discussion in e.g. Chapter 11 of
+      <elib>Khalil04</elib>. But I guess I'm generally of the opinion that if
+      you don't have accurate estimates of your link lengths, then you should
+      probably invest in a tape measure before you invest in nonlinear
+      optimization.</p>
+
+      <p>One notable exception to this is calibration with respect to joint
+      offsets.  This one can be a real nuisance in practice.  Joint sensors can
+      slip, and some robots even use relative rotary encoders, and rely on
+      driving the joint to some known hard joint limit each time the robot is
+      powered on in order to obtain the offset.  I've worked on one advanced
+      robot that had a quite elaborate and painful kinematic calibration
+      procedure which involve fitting additional hardware over the joints to
+      ensure they were in a known location and then running a script.  Having
+      an expensive and/or unreliable calibration procedure can put a damper on
+      any robotics project.</p>
+
+      <example><h1>Acrobot balancing with calibration error</h1>
+
+        <p>Small kinematic calibration errors can lead to large steady-state
+        errors when attempting to stabilize a system like the Acrobot.  I've put together a simple notebook to show the effect here:</p>
+
+        <script>document.write(notebook_link('sysid'))</script>
+
+        <todo>Make a plot of steady-state error as a function of offset error.</todo>
+
+        <p>Our tools from robust / stochastic control are well-suited to
+        identifying (and bounding / minimizing) these sensitivities, at least
+        for the linearized model we use in LQR.</p>
+      </example>
+
+      <p>The general approach to estimating joint offsets from data is to write
+      the equations with the joint offset as a parameter, e.g. for the <a
+      href="multibody.html#double_pendulum">double pendulum</a> we would write
+      the forward kinematics as:  $${\bf p}_1 =l_1\begin{bmatrix} \sin(\theta_1
+      + \bar\theta_1) \\ - \cos(\theta_1 + \bar\theta_1) \end{bmatrix},\quad
+      {\bf p}_2  =      {\bf p}_1 + l_2\begin{bmatrix} \sin(\theta_1 +
+      \bar\theta_1 + \theta_2 + \bar\theta_2) \\ - \cos(\theta_1 + \bar\theta_1
+      + \theta_2 + \bar\theta_2) \end{bmatrix}.$$  We try to obtain independent
+      measurements of the end-effector position (e.g. from motion capture, from
+      perhaps some robot-mounted cameras, or from some mechanical calibration
+      rig) with their corresponding joint measurements, to obtain data points
+      of the form $ \langle {\bf p}_2, \theta_1, \theta_2 \rangle$. Then we can
+      solve a small nonlinear optimization problem to estimate the joint
+      offsets to minimize a least-squares residual.</p>
+
+      <p>If independent measurements of the kinematics are not available, it it
+      possible to estimate the offsets along with the dynamic parameters, using
+      the trigonometric identities, e.g. $s_{\theta + \bar\theta} = s_\theta
+      c_\bar\theta + c_\theta s_\bar\theta,$ and then including the
+      $s_\bar\theta, c_\bar\theta$ terms (separately) in the "lumped
+      parameters" we discuss below.</p>
+
+    </subsection>
+
+    <subsection><h1 id="inertial">Estimating inertial parameters (and
+    friction)</h1>
+
+      <p>Now let's think about estimating the inertial parameters of
+      multibody system.  We've been writing the manipulation equations in the
+      form: \begin{equation}\bM({\bq})\ddot{\bq} + \bC(\bq,\dot{\bq})\dot\bq =
+      \btau_g(\bq) + \bB\bu + \text{friction, etc.}\end{equation}  Each of the
+      terms in this equation can depend on the parameters $\balpha$ that we're
+      trying to estimate.  But the parameters enter the multibody equations in
+      a particular structured way: <i>the <b>inverse</b> dynamics equations are
+      affine in the inertial parameters</i> <elib>Atkeson86</elib>. Notably,
+      the forward dynamics (solving for $\ddot{\bq}$) involves a ${\bf
+      M}^{-1}(q)$; these dynamics are <i>not</i> affine in the parameters.
+      Generic system identification approaches which treat the multibody
+      dynamics as $\bx[n+1] = f(\bx[n], \bu[n])$ will not be leveraging this
+      convexity directly.</p>
+
+      <p>To proceed with the inverse dynamics formulation, let us first choose
+      a parameterization for the inertias. <elib>Wensing17a</elib> shows that
+      the natural parameterization of the inertial terms for a particular rigid
+      body, $B$, are in terms of the <i>density-weighted moment matrices</i>:
+      \begin{gather*} m_B &=& \iiint_{V_B} \rho(\bx)dV \in \Re \\ {\bf h}_B &=&
+      \iiint_{V_B} \bx \rho(\bx) dV \in \Re^3 \\ {\bf \Sigma}_B &=&
+      \iiint_{V_B} \bx \bx^T \rho(\bx)dV \in S_3, \end{gather*} where $V_B$ is
+      the volume of the geometry in body $B$, the integral notation is for the
+      3D volume integral, and $S_3$ is the group of 3x3 (real) symmetric
+      matrices. $m_B$ is the total mass of the body, ${\bf h}_B$ is simply the
+      mass times the position of the center of mass, and ${\bf \Sigma}_B$ is
+      closely related to the more standard form of the inertia matrix. With the
+      integral using $x$ represented in the body frame, $B$, we can extract
+      ${}^B{\bf p}^{B_{com}} = \frac{1}{m}{\bf h}_B$ and ${\bf I}^{B/Bo} =
+      \tr({\bf \Sigma}_B)\mathbb{I}_{3 \times 3} - {\bf \Sigma}_B.$ Since ${\bf
+      \Sigma}_B$ is symmetric, we can summarize all of the inertial parameters
+      for body $B$ in 10 real numbers: $$\balpha_B = \begin{bmatrix} m_B, {\bf
+      h}_B^T, \mathrm{vec}_{\mathrm{sym}}({\bf \Sigma}_B) \end{bmatrix} \in
+      \Re^{10},$$ where $\mathrm{vec}_{\mathrm{sym}}$ takes the 6 upper
+      triangular elements of the 3x3 symmetric matrices into a vector.
+      Naturally, if we aim to estimate the parameters of many bodies
+      simultaneously, we can compose these into a single parameter vector
+      $\balpha.$</p>
+
+      <p>Remarkably, the inverse dynamics are affine in these parameters. This
+      means that the manipulator equations above can be refactored into the
+      form \begin{equation}{\bf W}(\bq_n,\dot{\bq}_n, \ddot{\bq}_n, \bu_n)
+      \balpha_B + \bw_0(\bq_n,\dot{\bq}_n, \ddot{\bq}_n, \bu_n) = 0.
+      \label{eq:least_squares}\end{equation}  We sometimes refer to the ${\bf
+      W}$ which is assembled by vertically stacking these equations evaluated
+      at all time samples, $n$, as the "data matrix". Given data trajectories
+      of positions, $\bq_n,$ and torque measurements, $\bu_n,$ we can estimate
+      $\dot{\bq}_n$ and $\ddot{\bq}_n$ with (acausal) filtering. Then we can
+      estimate the parameters using least-squares estimation. As such, we can
+      leverage all of the strong results and variants from linear estimation.
+      For instance, we can add terms to regularize the estimate (e.g. to stay
+      close to an initial guess), and we can write efficient recursive
+      estimators for optimal online estimation of the parameters using
+      recursive least-squares.  My favorite recursive least-squares algorithm
+      uses incremental QR factorization<elib>Kaess08</elib>.</p>
+        
+      <p>Not all values of $\alpha_B$ describe physically-valid inertias. For
+      instance, we know that $m_B$ has to be positive. There are constraints on
+      the inertia matrix itself. <elib>Wensing17a</elib> showed that these
+      constraints are exactly transcribed as positive-definiteness of the
+      "pseudo-inertia": $${\bf J}(\balpha_B) := \begin{bmatrix} {\bf \Sigma}_B
+      & {\bf h}_B \\ {\bf h}_B^T & m_B \end{bmatrix} \succ 0.$$ If we know the
+      geometry of the body, $B$, that we are estimating, then we can optionally
+      write additional convex constraints on these parameters. For instance, we
+      know that the center of mass must lie inside the convex hull of the
+      geometry: $${}^B{\bf p}^{B_{com}} \in \mathrm{conv}(V_B) \Rightarrow {\bf
+      h}_B \in m_B \, \mathrm{conv}(V_B).$$ This non-negative scaling of a
+      convex set is still a convex set (known as the "perspective" of the set).
+      <elib>Wensing17a</elib> also gives a convex constraint on the
+      second-moment matrix based on e.g. the minimum-volume Loewner-John
+      ellipsoid containing the known geometry.</p>
+
+      <p>Do these additional constraints matter?  In the limit of infinite
+      data, then one might hope that the least-squares estimator would obtain
+      the correct values without the constraints. But their are two foils to
+      this ideal. First, we often wish to operate in a relatively low-data
+      regime. Second, it is important to understand that <i>not all of the
+      inertial parameters will be identifiable.</i> For instance, if you
+      imagine a robotic arm bolted to a table where the first link is a
+      rotation about the $z$ axis. Then no amount of data obtained from this
+      robot will given any information about the moments of inertia of the
+      first link about the $x$ and $y$ axes. Naively including these parameters
+      in the estimation problem could not only lead to poor estimates of the
+      unidentifiable parameters, but can even render the physical-validity
+      constraints on the inertial parameters vacuous.</p>
+
+      <todo>example of non-identifiable parameters making the physical-validity
+      constraints vacuous.</todo>
+
+      <p>There are two general approaches to dealing with the unidentifiable
+      parameters. First, we can exclude them from the optimization. There are a
+      number of algorithms for symbolically extracting the identifiable
+      parameters, but it is more common (and likely just as effective) to
+      simply evaluate the null-space of a sufficiently rich data matrix, $W$,
+      to find the unidentifiable parameters by using, e.g., $\bR_1\alpha_l$
+      from the QR factorization: $${\bf W} = \begin{bmatrix} \bQ_1 & \bQ_2
+      \end{bmatrix} \begin{bmatrix} \bR_1 \\ 0 \end{bmatrix}, \quad \Rightarrow
+      \quad {\bf W}\balpha_B = \bQ_1 (\bR_1 \balpha_B) = \bQ_1
+      \bar{\balpha}_{B},$$ where $\bar{\balpha}_B$ are the identifiable
+      parameters. To implement the physical-validity constraints, we would need
+      to use estimates of the unidentifiable parameters.  Alternatively, one
+      can formulate the optimization directly on the full parameters and add a
+      regularization term which (ideally) operates in the nullspace of the
+      primary objective to drive the unidentifiable parameters towards a prior
+      estimate. <elib>Lee19</elib> gives a thorough treatment of this approach
+      and provides a convex formulation of a geometrically consistent
+      regularizer, which they call the <i>entropic divergence.</i></p>
+
+      <todo>I sent this note to Pat Wensing: "I feel that there is some
+      subtlety in combining the regularizer with the constrained optimization
+      formulation. Apologies if you addressed this and I missed it!  The
+      intuitive hope for the regularizer is roughly that it's operating in the
+      null space of the primary objective to handle the unidentifiable
+      parameters.  But having the constraints complicates that story quite a
+      bit, I think?  For instance, what's to stop the optimization from making
+      the triangle inequalities almost vacuous in the non-identifiable
+      parameters by paying only the small cost of the regularization
+      term?"</todo>
+
+      <p>The least-squares inverse-dynamics formulation also allows one to
+      simultaneously fit a number of other relevant dynamic parameters which
+      enter linearly into the equations. These include reflected inertial (as a
+      diagonal matrix times $\ddot{\bq}$), joint friction (as a constant torque
+      multiplied by the sign of $\dot{\bq}$), and damping (as a linear multiple
+      of $\dot{\bq}$).</p>
+
+      <p>Allow me to mention one subtle point about numerical scaling. All of
+      the equations in the least-squares inverse-dynamics formulation
+      (\ref{eq:least_squares}) have units of torque. But the torques used on
+      the base link of a robotic arm might be numerically much larger than the
+      torques corresponding to the more distal joints. <elib>Lee19</elib>
+      addresses this by solving the unconstrained least-squares problem once,
+      then taking the error covariance of this solution into the objective
+      function for the constrained least-squares optimization. This serves to
+      make the least-squares objective coordinate independent.</p>
+
+      <example><h1>Inertial identification for a Kuka iiwa</h1>
+      
+      </example>
+
+      <p>Solving the least-squares optimizations described here subject to
+      convex (semidefinite) constraints requires solving small semidefinite
+      programs. There has been some nice work on parameterizations which lead
+      to unconstrained, smooth, but nonconvex, optimization problems which can
+      be solved with e.g. gradient descent <elib>Rucker22</elib>. In some
+      cases, one can still guarantee that all local minima are global minima.
+      But my impression from talking to the authors is that numerics of the
+      semidefinite programming formulation can be notable better, and that it
+      should be preferred if SDP solvers are available.</p>
+
+    </subsection>
+
+    <subsection><h1>Simultaneous kinematic and inertial identification via
+    lumped parameters.</h1>
+
+      <p>Although it is highly recommended to separate kinematic an inertial
+      estimation, some amount of joint estimation is possible when needed. We
+      know that the inverse dynamics are affine in the inertial parameters. But
+      it turns out the can also be written as affine in the "lumped
+      parameters": nonlinear combinations of inertial and kinematic which do
+      not depend on the data. I feel this is best explained with a few simple
+      examples.</p>
+
+      <example><h1>Lumped parameters for the simple pendulum</h1>
+
+        <p>The now familiar equations of motion for the simple pendulum are
+        $$ml^2 \ddot\theta + b \dot\theta + mgl\sin\theta = \tau.$$  For
+        parameter estimation, we will factor this into $$\begin{bmatrix}
+        \ddot\theta & \dot\theta & \sin\theta \end{bmatrix} \begin{bmatrix}
+        ml^2 \\ b \\ mgl \end{bmatrix} - \tau = 0.$$  The terms $ml^2$, $b$,
+        and $mgl$ together form the "lumped parameters".</p>
+
+      </example>
+
+      <p>It is worth taking a moment to reflect on this factorization.  First
+      of all, it does represent a somewhat special statement about the
+      multibody equations: the nonlinearities enter only in a particular way.
+      For instance, if I had terms in the equations of the form, $\sin(m
+      \theta)$, then I would <i>not</i> be able to produce an affine
+      decomposition separating $m$ from $\theta$.  Fortunately, that doesn't
+      happen in our mechanical systems <elib>Khalil04</elib>.  Again, this
+      structure is particular to the <i>inverse dynamics</i>, as we have
+      written here.  If you were to write the forward dynamics, multiplying by
+      $\bM^{-1}$ in order to solve for $\ddot{\bq}$, then once again you would
+      destroy this affine structure.</p>
+
+      <example><h1>Multibody parameters in <drake></drake></h1>
+
+        <p>Very few robotics simulators have any way for you to access the
+        parameters of the dynamics.  In Drake, we explicitly declare all of the
+        parameters of a multibody system in a separate data structure to make
+        them available, and we can leverage Drake's symbolic engine to extract
+        and manipulate the equations with respect to those variables.
+        </p>
+
+        <p>As a simple example, I've loaded the cart-pole system model from
+        URDF, created a symbolic version of the <code>MultibodyPlant</code>,
+        and populated the <code>Context</code> with symbolic variables for the
+        quantities of interest.  Then I can evaluate the (inverse) dynamics in
+        order to obtain my equations.</p>
+
+        <script>document.write(notebook_link('sysid'))</script>
+
+        <p>The output looks like: <pre><code>Symbolic dynamics:
+(0.10000000000000001 * v(0) - u(0) + (pow(v(1), 2) * mp * l * sin(q(1))) + (vd(0) * mc) + (vd(0) * mp) - (vd(1) * mp * l * cos(q(1))))
+(0.10000000000000001 * v(1) - (vd(0) * mp * l * cos(q(1))) + (vd(1) * mp * pow(l, 2)) + 9.8100000000000005 * (mp * l * sin(q(1))))
+        </code></pre></p>
+
+        <p>Go ahead and compare these with the <a
+        href="acrobot.html#cart_pole">cart-pole equations</a> that we derived
+        by hand.</p>
+
+        <p>Drake offers a method <a
+        href="https://drake.mit.edu/doxygen_cxx/namespacedrake_1_1symbolic.html#ae8c85e424b3109ed84a5bb309238bc3c"><code>DecomposeLumpedParameters</code></a>
+        that will take this expression and factor it into the affine expression
+        above.  For this cart-pole example, it extracts the lumped parameters
+        $[ m_c + m_p, m_p l, m_p l^2 ].$</p>
+
+      </example>
+
+      <p>The existence of the lumped-parameter decomposition reveals that the
+      <i>equation error</i> for lumped-parameter estimation, with the error
+      taken in the torque coordinates, can again be solved using least squares.
+      Importantly, because we have reduced this to a least-squares problem, we
+      can also understand when it will <i>not</i> work.  Once again, not all of
+      the lumped-parameters are identifiable, so we will typically need a
+      second step to operate on the identifiable lumped parameters or to add a
+      regularization term.</p>
+
+      <example><h1>Parameter estimation for the Cart-Pole</h1>
+
+        <p>Having extracted the lumped parameters from the URDF file above, we
+        can now take this to fruition.  I've kept the example simple: I've
+        simulated the cart-pole for a few seconds running just simple sine wave
+        trajectories at the input, then constructed the data matrix and
+        performed the least squares fit.</p>
+
+        <script>document.write(notebook_link('sysid'))</script>
+
+        <p>The output looks like this: <pre><code>Estimated Lumped Parameters:
+(mc + mp).  URDF: 11.0,  Estimated: 10.905425349337081
+(mp * l).  URDF: 0.5,  Estimated: 0.5945797067753813
+(mp * pow(l, 2)).  URDF: 0.25,  Estimated: 0.302915745122919</code></pre>
+          Note that we could have easily made the fit more accurate with more
+          data (or more carefully selected data).</p>
+
+      </example>
+
+      <p>Should we be happy with only estimating the (identifiable) lumped
+      parameters?  Isn't it the true original parameters that we are after? The
+      linear algebra decomposition of the data matrix (assuming we apply it to
+      a sufficiently rich set of data), is actually revealing something
+      fundamental for us about our system dynamics. Rather than feel
+      disappointed that we cannot accurately estimate some of the parameters,
+      we should embrace that <i>we don't need to estimate those parameters</i>
+      for any of the dynamic reasoning we will do about our equations
+      (simulation, verification, control design, etc).  The identifiable lumped
+      parameters are precisely the subset of the lumped parameters that we
+      need.</p>
+
+    </subsection>
+
+
+    <subsection><h1>Identification using energy instead of inverse
+    dynamics.</h1>
+
+      <p>In addition to leveraging tools from linear algebra, there are a
+      number of other refinements to the basic recipe that leverage our
+      understanding of mechanics.  One important example is the "energy
+      formulations" of parameter estimation <elib>Gautier97</elib>.</p>
+
+      <p>We have already observed that evaluating the equation error in torque space
+      (inverse dynamics) is likely better than evaluating it in state space space
+      (forward dynamics), because we can avoid inverting the mass matrix and stay linear
+      in the lumped parameters. The total energy of the system (kinetic + potential) is
+      also affine in the lumped parameters.  We can use the relation
+      $$\dot{E}(\bq,\dot\bq,\ddot\bq) = \dot\bq^T (\bB\bu + \text{ friction,
+      ...}).$$</p>
+
+      <p>Why might we prefer to work in energy coordinates rather than torque?
+      The differences are apparent in the detailed numerics.  In the torque
+      formulation, we find ourselves using $\ddot\bq$ directly. Conventional
+      wisdom holds that joint sensors can reliably report joint positions and
+      velocities, but that joint accelerations, often obtained by numerically
+      differentiating <i>twice</i>, tend to be much more noisy. In some cases,
+      it might be numerically better to apply finite differences to the total
+      energy of the system rather than to the individual joints
+      <sup>&dagger;</sup>.
+      <sidenote><sup>&dagger;</sup> Sometimes these methods are written as the
+      numerical integration of the power input, rather than the differentiation
+      of the total energy, but the numerics should be no different.</sidenote>
+      <elib>Gautier96</elib> provides a study of various filtering formulations
+      which leads to a recommendation in <elib>Gautier97</elib>
+      that the energy formulation tends to be numerically superior. This
+      distinction is probably more important in online parameter estimation,
+      where the filters must be causal, as opposed to offline parameter
+      estimation where acausal filters can be used.</p>
+
+    </subsection>
+
+    <subsection><h1>Residual physics models with linear function
+    approximators</h1>
+
+      <p>The term "residual physics" has become quite popular recently (e.g.
+      <elib>Zeng20</elib>) as people are looking for ways to combine the
+      modeling power of deep neural networks with our best tools from
+      mechanics.  But actually this idea is quite old, and there is a natural
+      class of residual models that fit very nicely into our least-squares
+      lumped-parameter estimation.  Specifically, we can consider models of the
+      form: \begin{equation}\bM({\bq})\ddot{\bq} + \bC(\bq,\dot{\bq})\dot\bq =
+      \btau_g(\bq) + \balpha_r {\bPhi}(\bq,\dot\bq) + \bB\bu + \text{friction,
+      etc.},\end{equation} with $\balpha_r$ the additional parameters of the
+      residual and $\bPhi$ a set of (fixed) nonlinear basis functions.  The
+      hope is that these residual models can capture any "slop terms" in the
+      dynamics that are predictable, but which we did not include in our
+      original parametric model.  Nonlinear friction and aerodynamic drag are
+      commonly cited examples.</p>
+
+      <p>Common choices for these basis functions, $\bPhi(\bq,\dot\bq)$,
+      for use with the manipulator equations include radial basis
+      functions<elib>Sanner91</elib> or wavelets
+      <elib>Sanner98</elib>.  Although allowing the basis functions to depend
+      on $\ddot\bq$ or $\bu$ would be fine for the parameter estimation, we
+      tend to restrict them to $\bq$ and $\dot\bq$ to maintain some of the
+      other nice properties of the manipulator equations (e.g.
+      control-affine).</p>
+
+      <p>Due to the maturity of least-squares estimation, it is also possible
+      to use least-squares to effectively determine a subset of basis functions
+      that effectively describe the dynamics of your system.  For example, in
+      <elib>Hoburg09a</elib>, we applied least-squares to  a wide range of
+      physically-inspired basis functions in order to make a better ODE
+      approximation of the post-stall aerodynamics during perching, and
+      ultimately discarded all but the small number of basis functions that
+      best described the data.  Nowadays, we could apply algorithms like <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">LASSO</a>
+      for least-squares regression with an $\ell_1$-regularization, or
+      <elib>Brunton16a</elib> uses an alternative based on
+       sequential thresholded least-squares.</p>
+
+    </subsection>
+
+    <subsection id="mbp_experiment_design"><h1>Experiment design as a trajectory optimization</h1>
+
+      <p>One key assumption for any claims about our parameter estimation
+      algorithms recovering the true identifiable lumped parameters is that the
+      data set was sufficiently rich; that the trajectories were
+      "parametrically exciting".  Basically we need to assume that the
+      trajectories produced motion so that the data matrix, ${\bf W}$ contains
+      information about all of the identifiable lumped parameters.  Thanks to
+      our linear parameterization, we can evaluate this via numerical linear
+      algebra on ${\bf W}$.
+      </p>
+
+      <p>Moreover, if we have an opportunity to change the trajectories that
+      the robot executes when collecting the data for parameter estimation,
+      then we can design trajectories which try to maximally excite the
+      parameters, and produce a numerically-well conditioned least squares
+      problem.  One natural choice is to minimize the <a
+      href="https://en.wikipedia.org/wiki/Condition_number">condition
+      number</a> of the data matrix, ${\bf W}$.  The condition number of a
+      matrix is the ratio of the largest to smallest singular values
+      $\frac{\sigma_{max}({\bf W})}{\sigma_{min}({\bf W})}$.  The condition
+      number is always greater than one, by definition, and the lower the value
+      the better the condition.  The condition number of the data matrix is a
+      nonlinear function of the data taken over the entire trajectory, but it
+      can still be optimized in a nonlinear trajectory optimization
+      (<elib>Khalil04</elib>, &sect; 12.3.4).</p>
+
+    </subsection>
+
+    <subsection><h1>Online estimation and adaptive control</h1>
+
+      <p>The field of adaptive control is a huge and rich literature; many
+      books have been written on the topic (e.g <elib>Åström13</elib>).  Allow
+      me to make a few quick references to that literature here.</p>
+
+      <p>I have mostly discussed parameter estimation so far as an offline
+      procedure, but one important approach to adaptive control is to perform
+      online estimation of the parameters as the controller executes.  Since
+      our estimation objective can be linear in the (lumped) parameters, this
+      often amounts to the recursive least-squares estimation.  To properly
+      analyze a system like this, we can think of the system as having an
+      augmented state space, $\bar\bx = \begin{bmatrix} \bx \\ \balpha
+      \end{bmatrix},$ and study the closed-loop dynamics of the state and
+      parameter evolution jointly.  Some of the strongest results in adaptive
+      control for robotic manipulators are confined to fully-actuated
+      manipulators, but for instance <elib>Moore14</elib> gives a nice example
+      of analyzing an adaptive controller for underactuated systems using many
+      of the tools that we have been developing in these notes.</p>
+
+      <p>As I said, adaptive control is a rich subject.  One of the biggest
+      lessons from that field, however, is that one may not need to achieve
+      convergence to the true (lumped) parameters in order to achieve a task.
+      Many of the classic results in adaptive control make guarantees about
+      task execution but explicitly do <i>not</i> require/guarantee convergence
+      in the parameters.</p>
+
+    </subsection>
+
+    <subsection><h1>Identification with contact</h1>
+
+      <p>Can we apply these same techniques to e.g. walking robots that are
+      making and breaking contact with the environment?</p>
+
+      <p>There is certainly a version of this problem that works immediately:
+      if we know the contact Jacobians and have measurements of the contact
+      forces, then we can add these terms directly into the manipulator
+      equations and continued with the least-squares estimation of the lumped
+      parameters, even including frictional parameters.</p>
+
+      <p>One can also study cases where the contact forces are not measured
+      directly.  For instance, <elib>Fazeli17a</elib> studies the extreme case
+      of identifiability of the inertial parameters of a passive object with
+      and without explicit contact force measurements.</p>
+
+      <todo>Flesh this out a bit more...  (maybe move it to the hybrid sysid subsection?)</todo>
+
+    </subsection>
+
+  </section>
+
+  <section id="linear"><h1>Identifying (time-domain) linear dynamical systems</h1>
+
+    <p>If multibody parameter estimation forms the first relevant pillar of
+    established work in system identification, then identification of linear
+    systems forms the second.  Linear models have been a primary focus of
+    system identification research since the field was established, and have
+    witnessed a resurgence in popularity during just the last few years as new
+    results from machine learning have contributed new bounds and convergence
+    results, especially in the finite-sample regime (e.g.
+    <elib>Hardt16+Hazan18+Oymak19+Simchowitz19</elib>).</p>
+
+    <p>A significant portion of the linear system identification literature
+    (e.g. <elib>Ljung99</elib>) is focused on identifying linear models in the
+    frequency domain.  Indeed, transfer-function realizations provide important
+    insights and avoid some of the foibles that we'll need to address with
+    state-space realizations.  However, I will focus my attention in this
+    chapter on time-domain descriptions of linear dynamical systems; some of
+    the lessons here are easier to generalize to nonlinear dynamics (plus we
+    unfortunately haven't built the foundations for the frequency domain
+    techniques yet in these notes). </p>
+
+    <subsection><h1>From state observations</h1>
+
+      <p>Let's start our treatment with the easy case: fitting a linear model
+      from direct (potentially noisy) measurements of the state.  Fitting a
+      discrete-time model, $\bx[n+1] = \bA\bx[n] + \bB\bu[n] + \bw[n]$, to
+      sampled data $(\bu_n,\bx_n = \bx[n]+\bv[n])$ using the
+      <i>equation-error</i> objective is just another <i>linear</i>
+      least-squares problem.  Typically, we form some data matrices and write
+      our least-squares problem as: \begin{gather*} {\bf X}' \approx
+      \begin{bmatrix} \bA & \bB \end{bmatrix} \begin{bmatrix} {\bf X} \\ {\bf
+      U} \end{bmatrix}, \qquad \text{where} \\ {\bf X} = \begin{bmatrix} \mid &
+      \mid & & \mid \\ \bx_0 & \bx_1 &  \cdots & \bx_{N-2} \\ \mid & \mid & &
+      \mid \end{bmatrix}, \quad {\bf X}' = \begin{bmatrix} \mid & \mid & & \mid
+      \\ \bx_1 & \bx_2 & \cdots & \bx_{N-1} \\ \mid & \mid & & \mid
+      \end{bmatrix}, \quad {\bf U} = \begin{bmatrix} \mid & \mid & & \mid \\
+      \bu_0 & \bu_1 & \cdots & \bu_{N-2} \\ \mid & \mid & & \mid
+      \end{bmatrix}.\end{gather*}  By the virtues of linear least squares, this
+      estimator is unbiased with respect to the uncorrelated process and/or
+      measurement noise, $\bw[n]$ and $\bv[n]$.</p>
+
+      <example><h1>Cart-pole balancing with an identified model</h1>
+
+        <p>I've provide a notebook demonstrating what a practical application
+        of linear identification might look like for the cart-pole system, in a
+        series of steps.  First, I've designed an LQR balancing controller, but
+        using the <i>wrong</i> parameters for the cart-pole (I changed the
+        masses, etc).  This LQR controller is enough to keep the cart-pole from
+        falling down, but it doesn't converge nicely to the upright.  I wanted
+        to ask the question, can I use data generated from this experiment to
+        identify a better linear model around the fixed-point, and improve my
+        LQR controller?</p>
+
+        <p>Interestingly, the simple answer is "no".  If you only collect the
+        input and state data from running this controller, you will see that
+        the least-squares problem that we formulate above is rank-deficient.
+        The estimated $\bA$ and $\bB$ matrices, denoted $\hat{\bA}$ and
+        $\hat{\bB}$ describe the data, but do not reveal the true
+        linearization.  And if you design a controller based on these
+        estimates, you will be disappointed!</p>
+
+        <todo>insert some plots?</todo>
+
+        <p>Fortunately, we could have seen this problem by checking the rank of
+        the least-squares solution.  Generating more examples won't fix this
+        problem.  Instead, to generate a richer dataset, I've added a small
+        additional signal to the input: $u(t) = \pi_{lqr}(\bx(t)) + 0.1\sin(t).$
+        That makes all of the difference.</p>
+
+        <script>document.write(notebook_link('sysid'))</script>
+
+        <p>I hope you try the code. The basic algorithm for estimation is
+        disarmingly simple, but there are a lot of details to get right to
+        actually make it work.</p>
+
+      </example>
+
+      <subsubsection><h1>Model-based Iterative Learning Control (ILC)</h1>
+
+        <todo>Local time-varying linear model along a trajectory + iLQR.  Bregmann ADMM</todo>
+
+        <example><h1>The Hydrodynamic Cart-Pole</h1>
+
+          <p>One of my favorite examples of model-based ILC was a series of
+          experiments in which we explored the dynamics of a "hydrodynamic
+          cart-pole" system.  Think of it as a cross between the classic
+          cart-pole system and a fighter jet (perhaps a little closer to the
+          cartpole)!</p>
+
+          <p>Here we've replaced the pole with an airfoil (hydrofoil), turned
+          the entire system on its side, and dropped it into a water tunnel.
+          Rather than swing-up and balance the pole against gravity, the task
+          is to balance the foil in its unstable configuration against the
+          hydrodynamic forces.  These forces are the result of unsteady
+          fluid-body interactions; unlike the classic cart-pole system, this
+          time we do not have an tractable parameterized ODE model for the
+          system. It's a perfect problem for system identification and ILC.</p>
+
+          <figure><img width="25%" src="data/hydro_cartpole_downright.png">
+          <img width="25%" src="data/hydro_cartpole_dynamic.png"> <img
+          width="25%" src="data/hydro_cartpole_upright.png">
+            <figcaption>A cartoon of the hydronamic cart-pole system.  The cart
+            is actuated horizontally, the foil pivots around a passive joint,
+            and the fluid is flowing in the direction of the arrows.  (The
+            entire system is horizontal, so there is no effect from gravity.)
+            The aerodynamic center of the airfoil is somewhere in the middle of
+            the foil; because the pin joint is at the tail, the passive system
+            will "weather vane" to the stable "downward" equilibrium (left).
+            Balancing corresponds to stabilizing the unstable "upward"
+            equilibrium (right).  The fluid-body dynamics during the transition
+            (center) are unsteady and very nonlinear.</figcaption>
+
+          </figure>
+
+          <p>In a series of experiments, first we attempted to stabilize the
+          system using an LQR controller derived with an approximate model
+          (using <a href="trajopt.html#perching">flat-plate theory</a>).  This
+          controller didn't perform well, but was just good enough to collect
+          relevant data in the vicinity of the unstable fixed point.  Then we
+          fit a linear model, recomputed the LQR controller using the model,
+          and got notably better performance.</p>
+
+          <p>To investigate more aggressive maneuvers we considered making a
+          rapid step change in the desired position of the cart (like a fighter
+          jet rapidly changing altitude).  Using only the time-invariant LQR
+          balancing controller with a shifted set point, we naturally observed
+          a very slow step-response.  Using trajectory optimization on the
+          time-invariant linear model used in balancing, we could do much
+          better.  But we achieved considerably better performance by
+          iteratively fitting a time-varying linear model in the neighborhood
+          of this trajectory and performing model-based ILC.</p>
+
+          <figure><img width="60%"
+          src="data/hydro_cartpole_step_comparison.png"><figcaption>Comparison
+          of the step response using three different controllers: the balancing
+          LQR controller (blue), LQR with a feed-forward term obtained from
+          trajectory optimization with the LTI model (red), and a controller
+          obtained via ILC with a time-varying linear model and iLQR
+          (green).</figcaption></figure>
+
+          <p>These experiments were quite beautiful and very visual.  They went
+          on from here to consider the effect of stabilizing against incoming
+          vortex disturbances using real-time perception of the oncoming fluid.
+          If you're at all interested, I would encourage you to check out John
+          Robert's thesis<elib>Roberts12</elib> and/or even the <a
+          href="https://www.youtube.com/watch?v=8ISAIRIRiSs">video of his
+          thesis defense</a>.
+          </p>
+
+          <todo>Consider adding a video or two here?  John just shared his
+          thesis slides with me in dropbox, and I found some of the original
+          videos in movies/RobotLocomotion/WaterTunnel.  But the videos have
+          big black borders, so could really use some cleanup.</todo>
+        </example>
+
+        <todo>How reasonable (locally) are LQG models through contact?</todo>
+
+      </subsubsection>
+
+      <subsubsection><h1>Compression using the dominant eigenmodes</h1>
+
+        <todo>connect to acrobot ch modal analysis?</todo>
+
+        <p>For high-dimensional state or input vectors, one can use singular
+        value decomposition (SVD) to solve this least-squares problem using
+        only the dominant eigenvalues (and corresponding eigenvectors) of $\bA$
+        <elib part="Section 7.2">Brunton19</elib> using the so-called "Dynamic
+        Mode Decomposition" (DMD).  There have been many empirical success
+        stories of using a small number of dominant modes to produce an
+        excellent fit to the data (this is especially relevant in problems like
+        fluid dynamics where the state vector $\bx$ might be an entire image
+        corresponding to a fluid flow).  In DMD, we would write the linear
+        dynamics in the coordinates of these eigenmodes (which can always be
+        projected back to the full coordinates).</p>
+
+      </subsubsection>
+
+      <subsubsection><h1>Linear dynamics in a nonlinear basis</h1>
+
+        <p>A potentially useful generalization  that we can consider here is
+        identifying dynamics that evolve linearly in a coordinate system
+        defined by some (potentially high-dimensional) basis vectors
+        $\phi(\bx).$  In particular, we might consider dynamics of the form
+        $\dot\bphi = \pd{\bphi}{\bx} \dot\bx = \bA \bphi(x).$  Much ado has
+        been made of this particular form, due to the connection to Koopman
+        operator theory that we will discuss briefly below.  For our purposes,
+        we also need a control input, so might consider a form like $\dot\bphi
+        = \bA \bphi(x) + \bB \bu.$</p>
+
+        <todo>example with the pendulum here?</todo>
+
+        <p>Once again, thanks to the maturity of least-squares, with this
+        approach it is possible to include list many possible basis functions,
+        then use sparse least-squares and/or the modal decomposition to
+        effectively find the important subset.</p>
+
+        <p>Note that multibody parameter estimation described above is not
+        this, although it is closely related.  The least-squares
+        lumped-parameter estimation for the manipulator equations uncovered
+        dynamics that were still <i>nonlinear</i> in the state variables.</p>
+
+      </subsubsection>
+
+    </subsection>
+
+    <subsection><h1>From input-output data (the state-realization problem)</h1>
+
+      <p>In the more general form, we would like to estimate a model of the
+      form \begin{gather*} \bx[n+1] = \bA \bx[n] + \bB \bu[n] + \bw[n]\\ \by[n]
+      = \bC \bx[n] + {\bf D} \bu[n] + \bv[n]. \end{gather*}  Once again, we
+      will apply least-squares estimation, but combine this with the famous
+      "Ho-Kalman" algorithm (also known as the "Eigen System Realization" (ERA)
+      algorithm) <elib>Ho66</elib>.  My favorite presentation of this algorithm
+      is <elib>Oymak19</elib>.</p>
+
+      <todo>cite VanOverschee96?</todo>
+
+      <p>First, observe that \begin{align*} \by[0] =& \bC\bx[0] + {\bf D}\bu[0]
+      + \bv[0], \\ \by[1] =& \bC(\bA\bx[0] + \bB\bu[0] + \bw[0]) + {\bf
+      D}\bu[1] + \bv[1], \\ \by[n] =& \bC\bA^n\bx[0] + {\bf D}\bu[n] + \bv[n] +
+      \sum_{k=0}^{n-1}\bC\bA^{n-k-1}(\bB\bu[k] + \bw[k]). \end{align*} For the
+      purposes of identification, let's write $\by[n]$ as a function of the most
+      recent $N+1$ inputs (for $k \ge N$): \begin{align*}\by[n] =&
+      \begin{bmatrix} \bC\bA^{N-1}\bB & \bC\bA^{N-2}\bB & \cdots & \bC\bB &
+      {\bf D}\end{bmatrix} \begin{bmatrix} \bu[n-N] \\ \bu[n-N+1] \\ \vdots \\
+      \bu[n] \end{bmatrix} + {\bf \delta}[n] \\ =& {\bf G}[n]\bar\bu[n] + {\bf
+      \delta}[n] \end{align*} where ${\bf \delta}[n]$ captures the remaining
+      terms from initial conditions, noise and control inputs before the
+      (sliding) window. ${\bf G}[n] = \begin{bmatrix} \bC\bA^{N-1}\bB &
+      \bC\bA^{N-2}\bB & \cdots & \bC\bB & {\bf D}\end{bmatrix},$ and
+      $\bar\bu[n]$ represents the concatenated $\bu[n]$'s from time $n-N$ up to
+      $n$.  Importantly we have that ${\bf \delta}[n]$ is uncorrelated with
+      $\bar\bu[n]$: $\forall k > n$ we have $E\left[\bu_k {\bf \delta}_n
+      \right] = 0.$ This is sometimes known as Neyman orthogonality, and it
+      implies that we can estimate ${\bf G}$ using simple least-squares
+      $\hat{\bf G} = \argmin_{\bf G} \sum_{n \ge N} \| \by_n - {\bf G}\bar\bu_n
+      \|^2.$
+      <elib>Oymak19</elib> gives bounds on the norm of the estimation error as
+      a function of the number of samples and the variance of the noise.</p>
+
+      <p>How should we pick the window size $N$?  By Neyman orthogonality, we
+      know that our estimates will be unbiased for any choice of $N \ge 0$. But
+      if we choose $N$ too small, then the term $\delta[n]$ will be large,
+      leading to a potentially large variance in our estimate.  For stable
+      systems, the $\delta$ terms will get smaller as we increase $N$.  In
+      practice, we choose $N$ based on the characteristic settling time in the
+      data (roughly until the impulse response becomes sufficiently small).</p>
+
+      <p>If you've studied linear systems, ${\bf G}$ will look familiar; it is
+      precisely this (multi-input, multi-output) matrix impulse response, also
+      known as the "Markov parameters".  In fact, estimating $\hat{\bf
+      G}$ may even be sufficient for control design, as it is closely-related to
+      the parameterization used in disturbance-based feedback for
+      partially-observable systems
+      <elib>Sadraddini20+Simchowitz20</elib>.  But the Ho-Kalman algorithm can
+      be used to extract good estimates $\hat\bA, \hat\bB, \hat\bC, \hat{\bf
+      D}$ with state-dimension $\dim(\bx) = n_x$ from $\hat{\bf G},$  assuming
+      that the true system is observable and controllable with order at least
+      $n_x$ and the data matrices we form below are sufficiently
+      rich<elib>Oymak19</elib>.</p>
+
+      <p>It is important to realize that many system matrices, $\bA, \bB, \bC,$
+      can describe the same input-output data.  In particular, for any
+      invertible matrix (aka <a
+      href="https://en.wikipedia.org/wiki/Matrix_similarity">similarity
+      transform</a>), ${\bf T}$, the system matrices $\bA, \bB, \bC$ and $\bA',
+      \bB', \bC'$ with, $$\bA' =  {\bf T}^{-1} \bA {\bf T},\quad \bB' = {\bf
+      T}^{-1} \bB,\quad \bC' = \bC{\bf T},$$ describe the same input-output
+      behavior.  The Ho-Kalman algorithm returns a <i>balanced realization</i>.
+      A balanced realization is one in which we have effectively applied a
+      similarity transform, ${\bf T},$ which makes the controllability and
+      observability Grammians equal and diagonal<elib part="Ch.
+      9">Brunton19</elib> and which orders the states in terms of diminishing
+      effect on the input/output behavior. This ordering is relevant for
+      determining the system order and for model reduction.</p>
+
+      <p>Note that $\hat{\bf D}$ is the last block in $\hat{\bf G}$ so is
+      extracted trivially. The Ho-Kalman algorithm tells us how to extract
+      $\hat\bA, \hat\bB, \hat\bC$, with another application of the SVD on
+      suitably constructed data matrices (see e.g. <elib
+      part="&sect;5.1">Oymak19</elib>, <elib part="&sect;10.5">Juang01</elib>,
+      or <elib part="&sect;9.3">Brunton19</elib>).</p>
+
+      <todo>Does using the Kalman filter states allow me to use colored input excitation?</todo>
+
+      <example><h1>Ho-Kalman identification of the cart-pole from keypoints</h1>
+
+        <p>Let's repeat the cart-pole example.  But this time, instead of
+        getting observations of the joint position and velocities directly, we
+        will consider the problem of identifying the dynamics from a camera
+        rendering the scene, but let us proceed thoughtfully.</p>
+
+        <p>The output of a standard camera is an RGB image, consisting of 3 x
+        width x height real values.  We could certainly columnate these into a
+        vector and use this as the outputs/observations, $y(t)$.  But I don't
+        recommend it.  This "pixel-space" is not a nice space.  For example,
+        you could easily find a pixel that has the color of the cart in one
+        frame, but after an incremental change in the position of the cart, now
+        (discontinuously) takes on the color of the background.  Deep learning
+        has given us fantastic new tools for transforming raw RGB images into
+        better "feature spaces", that will be robust enough to deploy on real
+        systems but can make our modeling efforts much more tractable.  My
+        group has made heavy use of "keypoint networks" <elib>Manuelli19</elib>
+        and self-supervised "dense correspondences"
+        <elib>Florence18a+Florence20+Manuelli20a</elib> to convert RGB outputs
+        into a more consumable form.</p>
+
+        <figure>
+          <iframe scrolling="no" style="border:none;" seamless="seamless" src="data/cartpole_balancing_keypoints.html" height="300" width="100%"></iframe>
+        </figure>
+
+        <p>The existence of these tools makes it reasonable to assume that we
+        have observations representing the 2D positions of some number of "key
+        points" that are rigidly fixed to the cart and to the pole.  The
+        location of any keypoint $K$ on a pole, for instance, is given by the <a
+        href="acrobot.html#cart_pole">cart-pole kinematics</a>: $${}^{W}{\bf
+        p}^{K} = \begin{bmatrix} x \\ 0 \end{bmatrix} + \begin{bmatrix}
+        \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}
+        {}^{P}{\bf p}^{K},$$ where $x$ is the position of the cart, and
+        $\theta$ is the angle of the pole.  I've used <a
+        href="http://manipulation.csail.mit.edu/pick.html#monogram">Monogram
+        notation</a> to denote that ${}^{P}{\bf p}^{K}$ is the Cartesian
+        position of a point $A$ in the pole's frame, $P$, and ${}^{W}{\bf
+        p}^{K}$ is that same position in the camera/world frame, $W$.  While it
+        is probably unreasonable to linearize the RGB outputs as a function of
+        the cart-pole positions, $x$ and $\theta$, it <i>is</i> reasonable to
+        approximate the keypoint positions by linearizing this equation for
+        small angles.</p>
+
+        <p>You'll see in the example that we recover the impulse response quite
+        nicely.</p>
+
+        <figure><img width="70%"
+        src="data/keypoint_impulse_response.svg"></figure>
+
+        <p>The big question is: does Ho-Kalman discover the 4-dimensional
+        state vector that we know and like for the cart-pole?  Does it find
+        something different?  We would typically choose the order by looking at
+        the magnitude of the singular values of the Hankel data matrix.  In
+        this example, in the case of no noise, you see clearly that 2 states
+        describe most of the behavior, and we have diminishing returns after 4 or 5:</p>
+
+        <figure><img width="70%"
+        src="data/keypoint_hankel_singular_values.svg"></figure>
+
+        <p>As an exercise, try adding process and/or measurement noise to the
+        system that generated the data, and see how they effect this
+        result.</p>
+
+        <script>document.write(notebook_link('sysid'))</script>
+
+      </example>
+
+      <todo>identify observer/Kalman filter markov parameters (aka OKID) from
+      Juang93, also in Juang95 section 10.7, Brunton19, VanOverschee96, etc.
+      Inspiration is similar to Simchowitz and Boczar; we'd expect the Kalman
+      rates to be faster than the generic fits if the Gaussian iid assumption
+      is valid.  Looks like there are more papers/tutorials at https://www.dartmouth.edu/~mqphan/sidhlights.html</todo>
+
+    </subsection>
+
+    <subsection><h1>Adding stability constraints</h1>
+
+      <p>Details coming soon.  See, for instance <elib>Umenberger18</elib>.</p>
+      <todo>possibly: https://arxiv.org/abs/1204.0590</todo>
+
+    </subsection>
+
+    <subsection id="autoregressive"><h1>Autoregressive models</h1>
+
+      <p>Another important class of linear models predict the output directly
+      from a history of recent inputs and outputs: \begin{align*} \by[n+1]
+      =&\bA_0 \by[n] + \bA_1 \by[n-1] + ... + \bA_k \by[n-k] \\ & + \bB_0\bu[n]
+      + \bB_1 \bu[n-1] + ... \bB_k \bu[n-k]\end{align*}  These are the
+      so-called "AutoRegressive models with eXogenous input (ARX)" models. The
+      coefficients of ARX models can be fit directly from input-output data
+      using linear least squares.</p>
+
+      <p>While it is certainly possible to think of these models as state-space
+      models, where we collect the finite history $\by$ and $\bu$ (except not
+      $\bu[n]$) into our state vector.  But this is not necessarily a very
+      efficient representation; the Ho-Kalman algorithm might be able to find a
+      much smaller state representation.  This is particularly important for
+      partially-observable systems that might require a very long history,
+      $k$.</p>
+
+      <todo>
+      <example><h1>A state-space model that would be inefficient in
+      ARX</h1></example>
+      </todo>
+
+      <example><h1>An ARX model of cart-pole keypoint dynamics</h1></example>
+
+      <todo>Cart-pole from keypoints example (again).  Use two most recent
+      keypoints as the "state".  But it's not a particular good choice for
+      state: not controllable.</todo>
+
+      <todo>More generally, a filter bank of recent observations?</todo>
+    </subsection>
+
+    <subsection><h1>Statistical analysis of learning linear models</h1>
+    
+      <todo>Define the appropriate notion of regret. Max and Adam's PWA draft cites a few key papers + a summary.</todo>
+
+    </subsection>
+
+  </section>
+
+  <section><h1>Identification of finite (PO)MDPs</h1>
+
+    <p>There is one more case that we can understand well: when states,
+    actions, and observations (and time) are all discrete.  Recall that in the
+    very beginnings of our discussion about optimal control and <a
+    href="dp.html">dynamic programming</a>, we used graph search and
+    discretization of the state space to give a particularly nice version of
+    the value iteration algorithm.  In general, we can write the
+    <i>stochastic</i> dynamics using conditional probabilities: $$\Pr(s[n+1] |
+    s[n], a[n]), \qquad \Pr(o[n] | s[n], a[n]),$$ where I've (again) used $s$
+    for discrete states, $a$ for discrete actions, and $o$ for discrete
+    observations. With everything discrete, these conditional probabilities are
+    represented naturally with matrices/tensors.  We'll use the tensors
+    $T_{ijk} \equiv \Pr(s[n+1] = s_i | s[n] = s_j, a[n] = a_k)$ to denote the
+    transition matrix, and $O_{ijk} \equiv \Pr(o[n] = o_i | s[n] = s_j, a[n] =
+    a_k)$ for the observation matrix.</p>
+
+    <todo>Introduce the transition matrix better in the DP chapter, and make
+    the notation consistent (in the DP section, I have T transposed).</todo>
+
+    <subsection><h1>From state observations</h1>
+
+      <p>Following analogously to our discussion on linear dynamical systems,
+      the first case to understand is when we have direct access to state and
+      action trajectories: $s[\cdot], a[\cdot]$.  This corresponds to
+      identifying a Markov chain or Markov decision process (MDP).  The
+      transition matrices can be extracted directly from the statistics of the
+      transitions: $$T_{ijk} = \frac{\text{number of transitions to }
+      s_i\text{ from }s_j, a_k}{\text{total number of transitions from }s_j,
+      a_k}.$$ Not surprisingly, for this estimate to converge to the true
+      transition probabilities asymptotically, we need the identification
+      (exploration) dynamics to be <a
+      href="https://en.wikipedia.org/wiki/Ergodicity">ergodic</a> (for every
+      state/action pair to be visited infinitely often).</p>  <todo>there must
+      be some finite-sample results to reference here, too.</todo>
+
+      <p>For large MDPs, analogous to the modal decomposition that we described
+      for linear dynamical systems, we can also consider factored
+      representations of the transition matrix. [Coming soon...]</p>
+
+    </subsection>
+
+    <subsection><h1>Identifying Hidden Markov Models (HMMs)</h1>
+
+      <todo>include the standard HMM diagram here?</todo>
+
+      <todo>Baum-Welsch</todo>
+      <todo>MIP formulation for belief compression</todo>
+
+    </subsection>
+
+  </section>
+
+  <section><h1>Neural network models</h1>
+
+    <p>If multibody parameter estimation, linear system identification, and
+    finite state systems are the first pillars of system identification, then
+    (at least these days) deep learning is perhaps the last major pillar.  It's
+    no coincidence that I've put this section just after the section on linear
+    dynamical systems.  Neural networks are powerful tools, but they can be a
+    bit harder to think about carefully.  Thankfully, we'll see that many of
+    the basic lessons and insights from linear dynamical systems still apply
+    here. In particular, we can follow the same progression: learning the
+    dynamics function directly from state observations, learning state-space
+    models from input-output data (with recurrent networks), and learning
+    input-output (autoregressive) models with feedforward networks using a
+    history of outputs.</p>
+
+    <p>Deep learning tools allow us to quite reliably tune the neural networks
+    to fit our training data.  The major challenges are with respect to data
+    efficiency/generalization, and with respect to actually designing planners
+    / controllers based on these models that have such complex
+    descriptions.</p>
+
+    <subsection><h1>Generating training data</h1>
+
+      <p>One extremely interesting question that arises when fitting rich
+      nonlinear models like neural networks is the question of how to generate
+      the training data.  You might have the general sense that we would like
+      data that provides some amount of "coverage" of the state space; this is
+      particularly challenging for underactuated systems since we have dynamic
+      constraints restricting our trajectories in state space.</p>
+
+      <p>For multibody parameter estimation <a href="#mbp_experiment_design">we
+      discussed</a> using the condition number of the data matrix as an
+      explicit objective for experiment design.  This was a luxury of using
+      <i>linear</i> least-squares optimization for the regression and it takes
+      advantage of the specialized knowledge we have from the manipulator
+      equations about the model structure.  Unfortunately, we don't have an
+      analogous concept in the more general case of nonlinear least squares
+      with general function approximators.  This approach also works for
+      identifying linear dynamical systems.  The challenge is here perhaps
+      considered less severe since for linear models in the noise-free case
+      even data generated from the impulse response is sufficient for
+      identification.</p>
+
+      <p>This topic has received considerable attention lately in the context
+      of <i>model-based reinforcement learning</i> (e.g.
+      <elib>Agarwal20b</elib>).  Broadly speaking, in the ideal case we would
+      like the training data we use for system identification to match the
+      distribution of data that we will encounter when executing the optimal
+      policy.  But one cannot know this distribution until we've designed our
+      controller, which (in our current discussion) requires us to have a
+      model.  It is a classic "chicken and the egg" problem.  In most cases, it
+      speaks to the importance to interleaving system identification and
+      control design instead of the simpler notion of performing identification
+      once and then using the model forevermore.</p>
+
+    </subsection>
+
+    <subsection><h1>From state observations</h1>
+
+    </subsection>
+
+    <subsection><h1>State-space models from input-output data (recurrent networks)</h1>
+
+    </subsection>
+
+    <subsection id="nn_autoregressive"><h1>Input-output (autoregressive) models</h1>
+
+      <p>You might have heard about a neural network model called the
+      Transformer<todo>cite attention is all you need</todo>. There are a
+      massive number of online resources where you can
+      <a href="https://jalammar.github.io/illustrated-transformer/">learn about
+      Transformers</a>. These started in the natural language processing (NLP)
+      community, where they rapidly replaced recurrent neural network models
+      which were, at the time, struggling to handle very long sentences
+      (trajectories).  Transformers get around this problem by switching back
+      to an autoregressive-style model, but they compress the very long history
+      of previous observations into a compact representation using attention
+      mechanisms. This is what now enables large language models, like
+      chat-GPT, to e.g. write an entire essay, "remembering" names/concepts
+      that it used early in the essay correctly very late in the essay.</p>
+
+    </subsection>
+
+    <subsection><h1>Particle-based models</h1>
+    
+      <todo>Yunzhu's thesis, etc.</todo>
+    </subsection>
+
+    <subsection><h1>Object-centric models</h1>
+    
+      <todo>Compositional NeRF, etc</todo>
+
+    </subsection>
+
+    <subsection><h1>Modeling stochasticity</h1></subsection>
+
+    <todo>Ensembled networks for uncertainty. Lagrangian/Hamiltonian neural nets, Michael's contact nets.</todo>
+
+    <subsection><h1>Control design for neural network models</h1>
+    
+      <todo>RL, CMA / MPPI, ...</todo>
+
+    </subsection>
+  </section>
+
+
+  <section><h1>Alternatives for nonlinear system identification</h1>
+
+    <todo>MMT / Jack's work</todo>
+    <todo>volterra series</todo>
+
+    <todo>Gaussian Processes</todo>
+
+    <todo>Koopman operators</todo>
+
+      <todo>Move this to some other chapter?  it's as much about control as it
+      is about sysid?</todo>
+
+      <todo>make connections to: Perron-Frobenious.  Occupation measures.
+      Densities.  (Finite MDP representation).</todo>
+
+      <!-- From Brunton16: Similar to how DMD was extended to include inputs
+and control, Koopman analysis has recently been extended to include inputs and
+control (Proctor et al., 2016b).-->
+
+      <!-- which guarantees that some infinite-dimensional basis $\bphi(\bx)$
+      exists that can satisfy these dynamics exactly for any smooth nonlinear
+      system Mezić13 .  How to make use of this observation has
+      become a very active area of research, <todo>add some citations</todo>
+      and there are still open questions about the best way to include
+      control inputs $\bu$ (the original Koopman theory doesn't cover this
+      case). -->
+
+
+    </subsection>
+
+  </section>
+
+  <todo>world models?</todo>
+
+  <section><h1>Identification of hybrid systems</h1>
+
+    <todo>hybrid system survey papers</todo>
+    <todo>decision trees/CART</todo>
+    <todo>Max/Adam PWA regret via randomized smoothing</todo>
+
+  </section>
+
+
+  <section><h1>Task-relevant models</h1>
+  
+  <p>As discussed briefly in the introduction, the standard objective for
+  system identification is to match the input-output behavior of a dynamical
+  system. Certainly if we can find a model that predicts all outputs perfectly,
+  then this model should be sufficient for making optimal decisions. But when
+  we cannot make perfect predictions, due to limited data and/or limited model
+  representation power, then the relative cost placed on predicting different
+  outputs becomes important. This feels particularly important when the
+  observations come from a camera -- in most cases predicting every pixel in
+  the scene accurately is not the right objective for a robot trying to use the
+  camera to accomplish a particular task.</p>
+
+  <p>Fortunately, the problem of learning task-relevant models or "learning
+  state representations" has become a darling of the machine learning
+  community. There are a lot of smart people thinking about the problem and the
+  field has made considerable progress in the last years. In the immense volume
+  of papers, I think there are a few really core ideas.</p>
+
+  <p>What makes a good state representation for control? Two defining
+  properties are: 1) it should be observable, and 2) it should be sufficient
+  for making optimal decisions. In other words, if $\bz[n]$ is the state of the
+  dynamic controller (which we can think of as an observer of the learned state
+  representation), then we would like that the optimal policy given this state
+  to take the same action as an optimal policy which uses the entire available
+  history: $$\pi^*(\bz[n]) \approx \bar\pi^*(\by[n], \by[n-1], \by[n-2], ...,
+  \bu[n-1], \bu[n-2], ...).$$ Certainly the <i><a href="belief.html">belief
+  state</a></i>, which is by definition a sufficient statistic for predicting
+  future observations, has this property. But much more minimal representations
+  may also be sufficient. So a third, slightly more tenuous property of a good
+  state representation is that we would like it to be tractable for learning,
+  representation, and decision making.</p>
+
+  <p>Being sufficient for making optimal control decisions is a difficult
+  objective because it couples the problem of representation learning / system
+  identification with the problem of control design. How can we know what the
+  optimal action is without solving the optimal control problem? This is one
+  reason that imitation learning <elib>Florence20+Florence22</elib> is a
+  potentially valuable undertaking -- by providing demonstrations of an
+  "optimal" policy, it reduces representation learning back to classical system
+  identification and allows us to focus on the question of state representation
+  without simultaneously solving control design. Other works like
+  <elib>Srinivas18</elib> attempt use a planner on the learned representation
+  even during learning, and take a loss function requesting that the actions
+  taken from a policy using the current state matches the actions taken from a
+  planner using the representation to optimize multiple steps into the
+  future.</p>
+
+  <p>A closely related idea would ask for the representation to be sufficient
+  to predict the optimal value function (rather than the optimal action).
+  Certainly if we have a model and a value function that is consistent with
+  that model, then this would be sufficient for making optimal decisions. But
+  it should be noted that there are cases where predicting the optimal
+  cost-to-go is actually harder than predicting the optimal action. Imagine an
+  agent in a grid world that can traverse one of two corridors and has learned
+  that the left corridor always has more reward than the right. Predicting the
+  precise amount of reward that will be obtained when moving down the left
+  corridor is not needed to choose the optimal action. Predicting optimal
+  values also does not break the "chicken-and-the-egg" problem (how can you
+  know the optimal values until you have an optimal policy?), but may have more
+  subtle merits in terms of representation or learning efficiency.</p>
+
+  <p>One proposal which <i>does</i> fundamentally break the chicken-and-the-egg
+  problem is given by <elib>Subramanian19</elib> and called "approximate
+  information states" (AIS). The key idea in this work is that if a state
+  representation, $\bz[n]$ is 1) sufficient to predict the one-step reward, and
+  2) sufficient to predict $\bz[n+1]$, then it is sufficient for making optimal
+  decisions. This motivates their notion of an <i>approximate</i> information
+  state, as a representation that approximately accomplishes these two goals.
+  They provide one particular bound for the suboptimality of the resulting
+  policy, based on worst case errors in the one-step reward and next state
+  predictions. In my group, we've been studying this approach, trying to
+  understand the implications for the two cases we can deeply understand:
+  finite (tabular) Markov decision processes <elib>Yang22</elib> and
+  linear-Gaussian systems <elib>Tian22</elib>. In particular,
+  <elib>Yang22</elib> gives an algorithm for solving the AIS conditions to
+  optimality for a class of POMDPs; it provides evidence that representations
+  which are optimal by the AIS metric are not necessarily optimal for
+  reproducing the optimal actions, and that the AIS bounds on performance can
+  be very loose.</p>
+
+  <p>Approximate information states are themselves closely related to prior
+  work on "state aggregation" in MDPs via the so-called "bisimulation metrics".
+  The basic idea is that if the future outcomes from two states are
+  indistinguishable, then these states can be aggregated into a single state,
+  thus reducing the state space. See <elib>Givan03</elib> for the original work
+  on exact bisimulation, <elib>Ferns04</elib> for approximate bisimulation, 
+  <elib>Castro09</elib> for an extension to POMDPs, and <elib>Zhang20a</elib>
+  for a more modern version using neural networks.</p>
+
+  <p>Interestingly, the famous work by DeepMind on MuZero
+  <elib>Schrittwieser20</elib> learns a task-relevant state representation
+  using a combination of all of these ideas: the loss function for the state
+  combines a loss for predicting the action, the value function, and the
+  one-step reward. But I have seen a few projects that struggled to reproduce
+  its success in robotics domains.</p>
+
+  <p>This area is moving fast; I will try to update this section as results
+  appear, and will give some worked out examples soon.</p>
+
+  </section>
+
+  <section><h1>Exercises</h1>
+
+    <exercise id="linear_sysid"><h1>Linear System Identification with different objective functions</h1>
+
+      <p>Consider a discrete-time linear system of the form
+        $$x[n+1] = Ax[n]+Bu[n]$$
+        where $x[n]\in\mathbf{R}^p$ and $u[n]\in\mathbf{R}^q$ are state and control at step $n$.
+        The system matrix $A\in\mathbf{R}^{p\times p}$ and $B\in\mathbf{R}^{p\times q}$ are unknown parameters of the model, and your task is to identify the parameters given a simulated trajectory. Using the trajectory simulation provided in <script>document.write(notebook_link('sysid', 'exercises/linear_sysid', link_text = 'this python notebook'))</script>, implement the solution for the following problems.</p>
+
+      <ol type="a">
+
+        <li>Identify the model parameters by solving $$\min_{A, B}\sum_{n=0}^{N-1}\lVert x[n+1] - Ax[n] -Bu[n] \rVert_2^2.$$</li>
+
+        <li>Identify the model parameters by solving $$\min_{A, B}\sum_{n=0}^{N-1}\lVert x[n+1] - Ax[n] -Bu[n] \rVert_{\infty}.$$</li>
+
+        <li>Identify the model parameters by solving $$\min_{A, B}\sum_{n=0}^{N-1}\lVert x[n+1] - Ax[n] -Bu[n] \rVert_1.$$</li>
+      </ol>
+
+    </exercise>
+
+    <exercise id="glider_sysid"><h1>System Identification for the Perching Glider</h1>
+
+      <p>In this exercise we will use physically-inspired basis functions to fit the nonlinear dynamics of a perching glider.   <script>document.write(notebook_link('sysid', 'exercises/glider_sysid', link_text = 'In this python notebook'))</script>, you will need to implement least-squares fitting and find the best set of basis functions that describe the dynamics of the glider.  Take the time to go through the notebook and understand the code in it, and then answer the following questions.  The written question will also be listed in the notebook for your convenience.</p>
+
+      <ol type="a">
+
+        <li>Work through the coding sections in the notebook.</li>
+
+        <li>All of the basis configurations we tested used at most 3 basis functions to compute a single acceleration. If we increase the number of basis functions used to compute a single acceleration to 4, the least-squares residual goes down. Why would we limit ourselves to 3 basis functions if by using more we can generate a better fit?</li>
+
+      </ol>
+
+    </exercise>
+
+  </section>
+
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Rakhlin14>
+<span class="author">Alexander Rakhlin and Karthik Sridharan</span>, 
+<span class="title">"Statistical Learning and Sequential Prediction"</span>, Online Draft
+, September, <span class="year">2014</span>.
+
+</li><br>
+<li id=Hazan16>
+<span class="author">Elad Hazan and others</span>, 
+<span class="title">"Introduction to online convex optimization"</span>, 
+<span class="publisher">Foundations and Trends in Optimization</span>, vol. 2, no. 3-4, pp. 157--325, <span class="year">2016</span>.
+
+</li><br>
+<li id=Rakhlin22>
+<span class="author">A. Rakhlin</span>, 
+<span class="title">"IDS.160 – Mathematical Statistics: A Non-Asymptotic Approach"</span>, Online lecture notes
+, Spring, <span class="year">2022</span>.
+
+</li><br>
+<li id=Zhang20a>
+<span class="author">Amy Zhang and Rowan McAllister and Roberto Calandra and Yarin Gal and Sergey Levine</span>, 
+<span class="title">"Learning invariant representations for reinforcement learning without reconstruction"</span>, 
+<span class="publisher">arXiv preprint arXiv:2006.10742</span>, <span class="year">2020</span>.
+
+</li><br>
+<li id=Watter15>
+<span class="author">Manuel Watter and Jost Springenberg and Joschka Boedecker and Martin Riedmiller</span>, 
+<span class="title">"Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images"</span>, 
+<span class="publisher">Advances in Neural Information Processing Systems</span> , vol. 28, <span class="year">2015</span>.
+
+</li><br>
+<li id=Khalil04>
+<span class="author">W Khalil and E Dombre</span>, 
+<span class="title">"Modeling, Identification and Control of Robots"</span>, Elsevier
+, <span class="year">2004</span>.
+
+</li><br>
+<li id=Atkeson86>
+<span class="author">Christopher G Atkeson and Chae H An and John M Hollerbach</span>, 
+<span class="title">"Estimation of inertial parameters of manipulator loads and links"</span>, 
+<span class="publisher">The International Journal of Robotics Research</span>, vol. 5, no. 3, pp. 101--119, <span class="year">1986</span>.
+
+</li><br>
+<li id=Wensing17a>
+<span class="author">Patrick M Wensing and Sangbae Kim and Jean-Jacques E Slotine</span>, 
+<span class="title">"Linear matrix inequalities for physically consistent inertial parameter identification: A statistical perspective on the mass distribution"</span>, 
+<span class="publisher">IEEE Robotics and Automation Letters</span>, vol. 3, no. 1, pp. 60--67, <span class="year">2017</span>.
+
+</li><br>
+<li id=Kaess08>
+<span class="author">M. Kaess and A. Ranganathan and F. Dellaert</span>, 
+<span class="title">"iSAM: Incremental Smoothing and Mapping"</span>, 
+<span class="publisher">IEEE Transactions on Robotics</span>, vol. 24, no. 6, pp. 1365-1378, <span class="year">2008</span>.
+
+</li><br>
+<li id=Lee19>
+<span class="author">Taeyoon Lee and Patrick M Wensing and Frank C Park</span>, 
+<span class="title">"Geometric robot dynamic identification: A convex programming approach"</span>, 
+<span class="publisher">IEEE Transactions on Robotics</span>, vol. 36, no. 2, pp. 348--365, <span class="year">2019</span>.
+
+</li><br>
+<li id=Rucker22>
+<span class="author">Caleb Rucker and Patrick M Wensing</span>, 
+<span class="title">"Smooth parameterization of rigid-body inertia"</span>, 
+<span class="publisher">IEEE Robotics and Automation Letters</span>, vol. 7, no. 2, pp. 2771--2778, <span class="year">2022</span>.
+
+</li><br>
+<li id=Gautier97>
+<span class="author">Maxime Gautier</span>, 
+<span class="title">"Dynamic identification of robots with power model"</span>, 
+<span class="publisher">Proceedings of the IEEE International Conference on Robotics and Automation</span> , vol. 3, pp. 1922--1927 vol.3, <span class="year">1997</span>.
+
+</li><br>
+<li id=Gautier96>
+<span class="author">Maxime Gautier</span>, 
+<span class="title">"A comparison of filtered models for dynamic identification of robots"</span>, 
+<span class="publisher">Proceedings of the 35th IEEE Conference on Decision and Control</span> , vol. 1, pp. 875â€“880, <span class="year">1996</span>.
+
+</li><br>
+<li id=Zeng20>
+<span class="author">Andy Zeng and Shuran Song and Johnny Lee and Alberto Rodriguez and Thomas Funkhouser</span>, 
+<span class="title">"Tossingbot: Learning to throw arbitrary objects with residual physics"</span>, 
+<span class="publisher">IEEE Transactions on Robotics</span>, vol. 36, no. 4, pp. 1307--1319, <span class="year">2020</span>.
+
+</li><br>
+<li id=Sanner91>
+<span class="author">R. M. Sanner and J. E. Slotine</span>, 
+<span class="title">"Gaussian Networks for Direct Adaptive Control"</span>, 
+<span class="publisher">1991 American Control Conference</span> , pp. 2153-2159, <span class="year">1991</span>.
+
+</li><br>
+<li id=Sanner98>
+<span class="author">Robert M Sanner and Jean-Jacques E Slotine</span>, 
+<span class="title">"Structurally dynamic wavelet networks for adaptive control of robotic systems"</span>, 
+<span class="publisher">International Journal of Control</span>, vol. 70, no. 3, pp. 405--421, <span class="year">1998</span>.
+
+</li><br>
+<li id=Hoburg09a>
+<span class="author">Warren Hoburg and Russ Tedrake</span>, 
+<span class="title">"System Identification of Post Stall Aerodynamics for UAV Perching"</span>, 
+<span class="publisher">Proceedings of the AIAA Infotech@Aerospace Conference</span> , April, <span class="year">2009</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Hoburg09a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Brunton16a>
+<span class="author">Steven L Brunton and Joshua L Proctor and J Nathan Kutz</span>, 
+<span class="title">"Discovering governing equations from data by sparse identification of nonlinear dynamical systems"</span>, 
+<span class="publisher">Proceedings of the national academy of sciences</span>, vol. 113, no. 15, pp. 3932--3937, <span class="year">2016</span>.
+
+</li><br>
+<li id=Åström13>
+<span class="author">Karl J. Åström and Björn Wittenmark</span>, 
+<span class="title">"Adaptive Control: Second Edition"</span>, Courier Corporation
+, apr, <span class="year">2013</span>.
+
+</li><br>
+<li id=Moore14>
+<span class="author">Joseph Moore and Russ Tedrake</span>, 
+<span class="title">"Adaptive Control Design for Underactuated Systems Using Sums-of-Squares Optimization"</span>, 
+<span class="publisher">Proceedings of the 2014 American Control Conference (ACC)</span> , June, <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Moore14.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Fazeli17a>
+<span class="author">Nima Fazeli and Roman Kolbert and Russ Tedrake and Alberto Rodriguez</span>, 
+<span class="title">"Parameter and contact force estimation of planar rigid-bodies undergoing frictional contact"</span>, 
+<span class="publisher">International Journal of Robotics Research</span>, vol. 36, no. 13-14, pp. 1437-1454, <span class="year">2017</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Fazeli17a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Hardt16>
+<span class="author">Moritz Hardt and Tengyu Ma and Benjamin Recht</span>, 
+<span class="title">"Gradient descent learns linear dynamical systems"</span>, 
+<span class="publisher">arXiv preprint arXiv:1609.05191</span>, <span class="year">2016</span>.
+
+</li><br>
+<li id=Hazan18>
+<span class="author">Elad Hazan and Holden Lee and Karan Singh and Cyril Zhang and Yi Zhang</span>, 
+<span class="title">"Spectral filtering for general linear dynamical systems"</span>, 
+<span class="publisher">arXiv preprint arXiv:1802.03981</span>, <span class="year">2018</span>.
+
+</li><br>
+<li id=Oymak19>
+<span class="author">Samet Oymak and Necmiye Ozay</span>, 
+<span class="title">"Non-asymptotic identification of lti systems from a single trajectory"</span>, 
+<span class="publisher">2019 American control conference (ACC)</span> , pp. 5655--5661, <span class="year">2019</span>.
+
+</li><br>
+<li id=Simchowitz19>
+<span class="author">Max Simchowitz and Ross Boczar and Benjamin Recht</span>, 
+<span class="title">"Learning linear dynamical systems with semi-parametric least squares"</span>, 
+<span class="publisher">Conference on Learning Theory</span> , pp. 2714--2802, <span class="year">2019</span>.
+
+</li><br>
+<li id=Ljung99>
+<span class="author">L. Ljung</span>, 
+<span class="title">"System Identification: Theory for the User"</span>, Prentice Hall
+, <span class="year">1999</span>.
+
+</li><br>
+<li id=Roberts12>
+<span class="author">John W. Roberts</span>, 
+<span class="title">"Control of Underactuated Fluid-Body Systems with Real-Time Particle Image Velocimetry"</span>, 
+PhD thesis, Massachusetts Institute of Technology, June, <span class="year">2012</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Roberts12.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Brunton19>
+<span class="author">Steven L Brunton and J Nathan Kutz</span>, 
+<span class="title">"Data-driven science and engineering: Machine learning, dynamical systems, and control"</span>, Cambridge University Press
+, <span class="year">2019</span>.
+
+</li><br>
+<li id=Ho66>
+<span class="author">BL Ho and Rudolf E K&aacute;lm&aacute;n</span>, 
+<span class="title">"Effective construction of linear state-variable models from input/output functions"</span>, 
+<span class="publisher">at-Automatisierungstechnik</span>, vol. 14, no. 1-12, pp. 545--548, <span class="year">1966</span>.
+
+</li><br>
+<li id=Sadraddini20>
+<span class="author">Sadra Sadraddini and Russ Tedrake</span>, 
+<span class="title">"Robust Output Feedback Control with Guaranteed Constraint Satisfaction"</span>, 
+<span class="publisher">In the Proceedings of 23rd ACM International Conference on Hybrid Systems: Computation and Control</span> , pp. 12, April, <span class="year">2020</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini20.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Simchowitz20>
+<span class="author">Max Simchowitz and Karan Singh and Elad Hazan</span>, 
+<span class="title">"Improper learning for non-stochastic control"</span>, 
+<span class="publisher">Conference on Learning Theory</span> , pp. 3320--3436, <span class="year">2020</span>.
+
+</li><br>
+<li id=Juang01>
+<span class="author">Jer-Nan Juang and Minh Q. Phan</span>, 
+<span class="title">"Identification and Control of Mechanical Systems"</span>, Cambridge University Press
+, aug, <span class="year">2001</span>.
+
+</li><br>
+<li id=Manuelli19>
+<span class="author">Lucas Manuelli* and Wei Gao* and Peter Florence and Russ Tedrake</span>, 
+<span class="title">"kPAM: KeyPoint Affordances for Category-Level Robotic Manipulation"</span>, 
+<span class="publisher">arXiv e-prints</span>, pp. arXiv:1903.06684, Mar, <span class="year">2019</span>.
+[&nbsp;<a href="https://sites.google.com/view/kpam">link</a>&nbsp;]
+
+</li><br>
+<li id=Florence18a>
+<span class="author">Peter R. Florence* and Lucas Manuelli* and Russ Tedrake</span>, 
+<span class="title">"Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation"</span>, 
+<span class="publisher">Conference on Robot Learning (CoRL)</span> , October, <span class="year">2018</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Florence18a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Florence20>
+<span class="author">Peter Florence and Lucas Manuelli and Russ Tedrake</span>, 
+<span class="title">"Self-Supervised Correspondence in Visuomotor Policy Learning"</span>, 
+<span class="publisher">IEEE Robotics and Automation Letters</span>, vol. 5, no. 2, pp. 492-499, April, <span class="year">2020</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Florence20.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Manuelli20a>
+<span class="author">Lucas Manuelli and Yunzhu Li and Pete Florence and Russ Tedrake</span>, 
+<span class="title">"Keypoints into the Future: Self-Supervised Correspondence in Model-Based Reinforcement Learning"</span>, 
+<span class="publisher">Conference on Robot Learning (CoRL)</span> , <span class="year">2020</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Manuelli20a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Umenberger18>
+<span class="author">Jack Umenberger and Johan W\aagberg and Ian R Manchester and Thomas B Sch&ouml;n</span>, 
+<span class="title">"Maximum likelihood identification of stable linear dynamical systems"</span>, 
+<span class="publisher">Automatica</span>, vol. 96, pp. 280--292, <span class="year">2018</span>.
+
+</li><br>
+<li id=Agarwal20b>
+<span class="author">Alekh Agarwal and Nan Jiang and Sham M. Kakade and Wen Sun</span>, 
+<span class="title">"Reinforcement Learning: Theory and Algorithms"</span>, Online Draft
+, <span class="year">2020</span>.
+
+</li><br>
+<li id=Florence22>
+<span class="author">Pete Florence and Corey Lynch and Andy Zeng and Oscar A Ramirez and Ayzaan Wahid and Laura Downs and Adrian Wong and Johnny Lee and Igor Mordatch and Jonathan Tompson</span>, 
+<span class="title">"Implicit behavioral cloning"</span>, 
+<span class="publisher">Conference on Robot Learning</span> , pp. 158--168, <span class="year">2022</span>.
+
+</li><br>
+<li id=Srinivas18>
+<span class="author">Aravind Srinivas and Allan Jabri and Pieter Abbeel and Sergey Levine and Chelsea Finn</span>, 
+<span class="title">"Universal planning networks: Learning generalizable representations for visuomotor control"</span>, 
+<span class="publisher">International Conference on Machine Learning</span> , pp. 4732--4741, <span class="year">2018</span>.
+
+</li><br>
+<li id=Subramanian19>
+<span class="author">Jayakumar Subramanian and Aditya Mahajan</span>, 
+<span class="title">"Approximate information state for partially observed systems"</span>, 
+<span class="publisher">2019 IEEE 58th Conference on Decision and Control (CDC)</span> , pp. 1629--1636, <span class="year">2019</span>.
+
+</li><br>
+<li id=Yang22>
+<span class="author">Lujie Yang and Kaiqing Zhang and Alexandre Amice and Yunzhu Li and Russ Tedrake</span>, 
+<span class="title">"Discrete Approximate Information States in Partially Observable Environments"</span>, 
+<span class="publisher">Proceedings of the 2022 American Control Conference (ACC)</span> , <span class="year">2022</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Yang22.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Tian22>
+<span class="author">Yi Tian and Kaiqing Zhang and Russ Tedrake and Suvrit Sra</span>, 
+<span class="title">"Can Direct Latent Model Learning Solve Linear Quadratic Gaussian Control?"</span>, 
+<span class="publisher">arXiv preprint arXiv:2212.14511</span>, <span class="year">2022</span>.
+
+</li><br>
+<li id=Givan03>
+<span class="author">Robert Givan and Thomas Dean and Matthew Greig</span>, 
+<span class="title">"Equivalence notions and model minimization in Markov decision processes"</span>, 
+<span class="publisher">Artificial Intelligence</span>, vol. 147, no. 1-2, pp. 163--223, <span class="year">2003</span>.
+
+</li><br>
+<li id=Ferns04>
+<span class="author">Norm Ferns and Prakash Panangaden and Doina Precup</span>, 
+<span class="title">"Metrics for Finite Markov Decision Processes."</span>, 
+<span class="publisher">UAI</span> , vol. 4, pp. 162--169, <span class="year">2004</span>.
+
+</li><br>
+<li id=Castro09>
+<span class="author">Pablo Samuel Castro and Prakash Panangaden and Doina Precup</span>, 
+<span class="title">"Equivalence Relations in Fully and Partially Observable Markov Decision Processes."</span>, 
+<span class="publisher">IJCAI</span> , vol. 9, pp. 1653--1658, <span class="year">2009</span>.
+
+</li><br>
+<li id=Schrittwieser20>
+<span class="author">Julian Schrittwieser and Ioannis Antonoglou and Thomas Hubert and Karen Simonyan and Laurent Sifre and Simon Schmitt and Arthur Guez and Edward Lockhart and Demis Hassabis and Thore Graepel and others</span>, 
+<span class="title">"Mastering Atari, Go, chess and shogi by planning with a learned model"</span>, 
+<span class="publisher">Nature</span>, vol. 588, no. 7839, pp. 604--609, <span class="year">2020</span>.
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=contact.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=state_estimation.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2024</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>

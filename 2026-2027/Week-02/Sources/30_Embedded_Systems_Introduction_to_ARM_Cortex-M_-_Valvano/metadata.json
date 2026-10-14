@@ -1,0 +1,34 @@
+{
+  "id": 30,
+  "name": "Embedded Systems Introduction to ARM Cortex-M - Valvano",
+  "type": "Kitap ve companion",
+  "url": "https://users.ece.utexas.edu/~valvano/Volume1/IntroToEmbSys/",
+  "folder": "30_Embedded_Systems_Introduction_to_ARM_Cortex-M_-_Valvano",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/IntroToEmbSys/",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/IntroToEmbSys/",
+      "kind": "html",
+      "bytes": 7707,
+      "sha256": "87352b5c5b0dbee51086eb13edca609867d3e2d6f648379b65d887849d1c9320"
+    },
+    {
+      "file": "TM4C123_LaunchPadUsersManual.pdf",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/Volume1/TM4C123_LaunchPadUsersManual.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/TM4C123_LaunchPadUsersManual.pdf",
+      "kind": "pdf",
+      "bytes": 635397,
+      "sha256": "6ebe6a285e52649daab1fd7b990f5e24c1b44709e368b5697a3076630df7eb93",
+      "pdf_pages": 27
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:30+0300",
+  "pdf_count": 1,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

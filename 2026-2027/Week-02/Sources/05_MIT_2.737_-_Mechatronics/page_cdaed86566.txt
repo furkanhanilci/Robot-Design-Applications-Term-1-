@@ -1,0 +1,128 @@
+Labs | Mechatronics | Mechanical Engineering | MIT OpenCourseWare
+Browse Course Material
+Syllabus
+Calendar
+Labs
+Course Info
+Instructor
+Prof. David Trumper
+Departments
+Mechanical Engineering
+As Taught In
+Fall
+            
+              2014
+Level
+Graduate
+Topics
+Engineering
+Electrical Engineering
+Digital Systems
+Electronics
+Robotics and Control Systems
+Mechanical Engineering
+Dynamics and Control
+Mechanical Design
+Download Course
+menu
+search
+Give Now
+About OCW
+Help & Faqs
+Contact Us
+search
+GIVE NOW
+about ocw
+help & faqs
+contact us
+2.737 | Fall 2014 | Graduate
+Mechatronics
+Menu
+More Info
+Syllabus
+Calendar
+Labs
+Labs
+Laboratory Assignments
+Some of the problems in the laboratory assignments come from P
+rof. Trumper’s archive of problems and solutions (PDF – 10.1MB)
+.
+The class will use
+LabVIEW
+—based control electronics, and it will be best if you have a running version of LabVIEW 2013 installed on Windows on your own laptop. We do not assume prior experience with LabVIEW, but you will need to learn it during the course. MIT students borrow an
+NI myRIO unit
+during the course.
+WEEK #
+TOPICS
+LAB FILES
+1–2
+Lab 0: Controls Review; Introduction to LabVIEW programming on the myRIO
+Pre-lab 0 (PDF)
+Lab 0 (PDF)
+Lab 0 LabVIEW Files (ZIP)
+2–3
+Lab 1: Real-time Control; Using the myRIO with LabVIEW to implement closed-loop control of an RC filter
+Lab 1 (PDF)
+Lab 1 Addendum (PDF)
+Lab 1 LabVIEW Files (ZIP)
+3–5
+Lab 2: Analog Feedback Systems
+Lab 2 (PDF)
+Circuit Diagram (PDF)
+PA10 Datasheet (PDF)
+LM741 Datasheet (PDF)
+5–6
+Lab 3: Electronic Scale
+Lab 3 (PDF)
+LT1167 Datasheet (PDF)
+LT1021 Datasheet (PDF)
+7–9
+Lab 4: AC-Driven and Demodulated Electronic Scale
+Lab 4 (PDF)
+9–11
+Lab 5: Brushless Motor Control
+Lab 5 (PDF)
+Schedule
+We will occasionally use the scheduled lab sessions, but you will mostly work in the lab on a self-scheduled basis. If you are a registered student in the class, your MIT card key should give you access to the lab. This freedom to use the facility also entails the responsibility to take good care of it. Please be sure the lab is locked when you leave it. Do not let others into the lab; registered students should be able to get in with their own MIT ID. Please let us know if something is wrong with any of the equipment, and be careful to leave the lab benches and equipment ready for the next person to use. When you leave, please be sure equipment other than the computers is powered off.
+Pre-labs
+A pre-lab will be assigned in the week preceding the lab exercise. The pre-lab will help you to get prepared and make calculations and design choices for the laboratories. The pre-lab may also contain homework-like problems. The pre-lab is generally due in class one week after the lab assignment goes out. Late pre-labs will not be accepted. Please turn in a copy of your work to us, retaining the original, as you will generally need the pre-lab material for your lab experiments. Attach the original of your pre-lab to the back of the lab report, to be turned in at the lab check-off.
+Lab Reports
+Your lab report is due at a scheduled check-off with one of the teaching staff. This check-off consists of a 30 minute interview in which we will ask you to demonstrate your working lab experiments. Check-offs will be scheduled about a week in advance. Please come to the lab well in advance of your check-off to be sure that you have a properly functioning lab setup in order to be able to demonstrate your system, and make good use of the 30 minute time window. Lab check-offs will not generally be rescheduled other than in the event of an emergency or illness. Late lab reports will not be accepted.
+Course Info
+Instructor
+Prof. David Trumper
+Departments
+Mechanical Engineering
+As Taught In
+Fall
+            
+              2014
+Level
+Graduate
+Topics
+Engineering
+Electrical Engineering
+Digital Systems
+Electronics
+Robotics and Control Systems
+Mechanical Engineering
+Dynamics and Control
+Mechanical Design
+Download Course
+Over 2,500 courses & materials
+Freely sharing knowledge with learners and educators around the world.
+Learn more
+© 2001–2026 Massachusetts Institute of Technology
+Accessibility
+Creative Commons License
+Terms and Conditions
+Proud member of:
+© 2001–2026 Massachusetts Institute of Technology
+You are leaving MIT OpenCourseWare
+close
+Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+Stay Here
+Continue

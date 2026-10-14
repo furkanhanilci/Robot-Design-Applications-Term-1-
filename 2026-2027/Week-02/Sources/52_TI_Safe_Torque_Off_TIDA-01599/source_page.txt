@@ -1,0 +1,209 @@
+TIDA-01599 reference design | TI.com
+Home
+Design & development
+Reference designs
+TIDA-01599
+TÜV SÜD-assessed safe torque off (STO) reference design for industrial drives (IEC 61800-5-2)
+Design files
+TIDA-01599
+Design files
+Overview
+This reference design outlines a safe torque off (STO) subsystem for a three-phase inverter with CMOS input isolated IGBT gate drivers. The STO subsystem employs a dual-channel architecture (1oo2) with a hardware fault tolerance of 1 (HFT=1). It is implemented following a de-energize trip concept. When the dual STO inputs (STO_1 and STO_2) go active low, the corresponding power supplies of the primary and secondary side of the six isolated IGBT gate drivers, are cut off through load switches. This removes the possibility to control and energize the motor. The STO reference design (1oo2) has been assessed by TÜV SÜD to be generally suitable for SIL 3 and PL e/Cat. 3.
+Features
+Dual-channel STO architecture (1oo2) assessed by TÜV SÜD to be suitable for SIL 3 (IEC 61508) and PL e/Cat. 3 (ISO 13849)
+TÜV report, safety concept description and qualitative system FMEA available to further help designers implement the STO subsystem
+STO subsystem for three-phase inverters with CMOS-input isolated IGBT gate drivers such as ISO5852S, UCC21750 or UCC5350
+24-V isolated input receivers ISO1211 compliant to IEC 61131-2 and ±60-V input tolerance with reverse polarity protection
+Interface to MCU (SIL 1) for diagnostic coverage of the load switches in the STO subsystems
+Option to monitor input and output supply UVLO of the ISO5852S through RDY pin and additional monitoring capabilities with UCC21750 integrated analog-to-PWM isolated sensor
+Industrial
+48-V servo drive
+IGBT-based servo power stage
+IGBT-based servo power stage
+Industrial robot mixed I/O module
+Industrial robot vision
+Industrial robot wired teach pendant
+Industrial robot wireless teach pendant
+Isolated AC drive power stage
+Isolated AC drive power stage
+Mobile robot BMS
+Mobile robot motor control
+Mobile robot safety module
+Mobile robot vision
+Multi-axis servo drive
+Multi-axis servo power stage
+Multi-axis servo power stage
+Robot position feedback aggregator
+Robot safety module
+Single-axis servo drive
+Download
+View video with transcript
+Video
+A fully assembled board has been developed for testing and performance validation only, and is not available for sale.
+Design files & products
+Design files
+Download ready-to-use system files to speed your design process.
+download
+Design guide — TIDA-01599
+PDF
+|
+HTML
+TIDUDS9B.PDF (2996 KB)
+Reference design overview and verified performance test data
+download
+Assembly drawing — TIDA-01599
+TIDRVA4A.PDF (339 KB)
+Detailed overview of design layout for component placement
+download
+Bill of materials (BOM) — TIDA-01599
+TIDRVA3A.PDF (163 KB)
+Complete listing of design components, reference designators, and manufacturers/part numbers
+download
+CAD/CAE symbol — TIDA-01599
+TIDRVA6A.ZIP (2253 KB)
+Files used for 3D models or 2D drawings of IC components
+download
+Gerber file — TIDA-01599
+TIDCEF0A.ZIP (363 KB)
+Design file that contains information on physical board layer of design PCB
+download
+PCB layout — TIDA-01599
+TIDRVA5A.PDF (1305 KB)
+PCB layer plot file used for generating PCB design layout
+download
+Schematic — TIDA-01599
+TIDRVA2A.PDF (857 KB)
+Detailed schematic diagram for design layout and components
+Products
+Includes TI products in the design and potential alternatives.
+Digital isolators
+ISO7710
+—
+Reinforced 1-channel digital isolator
+Data sheet:
+PDF
+|
+HTML
+High-side switches
+TPS27S100
+—
+40-V, 80-mΩ, 4-A, 1-ch, Industrial high-side switch with adjustable current limit
+Data sheet:
+PDF
+|
+HTML
+IO-Link & digital I/Os
+TIOS1013
+—
+Digital sensor output driver with integrated surge protection and 3.3-V LDO output
+Data sheet:
+PDF
+|
+HTML
+Isolated digital inputs
+ISO1211
+—
+Single-channel Isolated 24-V to 60-V digital input receiver for digital input modules
+Data sheet:
+PDF
+|
+HTML
+Isolated gate drivers
+ISO5452
+—
+5.7kVrms, 2.5A/5A single-channel isolated gate driver w/ split output, STO & protection features
+Data sheet:
+PDF
+|
+HTML
+Isolated gate drivers
+ISO5852S
+—
+5.7kVrms, 2.5A/5A single-channel isolated gate driver w/ split output, STO & protection features
+Data sheet:
+PDF
+|
+HTML
+Isolated gate drivers
+UCC21750
+—
+5.7kVrms ±10A, single-channel isolated gate driver w/ DESAT & internal miller clamp for IGBT/SiCFETs
+Data sheet:
+PDF
+|
+HTML
+Isolated gate drivers
+UCC5350
+—
+10A/10A single-channel basic/reinforced isolated gate driver with miller clamp or split output
+Data sheet:
+PDF
+|
+HTML
+Load switches
+TPS22919
+—
+5.5-V, 1.5-A, 90-mΩ load switch with adj. output discharge
+Data sheet:
+PDF
+|
+HTML
+Technical documentation
+star
+=
+Top documentation selected by TI
+No results found. Please clear your search and try again.
+View all 6
+Top documentation
+Type
+Title
+Format options
+Date
+*
+Design guide
+TUEV-Assessed STO Reference Design for Industrial Drives (IEC 61800-5-2) (Rev. B)
+PDF
+|
+HTML
+Nov 11, 2022
+Functional safety information
+FMEA STO Concept TIDA-01599
+May 17, 2022
+Functional safety information
+Overview STO Concept TIDA-01599
+PDF
+|
+HTML
+Apr 19, 2022
+Functional safety information
+STO Concept TUEV Report TF97657T Rev.1.1
+Feb 24, 2022
+Functional safety information
+Design Smaller Safe Torque Off (STO) Systems Using 3-Phase Smart Gate Drivers
+PDF
+|
+HTML
+Mar 4, 2021
+E-book
+E-book: An engineer’s guide to industrial robot designs
+Feb 12, 2020
+Related design resources
+Reference designs
+REFERENCE DESIGN
+TIDA-00199
+—
+Wide-Input Isolated IGBT Gate-Drive Fly-Buck Power Supply for Three-Phase Inverters Reference Design
+Support & training
+TI E2E™ forums with technical support from TI engineers
+View all forum topics
+Content is provided "as is" by TI and community contributors and does not constitute TI specifications. See
+terms of use
+.
+If you have questions about quality, packaging or ordering TI products, see
+TI support
+.
+Video series
+View all videos
+Videos
+Disclaimer
+See the important notice and disclaimer covering reference designs and other TI resources.

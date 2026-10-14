@@ -1,0 +1,183 @@
+13.1. Wheeled Mobile Robots – Modern Robotics
+Northwestern University
+Search for:
+Search
+Search
+Search for:
+Search
+Menu
+Book, Software, etc.
+Online Courses (Coursera)
+Video Supplements for
+Modern Robotics
+Kevin M. Lynch and Frank C. Park
+Cambridge University Press
+Book, Software, etc.
+Online Courses (Coursera)
+13.1. Wheeled Mobile Robots
+13.1. Wheeled Mobile Robots
+Description
+Transcript
+This video introduces Chapter 13 of “Modern Robotics” on wheeled mobile robots. This chapter covers kinematic modeling of omnidirectional and nonholonomic wheeled robots, motion planning for nonholonomic robots, feedback control, odometry, and mobile manipulation: feedback control of the end-effector of a mobile robot equipped with a robot arm.
+In the final chapter we focus on motion planning and control of wheeled mobile robots that move without skidding on hard flat surfaces, such as this differential drive robot, which moves by independently controlling the rotation of two conventional wheels, and this omnidirectional mobile robot, which moves by independently controlling the rotation of mecanum wheels, which allow sideways slipping.
+In all cases, we assume that we control wheel velocities, not torques, so we have a kinematic model mapping wheel speeds to the chassis velocity.  The planar configuration of the robot chassis is written T_sb, an element of SE(2), or simply as the vector q equal to (phi, x, y), where phi is the heading angle of the chassis and (x,y) is the position of a reference point on the chassis. The velocity of the chassis is written either as the planar twist V_b, expressed in the body frame {b}, or as the time derivative q-dot.  For a nonholonomic mobile robot, like the differential drive, the space of feasible chassis velocities is only 2-dimensional, because the robot cannot slide sideways.   For an omnidirectional robot, the chassis can move in any direction in its 3-dimensional velocity space.
+This chapter addresses the following issues for omnidirectional and nonholonomic wheeled robots:
+Kinematic modeling for several different types of wheeled mobile robot. Motion planning for wheeled mobile robots. Feedback control to stabilize motion plans. Odometry, to estimate the configuration of the chassis based on data from the wheel encoders. And mobile manipulation, where the wheeled mobile base is equipped with a manipulator.  In particular, we derive the Jacobian mapping wheel and joint velocities to the end-effector twist, and we use this to develop a coordinated controller for the mobile base and robot arm.
+In the next video we begin our study with omnidirectional wheeled mobile robots.
+Table of Contents
+Introduction
+Introduction Autoplay
+Introduction to the Lightboard
+Acknowledgments
+Chapter 2
+Configuration Space
+Chapter 2 Autoplay
+Foundations of Robot Motion
+2.1. Degrees of Freedom of a Rigid Body
+2.2. Degrees of Freedom of a Robot
+2.3.1. Configuration Space Topology
+2.3.2. Configuration Space Representation
+2.4. Configuration and Velocity Constraints
+2.5. Task Space and Workspace
+Chapter 3
+Rigid-Body Motions
+Chapter 3 Autoplay
+Introduction to Rigid-Body Motions
+3.2.1. Rotation Matrices (Part 1 of 2)
+3.2.1. Rotation Matrices (Part 2 of 2)
+3.2.2. Angular Velocities
+3.2.3. Exponential Coordinates of Rotation (Part 1 of 2)
+3.2.3. Exponential Coordinates of Rotation (Part 2 of 2)
+3.3.1. Homogeneous Transformation Matrices
+3.3.2. Twists (Part 1 of 2)
+3.3.2. Twists (Part 2 of 2)
+3.3.3. Exponential Coordinates of Rigid-Body Motion
+3.4. Wrenches
+Chapter 4
+Forward Kinematics
+Chapter 4 Autoplay
+4.1.1. Product of Exponentials Formula in the Space Frame
+4.1.2. Product of Exponentials Formula in the End-Effector Frame
+Forward Kinematics Example
+Chapter 5
+Velocity Kinematics and Statics
+Chapter 5 Autoplay
+Velocity Kinematics and Statics
+5.1.1. Space Jacobian
+5.1.2. Body Jacobian
+5.2. Statics of Open Chains
+5.3. Singularities
+5.4.  Manipulability
+Chapter 6
+Inverse Kinematics
+Chapter 6 Autoplay
+Inverse Kinematics of Open Chains
+6.2. Numerical Inverse Kinematics (Part 1 of 2)
+6.2. Numerical Inverse Kinematics (Part 2 of 2)
+Chapter 7
+Kinematics of Closed Chains
+Chapter 7 Autoplay
+Kinematics of Closed Chains
+Chapter 8
+Dynamics of Open Chains
+Chapter 8 Autoplay
+8.1. Lagrangian Formulation of Dynamics (Part 1 of 2)
+8.1. Lagrangian Formulation of Dynamics (Part 2 of 2)
+8.1.3. Understanding the Mass Matrix
+8.2. Dynamics of a Single Rigid Body (Part 1 of 2)
+8.2. Dynamics of a Single Rigid Body (Part 2 of 2)
+8.3. Newton-Euler Inverse Dynamics
+8.5. Forward Dynamics of Open Chains
+8.6. Dynamics in the Task Space
+8.7. Constrained Dynamics
+8.9. Actuation, Gearing, and Friction
+Chapter 9
+Trajectory Generation
+Chapter 9 Autoplay
+9.1 and 9.2. Point-to-Point Trajectories (Part 1 of 2)
+9.1 and 9.2. Point-to-Point Trajectories (Part 2 of 2)
+9.3. Polynomial Via Point Trajectories
+9.4. Time-Optimal Time Scaling (Part 1 of 3)
+9.4. Time-Optimal Time Scaling (Part 2 of 3)
+9.4. Time-Optimal Time Scaling (Part 3 of 3)
+Chapter 10
+Motion Planning
+Chapter 10 Autoplay
+10.1. Overview of Motion Planning
+10.2.1. C-Space Obstacles
+10.2.3. Graphs and Trees
+10.2.4. Graph Search
+10.3. Complete Path Planners
+10.4. Grid Methods for Motion Planning
+10.5. Sampling Methods for Motion Planning (Part 1 of 2)
+10.5. Sampling Methods for Motion Planning (Part 2 of 2)
+10.6. Virtual Potential Fields
+10.7. Nonlinear Optimization
+Chapter 11
+Robot Control
+Chapter 11 Autoplay
+11.1. Control System Overview
+11.2.1. Error Response
+11.2.2. Linear Error Dynamics
+11.2.2.1. First-Order Error Dynamics
+11.2.2.2. Second-Order Error Dynamics
+11.3. Motion Control with Velocity Inputs (Part 1 of 3)
+11.3. Motion Control with Velocity Inputs (Part 2 of 3)
+11.3. Motion Control with Velocity Inputs (Part 3 of 3)
+11.4. Motion Control with Torque or Force Inputs (Part 1 of 3)
+11.4. Motion Control with Torque or Force Inputs (Part 2 of 3)
+11.4. Motion Control with Torque or Force Inputs (Part 3 of 3)
+11.5. Force Control
+11.6. Hybrid Motion-Force Control
+Chapter 12
+Grasping and Manipulation
+Chapter 12 Autoplay
+Grasping and Manipulation
+12.1.1. First-Order Analysis of a Single Contact
+12.1.2. Contact Types: Rolling, Sliding, and Breaking
+12.1.3. Multiple Contacts
+12.1.6. Planar Graphical Methods (Part 1 of 2)
+12.1.6. Planar Graphical Methods (Part 2 of 2)
+12.1.7. Form Closure
+12.2.1. Friction
+12.2.2. Planar Graphical Methods
+12.2.3. Force Closure
+12.2.4. Duality of Force and Motion Freedoms
+12.3. Manipulation and the Meter-Stick Trick
+12.3. Transport of an Assembly
+Chapter 13
+Wheeled Mobile Robots
+Chapter 13 Autoplay
+13.1. Wheeled Mobile Robots
+13.2. Omnidirectional Wheeled Mobile Robots (Part 1 of 2)
+13.2. Omnidirectional Wheeled Mobile Robots (Part 2 of 2)
+13.3.1. Modeling of Nonholonomic Wheeled Mobile Robots
+13.3.2. Controllability of Wheeled Mobile Robots (Part 1 of 4)
+13.3.2. Controllability of Wheeled Mobile Robots (Part 2 of 4)
+13.3.2. Controllability of Wheeled Mobile Robots (Part 3 of 4)
+13.3.2. Controllability of Wheeled Mobile Robots (Part 4 of 4)
+13.3.3. Motion Planning for Nonholonomic Mobile Robots
+13.3.4. Feedback Control for Nonholonomic Mobile Robots
+13.4. Odometry
+13.5. Mobile Manipulation
+Chapter 13.2.
+Omnidirectional Wheeled Mobile Robots (Part 1 of 2)
+Chapter 13 Autoplay
+© 2026
+Northwestern University
+Disclaimer
+Contact Northwestern University
+Careers
+Campus Emergency Information
+University Policies
+Address
+633 Clark Street
+Evanston, IL 60208
+Phone number
+Evanston
+(847) 491-3741
+Chicago
+(312) 503-8649
+Social Media
+Book, Software, etc.
+Online Courses (Coursera)

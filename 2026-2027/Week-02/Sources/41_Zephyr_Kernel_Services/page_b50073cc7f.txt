@@ -1,0 +1,80 @@
+Version — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Data Passing
+Memory Management
+Timing
+Other
+Atomic Services
+Floating Point Services
+Version
+API Reference
+Assertions
+Fatal Errors
+Thread Local Storage (TLS)
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Version
+Open on GitHub
+Report an issue with this page
+Version
+Kernel version handling and APIs related to kernel version being used.
+API Reference
+Version
+APIs
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Jun 03, 2024.

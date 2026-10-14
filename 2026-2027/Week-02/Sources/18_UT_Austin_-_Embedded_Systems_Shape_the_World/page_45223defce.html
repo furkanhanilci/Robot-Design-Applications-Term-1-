@@ -1,0 +1,1762 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+  
+  
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+
+
+  
+  
+  
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+  <title>Chapter8: Switches and LEDs</title>
+  <style>
+<!--
+/* Font Definitions */
+@font-face
+{font-family:Wingdings;
+panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+{font-family:"Cambria Math";
+panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+{font-family:"Arial Unicode MS";
+panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+{font-family:Garamond;
+panose-1:2 2 4 4 3 3 1 1 8 3;}
+@font-face
+{font-family:Geneva;}
+@font-face
+{font-family:"\@Arial Unicode MS";
+panose-1:2 11 6 4 2 2 2 2 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+{margin:0in;
+margin-bottom:.0001pt;
+font-size:12.0pt;
+font-family:"Times New Roman","serif";}
+h1
+{margin-top:12.0pt;
+margin-right:0in;
+margin-bottom:3.0pt;
+margin-left:0in;
+page-break-after:avoid;
+font-size:16.0pt;
+font-family:"Arial","sans-serif";}
+h2
+{margin-top:28.0pt;
+margin-right:0in;
+margin-bottom:10.0pt;
+margin-left:0in;
+page-break-after:avoid;
+border:none;
+padding:0in;
+font-size:16.0pt;
+font-family:"Garamond","serif";}
+h4
+{margin-top:12.0pt;
+margin-right:0in;
+margin-bottom:3.0pt;
+margin-left:0in;
+page-break-after:avoid;
+font-size:14.0pt;
+font-family:"Times New Roman","serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+{mso-style-link:"Caption Char";
+margin-top:3.0pt;
+margin-right:0in;
+margin-bottom:12.0pt;
+margin-left:5.75pt;
+text-indent:-5.75pt;
+font-size:11.0pt;
+font-family:"Garamond","serif";
+letter-spacing:.25pt;
+font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+{mso-style-link:"Body Text Char";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:56.9pt;
+text-align:justify;
+font-size:10.0pt;
+font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+{color:blue;
+text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+{color:#954F72;
+text-decoration:underline;}
+span.BodyTextChar
+{mso-style-name:"Body Text Char";
+mso-style-link:"Body Text";}
+span.CaptionChar
+{mso-style-name:"Caption Char";
+mso-style-link:Caption;
+font-family:"Garamond","serif";
+letter-spacing:.25pt;
+font-style:italic;}
+p.PictureWide, li.PictureWide, div.PictureWide
+{mso-style-name:"Picture Wide";
+mso-style-link:"Picture Wide Char";
+margin:0in;
+margin-bottom:.0001pt;
+text-align:left;
+font-size:11.0pt;
+font-family:"Garamond","serif";}
+span.PictureWideChar
+{mso-style-name:"Picture Wide Char";
+mso-style-link:"Picture Wide";
+font-family:"Garamond","serif";}
+p.Checkpoint, li.Checkpoint, div.Checkpoint
+{mso-style-name:Checkpoint;
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:1.0in;
+font-size:10.0pt;
+font-family:"Garamond","serif";}
+p.TableHeading, li.TableHeading, div.TableHeading
+{mso-style-name:"Table Heading";
+margin-top:4.0pt;
+margin-right:0in;
+margin-bottom:4.0pt;
+margin-left:.05in;
+text-indent:0in;
+font-size:10.0pt;
+font-family:"Garamond","serif";
+font-weight:bold;}
+p.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, li.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, div.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth
+{mso-style-name:"Style Justified Top\: \(Single solid line Auto 0\.75 pt Line width\)";
+margin:0in;
+margin-bottom:.0001pt;
+text-align:justify;
+border:none;
+padding:0in;
+font-size:11.0pt;
+font-family:"Times New Roman","serif";}
+span.CODE
+{mso-style-name:CODE;
+font-family:"Courier New";}
+p.BodyText, li.BodyText, div.BodyText
+{mso-style-name:BodyText;
+mso-style-link:"BodyText Char";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:56.9pt;
+text-align:justify;
+font-size:10.0pt;
+font-family:"Times New Roman","serif";}
+span.BodyTextChar0
+{mso-style-name:"BodyText Char";
+mso-style-link:BodyText;}
+@page WordSection1
+{size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+{page:WordSection1;}
+/* List Definitions */
+ol
+{margin-bottom:0in;}
+ul
+{margin-bottom:0in;}
+-->
+  </style>
+  
+  
+  
+  <script src="ModuleCheckpoints.js"></script>
+  
+  
+  
+  <meta content="Jonathan Valvano and Ramesh Yerraballi" name="author">
+</head>
+
+
+<body lang="EN-US" link="blue" vlink="#954f72">
+
+
+
+
+<div class="WordSection1">
+<p class="MsoNormal" style="text-align: center;" align="center"><a name="_Toc293059485"><span style="font-size: 14pt;">Chapter
+8: Switch and LED Interfacing</span></a></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: center;" align="center">
+<span style="font-weight: 700;"><font size="4">Embedded
+Systems - Shape
+The World</font></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: center; font-style: italic;" align="center">
+<font size="4">Jonathan
+Valvano
+and Ramesh Yerraballi</font></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: center;" align="center"></p>
+
+
+
+
+<p class="MsoNormal"><b>&nbsp;</b></p>
+
+
+
+
+<p class="MsoBodyText">We couldn&rsquo;t wait to show
+you how much fun
+it is to make
+the microcontroller interact with real physical devices. So in this
+section we
+will take a short side step from the business of concepts and theories
+to teach
+you how to connect switches and LEDs to the microcontroller. We will
+use
+switches to input data and use LEDs to output results. In this chapter,
+we will
+illustrate the design, construction and testing of an embedded system.
+The
+switch LED and LaunchPad will then be combined to create a system. You
+will need a solid understanding of Ohm's Law, so you may need to review
+current, voltage, power, and resistance from Chapter 3. </p>
+
+
+
+
+
+      
+      
+      <p class="MsoNormal"><b>Learning Objectives:</b><i>
+      </i></p>
+
+
+
+
+      
+      
+      
+      <ul style="margin-top: 0in;" type="disc">
+
+
+
+
+        <li class="MsoNormal">Understanding basic circuit
+elements like
+source, ground, and resistors.</li>
+
+
+
+
+        <li class="MsoNormal">Understanding how switches
+and LEDs
+work.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</li>
+
+
+
+
+        <li class="MsoNormal">Application of
+Ohm&rsquo;s Law</li>
+
+
+
+
+        <li class="MsoNormal">Analog circuit design and
+construction on
+a
+solderless breadboard</li>
+
+
+
+
+        <li class="MsoNormal">Interfacing switches and
+LEDs to a
+microcontroller</li>
+
+
+
+
+        <li class="MsoNormal">Programming simple logic. </li>
+
+
+
+
+      
+      
+      
+      </ul>
+
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal">&nbsp;<br>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/ahjCuR8avjE?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+
+
+      
+      
+      
+      <p class="MsoCaption"><span lang="en-US">Video
+      </span>8.0<span lang="en-US">. Circuit
+elements and Interfacing them to a Microcontroller </span></p>
+
+
+
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;"><a name="8_1"></a>
+<h2>8.1. Breadboard</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoBodyText">To build circuits, we&rsquo;ll
+use a solderless
+breadboard, also
+referred to as a protoboard. The holes in the protoboard are internally
+connected in a systematic manner, as shown in Figure 8.1. The long rows
+of
+holes along the outer sides of the protoboard are electrically
+connected. Some
+protoboards like the one in Figure 8.1 have four long rows (two on each
+side),
+while others have just two long rows (one on each side). We refer to
+the long
+rows as power buses. If your protoboard has only two long rows (one on
+each
+side, we will connect one row to +3.3V and another row to ground. If
+your
+protoboard has two long rows on each side, then two rows will be
+ground, one
+row will be +3.3V. Use a black marker and
+label
+the voltage on each row. In the middle of the protoboard,
+you&rsquo;ll
+find two
+groups of holes placed in a 0.1 inch grid. Each adjacent row of five
+pins is
+electrically connected. We usually insert components into these holes.
+If
+integrated circuits (IC) are to be placed on the protoboard, it is done
+such
+that the two rows of pins straddle the center valley. </p>
+
+
+
+
+<p class="MsoNormal" style="text-indent: 0.5in; text-align: left;"><span style="color: black;">&nbsp;<br>
+
+
+
+
+</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: left;" align="center"><span style="color: black;"><img style="width: 576px; height: 386px;" alt="" src="C8_SwitchLEDv2_files/Figure8_1.jpg"><br>
+
+
+
+
+</span></p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left">Figure
+8.1. The pins
+on each of the four long rows are connected. The 5 pins in each short
+row are
+connected. Place a +3.3V wire to one long row. Place a ground wire from
+the LaunchPad
+to another long row.</p>
+
+
+
+
+<p class="MsoBodyText">To build a circuit we will use
+22-gauge or
+24-gauge solid wire. We strip off about 1/4 to 1/2 inch of insulation
+so the bare wire can be pushed straight into a hole. We only push one
+wire into a hole and remember which rows are internally connected as
+described in Figure 8.1.</p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="8_2"></a>
+<h2>8.2. Switch Interfaces</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoBodyText">&nbsp;</p>
+
+
+
+
+<p class="MsoBodyText">Input/output devices are critical
+components of
+an embedded
+system. The first input device we will study is the <b>switch</b>.
+It allows the human to input binary information into the computer.
+Typically we
+define the asserted state, or logic true, when the switch is pressed.
+Contact
+switches can also be used in machines to detect mechanical contact
+(e.g., two
+parts touching, paper present in the printer, or wheels on the ground
+etc.) A
+single pole&nbsp;single throw&nbsp;(SPST) switch has two
+connections.
+The switches are
+shown as little open circles in Figure 8.2. In a normally open switch
+(NO), the
+resistance between the connections is infinite (over 100 M&#8486; on the B3F
+tactile switch) if the switch is not pressed and zero (under 0.1 &#8486; on
+the
+B3F tactile switch) if the switch is pressed.&nbsp;</p>
+
+
+
+<<!--- Start C8_video_Pre2 --->
+      
+      
+      <p class="MsoNormal" align="left">
+      <iframe src="http://www.youtube.com/embed/wimHddQckWA?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+
+      
+      
+      <p class="MsoCaption" align="left"><span lang="en-US">Video
+      </span>8.1<span lang="en-US">. B3F Switch Datasheet</span></p>
+
+
+
+
+<!--- End C8_video_Pre2 --->
+      
+      
+      <p class="MsoBodyText">&nbsp;</p>
+
+
+
+<!--- Start C8_video_2 --->
+      
+      
+      <p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/2yMyb80A4IA?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+
+
+      
+      
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.2<span lang="en-US">.
+Circuit for Switch
+Interface</span></p>
+
+
+
+<!--- End C8_video_2 ---> 
+
+
+
+<p class="MsoBodyText">To convert the
+infinite/zero
+resistance into a digital signal, we can use a pull-down resistor to
+ground or
+a pull-up resistor to +3.3V as shown in Figure 8.2. Notice that 10 k&#8486;
+is
+100,000 times larger than the on-resistance of the switch and 10,000
+times
+smaller than its off-resistance. Another way to choose the pull-down or
+pull-up
+resistor is to consider the input current of the microcontroller input
+pin. The
+current into the microcontroller will be less than 2&micro;A (shown
+as <i>I<sub>IL</sub></i>
+and <i>I<sub>IH</sub></i> in the data sheet).
+So, if the current into
+microcontroller is 2&micro;A, then the voltage drop across the 10
+k&#8486;
+resistor
+will be 0.02 V, which is negligibly small. With a pull-down resistor,
+the
+digital signal will be low if the switch is not pressed and high if the
+switch
+is pressed (right Figure 8.2). This is defined as <b>positive
+logic</b>
+because
+the asserted state is a logic high. Conversely, with a pull-up
+resistor, the
+digital signal will be high if the switch is not pressed and low if the
+switch
+is pressed (middle of Figure 8.2). This is defined as <b>negative
+logic</b>
+because the asserted state is a logic low.</p>
+
+
+
+
+<p class="PictureWide"><span lang="EN-AU"><img src="C8_SwitchLEDv2_files/image002.gif" height="192" width="819"></span></p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left">Figure
+8.2. Single
+Pole Single Throw (SPST) Switch interface.</p>
+
+
+
+
+<p class="MsoBodyText">One of the complicating issues with
+mechanical
+switches is
+they can bounce&nbsp;(oscillate on and off) when touched and when
+released. The
+contact bounce&nbsp;varies from switch to switch and from time to
+time,
+but usually
+bouncing is a transient event lasting less than 5 ms. We can eliminate
+the
+effect of bounce if we design software that waits at least 10 ms
+between times
+we read the switch values. </p>
+
+
+
+
+<p class="MsoBodyText">To interface a switch&nbsp;we
+connect it to a
+pin (e.g., Figure 8.3) and initialize the pin as an input. The
+initialization function
+will
+enable the clock, set the direction register to input, turn off the
+alternative
+function, and enable the pin. Notice the software is friendly because
+it just
+affects PA5 without affecting the other bits in Port A. The input
+function
+reads Port A and returns a true (0x20) if the switch is pressed and
+returns a
+false (0) if the switch is not pressed. Figure 8.4 shows how we could
+build this circuit with a protoboard and a LaunchPad.</p>
+
+
+
+
+<p class="MsoNormal" style="margin: 0in 0.25in 0.0001pt; text-align: left;" align="left"><img src="C8_SwitchLEDv2_files/image003.gif" height="166" width="218"></p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left">Figure
+8.3.
+Interface of a switch to a microcomputer input.</p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left"><img style="width: 410px; height: 245px;" alt="" src="C8_SwitchLEDv2_files/Figure8_4.jpg"></p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left">Figure
+8.4.
+Construction of the interface of a switch to a microcomputer input. The
+brown-black-orange resistor is 10k. The switches in the lab-kit should
+plug into the protoboard. The switch is across the two pins that are
+closer to each other. It doesn't matter what color the wires are, but
+in this figure the wires are black, red and green. The two black wires
+are ground, the red wire is +3.3V, and the green wire is the signal <span style="font-weight: bold;">in</span>, which connects
+the switch to PA5
+of the microcontroller.</p>
+
+
+
+
+<p class="MsoBodyText">
+The software in Program 8.1 is called a driver, and it includes an
+initialization, which is called once, and a second function that can be
+called to read the current position of the switch. Writing software
+this way is called an abstraction, because it separates what the switch
+does (Init, On, Off) from how it works (PortA, bit 5, TM4C123).
+The first input function uses the bit-<span style="color: black;">specific
+</span>address to get just PA5, while
+the second
+reads the entire port and selects bit 5 using a logical AND.</p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+PA5&nbsp;&nbsp; (*((volatile
+unsigned long *)0x40004080))</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">void
+Switch_Init(void){
+volatile unsigned long delay;</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+SYSCTL_RCGCGPIO_R |=
+0x00000001;&nbsp;&nbsp;&nbsp;&nbsp; // 1) activate
+clock for Port A</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+delay =
+SYSCTL_RCGCGPIO_R;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// allow time for clock to start</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 2) no need to unlock GPIO Port A</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+GPIO_PORTA_AMSEL_R &amp;=
+~0x20;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 3) disable
+analog on PA5</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+GPIO_PORTA_PCTL_R &amp;=
+~0x00F00000; // 4) PCTL GPIO on PA5</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+GPIO_PORTA_DIR_R &amp;=
+~0x20;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 5) direction PA5
+input</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+</span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">GPIO_PORTA_AFSEL_R
+&amp;= ~0x20;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+6) PA5 regular port
+function</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;" lang="PT-BR">&nbsp;
+GPIO_PORTA_DEN_R |= 0x20;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;// 7) enable PA5 digital port</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned
+long
+Switch_Input(void){</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+return
+PA5; // return
+0x20(pressed) or 0(not pressed)</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">unsigned
+long
+Switch_Input2(void){</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+return
+(GPIO_PORTA_DATA_R&amp;0x20);
+// 0x20(pressed) or 0(not pressed)</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 56.9pt; text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}</span></b></p>
+
+
+
+
+<p class="MsoCaption" style="margin-left: 62.65pt;">Program
+8.1.
+Software interface
+for a switch on PA5 (C8_Switch).</p>
+
+
+
+
+<p class="MsoCaption">&nbsp;</p>
+
+
+
+
+<p class="Checkpoint"><b>Maintenance Tip:</b>
+When interacting with
+just some of
+the bits of an I/O register it is better to modify just the bits of
+interest,
+leaving the other bits unchanged. In this way, the action of one piece
+of software
+does not undo the action of another piece.</p>
+
+
+
+
+<p class="MsoBodyText">&nbsp;</p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="8_3"></a>
+<h2><a name="OLE_LINK1">8.3. LED Interfaces</a></h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoBodyText">A <b>light emitting diode</b>&nbsp;(LED)
+emits
+light when an electric current passes through it. LEDs have polarity,
+meaning current must pass from anode to cathode to activate. The
+anode&nbsp;is labelled <b>a</b> or <b>+</b>
+, and cathode&nbsp;is
+labelled <b>k</b> or <b>-</b>. The
+cathode is the short lead and there may be a slight flat spot on the
+body of
+round LEDs. Thus, the anode is the longer lead. The brightness of an
+LED
+depends on the applied electrical power (<i>P</i>=<i>I</i>*<i>V</i>).
+Since the
+LED voltage is approximately constant in the active region (see left
+side of
+Figure 8.5), we can establish the desired brightness by setting the
+current.</p>
+
+
+
+
+<p class="PictureWide"><span lang="EN-AU"><img src="C8_SwitchLEDv2_files/image004.gif" height="214" width="881"></span></p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left">Figure
+8.5. Positive
+logic LED interface (Lite-On LTL-10223W).</p>
+
+
+
+<!--- Start C8_video_Pre3 --->
+      
+      
+      <p class="MsoNormal" align="left">
+      <iframe src="http://www.youtube.com/embed/IR8Ikwf5dZM?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+
+      
+      
+      <p class="MsoCaption" align="left"><span lang="en-US">Video
+      </span>8.3<span lang="en-US">. LED Datasheet</span></p>
+
+
+
+
+<!--- End C8_video_Pre3 --->
+      
+      <p class="MsoBodyText">&nbsp;</p>
+
+
+
+<!--- Start C8_video_2 --->
+      
+      
+      <p class="MsoNormal" align="left"> 
+      <iframe src="http://www.youtube.com/embed/CJuJ_cc2JIo?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+
+      
+      
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.4<span lang="en-US">.
+Circuit for LED
+Interface</span></p>
+
+
+
+<!--- End C8_video_2 ---> 
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint8_1')">Checkpoint 8.1</button>:</span></b>
+What resistor value in
+Figure 8.5 is needed if the desired LED operating point is 1.7V and 11
+mA?</p>
+
+
+
+
+<p class="MsoBodyText">If the LED current is above 8 mA,
+we cannot
+connect it
+directly to the microcontroller because the high currents may damage
+the chip.
+Figure 8.5 shows two possible interface circuits we could use. In both
+circuits
+if the software makes its output high the LED will be on. If the
+software makes
+its output low the LED will be off (shown in Figure 8.5 with <i>italics</i>).
+When the software writes a logic 1 to the output port, the input to the
+7405/PN2222 becomes high, output from the 7405/PN2222 becomes low, 10
+mA
+travels through the LED, and the LED is on. When the software writes a
+logic 0
+to the output port, the input to the 7405/PN2222 becomes low, output
+from the
+7405/PN2222 floats (neither high nor low), no current travels through
+the LED,
+and the LED is dark.<span style="color: black;"> The value
+of the
+resistor is
+selected to establish the proper LED current. When active, the LED
+voltage will
+be about 2 V, and the power delivered to the LED will be controlled by
+its
+current. If the desired brightness requires an operating point of 1.9 V
+at 10
+mA, then the resistor value should be</span></p>
+
+
+
+
+<p class="MsoBodyText"><span style="color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<sub><img src="C8_SwitchLEDv2_files/image005.gif" border="0" height="68" width="378"></sub></span></p>
+
+
+
+
+<p class="MsoBodyText"><span style="color: black;">where
+<i>V<sub>d</sub></i>,
+<i>I<sub>d</sub></i>
+is the desired LED operating point, and <i>V<sub>OL</sub></i>
+is the
+output low
+voltage of the LED driver. If we use a standard resistor value of 100</span>&#8486;<span style="color: black;"> in place of the 90</span>&#8486;<span style="color: black;">,
+then the current will be (3.3-1.9-0.5V)/100</span>&#8486;<span style="color: black;">, which is about 9 mA. This slightly
+lower
+current is
+usually acceptable.</span></p>
+
+
+
+
+<p class="PictureWide"><span lang="EN-AU"><img src="C8_SwitchLEDv2_files/image006.gif" border="0" height="241" width="881"></span></p>
+
+
+
+
+<p class="MsoCaption" style="text-align: left;" align="left">Figure
+8.6. Low
+current LED interface (Agilent HLMP-D150).</p>
+
+
+
+
+<p class="MsoBodyText">When the LED current is less than 8
+mA, we can
+interface
+it directly to an output pin without using a driver. The LED shown in
+Figure 8.6a has an operating point of 1.7 V and 1 mA. <span style="color: black;">For
+the positive logic interface (Figure 8.6b) we calculate the resistor
+value
+based on the desired LED voltage and current</span></p>
+
+
+
+
+<p class="MsoBodyText"><span style="color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<sub><img src="C8_SwitchLEDv2_files/image007.gif" border="0" height="68" width="322"></sub></span></p>
+
+
+
+
+<p class="MsoBodyText"><span style="color: black;">where
+<i>V<sub>OH</sub></i>
+is
+the output high voltage of the </span>microcontroller <span style="color: black;">output
+pin. Since <i>V<sub>OH</sub></i> can vary from
+2.4 to 3.3 V, it makes
+sense to
+choose a resistor from a measured value of <i>V<sub>OH</sub></i>,
+rather than
+the minimum value of 2.4 V. Negative logic means the LED is activated
+when the
+software outputs a zero. For the negative logic</span><span style="color: black;">&nbsp;interface (Figure 8.6c) we
+use a similar
+equation to determine the
+resistor value </span></p>
+
+
+
+
+<p class="MsoBodyText"><span style="color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<sub><img src="C8_SwitchLEDv2_files/image008.gif" border="0" height="68" width="398"></sub></span></p>
+
+
+
+
+<p class="MsoBodyText"><span style="color: black;">where
+<i>V<sub>OL</sub></i>
+is
+the output low voltage of the microcontroller output pin.</span></p>
+
+
+
+
+<p class="MsoBodyText">If we use a 1.2 k&#8486; in place of the
+1.3 k&#8486;,
+then the current will be (3.3-1.6-0.4V)/1.2k&#8486;, which is about 1.08 mA.
+This slightly higher current is usually acceptable. If we use a
+standard
+resistor value of 1.5 k&#8486; in place of the 1.3 k&#8486;, then the current
+will be (3.3-1.6-0.4V)/1.5k&#8486;, which is about 0.87 mA. This slightly
+lower
+current is usually acceptable. </p>
+
+
+
+
+<p> The software in Program 8.2 is called a driver, and it
+includes an initialization, which is called once, and two functions
+that can be called to turn on and off the LED. Writing software this
+way is called an abstraction, because it separates what the LED does
+(Init, On, Off) from how it works (PortA, TM4C123).
+</p>
+
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint8_2')">Checkpoint 8.2</button>:</span></b>
+What resistor value in of Figure
+8.6 is needed if the desired LED operating point is 1.7V and 2 mA? Use
+the
+negative logic interface and, V<sub>OL</sub> of 0.4V.</p>
+
+
+
+
+<p class="MsoBodyText">&nbsp;</p>
+
+
+
+
+<p class="MsoBodyText"><b><span style="font-size: 10pt; font-family: 'Courier New';">
+void LED_Init(void){ volatile
+unsigned long
+delay;<br>
+
+
+&nbsp; SYSCTL_RCGCGPIO_R |=
+0x01;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 1)
+activate clock for Port A<br>
+
+&nbsp; delay =
+SYSCTL_RCGCGPIO_R;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// allow time for clock to start<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 2) no need to unlock PA2<br>
+
+&nbsp; GPIO_PORTA_PCTL_R &amp;= ~0x00000F00; // 3) regular GPIO<br>
+
+&nbsp; GPIO_PORTA_AMSEL_R &amp;=
+~0x04;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 4) disable analog function on PA2<br>
+
+&nbsp; GPIO_PORTA_DIR_R |=
+0x04;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 5) set
+direction to output<br>
+
+&nbsp; GPIO_PORTA_AFSEL_R &amp;=
+~0x04;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 6) regular port function<br>
+
+&nbsp; GPIO_PORTA_DEN_R |=
+0x04;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 7) enable
+digital port<br>
+
+}<br>
+
+// Make PA2 high<br>
+
+void LED_On(void){<br>
+
+&nbsp; GPIO_PORTA_DATA_R |= 0x04;<br>
+
+}<br>
+
+// Make PA2 low<br>
+
+void LED_Off(void){<br>
+
+&nbsp; GPIO_PORTA_DATA_R &amp;= ~0x04;<br>
+
+}</span></b></p>
+
+<p class="MsoCaption" style="margin-left: 62.65pt;">Program
+8.2.
+Software interface
+for an LED on PF2</p>
+
+
+
+
+<p class="MsoCaption" style="margin-left: 62.65pt; text-align: left;"><img style="width: 410px; height: 245px;" alt="" src="C8_SwitchLEDv2_files/Fig8_7.jpg"></p>
+
+
+
+
+<p class="MsoCaption" style="margin-left: 62.65pt;">Figure
+8.7.
+Construction of the interface of an LED to a microcomputer output
+(Figure 8.6b). The yellow-purple-brown resistor is 470ohm. It doesn't
+matter what color the wires are, but
+in this figure the wires are black, red and green. The two black wires
+are ground, the red wire is +3.3V, and the green wire is the signal <span style="font-weight: bold;">Out</span>, which connects
+PA2 of the
+microcontroller to the positive side of the LED.</p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="8_4"></a>
+<h2>8.4. Design Example </h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoBodyText">Some problems are so unique that
+they require
+the engineer
+to invent completely original solutions. Most of the time, however, the
+engineer can solve even complex problems by building the system from
+components
+that already exist. Creativity will still be required in selecting the
+proper
+components, making small changes in their behavior (tweaking),
+arranging them
+in an effective and efficient manner, and then verifying the system
+satisfies
+both the requirements and constraints. When young engineers begin their
+first
+job, they are sometimes surprised to see that education does not stop
+with
+college graduation, but rather is a life-long activity. In fact, it is
+the
+educational goal of all engineers to continue to learn both processes
+(rules
+about how to solve problems) and products (hardware and software
+components).
+As the engineer becomes more experienced, he or she has a larger
+toolbox from
+which processes and components can be selected.</p>
+
+
+
+
+<p class="MsoBodyText">The hardest step for most new
+engineers is the
+first one:
+<span style="font-weight: bold;">where to begin</span>?
+We begin by
+analyzing the problem to create a set of
+specifications
+and constraints in the form of a requirements document. Next, we look
+for
+components, in the form of previously debugged solutions, which are
+similar to
+our needs. Often during the design process, additional questions or
+concerns
+arise. We at that point consult with our clients to clarify the
+problem. Next
+we rewrite the requirements document and get it reapproved by the
+clients.</p>
+
+
+
+
+<p class="MsoBodyText">It is often difficult to
+distinguish whether a
+parameter
+is a specification or a constraint. In actuality, when designing a
+system it
+often doesn&rsquo;t matter into which category a parameter falls,
+because the system
+must satisfy all specifications and constraints. Nevertheless, when
+documenting
+the device it is better to categorize parameters properly.
+<span style="font-weight: bold;">Specifications</span>
+generally define in a quantitative manner the overall system objectives
+as
+given to us by our customers.</p>
+
+
+
+
+<p class="MsoBodyText"><span style="font-weight: bold;">Constraints</span>,
+on the other hand, generally define
+the
+boundary space within which we must search for a solution to the
+problem. If we
+must use a particular component, it is often considered a constraint.
+In this
+class, we constrain most designs to include a Tiva LaunchPad.
+Constraints
+also are often defined as an inequality, such as the cost must be less
+than
+$50, or the battery must last for at least one week. Specifications on
+the
+other hand are often defined as a quantitative number, and the system
+satisfies
+the requirement if the system operates within a specified tolerance of
+that
+parameter. Tolerance can be defined as a percentage error or as a range
+with minimum
+and maximum values.</p>
+
+
+
+
+<p class="MsoBodyText">In engineering everything is either
+a system or
+an
+interface between systems. For example a switch can be considered a
+system.
+When we interface it to the LaunchPad the switch-LaunchPad combination
+is a new
+system. Therefore, we begin by collecting the components required to
+build the
+system. We then combine the components and debug the system. As the
+components are
+combined we create new more powerful components. When writing software,
+we can
+use flowcharts to develop new algorithms. The more we can simulate the
+system,
+the more design possibilities we can evaluate, and the quicker we can
+make
+changes. Debugging involves both making sure it works, together with
+satisfying
+all requirements and constraints.</p>
+
+
+
+
+<a name="8_4_1"></a>
+<h3>8.4.1 Requirements </h3>
+
+
+
+</div>
+
+
+
+<p class="MsoBodyText"> First, lets develop a requirements document. The main purpose of a requirements 
+document is to serve as an agreement between you and your clients describing what 
+the system will do. This agreement can become a legally binding contract. Write the 
+document so that it is easy to read and understand by others. 
+It should be <i>unambiguous</i>, <i>complete</i>, <i>verifiable</i>, and <i>modifiable</i>. </p>
+
+
+
+
+<p class="MsoBodyText"> The requirements document should not include how the system will be designed. 
+This allows the engineer to make choices during the design to minimize cost and 
+maximize performance. Rather it should describe the problem being solved and what 
+the system actually does. It can include some constraints placed on the development process. 
+Ideally, it is co-written by both the engineers and the non-technical clients. 
+However, it is imperative that both the engineers and the clients understand and 
+agree on the specifics in the document.</p>
+
+
+	  <!--- Start C8_video_5 --->
+      <p class="MsoNormal" align="left"> 
+      <iframe src="http://www.youtube.com/embed/b1nHX5w43NU?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.5<span lang="en-US">.
+Requirments Document</span></p>
+
+
+
+<!--- End C8_video_5 --->
+	
+      <p class="MsoBodyText"> &nbsp;
+      </p>
+
+      <h4 style="margin-left: 40px;">Requirements document for the security system</h4>
+
+ 
+      <p></p>
+
+
+      <p>
+      </p>
+
+
+      <p class="MsoBodyText">
+      </p>
+
+
+      <ol class="MsoBodyText">
+
+
+
+  
+  
+        <ol>
+
+
+    <li><small> <b>Overview</b>
+      </small>
+      
+      
+            <ol>
+
+
+        <small> 
+        </small><li><small> <i>Objectives</i>: Design a security system
+with two sensors and one alarm. Contact switches will be used for the
+sensors. If the window is secure the switch will be pressed, and if the
+window is open, the switch will be released. The alarm condition will
+be a flashing LED. The system can be activated/deactivated with a
+toggle switch.
+          </small></li>
+
+
+        <li><small> <i>Process</i>: We will first prototype it on a
+breadboard using a LaunchPad, two momentary switches, a toggle switch,
+and an LED. Hardware and software designs will be developed and tested.
+Once the prototype is tested, the momentary switches can be replaced
+with switches that fit into the windows and doors, and the flashing LED
+can be replaced with an audio alarm. The number of sensors will need to
+be increased to allow one sensor to be placed in each window and door
+of the house.
+          </small></li>
+
+
+        <li><small> <i>Roles and Responsibilities</i>: Dr. Yerraballi will develop the hardware and Dr. Valvano will develop the software, both will test.
+          </small></li>
+
+
+        <li><small> <i>Interactions with Existing Systems</i>: We will
+use a LaunchPad. It will be powered through the USB cable either with
+AC outlet or stand-alone battery. The components of the prototype will
+be selected, if possible, from the parts in the lab kit.
+          </small></li>
+
+
+        <li><small> <i>Terminology</i>: A momentary switch has a
+spring, such that if no force is applied the contact will be open.
+Applying force continuously will close the contact on the momentary
+switch. A toggle switch can be placed in either the open or closed
+state, and force is required to change from open to closed or from
+closed to open. See Figure 8.8.
+          </small></li>
+
+
+        <li><small> <i>Security</i>: The wires between the sensors and
+the microcontroller will need to be hidden. However, cutting the wires
+should constitute a breach, setting off the alarm.
+          </small></li>
+
+
+      
+      
+            </ol>
+
+
+      <small>
+      </small></li>
+
+
+    <li><small> <b>Function Description</b>
+      </small>
+      
+      
+            <ol>
+
+
+        <small>
+        </small><li><small> <i> Functionality</i>: There are two
+contact switches that measure the status of your home. Each contact
+switch is positioned in the frame of a window or a door. If the switch
+is closed or pressed the window is secure, but if either switch is open
+it means the window is open and the home is unsecure.
+          </small></li>
+
+
+        <li><small> <i>  Scope</i>: The scope of this design will
+involve hardware/software prototype design, but will not include legal,
+marketing, or financial aspects.
+          </small></li>
+
+
+        <li><small> <i> Prototypes</i>: We will use a breadboard and LaunchPad.
+          </small></li>
+
+
+        <li><small> <i>  Performance</i>: If either sensor shows the
+window is insecure and the system is activated the alarm should occur.
+The performance is defined as functionally correct. There is no
+particular specification for the minimum response time between the
+arrival of an insecure state and the alarm signal.
+          </small></li>
+
+
+        <li><small> <i>  Usability</i>: There is also a toggle switch
+with which the user can use to activate or deactivate the alarm. If the
+alarm is activated, the LED will flash at 5 Hz if either switch is not
+pressed.
+          </small></li>
+
+
+        <li><small> <i>  Safety</i>: No concerns
+          </small></li>
+
+
+  
+      
+            </ol>
+
+
+  </li>
+
+    <li> 
+    
+      
+            <div><small><b> Deliverables </b></small></div>
+
+
+
+    
+      
+            <ol>
+
+
+
+      <li><small> <i>Reports</i>: Videos will be recorded and converted to a design chapter in the MOOC Embedded Systems &ndash; Shape the World.
+        </small></li>
+
+
+      <li><small> <i>Audits</i>: None
+        </small></li>
+
+
+      <li> <small><i>Outcomes</i>: We will create a prototype system</small>
+      </li>
+
+
+    
+      
+            </ol>
+
+
+
+  </li>
+
+
+  
+        </ol>
+
+ 
+      </ol>
+      
+
+<a name="8_4_2"></a>
+<h3>8.4.2 Components </h3>
+
+<p class="MsoBodyText">Before we get into the actual design of the
+Security system, lets take stock of the componenents we will use in
+building the protoype. </p>
+
+<!--- Start C8_video_6 --->
+      
+<p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/zKY3R7_Jl_8?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+<p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.6<span lang="en-US">.
+Data Flow Graph</span></p>
+
+<!--- End C8_video_6 --->  
+
+<a name="8_4_3"></a>
+<h3>8.4.3 Hardware Design </h3>
+
+<p class="MsoBodyText"> A<span style="font-weight: bold;">data flow graph</span>
+is a block diagram of the system, showing the flow of information.
+Arrows point from source to destination. Notice that a data flow graph
+looks like a block diagram of the system. In fact we draw a data flow
+graph by showing how the components are connected together. By
+visualizing the flow of data we are able to identify the components of
+the system and the nature of the data they work with. </p>
+
+<!--- Start Figure 8.8 --->
+      
+      <p class="MsoNormal" align="left">
+	  </p>
+      <p class="PictureWide"><span lang="EN-AU"><img src="C8_SwitchLEDv2_files/DataflowGraph.jpg" height="200" width="400"></span></p>
+
+       
+      <p></p>
+
+      
+      <p class="MsoCaption" align="left"><span lang="en-US">Figure
+      </span>8.8<span lang="en-US">. Data Flow Graph for Security System</span></p>
+
+<!--- End Figure 8.8 --->
+      
+      <p class="MsoBodyText">&nbsp;</p>
+
+<!--- Start C8_video_7 --->
+      
+      <p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/UGaXmUhG3k8?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.7<span lang="en-US">.
+Data Flow Graph</span></p>
+
+<!--- End C8_video_7 ---> 
+
+<p class="MsoBodyText"> The data-flow diagram gives us a blueprint for both the hardware circuit 
+we are going to build and the software we are going to write. Lets first build the circuit:   </p>
+
+<!--- Start Figure 8.9 --->
+      
+      <p class="MsoNormal" align="left">
+	  </p>
+      <p class="PictureWide"><span lang="EN-AU"><img src="C8_SwitchLEDv2_files/Circuits_Security.jpg" height="200" width="500"></span></p>
+
+       
+      <p></p>
+
+      
+      <p class="MsoCaption" align="left"><span lang="en-US">Figure
+      </span>8.9<span lang="en-US">. Hardware circuit</span></p>
+
+<!--- End Figure 8.9 --->
+      
+      <p class="MsoBodyText">&nbsp;</p>
+
+<!--- Start C8_video_8 --->
+      
+      <p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/7XrzA4wlYWg?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.8<span lang="en-US">.
+Building the circuit</span></p>
+
+<!--- End C8_video_8 ---> 
+
+<a name="8_4_4"></a>
+<h3>8.4.4 Software Design </h3>
+
+
+
+<p class="MsoBodyText">
+Programs themselves are written in a linear or one-dimensional fashion. 
+In other words, we type one line of software after another in a sequential fashion. 
+Writing programs this way is a natural process, because the computer itself usually 
+executes the program in a top-to-bottom sequential fashion. This 
+one-dimensional format is fine for simple programs, but conditional 
+branching and function calls may create complex behaviors that are not easily 
+observed in a linear fashion. Even the simple systems have multiple software tasks. 
+Furthermore, a complex application will require multiple microcontrollers. 
+Therefore, we need a multi-dimensional way to visualize software behavior. 
+Flowcharts are one way to describe software in a two-dimensional format, 
+specifically providing convenient mechanisms to visualize multi-tasking, 
+branching, and function calls. Flowcharts are very useful in the initial 
+design stage of a software system to define complex algorithms. 
+As an added benefit, flowcharts can be used in the final documentation stage of a 
+project in order to assist in its use or modification. </p>
+
+ 
+<!--- Start Figure 8.10 --->
+      
+      <p class="MsoNormal" align="left">
+	  </p>
+      <p class="PictureWide"><span lang="EN-AU"><img src="C8_SwitchLEDv2_files/flowchart_Security.jpg" width="600"></span></p>
+
+       
+      <p></p>
+
+      
+      <p class="MsoCaption" align="left"><span lang="en-US">Figure
+      </span>8.10<span lang="en-US">. Flowchart for the Software</span></p>
+
+<!--- End Figure 8.10 --->
+      
+      <p class="MsoBodyText">&nbsp;</p>
+
+<!--- Start C8_video_9 --->
+      
+      <p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/XOaK2IcmUTg?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.9<span lang="en-US">.
+Flowchart design</span></p>
+
+<!--- End C8_video_9 ---> 
+
+<p class="MsoBodyText">The code that implements the flowchart design
+described above is given below. This solution uses a friendly approach
+to accessing Port E. Which implies that we could use the other pins in
+Port E without changing this code. </p>
+
+<p class="MsoBodyText"><b><span style="font-size: 10pt; font-family: 'Courier New';">
+unsigned long arm,sensor;<br>
+
+void delayms(unsigned long ms);<br>
+
+void EnableInterrupts(void);<br>
+
+int main(void){ unsigned long volatile delay;<br>
+
+&nbsp; TExaS_Init();&nbsp; // activate multimeter, 80 MHz<br>
+
+&nbsp; SYSCTL_RCGCGPIO_R |= 0x10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Port E clock<br>
+
+&nbsp; delay = SYSCTL_RCGCGPIO_R;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // wait 3-5 bus cycles<br>
+
+&nbsp; GPIO_PORTE_DIR_R |= 0x10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // PE4 output<br>
+
+&nbsp; GPIO_PORTE_DIR_R &amp;= ~0x07;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // PE2,1,0 input <br>
+
+&nbsp; GPIO_PORTE_AFSEL_R &amp;= ~0x17;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // not alternative<br>
+
+&nbsp; GPIO_PORTE_AMSEL_R &amp;= ~0x17;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // no analog<br>
+
+&nbsp; GPIO_PORTE_PCTL_R &amp;= ~0x000F0FFF; // bits for PE4,PE2,PE1,PE0<br>
+
+&nbsp; GPIO_PORTE_DEN_R |= 0x17;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // enable PE4,PE2,PE1,PE0<br>
+
+&nbsp; EnableInterrupts();<br>
+&nbsp; while(1){<br>
+
+&nbsp;&nbsp;&nbsp; arm = GPIO_PORTE_DATA_R&amp;0x04;&nbsp;&nbsp;&nbsp; // arm 0 if deactivated, 1 if activated<br>
+
+&nbsp;&nbsp;&nbsp; sensor = GPIO_PORTE_DATA_R&amp;0x03; // 1 means ok, 0 means break in<br>
+
+&nbsp;&nbsp;&nbsp; if((arm==0x04)&amp;&amp;(sensor != 0x03)){<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PORTE_DATA_R ^= 0x10;&nbsp;&nbsp; // toggle output for alarm<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delayms(100);&nbsp; // 100ms delay makes a 5Hz period<br>
+
+&nbsp;&nbsp;&nbsp; }else{<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PORTE_DATA_R &amp;= ~0x10;&nbsp;&nbsp; // LED off if deactivated<br>
+
+&nbsp;&nbsp;&nbsp; }<br>
+
+&nbsp; }<br>
+}
+</span></b><b><span style="font-size: 10pt; font-family: 'Courier New';"><br>
+</span>
+</b><em>Program 8.3. Software system that flashes the LED if it is armed and if there is an intruder.<br>
+</em></p>
+
+
+<a name="8_4_5"></a>
+<h3>8.4.5 Testing </h3>
+
+<p class="MsoBodyText">  </p>
+
+
+<p class="MsoBodyText">
+As a general practice embedded systems developers start with first testing their solutions in a 
+simulated environment (if possible) before running it on the real board with real bardware. 
+Note that, just because your testing proves successful in simulation it does not mean it will 
+succeed on the real board. However, failure to run in simulation almost always guarantees 
+that it will fail on the real board.</p>
+
+<!--- Start C8_video_10 --->
+      
+      <p class="MsoNormal" align="left">
+      <iframe src="http://www.youtube.com/embed/5m_zvCo1q_s?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+      <p class="MsoCaption" align="left"><span lang="en-US">Video
+      </span>8.10<span lang="en-US">. Testing in Simulation</span></p>
+
+<!--- End C8_video_10 --->
+      
+      <p class="MsoBodyText">&nbsp;</p>
+
+<!--- Start C8_video_11 --->
+      
+      <p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/3u1jUnvlCSg?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+      <p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.11<span lang="en-US">.
+Testing the Prototype</span></p>
+
+<!--- End C8_video_11 ---> 
+
+<a name="8_4_6"></a>
+<h3>8.4.6 Conclusion </h3>
+
+<p class="MsoBodyText">  </p>
+
+
+<p class="MsoBodyText">We have successfully designed, built and tested
+a Security system. As a last step, we'll look back at the requirements
+and see if we met the timing specifications. In particular, we will
+check to see if our calculations used for sizing the resistors in the
+switch and LED interfaces match actual observations.
+<!--- Start C8_video_12 --->
+      </p>
+<p class="MsoNormal" align="left"> <iframe src="http://www.youtube.com/embed/m7MTa6xELZU?feature=player_detailpage" allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+      
+<p class="MsoCaption" style="text-align: left;" align="left"> <span lang="en-US">Video
+      </span>8.12<span lang="en-US">.
+Conclusion</span></p>
+
+<!--- End C8_video_12 --->
+<p></p>
+
+
+
+
+  
+<p class="MsoNormal"><a name="Checkpoint2_12a"></a>Reprinted
+with approval from <u>Embedded Systems: Introduction to ARM Cortex-M Microcontrollers</u>, 2014,
+ISBN:
+978-1477508992, <a href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"><b>http://users.ece.utexas.edu/~valvano/arm/outline1.htm</b></a></p>
+
+  
+<p class="MsoNormal">&nbsp;</p>
+
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+
+  <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded
+Systems - Shape the World</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://users.ece.utexas.edu/%7Evalvano/" property="cc:attributionName" rel="cc:attributionURL">Jonathan
+Valvano
+and Ramesh Yerraballi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License</a>.<br>
+
+
+Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm" rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+
+</body>
+</html>

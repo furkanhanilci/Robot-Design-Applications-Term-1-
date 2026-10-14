@@ -1,0 +1,199 @@
+Milling – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Milling
+What is Milling:
+Milling is a type of machining process that uses a rotating cutting tool to remove material from a workpiece. Milling can create a variety of shapes and features on a part, such as slots, holes, pockets, and contours.
+*Watch this
+video
+to learn more about milling.
+There are different types of milling machines that can be used for different purposes.
+Standard vertical milling machine:
+This machine has a vertical spindle that holds the cutting tool perpendicular to the workpiece. The spindle can move up and down along the column to adjust the cutting depth. The workpiece is usually mounted on a table that can move in three directions: left-right, front-back, and up-down.
+Horizontal knee and column milling machine
+: This machine has a horizontal spindle that holds the cutting tool parallel to the workpiece. The spindle can move along the column to adjust the cutting position. The workpiece is usually mounted on a table that can move in two directions: left-right and front-back. The table can also be tilted or swiveled to create angled cuts.
+CNC milling machine
+: This machine uses computer numerical control (CNC) to automate the movement of the spindle and the table according to a programmed code. CNC milling machines can perform complex and precise operations that are difficult or impossible to do manually. CNC milling machines can have either vertical or horizontal spindles, or both.
+Machining center:
+This machine is a type of CNC milling machine that has additional features, such as automatic tool changers, multiple spindles, and rotary tables. Machining centers can perform multiple operations on a single workpiece without manual intervention.
+Milling Operations
+Slab milling
+: This operation uses a flat cutting tool to remove material from the surface of a workpiece. The cutting tool moves along the length or width of the workpiece, creating a flat or stepped surface.
+Face milling:
+This operation uses a cutting tool with multiple teeth to remove material from the face or end of a workpiece. The cutting tool rotates perpendicular to the workpiece, creating a smooth or rough surface.
+End milling
+: This operation uses a cutting tool with one or more flutes to remove material from the edge or corner of a workpiece. The cutting tool rotates parallel to the workpiece, creating a groove or profile.
+The cutting in milling operations can be performed in two different ways: conventional or up milling and climb or down milling. These terms refer to the direction of rotation of the cutting tool relative to the direction of feed of the workpiece.
+Conventional or up milling:
+This method has the cutting tool rotate against the direction of feed of the workpiece. This creates more friction and heat at the point of contact, which can cause more wear and tear on the tool and the workpiece. However, this method also provides more support for the workpiece and prevents it from being lifted by the cutting force.
+Climb or down milling:
+This method has the cutting tool rotate in the same direction as the feed of the workpiece. This creates less friction and heat at the point of contact, which can result in better surface finish and longer tool life. However, this method also requires more rigidity and accuracy in the machine and the workpiece, as any backlash or vibration can cause chatter and damage.
+Designing Parts to be Milled
+Milling operations are often done with multiple passes and cutting tool changes, which add time and cost to the machining process. Therefore, it is important to design parts that can be machined using milling efficiently and effectively.
+Minimize the number of features and dimensions that require milling, especially those that require complex or angled cuts.
+Use standard sizes and shapes for holes, slots, pockets, and contours, as they can be machined using standard tools and speeds.
+Avoid sharp corners and edges, as they can cause stress concentration and cracking. Use fillets, chamfers, or radii instead.
+Avoid thin walls and deep cavities, as they can cause deflection and vibration. Use ribs, webs, or supports instead.
+Avoid undercuts, overhangs, or internal threads, as they require special tools or operations that increase complexity and cost.
+Previous/next navigation
+Previous: Types of Cutting and Machining Pocess and Tolerances
+Next: Drilling, Boring, Broaching, and Tapping
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

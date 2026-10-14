@@ -1,0 +1,1599 @@
+Chapter4: Digital Logic
+Chapter
+4. Digital Logic
+Embedded Systems - Shape
+The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+This
+chapter introduces digital logic. We will first define what it means to
+be
+digital, and then introduce logic, voltages, gates, flip flops,
+registers,
+adders and memory. This chapter is foundational, laying the ground work
+for the
+remainder of the class.
+Learning
+Objectives:
+Understand
+N-channel and P-channel MOS transistors.
+Learn
+digital logic as implemented on a computer.
+Know
+how to build simple logic from transistors.
+Learn
+how to construct the basic components of a computer from the logic
+gates.
+Know
+the terms: flip flop, register, binary adder and memory.
+Video
+4.0
+. Digital Logic
+4.1. Binary Information
+Implemented with MOS transistors
+Information is
+stored on
+the computer in binary form. A binary
+bit
+can exist in one of two
+possible states. In
+positive
+logic
+, the presence of a
+voltage
+is
+called the ‘1’, true, asserted, or high state. The
+absence of a voltage is
+called the ‘0’, false,  not asserted, or
+low state. Figure 4.1 shows the output
+of a typical complementary metal oxide semiconductor (CMOS
+) circuit. The left side
+shows the condition with a
+true bit, and the right side shows a false. The output of each digital
+circuit
+consists of a p-type transistor “on top of” an
+n-type transistor. In digital
+circuits, each transistor is essentially on or off. If the transistor
+is
+on
+,
+it is equivalent to a short circuit between its two output pins.
+Conversely, if
+the transistor is
+off
+,
+it is equivalent to an open circuit between its
+outputs pins.
+Figure 4.1. A binary bit is
+true if a voltage is
+present and false if the voltage is 0.
+Every family of
+digital
+logic is a little different, but on a Stellaris
+®
+microcontroller powered
+with 3.3 V supply, a voltage
+between 2 and 5 V is considered high, and a voltage between 0 and 1.3 V
+is
+considered low, as drawn in Figure 4.2. Separating the two regions by
+0.7 V
+allows digital logic to operate reliably at very high speeds. The
+design of
+transistor-level digital circuits is beyond the scope of this class.
+However,
+it is important to know that digital data exist as binary bits and
+encoded as
+high and low voltages.
+Checkpoint 4.1
+.
+What does binary mean?
+Figure 4.2. Mapping between
+analog voltage and the
+corresponding digital meaning on the TM4C123.
+The maximum allowable voltage that the input will consider as low is called
+V
+IL
+. 
+For the TM4C123,
+V
+IL
+is 1.3V.  
+The minimum allowable voltage that the input will consider as high is called
+V
+IH
+. 
+For the TM4C123,
+V
+IH
+is 2.0V.
+The output pin also has a range of normal operating voltages.
+ When the output is low, the maximum possible voltage that an output can be is called
+V
+OL
+. 
+ For the TM4C123,
+V
+OL
+is 0.4V. 
+ This means the output of the TM4C123 will be between 0 and 0.4V when the microcontroller is sending a low.  
+ When the output is high, the minimum possible voltage that an output can be is called
+V
+OH
+. 
+ For the TM4C123,
+V
+OH
+is 2.4V. 
+ This means the output of the TM4C123 will be between 2.4 and 3.3V when the microcontroller is sending a high.  
+ This information can be found in Section 24.2 of
+TM4C123 data sheet
+.
+If the
+information we wish
+to store exists in more than two states, we use multiple bits. A
+collection of
+2 bits has 4 possible states (00, 01, 10, and 11). A collection of 3
+bits has 8
+possible states (000, 001, 010, 011, 100, 101, 110, and 111). In
+general, a
+collection of
+n
+bits has 2
+n
+states. For example, a
+byte
+contains eight bits, and is
+built by grouping eight
+binary bits into one object, as shown in Figure 4.3. Another name for a
+collection of eight bits is
+octet
+(
+octo
+is Latin and Greek meaning 8.)
+Information can take many forms, e.g., numbers, logical states, text,
+instructions, sounds, or images. What the bits mean depends on how the
+information is organized and more importantly how it is used. This
+figure shows
+one byte in the state representing the binary number 01100111. Again,
+the
+output voltage 3.3V means true or 1, and the output voltage of 0V means
+false
+or 0.
+Figure 4.3. A byte is
+comprised of 8 bits, in this
+case representing the binary number 01100111.
+What these 8 bits
+mean
+depends on how the computer software chooses to interpret them.
+Possibilities
+include but are not limited to an unsigned integer, a signed integer, a
+part of
+a machine code, and a character.
+Checkpoint 4.2
+.
+Assume the circuit in
+Figure 4.3 contains an unsigned
+integer. What is the smallest unsigned integer that can be represented?
+What is
+the largest unsigned integer that can be represented?
+Checkpoint 4.3
+.
+Assume the circuit in
+Figure 4.3 contains a signed
+2’s complement integer. What is the smallest unsigned integer
+that can be
+represented? What is the largest unsigned integer that can be
+represented?
+Checkpoint 4.4
+.
+If the data stored in
+Figure 4.3 represent
+characters, how many characters could it represent?
+4.2. Digital Logic
+In this section,
+we will
+give just a little taste of how the computer digital logic in the
+computer
+works. Transistors made with metal oxide semiconductors are called MOS.
+In the
+digital world MOS transistors can be thought of as voltage controlled
+switches.
+Circuits made with both p-type and n-type MOS transistors are called
+complementary metal oxide semiconductors or CMOS. The 74HC04
+is a high-speed CMOS NOT
+gate
+, as shown in Figure 4.4.
+Figure 4.4. CMOS
+implementation of a NOT gate.
+Video
+4.0
+. Design of a NOT gate in digital logic
+There are just a
+few rules
+one needs to know for understanding how CMOS
+transistor-level circuits
+work. Each transistor acts
+like a switch between its source and drain pins. In general, current
+can flow
+from source to drain across an active p-type transistor
+, and no current will flow
+if the switch is open. From
+a first approximation, we can assume no current flows into or out of
+the gate.
+For a p-type transistor, the switch will be closed (transistor active)
+if its
+gate is low. A p-type transistor will be off (its switch is open) if
+its gate
+is high.
+The gate on the
+n-type
+works in a complementary fashion, hence the name complementary metal
+oxide
+semiconductor. For an n-type transistor
+, the switch will be closed
+(transistor active) if its
+gate is high. An n-type transistor will be off (its switch is open) if
+its gate
+is low. Therefore, consider the two possibilities for the circuit in
+Figure
+4.4. If the input
+A
+is high (+3.3V), then the p-type transistor is off
+and the n-type transistor is active. The closed switch across the
+source-drain
+of the n-type transistor will make the output low (0V). Conversely, if
+A
+is low (0V), then p-type transistor is active and the n-type transistor
+is off.
+The closed switch across the source-drain of the p-type transistor will
+make
+the output high (+3.3V).
+The AND, OR, EOR
+digital
+logic takes two inputs and produces one output; see Figure 4.5 and
+Table 4.1.
+We can understand the operation of the AND gate
+by observing the behavior
+of its six transistors. If
+both inputs
+A
+and
+B
+are high, both T3 and T4 will be active.
+Furthermore, if
+A
+and
+B
+are both high, T1 and T2 will be off. In
+this case, the signal labeled
+~(A&B)
+will be low because the T3–T4
+switch combination will short this signal to ground. If
+A
+is low, T1
+will be active and T3 off. Similarly, if
+B
+is low, T2 will be active and
+T4 off. Therefore if either
+A
+is low or if
+B
+is low, the signal
+labeled
+~(A&B)
+will be high because one or both of the T1, T2
+switches will short this signal to +3.3V. Transistors T5 and T6 create
+a
+logical complement, converting the signal
+~(A&B)
+into the desired
+result of
+A
+&
+B
+.
+We can use the
+and
+operation
+to extract, or
+mask
+, individual bits from a
+value.
+Figure 4.5. Logical
+operations can be implemented with
+discrete transistors or digital gates.
+A
+B
+AND
+NAND
+OR
+NOR
+EOR
+Ex
+NOR
+0
+0
+0
+1
+0
+1
+0
+1
+0
+1
+0
+1
+1
+0
+1
+0
+1
+0
+0
+1
+1
+0
+1
+0
+1
+1
+1
+0
+1
+0
+0
+1
+Symbol
+A&B
+~(A&B)
+A|B
+~(A|B)
+A^B
+~(A^B)
+Table 4.1. Two-input
+one-output logical operations.
+We can understand
+the
+operation of the OR gate
+by
+observing the behavior
+of its six transistors. If
+both inputs
+A
+and
+B
+are low, both T1 and T2 will be active.
+Furthermore, if
+A
+and
+B
+are both low, T3 and T4 will be off. In
+this case, the signal labeled
+~(A|B)
+will be high because the T1–T2
+switch combination will short this signal to +3.3V. If
+A
+is high, T3
+will be active and T1 off. Similarly, if
+B
+is high, T4 will be active
+and T2 off. Therefore if either
+A
+is high or if
+B
+is high, the
+signal labeled
+~(A|B)
+will be low because one or both of the T3, T4
+switches will short this signal to ground. Transistors T5 and T6 create
+a
+logical complement, converting the signal
+~(A|B)
+into the desired result
+of
+A|B
+.
+We use the OR operation to set individual bits.
+When writing
+software we
+will have two kinds of logic operations. When operating on numbers
+(collection
+of bits) we will perform
+logic
+operations bit by bit. In other words,
+the operation is applied independently on each bit. In C, the logic
+operator
+for AND is
+&
+. For example, if number
+A
+is 01100111 and
+number
+B
+is 11110000 then
+A
+=      01100111
+B
+=
+11110000
+A
+&
+B
+01100000
+The other type of logic
+operation occurs when
+operating on
+Boolean
+values. In C, the condition false is represented by
+the value 0, and true is any nonzero value. In this case, if the
+Boolean
+A
+is 01100111 and
+B
+is 11110000 then both
+A
+and
+B
+are true.
+The standard value for true is the value 1. In C, the Boolean operator
+for AND
+is
+&&
+. Performing Boolean
+operation yields
+A
+=      01100111
+B
+=
+11110000
+A
+&&
+B
+1
+In C, the logic
+operator
+for OR is
+|
+. The logic operation is
+applied independently on each
+bit
+.
+E.g.,
+A
+=      01100111
+B
+=
+11110000
+A
+|
+B
+11110111
+In C, the Boolean
+operator
+for OR is
+||
+. Performing Boolean
+operation of
+true
+OR
+true
+yields
+true
+.
+Although 1 is the standard value for a true, any nonzero
+value is considered as true.
+A
+=      01100111
+B
+=
+11110000
+A
+||
+B
+1
+Other convenient
+logical
+operators are shown as digital gates in Figure 4.6. The
+NAND
+operation is defined by an
+AND followed by a NOT. If
+you compare the transistor-level circuits in Figures 4.5 and 4.6, it
+would be
+more precise to say AND is defined as a NAND followed by a NOT.
+Similarly, the
+OR operation is a
+NOR
+followed by a NOT. The
+exclusive
+NOR
+operation implements the
+bit-wise equals operation.
+Figure 4.6. Other logical
+operations can also be
+implemented with MOS transistors.
+Video
+4.1
+. Building
+a NAND gate
+Boolean Algebra
+is the mathematical
+framework for digital logic. Some
+fundamental laws of Boolean Algebra are listed in Table 4.2. With these
+laws,
+we consider A, B, C either as Booleans or as individual bits of a logic
+operation.
+A & B = B & A
+A | B = B | A
+(A & B) & C = A & (B & C)
+(A | B) | C = A | (B | C)
+(A | B) & C = (A & C) | (B & C)
+(A & B) | C = (A | C) & (B | C)
+A & 0 = 0
+A | 0 = A
+A & 1 = A
+A | 1 = 1
+A | A = A
+A | (~A) = 1
+A & A = A
+A & (~A) = 0
+~(~A) = A
+~(A | B) = (~A) & (~B)
+~(A & B) = (~A) | (~B)
+Commutative
+Law
+Commutative Law
+Associative Law
+Associative Law
+Distributive Law
+Distributive Law
+Identity of 0
+Identity of 0
+Identity of 1
+Identity of 1
+Property of OR
+Property of OR
+Property of AND
+Property of AND
+Inverse
+De Morgan’s Theorem
+De Morgan’s Theorem
+Table 4.2. Fundamental laws
+of Boolean Algebra.
+Checkpoint 4.5
+.
+Let A bit an 8-bit number,
+and consider the operation
+B=A&0x20, where A&0x20 is performed bit by bit. Now, if
+we consider B
+as a Boolean value, what is the relationship between A and B?
+Checkpoint 4.6
+.
+Let C be an 8-bit number
+and consider the operation
+C=C&0xDF. How does this operation affect C?
+Checkpoint 4.7
+.
+Let D bit an 8-bit number,
+and consider the operation
+D=D|0x20. How does this operation affect D?
+When multiple
+operations
+occur in a single expression,
+precedence
+is used to determine the
+order of operation. Usually
+NOT is evaluated first, then AND, and then OR. This order can be
+altered using
+parentheses.
+There are
+multiple ways to
+symbolically represent the digital logic functions. For
+example,  ~
+A
+A
+’
+!
+A
+and ⌐
+A
+are five ways to represent NOT(
+A
+).
+One can use the pipe symbol (|) or
+the plus sign to represent logical OR:
+A
+|
+B
+A
++
+B
+.
+In
+this class we will not use the plus sign to represent OR to avoid
+confusion
+with arithmetic addition. One can use the ampersand symbol (&)
+or a
+multiplication sign (* •
+× ) to represent
+logical AND:
+A
+&
+B
+A
+•
+B
+.
+In this class we will not use the multiplication sign to
+represent AND to avoid confusion with arithmetic multiplication.
+Another
+symbolic rule is adding a special character (* n \) to a name to
+signify the
+signal is negative logic (0 means true and 1 means false). These
+symbols do not
+signify an operation, but rather are part of the name used to clarify
+its
+meaning. E.g., Enable* is a signal than means enable when the signal is
+zero.
+Checkpoint 4.8
+.
+Let C bit an 8-bit number.
+Are these two operations
+the same or different?  C=C&0xDF  
+C=C&(~0x20)
+4.3. Flip-flops are used for
+storage
+While we’re
+introducing
+digital circuits, we need digital storage devices, which are essential
+components used to make registers and memory. The simplest storage
+device is
+the
+set-reset latch
+. One
+way to build a
+set-reset latch is shown on the
+left side of Figure 4.7. If the inputs are
+S*
+=0
+and
+R*
+=1,
+then
+the
+Q
+output will be 1. Conversely, if the inputs are
+S*
+=1
+and
+R*
+=0,
+then the
+Q
+output will be 0. Normally, we leave both the
+S*
+and
+R*
+inputs high. We make the signal
+S*
+go low, then back high to set the
+latch, making
+Q
+=1.
+Conversely, we make the signal
+R*
+go low, then
+back high to reset the latch, making
+Q
+=0.
+If both
+S*
+and
+R*
+are 1, the value on
+Q
+will be remembered or stored. This latch enters an
+unpredictable mode when
+S*
+and
+R*
+are simultaneously low.
+The
+gated
+D latch
+is also shown in
+Figure 4.7.
+The front-end circuits
+take a data input,
+D
+,
+and a control signal,
+W
+,
+and produce the
+S
+*
+and
+R
+*
+commands for the set-reset latch. For example, if
+W
+=0,
+then the latch is in its quiescent state, remembering the value on Q
+that was
+previously written. However, if
+W
+=1,
+then the data input is stored into
+the latch. In particular, if
+D
+=1
+and
+W
+=1,
+then
+S*
+=0
+and
+R*
+=1,
+making
+Q
+=1.
+Furthermore, if
+D
+=0
+and
+W
+=1,
+then
+S*
+=1
+and
+R*
+=0,
+making
+Q
+=0.
+So, to use the gated latch, we first put
+the data on the
+D
+input, next we make
+W
+go high, and then we make
+W
+go low. This causes the data value to be stored at
+Q
+.
+After
+W
+goes low, the data does not need to exist at the
+D
+input anymore. If the
+D
+input changes while
+W
+is high, then the
+Q
+output will
+change correspondingly. However, the last value on the
+D
+input is
+remembered or latched when the
+W
+falls, as shown in Table 4.3.
+The
+D
+flip-flop
+, shown on the right
+of
+Figure 4.7, can also be used to
+store information. D flip-flops are the basic building block of RAM and
+registers on the computer. To save information, we first place the
+digital
+value we wish to remember on the
+D
+input, and then give a rising edge to
+the
+clock
+input. After the rising edge of the
+clock
+,
+the value is
+available at the
+Q
+output, and the
+D
+input is free to change. The
+operation of the clocked D flip-flop is defined on the right side of
+Table 4.3.
+The 74HC374 is an 8-bit D flip-flop, such that all 8 bits are stored on
+the
+rising edge of a single clock. The 74HC374 is similar in structure and
+operation to a register, which is high-speed memory inside the
+processor. If
+the gate (
+G
+)
+input on the 74HC374 is high, its outputs will be HiZ
+(floating), and if the gate is low, the outputs will be high or low
+depending
+on the stored values on the flip-flop. The D flip-flops are
+edge-triggered,
+meaning that changes in the output occur at the rising edge of the
+input clock.
+Figure 4.7. Digital storage
+elements.
+D
+W
+Q
+D
+clock
+Q
+0
+0
+Q
+old
+0
+0
+Q
+old
+1
+0
+Q
+old
+0
+1
+Q
+old
+0
+1
+0
+1
+0
+Q
+old
+1
+1
+1
+1
+1
+Q
+old
+0
+↓
+0
+0
+↑
+0
+1
+↓
+1
+1
+↑
+1
+Table 4.3. D flip-flop
+operation. Q
+old
+is
+the value of the D input at the time of fall of W or rise of clock.
+The
+tristate
+driver
+, shown in Figure 4.8,
+can
+be used dynamically control
+signals within the computer. It is called tristate because there are
+three
+possible outputs: high, low, and HiZ. The tristate driver is an
+essential
+component from which computers are built. To activate the driver, we
+make its
+gate (
+G*
+)
+low. When the driver is active, its output (
+Y
+)
+equals
+its input (
+A
+).
+To deactivate the driver, we make its
+G*
+high.
+When the driver is not active, its output
+Y
+floats independent of
+A
+.
+We will also see this floating state
+with the open collector
+logic, and it is also called
+HiZ
+or high impedance
+. The HiZ output means the
+output is neither driven
+high nor low. The operation of a tristate driver is defined in Table
+4.4. The
+74HC244
+is an 8-bit tristate
+driver, such
+that all 8 bits are active or not active controlled by a single gate.
+The
+74HC374
+8-bit D flip-flop
+includes
+tristate drivers on its outputs. Normally, we can’t connect
+two digital outputs
+together. The tristate driver provides a way to connect multiple
+outputs to the
+same signal, as long as at most one of the gates is active at a time.
+Figure 4.8. A 1-bit tristate
+driver and an 8-bit
+tristate driver (if G* is low, then Y equals A, if G* is high, then Y
+is HiZ).
+The signal G* is negative logic.
+Table 4.4
+describes how the
+tristate driver in Figure 4.8 works. Transistors T1 and T2 create the
+logical
+complement of
+G*
+.
+Similarly, transistors T3 and T4 create the complement
+of
+A
+.
+An input of
+G*
+=0
+causes the driver to be active. In this
+case, both T5 and T8 will be on. With T5 and T8 on, the circuit behaves
+like a
+cascade of two NOT gates, so the output
+Y
+equals the input
+A
+.
+However, if the input
+G*
+=1,
+both T5 and T8 will be off. Since T5 is in
+series with the +3.3V, and T8 in series with the ground, the output
+Y
+will be neither high nor low. I.e., it will float.
+A
+G*
+T1
+T2
+T3
+T4
+T5
+T6
+T7
+T8
+Y
+0
+0
+on
+off
+on
+off
+on
+off
+on
+on
+0
+1
+0
+on
+off
+off
+on
+on
+on
+off
+on
+1
+0
+1
+off
+on
+on
+off
+off
+off
+on
+off
+HiZ
+1
+1
+off
+on
+off
+on
+off
+on
+off
+off
+HiZ
+Table 4.4. Tristate
+driver
+operation. HiZ is the
+floating state, such that the output is not high or low.
+The output of an
+open
+collector gate, drawn with the ‘×’, has
+two states low (0V) and HiZ (floating)
+as shown in Figure 4.9. Consider the operation of the transistor-level
+circuit
+for the 74HC05. If
+A
+is high (+3.3V), the transistor is active, and the
+output is low (0V). If
+A
+is low (0V), the transistor is off, and the
+output is neither high nor low. In general, we can use an
+open
+collector NOT
+gate to switch
+current on
+and off to a device, such as
+a relay, an LED, a solenoid, or a small motor. The 74HC05, the 74LS05,
+the
+7405, and the 7406 are all open collector NOT gates. 74HC04 is
+high-speed CMOS
+and can only sink up to 4 mA when its output is low. Since the 7405 and
+7406
+are transistor-transistor-logic (TTL) they can sink more current. In
+particular, the 7405
+has a
+maximum output
+low current (
+I
+OL
+)
+of 16 mA, whereas the 7406
+has a
+maximum
+I
+OL
+of 40 mA.
+Figure 4.9. Two transistor
+implementations of an open
+collector NOT gate.
+4.4. Binary Adder
+The computer
+performs many
+arithmetic and logic operations. We will show one of them to illustrate
+some of
+the computation possible in the computer. We begin the design of an
+adder
+circuit
+with a simple subcircuit
+called a
+binary full adder
+, as shown in
+Figure 4.10.
+There are two binary data
+inputs
+A
+,
+B
+,
+and a carry input,
+C
+in
+.
+There is
+one data output,
+S
+out
+,
+and one carry output,
+C
+out
+.
+As shown in Table 4.5,
+C
+in
+,
+A
+,
+and
+B
+are three
+independent binary inputs each of which could be 0 or 1. These three
+inputs are
+added together (the sum could be 0, 1, 2, or 3), and the result is
+encoded in
+the two-bit binary result with
+C
+out
+as the most significant
+bit and
+S
+out
+as the least significant bit.
+C
+out
+is true if the sum is 2 or 3, and
+S
+out
+is true if the sum is
+1 or 3.
+Figure 4.10. A binary full
+adder.
+A
+B
+C
+in
+A+B+C
+in
+C
+out
+S
+out
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+1
+0
+1
+0
+1
+0
+1
+0
+1
+1
+2
+1
+0
+1
+0
+0
+1
+0
+1
+1
+0
+1
+2
+1
+0
+1
+1
+0
+2
+1
+0
+1
+1
+1
+3
+1
+1
+Table 4.5. Input/output
+response of a binary full adder.
+Figure 4.11 shows
+an 8-bit
+adder formed by cascading eight binary full adders. Similarly, we build
+a
+32-bit adder by cascading 32 binary full adders together. The carry
+into the
+32-bit adder is zero, and the carry out will be saved in the carry bit.
+Figure 4.11. We make an
+8-bit
+adder cascading eight binary full adders.
+For an 8-bit
+unsigned
+number, there are only 256 possible values, which are 0 to 255. When we
+add two
+8-bit numbers the sum can be any number from 0 to 510, which is a 9-bit
+number.
+The 9-bit result in Figure 4.11 exists as the 8 bits R7–R0
+plus carry.
+We can think of
+8-bit
+unsigned
+numbers as positions along a circle, like a clock. There is a
+discontinuity in
+the clock at the 0|255 interface; everywhere else adjacent numbers
+differ by
+±1. If we add two unsigned numbers, we start at the position
+of the first
+number a move in a clockwise direction the number of steps equal to the
+second
+number. If  96+64 is performed in 8-bit unsigned precision,
+the correct result
+of 160 is obtained. In this case, the carry bit will be 0 signifying
+the answer
+is correct. On the other hand, if 224+64 is performed in 8-bit unsigned
+precision, the incorrect result of 32 is obtained. In this case, the
+carry bit
+will be 1, signifying the answer is wrong.
+Checkpoint 4.9
+.
+If A has the value 100
+(0x64) and B has the value 50
+(0x32), what will be the value of the output (R7-R0) of the circuit in
+Figure
+4.11? Also what will the carry signal be?
+Checkpoint 4.10
+.
+If A has the value 255
+(0xFF) and B has the value 2
+(0x02), what will be the value of the output (R7-R0) of the circuit in
+Figure
+4.11? Also what will the carry signal be?
+4.5. Digital Information stored
+in Memory
+Memory
+is a collection of hardware
+elements in a computer into
+which we store information, as shown in Figure 4.12. For most computers
+in
+today’s market, each memory cell contains one byte of
+information, and each
+byte has a unique and sequential address. The memory is called
+byte-addressable
+because each byte has a
+separate address. The address
+of a memory cell specifies its physical location, and its content is
+the data.
+When we
+write
+to memory, we specify an address and 8, 16, or 32 bits of
+data, causing that information to be stored into the memory. Typically
+data
+flows from processor into memory during a write cycle. When we
+read
+from
+memory we specify an address, causing 8, 16, or 32 bits of data to be
+retrieved
+from the memory. Typically data flows from memory into the processor
+during a
+read cycle.
+Read Only Memory
+,
+or ROM, is a type of memory where the
+information is programmed or burned into the device, and during normal
+operation
+it only allows read accesses.
+Random
+Access Memory
+(RAM) is used
+to store
+temporary information, and
+during normal operation we can read from or write data into RAM. The
+information in the ROM is
+nonvolatile
+, meaning the contents are
+not lost when power is
+removed. In contrast, the information in the RAM is
+volatile
+, meaning the contents are
+lost when power is removed.
+The system can quickly and conveniently read data from a ROM.
+It takes a comparatively long time to program or burn data into a ROM.
+Writing
+to Flash ROM is a two-step process. First, the ROM is erased, causing
+all the
+bits to become 1. Second, the system writes zeroes into the ROM as
+needed. Each
+of these two steps requires around 1 ms to complete. In contrast, it is
+fast
+and easy to both read data from and write data into a RAM. Writing to
+RAM is
+about 100,000 times faster (on the order of 10 ns). ROM on the other
+hand is
+much denser than RAM. This means we can pack more ROM bits into a chip
+than we
+can pack RAM bits. Most microcontrollers have much more ROM than RAM.
+Figure 4.12. Memory is a
+sequential collection of data
+storage elements.
+In the computer,
+we can
+build an 8-bit storage element, shown logically as Figure 4.12, by
+combining 8
+flip-flops. This basic storage element is called a
+register
+, as shown in Figure 4.13. A
+bus
+is a collection of
+wires
+used to pass data from one
+place to another. In this circuit, the signals D7–D0
+represent the data bus.
+Registers on the Stellaris
+®
+microcontrollers are 32-bits wide, but in this example we show an 8-bit
+register. We call it storage because as long the circuit remains
+powered, the
+digital information represented by the eight voltages Q7–Q0
+will be remembered.
+There are two operations one performs on a register: write
+and read
+.
+To perform a write, one
+first puts the desired
+information on the 8 data bus wires (D7–D0). As you can see
+from Figure 4.13,
+these data bus signals are present on the D inputs of the 8 flip-flops.
+Next,
+the system pulses the
+Write
+signal high then low. This
+Write
+pulse will latch or store the desired data into the 8 flip-flops. The
+read
+operation will place a copy of the register information onto the data
+bus.
+Notice the gate signals of the tristate drivers are negative logic.
+This means
+if the
+Read*
+signal is high, the tristate drivers are off, and this
+register does not affect signals on the bus. However, the read
+operation occurs
+by setting the
+Read*
+signal low, which will place the register data onto
+the bus.
+Checkpoint 4.11
+.
+What does negative logic
+mean?
+Figure 4.13. Digital logic
+implementation of a
+register
+.
+A great deal of
+confusion
+exists over the abbreviations we use for large numbers. In 1998 the
+International Electrotechnical Commission (IEC) defined a new set of
+abbreviations for the powers of 2, as shown in Table 4.6. These new
+terms are
+endorsed by the Institute of Electrical and Electronics Engineers (IEEE
+) and International
+Committee for Weights and Measures
+(CIPM) in situations where the use of a binary prefix is appropriate.
+The confusion
+arises over the fact that the mainstream computer industry, such as
+Microsoft,
+Apple, and Dell, continues to use the old terminology. According to the
+companies that market to consumers, a 1 GHz is 1,000,000,000 Hz but 1
+Gbyte of
+memory is 1,073,741,824 bytes. The correct terminology is to use the
+SI-decimal
+abbreviations to represent powers of 10, and the IEC-binary
+abbreviations to
+represent powers of 2. The scientific meaning of 2 kilovolts is 2000
+volts, but
+2 kibibytes
+is the proper way to
+specify
+2048 bytes. The term
+kibibyte
+is a contraction of kilo binary byte and
+is a unit of information or computer storage, abbreviated KiB
+.
+1 KiB = 2
+10
+bytes
+= 1024 bytes
+1 MiB = 2
+20
+bytes
+= 1,048,576 bytes
+1 GiB = 2
+30
+bytes
+= 1,073,741,824 bytes
+These
+abbreviations can
+also be used to specify the number of binary bits. The term
+kibibit
+is a contraction of kilo
+binary bit, and is a unit of
+information or computer storage, abbreviated Kibit
+.
+A
+mebibyte
+(1 MiB
+is 1,048,576 bytes) is
+approximately equal to a
+megabyte (1 MB is 1,000,000 bytes), but mistaking the two has
+nonetheless led
+to confusion and even legal disputes. In the engineering community, it
+is
+appropriate to use terms that have a clear and unambiguous meaning.
+Value
+SI         
+Decimal
+SI         
+Decimal
+Value
+IEC         
+Binary
+IEC         
+Binary
+1000
+1
+k
+kilo-
+1024
+1
+Ki
+kibi-
+1000
+2
+M
+mega-
+1024
+2
+Mi
+mebi-
+1000
+3
+G
+giga-
+1024
+3
+Gi
+gibi-
+1000
+4
+T
+tera-
+1024
+4
+Ti
+tebi-
+1000
+5
+P
+peta-
+1024
+5
+Pi
+pebi-
+1000
+6
+E
+exa-
+1024
+6
+Ei
+exbi-
+1000
+7
+Z
+zetta-
+1024
+7
+Zi
+zebi-
+1000
+8
+Y
+yotta-
+1024
+8
+Yi
+yobi-
+Table 4.6. Common
+abbreviations for large numbers.
+4.6.
+Chapter 4 Quiz
+4.1
+Which of the following is true. Positive logic is defined as
+a) The configuration where the "true" state has a higher
+voltage than the "false" state.
+b) The state where the signal is "high".
+c) The state where the transistor is "on".
+d) The state where the transistor is "off".
+e) None of the above
+4.
+2
+If a voltage on an input of the TM4C123 is between 0 and 1.3 V, how is
+that input considered?
+a) Low or logic "0"
+b) Unknown or illegal
+c) High or logic "1"
+4.3
+If a voltage on an input of the TM4C123 is between 1.3 and 2 V, how is
+that input considered?
+a) Low or logic "0"
+b) Unknown or illegal
+c) High or logic "1"
+4.4
+If a voltage on an input of the TM4C123 is between 2 and 5 V, how is
+that input considered?
+a) Low or logic "0"
+b) Unknown or illegal
+c) High or logic "1"
+4.
+5
+Calculate the logic expression for each set of inputs A, B, C
+A
+B
+C
+A & (B
+| C)
+0100
+2
+= 4
+0101
+2
+= 5
+0110
+2
+= 6
+0111
+2
+= 7
+1010
+2
+= 10
+0001
+2
+= 1
+1110
+2
+= 14
+1001
+2
+= 9
+0111
+2
+= 7
+4.
+6
+Calculate the Boolean expression
+for each set of inputs A, B, C
+A
+B
+C
+A
+&& (B || C)
+True
+False
+False
+True
+False
+True
+False
+True
+False
+True
+True
+False
+Reprinted
+with approval from
+Embedded
+Systems: Introduction to ARM Cortex-M
+Microcontrollers
+, 2014, ISBN:
+978-1477508992,
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+Embedded Systems - Shape the World
+by
+Jonathan Valvano and Ramesh Yerraballi
+is licensed under a
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

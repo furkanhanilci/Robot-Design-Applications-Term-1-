@@ -1,0 +1,203 @@
+Drilling, Boring, Broaching, and Tapping – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Drilling, Boring, Broaching, and Tapping
+Hole features are among the most common processes in machining, as they are essential for creating mating parts and installing fasteners. However, not all holes are created equal, and different methods of hole forming may be required depending on the specifications of the design.
+One of the main factors that determines the method of hole forming is the desired allowable tolerance. The tolerance affects the fit, function and performance of the mating parts or fasteners. For example, a tight tolerance may be needed for a precise fit, while a loose tolerance may allow for some clearance or adjustment.
+Another factor that influences the method of hole forming is the shape, size and presence of threads for fasteners. The method of hole forming must be compatible with the type and size of threads required for the fastener.
+There are a number of methods for forming holes in machining, such as drilling, reaming, boring, tapping, threading and broaching. Each method has its own advantages and disadvantages, depending on the accuracy, quality and efficiency of the process. The Machinist Handbook and other similar resources can provide the typical achievable tolerance ranges for different types of hole forming.
+For example, see:
+Drill Tolerance: Accuracy Considerations in Engineering Design – EngineerExcel
+ISO 286 is an international standard that defines tolerance grades for holes and shafts. Tolerance grades are numerical values that indicate the magnitude of the permissible deviation from the nominal dimension. The lower the tolerance grade, the tighter the tolerance. For example, a hole with a tolerance grade of 6 has a smaller deviation than a hole with a tolerance grade of 10. ISO 286 also provides tables and charts that show the corresponding tolerance values for different nominal dimensions and tolerance grades.
+Drilling
+Drilling is a machining process that involves creating holes in a work piece by rotating a cutting tool. The cutting tool, also called a drill bit, has different sizes that are standardized by various systems, such as fractional, metric, wire gauge, and letter sizes. There are also different types of drilling operations that can produce different shapes and sizes of holes. Some examples are:
+Core drilling: This is used to enlarge an existing hole by removing the core of the material.
+Step drilling: This is used to create holes with different diameters at different depths.
+Counterboring: This is used to create a flat-bottomed hole that can accommodate the head of a screw or bolt.
+Countersinking: This is used to create a conical hole that can fit the head of a screw or bolt flush with the surface of the work piece.
+Reaming: This is used to improve the accuracy and finish of a hole by removing a small amount of material with a cutting tool called a reamer.
+Center drilling: This is used to create a small hole at the center of a work piece that can serve as a guide for subsequent drilling operations.
+Read more about drill bit nomenclature and see comparative images of the above processes here:
+How Drilling Machine Works? | Different Types – ExtruDesign
+*Watch this
+video
+to learn more about hole drilling.
+*Watch this
+video
+to learn about hole drilling calculations.
+Boring
+Boring is a machining process that involves enlarging or finishing an existing hole with a single point cutting tool. Boring can achieve high precision and accuracy in terms of hole diameter, roundness, and surface finish. The strength of the cutting tool is the main factor that determines the speed and rate of material removal in boring. A stronger tool can withstand higher cutting forces and temperatures, and thus enable faster and deeper
+boring operations
+.
+Broaching
+Broaching is a machining process that uses a toothed tool called a broach to create holes or slots in a workpiece. Broaching is suitable for high-precision and high-volume production of various shapes, such as circular, square, hexagonal, or keyway holes. However, broaching also poses some challenges due to the high force needed to push or pull the broach through the workpiece. The high force can cause deflection, vibration, or wear of the broach or the workpiece, affecting the accuracy and quality of the machined surface. Therefore,
+broaching
+requires careful design of the broach geometry, cutting parameters, and fixture system to ensure a smooth and efficient operation.
+Thread Tapping
+Tapping is a process of creating internal threads in a hole using a tool called a tap. A die is a tool that creates external threads on a rod or a bolt. Taps and dies are usually standardized according to different thread standards, such as the Unified Thread Standard (UTS).
+When designing for tapping, there are some factors to consider. One is to minimize the depth of the hole that needs to be threaded. According to the UTS, the recommended depth is 75% of the nominal diameter of the thread. This ensures sufficient strength and reduces the risk of breaking the tap. Another factor is the material hardness of the workpiece. Harder materials require more cutting force and may wear out the tap faster. Therefore, it is advisable to use high-quality taps and appropriate cutting fluids for tapping hard materials. Finally, it is important to use standardized dies for creating external threads that match the internal threads created by the tap. This ensures compatibility and interchangeability of threaded parts.
+*Watch this
+video
+to learn more about to use a Tap and Die to cut threads.
+Previous/next navigation
+Previous: Milling
+Next: Turning
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

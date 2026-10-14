@@ -1,0 +1,1253 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/threads/index.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Scheduling" href="../scheduling/index.html" />
+    <link rel="prev" title="Kernel Services" href="../index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Threads</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#lifecycle">Lifecycle</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#thread-creation">Thread Creation</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#starting-a-thread">Starting a Thread</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#thread-termination">Thread Termination</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#thread-aborting">Thread Aborting</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#thread-suspension">Thread Suspension</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-states">Thread States</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-stack-objects">Thread Stack objects</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#kernel-only-stacks">Kernel-only Stacks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#thread-stacks">Thread stacks</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-priorities">Thread Priorities</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#meta-irq-priorities">Meta-IRQ Priorities</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-options">Thread Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-custom-data">Thread Custom Data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-name">Thread Name</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thread-introspection">Thread Introspection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#spawning-a-thread">Spawning a Thread</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dropping-permissions">Dropping Permissions</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#terminating-a-thread">Terminating a Thread</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#runtime-statistics">Runtime Statistics</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#runtime-stack-safety">Runtime Stack Safety</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html">Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html#cpu-idling">CPU Idling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="system_threads.html">System Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workqueue.html">Workqueue Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nothread.html">Operation without Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../interrupts.html">Interrupts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../polling.html">Polling API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/semaphores.html">Semaphores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/mutexes.html">Mutexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/condvar.html">Condition Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/events.html">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/spinlocks.html">Spinlocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../smp/smp.html">Symmetric Multiprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Threads</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/threads/index.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fthreads%2Findex%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fthreads%2Findex%0A-+Version%3A+main%0A-+SHA-1%3A+1da4cec0e3cce9f0a3f387cb2afa5c2e2a1ec748&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="threads">
+<span id="threads-v2"></span><h1>Threads<a class="headerlink" href="#threads" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is also limited support for using <a class="reference internal" href="nothread.html#nothread"><span class="std std-ref">Operation without Threads</span></a>.</p>
+</div>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#lifecycle" id="id3">Lifecycle</a></p>
+<ul>
+<li><p><a class="reference internal" href="#thread-creation" id="id4">Thread Creation</a></p></li>
+<li><p><a class="reference internal" href="#starting-a-thread" id="id5">Starting a Thread</a></p></li>
+<li><p><a class="reference internal" href="#thread-termination" id="id6">Thread Termination</a></p></li>
+<li><p><a class="reference internal" href="#thread-aborting" id="id7">Thread Aborting</a></p></li>
+<li><p><a class="reference internal" href="#thread-suspension" id="id8">Thread Suspension</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#thread-states" id="id9">Thread States</a></p></li>
+<li><p><a class="reference internal" href="#thread-stack-objects" id="id10">Thread Stack objects</a></p>
+<ul>
+<li><p><a class="reference internal" href="#kernel-only-stacks" id="id11">Kernel-only Stacks</a></p></li>
+<li><p><a class="reference internal" href="#thread-stacks" id="id12">Thread stacks</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#thread-priorities" id="id13">Thread Priorities</a></p>
+<ul>
+<li><p><a class="reference internal" href="#meta-irq-priorities" id="id14">Meta-IRQ Priorities</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#thread-options" id="id15">Thread Options</a></p></li>
+<li><p><a class="reference internal" href="#thread-custom-data" id="id16">Thread Custom Data</a></p></li>
+<li><p><a class="reference internal" href="#thread-name" id="id17">Thread Name</a></p></li>
+<li><p><a class="reference internal" href="#thread-introspection" id="id18">Thread Introspection</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id19">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#spawning-a-thread" id="id20">Spawning a Thread</a></p></li>
+<li><p><a class="reference internal" href="#dropping-permissions" id="id21">Dropping Permissions</a></p></li>
+<li><p><a class="reference internal" href="#terminating-a-thread" id="id22">Terminating a Thread</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#runtime-statistics" id="id23">Runtime Statistics</a></p></li>
+<li><p><a class="reference internal" href="#runtime-stack-safety" id="id24">Runtime Stack Safety</a></p></li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id25">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id26">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id27">API Reference</a></p></li>
+</ul>
+</nav>
+<p>This section describes kernel services for creating, scheduling, and deleting
+independently executable threads of instructions.</p>
+<p>A <em class="dfn">thread</em> is a kernel object that is used for application processing
+that is too lengthy or too complex to be performed by an ISR.</p>
+<p>Any number of threads can be defined by an application (limited only by
+available RAM). Each thread is referenced by a <em class="dfn">thread id</em> that is assigned
+when the thread is spawned.</p>
+<p>A thread has the following key properties:</p>
+<ul class="simple">
+<li><p>A <strong>stack area</strong>, which is a region of memory used for the thread’s stack.
+The <strong>size</strong> of the stack area can be tailored to conform to the actual needs
+of the thread’s processing. Special macros exist to create and work with
+stack memory regions.</p></li>
+<li><p>A <strong>thread control block</strong> for private kernel bookkeeping of the thread’s
+metadata. This is an instance of type <a class="reference internal" href="../../../doxygen/html/structk__thread.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_thread</span></code></a>.</p></li>
+<li><p>An <strong>entry point function</strong>, which is invoked when the thread is started.
+Up to 3 <strong>argument values</strong> can be passed to this function.</p></li>
+<li><p>A <strong>scheduling priority</strong>, which instructs the kernel’s scheduler how to
+allocate CPU time to the thread. (See <a class="reference internal" href="../scheduling/index.html#scheduling-v2"><span class="std std-ref">Scheduling</span></a>.)</p></li>
+<li><p>A set of <strong>thread options</strong>, which allow the thread to receive special
+treatment by the kernel under specific circumstances.
+(See <a class="reference internal" href="#thread-options-v2"><span class="std std-ref">Thread Options</span></a>.)</p></li>
+<li><p>A <strong>start delay</strong>, which specifies how long the kernel should wait before
+starting the thread.</p></li>
+<li><p>An <strong>execution mode</strong>, which can either be supervisor or user mode.
+By default, threads run in supervisor mode and allow access to
+privileged CPU instructions, the entire memory address space, and
+peripherals. User mode threads have a reduced set of privileges.
+This depends on the <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> option. See <a class="reference internal" href="../../usermode/index.html#usermode-api"><span class="std std-ref">User Mode</span></a>.</p></li>
+</ul>
+<section id="lifecycle">
+<span id="lifecycle-v2"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Lifecycle</a><a class="headerlink" href="#lifecycle" title="Link to this heading"></a></h2>
+<section id="thread-creation">
+<span id="spawning-thread"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink">Thread Creation</a><a class="headerlink" href="#thread-creation" title="Link to this heading"></a></h3>
+<p>A thread must be created before it can be used. The kernel initializes
+the thread control block as well as one end of the stack portion. The remainder
+of the thread’s stack is typically left uninitialized.</p>
+<p>Specifying a start delay of <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code></a> instructs the kernel
+to start thread execution immediately. Alternatively, the kernel can be
+instructed to delay execution of the thread by specifying a timeout
+value – for example, to allow device hardware used by the thread
+to become available.</p>
+<p>The kernel allows a delayed start to be canceled before the thread begins
+executing. A cancellation request has no effect if the thread has already
+started. A thread whose delayed start was successfully canceled must be
+re-spawned before it can be used.</p>
+</section>
+<section id="starting-a-thread">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Starting a Thread</a><a class="headerlink" href="#starting-a-thread" title="Link to this heading"></a></h3>
+<p>A thread that is created with <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga0bb4b83f0222193b21a8910311bab0ca" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FOREVER</span></code></a> as its start delay is not
+added to the scheduler’s ready queue and does not begin executing until it is
+explicitly started. The <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gac539268e0b45c600315a6567ec27f965" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_start()</span></code></a> function starts such an
+inactive thread, making it eligible for scheduling. Starting a thread that has
+already started has no effect.</p>
+<p>This is useful when a thread object must be created at one point in time but its
+execution deferred until the application has completed additional setup.</p>
+</section>
+<section id="thread-termination">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Thread Termination</a><a class="headerlink" href="#thread-termination" title="Link to this heading"></a></h3>
+<p>Once a thread is started it typically executes forever. However, a thread may
+synchronously end its execution by returning from its entry point function.
+This is known as <strong>termination</strong>.</p>
+<p>A thread that terminates is responsible for releasing any shared resources
+it may own (such as mutexes and dynamically allocated memory)
+prior to returning, since the kernel does <em>not</em> reclaim them automatically.</p>
+<p>In some cases a thread may want to sleep until another thread terminates.
+This can be accomplished with the <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga40a733561eb1f64dcaae0e01b167d233" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_join()</span></code></a> API. This
+will block the calling thread until either the timeout expires, the target
+thread self-exits, or the target thread aborts (either due to a
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga1f44bb0307bea7a97227764ecd7bf963" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_abort()</span></code></a> call or triggering a fatal error).</p>
+<p>Once a thread has terminated, the kernel guarantees that no use will
+be made of the thread struct.  The memory of such a struct can then be
+reused for any purpose, including spawning a new thread.  Note that
+the thread must be fully terminated, which presents race conditions
+where a thread’s own logic signals completion which is seen by another
+thread before the kernel processing is complete.  Under normal
+circumstances, application code should use <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga40a733561eb1f64dcaae0e01b167d233" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_join()</span></code></a> or
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga1f44bb0307bea7a97227764ecd7bf963" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_abort()</span></code></a> to synchronize on thread termination state
+and not rely on signaling from within application logic.</p>
+</section>
+<section id="thread-aborting">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Thread Aborting</a><a class="headerlink" href="#thread-aborting" title="Link to this heading"></a></h3>
+<p>A thread may asynchronously end its execution by <strong>aborting</strong>. The kernel
+automatically aborts a thread if the thread triggers a fatal error condition,
+such as dereferencing a null pointer.</p>
+<p>A thread can also be aborted by another thread (or by itself)
+by calling <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga1f44bb0307bea7a97227764ecd7bf963" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_abort()</span></code></a>. However, it is typically preferable
+to signal a thread to terminate itself gracefully, rather than aborting it.</p>
+<p>As with thread termination, the kernel does not reclaim shared resources
+owned by an aborted thread.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The kernel does not currently make any claims regarding an application’s
+ability to respawn a thread that aborts.</p>
+</div>
+</section>
+<section id="thread-suspension">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Thread Suspension</a><a class="headerlink" href="#thread-suspension" title="Link to this heading"></a></h3>
+<p>A thread can be prevented from executing for an indefinite period of time
+if it becomes <strong>suspended</strong>. The function <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga66cf8682fb65870eceb5e57d667a8d4e" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_suspend()</span></code></a>
+can be used to suspend any thread, including the calling thread.
+Suspending a thread that is already suspended has no additional effect.</p>
+<p>Once suspended, a thread cannot be scheduled until another thread calls
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga117b26f8569ec3045ead1fad1851663d" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_resume()</span></code></a> to remove the suspension.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A thread can prevent itself from executing for a specified period of time
+using <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga093ac91db17ec33696168801d01efe75" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sleep()</span></code></a>. However, this is different from suspending
+a thread since a sleeping thread becomes executable automatically when the
+time limit is reached.</p>
+</div>
+</section>
+</section>
+<section id="thread-states">
+<span id="id1"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">Thread States</a><a class="headerlink" href="#thread-states" title="Link to this heading"></a></h2>
+<p>A thread that has no factors that prevent its execution is deemed
+to be <strong>ready</strong>, and is eligible to be selected as the current thread.</p>
+<p>A thread that has one or more factors that prevent its execution
+is deemed to be <strong>unready</strong>, and cannot be selected as the current thread.</p>
+<p>The following factors make a thread unready:</p>
+<ul>
+<li><p>The thread has not been started.</p></li>
+<li><p>The thread is waiting for a kernel object to complete an operation.
+(For example, the thread is taking a semaphore that is unavailable.)</p></li>
+<li><p>The thread is waiting for a timeout to occur.</p></li>
+<li><p>The thread has been suspended.</p></li>
+<li><p>The thread has terminated or aborted.</p>
+<img alt="../../../_images/thread_states.svg" class="align-center" src="../../../_images/thread_states.svg" />
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the diagram above may appear to suggest that both <strong>Ready</strong> and
+<strong>Running</strong> are distinct thread states, that is not the correct
+interpretation. <strong>Ready</strong> is a thread state, and <strong>Running</strong> is a
+schedule state that only applies to <strong>Ready</strong> threads.</p>
+</div>
+</section>
+<section id="thread-stack-objects">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Thread Stack objects</a><a class="headerlink" href="#thread-stack-objects" title="Link to this heading"></a></h2>
+<p>Every thread requires its own stack buffer for the CPU to push context.
+Depending on configuration, there are several constraints that must be
+met:</p>
+<ul class="simple">
+<li><p>There may need to be additional memory reserved for memory management
+structures</p></li>
+<li><p>If guard-based stack overflow detection is enabled, a small write-protected
+memory management region must immediately precede the stack buffer
+to catch overflows.</p></li>
+<li><p>If userspace is enabled, a separate fixed-size privilege elevation stack must
+be reserved to serve as a private kernel stack for handling system calls.</p></li>
+<li><p>If userspace is enabled, the thread’s stack buffer must be appropriately
+sized and aligned such that a memory protection region may be programmed
+to exactly fit.</p></li>
+</ul>
+<p>The alignment constraints can be quite restrictive, for example some MPUs
+require their regions to be of some power of two in size, and aligned to its
+own size.</p>
+<p>Because of this, portable code can’t simply pass an arbitrary character buffer
+to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a>. Special macros exist to instantiate stacks
+statically, prefixed with <code class="docutils literal notranslate"><span class="pre">K_KERNEL_STACK</span></code> and <code class="docutils literal notranslate"><span class="pre">K_THREAD_STACK</span></code>.</p>
+<p>Additionally, stacks may be instantiated dynamically using
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gafe00cc70bac8a47ba6dda21bde508614" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_stack_alloc()</span></code></a> and subsequently freed with
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga95560cb85f6656b981a9a50ff2cd70b7" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_stack_free()</span></code></a>.</p>
+<section id="kernel-only-stacks">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Kernel-only Stacks</a><a class="headerlink" href="#kernel-only-stacks" title="Link to this heading"></a></h3>
+<p>If it is known that a thread will never run in user mode, or the stack is
+being used for special contexts like handling interrupts, it is best to
+define stacks using the <code class="docutils literal notranslate"><span class="pre">K_KERNEL_STACK</span></code> macros.</p>
+<p>These stacks save memory because an MPU region will never need to be
+programmed to cover the stack buffer itself, and the kernel will not need
+to reserve additional room for the privilege elevation stack, or memory
+management data structures which only pertain to user mode threads.</p>
+<p>Attempts from user mode to use stacks declared in this way will result in
+a fatal error for the caller.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code> is not enabled, the set of <code class="docutils literal notranslate"><span class="pre">K_THREAD_STACK</span></code> macros
+have an identical effect to the <code class="docutils literal notranslate"><span class="pre">K_KERNEL_STACK</span></code> macros.</p>
+</section>
+<section id="thread-stacks">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Thread stacks</a><a class="headerlink" href="#thread-stacks" title="Link to this heading"></a></h3>
+<p>If it is known that a stack will need to host user threads, or if this
+cannot be determined, define the stack with <code class="docutils literal notranslate"><span class="pre">K_THREAD_STACK</span></code> macros.
+This may use more memory but the stack object is suitable for hosting
+user threads.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code> is not enabled, the set of <code class="docutils literal notranslate"><span class="pre">K_THREAD_STACK</span></code> macros
+have an identical effect to the <code class="docutils literal notranslate"><span class="pre">K_KERNEL_STACK</span></code> macros.</p>
+</section>
+</section>
+<section id="thread-priorities">
+<span id="id2"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Thread Priorities</a><a class="headerlink" href="#thread-priorities" title="Link to this heading"></a></h2>
+<p>A thread’s priority is an integer value, and can be either negative or
+non-negative.
+Numerically lower priorities takes precedence over numerically higher values.
+For example, the scheduler gives thread A of priority 4 <em>higher</em> priority
+over thread B of priority 7; likewise thread C of priority -2 has higher
+priority than both thread A and thread B.</p>
+<p>The scheduler distinguishes between two classes of threads,
+based on each thread’s priority.</p>
+<ul class="simple">
+<li><p>A <em class="dfn">cooperative thread</em> has a negative priority value.
+Once it becomes the current thread, a cooperative thread remains
+the current thread until it performs an action that makes it unready.</p></li>
+<li><p>A <em class="dfn">preemptible thread</em> has a non-negative priority value.
+Once it becomes the current thread, a preemptible thread may be supplanted
+at any time if a cooperative thread, or a preemptible thread of higher
+or equal priority, becomes ready.</p></li>
+</ul>
+<p>A thread’s initial priority value can be altered up or down after the thread
+has been started. Thus it is possible for a preemptible thread to become
+a cooperative thread, and vice versa, by changing its priority.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The scheduler does not make heuristic decisions to re-prioritize threads.
+Thread priorities are set and changed only at the application’s request.</p>
+</div>
+<p>The kernel supports a virtually unlimited number of thread priority levels.
+The configuration options <a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_COOP_PRIORITIES" title="CONFIG_NUM_COOP_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_COOP_PRIORITIES</span></code></a> and
+<a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_PREEMPT_PRIORITIES" title="CONFIG_NUM_PREEMPT_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_PREEMPT_PRIORITIES</span></code></a> specify the number of priority
+levels for each class of thread, resulting in the following usable priority
+ranges:</p>
+<ul class="simple">
+<li><p>cooperative threads: (-<a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_COOP_PRIORITIES" title="CONFIG_NUM_COOP_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_COOP_PRIORITIES</span></code></a>) to -1</p></li>
+<li><p>preemptive threads: 0 to (<a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_PREEMPT_PRIORITIES" title="CONFIG_NUM_PREEMPT_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_PREEMPT_PRIORITIES</span></code></a> - 1)</p></li>
+</ul>
+<img alt="../../../_images/priorities.svg" class="align-center" src="../../../_images/priorities.svg" />
+<p>For example, configuring 5 cooperative priorities and 10 preemptive priorities
+results in the ranges -5 to -1 and 0 to 9, respectively.</p>
+<section id="meta-irq-priorities">
+<span id="metairq-priorities"></span><h3><a class="toc-backref" href="#id14" role="doc-backlink">Meta-IRQ Priorities</a><a class="headerlink" href="#meta-irq-priorities" title="Link to this heading"></a></h3>
+<p>When enabled (see <a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_METAIRQ_PRIORITIES" title="CONFIG_NUM_METAIRQ_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_METAIRQ_PRIORITIES</span></code></a>), there is a special
+subclass of cooperative priorities at the highest (numerically lowest)
+end of the priority space: meta-IRQ threads.  These are scheduled
+according to their normal priority, but also have the special ability
+to preempt all other threads (and other meta-IRQ threads) at lower
+priorities, even if those threads are cooperative and/or have taken a
+scheduler lock. Meta-IRQ threads are still threads, however,
+and can still be interrupted by any hardware interrupt.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a cooperative (or schedule-locked) thread that was preempted by a
+meta-IRQ thread resumes its execution after the meta-IRQ thread completes,
+it will be on the same CPU–assuming it was neither suspended nor aborted.
+This helps ensure that these threads are not unexpectedly shuffled to
+another CPU while in the midst of querying the properties associated
+with their own CPU.</p>
+</div>
+<p>This behavior makes the act of unblocking a meta-IRQ thread (by any
+means, e.g. creating it, calling k_sem_give(), etc.) into the
+equivalent of a synchronous system call when done by a lower
+priority thread, or an ARM-like “pended IRQ” when done from true
+interrupt context.  The intent is that this feature will be used to
+implement interrupt “bottom half” processing and/or “tasklet” features
+in driver subsystems.  The thread, once woken, will be guaranteed to
+run before the current CPU returns into application code.</p>
+<p>Unlike similar features in other OSes, meta-IRQ threads are true
+threads and run on their own stack (which must be allocated normally),
+not the per-CPU interrupt stack. Design work to enable the use of the
+IRQ stack on supported architectures is pending.</p>
+<p>Note that because this breaks the promise made to cooperative
+threads by the Zephyr API (namely that the OS won’t schedule other
+thread until the current thread deliberately blocks), it should be
+used only with great care from application code.  These are not simply
+very high priority threads and should not be used as such.</p>
+</section>
+</section>
+<section id="thread-options">
+<span id="thread-options-v2"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink">Thread Options</a><a class="headerlink" href="#thread-options" title="Link to this heading"></a></h2>
+<p>The kernel supports a small set of <em class="dfn">thread options</em> that allow a thread
+to receive special treatment under specific circumstances. The set of options
+associated with a thread are specified when the thread is spawned.</p>
+<p>A thread that does not require any thread option has an option value of zero.
+A thread that requires a thread option specifies it by name, using the
+<code class="docutils literal notranslate"><span class="pre">|</span></code> character as a separator if multiple options are needed
+(i.e. combine options using the bitwise OR operator).</p>
+<p>The following thread options are supported.</p>
+<dl>
+<dt><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad503fbcca905a9266b0e154e3ded258c" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_ESSENTIAL</span></code></a></dt><dd><p>This option tags the thread as an <em class="dfn">essential thread</em>. This instructs
+the kernel to treat the termination or aborting of the thread as a fatal
+system error.</p>
+<p>By default, the thread is not considered to be an essential thread.</p>
+</dd>
+<dt><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gaa5b7de51b26773aa4485a711a041d9a7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_SSE_REGS</span></code></a></dt><dd><p>This x86-specific option indicate that the thread uses the CPU’s
+SSE registers. Also see <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a>.</p>
+<p>By default, the kernel does not attempt to save and restore the contents
+of these registers when scheduling the thread.</p>
+</dd>
+<dt><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab18cf1e8728e7adf53db2ae4bbcdd951" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_FP_REGS</span></code></a></dt><dd><p>This option indicate that the thread uses the CPU’s floating point
+registers. This instructs the kernel to take additional steps to save
+and restore the contents of these registers when scheduling the thread.
+(For more information see <a class="reference internal" href="../other/float.html#float-v2"><span class="std std-ref">Floating Point Services</span></a>.)</p>
+<p>By default, the kernel does not attempt to save and restore the contents
+of this register when scheduling the thread.</p>
+</dd>
+<dt><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gacb5340339892f22301e02697c6039ccc" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_USER</span></code></a></dt><dd><p>If <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> is enabled, this thread will be created in
+user mode and will have reduced privileges. See <a class="reference internal" href="../../usermode/index.html#usermode-api"><span class="std std-ref">User Mode</span></a>. Otherwise
+this flag does nothing.</p>
+</dd>
+<dt><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gaa1788a413a055745d1de71b4da7c2eb2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_INHERIT_PERMS</span></code></a></dt><dd><p>If <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> is enabled, this thread will inherit all
+kernel object permissions that the parent thread had, except the parent
+thread object.  See <a class="reference internal" href="../../usermode/index.html#usermode-api"><span class="std std-ref">User Mode</span></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="thread-custom-data">
+<span id="custom-data-v2"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">Thread Custom Data</a><a class="headerlink" href="#thread-custom-data" title="Link to this heading"></a></h2>
+<p>Every thread has a 32-bit <em class="dfn">custom data</em> area, accessible only by
+the thread itself, and may be used by the application for any purpose
+it chooses. The default custom data value for a thread is zero.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Custom data support is not available to ISRs because they operate
+within a single shared kernel interrupt handling context.</p>
+</div>
+<p>By default, thread custom data support is disabled. The configuration option
+<a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_CUSTOM_DATA" title="CONFIG_THREAD_CUSTOM_DATA"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_CUSTOM_DATA</span></code></a> can be used to enable support.</p>
+<p>The <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga4834d9b81ed60c00eee77b0d4f8ab9e4" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_custom_data_set()</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga19af063cff7b306ba28062996922740d" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_custom_data_get()</span></code></a> functions are used to write and read
+a thread’s custom data, respectively. A thread can only access its own
+custom data, and not that of another thread.</p>
+<p>The following code uses the custom data feature to record the number of times
+each thread calls a specific routine.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obviously, only a single routine can use this technique,
+since it monopolizes the use of the custom data feature.</p>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">call_tracking_routine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">call_count</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_is_in_isr</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* ignore any call made by an ISR */</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">call_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">k_thread_custom_data_get</span><span class="p">();</span>
+<span class="w">        </span><span class="n">call_count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">k_thread_custom_data_set</span><span class="p">((</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">call_count</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* do rest of routine's processing */</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Use thread custom data to allow a routine to access thread-specific information,
+by using the custom data as a pointer to a data structure owned by the thread.</p>
+</section>
+<section id="thread-name">
+<span id="thread-name-v2"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink">Thread Name</a><a class="headerlink" href="#thread-name" title="Link to this heading"></a></h2>
+<p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_NAME" title="CONFIG_THREAD_NAME"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_NAME</span></code></a> is enabled, a human-readable name can
+be associated with each thread. Names are primarily an aid for debugging,
+logging, and shell introspection; the kernel does not use them for scheduling.</p>
+<p>A thread name may be assigned in one of two ways:</p>
+<ul class="simple">
+<li><p>Statically, by passing a name to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>.</p></li>
+<li><p>At run time, using <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga23107333f134b9c9a8b692374211e841" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_name_set()</span></code></a>. The supplied string must
+remain valid for the lifetime of the thread, as only a pointer to it is
+retained.</p></li>
+</ul>
+<p>A thread’s name can be retrieved with <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gadebf45da56dee393164569742459dc0a" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_name_get()</span></code></a>, which returns
+a pointer to the name string, or with <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga07b59ade055c69929ccdc08a14361794" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_name_copy()</span></code></a>, which copies
+the name into a caller-supplied buffer. The copying variant is the safe choice
+from user mode, where the calling thread may not have access to the memory
+backing another thread’s name.</p>
+<p>If <a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_NAME" title="CONFIG_THREAD_NAME"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_NAME</span></code></a> is not enabled,
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga23107333f134b9c9a8b692374211e841" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_name_set()</span></code></a> returns an error and <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gadebf45da56dee393164569742459dc0a" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_name_get()</span></code></a>
+returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+</section>
+<section id="thread-introspection">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Thread Introspection</a><a class="headerlink" href="#thread-introspection" title="Link to this heading"></a></h2>
+<p>The kernel provides several interfaces for inspecting threads at run time.</p>
+<dl class="simple">
+<dt><strong>Identifying the current thread</strong></dt><dd><p><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga7ef1ed0fb9513df8096ede1e52fc76b2" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_current_get()</span></code></a> returns the thread id (<a class="reference internal" href="../../../doxygen/html/kernel_2thread_8h.html#a6379f5a1f19ffbc262a6877c4f6e3647" title=""><code class="xref c c-type docutils literal notranslate"><span class="pre">k_tid_t</span></code></a>) of the
+thread that is currently executing. This id can be passed to the other
+thread APIs to operate on the calling thread.</p>
+</dd>
+<dt><strong>Reading a thread’s priority</strong></dt><dd><p><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga3a46ed8ad2c3b12416fafe11325f82b3" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_priority_get()</span></code></a> returns the current scheduling priority of a
+thread. This reflects any changes made since the thread was created, for
+example by <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga24e50a60c524d1eb22fe21cdf269b6a6" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_priority_set()</span></code></a>.</p>
+</dd>
+<dt><strong>Obtaining a thread’s state</strong></dt><dd><p><a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga0c6af32096dc7ca391ffe2522bae4cb6" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_state_str()</span></code></a> writes a human-readable representation of a
+thread’s current state (for example <code class="docutils literal notranslate"><span class="pre">pending</span></code>, <code class="docutils literal notranslate"><span class="pre">suspended</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">ready</span></code>) into a caller-supplied buffer. This is intended for diagnostic
+output and should not be parsed programmatically.</p>
+</dd>
+<dt><strong>Iterating over all threads</strong></dt><dd><p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_MONITOR" title="CONFIG_THREAD_MONITOR"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_MONITOR</span></code></a> is enabled,
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gae2596d56800769b06fc03c194a126a97" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_foreach()</span></code></a> invokes a caller-supplied callback once for each
+thread in the system. It holds an internal lock that blocks thread creation
+and termination for the duration of the iteration, which guarantees a
+consistent snapshot of the thread list but can introduce latency
+proportional to the number of threads. <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga30ef8b445a6c1b4a82651674dbb737fc" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_foreach_unlocked()</span></code></a>
+is a lower-latency variant that releases the lock around each callback at the
+cost of a less strictly consistent view.</p>
+</dd>
+<dt><strong>Querying stack usage</strong></dt><dd><p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_INIT_STACKS" title="CONFIG_INIT_STACKS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_INIT_STACKS</span></code></a> and
+<a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_STACK_INFO" title="CONFIG_THREAD_STACK_INFO"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_STACK_INFO</span></code></a> are enabled,
+<code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_stack_space_get()</span></code> reports the number of unused bytes
+remaining in a thread’s stack, computed by scanning the stack for its unused
+(still-initialized) region. This complements the build-time stack analysis
+tools and the runtime stack safety feature described below.</p>
+</dd>
+<dt><strong>Querying a pending timeout</strong></dt><dd><p>A thread that is blocked on a timed operation (such as <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga093ac91db17ec33696168801d01efe75" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sleep()</span></code></a> or
+a kernel object operation with a timeout) has a pending timeout. Its
+remaining duration can be queried in ticks with
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga4688c095c86e037a18594efdb9a5e9b9" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_timeout_remaining_ticks()</span></code></a>, and the absolute system tick at
+which it will expire with <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab0b1c85b847fe74170c04538fa9949ff" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_timeout_expires_ticks()</span></code></a>. Both
+return zero if the thread has no pending timeout.</p>
+</dd>
+</dl>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="spawning-a-thread">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Spawning a Thread</a><a class="headerlink" href="#spawning-a-thread" title="Link to this heading"></a></h3>
+<p>A thread is spawned by defining its stack area and its thread control block,
+and then calling <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a>.</p>
+<p>The stack area may be statically allocated using
+<a class="reference internal" href="../../../doxygen/html/group__thread__stack__api.html#gac5368ce24fdeab3863b5c8dee2ebd955" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_STACK_DEFINE</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__thread__stack__api.html#ga9e05e3cb5aa5b72d6f19e2f327313271" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_KERNEL_STACK_DEFINE</span></code></a> to ensure
+it is properly set up in memory.</p>
+<p>The size parameter for the stack must be one of three values:</p>
+<ul class="simple">
+<li><p>The original requested stack size passed to
+<code class="docutils literal notranslate"><span class="pre">K_THREAD_STACK</span></code> or <code class="docutils literal notranslate"><span class="pre">K_KERNEL_STACK</span></code> family of stack instantiation
+macros.</p></li>
+<li><p>For a stack object defined with the <code class="docutils literal notranslate"><span class="pre">K_THREAD_STACK</span></code> family of
+macros, the return value of <a class="reference internal" href="../../../doxygen/html/group__thread__stack__api.html#ga775f8e6b4144cfdd24f3261b6db64150" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_STACK_SIZEOF()</span></code></a> for that
+object.</p></li>
+<li><p>For a stack object defined with the <code class="docutils literal notranslate"><span class="pre">K_KERNEL_STACK</span></code> family of
+macros, the return value of <a class="reference internal" href="../../../doxygen/html/group__thread__stack__api.html#ga57b3824b117c634dbb6052d47dc4301c" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_KERNEL_STACK_SIZEOF()</span></code></a> for that
+object.</p></li>
+</ul>
+<p>Alternatively, the stack area may be dynamically allocated using
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gafe00cc70bac8a47ba6dda21bde508614" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_stack_alloc()</span></code></a> and freed using <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga95560cb85f6656b981a9a50ff2cd70b7" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_stack_free()</span></code></a>.</p>
+<p>The thread spawning function returns its thread id, which can be used
+to reference the thread.</p>
+<p>The following code spawns a thread that starts immediately.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_STACK_SIZE 500</span>
+<span class="cp">#define MY_PRIORITY 5</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_entry_point</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+
+<span class="n">K_THREAD_STACK_DEFINE</span><span class="p">(</span><span class="n">my_stack_area</span><span class="p">,</span><span class="w"> </span><span class="n">MY_STACK_SIZE</span><span class="p">);</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">k_thread</span><span class="w"> </span><span class="n">my_thread_data</span><span class="p">;</span>
+
+<span class="n">k_tid_t</span><span class="w"> </span><span class="n">my_tid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k_thread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_thread_data</span><span class="p">,</span><span class="w"> </span><span class="n">my_stack_area</span><span class="p">,</span>
+<span class="w">                                 </span><span class="n">K_THREAD_STACK_SIZEOF</span><span class="p">(</span><span class="n">my_stack_area</span><span class="p">),</span>
+<span class="w">                                 </span><span class="n">my_entry_point</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span>
+<span class="w">                                 </span><span class="n">MY_PRIORITY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, a thread can be declared at compile time by calling
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>. Observe that the macro defines
+the stack area, control block, and thread id variables automatically.</p>
+<p>The following code has the same effect as the code segment above.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_STACK_SIZE 500</span>
+<span class="cp">#define MY_PRIORITY 5</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_entry_point</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+
+<span class="n">K_THREAD_DEFINE</span><span class="p">(</span><span class="n">my_tid</span><span class="p">,</span><span class="w"> </span><span class="n">MY_STACK_SIZE</span><span class="p">,</span>
+<span class="w">                </span><span class="n">my_entry_point</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span>
+<span class="w">                </span><span class="n">MY_PRIORITY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The delay parameter to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a> is a
+<code class="xref c c-type docutils literal notranslate"><span class="pre">k_timeout_t</span></code> value, so <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code></a> means to start the
+thread immediately. The corresponding parameter to <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gab3ced58648ca35788a40676e8478ecd2" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_DEFINE</span></code></a>
+is a duration in integral milliseconds, so the equivalent argument is 0.</p>
+</div>
+<p>The following code dynamically allocates a thread stack, waits until the thread
+has joined, and then frees the dynamically allocated thread stack.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_entry_point</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+
+<span class="n">k_tid_t</span><span class="w"> </span><span class="n">my_tid</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">my_stack_area</span><span class="p">;</span>
+
+<span class="n">my_stack_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k_thread_stack_alloc</span><span class="p">(</span><span class="n">CONFIG_DYNAMIC_THREAD_STACK_SIZE</span><span class="p">);</span>
+<span class="n">my_tid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k_thread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_thread_data</span><span class="p">,</span><span class="w"> </span><span class="n">my_stack_area</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">CONFIG_DYNAMIC_THREAD_STACK_SIZE</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">my_entry_point</span><span class="p">,</span>
+<span class="w">                          </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">MY_PRIORITY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">);</span>
+<span class="n">k_thread_join</span><span class="p">(</span><span class="n">my_tid</span><span class="p">,</span><span class="w"> </span><span class="n">K_FOREVER</span><span class="p">);</span>
+<span class="n">k_thread_stack_free</span><span class="p">(</span><span class="n">my_stack_area</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="user-mode-constraints">
+<h4>User Mode Constraints<a class="headerlink" href="#user-mode-constraints" title="Link to this heading"></a></h4>
+<p>This section only applies if <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> is enabled, and a user
+thread tries to create a new thread. The <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad5b0bff3102f1656089f5875d999a367" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_create()</span></code></a> API is
+still used, but there are additional constraints which must be met or the
+calling thread will be terminated:</p>
+<ul class="simple">
+<li><p>The calling thread must have permissions granted on both the child thread
+and stack parameters; both are tracked by the kernel as kernel objects.</p></li>
+<li><p>The child thread and stack objects must be in an uninitialized state,
+i.e. it is not currently running and the stack memory is unused.</p></li>
+<li><p>The stack size parameter passed in must be equal to or less than the
+bounds of the stack object when it was declared.</p></li>
+<li><p>The <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gacb5340339892f22301e02697c6039ccc" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_USER</span></code></a> option must be used, as user threads can only create
+other user threads.</p></li>
+<li><p>The <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad503fbcca905a9266b0e154e3ded258c" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_ESSENTIAL</span></code></a> option must not be used, user threads may not be
+considered essential threads.</p></li>
+<li><p>The priority of the child thread must be a valid priority value, and equal to
+or lower than the parent thread.</p></li>
+</ul>
+</section>
+</section>
+<section id="dropping-permissions">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Dropping Permissions</a><a class="headerlink" href="#dropping-permissions" title="Link to this heading"></a></h3>
+<p>If <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> is enabled, a thread running in supervisor mode
+may perform a one-way transition to user mode using the
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga3fbe1c8a5f3ef1c25382c7d6fca35764" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_user_mode_enter()</span></code></a> API. This is a one-way operation which
+will reset and zero the thread’s stack memory. The thread will be marked
+as non-essential.</p>
+</section>
+<section id="terminating-a-thread">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Terminating a Thread</a><a class="headerlink" href="#terminating-a-thread" title="Link to this heading"></a></h3>
+<p>A thread terminates itself by returning from its entry point function.</p>
+<p>The following code illustrates the ways a thread can terminate.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">my_entry_point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">unused1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">unused2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">unused3</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">some</span><span class="w"> </span><span class="n">condition</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="cm">/* thread terminates from mid-entry point function */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* thread terminates at end of entry point function */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If <a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a> is enabled, aborting a thread will additionally
+mark the thread and stack objects as uninitialized so that they may be reused.</p>
+</section>
+</section>
+<section id="runtime-statistics">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Runtime Statistics</a><a class="headerlink" href="#runtime-statistics" title="Link to this heading"></a></h2>
+<p>Thread runtime statistics can be gathered and retrieved if
+<a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_RUNTIME_STATS" title="CONFIG_THREAD_RUNTIME_STATS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_RUNTIME_STATS</span></code></a> is enabled, for example, total number of
+execution cycles of a thread.</p>
+<p>By default, the runtime statistics are gathered using the default kernel
+timer. For some architectures, SoCs or boards, there are timers with higher
+resolution available via timing functions. Using of these timers can be
+enabled via <a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_RUNTIME_STATS_USE_TIMING_FUNCTIONS" title="CONFIG_THREAD_RUNTIME_STATS_USE_TIMING_FUNCTIONS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_RUNTIME_STATS_USE_TIMING_FUNCTIONS</span></code></a>.</p>
+<p>Here is an example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k_thread_runtime_stats_t</span><span class="w"> </span><span class="n">rt_stats_thread</span><span class="p">;</span>
+
+<span class="n">k_thread_runtime_stats_get</span><span class="p">(</span><span class="n">k_current_get</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rt_stats_thread</span><span class="p">);</span>
+
+<span class="n">printk</span><span class="p">(</span><span class="s">"Cycles: %llu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">rt_stats_thread</span><span class="p">.</span><span class="n">execution_cycles</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The combined statistics for every thread in the system can be retrieved with
+<a class="reference internal" href="../../../doxygen/html/kernel_8h.html#abd855bb83b3be393b46833e7854a193e" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stats_all_get()</span></code></a>, which reports the aggregate runtime
+usage across all threads (including the idle thread). This is useful for
+computing overall CPU utilization.</p>
+<p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_SCHED_THREAD_USAGE" title="CONFIG_SCHED_THREAD_USAGE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SCHED_THREAD_USAGE</span></code></a> is enabled, statistics
+collection can be toggled at run time on a per-thread basis with
+<a class="reference internal" href="../../../doxygen/html/kernel_8h.html#a3e52beb93fca2231d5860fe1cf1181fd" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stats_enable()</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/kernel_8h.html#ae5ea2e05a602b7d5ee78a65ced61d63b" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stats_disable()</span></code></a>. Whether collection is currently active
+for a thread can be checked with <a class="reference internal" href="../../../doxygen/html/kernel_8h.html#a8954eb04bd70207b9aeff112782a1e40" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stats_is_enabled()</span></code></a>.
+Disabling collection for threads that do not need to be measured reduces the
+bookkeeping overhead incurred on each context switch.</p>
+</section>
+<section id="runtime-stack-safety">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Runtime Stack Safety</a><a class="headerlink" href="#runtime-stack-safety" title="Link to this heading"></a></h2>
+<p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_RUNTIME_STACK_SAFETY" title="CONFIG_THREAD_RUNTIME_STACK_SAFETY"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_RUNTIME_STACK_SAFETY</span></code></a> is enabled, the kernel
+provides routines that scan a thread’s stack at runtime to determine how much of
+it remains unused. If the amount of unused stack space is found to have dropped
+below a configurable per-thread threshold, a user-defined handler is invoked.</p>
+<p>This feature is intended for use by monitoring software. The handler may, for
+example, log a warning, suspend or abort the offending thread, or even reboot
+the system. It complements the build-time stack analysis tools and the
+hardware-based stack overflow detection by allowing a system to react <em>before</em>
+a stack is exhausted.</p>
+<p>Each thread has an <em>unused stack threshold</em>, expressed in bytes. When a stack
+safety check finds that a thread’s unused stack space is below this threshold,
+the supplied handler is called. A threshold of 0 bytes (the default) disables
+the check for that thread. The default threshold applied to newly created
+threads is derived from
+<a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_RUNTIME_STACK_SAFETY_DEFAULT_UNUSED_THRESHOLD_PCT" title="CONFIG_THREAD_RUNTIME_STACK_SAFETY_DEFAULT_UNUSED_THRESHOLD_PCT"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_RUNTIME_STACK_SAFETY_DEFAULT_UNUSED_THRESHOLD_PCT</span></code></a>,
+which expresses it as a percentage of each thread’s total stack size.</p>
+<p>The threshold for an individual thread can be set or queried at runtime:</p>
+<ul class="simple">
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stack_unused_threshold_pct_set()</span></code> sets the threshold
+as a percentage (0 to 99) of the thread’s total stack size.</p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stack_unused_threshold_set()</span></code> sets the threshold as an
+absolute number of bytes.</p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stack_unused_threshold_get()</span></code> retrieves the current
+threshold (in bytes).</p></li>
+</ul>
+<p>Two routines perform the actual check. Both accept a pointer that, on return,
+receives the amount of unused stack space, and a
+<code class="xref c c-type docutils literal notranslate"><span class="pre">k_thread_stack_safety_handler_t</span></code> handler (plus a user argument) that is
+invoked if the threshold has been crossed:</p>
+<ul class="simple">
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stack_safety_full_check()</span></code> scans the entire stack to
+compute the exact amount of unused space.</p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_runtime_stack_safety_threshold_check()</span></code> performs an
+abbreviated scan that only looks for evidence that the thread has crossed its
+configured threshold. This is cheaper than a full check but does not yield an
+exact measure of unused space.</p></li>
+</ul>
+<p>Here is an example that configures a thread to invoke a handler once its unused
+stack space drops below 10% of its total stack size:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">stack_safety_handler</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_thread</span><span class="w"> </span><span class="o">*</span><span class="kr">thread</span><span class="p">,</span>
+<span class="w">                          </span><span class="kt">size_t</span><span class="w"> </span><span class="n">unused_space</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">        </span><span class="n">printk</span><span class="p">(</span><span class="s">"Thread %p low on stack: %zu bytes unused</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+<span class="w">               </span><span class="kr">thread</span><span class="p">,</span><span class="w"> </span><span class="n">unused_space</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/* Trigger the handler once less than 10% of the stack remains unused */</span>
+<span class="n">k_thread_runtime_stack_unused_threshold_pct_set</span><span class="p">(</span><span class="n">my_tid</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+
+<span class="cm">/* Periodically check the thread from a monitoring context */</span>
+<span class="n">k_thread_runtime_stack_safety_full_check</span><span class="p">(</span><span class="n">my_tid</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span>
+<span class="w">                                         </span><span class="n">stack_safety_handler</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use threads to handle processing that cannot be handled in an ISR.</p>
+<p>Use separate threads to handle logically distinct processing operations
+that can execute in parallel.</p>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>Related configuration options:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_MAIN_THREAD_PRIORITY" title="CONFIG_MAIN_THREAD_PRIORITY"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MAIN_THREAD_PRIORITY</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_MAIN_STACK_SIZE" title="CONFIG_MAIN_STACK_SIZE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MAIN_STACK_SIZE</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_IDLE_STACK_SIZE" title="CONFIG_IDLE_STACK_SIZE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_IDLE_STACK_SIZE</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_CUSTOM_DATA" title="CONFIG_THREAD_CUSTOM_DATA"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_CUSTOM_DATA</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_COOP_PRIORITIES" title="CONFIG_NUM_COOP_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_COOP_PRIORITIES</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_PREEMPT_PRIORITIES" title="CONFIG_NUM_PREEMPT_PRIORITIES"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_PREEMPT_PRIORITIES</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICING" title="CONFIG_TIMESLICING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICING</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICE_SIZE" title="CONFIG_TIMESLICE_SIZE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICE_SIZE</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICE_PRIORITY" title="CONFIG_TIMESLICE_PRIORITY"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICE_PRIORITY</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_USERSPACE" title="CONFIG_USERSPACE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_USERSPACE</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_RUNTIME_STACK_SAFETY" title="CONFIG_THREAD_RUNTIME_STACK_SAFETY"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_RUNTIME_STACK_SAFETY</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_THREAD_RUNTIME_STACK_SAFETY_DEFAULT_UNUSED_THRESHOLD_PCT" title="CONFIG_THREAD_RUNTIME_STACK_SAFETY_DEFAULT_UNUSED_THRESHOLD_PCT"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_THREAD_RUNTIME_STACK_SAFETY_DEFAULT_UNUSED_THRESHOLD_PCT</span></code></a></p></li>
+</ul>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__thread__apis.html" title=""><span class="pre">Thread</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+<div class="related-code-samples dropdown toggle-shown admonition">
+<p class="admonition-title">Related code samples</p>
+<ul class="code-sample-list">
+<li><span class="code-sample-name"><a class="reference internal" href="../../../samples/synchronization/README.html#synchronization" title="Manipulate basic kernel synchronization primitives.">Basic Synchronization</a></span><span class="code-sample-description">Manipulate basic kernel synchronization primitives.</span></li>
+<li><span class="code-sample-name"><a class="reference internal" href="../../../samples/basic/threads/README.html#multi-thread-blinky" title="Spawn multiple threads that blink LEDs and print information to the console.">Basic thread manipulation</a></span><span class="code-sample-description">Spawn multiple threads that blink LEDs and print information to the console.</span></li>
+<li><span class="code-sample-name"><a class="reference internal" href="../../../samples/philosophers/README.html#dining-philosophers" title="Implement a solution to the Dining Philosophers problem using Zephyr kernel services.">Dining Philosophers</a></span><span class="code-sample-description">Implement a solution to the Dining Philosophers problem using Zephyr kernel services.</span></li>
+<li><span class="code-sample-name"><a class="reference internal" href="../../../samples/net/sockets/dumb_http_server_mt/README.html#socket-dumb-http-server-mt" title="Implement a simple HTTP server supporting simultaneous connections using BSD sockets.">Dumb HTTP server (multi-threaded)</a></span><span class="code-sample-description">Implement a simple HTTP server supporting simultaneous connections using BSD sockets.</span></li>
+</ul>
+</div>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__thread__stack__api.html" title=""><span class="pre">Thread</span> <span class="pre">Stack</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Aug 25, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

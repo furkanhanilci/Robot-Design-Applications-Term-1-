@@ -1,0 +1,1246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interrupts &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/interrupts.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Polling API" href="polling.html" />
+    <link rel="prev" title="Operation without Threads" href="threads/nothread.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="threads/index.html">Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scheduling/index.html">Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scheduling/index.html#cpu-idling">CPU Idling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="threads/system_threads.html">System Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="threads/workqueue.html">Workqueue Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="threads/nothread.html">Operation without Threads</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Interrupts</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#multi-level-interrupt-handling">Multi-level Interrupt Handling</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#preventing-interruptions">Preventing Interruptions</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#offloading-isr-work">Offloading ISR Work</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#sharing-interrupt-lines">Sharing interrupt lines</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#defining-a-regular-isr">Defining a regular ISR</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#defining-a-direct-isr">Defining a ‘direct’ ISR</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#ram-based-isr-execution">RAM-based ISR Execution</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#sharing-an-interrupt-line">Sharing an interrupt line</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dynamically-disconnecting-an-isr">Dynamically disconnecting an ISR</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#implementation-details">Implementation Details</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="polling.html">Polling API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="synchronization/semaphores.html">Semaphores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="synchronization/mutexes.html">Mutexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="synchronization/condvar.html">Condition Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="synchronization/events.html">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="synchronization/spinlocks.html">Spinlocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smp/smp.html">Symmetric Multiprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Interrupts</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/interrupts.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Finterrupts%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Finterrupts%0A-+Version%3A+main%0A-+SHA-1%3A+b17d93039c213fdcf8936b349200ef5052b5d837&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="interrupts">
+<span id="interrupts-v2"></span><h1>Interrupts<a class="headerlink" href="#interrupts" title="Link to this heading"></a></h1>
+<p>An <em class="dfn">interrupt service routine</em> (ISR) is a function that executes
+asynchronously in response to a hardware or software interrupt.
+An ISR normally preempts the execution of the current thread,
+allowing the response to occur with very low latency.
+Thread execution resumes only once all ISR work has been completed.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#concepts" id="id1">Concepts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#multi-level-interrupt-handling" id="id2">Multi-level Interrupt Handling</a></p></li>
+<li><p><a class="reference internal" href="#preventing-interruptions" id="id3">Preventing Interruptions</a></p></li>
+<li><p><a class="reference internal" href="#offloading-isr-work" id="id4">Offloading ISR Work</a></p></li>
+<li><p><a class="reference internal" href="#sharing-interrupt-lines" id="id5">Sharing interrupt lines</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implementation" id="id6">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#defining-a-regular-isr" id="id7">Defining a regular ISR</a></p></li>
+<li><p><a class="reference internal" href="#defining-a-direct-isr" id="id8">Defining a ‘direct’ ISR</a></p></li>
+<li><p><a class="reference internal" href="#ram-based-isr-execution" id="id9">RAM-based ISR Execution</a></p></li>
+<li><p><a class="reference internal" href="#sharing-an-interrupt-line" id="id10">Sharing an interrupt line</a></p></li>
+<li><p><a class="reference internal" href="#dynamically-disconnecting-an-isr" id="id11">Dynamically disconnecting an ISR</a></p></li>
+<li><p><a class="reference internal" href="#implementation-details" id="id12">Implementation Details</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id13">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id14">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id15">API Reference</a></p></li>
+</ul>
+</nav>
+<section id="concepts">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<p>Any number of ISRs can be defined (limited only by available RAM), subject to
+the constraints imposed by underlying hardware.</p>
+<p>An ISR has the following key properties:</p>
+<ul class="simple">
+<li><p>An <strong>interrupt request (IRQ) signal</strong> that triggers the ISR.</p></li>
+<li><p>A <strong>priority level</strong> associated with the IRQ.</p></li>
+<li><p>An <strong>interrupt service routine</strong> that is invoked to handle the interrupt.</p></li>
+<li><p>An <strong>argument value</strong> that is passed to that function.</p></li>
+</ul>
+<p>An <abbr title="Interrupt Descriptor Table">IDT</abbr> or a vector table is used
+to associate a given interrupt source with a given ISR.
+Only a single ISR can be associated with a specific IRQ at any given time.</p>
+<p>Multiple ISRs can utilize the same function to process interrupts,
+allowing a single function to service a device that generates
+multiple types of interrupts or to service multiple devices
+(usually of the same type). The argument value passed to an ISR’s function
+allows the function to determine which interrupt has been signaled.</p>
+<p>The kernel provides a default ISR for all unused IDT entries. This ISR
+generates a fatal system error if an unexpected interrupt is signaled.</p>
+<p>The kernel supports <strong>interrupt nesting</strong>. This allows an ISR to be preempted
+in mid-execution if a higher priority interrupt is signaled. The lower
+priority ISR resumes execution once the higher priority ISR has completed
+its processing.</p>
+<p>An ISR executes in the kernel’s <strong>interrupt context</strong>. This context has its
+own dedicated stack area (or, on some architectures, stack areas). The size
+of the interrupt context stack must be capable of handling the execution of
+multiple concurrent ISRs if interrupt
+nesting support is enabled.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Many kernel APIs can be used only by threads, and not by ISRs. In cases
+where a routine may be invoked by both threads and ISRs the kernel
+provides the <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga8482b0dd2283d12677a9ebe321667d16" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_is_in_isr()</span></code></a> API to allow the routine to
+alter its behavior depending on whether it is executing as part of
+a thread or as part of an ISR.</p>
+</div>
+<section id="multi-level-interrupt-handling">
+<span id="multi-level-interrupts"></span><h3><a class="toc-backref" href="#id2" role="doc-backlink">Multi-level Interrupt Handling</a><a class="headerlink" href="#multi-level-interrupt-handling" title="Link to this heading"></a></h3>
+<p>A hardware platform can support more interrupt lines than natively-provided
+through the use of one or more nested interrupt controllers.  Sources of
+hardware interrupts are combined into one line that is then routed to
+the parent controller.</p>
+<p>If nested interrupt controllers are supported, <a class="reference internal" href="../../kconfig.html#CONFIG_MULTI_LEVEL_INTERRUPTS" title="CONFIG_MULTI_LEVEL_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MULTI_LEVEL_INTERRUPTS</span></code></a>
+should be enabled, and <a class="reference internal" href="../../kconfig.html#CONFIG_2ND_LEVEL_INTERRUPTS" title="CONFIG_2ND_LEVEL_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_2ND_LEVEL_INTERRUPTS</span></code></a> and
+<a class="reference internal" href="../../kconfig.html#CONFIG_3RD_LEVEL_INTERRUPTS" title="CONFIG_3RD_LEVEL_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_3RD_LEVEL_INTERRUPTS</span></code></a> configured as well, based on the
+hardware architecture.</p>
+<p>A unique 32-bit interrupt number is assigned with information
+embedded in it to select and invoke the correct Interrupt
+Service Routine (ISR). Each interrupt level is given a byte within this 32-bit
+number, providing support for up to four interrupt levels using this arch, as
+illustrated and explained below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>          9                           2       0
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│   │   │ ╷ │   │   │   │   │ A │   │ ╷ │   │   │               (LEVEL 1)
+└───┴───┴─│─┴───┴───┴───┴───┴───┴───┴─│─┴───┴───┘
+          └─────────────────┐         └─────────────────────┐
+      5                     v                               v
+┌───┬───┬───┬───┬───┬───┬───┐   ┌───┬───┬───┬───┬───┬───┬───┐
+│   │ ╷ │   │ C │   │   │   │   │   │   │   │   │ B │   │   │   (LEVEL 2)
+└───┴─│─┴───┴───┴───┴───┴───┘   └───┴───┴───┴───┴───┴───┴───┘
+      └─────────────────────┐
+                            v
+┌───┬───┬───┬───┬───┬───┬───┐
+│   │   │   │   │ D │   │   │                                   (LEVEL 3)
+└───┴───┴───┴───┴───┴───┴───┘
+</pre></div>
+</div>
+<p>There are three interrupt levels shown here.</p>
+<ul class="simple">
+<li><p>A cell represents an interrupt line and is numbered from 0 (right most).</p></li>
+<li><p>LEVEL 1 has 12 interrupt lines, with two lines (2 and 9) connected
+to nested controllers and one device ‘A’ on line 4.</p></li>
+<li><p>One of the LEVEL 2 controllers has interrupt line 5 connected to
+a LEVEL 3 nested controller and one device ‘C’ on line 3.</p></li>
+<li><p>The other LEVEL 2 controller has no nested controllers but has one
+device ‘B’ on line 2.</p></li>
+<li><p>The LEVEL 3 controller has one device ‘D’ on line 2.</p></li>
+</ul>
+<p>Here’s how unique interrupt numbers are generated for each
+hardware interrupt.  Let’s consider four interrupts shown above
+as A, B, C, and D:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A -&gt; 0x00000004
+B -&gt; 0x00000302
+C -&gt; 0x00000409
+D -&gt; 0x00030609
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The bit positions for LEVEL 2 and onward are offset by 1, as 0 means that
+interrupt number is not present for that level. For our example, the LEVEL 3
+controller has device D on line 2, connected to the LEVEL 2 controller’s line
+5, that is connected to the LEVEL 1 controller’s line 9 (2 -&gt; 5 -&gt; 9).
+Because of the encoding offset for LEVEL 2 and onward, device D is given the
+number 0x00030609.</p>
+</div>
+</section>
+<section id="preventing-interruptions">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Preventing Interruptions</a><a class="headerlink" href="#preventing-interruptions" title="Link to this heading"></a></h3>
+<p>In certain situations it may be necessary for the current thread to
+prevent ISRs from executing while it is performing time-sensitive
+or critical section operations.</p>
+<p>A thread may temporarily prevent all IRQ handling in the system using
+an <strong>IRQ lock</strong>. This lock can be applied even when it is already in effect,
+so routines can use it without having to know if it is already in effect.
+The thread must unlock its IRQ lock the same number of times it was locked
+before interrupts can be once again processed by the kernel while the thread
+is running.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A thread is not allowed to <a class="reference internal" href="scheduling/index.html#thread-sleeping"><span class="std std-ref">sleep</span></a> while holding
+an IRQ lock; only <a class="reference internal" href="../../develop/api/terminology.html#api-term-isr-ok"><span class="std std-ref">isr-ok</span></a> functions may be called.</p>
+</div>
+<p>Alternatively, a thread may temporarily <strong>disable</strong> a specified IRQ
+so its associated ISR does not execute when the IRQ is signaled.
+The IRQ must be subsequently <strong>enabled</strong> to permit the ISR to execute.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Disabling an IRQ prevents <em>all</em> threads in the system from being preempted
+by the associated ISR, not just the thread that disabled the IRQ.</p>
+</div>
+<section id="zero-latency-interrupts">
+<span id="zlis"></span><h4>Zero Latency Interrupts<a class="headerlink" href="#zero-latency-interrupts" title="Link to this heading"></a></h4>
+<p>Preventing interruptions by applying an IRQ lock may increase the observed
+interrupt latency. A high interrupt latency, however, may not be acceptable
+for certain low-latency use-cases.</p>
+<p>The kernel addresses such use-cases by allowing interrupts with critical
+latency constraints to execute at a priority level that cannot be blocked
+by interrupt locking. These interrupts are defined as
+<em>zero-latency interrupts</em>. The support for zero-latency interrupts requires
+<a class="reference internal" href="../../kconfig.html#CONFIG_ZERO_LATENCY_IRQS" title="CONFIG_ZERO_LATENCY_IRQS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ZERO_LATENCY_IRQS</span></code></a> to be enabled. Any interrupts
+configured as zero-latency must also be declared as <a class="reference internal" href="#direct-isrs"><span class="std std-ref">direct ISRs</span></a> (and must not use the <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga3c1327551dfca7818975e3fbf1470227" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ISR_DIRECT_PM</span></code></a> in them), since
+regular ISRs interact with the kernel. In addition to that, the flag
+<code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_ZERO_LATENCY</span></code> must be passed to the <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a>
+macro to configure the particular interrupt with
+zero latency. Declaring a zero-latency interrupt ISR to be both direct and
+dynamic is possible on some architectures, see <a class="reference internal" href="#direct-isrs"><span class="std std-ref">Defining a ‘direct’ ISR</span></a>.</p>
+<p>Zero-latency interrupts are expected to be used to manage hardware events
+directly, and not to interoperate with the kernel code at all. They should
+treat all kernel APIs as undefined behavior (i.e. an application that uses the
+APIs inside a zero-latency interrupt context is responsible for directly
+verifying correct behavior). Zero-latency interrupts may not modify any data
+inspected by kernel APIs invoked from normal Zephyr contexts and shall not
+generate exceptions that need to be handled synchronously (e.g. kernel panic).</p>
+<p>When system power management keeps interrupts locked across PM resume, a
+zero-latency interrupt is outside the locked-resume ordering and may be
+dispatched during PM suspend/resume logic, before PM resume bookkeeping and
+SoC/device hardware restore have completed. Such an ISR must be PM-wake-safe, or
+the interrupt source must be masked or disabled while the system state does not
+allow the ISR to execute. See <a class="reference internal" href="../../services/pm/device.html#pm-device-constraint"><span class="std std-ref">device power policy constraints</span></a> for one way to keep unsafe states out of policy
+selection while a device path that can produce a zero-latency interrupt is
+active.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Zero-latency interrupts are supported on an architecture-specific basis.
+The feature is currently implemented in the ARM Cortex-M architecture
+variant.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To mitigate flash access latency, consider relocating ISRs and all related
+symbols to RAM.</p>
+</div>
+</section>
+</section>
+<section id="offloading-isr-work">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Offloading ISR Work</a><a class="headerlink" href="#offloading-isr-work" title="Link to this heading"></a></h3>
+<p>An ISR should execute quickly to ensure predictable system operation.
+If time consuming processing is required the ISR should offload some or all
+processing to a thread, thereby restoring the kernel’s ability to respond
+to other interrupts.</p>
+<p>The kernel supports several mechanisms for offloading interrupt-related
+processing to a thread.</p>
+<ul class="simple">
+<li><p>An ISR can signal a helper thread to do interrupt-related processing
+using a kernel object, such as a FIFO, LIFO, or semaphore.</p></li>
+<li><p>An ISR can instruct the system workqueue thread to execute a work item.
+(See <a class="reference internal" href="threads/workqueue.html#workqueues-v2"><span class="std std-ref">Workqueue Threads</span></a>.)</p></li>
+</ul>
+<p>When an ISR offloads work to a thread, there is typically a single context
+switch to that thread when the ISR completes, allowing interrupt-related
+processing to continue almost immediately. However, depending on the
+priority of the thread handling the offload, it is possible that
+the currently executing cooperative thread or other higher-priority threads
+may execute before the thread handling the offload is scheduled.</p>
+</section>
+<section id="sharing-interrupt-lines">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Sharing interrupt lines</a><a class="headerlink" href="#sharing-interrupt-lines" title="Link to this heading"></a></h3>
+<p>In the case of some hardware platforms, the same interrupt lines may be used
+by different IPs. For example, interrupt 17 may be used by a DMA controller to
+signal that a data transfer has been completed or by a DAI controller to signal
+that the transfer FIFO has reached its watermark. To make this work, one would
+have to either employ some special logic or find a workaround (for example, using
+the shared_irq interrupt controller), which doesn’t scale very well.</p>
+<p>To solve this problem, one may use shared interrupts, which can be enabled using
+<a class="reference internal" href="../../kconfig.html#CONFIG_SHARED_INTERRUPTS" title="CONFIG_SHARED_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SHARED_INTERRUPTS</span></code></a>. Whenever an attempt to register
+a second ISR/argument pair on the same interrupt line is made (using
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> or <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga4e9915b92b09df49b99bc449f0cc31a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_connect_dynamic()</span></code></a>), the interrupt line will
+become shared, meaning the two ISR/argument pairs (previous one and the one that
+has just been registered) will be invoked each time the interrupt is triggered.
+The entities that make use of an interrupt line in the shared interrupt context
+are known as clients. The maximum number of allowed clients for an interrupt is
+controlled by <a class="reference internal" href="../../kconfig.html#CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS" title="CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS</span></code></a>.</p>
+<p>Interrupt sharing is transparent to the user. As such, the user may register
+interrupts using <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> and <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga4e9915b92b09df49b99bc449f0cc31a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_connect_dynamic()</span></code></a> as
+they normally would. The interrupt sharing is taken care of behind the scenes.</p>
+<p>Enabling the shared interrupt support and dynamic interrupt support will
+allow users to dynamically disconnect ISRs using <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gabdab7745edc1e15862e1772d8673fc00" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_disconnect_dynamic()</span></code></a>.
+After an ISR is disconnected, whenever the interrupt line for which it was
+register gets triggered, the ISR will no longer get invoked.</p>
+<p>Please note that enabling <a class="reference internal" href="../../kconfig.html#CONFIG_SHARED_INTERRUPTS" title="CONFIG_SHARED_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SHARED_INTERRUPTS</span></code></a> will
+result in a non-negligible increase in the binary size. Use with caution.</p>
+</section>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="defining-a-regular-isr">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Defining a regular ISR</a><a class="headerlink" href="#defining-a-regular-isr" title="Link to this heading"></a></h3>
+<p>An ISR is defined at runtime by calling <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a>. It must
+then be enabled by calling <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga7ea700ee31e4ff036c997a554dbedfeb" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_enable()</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unprefixed interrupt control APIs such as <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga7ea700ee31e4ff036c997a554dbedfeb" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_enable()</span></code></a> and
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga19fdde73c3b02fcca6cf1d1e67631228" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_lock()</span></code></a> are the legacy spelling. New code should use their
+namespaced equivalents, <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga502c7221c97faad1399465e21880fef1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_irq_enable()</span></code></a>, <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gad4a27741fdbb40d4a7d1c7cea10eff03" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_irq_lock()</span></code></a> and
+so on. The unprefixed names remain fully supported.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>IRQ_CONNECT() is not a C function and does some inline assembly magic
+behind the scenes. All its arguments must be known at build time.
+Drivers that have multiple instances may need to define per-instance
+config functions to configure each instance of the interrupt.</p>
+</div>
+<p>The following code defines and enables an ISR.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_DEV_IRQ  24       </span><span class="cm">/* device uses IRQ 24 */</span>
+<span class="cp">#define MY_DEV_PRIO  2       </span><span class="cm">/* device uses interrupt priority 2 */</span>
+<span class="cm">/* argument passed to my_isr(), in this case a pointer to the device */</span>
+<span class="cp">#define MY_ISR_ARG  DEVICE_GET(my_device)</span>
+<span class="cp">#define MY_IRQ_FLAGS 0       </span><span class="cm">/* IRQ flags */</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span><span class="w"> </span><span class="cm">/* ISR code */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr_installer</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="w">   </span><span class="n">IRQ_CONNECT</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_ISR_ARG</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="n">irq_enable</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">);</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Since the <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> macro requires that all its parameters be
+known at build time, in some cases this may not be acceptable. It is also
+possible to install interrupts at runtime with
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga4e9915b92b09df49b99bc449f0cc31a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_connect_dynamic()</span></code></a>. It is used in exactly the same way as
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">my_isr_installer</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="w">   </span><span class="n">irq_connect_dynamic</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_ISR_ARG</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="n">irq_enable</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">);</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dynamic interrupts require the <a class="reference internal" href="../../kconfig.html#CONFIG_DYNAMIC_INTERRUPTS" title="CONFIG_DYNAMIC_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_DYNAMIC_INTERRUPTS</span></code></a> option to
+be enabled. Removing or re-configuring a dynamic interrupt is currently
+unsupported.</p>
+</section>
+<section id="defining-a-direct-isr">
+<span id="direct-isrs"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Defining a ‘direct’ ISR</a><a class="headerlink" href="#defining-a-direct-isr" title="Link to this heading"></a></h3>
+<p>Regular Zephyr interrupts introduce some overhead which may be unacceptable
+for some low-latency use-cases. Specifically:</p>
+<ul class="simple">
+<li><p>The argument to the ISR is retrieved and passed to the ISR</p></li>
+<li><p>If power management is enabled and the system was idle, all the hardware
+will be resumed from low-power state before the ISR is executed, which can be
+very time-consuming</p></li>
+<li><p>Although some architectures will do this in hardware, other architectures
+need to switch to the interrupt stack in code</p></li>
+<li><p>After the interrupt is serviced, the OS then performs some logic to
+potentially make a scheduling decision</p></li>
+<li><p><a class="reference internal" href="#zlis"><span class="std std-ref">Zero Latency Interrupts</span></a> must always be declared as direct ISRs, since regular
+ISRs interact with the kernel</p></li>
+</ul>
+<p>Zephyr supports so-called ‘direct’ interrupts, which are installed via
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a> and whose handlers are declared using
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gaf86866cd07fd37f381d98866f8874ebf" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ISR_DIRECT_DECLARE</span></code></a>. These direct interrupts have some special
+implementation requirements and a reduced feature set; see the definitions
+of <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a> and <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gaf86866cd07fd37f381d98866f8874ebf" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ISR_DIRECT_DECLARE</span></code></a> for details.</p>
+<p>Direct interrupts are only available on architectures selecting
+<a class="reference internal" href="../../kconfig.html#CONFIG_ARCH_HAS_DIRECT_INTERRUPTS" title="CONFIG_ARCH_HAS_DIRECT_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ARCH_HAS_DIRECT_INTERRUPTS</span></code></a>. Using
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a> or <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gaf86866cd07fd37f381d98866f8874ebf" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ISR_DIRECT_DECLARE</span></code></a> on any other
+architecture fails the build.</p>
+<p>The following code demonstrates a direct ISR:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_DEV_IRQ  24       </span><span class="cm">/* device uses IRQ 24 */</span>
+<span class="cp">#define MY_DEV_PRIO  2       </span><span class="cm">/* device uses interrupt priority 2 */</span>
+<span class="cp">#define MY_IRQ_FLAGS 0       </span><span class="cm">/* IRQ flags */</span>
+
+<span class="n">ISR_DIRECT_DECLARE</span><span class="p">(</span><span class="n">my_isr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">do_stuff</span><span class="p">();</span>
+<span class="w">   </span><span class="cm">/* PM done after servicing interrupt for best latency. This cannot be</span>
+<span class="cm">   used for zero-latency IRQs because it accesses kernel data. */</span>
+<span class="w">   </span><span class="n">ISR_DIRECT_PM</span><span class="p">();</span>
+<span class="w">   </span><span class="cm">/* Ask the kernel to check if scheduling decision should be made. If the</span>
+<span class="cm">   ISR is for a zero-latency IRQ then the return value must always be 0. */</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">my_isr_installer</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="w">   </span><span class="n">IRQ_DIRECT_CONNECT</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="n">irq_enable</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">);</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Installation of dynamic direct interrupts is supported on an
+architecture-specific basis. The feature is currently implemented in the Arm
+Cortex-M architecture variant via the macro
+<code class="xref c c-macro docutils literal notranslate"><span class="pre">ARM_IRQ_DIRECT_DYNAMIC_CONNECT</span></code>, which can be used to declare a direct
+and dynamic interrupt.</p>
+</section>
+<section id="ram-based-isr-execution">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">RAM-based ISR Execution</a><a class="headerlink" href="#ram-based-isr-execution" title="Link to this heading"></a></h3>
+<p>For ultra-low latency, ISRs and vector tables can be relocated to RAM to
+eliminate flash access delays. That can be achieved by enabling the
+<a class="reference internal" href="../../kconfig.html#CONFIG_SRAM_VECTOR_TABLE" title="CONFIG_SRAM_VECTOR_TABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SRAM_VECTOR_TABLE</span></code></a> and
+<a class="reference internal" href="../../kconfig.html#CONFIG_SRAM_SW_ISR_TABLE" title="CONFIG_SRAM_SW_ISR_TABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SRAM_SW_ISR_TABLE</span></code></a> options which will result in vector
+tables being placed in RAM.
+Then, Zephyr <a class="reference internal" href="../code-relocation.html#code-data-relocation"><span class="std std-ref">Code and Data Relocation</span></a> can be
+used to relocate the ISR code and all the related symbols to RAM as well.</p>
+</section>
+<section id="sharing-an-interrupt-line">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Sharing an interrupt line</a><a class="headerlink" href="#sharing-an-interrupt-line" title="Link to this heading"></a></h3>
+<p>The following code defines two ISRs using the same interrupt number.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_DEV_IRQ 24               </span><span class="cm">/* device uses INTID 24 */</span>
+<span class="cp">#define MY_DEV_IRQ_PRIO 2           </span><span class="cm">/* device uses interrupt priority 2 */</span>
+<span class="cm">/*  this argument may be anything */</span>
+<span class="cp">#define MY_FST_ISR_ARG INT_TO_POINTER(1)</span>
+<span class="cm">/*  this argument may be anything */</span>
+<span class="cp">#define MY_SND_ISR_ARG INT_TO_POINTER(2)</span>
+<span class="cp">#define MY_IRQ_FLAGS 0              </span><span class="cm">/* IRQ flags */</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_first_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span><span class="w"> </span><span class="cm">/* some magic happens here */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_second_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span><span class="w"> </span><span class="cm">/* even more magic happens here */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr_installer</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="w">   </span><span class="n">IRQ_CONNECT</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_IRQ_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_first_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_FST_ISR_ARG</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="n">IRQ_CONNECT</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_IRQ_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_second_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_SND_ISR_ARG</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The same restrictions regarding <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> described in <a class="reference internal" href="#defining-a-regular-isr">Defining a regular ISR</a>
+are applicable here. If <a class="reference internal" href="../../kconfig.html#CONFIG_SHARED_INTERRUPTS" title="CONFIG_SHARED_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SHARED_INTERRUPTS</span></code></a> is disabled, the above
+code will generate a build error. Otherwise, the above code will result in the two ISRs
+being invoked each time interrupt 24 is triggered.</p>
+<p>If <a class="reference internal" href="../../kconfig.html#CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS" title="CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS</span></code></a> is set to a value lower than 2
+(current number of clients), a build error will be generated.</p>
+<p>If dynamic interrupts are enabled, <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga4e9915b92b09df49b99bc449f0cc31a1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_connect_dynamic()</span></code></a> will allow sharing interrupts
+during runtime. Exceeding the configured maximum number of allowed clients will result in
+a failed assertion.</p>
+</section>
+<section id="dynamically-disconnecting-an-isr">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Dynamically disconnecting an ISR</a><a class="headerlink" href="#dynamically-disconnecting-an-isr" title="Link to this heading"></a></h3>
+<p>The following code defines two ISRs using the same interrupt number. The second
+ISR is disconnected during runtime.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_DEV_IRQ 24               </span><span class="cm">/* device uses INTID 24 */</span>
+<span class="cp">#define MY_DEV_IRQ_PRIO 2           </span><span class="cm">/* device uses interrupt priority 2 */</span>
+<span class="cm">/*  this argument may be anything */</span>
+<span class="cp">#define MY_FST_ISR_ARG INT_TO_POINTER(1)</span>
+<span class="cm">/*  this argument may be anything */</span>
+<span class="cp">#define MY_SND_ISR_ARG INT_TO_POINTER(2)</span>
+<span class="cp">#define MY_IRQ_FLAGS 0              </span><span class="cm">/* IRQ flags */</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_first_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span><span class="w"> </span><span class="cm">/* some magic happens here */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_second_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span><span class="w"> </span><span class="cm">/* even more magic happens here */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr_installer</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="w">   </span><span class="n">IRQ_CONNECT</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_IRQ_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_first_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_FST_ISR_ARG</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="n">IRQ_CONNECT</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_IRQ_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_second_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_SND_ISR_ARG</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr_uninstaller</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="w">   </span><span class="n">irq_disconnect_dynamic</span><span class="p">(</span><span class="n">MY_DEV_IRQ</span><span class="p">,</span><span class="w"> </span><span class="n">MY_DEV_IRQ_PRIO</span><span class="p">,</span><span class="w"> </span><span class="n">my_first_isr</span><span class="p">,</span><span class="w"> </span><span class="n">MY_FST_ISR_ARG</span><span class="p">,</span><span class="w"> </span><span class="n">MY_IRQ_FLAGS</span><span class="p">);</span>
+<span class="w">   </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gabdab7745edc1e15862e1772d8673fc00" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">irq_disconnect_dynamic()</span></code></a> call will result in interrupt 24 becoming
+unshared, meaning the system will act as if the first <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a>
+call never happened. This behaviour is only allowed if
+<a class="reference internal" href="../../kconfig.html#CONFIG_DYNAMIC_INTERRUPTS" title="CONFIG_DYNAMIC_INTERRUPTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_DYNAMIC_INTERRUPTS</span></code></a> is enabled, otherwise a linker
+error will be generated.</p>
+</section>
+<section id="implementation-details">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Implementation Details</a><a class="headerlink" href="#implementation-details" title="Link to this heading"></a></h3>
+<p>Interrupt tables are set up at build time using some special build tools.  The
+details laid out here apply to all architectures except x86, which are
+covered in the <a class="reference internal" href="#x86-details">x86 Details</a> section below.</p>
+<p>The invocation of <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> will declare an instance of
+struct _isr_list which is placed in a special .intList section.
+This section is placed in compiled code on precompilation stages only.
+It is meant to be used by Zephyr script to generate interrupt tables
+and is removed from the final build.
+The script implements different parsers to process the data from .intList section
+and produce the required output.</p>
+<p>The default parser generates C arrays filled with arguments and interrupt
+handlers in a form of addresses directly taken from .intList section entries.
+It works with all the architectures and compilers (with the exception mentioned above).
+The limitation of this parser is the fact that after the arrays are generated
+it is expected for the code not to relocate.
+Any relocation on this stage may lead to the situation where the entry in the interrupt array
+is no longer pointing to the function that was expected.
+It means that this parser, being more compatible, is limiting us from using Link Time Optimization.</p>
+<p>The local ISR declaration parser uses a different approach to construct
+the same arrays at the binary level.
+All the entries to the arrays are declared and defined locally,
+directly in the file where <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> is used.
+They are placed in a section with a unique, synthesized name.
+The name of that section is then placed in the .intList section, which is used to
+generate a linker script fragment placing the entry at the right address.
+This parser is currently limited to the supported architectures and toolchains,
+but in return, it preserves the information about object relations for the linker,
+thus enabling Link Time Optimization.</p>
+<section id="implementation-using-c-arrays">
+<h4>Implementation using C arrays<a class="headerlink" href="#implementation-using-c-arrays" title="Link to this heading"></a></h4>
+<p>This is the default configuration available for all Zephyr supported architectures.</p>
+<p>Any invocation of <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> will declare an instance of
+struct _isr_list which is placed in a special .intList section:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_isr_list</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/** IRQ line number */</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">irq</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/** Flags for this IRQ, see ISR_FLAG_* definitions */</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">flags</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/** ISR to call */</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">func</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/** Parameter for non-direct IRQs */</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">param</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Zephyr is built in two phases; the first phase of the build produces
+<code class="docutils literal notranslate"><span class="pre">${ZEPHYR_PREBUILT_EXECUTABLE}</span></code>.elf which contains all the entries in
+the .intList section preceded by a header:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">spurious_irq_handler</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">sw_irq_handler</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">num_isrs</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">num_vectors</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_isr_list</span><span class="w"> </span><span class="n">isrs</span><span class="p">[];</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">num_isrs</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This data consisting of the header and instances of struct _isr_list inside
+<code class="docutils literal notranslate"><span class="pre">${ZEPHYR_PREBUILT_EXECUTABLE}</span></code>.elf is then used by the
+gen_isr_tables.py script to generate a C file defining a vector table and
+software ISR table that are then compiled and linked into the final
+application.</p>
+<p>The priority level of any interrupt is not encoded in these tables, instead
+<a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> also has a runtime component which programs the desired
+priority level of the interrupt to the interrupt controller. Some architectures
+do not support the notion of interrupt priority, in which case the priority
+argument is ignored.</p>
+<section id="vector-table">
+<h5>Vector Table<a class="headerlink" href="#vector-table" title="Link to this heading"></a></h5>
+<p>A vector table is generated when <a class="reference internal" href="../../kconfig.html#CONFIG_GEN_IRQ_VECTOR_TABLE" title="CONFIG_GEN_IRQ_VECTOR_TABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_GEN_IRQ_VECTOR_TABLE</span></code></a> is
+enabled.  This data structure is used natively by the CPU and is simply an
+array of function pointers, where each element n corresponds to the IRQ handler
+for IRQ line n, and the function pointers are:</p>
+<ol class="arabic simple">
+<li><p>For ‘direct’ interrupts declared with <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a>, the
+handler function will be placed here.</p></li>
+<li><p>For regular interrupts declared with <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a>, the address
+of the common software IRQ handler is placed here. This code does common
+kernel interrupt bookkeeping and looks up the ISR and parameter from the
+software ISR table.</p></li>
+<li><p>For interrupt lines that are not configured at all, the address of the
+spurious IRQ handler will be placed here. The spurious IRQ handler
+causes a system fatal error if encountered.</p></li>
+</ol>
+<p>Some architectures have a common entry point for all interrupts and do not
+support a vector table, in which case the
+<a class="reference internal" href="../../kconfig.html#CONFIG_GEN_IRQ_VECTOR_TABLE" title="CONFIG_GEN_IRQ_VECTOR_TABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_GEN_IRQ_VECTOR_TABLE</span></code></a> option should be disabled.</p>
+<p>Some architectures may reserve some initial vectors for system exceptions
+and declare this in a table elsewhere, in which case
+CONFIG_GEN_IRQ_START_VECTOR needs to be set to properly offset the indices
+in the table.</p>
+</section>
+<section id="sw-isr-table">
+<h5>SW ISR Table<a class="headerlink" href="#sw-isr-table" title="Link to this heading"></a></h5>
+<p>This is an array of struct _isr_table_entry:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_isr_table_entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">isr</span><span class="p">)(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This is used by the common software IRQ handler to look up the ISR and its
+argument and execute it. The active IRQ line is looked up in an interrupt
+controller register and used to index this table.</p>
+</section>
+<section id="shared-sw-isr-table">
+<h5>Shared SW ISR Table<a class="headerlink" href="#shared-sw-isr-table" title="Link to this heading"></a></h5>
+<p>This is an array of struct z_shared_isr_table_entry:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">z_shared_isr_table_entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_isr_table_entry</span><span class="w"> </span><span class="n">clients</span><span class="p">[</span><span class="n">CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">client_num</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This table keeps track of the registered clients for each of the interrupt
+lines. Whenever an interrupt line becomes shared, <code class="xref c c-func docutils literal notranslate"><span class="pre">z_shared_isr()</span></code> will
+replace the currently registered ISR in _sw_isr_table. This special ISR will
+iterate through the list of registered clients and invoke the ISRs.</p>
+</section>
+</section>
+<section id="implementation-using-linker-script">
+<h4>Implementation using linker script<a class="headerlink" href="#implementation-using-linker-script" title="Link to this heading"></a></h4>
+<p>This way of prepare and parse .isrList section to implement interrupt vectors arrays
+is called local ISR declaration.
+The name comes from the fact that all the entries to the arrays that would create
+interrupt vectors are created locally in place of invocation of <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> macro.
+Then automatically generated linker scripts are used to place it in the right place in the memory.</p>
+<p>This option requires enabling by the choose of <a class="reference internal" href="../../kconfig.html#CONFIG_ISR_TABLES_LOCAL_DECLARATION" title="CONFIG_ISR_TABLES_LOCAL_DECLARATION"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ISR_TABLES_LOCAL_DECLARATION</span></code></a>.
+If this configuration is supported by the used architecture and toolchaing the
+<code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ISR_TABLES_LOCAL_DECLARATION_SUPPORTED</span></code> is set.
+See details of this option for the information about currently supported configurations.</p>
+<p>Any invocation of <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> or <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a> will declare an instance
+of <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">_isr_list_sname</span></code> which is placed in a special .intList section:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_isr_list_sname</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/** IRQ line number */</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">irq</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/** Flags for this IRQ, see ISR_FLAG_* definitions */</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">flags</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/** The section name */</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">sname</span><span class="p">[];</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Note that the section name is placed in flexible array member.
+It means that the size of the initialized structure will vary depending on the
+structure name length.
+The whole entry is used by the script during the build of the application
+and has all the information needed for proper interrupt placement.</p>
+<p>Beside of the _isr_list_sname the <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> macro generates an entry
+that would be the part of the interrupt array:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_isr_table_entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">isr</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This array is placed in a section with the name saved in _isr_list_sname structure.</p>
+<p>The values created by <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a> macro depends on the architecture.
+It can be changed to variable that points to a interrupt handler:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">uintptr_t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">unique</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="n">func</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Or to actually naked function that implements a jump to the interrupt handler:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">&lt;</span><span class="n">unique</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kr">__asm</span><span class="p">(</span><span class="n">ARCH_IRQ_VECTOR_JUMP_CODE</span><span class="p">(</span><span class="n">func</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Similar like for <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a>, the created variable or function is placed
+in a section, saved in _isr_list_sname section.</p>
+<section id="files-generated-by-the-script">
+<h5>Files generated by the script<a class="headerlink" href="#files-generated-by-the-script" title="Link to this heading"></a></h5>
+<p>The interrupt tables generator script creates 3 files:
+<code class="file docutils literal notranslate"><span class="pre">isr_tables.c</span></code>, <code class="file docutils literal notranslate"><span class="pre">isr_tables_swi.ld</span></code>, and <code class="file docutils literal notranslate"><span class="pre">isr_tables_vt.ld</span></code>.</p>
+<p>The <code class="file docutils literal notranslate"><span class="pre">isr_tables.c</span></code> will contain all the structures for interrupts, direct interrupts and
+shared interrupts (if enabled). This file implements only all the structures that
+are not implemented by the application, leaving a comment where the interrupt
+not implemented here can be found.</p>
+<p>Then two linker files are used. The <code class="file docutils literal notranslate"><span class="pre">isr_tables_vt.ld</span></code> file is included in place
+where the interrupt vectors are required to be placed in the selected architecture.
+The <code class="file docutils literal notranslate"><span class="pre">isr_tables_swi.ld</span></code> file describes the placement of the software interrupt table
+elements. The separated file is required as it might be placed in writable or nonwritable
+section, depending on the current configuration.</p>
+</section>
+</section>
+<section id="x86-details">
+<h4>x86 Details<a class="headerlink" href="#x86-details" title="Link to this heading"></a></h4>
+<p>The x86 architecture has a special type of vector table called the Interrupt
+Descriptor Table (IDT) which must be laid out in a certain way per the x86
+processor documentation.  It is still fundamentally a vector table, and the
+<a class="reference internal" href="../../build/cmake/index.html#gen-idt-py"><span class="std std-ref">arch/x86/gen_idt.py</span></a> tool uses the .intList section to create it. However, on APIC-based
+systems the indexes in the vector table do not correspond to the IRQ line. The
+first 32 vectors are reserved for CPU exceptions, and all remaining vectors (up
+to index 255) correspond to the priority level, in groups of 16. In this
+scheme, interrupts of priority level 0 will be placed in vectors 32-47, level 1
+48-63, and so forth. When the <a class="reference internal" href="../../build/cmake/index.html#gen-idt-py"><span class="std std-ref">arch/x86/gen_idt.py</span></a> tool is constructing the IDT, when it
+configures an interrupt it will look for a free vector in the appropriate range
+for the requested priority level and set the handler there.</p>
+<p>On x86 when an interrupt or exception vector is executed by the CPU, there is
+no foolproof way to determine which vector was fired, so a software ISR table
+indexed by IRQ line is not used. Instead, the <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a> call
+creates a small assembly language function which calls the common interrupt
+code in <code class="xref c c-func docutils literal notranslate"><span class="pre">_interrupt_enter()</span></code> with the ISR and parameter as arguments.
+It is the address of this assembly interrupt stub which gets placed in the IDT.
+For interrupts declared with <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#gac6c8746ac28da6ce02b24714f4144ff3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_DIRECT_CONNECT</span></code></a> the parameterless
+ISR is placed directly in the IDT.</p>
+<p>On systems where the position in the vector table corresponds to the
+interrupt’s priority level, the interrupt controller needs to know at
+runtime what vector is associated with an IRQ line. <a class="reference internal" href="../../build/cmake/index.html#gen-idt-py"><span class="std std-ref">arch/x86/gen_idt.py</span></a> additionally
+creates an _irq_to_interrupt_vector array which maps an IRQ line to its
+configured vector in the IDT. This is used at runtime by <a class="reference internal" href="../../doxygen/html/group__isr__apis.html#ga131739d1faf501a15590053817aba984" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">IRQ_CONNECT</span></code></a>
+to program the IRQ-to-vector association in the interrupt controller.</p>
+<p>For dynamic interrupts, the build must generate some 4-byte dynamic interrupt
+stubs, one stub per dynamic interrupt in use. The number of stubs is controlled
+by the <a class="reference internal" href="../../kconfig.html#CONFIG_X86_DYNAMIC_IRQ_STUBS" title="CONFIG_X86_DYNAMIC_IRQ_STUBS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_X86_DYNAMIC_IRQ_STUBS</span></code></a> option. Each stub pushes an
+unique identifier which is then used to fetch the appropriate handler function
+and parameter out of a table populated when the dynamic interrupt was
+connected.</p>
+</section>
+<section id="going-beyond-the-default-supported-number-of-interrupts">
+<h4>Going Beyond the Default Supported Number of Interrupts<a class="headerlink" href="#going-beyond-the-default-supported-number-of-interrupts" title="Link to this heading"></a></h4>
+<p>When generating interrupts in the multi-level configuration, 8-bits per level is the default
+mask used when determining which level a given interrupt code belongs to. This can become
+a problem when dealing with CPUs that support more than 255 interrupts per single
+aggregator. In this case it may be desirable to override these defaults and use a custom
+number of bits per level. Regardless of how many bits used for each level, the sum of
+the total bits used between all levels must sum to be less than or equal to 32-bits,
+fitting into a single 32-bit integer. To modify the bit total per level, override the
+default 8 in <code class="file docutils literal notranslate"><span class="pre">Kconfig.multilevel</span></code> by setting <a class="reference internal" href="../../kconfig.html#CONFIG_1ST_LEVEL_INTERRUPT_BITS" title="CONFIG_1ST_LEVEL_INTERRUPT_BITS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_1ST_LEVEL_INTERRUPT_BITS</span></code></a>
+for the  first level, <a class="reference internal" href="../../kconfig.html#CONFIG_2ND_LEVEL_INTERRUPT_BITS" title="CONFIG_2ND_LEVEL_INTERRUPT_BITS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_2ND_LEVEL_INTERRUPT_BITS</span></code></a> for the second level and
+<a class="reference internal" href="../../kconfig.html#CONFIG_3RD_LEVEL_INTERRUPT_BITS" title="CONFIG_3RD_LEVEL_INTERRUPT_BITS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_3RD_LEVEL_INTERRUPT_BITS</span></code></a> for the third level. These masks control the
+length of the bit masks and shift to apply when generating interrupt values, when checking the
+interrupts level and converting interrupts to a different level. The logic controlling
+this can be found in <code class="file docutils literal notranslate"><span class="pre">irq_multilevel.h</span></code></p>
+</section>
+</section>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use a regular or direct ISR to perform interrupt processing that requires a
+very rapid response, and can be done quickly without blocking.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Interrupt processing that is time consuming, or involves blocking,
+should be handed off to a thread. See <a class="reference internal" href="#offloading-isr-work">Offloading ISR Work</a> for
+a description of various techniques that can be used in an application.</p>
+</div>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>Related configuration options:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../kconfig.html#CONFIG_ISR_STACK_SIZE" title="CONFIG_ISR_STACK_SIZE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ISR_STACK_SIZE</span></code></a></p></li>
+</ul>
+<p>Additional architecture-specific and device-specific configuration options
+also exist.</p>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../doxygen/html/group__isr__apis.html" title=""><span class="pre">Interrupt</span> <span class="pre">Service</span> <span class="pre">Routine</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Aug 27, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

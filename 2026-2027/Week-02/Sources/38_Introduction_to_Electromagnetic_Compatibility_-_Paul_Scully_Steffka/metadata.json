@@ -1,0 +1,26 @@
+{
+  "id": 38,
+  "name": "Introduction to Electromagnetic Compatibility - Paul Scully Steffka",
+  "type": "Ticari ders kitabı",
+  "url": "https://www.wiley.com/en-us/shop/general-introductory-electrical-electronics-engineering/electromagnetic-theory-c-EE40",
+  "folder": "38_Introduction_to_Electromagnetic_Compatibility_-_Paul_Scully_Steffka",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.wiley.com/en-us/shop/general-introductory-electrical-electronics-engineering/electromagnetic-theory-c-EE40",
+      "final_url": "https://www.wiley.com/en-us/shop/general-introductory-electrical-electronics-engineering/electromagnetic-theory-c-EE40",
+      "kind": "html",
+      "bytes": 426040,
+      "sha256": "aebaa6fc0710a7b578bb18afa21a61ff7253d4ce5b7a3f28311dccb326e0884e"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:55+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

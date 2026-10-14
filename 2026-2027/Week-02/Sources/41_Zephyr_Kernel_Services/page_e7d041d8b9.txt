@@ -1,0 +1,135 @@
+Thread Local Storage (TLS) — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Data Passing
+Memory Management
+Timing
+Other
+Atomic Services
+Floating Point Services
+Version
+Assertions
+Fatal Errors
+Thread Local Storage (TLS)
+Configuration
+Declaring and Using Thread Local Variables
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Thread Local Storage (TLS)
+Open on GitHub
+Report an issue with this page
+Thread Local Storage (TLS)
+Thread Local Storage (TLS) allows variables to be allocated on a per-thread
+basis. These variables are stored in the thread stack which means every
+thread has its own copy of these variables.
+Zephyr currently requires toolchain support for TLS.
+Configuration
+To enable thread local storage in Zephyr,
+CONFIG_THREAD_LOCAL_STORAGE
+needs to be enabled. Note that this option may not be available if
+the architecture or the SoC does not have the hidden option
+CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
+enabled, which means
+the architecture or the SoC does not have the necessary code to support
+thread local storage and/or the toolchain does not support TLS.
+CONFIG_ERRNO_IN_TLS
+can be enabled together with
+CONFIG_ERRNO
+to let the variable
+errno
+be a thread local
+variable. This allows user threads to access the value of
+errno
+without
+making a system call.
+Declaring and Using Thread Local Variables
+The macro
+Z_THREAD_LOCAL
+can be used to declare thread local variables.
+For example, to declare a thread local variable in header files:
+extern
+Z_THREAD_LOCAL
+int
+i
+;
+And to declare the actual variable in source files:
+Z_THREAD_LOCAL
+int
+i
+;
+Keyword
+static
+can also be used to limit the variable within a source file:
+static
+Z_THREAD_LOCAL
+int
+j
+;
+Using the thread local variable is the same as using other variable, for example:
+void
+testing
+(
+void
+)
+{
+i
+=
+10
+;
+}
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Sep 18, 2024.

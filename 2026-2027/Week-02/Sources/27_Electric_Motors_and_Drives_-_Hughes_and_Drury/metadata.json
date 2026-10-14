@@ -1,0 +1,26 @@
+{
+  "id": 27,
+  "name": "Electric Motors and Drives - Hughes and Drury",
+  "type": "Ticari ders kitabı",
+  "url": "https://shop.elsevier.com/books/electric-motors-and-drives/hughes/978-0-08-102615-1",
+  "folder": "27_Electric_Motors_and_Drives_-_Hughes_and_Drury",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://shop.elsevier.com/books/electric-motors-and-drives/hughes/978-0-08-102615-1",
+      "final_url": "https://shop.elsevier.com/books/electric-motors-and-drives/hughes/978-0-08-102615-1",
+      "kind": "html",
+      "bytes": 186142,
+      "sha256": "90d69e8454588347c6a5c74eff4c54e0eafc29075aff5b9a0080ae3a024e1a7d"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:28+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

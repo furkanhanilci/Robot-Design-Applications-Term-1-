@@ -1,0 +1,25 @@
+{
+  "id": 60,
+  "name": "Modern Robotics Wheeled Mobile Robots Supplement",
+  "type": "Video companion ve notlar",
+  "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/13-1-wheeled-mobile-robots/",
+  "folder": "60_Modern_Robotics_Wheeled_Mobile_Robots_Supplement",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/13-1-wheeled-mobile-robots/",
+      "final_url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/13-1-wheeled-mobile-robots/",
+      "kind": "html",
+      "bytes": 67222,
+      "sha256": "dba9906cd039da1b7e4b256fc5e65cee10b964e6d3e3adbe117f1c25786c25ac"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:49:09+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

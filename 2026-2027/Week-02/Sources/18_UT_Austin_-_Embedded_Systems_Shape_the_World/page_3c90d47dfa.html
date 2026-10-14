@@ -1,0 +1,2681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+  <title>Chapter 16: Internet of Things</title>
+  <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+@font-face
+	{font-family:Garamond;
+	panose-1:2 2 4 4 3 3 1 1 8 3;}
+@font-face
+	{font-family:Geneva;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua",serif;}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;}
+h2
+	{margin-top:28.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:16.0pt;
+	font-family:"Garamond",serif;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:28.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:28.35pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Garamond",serif;}
+h4
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Times New Roman",serif;}
+h5
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:13.0pt;
+	font-family:"Book Antiqua",serif;
+	font-style:italic;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-link:"Caption Char";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:5.75pt;
+	text-indent:-5.75pt;
+	font-size:11.0pt;
+	font-family:"Garamond",serif;
+	letter-spacing:.25pt;
+	font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";}
+span.CaptionChar
+	{mso-style-name:"Caption Char";
+	mso-style-link:Caption;
+	font-family:"Garamond",serif;
+	letter-spacing:.25pt;
+	font-style:italic;}
+p.PictureWide, li.PictureWide, div.PictureWide
+	{mso-style-name:"Picture Wide";
+	mso-style-link:"Picture Wide Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:11.0pt;
+	font-family:"Garamond",serif;}
+span.PictureWideChar
+	{mso-style-name:"Picture Wide Char";
+	mso-style-link:"Picture Wide";
+	font-family:"Garamond",serif;}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{mso-style-name:"Table Heading";
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:.05in;
+	text-indent:0in;
+	font-size:10.0pt;
+	font-family:"Garamond",serif;
+	font-weight:bold;}
+p.Checkpoint, li.Checkpoint, div.Checkpoint
+	{mso-style-name:Checkpoint;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:1.0in;
+	font-size:10.0pt;
+	font-family:"Garamond",serif;}
+p.BulletList, li.BulletList, div.BulletList
+	{mso-style-name:"Bullet List";
+	mso-style-link:"Bullet List Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Garamond",serif;}
+span.BulletListChar
+	{mso-style-name:"Bullet List Char";
+	mso-style-link:"Bullet List";
+	font-family:"Garamond",serif;}
+p.BodyText, li.BodyText, div.BodyText
+	{mso-style-name:BodyText;
+	mso-style-link:"BodyText Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+span.BodyTextChar0
+	{mso-style-name:"BodyText Char";
+	mso-style-link:BodyText;}
+p.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, li.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, div.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth
+	{mso-style-name:"Style Justified Top\: \(Single solid line Auto  0\.75 pt Line width\)";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+span.CharChar7
+	{mso-style-name:" Char Char7";}
+span.CharChar3
+	{mso-style-name:" Char Char3";
+	font-family:"Garamond",serif;
+	letter-spacing:.25pt;
+	font-style:italic;}
+span.CharChar6
+	{mso-style-name:" Char Char6";}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.5in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+span.CaptionChar1
+	{mso-style-name:"Caption Char1";
+	font-family:"Garamond",serif;
+	letter-spacing:.25pt;
+	font-style:italic;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";
+	font-family:"Calibri",sans-serif;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Garamond",serif;
+	font-weight:bold;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+ </style>
+ 
+  
+  <script src="ModuleCheckpoints.js"></script>
+</head>
+<body lang="EN-US" link="#ff8700" vlink="purple">
+<br>
+<div class="Section1">
+<p class="MsoNormal" style="text-align: center;" align="center"><font
+ size="4">Chapter
+16: Internet of Things</font></p>
+<p class="MsoNormal" style="text-align: center; font-style: italic;"
+ align="center"><span style="font-weight: 700;"><font size="4">Embedded
+Systems - Shape
+The World</font></span><br>
+<font size="4">Jonathan
+Valvano
+and Ramesh Yerraballi</font></p>
+
+
+<p class="MsoBodyText"><b>&nbsp;</b></p>
+<p class="MsoBodyText">This chapter provides a brief introduction
+to the <b>Internet of Things</b>. We will show you how the Internet evolved
+from the simple idea of connection two machines, like we did in Chapter 11, to
+its current form where millions of machines from mainframes, server farms,
+desktops/laptops, tablets/phones, all the way down to little embedded devices,
+seamlessly communicate with each other.</span></p>
+
+
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+      <p class="MsoNormal"><b><span style="font-size: 10pt;">Learning
+Objectives:</span></b><i><span style="font-size: 10pt;"> </span></i></p>
+      <ul style="margin-top: 0in;" type="disc">
+ <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">The Internet in a nutshell &ndash; The layered model</span></li>
+ <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">The Internet is the Transport and
+     Network layers (TCP/IP) </span></li>
+ <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Media Access Control (MAC) &ndash; Data-Link and Physical Layers</span></li>
+ <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> The CC3100 Boosterpack for Launchpad</span></li>
+ <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Application Layer Client-Server protocols &ndash; SMTP,HTTP, FTP, POP, IMAP.</span></li>
+      </ul>
+      </td>
+      <td>
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/Q6hbvtkubXY?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption" align="center"><span lang="en-US">Video </span>16.0<span
+ lang="en-US">. Introduction to IoT</span></p>
+      <p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+
+<h2><a name="_Toc357151069"></a><a name="_Toc293059630">16.1.</a> The Internet
+in a nutshell</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><a name="_Toc357151046"></a><a name="_Toc293059656"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Much
+has been written about the Internet with the current buzz being the so called
+&ldquo;Internet of Things&rdquo;. Let&rsquo;s see how we got here. Recall in Chapter 11, the
+simple notion of two LaunchPads communicating with each other shown in Figure
+16.1. </span></a></p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image001.gif" height="458" width="514"></span></p>
+<p class="MsoCaption">Figure 16.1 &nbsp;Two LaunchPads connected together by the UARTs,
+implementing point-to-point communication.</p>
+	  </td>
+      <td><!--- C16_video_1 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/E4wgUaB3o50?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.1<span lang="en-US">.
+Internet in a Nutshell</span></p>
+<!--- End C16_video_1 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_1')">Checkpoint16.1</button>:</span></b><b>
+</b>Assuming the baud-rate is 115,200 bps, what is the total bandwidth of the communication network
+in Figure 16.1?</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Imagine this 3-wire cable (TxD line, RxD line, and Common Ground) being extended
+to ten meters. We now have two machines that could possibly be located in
+separate rooms connected to each other and exchanging information. Going a
+farther distance of a hundred meters, across buildings say, will require some
+hardware to boost the signal. It is an obvious next step to want more machines
+to connect with each other. Rather than lay a separate cable for each pair, it
+makes sense to leverage a single cable that each machine could tap into. The
+TM4C123 does have eight UART ports, meaning we could connect nine LaunchPads
+together such that there is a dedicated connection between each pair. However,
+if we connect <i>n</i> computers together like this, the interconnection scheme
+would require (<i>n</i>-1) UART ports and &frac12;*<i>n*</i>(<i>n</i>-1) cables. The
+TM4C123 does have 8 UARTs, so you could create a network of 9 microcontrollers.
+However, this small network would require 36 cables. You can see from Figure
+16.2, the complexity of the network grows on order <i>n<sup>2</sup></i>, which
+we label as O(<i>n<sup>2</sup></i>).</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image002.gif" height="300" width="800"></span></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.2&nbsp; Network created with direct connections, or
+point-to-point communication, using UARTs grows in complexity on O(n<sup>2</sup>).
+
+
+</p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_2')">Checkpoint 16.2.</button>:</span></b><b>
+</b>How many cables would it take to connect 100 machines using the direct connection approach
+shown in Figure 16.2?</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">This approach becomes impractical even for
+a small set of machines. Also, the labor cost of laying cable dominates most
+network infrastructure. To make it practical, we will need to connect multiple
+nodes into the same cable. Once you have multiple machines tapping into the
+same cable (we call this the <i>network</i>) we will need the machines to
+adhere to a &ldquo;protocol&rdquo; that will allow them to communicate with each other
+effectively. Furthermore, each network interface will need a unique identity,
+its hardware address. A simple protocol could be for each machine to get a turn
+(say a token) during which it communicates with another machine that has tapped
+into the same network. One of the early implementations of this model was the <a href="http://en.wikipedia.org/wiki/Token_ring">IEEE 802.5 Token Ring</a>
+protocol where the cable was a loop (a ring), see Figure 16.3. </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image003.gif" border="0" height="395" width="527"></span></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.3&nbsp; Network created by connecting to a ring. Each
+node only requires one connection. In this figure node
+</p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_3')">Checkpoint 16.3.</button>:</span></b><b>
+</b>Assume each node
+on the ring has the token for 1us, and there are n nodes in the ring, as drawn
+in Figure 16.3. During the time a node owns the token, it can transmit 100
+bytes of data to another node. What is the maximum bandwidth of the ring
+network?</p>
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">An alternate &ldquo;protocol&rdquo; choice is for each
+machine to try to communicate as a when it wants to, by sensing whether the
+network is idle.&nbsp; If another machine attempted to communicate at the same then
+this would cause a collision and the machines follow a pattern of reattempting
+to communicate that reduces chances of further collisions. An implementation of
+this model of communication was at the forefront of the emergence of the
+Internet. This was the <a href="http://en.wikipedia.org/wiki/IEEE_802.3">IEEE
+802.3</a> Carrier Sense Multiple Access-Collision Detection (<a href="http://en.wikipedia.org/wiki/Carrier_sense_multiple_access_with_collision_detection">CSMA/CD</a>)
+protocol or popularly recognized as <i><a href="http://en.wikipedia.org/wiki/Ethernet">Ethernet</a>, </i>see Figure 16.4.
+</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image004.gif" border="0" height="169" width="647"></span></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.4&nbsp; Network created by using an Ethernet switch.</p>
+
+
+
+
+<p class="MsoBodyText" style="margin-left: 0in;">When we use microwave transmission
+(instead of a cable) we have wireless communication in the 2.4, 3.6, 5 and 60
+GHz frequency bands, which is standardized as the WiFi <a href="http://en.wikipedia.org/wiki/IEEE_802.11">IEEE 802.11</a> and the
+Bluetooth IEEE 802.15 protocols, Figure 16.5. These wireless standards use
+variations of the Carrier Sense Multiple Access-Collision Avoidance (<a href="http://en.wikipedia.org/wiki/Carrier_sense_multiple_access_with_collision_avoidance">CSMA/CA</a>)
+protocol.</p>
+
+
+
+
+<p class="MsoBodyText"><img src="C16_InternetOfThings_files/c16-image005.gif" border="0" height="244" width="487"></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.5&nbsp; Network created by using wifi, which
+communicates wirelessly.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Once we configure machines to communicate
+with each to other as a small local area network (LAN), the next logical
+challenge is to make multiple such LANs to communicate with each other. This
+interconnection of networks is the <i>Internet</i>. The collective issues
+concerning the interconnection of networks are addressed by what is called the <i>Network
+layer</i>. The first issue is one of identities. For machines to learn
+identities of the (possibly hundreds of) machines in other LANs , we need a naming
+mechanism and accompanying discovery methods. This naming mechanism gives each
+machine a &ldquo;unique&rdquo; identity called, its IP (Internet Protocol) address. A more
+appropriate name for this identity would be <i>Internet address</i>, as it is
+the address by which machines connected to the interconnection of networks are
+identified.&nbsp; The IP address is a 32-bit numerical identity that is written in a
+&ldquo;dot&rdquo; format, for example, <i>128.83.40.146</i>. Each of the four numbers can
+be 0 to 255, meaning each is an 8-bit byte. Together the four numbers represent
+a 32-bit IP address. It is easy for a small set of machines in a LAN to learn
+the IP addresses of each other, there is a protocol called Address Resolution
+Protocol (<a href="http://en.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a>)
+that accomplishes this. The ARP protocol&rsquo;s target is to get every machine to
+learn the hardware address (aka the MAC address) and the corresponding IP address of every other
+machine in a LAN. The 32-bit IP-address that is unique to each machine poses
+the problem of being hard to remember, like phone numbers. A lookup service called
+Domain Name Service (<a href="http://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>),
+maps a symbolic name (like www.utexas.edu) to its corresponding IP address. The
+second issue that the <i>Network</i> <i>layer</i> addresses is <i>routing</i>.
+That is, the movement of information (packaged in chunks called <i><a href="http://en.wikipedia.org/wiki/Datagram">Datagrams</a></i>) from one
+machine to another in an optimal way. </span></p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image006.gif" border="0" height="285" width="640"></span></p>
+<p class="MsoNormal" style="text-align: justify;"><i><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Figure 16.6. The internet is a network of networks.</span></i></p> </td>
+      <td><!--- C16_video_2 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/e2w7FPHNbjk?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.2<span lang="en-US">.
+Internet: Network of Networks</span></p>
+<!--- End C16_video_2 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Now imagine&nbsp;Bob lives in New York city with
+a unique address and Mary lives in Austin, and the two exchange communications with
+each other the old-fashioned way by writing letters. If little Bobby in Bob&rsquo;s
+house wants to write to Little Suzy in Mary&rsquo;s house, then Bobby would write Suzy&rsquo;s
+name on the letter sent to Mary&rsquo;s household. This way, multiple people in
+Mary&rsquo;s household receive letters at the same address but the letter is
+addressed to them individually. The equivalent of this in the Internet is a <i>port</i>.
+Each machine has multiple ports at which it can send and receive messages.
+Furthermore, these ports fall into two categories, TCP ports and UDP ports. TCP
+ports provide reliable communication (akin to say registered post) and UDP
+ports provide unreliable best-effort communication. The <i>Transport</i> <i>layer</i>is
+responsible for providing this abstraction of ports and their related
+implementation. To stretch the analogy further, you may think of TCP as being a guaranteed post (say registered mail that requires an
+explicit acknowlegement of delivery) and UDP being normal post (a
+best-effort &nbsp;delivery).</span></p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Therefore, an end-point of communication can be seen
+as containing a port number, its type (TCP/UDP) and the IP address. A <i>socket</i>
+captures this end-point from a programmer&rsquo;s perspective. Therefore, programming
+in the Internet is nothing but programming the <i>socket </i>API, where different
+applications running on different machines across the Internet, exchange
+information. Not everybody fancies writing code using the <i>socket</i> API, so
+higher level <i>Application layer</i> protocols, like HTTP, SMTP, FTP, have
+been developed that serve a specific purposes of hyper-text transfer,
+mail-transfer, file-transfer respectively. These Application layer protocols
+use sockets that are TCP-based for reliability. Multimedia applications like
+VoIP use UDP sockets as the goal there is speed and not reliability. So, the
+layered model that the Internet uses can be seen as having four layers, the
+Application layer, the Transport layer, the Network layer and the Media Access
+Layer. This is popularly referred to as the TCP/IP model. The <a href="http://en.wikipedia.org/wiki/OSI_model">OSI</a> model, which the TCP/IP
+model is said to be compliant with, defines more layers but the correspondence
+between the two can be seen in Figure 16.7. For an excellent description of the
+<b>TCP/IP</b></span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;(Transmission
+Control Protocol/Internet Protocol) protocol the reader is referred to W.
+Richard Stevens, <u>TCP/IP Illustrated, Volume 1: The Protocols</u>.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image007.gif" border="0" height="387" width="567"></span></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.7. The TCP/IP model has four layers.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Note also that the layered model can
+clearly be perceived by looking at the format of data at each layer as seen in
+Figure 16.8. User data, which is application dependent, is tagged with an
+application header that is specific to the application and serves to convey how
+the data must be interpreted. Together this is a <i>message</i>. The <i>Transport
+layer </i>tags the <i>message</i> with a TCP/UDP header that among other things
+has the <i>port</i> information and checksum for integrity. This is referred to
+as <i>packet</i> or <i>segment</i>. The <i>Network</i> <i>layer</i> adds the IP
+address and routing information in the form of an IP header, giving us an IP <i>datagram</i>.
+The Data Link layer adds its own protocol specific header to form a <i>frame</i>.
+</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image008.gif" border="0" height="378" width="637"></span></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.8. Overview of message packets used at various
+layers.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_4')">Checkpoint 16.4.</button>:</span></b><b>
+</b>What is the
+difference between TCP and UDP</p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_5')">Checkpoint 16.5.</button>:</span></b><b>
+</b>Do an internet
+search to look up <b>IGMP</b>. How does IGMP affect routing?</p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_6')">Checkpoint 16.6.</button>:</span></b><b>
+</b>What does Internet Protocol <b>Stack</b> mean?</p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+
+<h2>16.2. Internet of Things</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">With the proliferation of embedded systems
+and the pervasiveness of the Internet, it is only natural to connect the two.
+The <b>Internet of Things</b> </span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;(<a href="http://en.wikipedia.org/wiki/Internet_of_Things">IoT</a>) is the
+combination of embedded systems, which have sensors to collect data and
+actuators to affect the surrounding, and the internet, which provides for
+ubiquitous remote and secure communication. This section will not describe how
+the internet works, but rather we will discuss both the general and specific
+approaches for connecting embedded systems to the internet. For a general
+description of the internet of things, see Vasseur and Dunkels, <u>Interconnecting
+Smart Objects with IP</u>. This book provides a good overview of network technologies
+used for connecting devices.</span></p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Figure 16.9 illustrates the distributed
+approach taken with the internet of things. A <b>distributed</b></span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;solution deploys
+multiple sensors and actuators connected by the internet. Another name given
+for an embedded system connected to the internet is <b>smart object</b>. Smart
+objects</span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;include sensors
+to collect data, processing to detect events and make decisions, and actuators
+to manipulate the local environment. There are many reasons to consider a
+distributed solution (network) over a centralized solution. Often multiple
+simple microcontrollers can provide a higher performance at lower cost compared
+to one computer powerful enough to run the entire system. Some embedded
+applications require input/output activities that are physically distributed.
+For real-time operation there may not be enough time to allow communication between
+a remote sensor and a central computer. Another advantage of distributed system
+is improved debugging. For example, we could use one node in a network to
+monitor and debug the others. Often, we do not know the level of complexity of
+our problem at design time. Similarly, over time the complexity may increase or
+decrease. A distributed system can often be deployed that supports scaling. For
+example, as the complexity increases more nodes can be added, and if the
+complexity were to decrease nodes could be removed. Table 16.1 lists some
+existing applications and the things they sense or control.</span></p>
+
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image009.gif" border="0" height="266" width="741"></span></p>
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt; text-align: justify; text-indent: 0in; line-height: normal;">Figure 16.9.&nbsp; The internet of things places
+input, output and processing at multiple locations connected together over the
+internet.</p> </td>
+      <td><!--- C16_video_3 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/XGTMCtn5H6A?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.3<span lang="en-US">.
+The Internet of Things</span></p>
+<!--- End C16_video_3 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Industrial Automation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Factories,
+machines, shipping</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Environment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Weather,
+pollution, public safety</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Smart
+Grid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Electric
+power, energy delivery</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Smart
+Cities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Transportation,
+hazards, public services</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Social Networks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ideas,
+politics, sales, and communication</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Home Networks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lighting,
+heat, security, information</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Building Networks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Energy,
+hazards, security, maintenance </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Structural Monitors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bridges,
+roads, building</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Health
+Care&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heart
+function, medical data, remote care</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Law
+enforcement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Crime,
+public safety</span></p>
+
+
+
+
+<p class="MsoCaption">Table 16.1.&nbsp; Applications of smart objects.</p>
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_7')">Checkpoint 16.7.</button>:</span></b><b>
+</b>In the context of
+this course, what is a <b>thing?</b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Challenges.</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> On a local scale,
+the design of smart objects faces the same challenges existing in all embedded
+systems: power, size, reliability, longevity, and cost. Luckily the deployment
+of billions of microcontrollers into the market has created a technology race
+to reduce power, size and cost while increasing the performance. At the
+microcontroller level things are getting smaller, but at the network level,
+complexity is increasing and protocols are constantly changing as the world&rsquo;s
+thirst for information and communication rapidly grows. </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Standardization.</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> The existence of
+standards allows for a wide variety of objects to communicate with each other.
+Adhering to a standard will increase the acceptance of our device by customers,
+and allow our customers to apply our device to solve problems we never
+envisioned. <b>uIP</b> is a light-weight implementation of the IP stack
+specifically designed to operate with the available memory resources of smart
+objects. In this section we will start with a microcontroller with the hardware
+and software to implement TCP/IP protocols, and build our application on top of
+this standard.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Interoperability </span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">means our device
+can function with a wide range of other devices made with different
+technologies, sold by different vendors, and produced by different companies.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Evolution</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> is process of how
+new technologies are introduced into the market. If there is one constant in
+this world, it is that things will change. Every thousand years, one big
+discovery fundamentally changes how we operate (fire, language, metal tools).
+More frequently, change is introduced gradually such that those technologies
+that give us a competitive advantage survive. If we build our business model on
+the premise evolutionary change, then we can be nimble to deploy new technology
+when it provides lower cost and/or better performance. </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Stability.</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> Even though
+technology will advance, our customers demand products that work reliably, for
+a long time, and in a manner with which they are comfortable. Over the last 50
+years automotive technology has drastically improved, but the driving
+experience, how we drive, has remained almost constant.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Abstraction.</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> You will notice
+the approach in this section differs widely from the other examples in this
+book. The rest of the book deploys a bottom up approach. With bottom-up
+education, the details are first explained, so there is no magic, and then
+abstraction occurs by encapsulating that we fully understand. In this section
+we will purchase hardware and software with capabilities to communicate with
+the internet, and use this abstraction without fully understanding how some of
+the lower levels operate.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Scalability.</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> ARM reports over
+50 million devices with an ARM core have been shipped from 1993 to 2013, and
+predicts another 50 billion before the end of this decade. In order to be
+effective and profitable, we need to develop systems that can scale. </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Security. </span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Because embedded
+systems are deployed in life-critical situations, and because the quality of
+service affects our profits, we must protect the system from a determined
+adversary. A chain is only as strong as its weakest link. Security</span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;cannot be
+obtained simply by operating in secret, because once the secret is out, the
+system will be extremely vulnerable. &ldquo;Security by obscurity&rdquo; is a very poor
+design method. Security involves more than encrypting the data. The first
+aspect of security is <b>confidentiality</b>. We must decide what it means to
+view/change the data and who has the right to read/write. Authentication is the
+means to ensure the identity of the sender is correct. Confidentiality will
+require both logical and physical measures to protect against an attack.
+Encryption makes it harder for an unauthorized party to view a message. The
+second aspect is data <b>integrity</b>. For most of the applications listed in
+Table 16.1 it is important that data reach the rightful recipient in an
+unaltered fashion. To support network integrity we need techniques that support
+both detection and prevention. The third aspect is <b>availability</b>. A
+secure communication not only requires the correct data arrive at the correct
+place, but also at the correct time. A Denial of Service (DoS) attack attempts
+to breach the availability of the network by sending a large amounts of simulated traffic to a server. The sole purpose of such traffic is to disrupt the service from being available to actual customers. There are several ways to thwart DoS attacks,  for wired networks, we can reroute
+traffic along multiple paths. With wireless networks, we can channel hop by switching channels on a pseudorandom fashion, making it harder for an attacker to jam.
+For more information on security, see Frank Stajano, <u>Security for Ubiquitous
+Computing</u>. </span></p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_8')">Checkpoint 16.8.</button>:</span></b><b>
+</b>What does evolution mean in the context of the Internet of Things?</p>
+
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<h2><a name="_Toc376261879">16.3. </a>IP Addresses</h2>
+</div>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">IP-addresses being 32-bit numbers, we
+could potentially have 4 billion addresses. With the emerging demand to connect
+embedded devices to the Internet, it would seem inevitable that we run out of IP
+addresses. Fortunately, the <a href="http://en.wikipedia.org/wiki/Internet_Engineering_Task_Force">IETF</a>
+envisioned this and set aside IP addresses that can be used in private networks.
+These pool of private IP addresses are listed in Table 16.2. These IP addresses
+could be used for embedded devices within Intranets. By using a technique
+called Network Address Translation (<a href="http://en.wikipedia.org/wiki/Network_address_translation">NAT</a>), these
+embedded devices inside Intranets can communicate (if needed) with other
+entities in the Internet, by sharing one non-private IP address among a set of
+devices. Figure 16.10 shows messages arriving at the public IP address are
+routed by the NAT to the correct private IP. NAT modified the headers of outgoing traffic from the machines in the Intranet, to appear like the traffic is originating from the one machine which has a public IP address. </span></p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image010.gif" border="0" height="228" width="443"></span></p>
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt; text-align: justify; text-indent: 0in; line-height: normal;">Figure 16.10.&nbsp; Intranet is a local network
+than with private IP addresses. </p>
+	  </td>
+      <td><!--- C16_video_4 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/lQbLLQK1aLo?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.4<span lang="en-US">.
+IP Addresses and Intranets</span></p>
+<!--- End C16_video_4 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="MsoNormalTable" style="border: medium none ; margin-left: 0.45in; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody>
+    <tr>
+  <td style="border-style: solid none; border-color: black -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 113.4pt;" valign="top" width="189">      
+      <p class="MsoNormal" style="text-align: justify;"><i><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Start</span></i></p>
+
+
+
+  </td>
+
+
+
+  <td style="border-style: solid none; border-color: black -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 121.5pt;" valign="top" width="203">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><i><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">End</span></i></p>
+
+
+
+  </td>
+
+
+
+  <td style="border-style: solid none; border-color: black -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 1.55in;" valign="top" width="186">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><i><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Number of addresses </span></i></p>
+
+
+
+  </td>
+
+
+
+ </tr>
+
+
+
+ <tr>
+
+
+
+  <td style="border: medium none ; padding: 0in 5.4pt; width: 113.4pt;" valign="top" width="189">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">10.0.0.0</span></p>
+
+
+
+  </td>
+
+
+
+  <td style="border: medium none ; padding: 0in 5.4pt; width: 121.5pt;" valign="top" width="203">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">10.255.255.255</span></p>
+
+
+
+  </td>
+
+
+
+  <td style="border: medium none ; padding: 0in 5.4pt; width: 1.55in;" valign="top" width="186">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">2<sup>24</sup> </span></p>
+
+
+
+  </td>
+
+
+
+ </tr>
+
+
+
+ <tr>
+
+
+
+  <td style="border: medium none ; padding: 0in 5.4pt; width: 113.4pt;" valign="top" width="189">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">172.16.0.0</span></p>
+
+
+
+  </td>
+
+
+
+  <td style="border: medium none ; padding: 0in 5.4pt; width: 121.5pt;" valign="top" width="203">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">172.31.255.255</span></p>
+
+
+
+  </td>
+
+
+
+  <td style="border: medium none ; padding: 0in 5.4pt; width: 1.55in;" valign="top" width="186">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">2<sup>20</sup> </span></p>
+
+
+
+  </td>
+
+
+
+ </tr>
+
+
+
+ <tr>
+
+
+
+  <td style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color black; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 113.4pt;" valign="top" width="189">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">192.168.0.0</span></p>
+
+
+
+  </td>
+
+
+
+  <td style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color black; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 121.5pt;" valign="top" width="203">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">192.168.255.255</span></p>
+
+
+
+  </td>
+
+
+
+  <td style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color black; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 1.55in;" valign="top" width="186">
+  
+      
+      
+      <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">2<sup>16</sup></span></p>
+
+
+
+  </td>
+
+
+
+ </tr>
+
+
+
+  
+  
+  </tbody>
+</table>
+
+
+
+
+<p class="MsoCaption">Table 16.2. Private IP addresses.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Because of the growth of the internet, the
+32-bit IP address (IPv4) is being replaced with a 128-bit address (IPv6), which
+will provide for about 3&#8729;10<sup>38</sup> addresses. </span></p>
+
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_9')">Checkpoint 16.9.</button>:</span></b><b>
+</b>If you remove the private emails from the list, how many public IP addresses are there in IPv4?</p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_10')">Checkpoint 16.10.</button>:</span></b><b>
+</b>What is the major difference between IPv6 and IPv4?</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">For more information see: </span><a href="http://en.wikipedia.org/wiki/IPv6"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">http://en.wikipedia.org/wiki/IPv6</span></a></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+
+<h2>16.4. CC3100 Booster Pack</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">As described above, from an application
+programmer&rsquo;s perspective writing applications that involve communication over
+the Internet is quite simply making calls to the <i>socket API</i>, to make a
+connection, transmit/receive application data and close the connection.
+However, this assumes that the software support (from the OS) and the hardware
+support (from physical hardware and firmware) is available on the machine. In
+our case the hardware/firmware support comes from the <a href="http://www.ti.com/tool/cc3100boost">CC3100</a> Booster Pack. The relevant
+software that implements the Data-Link layer, the Network Layer and the
+Transport layer is made available through libraries that we will link to our
+application. <i>&nbsp;</i>Figure 16.11 shows the method most systems use to create a
+wifi connection. In particular there is a small amount of hardware that manages
+the physical layers of the connection and the remaining layers are implemented
+in software on the host.</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image011.gif" border="0" height="324" width="492"></span></p> <p class="MsoCaption">Figure 16.11.&nbsp; Typical manner for implementing wifi connections.</p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">For most embedded microcontroller, there
+is not enough memory and processor performance to implement all the layers of
+the internet stack. Therefore the CC3100 solution, similar to other wifi
+solutions for embedded systems, is to shift most of the internet layers onto
+firmware, as shown in Figure 16.12. In this approach only a small footprint
+remains on the host microcontroller. Texas Instruments calls this footprint
+SimpleLink. When looking at the software, the SimpleLink software driver functions
+begin with </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">sl_</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. Figure 16.13
+shows the CC3100 booster pack connected to the LaunchPad.</span></p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td> <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image012.gif" border="0" height="385" width="496"></span></p> <p class="MsoCaption">Figure 16.12.&nbsp; CC3100 solution for implementing wifi connections.</p>
+	  </td>
+      <td><!--- C16_video_5 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/V2kXJqU4ysk?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.5<span lang="en-US">.
+The Launchpad and the CC3100 booster pack</span></p>
+<!--- End C16_video_5 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">When plugging it onto the LaunchPad make sure the writing on the white silkscreen has the same orientation.</span></p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image013.jpg" border="0" height="374" width="480"></span></p>
+
+
+
+
+<p class="MsoCaption">Figure 16.13.&nbsp; The CC3100 booster packet provides
+IEEE802.11 wireless connectivity.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Table 16.3 shows the hardware connections
+to the CC3100 Booster pack. Unused pins can be used by user application. You
+can see the CC3100 could be interfaced with either SSI2 (PB4-7, PE0) or UART1
+(PB0, PB1, PC4, PC5). The software in this example uses SSI2. Remember that PB7
+is connected to PD1 via 0&Omega; R10 resistor on the LaunchPad, and PB6 is
+connected to PD0 via 0&Omega; R9 resistor. So if you wish to use PD0 or PD1 with
+the CC3100, you must remove R9 and R10 from your LaunchPad, see <a href="http://youtu.be/MWIX7wgS9PM">http://youtu.be/MWIX7wgS9PM</a> </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Pin&nbsp;
+&nbsp;&nbsp;Signal&nbsp;&nbsp;&nbsp;
+&nbsp;Direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pin
+&nbsp;&nbsp;&nbsp;Signal&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Direction</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.1&nbsp;
+3.3 VCC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P2.1&nbsp;
+Gnd&nbsp;&nbsp;
+GND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;IN</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.2&nbsp; PB5 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P2.2&nbsp; PB2&nbsp;&nbsp; IRQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;OUT</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.3&nbsp; PB0 UART1_TX&nbsp;&nbsp; OUT</span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P2.3&nbsp; PE0&nbsp;&nbsp; SSI2_CS&nbsp;&nbsp; IN</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.4&nbsp; PB1 UART1_RX&nbsp;&nbsp; IN</span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P2.4&nbsp; PF0&nbsp;&nbsp;
+UNUSED&nbsp;&nbsp; &nbsp;NA</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.5&nbsp; PE4 nHIB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IN</span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P2.5&nbsp; Reset nRESET&nbsp; &nbsp;&nbsp;IN</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.6&nbsp; PE5 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P2.6&nbsp; PB7&nbsp;&nbsp; SSI2_MOSI IN</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.7&nbsp; PB4 SSI2_CLK&nbsp; &nbsp;IN</span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P2.7&nbsp; PB6&nbsp;&nbsp; SSI2_MISO OUT</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.8&nbsp;
+PA5 UNUSED&nbsp;&nbsp;&nbsp;&nbsp;
+NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P2.8&nbsp;
+PA4&nbsp;&nbsp; UNUSED&nbsp;
+&nbsp;&nbsp;NA</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.9&nbsp;
+PA6 UNUSED&nbsp;&nbsp;&nbsp;
+&nbsp;NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+P2.9&nbsp; PA3&nbsp;&nbsp; UNUSED&nbsp;
+&nbsp;&nbsp;NA</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P1.10
+PA7 UNUSED&nbsp;&nbsp;&nbsp;
+&nbsp;NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P2.10
+PA2&nbsp;&nbsp; UNUSED&nbsp;
+&nbsp;&nbsp;NA</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Pin&nbsp;
+&nbsp;&nbsp;Signal&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Direction&nbsp;&nbsp;&nbsp;&nbsp; Pin
+&nbsp;&nbsp;&nbsp;Signal&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Direction</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.1&nbsp;
++5&nbsp; +5 V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P4.1&nbsp; PF2
+UNUSED&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;OUT</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.2&nbsp;
+Gnd GND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;P4.2&nbsp; PF3
+UNUSED&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;OUT</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.3&nbsp; PD0 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;P4.3&nbsp; PB3
+UNUSED&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;NA</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.4&nbsp; PD1 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P4.4&nbsp; PC4 UART1_CTS&nbsp;&nbsp; IN</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.5&nbsp; PD2 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P4.5&nbsp; PC5 UART1_RTS&nbsp;&nbsp; OUT</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.6&nbsp; PD3 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;P4.6&nbsp; PC6
+UNUSED&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;NA</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.7&nbsp; PE1 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P4.7&nbsp; PC7 NWP_LOG_TX&nbsp; OUT</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.8&nbsp; PE2 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">P4.8&nbsp; PD6 WLAN_LOG_TX OUT</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.9&nbsp; PE3 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;P4.9&nbsp; PD7
+UNUSED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IN (see R74)</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">P3.10 PF1 UNUSED&nbsp;&nbsp;&nbsp;&nbsp; NA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P4.10 PF4
+UNUSED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OUT(see R75) </span></p>
+
+
+
+
+<p class="MsoCaption">Table 16.3.&nbsp; Hardware connections to the CC3100 booster
+packet.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">The actual TCP/IP software stack resides
+in firmware on the CC3100 booster pack itself. Therefore, when using the
+wireless booster packs, Texas Instruments recommends us to upgrade the
+firmware. The examples of this chapter ran on version 3.3 CC3100 booster packs
+without needing to upgrade the firmware. </span></p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_11')">Checkpoint16.11</button>:</span></b><b>
+</b>Assume you use the
+CC3100 for a smart object and connect an analog signal to the ADC on PD0. What
+would happen if you do not remove R9 and R10 from the LaunchPad?</p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+
+<h2>16.5. Client Server Communication</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">The client-server paradigm is the dominant
+communication pattern over the Internet. The <i>socket</i> API supports two
+forms of this paradigm, a TCP-based connection-oriented form and a UDP-based
+connection-less form. Table 16.4 shows various popular applications and the
+underlying application and transport protocols they use. </span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image014.gif" border="0" height="204" width="480"></span></p>
+
+
+
+
+<p class="MsoCaption">Table 16.4.&nbsp; Applications their protocols and Transport
+protocol they depend on.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">The popular Hyper-Text Transfer Protocol
+(HTTP), which is used in the implementation of the World Wide Web (WWW) is
+TCP-based. A web browser like Firefox is a <i>client</i> (a HTTP client) and a
+web server like www.edX.org is a server (a HTTP server). The paradigm can be
+seen to function as described in Figure 16.14. </span></p>
+
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td> <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image016.gif" border="0" height="460" width="761"></span></p> <p class="MsoCaption">Figure 16.14.&nbsp; Client-Server paradigm with a multi-threaded server, serving multiple clients.</p>
+	  </td>
+      <td><!--- C16_video_6 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/_v_FvdZTsIU?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.6<span lang="en-US">.
+The Client-Server Paradigm</span></p>
+<!--- End C16_video_6 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">A server running at a machine (say
+host.network.org) creates a socket bound to a port xyz. This port number is
+either a standard port or one chosen specifically for the service. For example,
+if the server is a <i>web server</i> that is publicly accessible, then the port
+number is 80. On the other hand, if it&rsquo;s a proprietary server, the service may
+choose an arbitrary number for xyz (say 6565) and let clients know about it so
+they can connect for service. This socket is called a connection socket (<i>conSocket</i>)where
+the servers waits for connection requests from clients. A client that wants to
+access the service provided by the server creates a client socket (<i>clientSocket</i>).
+The client needs to know the hostname and the port at which the service is
+running to establish the connection using the client socket. Once the server
+sees the request, it accepts it on a separate socket (<i>servSocket)</i>. It
+does not serve the client on the connection socket because, if it takes too
+long to serve the client then the server will be inaccessible to other clients
+seeking service. By accepting each client at a separate socket, the server can
+remain ready for connection requests from new clients.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Once the server accepts a client (say A)
+it creates a <i>thread</i> to service that client by passing to the thread the
+socket at which the client was accepted. The main thread is now free to accept
+other clients. The exchange between client A and the thread serving it may
+involve multiple messages transferred back and forth or a single
+request/response as shown in the figure. A Web Browser like Firefox (a commonly
+used client) makes one connection for each object it requests from a Web
+Server. Note that each client connection is to port 80, which is a standard
+port at which HTTP servers (aka Web Server) run. </span></p>
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_12')">Checkpoint16.12</button>:</span></b><b>
+</b>What is a <b>socket</b>?</p>
+
+
+
+
+
+
+<p class="Checkpoint"><b><span style="color: windowtext; text-decoration: none;"><button onclick="popitup('Checkpoint16_13')">Checkpoint16.13</button>:</span></b><b>
+</b>What is a <b>port</b>?</p>
+
+
+
+<span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">For more information see: <a href="http://en.wikipedia.org/wiki/Port_%28computer_networking%29">http://en.wikipedia.org/wiki/Port_(computer_networking)</a></span>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"></span></p>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">In the example in the
+next section, we will have the Launchpad connect to a web server running at <b>openweathermap.org</b>,
+a public server that gives weather information for any city in the world. So,
+the process is to create a socket and connect to the web server (we will call
+it the weather server) running on openweathermap.org at port 80. Once
+connected, we send it a request using the HTTP GET command. The server responds
+with a well-formatted string containing weather details for the city whose
+weather information was sought in the <span style="font-weight: bold;">GET</span> request.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<div style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+
+<h2>16.6. Communication with a Weather Server</h2>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">This application creates a web client that
+fetches weather data from a server. To see the features of the server, go to </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">openweathermap.org </span></b><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">(link to
+http://openweathermap.org/)</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">, enter <b>Austin Texas</b> into the search box, and
+click search. The goal of this smart object is to display weather data on the
+LCD. The approach for implementing a smart object </span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">over wifi is to
+begin with a hardware/software platform that implements IEEE801.11 wifi. The
+CC3100BOOST </span><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">is a boosterpack
+that can be used with the TM4C123 LaunchPad as shown in Figure 16.15. We will
+connect a Nokia 5110 LCD to the LaunchPad that we will use to display the
+weather. This Nokia 5110 LCD interface was presented earlier in Section 11.5. If
+you do not have a Nokia 5110, the weather output will also be sent to UART0 at
+115200 bits/sec and can be observed with TExaSdisplay similar to Labs 5 and 11.
+</span></p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td> <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"><img src="C16_InternetOfThings_files/c16-image017.jpg" border="0" height="481" width="719"></span></p>
+<p class="MsoCaption">Figure 16.15.&nbsp; The smart object displays real-time weather
+information.</p>
+	  </td>
+      <td><!--- C16_video_7 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/N9lkmES374o?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.7<span lang="en-US">.
+The openweathermap.org server</span></p>
+<!--- End C16_video_7 ---> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Program 16.1 shows the high-level client
+software, which initializes the wifi module and connects to the access point.
+There is a mechanism using SmartConfig to automate this discovery, but in this
+example I named the AP <b>valvano</b> so I used a manual method to define the
+connection between the node and AP. &nbsp;My access point uses WPA encryption and
+its passkey is </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">calvin50</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. So if you are
+ever wandering by my office on the University of Texas, you&rsquo;ll be able to
+connect to my access point. 
+
+<!--- C16_video_8 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/soA0CZIdQ5w?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.8<span lang="en-US">.
+Configuring/Getting settings from an Access Point</span></p>
+<!--- End C16_video_8 ---> 
+
+<!--- C16_video_9 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/QPrdZU9sigI?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.9<span lang="en-US">.
+Walkthrough of the Code</span></p>
+<!--- End C16_video_9 ---> 
+
+Lines 1, 2 and 3 define the parameters needed to
+connect to your access point. You will need to refer to the directions on your
+access point to determine its name, type of security, and password. You should
+set </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SEC_TYPE</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> to </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SL_SEC_TYPE_OPEN</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> if there is no
+security, and you should set </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SEC_TYPE</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> to </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SL_SEC_TYPE_WEP </span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">to use WEP security. Lines 4-7
+start the main program and initialize variables. Line 8 doesn&rsquo;t do anything; it
+was in the starter code from Texas Instruments, so we left it in. Line 8
+configures the PLL to use the crystal and operate at 50 MHz. Line 10
+initializes the LCD display. Line 11 initializes the switch inputs and LED
+outputs on the LaunchPad Port F. Line 12 sends a hello message to the screen.
+Lines 13-24 will initialize the CC3100.&nbsp; If the initialization fails the red
+LED will flash quickly. Line 25 will connect to the access point using the
+parameters specified in Lines 1-3. If it cannot connect, it will hang inside </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">WlanConnect</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. Line 26 tells us
+we are connected to the access point. 
+
+<!--- C16_video_10 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/8IXbLL_3RVI?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>16.10<span lang="en-US">.
+Checking the Access Point logs to see if launchpad is connected to the wifi Network</span></p>
+<!--- End C16_video_10 ---> 
+
+
+The while loop runs over and over, you can
+adjust the time delay between updates by changing the constant in Line 36. Lines
+32 and 40 are a heartbeat, setting the green LED each time a valid packet is
+received. The </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">getWeather</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> call in Line 30
+will populate the three strings </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">City</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Temperature</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> and </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Weather</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. If valid, Lines 29, 35-37 will
+display the weather information on the LCD. The entire received packet is sent
+to the PC via the UART0 link in lines 33-34.</span></p>
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+SSID_NAME&nbsp; "valvano"&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+SEC_TYPE&nbsp;&nbsp;
+SL_SEC_TYPE_WPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+PASSKEY&nbsp;&nbsp;&nbsp;
+"calvin50"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">int
+main(void){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+int32_t
+retVal;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+char *pConfig =
+NULL;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+retVal =
+initializeAppVariables();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+stopWDT();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Stop WDT
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+initClk();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // PLL 50
+MHz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp; </span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+LCD_Init();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+LED_Init();&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;// initialize LaunchPad
+I/O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+LCD_OutString("Weather
+App\n");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; retVal =
+configureSimpleLinkToDefaultState(pConfig);&nbsp;&nbsp;&nbsp;&nbsp; 13</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+if(retVal &lt;
+0){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if(DEVICE_NOT_IN_STATION_MODE ==
+retVal){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LCD_OutString(" Failed to
+configure\r\n");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Crash(4000000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+retVal = sl_Start(0, pConfig,
+0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+if((retVal &lt; 0) || (ROLE_STA != retVal)
+){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp; LCD_OutString(" Failed to start the device
+\r\n");&nbsp;&nbsp;&nbsp; &nbsp;22</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Crash(8000000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+WlanConnect();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; LCD_OutString("Connected\n");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+while(1){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Nokia5110_SetCursor(0,2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+29</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+retVal =
+getWeather();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if(retVal == 0){&nbsp; //
+valid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+31</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LED_GreenOn();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UARTprintf("\r\n\r\n");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+33</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UARTprintf(appData.Recvbuff); UARTprintf("\r\n");&nbsp;&nbsp;&nbsp;
+34</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LCD_OutString(City);
+LCD_OutString("\n");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;35</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LCD_OutString(Temperature); LCD_OutString("
+C\n");&nbsp;&nbsp; 36</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LCD_OutString(Weather);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp; while(Board_Input()==0){}; // wait for touch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+39</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+LED_GreenOff();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+41</span></b></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42</span></b></p>
+
+
+
+
+<p class="MsoCaption">Program 16.1. Client software that initializes the system
+and displays weather information on the screen.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">Program 16.2 shows lower level function
+that communicates with the weather server. &nbsp;Figure 16.16 shows an actual </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">appData.Recvbuff</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> received from the
+</span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">openweathermap.org</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp; server. Line 1
+defines the request to be sent to the server. Lines 2-5 define the three strings
+that will be extracted from the weather information that you will receive back
+from the server. It will check for maximum length (</span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">MAXLEN</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">) so the program
+will not crash if bad or weird data is returned from the server. Lines 1 and 6 specify
+the logical name of the server. Lines 7-18 define the data structure used to
+manage the connection. Again it will check for maximum lengths to reduce the
+chance of crash on buffer overflow. The <b>Socket</b> (</span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">SockID</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">) is a local structure
+managed in the CC3100 used to specify the connection. In this case there is
+just one connection, but it would be possible to manage multiple connections in
+other applications by having more than one socket open at a time. &nbsp;Lines 19-20
+define the function and its local variables. The variable </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">i</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> will index into
+the string arrays, and the pointer </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">pt</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> will be used to parse the returned
+message from the weather server. The </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">getWeather</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> function returns 0 on success and -1 on
+failure. Lines 21 and 22 will perform the logical to physical address translation.
+Inside </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">GetHostIP</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">, it will call the
+Simple Link driver function </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">sl_NetAppDnsGetHostByName</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">, which will take the </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">openweathermap.org</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> logical address
+and find the physical IP address of the weather server. Line 23 creates a
+connection by opening a socket to that physical IP address. The string </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">appData.SendBuff</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> contains the
+request to fetch the weather for Austin Texas. You could change line 1 to fetch
+weather from a different city. For details of the format of this request, see </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">openweathermap.org</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. Another change
+to consider is in Line 1; you could change the units from </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">metric</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> to </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">imperial</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. If you change to
+imperial, you should also change the units in the main program from </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">C</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> to </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">F</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">. &nbsp;Lines 24 and 25
+sends the request to the server, and Line 26 receives the response from the
+server. Line 27 guarantees the receive buffer is null-terminated. To understand
+Lines 28-37, refer to Figure 16.16. These lines search for </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">"</span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">name</span></b><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">"</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">, skip over the
+quotes, and copy the name into </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">City</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> string until the second quote. In a similar
+manner, Lines 38-47 search for </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">"temp"</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">, skip past the quotes, and copy
+the temperature into </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Temperature</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> string until the
+second quote. Finally, Lines 48-57 search for </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">"description"</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">, skip past the
+quotes, and copy the weather information into </span><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Weather</span></b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;"> string until the second quote.
+Since we opened the socket in Line 23, we will close the socket in Line 58
+before returning.</span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+REQUEST "GET /data/2.5/weather?q=Austin Texas&amp;units=metric</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;HTTP/1.1\r\nUser-Agent:
+Keil\r\nHost:api.openweathermap.org\r\n</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+Accept: */*\r\n\r\n"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+MAXLEN
+100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">char
+City[MAXLEN];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">char
+Temperature[MAXLEN];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">char
+Weather[MAXLEN];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+SERVER&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"openweathermap.org"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+MAX_RECV_BUFF_SIZE&nbsp;
+1024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+MAX_SEND_BUFF_SIZE&nbsp;
+512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+MAX_HOSTNAME_SIZE&nbsp;&nbsp; 40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+MAX_PASSKEY_SIZE&nbsp;&nbsp;&nbsp;
+32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#define
+MAX_SSID_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">struct{&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+char
+Recvbuff[MAX_RECV_BUFF_SIZE];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+char
+SendBuff[MAX_SEND_BUFF_SIZE];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+char
+HostName[MAX_HOSTNAME_SIZE];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+unsigned long
+DestinationIP;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+int
+SockID;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}appData;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">static
+uint32_t getWeather(void){uint32_t
+i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+char *pt =
+NULL;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+memcpy(appData.HostName,
+SERVER,strlen(SERVER));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;21</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+if(GetHostIP() ==
+0){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if( (appData.SockID = CreateConnection()) &lt; 0 ) return -1;&nbsp;&nbsp;&nbsp; 23</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+strcpy(appData.SendBuff, REQUEST);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+sl_Send(appData.SockID,</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+appData.SendBuff,</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+strlen(appData.SendBuff),
+0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+sl_Recv(appData.SockID, </span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&amp;appData.Recvbuff[0], </span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MAX_RECV_BUFF_SIZE,
+0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+appData.Recvbuff[strlen(appData.Recvbuff)] = '\0';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 27</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+pt = strstr(appData.Recvbuff, "\"name\"");&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+i =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+29</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if( NULL != pt
+){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pt = pt + 8; // skip over "name":"&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while((i&lt;MAXLEN)&amp;&amp;(*pt)&amp;&amp;(*pt!='\"')){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+City[i] = *pt; // copy into City
+string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;33</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pt++; i++;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+35</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+City[i] =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+37</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+pt = strstr(appData.Recvbuff, "\"temp\"");&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+i =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+39</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if( NULL != pt
+){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pt = pt+7; // skip over
+"temp":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;41</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while((i&lt;MAXLEN)&amp;&amp;(*pt)&amp;&amp;(*pt !=
+'\"')){&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;42</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Temperature[i] = *pt; // copy into string&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;43</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pt++; i++;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;44</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+45</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+46</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Temperature[i] =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;47</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+pt = strstr(appData.Recvbuff, "\"description\"");&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+i =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+49</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+if( NULL != pt
+){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pt = pt + 15; // skip over "description":"&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while((i&lt;MAXLEN)&amp;&amp;(*pt)&amp;&amp;(*pt!='\"')){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;52</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Weather[i] = *pt; // copy into
+string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;53</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pt++; i++;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;54&nbsp;&nbsp;
+</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+55</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+56</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+Weather[i] =
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+57&nbsp; </span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp;
+sl_Close(appData.SockID);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58&nbsp;
+</span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+59&nbsp; </span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+return
+0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+60&nbsp; </span></b></p>
+
+
+
+
+<p class="MsoNormal"><b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61&nbsp; </span></b></p>
+
+
+
+
+<p class="MsoCaption">Program 16.2. Client software that communicates with the
+weather server.</p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,serif;">&nbsp;</span></p>
+
+
+
+
+<div style="border: 1pt solid windowtext; padding: 1pt 4pt;">
+
+<p class="MsoCaption" style="border: medium none ; margin: 0in 0in 0.0001pt; padding: 0in; text-indent: 0in; line-height: normal;"><b><span style="font-size: 9pt; font-family: &quot;Courier New&quot;; letter-spacing: 0pt; font-style: normal;">HTTP/1.1 200 OK<br>
+
+
+
+Server: nginx/1.6.2<br>
+
+
+
+Date: Fri, 20 Feb 2015 15:47:34 GMT<br>
+
+
+
+Content-Type: application/json; charset=utf-8<br>
+
+
+
+Content-Length: 484<br>
+
+
+
+Connection: keep-alive<br>
+
+
+
+X-Source: redis<br>
+
+
+
+Access-Control-Allow-Origin: *<br>
+
+
+
+Access-Control-Allow-Credentials: true<br>
+
+
+
+Access-Control-Allow-Methods: GET, POST<br>
+
+
+
+<br>
+
+
+
+{"coord":{"lon":-97.74,"lat":30.27},"sys":{"message":0.0046,"country":"Unit<br>
+
+
+
+ed States of America","sunrise":1424437547,"sunset":1424478207},"weather":[<br>
+
+
+
+{"id":803,"main":"Clouds","description":"<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">broken clouds</span>","icon":"04d"}],"bas<br>
+
+
+
+e":"cmc stations","main":{"temp":<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">15.298</span>,"temp_min":15.298,"temp_max":15.298<br>
+
+
+
+,"pressure":1005.04,"sea_level":1030.13,"grnd_level":1005.04,"humidity":88}<br>
+
+
+
+,"wind":{"speed":5.48,"deg":185},"clouds":{"all":76},"dt":1424446455,"id":4<br>
+
+
+
+671654,"name":"<span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">Austin</span>","cod":200}</span></b></p>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoCaption" style="margin: 0in 0in 0.0001pt; text-indent: 0in; line-height: normal;">Figure 16.16. Weather information received from the <b><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">openweathermap.org</span></b>
+server. The weather information is one long string (the line breaks were added
+for web page formatting). The highlighted fields are extracted from the message
+and displayed on the LCD.</p>
+
+
+
+
+<p class="MsoNormal">&nbsp;</p>
+
+
+
+
+<p class="MsoNormal">&nbsp;</p>
+
+
+
+
+</div>
+
+<div
+ style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth">&nbsp;</p>
+</div>
+<p class="MsoNormal">Reprinted with approval from <u>Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers</u>, 2014, ISBN:
+978-1477508992, <a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"><b>http://users.ece.utexas.edu/~valvano/arm/outline1.htm</b></a></p>
+<p class="MsoNormal">and from <u>Embedded Systems: Real-Time
+Interfacing to ARM&reg; Cortex&trade;-M Microcontrollers</u>, 2014,
+ISBN: 978-1463590154, <b><a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline.htm">http://users.ece.utexas.edu/~valvano/arm/outline.htm</a></b>
+</p>
+</div>
+<a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img
+ alt="Creative Commons License" style="border-width: 0pt;"
+ src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded
+Systems - Shape the World</span> by <a
+ xmlns:cc="http://creativecommons.org/ns#"
+ href="http://users.ece.utexas.edu/%7Evalvano/"
+ property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano
+and Ramesh Yerraballi</a> is licensed under a <a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License</a>.<br>
+Based on a work at <a xmlns:dct="http://purl.org/dc/terms/"
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"
+ rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+
+
+</body>
+</html>

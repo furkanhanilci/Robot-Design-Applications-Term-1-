@@ -1,0 +1,31 @@
+{
+  "id": 12,
+  "name": "Stanford ME210 - Introduction to Mechatronics",
+  "type": "Üniversite dersi",
+  "url": "https://me210.stanford.edu/",
+  "folder": "12_Stanford_ME210_-_Introduction_to_Mechatronics",
+  "files": [
+    {
+      "file": "supplement_32ea74ee82.html",
+      "url": "https://bulletin.stanford.edu/courses/1051121",
+      "final_url": "https://bulletin.stanford.edu/courses/1051121",
+      "kind": "html",
+      "bytes": 2239608,
+      "sha256": "6ef2a9c072cc06aaf2678e7b60e7e976651c1e6331bc399120eb0e7e402baf3c"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://me210.stanford.edu/",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    }
+  ],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:47:04+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "Verilen me210.stanford.edu alan adı çözülemedi. Resmî Stanford ders kataloğu sayfası kaydedildi; ders notlarının tamamı elde edilmedi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

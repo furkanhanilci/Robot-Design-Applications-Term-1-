@@ -1,0 +1,82 @@
+ECE445M: EMBEDDED AND REAL-TIME SYSTEMS
+Embedded and Real-Time Systems
+/ Real-Time Operating Systems
+ECE445M, Unique: 18305, 18310, 18320, 18325
+Semester: Spring 2026
+Home
+Syllabus
+Lectures
+Labs
+Resources
+Canvas
+Instructor Information
+Instructor
+Jonathan Valvano <
+valvano@mail.utexas.edu
+>
+Office Hours
+Mon 8-9p zoom, link on Canvas
+Tue 11-12 EER 5.820
+Wed 8-9p zoom, link on Canvas
+Thur 11-12 EER 5.820
+Fri 11-12 EER 5.820
+For other times
+email me
+for an appointment.
+Teaching
+Assistants
+Andres Fernandez
+Devin Kretschman
+Dylan Kretschman
+Office hours: see Canvas
+Mailing
+list
+Email all instructors, TAs and technical staff <
+s26_ece445m@utlists.utexas.edu
+>
+Discussion
+forum
+We will be using edDiscussion for class discussion. Please post all course
+related questions of general nature to the class' Piazza Discussion
+Board (which will be checked regularly by the instructors and TAs), and
+use e-mail only for personal questions.
+Schedule
+Lectures
+TTh 12:30-1:45pm  ECJ 1.318
+Labs
+Unique: 18305 MW 1:30 p.m.-3:00 p.m. ECJ 1.318A, TA TBD
+Unique: 18310 TTH 2:00 p.m.-3:30 p.m. ECJ 1.318A,  TA TBD
+Unique: 18320 MW 6:30 p.m.-8:00 p.m. ECJ 1.318A, TA TBD
+Unique: 18325 TTH 6:30 p.m.-8:00 p.m. ECJ 1.318A, TA TBD
+Exams
+Exam 1: Thursday, Feb 19, 12:30-1:45p, closed book, in class
+Exam 2: Thursday, April 8,12:30-1:45p, closed book, in class
+Final: Monday, May 4, 1:00-3:00 pm, UTC 3.104, closed book (regularly scheduled)
+Announcements
+Announcements are posted to
+the class'
+web page on Canvas
+.
+Recovering a dead MSPM0G3507
+How to unbrick the MSPM0G3507:
+Press-and-hold the BSL_Invoke button (S1, near LED) while pressing and releasing the Reset button.
+The device should go to BSL and stay in Active mode for ~10secs.
+Attempt to program immediately after releasing the reset button.
+Release the BSL_Invoke button (S1, near LED).
+Try performing a factory reset:
+https://dev.ti.com/gallery/view/TIMSPGC/MSPM0_Factory_Reset_Tool/ver/1.0.2/
+Additional Resources
+Professor
+Gerstlauer's Spring 2025 Course Web site
+Course web site on Canvas
+with announcements, course
+documents, grade information, etc.
+Prof.
+Valvano: Spring 2026 Course Web Site
+Prof. Valvano's Spring
+2026 class site.
+Contents
+© Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano
+http://www.ece.utexas.edu/~valvano/EE445M/
+http://www.ece.utexas.edu/~gerstl/ee445m_s25

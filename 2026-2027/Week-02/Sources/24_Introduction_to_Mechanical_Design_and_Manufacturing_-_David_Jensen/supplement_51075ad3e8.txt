@@ -1,0 +1,262 @@
+Morphological Chart – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Morphological Chart
+What Is a Morphological Chart?
+The following is an excerpt from the
+Delft Design Guide
+.
+[1]
+The morphological chart/ matrix is a method to generate ideas in an analytical and systematic manner.
+Usually, functions of the product are taken as a starting point. The various functions and subfunctions of a product can be established through a function analysis (see ‘Function Analysis’ in this section). However, function analysis does not guarantee that all the relevant (sub) functions are identified. Often a number of solutions to these (sub) functions are already known, while others are thought up by yourself. These solutions will form the components in the morphological chart. The morphological method thus yields a matrix of functions and components. Possible components are listed on the basis of their functions. The components are concrete and specific, specifying the elements that belong to a category (i.e. parameter). These components are already known partially from existing solutions: analogous products. Functions are listed in columns, and components are the means that realize the functions and are listed in rows.
+A morphological matrix
+The parameters are identified by focusing on the commonalities of components and describing them as the characteristics which a product should have, thus indicating what the product should be; they are essential to the solution. The parameters are independent and abstract and indicate a category (with no reference to material features). By means of the morphological chart, the product’s purpose is split into a set of (sub)functions. For each of the (sub)functions ideas are generated and combined into an overall solution. Through careful selection and combination of a set of components, an idea comes about. This idea should be seen as a principal solution: a carefully chosen combination of components that together form a conceptual solution.
+New components are found by making the abstract parameters concrete through the establishment of technical principles. In this way, the morphological method is an evolutionary method: parameters and components are evolved in parallel until the final morphological chart is made.
+In the end, solution principles are found by choosing one component from each parameter. In other words, each combination of components (one component being selected from each parameter) suggests a solution to the problem. The generation of solutions is thus a process of systematically combining components.
+However, the larger the morphological matrix, the larger the amount of possible solutions (theoretically, a 10 x 10 matrix yields 10,000,000,000 solutions), which takes much time to evaluate and choose from. In order to limit the number of options, two evaluation strategies are helpful: (a) analysis of the rows and (b) grouping of parameters.
+Analysis of the rows is based on rank ordering the components per parameter in a first and second preference. The rank ordering is done against (a part of) the criteria or design requirements. Using only the first and second preferences brings down the number of components and thus reduces the number of solutions.
+The second evaluation strategy is grouping the parameters in groups of decreasing importance. As a first step, only the most important group of parameters is evaluated. After one or more combinations of components have been chosen, only these are involved in the evaluation.
+When Can You Use a Morphological Chart?
+The morphological chart is usually applied in the beginning of idea generation. Function analysis is used as a starting point. Not all design problems are suitable for using the morphological method. The morphological chart has been successful in particular for design problems in the field of engineering design.
+How to Use a Morphological Chart?
+Starting Point
+The starting point of a morphological chart is a well defined design problem. A function analysis of the product that needs to be designed forms another starting point: the product should be described in terms of function and subfunctions.
+Expected Outcome
+The expected outcome of the morphological method is a number of principal solutions (consisting of components) for the initial design problem.
+Possible Procedure
+The problem to be solved must be formulated as accurately as possible.
+Identify all the parameters which might occur in the solution (i.e. functions and subfunctions).
+Construct a morphological chart (a matrix), with parameters as the columns.
+Fill the rows with the components that belong to that particular parameter. Components can be found by analysing similar products or thinking up new principles for the parameters (functions).
+Use the evaluation strategies (analysis of rows and grouping of parameters) to limit the number of principal solutions.
+Create principal solutions by combining at least one component from each parameter.
+Carefully analyse and evaluate all solutions with regard to (a part of) the criteria (design requirements), and choose a limited number of principal solutions (at least 3).
+The principal solutions selected can be developed in detail in the remaining part of the design process.
+Tips and Concerns
+When a combination of components has yielded a principal solution, be sure to draw all the components when developing the solution principle in sketches.
+You may be tempted to choose the ‘safe’ combinations of components. Challenge yourself by making counter-intuitive combinations of components.
+Do not describe the components in words, but use pictograms or symbols to indicate them.
+Using a Morphological Chart to Synthesizing Complete Concepts
+A morphological chart captures many subsolutions to each function. A
+Complete Concept Solution
+is generated by synthesizing subfunctions together. You can do this by selecting one or more solution from each row and generating a sketch with each individual sub solution. Then, you will need to make sure the flows between subsolutions are logical and consistent. For example, if two subsolutions are controls knobs (for allow control) and heating elements (for provide thermal energy), synthesis of these two solutions implies some sort of electrical control board and wiring system.
+Process
+To synthesize subsolution concepts in a morphological chart to develop complete product concept solutions, follow these steps:
+Identify the main functions of the product.
+What are the essential tasks that the product must perform?
+Break down each main function into subfunctions.
+What are the smaller tasks that need to be accomplished in order to achieve the main function?
+Identify all possible subsolutions for each subfunction.
+This can be done through brainstorming, research, and analysis.
+Create a morphological chart.
+List the subfunctions down the left side of the chart and the subsolutions for each subfunction across the top.
+Generate new product concepts by combining subsolutions from different columns.
+Consider all possible combinations, even if they seem unusual or impractical at first.
+Evaluate the new product concepts.
+Consider the feasibility, cost, and performance of each concept. Select the most promising concepts for further development.
+Morphological chart
+Here is an example of how to use a morphological chart to synthesize subsolution concepts to develop complete product concept solutions:
+Subfunction
+Heat water
+Grind coffee beans
+Brew coffee grounds
+Keep coffee hot
+Dispense coffee
+Heat water
+Electric
+Gas
+Induction
+Grind coffee beans
+Blade grinder
+Burr grinder
+Brew coffee grounds
+Drip brewing
+French press
+Espresso machine
+Keep coffee hot
+Carafe
+Thermal pot
+Heating plate
+Dispense coffee
+Manual
+Automatic
+New product concepts:
+Electric powered with blade grinder that feeds a drip coffee maker that pours into a thermal pot
+Gas powered with a burr grinder style grinder that feeds a French press and excess heat is used for the heating plate
+These are just a few examples of new product concepts that can be generated using a morphological chart. By combining subsolutions from different columns, it is possible to generate a wide range of new and innovative concepts. To build these into complete solutions, you need to identify how the energy and materials will be flowing through the system.
+Here are some additional tips for using a morphological chart to synthesize subsolution concepts to develop complete product concept solutions:
+Be creative and don’t be afraid to explore unusual or impractical combinations at first.
+Collaborate with others to develop more complete morphological charts.
+Be sure to sketch out complete solutions and include annotations in order to make sure you don’t forget a concept.
+Push yourself to make as many complete concepts as possible. Perhaps your next idea will be the best!
+*Watch this
+video
+to learn more about Morph Charts.
+References
+Roozenburg, N.F.M. and Eekels, J. (1995) Product Design: Fundamentals and Methods, Utrecht: Lemma.
+Roozenburg, N. and Eekels, J. (1998, 2nd ed.) Product Ontwerpen: Structuur en Methoden, Utrecht: Lemma.
+Cross, N. (1989) Engineering Design Methods, Chichester: Wiley
+Daalhuizen, Jaap. 2018. Delft Design Approach, Delft University of Technology.
+↵
+Previous/next navigation
+Previous: Functional Analysis
+Next: Decision and Selection
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

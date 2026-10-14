@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ch. 10 - Trajectory
+  Optimization</title>
+    <meta name="Ch. 10 - Trajectory
+  Optimization" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/trajopt.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+    <script type="text/javascript" src="notebooks.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script src="htmlbook/mathjax-loader.js" defer></script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2024<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="https://underactuated.csail.mit.edu/Spring2024/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2024 semester.  <a
+href="https://www.youtube.com/playlist?list=PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=lyapunov.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=policy_search.html>Next Chapter</a></td>
+</tr></table>
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter style="counter-reset: chapter 9"><h1>Trajectory
+  Optimization</h1>
+
+  <p>I've argued that optimal control is a powerful framework for specifying
+  complex behaviors with simple objective functions, letting the dynamics and
+  constraints on the system shape the resulting feedback controller (and vice
+  versa!). But the computational tools that we've provided so far have been
+  limited in some important ways.  The numerical approaches to dynamic
+  programming which involve putting a mesh over the state space do not scale
+  well to systems with state dimension more than four or five.  Linearization
+  around a nominal operating point (or trajectory) allowed us to solve for
+  locally optimal control policies (e.g. using LQR) for even very
+  high-dimensional systems, but the effectiveness of the resulting controllers
+  is limited to the region of state space where the linearization is a good
+  approximation of the nonlinear dynamics.  The computational tools for
+  Lyapunov analysis from the last chapter can provide, among other things, an
+  effective way to compute estimates of those regions, and the sums-of-squares
+  approaches to dynamic programming are still in their early days.  We have not
+  yet provided the mainstream computational tools for approximate optimal
+  control that work for high-dimensional systems beyond the linearization
+  around a goal. That is precisely the goal for this chapter.</p>
+
+  <p>In order to scale to high-dimensional systems, we are going to formulate a
+  simpler version of the optimization problem.  Rather than trying to solve for
+  the optimal feedback controller for the entire state space, in this chapter
+  we will instead attempt to find an optimal control solution that is valid
+  from only a single initial condition. Instead of representing this as a
+  feedback control function, we can represent this solution as a
+  <em>trajectory</em>, $\bx(t), \bu(t)$, typically defined over a finite
+  interval.</p>
+
+  <section><h1>Problem Formulation</h1>
+
+    <p>Given a state-space model, $\dot{\bx} = f(\bx,\bu)$, an initial condition,
+    $\bx_0$, and an input trajectory $\bu(t)$ defined over a finite interval,
+    $t\in[t_0,t_f],$ we can simulate the dynamics forward to obtain $\bx(t)$ over the
+    same interval. We will define the long-term (finite-horizon) cost of executing that
+    trajectory using the standard additive-cost optimal control objective, \[
+    J_{\bu(\cdot)}(\bx_0) = \ell_f (\bx(t_f)) + \int_{t_0}^{t_f} \ell(\bx(t),\bu(t)) dt.
+    \] $\ell_f$ is a <i>terminal cost</i>, evaluated at the end of the trajectory, which
+    we did not have in the infinite-horizon formulations we've focused on so far. We
+    will write the trajectory optimization problem as \begin{align*} \min_{\bu(\cdot)}
+    \quad & \ell_f (\bx(t_f)) + \int_{t_0}^{t_f} \ell(\bx(t),\bu(t)) dt \\ \subjto \quad
+    & \dot{\bx}(t) = f(\bx(t),\bu(t)), \quad \forall t\in[t_0, t_f] \\ & \bx(t_0) =
+    \bx_0. \\ \end{align*} Many trajectory optimization problems will also include
+    additional constraints, such as collision avoidance (e.g., where the constraint is
+    that the signed distance between the robot's geometry and the obstacles stays
+    positive) or input limits (e.g. $\bu_{min} \le \bu \le \bu_{max}$ ). Constraints can
+    be defined for all time or some subset of the trajectory.</p>
+
+    <p> As written, the optimization above is an optimization over continuous
+    trajectories.  In order to formulate this as a numerical optimization, we
+    must parameterize it with a finite set of numbers.  Perhaps not
+    surprisingly, there are many different ways to write down this
+    parameterization, with a variety of different properties in terms of speed,
+    robustness, and accuracy of the results. We will outline just a few of the
+    most popular below; I would recommend <elib>Betts98+Betts01</elib> for
+    additional details.</p>
+
+    <p>It is worth contrasting this parameterization problem with the one that
+    we faced in our continuous-dynamic programming algorithms.  For trajectory
+    optimization, we need a finite-dimensional parameterization in only one
+    dimension (time), whereas in the mesh-based value iteration algorithms we
+    had to work in the dimension of the state space.  Our mesh-based
+    discretizations scaled badly with this state dimension, and led to
+    numerical errors that were difficult to deal with.  Discreting over just
+    one dimension (time), is fundamentally different.  There is relatively much
+    more known about discretizing solutions to differential equations over
+    time, including work on error-controlled integration.  And the number of
+    parameters required for trajectory parameterizations scales linearly with
+    the state dimension, instead of exponentially in mesh-based value
+    iteration.</p>
+
+  </section>
+
+  <section><h1>Convex Formulations for Linear Systems</h1>
+
+    <p>Let us first consider the case of linear systems.  In fact, if we start in
+    discrete time with a state space model of the form $\bx[n+1] = {\bf A}\bx[n] + {\bf
+    B}\bu[n]$, we can even defer the question of how to best discretize the
+    continuous-time problem. There are a few different ways that we might "transcribe"
+    this optimization problem into a concrete mathematical program.</p>
+
+    <subsection><h1>Direct Transcription</h1>
+
+      <p>For instance, let us start by writing both $\bu[\cdot]$ and
+      $\bx[\cdot]$ as decision variables. Then we can write: \begin{align*}
+      \min_{\bx[\cdot],\bu[\cdot]} \quad & \ell_f(\bx[N]) + \sum_{n=0}^{N-1}
+      \ell(\bx[n],\bu[n]) \\ \subjto \quad & \bx[n+1] = {\bf A}\bx[n] + {\bf
+      B}\bu[n], \quad \forall n\in[0, N-1] \\ & \bx[0] = \bx_0 \\ & +
+      \text{additional constraints}. \end{align*}  We call this modeling choice
+      -- adding $\bx[\cdot]$ as decision variables and modeling the discrete
+      dynamics as explicit constraints -- the "<i>direct transcription</i>".
+      Importantly, for linear systems, the dynamics constraints are linear
+      constraints in these decision variables.  As a result, if we can restrict
+      our additional constraints to linear inequality constraints and our
+      objective function to being linear/quadratic in $\bx$ and $\bu$, then the
+      resulting trajectory optimization is a convex optimization (specifically
+      a linear program or quadratic program depending on the objective).  We
+      can reliably solve these problems to global optimality at quite large
+      scale; these days it is common to solve these optimization online inside
+      a high-rate feedback controller.</p>
+
+      <example id="double_integrator"><h1>Trajectory optimization for the Double Integrator</h1>
+
+        <p>We've looked at a few optimal control problems for the double
+        integrator using value iteration. For one of them -- the quadratic
+        objective with no constraints on $\bu$ -- we know now that we could have
+        solved the problem "exactly" using LQR. But we have not yet given
+        satisfying numerical solutions for the minimum-time problem, nor for the
+        constrained LQR problem.</p>
+
+        <p>In the trajectory formulation, we can solve these problems exactly
+        for the discrete-time double integrator, and with better accuracy for
+        the continuous-time double integrator.  Take a moment to appreciate
+        that!  The bang-bang policy and cost-to-go functions are fairly
+        nontrivial functions of state; it's quite satisfying that we can
+        evaluate them using convex optimization!  The limitation, of course, is
+        that we are only solving them for one initial condition at a time.</p>
+
+        <script>document.write(notebook_link('trajopt', "double_integrator"))</script>
+
+      </example>
+
+      <p>If you have not studied convex optimization before, you might be
+      surprised by the modeling power of even of this framework.  Consider, for
+      instance, an objective of the form $$\ell(\bx,\bu) = |\bx| + |\bu|.$$
+      This can be formulated as a linear program.  To do it, add additional
+      decision variables ${\bf s}_x[\cdot]$ and ${\bf s}_u[\cdot]$ -- these are
+      commonly referred to as <i>slack variables</i>
+      -- and write $$\min_{\bx,\bu,{\bf s}_x,{\bf s}_u} \sum_n^{N-1} {\bf
+      s}_x[n] + {\bf s}_u[n], \quad \text{s.t.} \quad {\bf s}_x[n] \ge \bx[n],
+      \quad {\bf s}_x[n] \ge -\bx[n], \quad ...$$  The field of convex
+      optimization is replete with tricks like this.  Knowing and recognizing
+      them are skills of the (optimization) trade.  But there are also many
+      relevant constraints which cannot be recast into convex constraints (in
+      the original coordinates) with any amount of skill.  An important example
+      is obstacle avoidance.  Imagine a vehicle that must decide if it should
+      go left or right around an obstacle.  This represents a fundamentally
+      non-convex constraint in $\bx$; we'll discuss the implications of using
+      non-convex optimization for trajectory optimization below.</p>
+
+    </subsection>
+
+    <subsection id="direct_shooting"><h1>Direct Shooting</h1>
+
+      <p>The savvy reader might have noticed that adding $\bx[\cdot]$ as
+      decision variables was not strictly necessary.  If we know $\bx[0]$ and
+      we know $\bu[\cdot]$, then we should be able to solve for $\bx[n]$ using
+      forward simulation.  For our discrete-time linear systems, this is
+      particularly nice: \begin{align*} \bx[1] =& \bA\bx[0] + \bB\bu[0] \\
+      \bx[2] =& \bA(\bA\bx[0] + \bB\bu[0]) + \bB\bu[1] \\ \bx[n] =& \bA^n\bx[0]
+      + \sum_{k=0}^{n-1} \bA^{n-1-k}\bB\bu[k]. \end{align*}  What's more, the
+      solution is still linear in $\bu[\cdot]$.  This is amazing... we can get
+      rid of a bunch of decision variables, and turn a constrained optimization
+      problem into an unconstrained optimization problem (assuming we don't
+      have any other constraints).  This approach -- using $\bu[\cdot]$ but
+      <i>not</i> $\bx[\cdot]$ as decision variables and using forward
+      simulation to obtain $\bx[n]$ -- is called the <i>direct shooting</i>
+      transcription.  For linear systems with linear/quadratic objectives in
+      $\bx$, and $\bu$, it is still a convex optimization, and has less
+      decision variables and constraints than the direct transcription.</p>
+
+    </subsection>
+
+    <subsection id="computational_considerations"><h1>Computational
+    Considerations</h1></subsection>
+
+      <p>So is direct shooting uniformly better than the direct transcription approach?
+      I think it is not.  There are a few potential reason that one might prefer the
+      direct transcription: <ul><li>Numerical conditioning. Shooting involves
+      calculating ${\bf A}^n$ for potentially large $n$, which can lead to a large range
+      of coefficient values in the constraints. This problem is sometimes referred to as
+      the "tail wagging the dog", or in very deep neural networks as "vanishing
+      gradients" and/or "exploding gradients".  In trajectory optimization, it is not
+      simply an artifact of the shooting transcription, but is a real property of the
+      problem we have formulated: the control input $\bu[0]$ really does have more
+      opportunity to have a large impact on the total cost than control input
+      $\bu[N-1]$. The direct transcription approach combats the numerical issue by
+      spreading this effect out over a large number of well-balanced
+      constraints.</li><li>Adding state constraints.  Having $\bx[n]$ as explicit
+      decision variables makes it very easy/natural to add additional state constraints;
+      and the solver effectively reuses the computation of ${\bf A}^n$ for each
+      constraint. In shooting, one has to unroll those terms for each new
+      constraint.</li><li>Parallelization.  For larger problems, evaluating the
+      constraints can be a substantial cost.  In direct transcription, one can evaluate
+      the dynamics/constraints in parallel (because each iteration begins with $\bx[n]$
+      already given), whereas shooting is more fundamentally a serial
+      operation.</li></ul></p>
+
+      <p>For linear convex problems, the solvers are mature enough that these
+      differences often don't amount to much.  For nonlinear optimization
+      problems, the differences can be substantial.  If you look at trajectory
+      optimization papers in mainstream robotics, you will see that both direct
+      transcription and direct shooting approaches are used. (It used to be
+      that you could guess which research lab wrote a paper simply by the
+      transcription they use!)</p>
+
+      <p>It is also worth noting that the problems generated by the direct
+      transcription have an important and exploitable "banded" sparsity pattern
+      -- most of the constraints touch only a small number of variables.  This
+      is actually the same pattern that we exploit in the Riccati equations.
+      Thanks to the importance of these methods in real applications, numerous
+      specialized solvers have been written to explicitly exploit this sparsity
+      (e.g. <elib>Wang09a+Dellaert12</elib>).</p>
+
+    </subsection>
+
+    <subsection id="ct_lti"><h1>Continuous Time</h1>
+
+      <p>If we wish to solve the continuous-time version of the problem, then we can
+      discretize time and use the formulations above.  The most important decision is
+      the discretization / numerical integration scheme. For linear systems, if we
+      assume that the control inputs are held constant for each time step (aka <a
+      href="https://en.wikipedia.org/wiki/Zero-order_hold">zero-order hold</a>), then we
+      can integrate the dynamics perfectly: $$\bx[n+1] = \bx[n] + \int_{t_n}^{t_n + h}
+      \left[ {\bf A} \bx(t) + {\bf B}\bu[n] \right]dt = e^{{\bf A}h}\bx[n] + {\bf
+      A}^{-1}(e^{{\bf A}h} - {\bf I}){\bf B}\bu[n],$$ is the simple case (when ${\bf A}$
+      is invertible). Section 2.1 of these <a
+      href="https://web.mit.edu/2.14/www/Handouts/StateSpaceResponse.pdf">MIT 2.14
+      notes</a> has a nice presentation of the derivation.</p>
+      
+      <details>
+        <summary>Click to expand to see the solution when $\bu(t)$ is a polynomial
+        and/or $\bA$ is not invertible.</summary>
+
+        <p>More generally, when $\bA$ is invertible, the solution of $\dot{\bx} = \bA\bx
+        + \bB\bu$ with $\bu(t)$ given by a polynomial of the form $\bu(t) = \sum_{i=0}^k
+        {\bf c}_i t^i$ takes the form: $$\bx(t) = e^{\bA t}(\bx_0 - \bbeta_0) +
+        \sum_{i=0}^k \bbeta_i t^i,$$ where we can solve for $\bbeta_i$ recursively
+        <elib>Tedrake15</elib>. To see this, insert this form of $\bx(t)$ into the
+        dynamics and equate it to the time-derivative of the solution form: $$\dot\bx(t)
+        = \bA \left( e^{\bA t}(\bx_0 - \bbeta_0) + \sum_{i=0}^k \bbeta_i t^i\right) +
+        \bB \sum_{i=0}^k {\bf c}_i t^i = \bA e^{\bA t} (\bx_0 - \bbeta_0) + \sum_{i=1}^k
+        i \bbeta_i t^{i-1}.$$ Matching the polynomial coefficients reveals that
+        \begin{align*} \bA \bbeta _i + \bB {\bf c}_i &= (i+1)\bbeta_{i+1}, & \forall i
+        \in [0, k-1], \\ \bA \bbeta_k + \bB {\bf c}_k &= 0.\end{align*}</p>
+
+        <p>When $\bA$ is not invertible, the solution is defined by the
+        power series: $$\bx(t) = e^{\bA t}\bx_0 + \sum_{i=0}^k
+        \left(\frac{t^{i+1}}{i+1}{\bf I} + \frac{t^{i+2}}{i+2}\bA  +
+        \frac{t^{i+3}}{2!(i+3)} \bA^2 + ...\right)\bB {\bf c}_i.$$ This is not as
+        immediately useful for transcription into an optimization, except in some cases
+        where $\bA^n$ converges to zero in small $n$ (as in the double integrator example
+        below). Instead, we can use a numerical integration approximation; for many
+        choices of integration scheme, the optimization is still convex in the trajectory
+        parameters.
+        </p>  
+
+        <todo>The example counter doesn't increment when the details are closed.</todo>
+        <example><h1>Exact solutions to the double integrator</h1>
+
+          <p>As a sanity check, let's make sure these equations work out as expected for
+          the double integrator. $$\dot{\bx} = \bA\bx + \bB\bu; \quad \bA =
+          \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}, \bB = \begin{bmatrix}0 \\ 1
+          \end{bmatrix}.$$ Here we have $\bA^2 = 0$, and so $e^{\bA t} = \begin{bmatrix} 1
+          & t \\ 0 & 1 \end{bmatrix}$. $u(t)$, and therefore $c_i$ are scalars. All of
+          this reduces the solution to: $$\bx(t) = \begin{bmatrix} q_0 + t\dot{q}_0 \\ \dot{q}_0 \end{bmatrix} + \sum_{i=0}^k
+          \left(\frac{t^{i+1}}{i+1}\begin{bmatrix} 0 \\ c_i \end{bmatrix} +
+          \frac{t^{i+2}}{i+2}\begin{bmatrix} c_i \\ 0 \end{bmatrix}\right).$$</p>
+          
+          <p>For example, the bang-bang solution when $\bu = 1$, is is $$\bx(t) =
+          \begin{bmatrix} 1 & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} q_0 \\ \dot{q}_0
+          \end{bmatrix} + t\begin{bmatrix} 0 \\ 1 \end{bmatrix} + \frac{t^2}{2}
+          \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} q_0 + t\dot{q}_0 +
+          \frac{1}{2}t^2 \\ \dot{q}_0 + t \end{bmatrix}.$$</p>
+        </example>
+      </details>
+
+    </subsection>
+
+  </section>
+
+  <section><h1>Nonconvex Trajectory Optimization</h1>
+
+    <p>I strongly recommend that you study the convex trajectory optimization case; it
+    can lead you to mental clarity and sense of purpose.  But in practice trajectory
+    optimization is often used to solve nonconvex problems. Our formulation can become
+    nonconvex for a number of reasons.  For example, if the dynamics are nonlinear, then
+    the dynamic constraints become nonconvex.  You may also wish to have a nonconvex
+    objective or additional nonconvex constraints (e.g. collision avoidance). Typically
+    we formulate these problems using tools from <a
+    href="optimization.html#nonlinear">nonlinear programming</a>.</p>
+
+    <subsection><h1>Direct Transcription and Direct Shooting</h1>
+
+      <p>The formulations that we wrote for direct transcription and direct
+      shooting above are still valid when the dynamics are nonlinear, it's just
+      that the resulting problem is nonconvex.  For instance, the direct
+      transcription for discrete-time systems becomes the more general:
+      \begin{align*} \min_{\bx[\cdot],\bu[\cdot]} \quad & \ell_f(\bx[N]) +
+      \sum_{n=0}^{N-1} \ell(\bx[n],\bu[n]) \\ \subjto \quad & \bx[n+1] = {\bf
+      f}(\bx[n], \bu[n]), \quad \forall n\in[0, N-1] \\ & \bx[0] = \bx_0 \\ & +
+      \text{additional constraints}. \end{align*}  Direct shooting still works,
+      too, since on each iteration of the algorithm we can compute $\bx[n]$
+      given $\bx[0]$ and $\bu[\cdot]$ by forward simulation.  But things get a
+      bit more interesting when we consider continuous-time systems.</p>
+
+      <p>For nonlinear dynamics, we have many choices for how to approximate
+      the discrete dynamics $$\bx[n+1] = \bx[n] + \int_{t[n]}^{t[n+1]}
+      f(\bx(t), \bu(t)) dt, \quad \bx(t[n]) = \bx[n].$$  For instance, in
+      <drake></drake> we have an entire <a
+      href="https://drake.mit.edu/doxygen_cxx/group__integrators.html">suite of
+      numerical integrators</a> that achieve different levels of simulation
+      speed and/or accuracy, both of which can be highly dependent on the
+      details of ${\bf f}(\bx,\bu)$.</p>
+
+      <todo>Finish supporting IntegratorBase in DirectTranscription and write an
+      example showing how to use it here.</todo>
+
+      <p>One very important idea in numerical integration of differential
+      equations is the use of variable-step integration as a means for
+      controlling integration error.  <a
+      href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#Adaptive_Runge%E2%80%93Kutta_methods">Runge-Kutta-Fehlberg</a>,
+      also known as "RK45", is one of the most famous variable-step
+      integrators.  We typically avoid using variable steps inside a constraint
+      (it can lead to discontinuous gradients), but it is possible to
+      accomplish something similar in trajectory optimization by allowing the
+      sample times, $t[\cdot]$, themselves to be decision variables.  This
+      allows the optimizer to stretch or shrink the time intervals in order to
+      solve the problem, and is particularly useful if you do not know apriori
+      what the total duration of the trajectory should be.  Adding some
+      constraints to these time variables is essential in order to avoid
+      trivial solutions (like collapsing to a trajectory of zero duration). One
+      could potentially even add constraints to bound the integration
+      error.</p>
+
+    </subsection> <!-- end dirtran -->
+
+    <subsection id="direct_collocation"><h1>Direct Collocation</h1>
+
+      <p>It is very satisfying to have a suite of numerical integration routines
+      available for our direct transcription.  But numerical integrators are
+      designed to solve forward in time, and this represents a design constraint
+      that we don't actually have in our direct transcription formulation.  If
+      our goal is to obtain an accurate solution to the differential equation
+      with a small number of function evaluations / decision variables /
+      constraints, then some new formulations are possible that take advantage
+      of the constrained optimization formulation.  These include the
+      so-called <em>collocation methods</em>.</p>
+
+      <p> In direct collocation (c.f., <elib>Hargraves87</elib>), both the
+      input trajectory and the state trajectory are represented explicitly as
+      piecewise-polynomial functions.  In particular, the sweet spot for this
+      algorithm is taking $\bu(t)$ to be a first-order polynomial and $\bx(t)$
+      to be a cubic polynomial.</p>
+
+      <p>It turns out that in this sweet spot, the only decision variables we
+      need in our optimization are the sample values $\bu(t)$ and $\bx(t)$ at
+      the so called "break" points of the spline.  You might think that you
+      would need the coefficients of the cubic spline parameters, but you do
+      not.  For the first-order interpolation on $\bu(t)$, given $\bu(t_k)$ and
+      $\bu(t_{k+1})$, we can solve for every value $\bu(t)$ over the interval
+      $t \in [t_k, t_{k+1}]$.  But we also have everything that we need for the cubic
+      spline: given $\bx(t_k)$ and $\bu(t_k),$ we can compute $\dot\bx(t_k) = f
+      (\bx(t_k), \bu(t_k))$; and the four values $\bx(t_k), \bx(t_{k+1}),
+      \dot\bx (t_k), \dot\bx(t_{k+1})$ completely define all of the parameters
+      of the cubic spline over the interval $t\in[t_k, t_{k+1}]$.  This is very
+      convenient, because it is very natural to write constraints on 
+      $\bu$ and $\bx$ at the sample points (and would have been relatively
+      harder to have to convert every constraint into constraints on the spline
+      coefficients).</p>
+
+      <figure>
+        <img width="80%" src="data/collocation.svg">
+        <figcaption>Cubic spline parameters used in the direct collocation method.</figcaption>
+      </figure>
+
+      <p>Given the dynamics and the values of the decision variables ($\bu(t_k)$ and
+      $\bx(t_k)$ at the break points), the spline is fully specified, but we need
+      dim$(\bx)$ additional constraints to constrain that $\bx(t_{k+1})$ is
+      (approximately) $\bx(t_k) + \int_{t_k}^{t_{k+1}} f(\bx(t),\bu(t)) dt.$ In direct
+      collocation, we impose this with derivative constraints at the so-called
+      <i>collocation points</i>.  In particular, if we choose the collocation times to
+      be the midpoints of the spline, then we have that \begin{gather*} t_{c,k} =
+      \frac{1}{2}\left(t_k + t_{k+1}\right), \qquad h_k = t_{k+1} - t_k, \\ \bu(t_{c,k})
+      = \frac{1}{2}\left(\bu(t_k) + \bu(t_{k+1})\right), \\ \bx(t_{c,k}) =
+      \frac{1}{2}\left(\bx(t_k) + \bx(t_{k+1})\right) + \frac{h}{8} \left(\dot\bx(t_k) -
+      \dot\bx(t_{k+1})\right), \\ \dot\bx(t_{c,k}) = -\frac{3}{2h}\left(\bx(t_k) -
+      \bx(t_{k+1})\right) - \frac{1}{4} \left(\dot\bx(t_k) + \dot\bx(t_{k+1})\right).
+      \end{gather*} These equations come directly from the equations that fit the cubic
+      spline to the end points/derivatives then interpolate them at the midpoint.  They
+      give us precisely what we need to add the dynamics constraint to our optimization
+      at the collocation times:\begin{align*} \min_{\bx[\cdot],\bu[\cdot]} \quad &
+      \ell_f(\bx[N]) + \sum_{n=0}^{N-1} h_n \ell(\bx[n],\bu[n]) \\ \subjto \quad &
+      \dot\bx(t_{c,n}) = f(\bx(t_{c,n}), \bu(t_{c,n})), & \forall n \in [0,N-1]  \\ &
+      \bx[0] = \bx_0 \\ & + \text{additional constraints}. \end{align*}  I hope this
+      notation is clear -- I'm using $\bx[k] = \bx(t_k)$ as the decision variables, and
+      the collocation constraint at $t_{c,k}$ depends on the decision variables:
+      $\bx[k], \bx[k+1], \bu[k], \bu[k+1]$. The actual equations of motion get evaluated
+      at both the break points, $t_k$, and the collocation times, $t_{c,k}$, because we
+      need to evaluate the dynamics at the break points in order to write
+      $\dot{\bx}(t_{c,k}).$</p>
+
+      <p>Once again, direct collocation effectively integrates the equations of
+      motion by satisfying the constraints of the optimization -- this time
+      producing an integration of the dynamics that is accurate to third order
+      with effectively two evaluations of the plant dynamics per segment (since
+      we use $\dot\bx(t_k)$ for two intervals). <elib>Hargraves87</elib>
+      claims, without proof, that as the break points are brought closer
+      together, the trajectory will converge to a true solution of the
+      differential equation. Once again it is very natural to add additional
+      terms to the cost function or additional input/state constraints, and
+      very easy to calculate the gradients of the objective and constraints.
+      I personally find it very nice to explicitly account for the parametric
+      encoding of the trajectory in the solution technique.</p>
+
+      <example id="swingup"><h1>Direct Collocation for the Pendulum, Acrobot,
+      and Cart-Pole</h1>
+
+        <figure>
+          <img width="80%" src="data/pend_trajopt_swingup.svg">
+          <figcaption>A swing-up trajectory for the simple pendulum (with
+          severe torque limits) optimized using direct
+          collocation.</figcaption>
+        </figure>
+
+        <p>Direct collocation also easily solves the swing-up problem for
+        the pendulum, Acrobot, and cart-pole system.  Try it for
+        yourself:</p>
+
+        <script>document.write(notebook_link('trajopt', "dircol"))</script>
+
+        As always, make sure you take a look at the code!
+      </example>
+
+    </subsection> <!-- end dircol -->
+
+    <subsection id="pseudo-spectral"><h1>Pseudo-spectral Methods</h1>
+
+      <p>The direct collocation method of <elib>Hargraves87</elib> was our first example
+      of explicitly representing the solution of the optimal control problem as a
+      parameterized trajectory, and adding constraints to the derivatives at a series of
+      collocation times.  In the algorithm above, the representation of choice was
+      <i>piecewise-polynomials</i>, e.g. cubic spines, and the trajectory values at the
+      break points were the decision variables. A closely related approach, often
+      called "pseudo-spectral" optimal control, uses the same collocation idea, but
+      represents the trajectories instead using a linear combination of <i>global,
+      polynomial</i> basis functions. These methods use typically much higher-degree
+      polynomials, but can leverage clever parameterizations to write sparse collocation
+      objectives and to select the collocation times <elib>Garg11+Ross12a</elib>.
+      Interestingly, the continuously-differentiable nature of the representation of
+      these methods has led to comparatively more theorems and analysis than we have
+      seen for other direct trajectory optimization methods <elib>Ross12a</elib> -- but
+      despite some of the language used in these articles please remember they are still
+      local optimization methods trying to solve a nonconvex optimization problem.
+      While the direct collocation method above might be expected to converge to the
+      true optimal solution by adding more segments to the piecewise polynomial (and
+      having each segment represent a smaller interval of time), here we expect
+      convergence to happen as we increase the degree of the polynomials.</p>
+
+      <p>The pseudo-spectral methods are also sometimes knowns as "orthogonal
+      collocation" because the $N$ basis polynomials, $\phi_j(t)$, are chosen
+      so that at the $j$th collocation time $t_j$, we have $$\phi_i(t_j) =
+      \begin{cases} 1 & i=j, \\ 0 & \text{otherwise.}\end{cases}$$  This can be
+      accomplished by using the Lagrange polynomials, $$\phi_i(t) = \prod_{j=0,
+      j\ne i}^{N} \frac{t-t_j}{t_i - t_j}.$$  Note that for both numerical
+      reasons and for analysis, time is traditionally rescaled from the
+      interval $[t_0, t_f]$ to $[-1, 1]$.  Collocation times are chosen based
+      on small variations of
+      <a href="https://en.wikipedia.org/wiki/Gaussian_quadrature"></a>Gaussian
+      quadrature</a>, known as the "Gauss-Lobatto" which includes collocation
+      times at $t=-1$ and $t=1$.</p>
+
+      <p>Interestingly, a number of papers have also considered
+      infinite-horizon pseudo-spectral optimization by the nonlinear rescaling
+      of the time interval $t\in[0, \infty)$ to the half-open interval
+      $\tau\in[-1, 1)$ via $\tau = \frac{t-1}{t+1}$
+      <elib>Garg11+Ross12a</elib>.  In this case, one chooses the collocation
+      times so that they include $\tau = -1$ but do not include $\tau=1$, using
+      the so-called "Gauss-Radau" points
+      <elib>Garg11</elib>.</p>
+
+      <todo>Add an example.  Acrobot swingup?</todo>
+
+      <subsubsection><h1>Dynamic constraints in implicit form</h1>
+
+        <p>There is another, seemingly subtle but potentially important,
+        opportunity that can be exploited in a few of these transcriptions, if
+        our main interest is in optimizing systems with significant multibody
+        dynamics.  In some cases, we can actually write the dynamics constraints
+        directly in their implicit form.  We've <a
+        href="lyapunov.html#implicit">introduced this idea already</a> in the
+        context of Lyapunov analysis.  In many cases, it is nicer or more
+        efficient to obtain the equations of motion in an implicit form, ${\bf
+        g}(\bx,\bu,\dot\bx) = 0$, and to avoid ever having to solve for the
+        explicit form $\dot\bx = {\bf f}(\bx,\bu).$  This can become even more
+        important when we consider systems for which the explicit form doesn't
+        have a unique solution -- we will see examples of this when we study
+        trajectory optimization through contact because the Coulomb model for
+        friction actually results in a differential inclusion instead of a
+        differential equation.</p>
+
+        <p>The collocation methods, which operate on the dynamic constraints at
+        collocation points directly in their continuous form, can use the
+        implicit form directly.  It is possible to write a time-stepping
+        (discrete-time approximation) for direct transcription using implicit
+        integrators -- again providing constraints in implicit form.  The
+        implicit form is harder to exploit in the shooting methods.</p>
+
+        <todo>There should really be better versions of direct transcription and
+        the collocation methods that are specialized for second-order systems.
+        We should only have $\bq$ as a decision variable, and be able to impose
+        the dynamics only on the second derivatives (the first derivatives are
+        consistent by construction).  This is one of the main talking points in
+        DMOC, even though the emphasis is on the discrete mechanics.</todo>
+
+      </subsubsection>
+
+    </subsection>
+
+  </section>
+
+  <section><h1>Solution techniques</h1>
+
+    <p>The different transcriptions presented above represent different ways to
+    map the (potentially continuous-time) optimal control problem into a finite
+    set of decision variables, objectives, and constraints.  But even once that
+    choice is made, there are numerous approaches to solving this optimization
+    problem.  Any general approach to <a
+    href="optimization.html#nonlinear">nonlinear programming</a>
+    can be applied here; in the python examples we've included so far, the
+    problems are handed directly to the sequential-quadratic programming (SQP)
+    solver SNOPT, or to the interior-point solver IPOPT.</p>
+
+    <p>There is also quite a bit of exploitable problem-specific structure in
+    these trajectory optimization problems due to the sequential nature of the
+    problem. As a result, there are some ideas that are fairly specific to the
+    trajectory optimization formulation of optimal control, and customized
+    solvers can often (and sometimes dramatically) outperform general purpose
+    solvers.</p>
+
+    <p>This trajectory-optimization structure is easiest to discuss, and
+    implement, in unconstrained formulations, so we will start there.</p>
+
+    <subsection><h1>Efficiently computing gradients</h1>
+
+      <p>Providing gradients of the objectives and constraints to the solver is
+      not strictly required -- most solvers will obtain them from finite
+      differences if they are not provided -- but I feel strongly that for
+      smooth problems the solvers are faster and more robust when exact
+      gradients are provided (systems that make and break contact might be a
+      different story<elib>Suh22b</elib>). Providing the gradients for the
+      direct transcription methods is very straight-forward -- we simply
+      provide the gradients for each constraint individually.  But in the
+      direct shooting approach, where we have removed the $\bx$ decision
+      variables from the program but still write objectives and constraints in
+      terms of $\bx$, it would become very inefficient to compute the gradients
+      of each objective/constraint independently.  We need to leverage the
+      chain rule.</p>
+
+      <p>To be concise (and slightly more general),   let us define
+      $\bx[n+1]=f_d(\bx[n],\bu[n])$ as the discrete-time approximation of the
+      continuous dynamics; for example, the forward Euler integration scheme
+      used above would give $f_d(\bx[n],\bu[n]) = \bx[n]+f(\bx[n],\bu[n])dt.$
+      Then we have \[\pd{J}{\bu_k} = \pd{\ell_f(\bx[N])}{\bu_k} +
+      \sum_{n=0}^{N-1} \left(\pd{\ell(\bx[n],\bu[n])}{\bx[n]}
+      \pd{\bx[n]}{\bu_k} + \pd{\ell(\bx[n],\bu[n])}{\bu_k} \right), \]   where
+      the gradient of the state with respect to the inputs can be computed
+      during the "forward simulation",   \[ \pd{\bx[n+1]}{\bu_k} =
+      \pd{f_d(\bx[n],\bu[n])}{\bx[n]} \pd{\bx[n]}{\bu_k} +
+      \pd{f_d(\bx[n],\bu[n])}{\bu_k}.  \]   These simulation gradients can also
+      be used in the chain rule to provide the gradients of any constraints.
+      Note that there are a lot of terms to keep around here, on the order of
+      (state dim) $\times$ (control dim) $\times$ (number of time steps).
+      Ouch.  Note also that many of these terms are zero; for instance with the
+      Euler integration scheme above $\pd{\bu[n]}{\bu_k} = 0$ if $k\ne n$.  (If
+      this looks like I'm mixing two notations here, recall that I'm using
+      $\bu_k$ to represent the decision variable and $\bu[n]$ to represent the
+      input used in the $n$th step of the simulation.)</p>
+
+    </subsection>  <!-- gradients -->
+
+    <subsection id="backprop_through_time">
+      <h1>The special case of direct shooting without state constraints</h1>
+
+      <p>By solving for $\bx(\cdot)$ ourselves, we've removed a large number of
+      constraints from the optimization.  If no additional state constraints
+      are present, and the only gradients we need to compute are the gradients
+      of the objective, then a surprisingly efficient algorithm emerges.  I'll
+      give the steps here without derivation, but will derive it in the
+      Pontryagin section below: <ol> <li>Simulate forward: $$\bx[n+1] =
+      f_d(\bx[n],\bu_n),$$ from  $\bx[0] = \bx_0$.</li>
+      <li>Calculate backwards: $$\lambda[n-1] =
+      \pd{\ell(\bx[n],\bu[n])}{\bx[n]}^T + \pd{f(\bx[n],\bu[n])}{\bx[n]}^T
+      \lambda[n],$$ from $\lambda[N-1]=\pd{\ell_f(\bx[N])}{\bx[N]}$.</li>
+      <li>Extract the gradients: $$\pd{J}{\bu[n]} =
+      \pd{\ell(\bx[n],\bu[n])}{\bu[n]} + \lambda[n]^T
+      \pd{f(\bx[n],\bu[n])}{\bu[n]},$$ with $\pd{J}{\bu_k} = \sum_n
+      \pd{J}{\bu[n]}\pd{\bu[n]}{\bu_k}$.</li> </ol> <p>Here $\lambda[n]$ is a
+      vector the same size as $\bx[n]$ which has an interpretation as
+      $\lambda[n]=\pd{J}{\bx[n+1]}^T$.  The equation governing $\lambda$ is
+      known as the <em>adjoint equation</em>, and it represents a dramatic
+      efficiency improvement over calculating the huge number of simulation
+      gradients described above. In case you are interested, yes the adjoint
+      equation is exactly the <em>backpropagation algorithm</em> that is famous
+      in the neural networks literature, or more generally a bespoke version of
+      reverse-mode <a
+      href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic
+      differentiation</a>. (The previous section would correspond to
+      forward-mode automatic differentiation.)</p>
+
+    </subsection>
+
+    <subsection><h1>Penalty methods and the Augmented Lagrangian</h1>
+
+      <p>In fact, in recent years we have seen a surge in popularity in
+      robotics for doing trajectory optimization using (often special-purpose)
+      solvers for unconstrained trajectory optimization, where the constrained
+      problems are transformed into unconstrained problem via penalty
+      methods.</p>  
+      
+      <p>Manually adding penalty terms to the cost function with user-specified
+      cost weighting can be nasty business. Often this generates a significant
+      amount of effort in "cost function tuning"; setting the weights too large
+      can cause the problems to become numerically ill-conditioned, but setting
+      them too small can allow unwanted constraint violations. The <a
+      href="https://en.wikipedia.org/wiki/Augmented_Lagrangian_method"><i>augmented
+      Lagrangian</i></a> approach offers a principled solution to this problem,
+      by automatically scheduling the weights in order to achieve "essentially
+      exact" satisfaction of the constraints with finite penalties
+      <elib>Bertsekas82</elib>, <elib part="Ch. 17">Nocedal06</elib>.</p>
+      
+      <p>Methods based on the augmented Lagrangian are particularly popular for
+      trajectory optimization these days <elib>Lin91+Toussaint14</elib>.</p>
+  
+    </subsection>
+
+    <subsection><h1>Zero-order optimization</h1>
+    
+      <p>Cross-entropy method (CEM) <elib>Kobilarov12</elib> and
+      Model-predictive path-integral control (MPPI)
+      <elib>Williams17</elib>.</p>
+
+      <p>In the last few years, we've seen trajectory optimization playing a
+      major role in "model-based reinforcement learning", especially when the
+      model is represented using a deep neural network (e.g.
+      <elib>Li18+Li18a</elib>). Despite the fact that neural network toolboxes
+      can provide efficient gradients, the gradient-free trajectory
+      optimization methods described here normally the tool of choice. There
+      are a few possible explanations for this. The trajectory optimization
+      problem has local minima, and the zero-order optimizers do provide some
+      aspect of "global optimization" (at least they tend to explore multiple
+      possible minima before converging). Neural network models fit with
+      limited data may even have more local minima than if one used the
+      original physics model -- the standard regression loss could be small
+      even if the neural representation of the function is locally
+      bumpy/non-smooth.  But I think the biggest reason for the popularity of
+      the zero-order methods is that they are trivially parallelizable, and
+      very nicely compatible with the existing GPU neural-network workflows.
+      When rolling out 10,000 samples in parallel costs approximately the same
+      as rolling out 1, then this certainly makes the zero-order methods more
+      appealing.</p>
+
+    </subsection>
+
+    <subsection><h1>Getting good solutions... in practice.</h1>
+
+      <p>As you begin to play with these algorithms on your own problems, you
+      might feel like you're on an emotional roller-coaster.  You will have
+      moments of incredible happiness -- the solver may find very impressive
+      solutions to highly nontrivial problems.  But you will also have moments
+      of frustration, where the solver returns an awful solution, or simply
+      refuses to return a solution (saying "infeasible").  The frustrating
+      thing is, you cannot distinguish between a problem that is actually
+      infeasible, vs. the case where the solver was simply stuck in a local
+      minima.</p>
+
+      <p>So the next phase of your journey is to start trying to "help" the
+      solver along.  There are two common approaches.</p>
+
+      <p>The first is tuning your cost function -- some people spend a lot of
+      time adding new elements to the objective or adjusting the relative
+      weight of the different components of the objective.  This is a slippery
+      slope, and I tend to try to avoid it (possibly to a fault; other groups
+      tend to put out more compelling videos!).</p>
+
+      <p>The second approach is to give a better initial guess to your solver
+      to put it in the vicinity of the "right" local minimal.  I find this
+      approach more satisfying, because for most problems I think there really
+      is a "correct" formulation for the objective and constraints, and we
+      should just aim to find the optimal solution.  Once again, we do see a
+      difference here between the direct shooting algorithms and the direct
+      transcription / collocation algorithms.  For shooting, we can only
+      provide the solver with an initial guess for $\bu(\cdot)$, whereas the
+      other methods allow us to also specify an initial guess for $\bx(\cdot)$
+      directly.  I find that this can help substantially, even with very simple
+      initializations.  In the direct collocation examples for the swing-up
+      problem of the Acrobot and cart-pole, simply providing the initial guess
+      for $\bx(\cdot)$ as a straight line trajectory between the start and the
+      goal was enough to help the solver find a good solution; in fact it was
+      necessary.</p>
+
+      <p>I'm old enough now, though, that I've tired of playing games with finicky
+      solvers that require hand-holding. In recent work, my group has been working on
+      more robust "global" solutions to the motion planning problem, based on an idea
+      call Graphs of Convex Sets (GCS) <elib>Marcucci21</elib>. The initial
+      transcriptions of motion planning into GCS were focused on kinematic trajectory
+      optimization (as needed in robotic manipulation) <elib>Marcucci23a</elib>, but we
+      are growing the capability towards dynamic (underactuated) trajectory
+      optimization. <a href="https://manipulation.mit.edu/trajectories.html#gcs">You can
+      read more about here</a>. </p>
+
+    </subsection>
+
+    <!-- maybe: relaxing dynamic constraints (as in the formulation n Ross and
+    Karpenko, 2012 between eq 16 and 17) -->
+
+  </section> <!-- end three algorithms -->
+
+  <section><h1>Local Trajectory Feedback Design</h1>
+
+    <p>Once we have obtained a locally optimal trajectory from trajectory
+    optimization, we have found an open-loop trajectory that (at least locally)
+    minimizes our optimal control cost.  Up to numerical tolerances, this pair
+    $\bu_0(t), \bx_0(t)$ represents a feasible solution trajectory of the
+    system.  But we haven't done anything, yet, to ensure that this trajectory
+    is locally stable.</p>
+
+    <p>In fact, there are a few notable approximations that we've already made
+    to get to this point: the integration accuracy of our trajectory
+    optimization tends to be much less than the accuracy used during forward
+    simulation (we tend to take bigger time steps during optimization to avoid
+    adding too many decision variables), and the default convergence tolerance
+    from the optimization toolboxes tend to satisfy the dynamic constraints
+    only to around $10^{-6}$.  As a result, if you were to simulate the
+    optimized control trajectory directly <i>even from the exact initial
+    conditions</i> used in / obtained from trajectory optimization, you might
+    find that the state trajectory diverges from your planned trajectory.</p>
+
+    <p>There are a number of things we can do about this.  It is possible to
+    evaluate the local stability of the trajectory during the trajectory
+    optimization, and add a cost or constraint that rewards open-loop stability
+    (e.g. <elib>Mombaur05+Johnson16</elib>).  This can be very effective
+    (though it does tend to be expensive).  But open-loop stability is a quite
+    restrictive notion.  A potentially more generally useful approach is to
+    design a feedback controller to regulate the system back to the planned
+    trajectory.</p>
+
+    <subsection><h1>Finite-horizon LQR</h1>
+
+      <p>We have already developed one approach for <a
+      href="lqr.html#finite_horizon_nonlinear">trajectory stabilization in the
+      LQR chapter</a>.  This is one of my favorite approaches to trajectory
+      feedback, because it provides a (numerically) closed-form solution for
+      the controller, $\bK(t),$ and even comes with a time-varying quadratic
+      cost-to-go function, $S(t),$ that can be used for Lyapunov analysis.</p>
+
+      <p>The basic procedure is to create a time-varying linearization along
+      the trajectory in the error coordinates:  $\bar\bx(t) = \bx(t) -
+      \bx_0(t)$, $\bar\bu(t) = \bu(t)-\bu_0(t)$, and $\dot{\bar{\bx}}(t) = {\bf A}(t)\bar\bx(t) + {\bf B}(t)\bar\bu(t).$  This linearization uses
+      all of the same gradients of the dynamics that we have been using in our
+      trajectory optimization algorithms.  Once we have the time-varying
+      linearization, then we can apply finite-horizon LQR (see the <a
+      href="lqr.html#finite_horizon_nonlinear">LQR chapter</a>
+      for the details).</p>
+
+      <p>A major virtue of this approach is that we can proceed immediately to
+      verifying the performance of the closed-loop system under the LQR policy.
+      Specifically, we can apply the finite-time reachability analysis to
+      obtain "funnels" that certify a desired notion of invariance --
+      guaranteeing that trajectories which start near the planned trajectory
+      will stay near the planned trajectory.  Please see the <a
+      href="lyapunov.html#finite-time">finite-time reachability analysis</a>
+      section for those details.  We will put all of these ideas together in
+      the perching case-study below.</p>
+
+    </subsection>
+
+    <subsection><h1>Model-Predictive Control</h1>
+
+      <p>The maturity, robustness, and speed of solving trajectory optimization
+      using convex optimization leads to a beautiful idea: if we can optimize
+      trajectories quickly enough, then we can use our trajectory optimization
+      as a feedback policy.  The recipe is simple: (1) measure the current
+      state, (2) optimize a trajectory from the current state, (3) execute the
+      first action from the optimized trajectory, (4) let the dynamics evolve
+      for one step and repeat.  This recipe is known as <i>model-predictive
+      control</i> (MPC). </p>
+
+      <p>Despite the very computational nature of this controller (there is no
+      closed-form representation of this policy; it is represented only
+      implicitly as the solution of the optimization), there is a bounty of
+      theoretical and algorithmic results on MPC
+      <elib>Garcia89+Camacho13</elib>.  The theoretical and practical aspects of Linear MPC are so well
+      understood today that it is considered the de-facto generalization of LQR
+      for controlling a linear system subject to (linear) constraints.  And there are a few core ideas that
+      practitioners should really understand.</p>
+
+      <subsubsection><h1>Receding-horizon MPC</h1>
+      
+        <p>One core idea is the concept of <i>receding-horizon</i> MPC. Since
+        our trajectory optimization problems are formulated over a
+        finite-horizon, we can think each optimization as reasoning about the
+        next $N$ time steps. If our true objective is to optimize the
+        performance over a horizon longer than $N$ (e.g. over the infinite
+        horizon), then it is standard to continue solving for an $N$ step
+        horizon on each evaluation of the controller.  In this sense, the total
+        horizon under consideration continues to move forward in time (e.g. to
+        recede).</p>
+
+      </subsubsection>
+
+      <subsubsection><h1>Recursive feasibility</h1>
+
+        <p>Some care must be taken in receding-horizon formulations because on
+        each new step we are introducing new costs and constraints into the
+        problem (the ones that would have been associated with time $N+1$ on
+        the previous solve) -- it would be very bad to march forward in time
+        solving convex optimization problems only to suddenly encounter a
+        situation where the solver returns "infeasible!".  One can design MPC
+        formulations that guarantee <i>recursive feasibility</i> -- e.g.
+        guarantee that if a feasible solution is found at time $n$, then the
+        solver will also find a feasible solution at time $n+1$.</p>
+
+        <p>Perhaps the simplest mechanism for guaranteeing recursive
+        feasibility in an optimization for stabilizing a fixed point, $(\bx^*,
+        \bu^*)$, is to add a final-value constraint to the receding horizon,
+        $\bx[N] = \bx^*$. This idea is simple but important. Considering the
+        trajectories/constraints in absolute time, then on step $k$ of the
+        algorithm, we are optimizing for $\bx[k], ... , \bx[k+N],$ and $\bu[k],
+        ..., \bu[k+N-1]$; let us say that we have found a feasible solution for
+        this problem. The danger in receding-horizon control is that when we
+        shift to the next step ($k+1$) we introduce constraints on the system
+        at $\bx[k+N+1]$ for the first time.  But if our feasible solution in
+        step $k$ had $\bx[k+N] = \bx^*$, then we know that setting $\bx[k+N+1]
+        = \bx^*, \bu[k+N] = \bu^*$ is guaranteed to provide a feasible solution
+        to the new optimization problem in step $k+1$.  With feasibility
+        guaranteed, the solver is free to search for a lower-cost solution
+        (which may be available now because we've shifted the final-value
+        constraint further into the future). It is also possible to formulate
+        MPC problems that guarantee recursive feasibility even in the presence
+        of modeling errors and disturbances (c.f. <elib>Bemporad99</elib>).</p>
+
+      </subsubsection>
+
+      <subsubsection><h1>MPC and Lyapunov functions</h1>
+
+        <p>Even though the MPC policy is only defined implicitly as the result
+        of an optimization problem, it is still possible to make Lyapunov
+        stability arguments.  If, in the receding-horizon MPC setting, in
+        addition to recursive feasibility (of the <i>constraints</i>) we have
+        the property that the <i>cost</i> added at step $k+N+1$ is less than or
+        equal to the cost removed corresponding to step $k$. Then the optimal
+        cost, $J(\bx,k)$, of the trajectory optimization is a Lyapunov
+        function:  $$\forall \bx, k, \quad J^*({\bf f}(\bx, \bu^*), k+1) \le
+        J^*(\bx, k).$$  Once again, a particularly simple way to achieve this
+        is to have a final-value constraint at the $N$th step of every
+        optimization, which gets me to an equilibrium configuration with zero
+        cost. But, again, there are ways to extend this Lyapunov argument even
+        in the presence of modeling errors and disturbances (c.f.
+        <elib>Bemporad99</elib>).</p>
+        
+        <p>Unlike the nice explicit time-varying quadratic Lyapunov functions
+        that we get from finite-horizon LQR, this Lyapunov function in general
+        does not admit a compact representation (this is the object of study in
+        <a href="#explicit_mpc">explicit MPC</a>), and is more difficult to use
+        with e.g. sums-of-squares optimization.</p>
+
+      </subsubsection>
+
+    </subsection>
+
+  </section> <!-- end feedback design -->
+
+  <section id="perching"><h1>Case Study: A glider that can land on a perch
+    like a bird</h1>
+
+    <p>From 2008 til 2014, my group conducted a series of increasingly
+    sophisticated investigations
+    <elib>Cory08+Roberts09+Cory10a+Moore11a+Moore12+Moore14b</elib> which asked
+    the question: can a fixed-wing UAV land on a perch like a bird?</p>
+
+    <figure>
+      <img width="80%" src="figures/perch-sequence.jpg">
+      <figcaption>Basic setup for the glider landing on a perch.</figcaption>
+    </figure>
+
+    <p>At the outset, this was a daunting task.  When birds land on a perch,
+    they pitch up and expose their wings to an "angle-of-attack" that far
+    exceeds the typical flight envelope.  Airplanes traditionally work hard to
+    avoid this regime because it leads to aerodynamic "stall" -- a sudden loss
+    of lift after the airflow separates from the wing.  But this loss of lift is
+    also accompanied by a significant increase in drag, and birds exploit this
+    when they rapidly decelerate to land on a perch.  Post-stall aerodynamics
+    are a challenge for control because (1) the aerodynamics are time-varying
+    (characterized by periodic vortex shedding) and nonlinear, (2) it is much
+    harder to build accurate models of this flight regime, at least in a wind
+    tunnel, and (3) stall implies a loss of attached flow on the wing and
+    therefore on the control surfaces, so a potentially large reduction in
+    control authority.</p>
+
+    <p>We picked the project initially thinking that it would be a nice example
+    for model-free control (like reinforcement learning -- since the models
+    were unknown).  In the end, however, it turned out to be the project that
+    really taught me about the power of model-based trajectory optimization and
+    linear optimal control.  By conducting dynamic system identification
+    experiments in a motion capture environment, we were able to fit both
+    surprisingly simple models (based on flat-plate theory) to the
+    dynamics<elib>Cory08</elib>, and also more accurate models using
+    "neural-network-like" terms to capture the residuals between the model and
+    the data <elib>Moore14b</elib>.  This made model-based control viable, but
+    the dynamics were still complex -- while trajectory optimization should
+    work, I was quite dubious about the potential for regulating to those
+    trajectories with only linear feedback.</p>
+
+    <p>I was wrong. Over and over again, I watched time-varying linear quadratic
+    regulators take highly nontrivial corrective actions -- for instance,
+    dipping down early in the trajectory to gain kinetic energy or tipping up to
+    dump energy out of the system -- in order to land on the perch at the final
+    time. Although the quality of the linear approximation of the dynamics did
+    degrade the farther that we got from the nominal trajectory, the validity of
+    the controller dropped off much less quickly (even as the vector field
+    changed, the direction that the controller needed to push did not). This was
+    also the thinking that got me initially so interested in understanding the
+    regions of attraction of linear control on nonlinear systems.</p>
+
+    <p>In the end, the experiments were very successful.  We started searching
+    for the "simplest" aircraft that we could build that would capture the
+    essential control dynamics, reduce complexity, and still accomplish the
+    task.  We ended up building a series of flat-plate foam gliders (no
+    propeller) with only a single actuator to control the elevator.  We added
+    dihedral to the wings to help the aircraft stay in the longitudinal plane.
+    The simplicity of these aircraft, plus the fact that they could be
+    understood through the lens of quite simple models makes them one of my
+    favorite canonical underactuated systems.</p>
+
+    <figure>
+      <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/syJF8js9aEU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <figcaption>The original perching experiments from <elib>Cory08</elib> in
+      a motion capture arena with a simple rope acting as the perch.  The main
+      videos were shot with high-speed cameras; an entire perching trajectory
+      takes about .8 seconds.</figcaption>
+    </figure>
+
+
+    <subsection><h1>The Flat-Plate Glider Model</h1>
+
+      <figure>
+        <img width="50%" src="figures/glider.svg">
+        <figcaption>The flat-plate glider model.  Note that traditionally
+        aircraft coordinates are chosen so that positive pitch brings the nose
+        up; but this means that positive z is down (to have a right-handed
+        system).  For consistency, I've chosen to stick with the vehicle
+        coordinate system that we use throughout the text -- positive z is up,
+        but positive pitch is down. </figcaption>
+      </figure>
+
+      <p>In our experiments, we found the dynamics of our aircraft
+      <elib>Cory08</elib> were captured very well by the so-called "flat plate
+      model" <elib part="Ch.4, Sec.6">Hoerner85</elib>. In flat plate theory
+      lift and drag forces of a wing are summarized by a single force at the
+      center-of-pressure of the wing acting normal to the wing, with magnitude:
+      $$f_n(S, {\bf n}, \bv) = \rho S \sin\alpha |\bv|^2 = -\rho S ({\bf n}
+      \cdot \bv) |\bv|,$$ where $\rho$ is the density of the air, $S$ is the
+      area of the wing, $\alpha$ is the angle of attack of the surface, ${\bf
+      n}$ is the normal vector of the lifting surface, and $\bv$ is the
+      velocity of the center of pressure relative to the air.  This corresponds
+      to having lift and drag coefficients $$c_{\text{lift}} =
+      2\sin\alpha\cos\alpha, \quad c_{\text{drag}} = 2\sin^2\alpha.$$ In our
+      glider model, we summarize all of the aerodynamic forces by contributions
+      of two lifting surfaces, the wing (including some contribution from the
+      horizontal fuselage) denoted by subscript $w$ and the elevator denoted by
+      subscript $e$, with centers at $\bp_w = [x_w, z_w]^T$ and $\bp_e = [x_e,
+      z_e]^T$ given by the kinematics: $$\bp_w = \bp - l_w\begin{bmatrix}
+      c_\theta \\ -s_\theta \end{bmatrix},\quad \bp_e = \bp - l_h
+      \begin{bmatrix} c_\theta \\ -s_\theta \end{bmatrix} - l_e \begin{bmatrix}
+      c_{\theta+\phi} \\ -s_{\theta+\phi} \end{bmatrix},$$ where the origin of
+      our vehicle coordinate system, $\bp = [x,z]^T$, is chosen to be the
+      center of mass. We assume still air, so $\bv = \dot{\bp}$ for both the
+      wing and the elevator.  We assume that the elevator is massless, and the
+      actuator controls velocity directly (note that this breaks our "control
+      affine" structure, but is more realistic for the tiny hobby servos we
+      were dealing with).  This gives us a total of 7 state variables $\bx =
+      [x, z, \theta, \phi, \dot{x}, \dot{z}, \dot\theta]^T$ and one control
+      input $\bu = \dot\phi.$ The resulting equations of motion are:
+      \begin{gather*} {\bf n}_w = \begin{bmatrix} s_\theta \\ c_\theta
+      \end{bmatrix}, \quad {\bf n}_e = \begin{bmatrix} s_{\theta+\phi} \\
+      c_{\theta+\phi} \end{bmatrix}, \\ f_w = f_n(S_w, {\bf n}_w, \dot\bp_w),
+      \quad f_e = f_n(S_e, {\bf n}_e, \dot\bp_e), \\ \ddot{x} = \frac{1}{m}
+      \left(f_w s_\theta + f_e s_{\theta+\phi} \right), \\ \ddot{z} =
+      \frac{1}{m} \left(f_w c_\theta + f_e c_{\theta+\phi} \right) - g, \\
+      \ddot\theta = \frac{1}{I} \left( l_w f_w + (l_h c_\phi + l_e) f_e
+      \right). \end{gather*}
+      <!-- Note: the inertia term looks suspicious, but is the result of a lot of cancellations in the cross product.  See, for instance, eq. 3.9 in Moore14b -->
+      </p>
+
+    </subsection>
+
+    <subsection><h1>Trajectory optimization</h1>
+
+      <script>document.write(notebook_link('trajopt', "perching"))</script>
+
+    </subsection>
+
+    <subsection><h1>Trajectory stabilization</h1></subsection>
+
+      <figure>
+        <img width="100%" src="figures/perching_lqr.svg">
+        <figcaption>Rollouts with the finite-horizon LQR
+          regulator.</figcaption>
+      </figure>
+
+      <script>document.write(notebook_link('trajopt', "perching"))</script>
+
+      <figure>
+        <img width="100%" src="figures/perching_controllability.svg">
+        <figcaption>Rendering of the inverse of the largest eigenvalue of ${\bf
+        S}(t)$ overlaid on the perching trajectory, demonstrating the regions
+        of poor controllability as the velocity of the vehicle approaches zero
+        <elib>Roberts09</elib>.</figcaption>
+      </figure>
+  
+    <subsection><h1>Trajectory funnels</h1></subsection>
+
+      <figure>
+        <img width="100%" src="figures/perching_funnels_xz_trajs.svg">
+        <figcaption>Finite-time invariant sets for the LQR controller around a
+          perching trajectory (obtained via sums-of-squares
+          optimization).</figcaption>
+        </figure>
+
+    <subsection><h1>Beyond a single trajectory</h1>
+
+    <p>The linear controller around a nominal trajectory was surprisingly
+    effective, but it's not enough.  We'll return to this example again when we
+    talk about "feedback motion planning", in order to discuss how to find a
+    controller that can work for many more initial conditions -- ideally all of
+    the initial conditions of interest for which the aircraft is capable of
+    getting to the goal.</p>
+
+    <todo>Add Joe's perching funnels.</todo>
+
+    </subsection>
+
+  </section>
+
+  <section id="pontryagin"><h1>Pontryagin's Minimum Principle</h1>
+
+    <p>The tools that we've been developing for numerical trajectory
+    optimization are closely tied to theorems from (analytical) optimal control.
+     Let us take one section to appreciate those connections.</p>
+
+    <p>What precisely does it mean for a trajectory, $\bx(\cdot),\bu(\cdot)$, to
+    be locally optimal?  It means that if I were to perturb that trajectory in
+    any way (e.g. change $\bu_3$ by $\epsilon$), then I would either incur
+    higher cost in my objective function or violate a constraint.  For an
+    unconstrained optimization, a <em>necessary condition</em> for local
+    optimality is that the gradient of the objective at the solution be exactly
+    zero.  Of course the gradient can also vanish at local maxima or saddle
+    points, but it certainly must vanish at local minima. We can generalize this
+    argument to constrained optimization using <em>Lagrange multipliers</em>.
+    </p>
+
+    <todo>explain "direct" vs "indirect" methods somewhere in here.</todo>
+
+    <subsection><h1>Lagrange multiplier derivation of the adjoint equations</h1>
+
+      <p>Let us use Lagrange multipliers to derive the necessary conditions for
+      our constrained trajectory optimization problem in discrete time
+      \begin{align*} \min_{\bx[\cdot],\bu[\cdot]} & \ell_f(\bx[N]) +
+      \sum_{n=0}^{N-1} \ell(\bx[n],\bu[n]),\\ \subjto \quad & \bx[n+1] =
+      f_d(\bx[n],\bu[n]). \end{align*} Formulate the Lagrangian,
+      \[L(\bx[\cdot],\bu[\cdot],\lambda[\cdot]) = \ell_f(\bx[N]) +
+      \sum_{n=0}^{N-1} \ell(\bx[n],\bu[n]) + \sum_{n=0}^{N-1} \lambda^T[n]
+      \left(f_d(\bx[n],\bu[n]) - \bx[n+1]\right), \] and set the derivatives to
+      zero to obtain the adjoint equation method described for the shooting
+      algorithm above: \begin{gather*} \forall n\in[0,N-1], \pd{L}{\lambda[n]} =
+      f_d(\bx[n],\bu[n]) - \bx[n+1] = 0 \Rightarrow \bx[n+1] = f(\bx[n],\bu[n])
+      \\ \forall n\in[0,N-1], \pd{L}{\bx[n]} = \pd{\ell(\bx[n],\bu[n])}{\bx} +
+      \lambda^T[n] \pd{f_d(\bx[n],\bu[n])}{\bx} - \lambda^T[n-1] = 0 \\ \quad
+      \Rightarrow \lambda[n-1] = \pd{\ell(\bx[n],\bu[n])}{\bx}^T +
+      \pd{f_d(\bx[n],\bu[n])}{\bx}^T \lambda[n]. \\ \pd{L}{\bx[N]} =
+      \pd{\ell_f}{\bx}^T - \lambda^T[N-1] = 0 \Rightarrow \lambda[N-1] =
+      \pd{\ell_f}{\bx} \\ \forall n\in[0,N-1], \pd{L}{\bu[n]} =
+      \pd{\ell(\bx[n],\bu[n])}{\bu} + \lambda^T[n] \pd{f_d(\bx[n],\bu[n])}{\bu}
+      = 0. \end{gather*} Therefore, if we are given an initial condition $\bx_0$
+      and an input trajectory $\bu[\cdot]$, we can verify that it satisfies the
+      necessary conditions for optimality by simulating the system forward in
+      time to solve for $\bx[\cdot]$, solving the adjoint equation backwards in
+      time to solve for $\lambda[\cdot]$, and verifying that $\pd{L}{\bu[n]} =
+      0$ for all $n$. The fact that $\pd{J}{\bu} = \pd{L}{\bu}$ when
+      $\pd{L}{\bx} = 0$ and $\pd{L}{\lambda} = 0$ follows from some basic
+      results in the calculus of variations.</p>
+
+    </subsection>
+
+    <subsection><h1>Necessary conditions for optimality in continuous time</h1>
+
+      <p>You won't be surprised to hear that these necessary conditions have an
+      analogue in continuous time. I'll state it here without derivation.  Given
+      the initial conditions, $\bx_0$, a continuous dynamics, $\dot\bx =
+      f(\bx,\bu)$, and the instantaneous cost $\ell(\bx,\bu)$, for a trajectory
+      $\bx(\cdot),\bu(\cdot)$ defined over $t\in[t_0,t_f]$  to  be optimal it
+      must satisfy the conditions that \begin{align*} \forall
+      t\in[t_0,t_f],\quad & \dot{\bx} = f(\bx,\bu), \quad &\bx(0)=\bx_0\\
+      \forall t\in[t_0,t_f],\quad & -\dot\lambda = \pd{\ell}{\bx}^T +
+      \pd{f}{\bx}^T \lambda, \quad &\lambda(T) = \pd{\ell_f}{\bx}^T \\ \forall
+      t\in[t_0,t_f],\quad & \pd{\ell}{\bu} + \lambda^T\pd{f}{\bu} = 0.&
+      \end{align*}</p>
+
+      <p>In fact the statement can be generalized even beyond this to the case
+      where $\bu$ has constraints. The result is known as Pontryagin's minimum
+      principle -- giving <em>necessary conditions</em> for a trajectory to be
+      optimal.</p>
+
+      <theorem id="pontryagin_ct"><h1>Pontryagin's Minimum Principle</h1>
+
+        <p>Adapted from <elib>Bertsekas00a</elib>. Given the initial conditions,
+        $\bx_0$, a continuous dynamics, $\dot\bx = f(\bx,\bu)$, and the
+        instantaneous cost $\ell(\bx,\bu)$, for a trajectory
+        $\bx^*(\cdot),\bu^*(\cdot)$ defined over $t\in[t_0,t_f]$  to  be optimal
+        it must satisfy the conditions that \begin{align*} \forall
+        t\in[t_0,t_f],\quad & \dot{\bx}^* = f(\bx^*,\bu^*), \quad
+        &\bx^*(0)=\bx_0\\ \forall t\in[t_0,t_f],\quad & -\dot \lambda^* =
+        \pd{\ell}{\bx}^T + \pd{f}{\bx}^T \lambda^*, \quad &\lambda^*(T) =
+        \pd{\ell_f}{\bx}^T \\ \forall t\in[t_0,t_f],\quad & u^* =
+        \argmin_{\bu\in{\cal U}} \left[\ell(\bx^*,\bu) + (\lambda^*)^T
+        f(\bx^*,\bu) \right].& \end{align*}</p>
+
+      </theorem>
+
+      <p>Note that the terms which are minimized in the final line of the
+      theorem are commonly referred to as the Hamiltonian of the optimal control
+      problem, $$H(\bx,\bu,\lambda,t) = \ell(\bx,\bu) + \lambda^T f(\bx,\bu).$$
+      It is distinct from, but inspired by, the Hamiltonian of classical
+      mechanics. Remembering that $\lambda$ has an interpretation as
+      $\pd{J}{\bx}^T$, you should also recognize it from the HJB. </p>
+
+    </subsection>
+  </section> <!-- end pontryagin -->
+
+  <section><h1>Variations and Extensions</h1>
+
+    <todo>Multiple Shooting: Direct transcription is the limit of multiple shooting where every time step is a different "shot".</todo>
+
+    <subsection id="differential_flatness"><h1>Differential Flatness</h1>
+
+      <p>There are some very important cases where nonconvex trajectory
+      optimization can be turned back into convex trajectory optimization based
+      on a clever change of variables.  One of the key ideas in this space is
+      the notion of "differential flatness", which is philosophically quite
+      close to the idea of <a
+      href="acrobot.html#partial_feedback_linearization">partial feedback
+      linearization</a> that we discussed for acrobots and cart-pole systems.
+      But perhaps the most famous application of differential flatness, which
+      we will explore here, is actually for quadrotors.</p>
+
+      <p>One of the most important lessons from partial feedback linearization,
+      is the idea that if you have $m$ actuators, then you basically get to
+      control exactly $m$ quantities of your system.  Differential flatness
+      exploits this same idea (choosing $m$ outputs), but in the opposite
+      direction.  The idea is that, for some systems, if you give me a
+      trajectory in those $m$ coordinates, it may in fact dictate what all of
+      the states/actuators must have been doing.  The fact that you can only
+      execute a subset of possible trajectories can, in this case, make
+      trajectory planning much easier!</p>
+
+      <p>Let's start with an example...</p>
+
+      <example><h1>Differential flatness for the Planar Quadrotor</h1>
+
+        <p>The planar quadrotor model <a
+        href="acrobot.html#planar_quadrotor">described earlier</a> has 3
+        degrees of freedom ($x,y,\theta$) but only two actuators (one for each
+        propeller).  My claim is that, if you give me a trajectory for just the
+        location of the center of mass: $x(t), y(t), \forall t \in [t_0, t_f],$
+        then I will be able to infer what $\theta(t)$ must be over that same
+        interval in order to be feasible.  Furthermore, I can even infer
+        $\bu(t)$. There is one technical condition required: the trajectory you
+        give me for $x(t)$ and $y(t)$ needs to be continuously differentiable
+        (four times).</p>
+
+        <p>To see this, recall the equations of motion for this system were
+        given by: \begin{gather} m \ddot{x} = -(u_1 + u_2)\sin\theta,
+        \label{eq:quad_x}\\ m \ddot{y} = (u_1 + u_2)\cos\theta - mg,
+        \label{eq:quad_y}\\ I \ddot\theta = r (u_1 - u_2) \label{eq:quad_theta}
+        \end{gather} Observe that from ($\ref{eq:quad_x}$) and
+        ($\ref{eq:quad_y}$) we have $$\frac{-m \ddot{x}}{ m \ddot{y} + mg} =
+        \frac{(u_1 + u_2)\sin\theta}{(u_1+u_2)\cos\theta} = \tan\theta.$$ In
+        words, given $\ddot{x}(t)$ and $\ddot{y}(t)$, I can solve for
+        $\theta$(t).  I can differentiate this relationship (in time) twice
+        more to obtain $\ddot\theta$.  Using ($\ref{eq:quad_theta}$) with
+        ($\ref{eq:quad_x}$) or ($\ref{eq:quad_y}$) give us two linear equations
+        for $u_1$ and $u_2$ which are easily solved.</p>
+
+        <p>Now you can see why we need the original trajectories to be smooth --
+        the solution to $\bu(t)$ depends on $\ddot\theta(t)$ which depends on
+        $\frac{d^4 x(t)}{dt^4}$ and $\frac{d^4 y(t)}{dt^4}$; we need those
+        derivatives to exist along the entire trajectory.</p>
+
+        <p>What's more -- if we ignore input limits for a moment -- <i>any</i>
+        sufficiently smooth trajectory of $x(t), y(t)$ is feasible, so if I can
+        simply find one that avoids the obstacles, then I have designed my state
+        trajectory.  As we will see, optimizing even high-degree
+        piecewise-polynomials is actually an easy problem (it works out to be a
+        quadratic program), assuming the constraints are convex.  In practice,
+        this means that once you have determined whether to go left or right
+        around the obstacles, trajectory design is easy and fast.</p>
+
+        <p>I've coded up a simple example of that for you here:</p>
+
+        <script>document.write(notebook_link('acrobot'))</script>
+
+        <figure> <img width="100%" src="figures/differential_flatness.svg"/>
+        <figcaption>Differential flatness for the planar quadrotor -- by solving
+        a simple optimization to find a smooth trajectory for $x(t)$ and $y(t)$,
+        I can back out $\theta(t)$ and even $\bu(t)$. </figcaption> </figure>
+
+      </example>
+
+      <p>The example above demonstrates that the planar quadrotor system is
+      differentially flat in the outputs $x(t)$, $y(t)$.  More generally, if we
+      have a dynamical system $$\dot{\bx} = f(\bx, \bu),$$ and we design some
+      output coordinates (essentially "task-space"): $$\bz(t) = h\left(\bx, \bu,
+      \frac{d\bu}{dt}, ..., \frac{d^k\bu}{dt^k}\right),$$ such that we can write
+      the $\bx$ and $\bu$ purely as a function of the output and it's time
+      derivatives, \begin{gather*} \bx (t) = \bx\left(\bz, \frac{d\bz}{dt}, ...,
+      \frac{d^k\bz}{dt^k}\right), \\ \bu (t) = \bu\left(\bz, \frac{d\bz}{dt}, ..,
+      \frac{d^k\bz}{dt^k}\right),\end{gather*} then we say that the system $f$ is
+      differentially flat in the outputs $\bz$ <elib>Murray95</elib>.  And the
+      requirement for showing that a system is differentially flat in those
+      outputs is to write the function which solves for $\bx(t)$ and $\bu(t)$ as a
+      function of only $\bz(t)$ and its time derivatives.</p>
+
+      <p>I'm not aware of any numerical recipes for showing that a system is
+      differentially flat nor for finding potential flat outputs, but I admit I
+      haven't worked on it nor looked for those recipes.  That would be
+      interesting!  I think of differential flatness as a property that one must
+      find for your system -- typically via a little mechanical intuition and a
+      lot of algebra.  Once found, it can be very useful.</p>
+
+      <example><h1>Differential flatness for the 3D Quadrotor</h1>
+
+        <p>Probably the most famous example of differential flatness is on the
+        full 3D quadrotors. <elib>Mellinger11</elib> showed that the 3D quadrotor
+        is differentially flat in the outputs $\{x,y,z,\theta_{yaw}\}$.  They used
+        this, to dramatic effect, to perform all sorts of acrobatics.  The
+        resulting videos are awesome (and probably deserve a lot of credit for the
+        widespread popularity of quadrotors in academia and industry over the next
+        few years).
+        </p>
+
+        <figure>
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/MvRTALJp8DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/geqip_0Vjec" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <figcaption>Aggressive quadrotor trajectories using differential
+            flatness from <elib>Mellinger11</elib>.</figcaption>
+        </figure>
+
+        <p>A few things to note about these examples, just so we also understand
+        the limitations.  First, the technique above is great for designing
+        trajectories, but additional work is required to stabilizing those
+        trajectories (we'll cover that topic in more detail later in the notes).
+        Trajectory stabilization benefits greatly from good state estimation, and
+        the examples above were all performed in a motion capture arena. Also,
+        the "simple" version of the trajectory design that is fast enough to be
+        used for flying through moving hoops is restricted to convex optimization
+        formulations -- which means one has to hard-code apriori the decisions
+        about whether to go left or right / up or down around each obstacle.</p>
+
+      </example>
+
+    </subsection>
+
+    <subsection><h1>Iterative LQR and Differential Dynamic
+      Programming</h1>
+
+        <p>There is another approach to trajectory optimization (at least for
+        initial-value problems) that has gotten quite popular lately. Iterative
+        LQR (iLQR)<elib>Li04</elib> also known as Sequential Linear Quadratic
+        optimal control) <elib>Sideris05</elib>. The idea is simple enough:
+        given an initial guess at the input and state trajectory, make a linear
+        approximation of the dynamics and a quadratic approximation of the cost
+        function.  Then compute and simulate the time-varying LQR controller to
+        find a new input and state trajectory.  Repeat until convergence.</p>
+
+        <p>The motivation behind iterative LQR is quite appealing -- it
+        leverages the surprising structure of the Riccati equations to come up
+        with a second-order update to the trajectory after a single backward
+        pass of the Riccati equation followed by a forward simulation.
+        Anecdotally, the convergence is fast and robust.  Numerous
+        applications...<elib>Farshidian17+Tassa12</elib>.</p>
+
+
+        <p>One key limitation of iLQR is that it only supports unconstrained
+        trajectory optimization -- at least via the Riccati solution.  The
+        natural extension for constrained optimization would be to replace the
+        Riccati solution with an iterative linear model-predictive control
+        (MPC) optimization; this would result in a quadratic program and is
+        very close to what is happening in SQP.  But a more common approach in
+        the current robotics literature is to add any constraints into the
+        objective function using <a
+        href="https://en.wikipedia.org/wiki/Penalty_method">penalty
+        methods</a>, especially using <a
+        href="https://en.wikipedia.org/wiki/Augmented_Lagrangian_method">Augmented
+        Lagrangian</a>.</p>
+
+        <!--
+        <p>Thinking about the MPC version of iLQR leads to a curious observation.  I
+        think everyone using iLQR by solving Riccati equations is doing more work
+        than they need to.  Clearly, in the discrete-time unconstrained form, the
+        time-varying LQR + forward simulation is solving the following optimization
+        problem: \begin{gather*} \min \sum_{n=0}^N  \bx[n]^T \bQ \bx[n] + ...
+        \end{gather*}</p>
+        -->
+
+        <p>Differential Dynamic Programming (DDP) <elib>Jacobson70</elib> is
+        inspired by the idea of solving locally <i>quadratic</i> approximations
+        of the HJB equations.  The resulting algorithm is almost identical to
+        iLQR; the only difference is that DDP uses a second-order approximation
+        of the plant dynamics instead of a first-order (linear) one.  The
+        conventional wisdom is that taking these extra plant derivatives is
+        probably not worth the extra cost of computing them; in most cases iLQR
+        converges just as quickly as DDP (though the details will be problem
+        dependent).  Unfortunately, despite the distinction between these
+        algorithms being unambiguous and uncontroversial, you will find many
+        papers that incorrectly write DDP when they are actually using
+        iLQR.</p>
+
+      </subsection>
+
+    <todo>DMOC</todo>
+
+    <subsection id="combinatorial"><h1>Leveraging combinatorial optimization</h1>
+
+      <p>Many of the nonconvex costs and constraints that we have been dealing with (or
+      avoiding!) can naturally be represented as "disjunctive" constraints (e.g. $x \in
+      A$ <i>or</i> $x \in B$). There has been an important series of work showing how
+      mixed-integer programming can be used, for instance, to perform trajectory
+      optimziation around obstacles
+      <elib>Richards02+Mellinger12+Deits15+Landry15b</elib>. These methods nicely
+      distinguish separate the discrete/combinatorial aspects of the optimization
+      problem (e.g. do I fly left or right around the tree) from the continuous aspects
+      (e.g. what smooth path/trajectory should I take, assuming I decide to fly left
+      around the tree?), and leverage mostly <a
+      href="optimization.html#combinatorial">mixed-integer programming solvers based on
+      "branch and bound"</a> to solve the transcribed problem to global optimality.
+      However, these transcriptions were not particularly efficient, leading to
+      potentially very long solve times in the branch-and-bound solver.</p>
+
+      <p>Recently this approach to trajectory optimization has gotten dramatically more
+      effective using a new framework call <a href="optimization.html#gcs">Graphs of
+      Convex Sets"</a> (GCS). GCS provides a much more efficient transcription for many
+      of the discrete+continuous trajectory optimization problems. In many cases, the
+      convex relaxation of the mixed-integer problem is tight enough that one only needs
+      to solve the convex relaxation (followed by a little "rounding") to solve the
+      problem to global optimality.</p>
+
+      <example><h1>Minimum-time linear optimal control</h1>
+      
+        <p>Recall our <a href="#double_integrator">first example</a> of the chapter was
+        doing trajectory optimization for the double integrator. Optimizing convex
+        objectives over a fixed horizon is naturally transcribed into convex
+        optimization problem. But in order to solve the minimum-time problem (where the
+        horizon is unknown), we had to solve multiple optimization problems to find the
+        correct horizon.</p>
+
+        <p>This search over horizon can naturally be encoded as a mixed-integer problem,
+        and GCS provides a natural and efficient framework for doing it. First, let's
+        observe that the original fixed-horizon problem can naturally be described as a
+        GCS: take the sets to be the domain of $x$ (to make these domains bounded, one
+        can simply pick a conservative bounding box). Our graph will simply be a serial
+        chain with one copy of this set for each timestep, and edge constraints that
+        enforce the dynamics: $$\bx[n+1] - \bA \bx[n] \in \bB {\bf U},\qquad {\bf U} =
+        \left\{ \begin{bmatrix}u\end{bmatrix} \, | \, u \in [-1, 1] \right\}.$$
+        Awesomely, once we implement all of the code optimizations that we are currently
+        working on for Drake's GCS implementation, formulating the problem in this way
+        will give you back <i>exactly</i> the same linear program that we solved
+        above.</p>
+
+        <p>Now we can make the time duration optional by defining edges, with
+        constraints, from each timestep directly to the goal:</p>
+
+        <figure><img width="80%" src="figures/min_time_gcs.svg"/></figure>
+
+        <script>document.write(notebook_link('trajopt', "double_integrator"))</script>
+
+        <p>Note that for this example, the GCS convex relaxation is not tight (yet; I
+        still have some ideas), but the <code>convex_relaxation = False</code> version
+        solves beautifully, if you have an MIP solver available.</p>
+
+        <p>The minimum-time double integrator problem is too simple to warrant the use
+        of GCS. Afterall, the line search we recommended above can work efficiently
+        enough. But this is a nice simple illustration of how one might formulate
+        trajectory optimization as a GCS, and it will scale to much more complicated
+        formulations.</p>
+
+      </example>
+
+      <example><h1>MPC for piecewise-affine systems (PWAMPC)</h1>
+      
+        <p></p>
+
+      </example>
+
+      <example><h1>Motion planning around obstacles</h1>
+
+        <p>Let's consider the simple problem of planning a path (even without any
+        dynamics) for a point robot moving around an obstacle. This is our canonical
+        example of a non-convex constraint that we might encounter in our trajectory
+        optimization formulations.</p>
+
+        <figure><img height=200 src="figures/planning_around_obstacles.png"/></figure>
+
+        <p>In the notebook below, I've implemented a handful of different ways to transcribe this into an optimization problem.</p>
+
+        <script>document.write(notebook_link('trajopt', "mi_convex"))</script>
+
+        <todo>Fill this out with all of the details from the slides in e.g. my columbia
+        GCS seminar.</todo>
+
+      </example>
+
+      <example><h1>Minimum-snap trajectories for quadrotors flying around obstacles</h1>
+      
+        <p><elib>Mellinger11</elib> showed that minimum-snap is convex (as long as each
+        time step of the plan is confined to a <i>single</i> convex region) using
+        differential flatness. <elib>Mellinger12</elib> used an older MIP formulation to
+        allow the assignment of time steps to convex regions to be chosen by the
+        optimizer. But in both of these formulations, the total duration of the
+        trajectory had to be fixed. Requiring a fixed duration, in my opinion, is a very
+        unfortunate limitation.</p>
+
+        <p><elib>Marcucci23a</elib> showed that the quadrotor motion planning problem
+        could be transcribed using GCS. Moreover, this paper considered a richer version
+        of the problem where the duration in each convex set is not pre-specified, but
+        is jointly optimized. Unfortunately, constraints on acceleration, jerk, and snap are nonconvex, and so did not fit neatly into this transcription.</p>
+
+        <p>More recently, <elib>Wrangel24</elib> showed that we can effectively handle
+        the non-convexity of the derivative constraints (with time-scaling) by using convex approximations of the constraints in the (global) GCS search, and then using the exact nonconvex version of these constraints in the final rounding step.</p>
+
+        <p>Try it out for yourself:
+        <script>document.write(notebook_link('trajopt', "gcs_quadrotor"))</script>
+        </p>
+
+        <figure><img width="90%" src="data/drones.png"/>
+        <figcaption>Three candidate trajectories for a quadrotor navigating from the bottom left corner to the top right room of a building. The blue trajectory (convex GCS trajectory optimization) is fast but lacks smoothness and exhibits unrealistic roll due to high initial accelerations. The yellow and red trajectories (proposed method) enforce higher-order continuity, limit accelerations, and achieve smoother paths while the yellow trajectory also minimizes snap. (reproduced from <elib>Wrangel24</elib>)</figcaption>
+        </figure>
+
+        <p>You can check out the trajectories in <a href="data/drones_crazy.html">the
+        meshcat animation</a>.</p>
+
+      </example>
+
+    </subsection>
+
+    <subsection id="explicit_mpc"><h1>Explicit model-predictive control</h1>
+    
+      <p>We do actually understand what the optimal policy of the
+      inequality-constrained LQR problem looks like, thanks to work on
+      "explicit MPC" <elib>Alessio09</elib> -- the optimal policy is now
+      piecewise-linear (though still continuous), with each piece described by
+      a polytope, and the optimal cost-to-go is piecewise-quadratic on the same
+      polytopes. Unfortunately, the number of pieces grows exponentially with
+      the number of constraints and the horizon of the problem, making it
+      impractical to compute for all but very small problems.  There are,
+      however, a number of promising approaches to approximate explicit MPC
+      (c.f. <elib>Marcucci17</elib>).</p>
+        
+    </subsection>
+
+  </section>
+
+  <!--
+  <section><h1>Open Questions / Project Ideas</h1>
+
+    <p>Here are some open questions that I have about the algorithms presented
+    here.  I won't go so far as to say that the answers are not known, only
+    that I don't know them, or at least that I would like to understand /
+    implement them.  They could be great topics for a final project and/or great contributions to <drake></drake>.</p>
+
+    <ul>
+      <li>Direct collocation for second-order systems.  The cubic spline for
+      state and first-order hold for inputs is a sweet spot for parameterizing
+      the <a href="#direct_collocation">direct collocation</a> method for
+      first-order systems.  We apply this to second-order systems by
+      parameterizing the trajectories for $\bq(t)$ and $\dot{\bq}(t)$ as if
+      they were independent, and only link them together through the dynamic
+      constraints (<elib>Junge05</elib>, for instance, discusses how
+      inefficient this can be).  Is there a sweet spot parameterization for
+      second-order systems that still gives the third-order integration
+      accuracy?  How much of a practical difference does this make for
+      optimization on our model systems?</li>
+
+      <li>Direct collocation with implicit dynamics.  The manipulation
+      equations are naturally described in an <a
+      href="lyapunov.html#ex:implicit">implicit form</a> that avoids
+      unnecessary inversion of the mass matrix.  It's often possible, and
+      substantially better, to write the dynamics constraints in trajectory
+      optimization using this implicit form, ${\bf g}(\bq,\dot\bq,\ddot\bq,\bu)
+      = 0$, instead of ${\bf f}(\bq,\dot\bq, \dot\bu) - \ddot\bq = 0.$  Can we
+      use this for all three dynamic evaluations in the <a
+      href="https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1trajectory__optimization_1_1_direct_collocation_constraint.html">direct
+      collocation constraint</a>, which in explicit form evaluates ${\bf f}$ at
+      the sample points in order to compute the expected derivative at the
+      collocation point?</li>
+    </ul>
+
+    <todo>Update: I've resolved both of those; notes in headspace doc in goodnotes from May 29, 2021</todo>
+
+  </section>
+  -->
+
+  <section><h1>Exercises</h1>
+
+    <exercise><h1>Direct Shooting vs Direct Transcription</h1>
+
+      <p>In this coding exercise we explore in detail the <a href="#computational_considerations">computational advantages of direct transcription over direct shooting methods</a>.  The exercise can be completed entirely in <script>document.write(notebook_link('trajopt', 'exercises/shooting_vs_transcription', link_text = 'this python notebook'))</script>.  To simplify the analysis, we will apply these two methods to a finite-horizon LQR problem.  You are asked to complete four pieces of code:</p>
+
+      <ol type="a">
+
+        <li>Use the given implementation of direct shooting to analyze the numerical conditioning of this approach.</li>
+
+        <li>Complete the given implementation of the direct transcription method.</li>
+
+        <li>Verify that the cost to go from direct trascription approaches the LQR cost to go as the time horizon grows.</li>
+
+        <li>Analyze the numerical conditioning of direct transcription.</li>
+
+        <li>Implement the dynamic programming recursion (a.k.a. "Riccati recursion") to efficiently solve the linear algebra underlying the direct transcription method.</li>
+
+      </ol>
+
+    </exercise>
+
+    <exercise><h1>Orbital Transfer via Trajectory Optimization</h1>
+
+      <p>For this exercise you will work exclusively in <script>document.write(notebook_link('trajopt', 'exercises/orbital_transfer', link_text='this notebook'))</script>.  You are asked to find, via nonlinear trajectory optimization, a path that efficiently transfers a rocket from the Earth to Mars, while avoiding a cloud of asteroids.  The skeleton of the optimization problem is already there, but several important pieces are missing.  More details are in the notebook, but you will need to:</p>
+
+      <ol type="a">
+
+        <li>Enforce the maximum thrust constraints.</li>
+
+        <li>Enforce the maximum velocity constraints.</li>
+
+        <li>Ensure that the rocket does not collide with any of the asteroids.</li>
+
+        <li>Add an objective function to minimize fuel consumption.</li>
+
+      </ol>
+
+    </exercise>
+
+    <exercise><h1>Iterative Linear Quadratic Regulator: Theory</h1>
+
+      <p>
+        Please read sections 1 and 2 of this paper <elib>Nganga21</elib>, paying close attention to section 2 in particular. 
+        Then answer the following questions in your own words; 1-3 sentences per part should suffice.
+      </p>
+
+      <ol type="a">
+
+        <li>What optimization problem is iLQR solving? What is the output of the algorithm?</li>
+
+        <li>Explain what the backward pass does and what purpose it serves.</li>
+
+        <li>Explain what the forward pass does and what purpose it serves.</li>
+
+        <li>Explain how the two interact with each other in an iterative manner. 
+          Do you expect the algorithm to converge? Why?
+        </li>
+
+        <li>Explain the difference between DDP and iLQR.</li>
+
+        <li>Suppose the system dynamics aren't smooth (i.e., not continuously differentiable), 
+          but are still available in closed form. 
+          Can you still apply the algorithm? Would the backward pass still work? 
+          What about the forward pass? 
+        </li>
+
+      </ol>
+
+    </exercise>
+
+    <exercise><h1>Iterative Linear Quadratic Regulator: Implementation</h1>
+
+      <p>The exercise is self-contained in
+        <script>document.write(notebook_link('trajopt', 'exercises/ilqr_driving', link_text='this notebook'))</script>.
+        In this exercise you will derive and implement the iterative Linear Quadratic Regulator (iLQR).
+        You will evaluate it's functionality by planning trajectories for an autonomous vehicle.
+        You will need to:</p>
+
+      <ol type="a">
+
+        <li>Define an integrator for continuous dynamics.</li>
+
+        <li>Compute a trajectory given an initial state and a control trajectory.</li>
+
+        <li>Sum up the total cost of that trajectory.</li>
+
+        <li>Derive the coefficients of the quadratic Q-function.</li>
+
+        <li>Optimize for the optimal control law.</li>
+
+        <li>Derive the update of the value function backwards in time.</li>
+
+        <li>Implement the forward pass of iLQR.</li>
+
+        <li>Implement the backward pass of iLQR.</li>
+
+      </ol>
+
+    </exercise>
+
+    <exercise><h1>Differential Flatness</h1>
+
+      <p> 
+      Consider a planar rigid body of mass $m$ and moment of inertia $I$ moving under the influence 
+      of gravity and forces $F_1$ and $F_2$ acting at point $P$ of the body (shown in image). 
+      The state of the body at any time is defined by $\mathbf{x} = (x, y, \theta)$ where $x$ and $y$ 
+      are the COM positions and $\theta$ is the orientation of the body, respectively. 
+      The equations of motion are given by:
+      
+      \begin{align*}
+          m\ddot{x} &= F_1 \cos \theta + F_2 \sin \theta \\
+          m\ddot{y} &= F_1 \sin \theta - F_2 \cos \theta - mg \\
+          I\ddot{\theta} &= rF_1 
+      \end{align*}
+      </p> 
+
+      <figure> <img width="60%" src="figures/differential_flatness.png"/>
+        <figcaption>Planar rigid body controlled by body fixed forces.</figcaption>
+      </figure>
+  
+      <ol type="a">
+
+        <li>Show that the system is differentially flat in the output $Z$, the center of oscillation, given by $\mathbf{z} = (z_1, z_2)$
+          \begin{equation*}
+          z_1 = x - \frac{I}{mr} \sin \theta \quad \quad
+          z_2 = y + \frac{I}{mr} \cos \theta
+          \end{equation*}
+            
+          In other words, you must show that given a sufficiently differentiable trajectory $\mathbf{z}(t)$, 
+          you can uniquely determine the trajectory $\mathbf{x}(t)$ (upto an ambiguity of $\pi$ in $\theta$).
+          <br />
+      
+          <i>Hint:</i> Show that $\theta$ is uniquely determined by some high order derivatives of $z_1$ and $z_2$. 
+          Then show that $\ddot x_1$ and $\ddot x_2$ are uniquely determined by some high order derivatives $z_1$ and $z_2$. 
+          <br />
+          <i>Hint:</i> Section 10.8.1 and Example 10.3 are a good reference. Substitute $\ddot{z}_1$, $\ddot{z}_2$ into the expressions for $\ddot{x}$ and $\ddot{y}$.
+        </li>
+
+        <li>
+          Suppose we can control the magnitude of forces $F_1$ and $F_2$ that act at point $P$, and that there are no constraints on $F_1$ and $F_2$.
+          We wish to find a trajectory (control and state) such that the body passes through certain waypoints $(x_k,y_k,\theta_k)$.
+          <ol type = i>
+            <li>
+              Explain how we can use differentially flat coordinates to produce such a trajectory.
+            </li>
+            <li>
+              Explain the difference between trajectory planning formulations in the original coordinates $\mathbf x$ and the differentially flat coordinates $\mathbf z$.
+              Are they convex?
+              Which one is easier to solve and why?
+            </li>
+          </ol>
+          <i>Hint:</i> Section 10.8.1 and Example 10.3 are a good reference.
+        </li> 
+      
+        <li>
+          Suppose the magnitudes of forces $F_1$ and $F_2$ are constrained to be less than $F_{max}$. 
+          How will this affect the trajectory optimization in the differentiably flat coordinates?
+          In particular, will the resulting optimization be convex?
+        </li>
+
+      </ol>
+
+</exercise>
+
+  </section>
+
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Betts98>
+<span class="author">John T. Betts</span>, 
+<span class="title">"Survey of numerical methods for trajectory optimization"</span>, 
+<span class="publisher">Journal of Guidance, Control, and Dynamics</span>, vol. 21, no. 2, pp. 193-207, <span class="year">1998</span>.
+
+</li><br>
+<li id=Betts01>
+<span class="author">John T. Betts</span>, 
+<span class="title">"Practical Methods for Optimal Control Using Nonlinear Programming"</span>, Society for Industrial and Applied Mathematics
+, <span class="year">2001</span>.
+
+</li><br>
+<li id=Wang09a>
+<span class="author">Yang Wang and Stephen Boyd</span>, 
+<span class="title">"Fast model predictive control using online optimization"</span>, 
+<span class="publisher">IEEE Transactions on control systems technology</span>, vol. 18, no. 2, pp. 267--278, <span class="year">2009</span>.
+
+</li><br>
+<li id=Dellaert12>
+<span class="author">Frank Dellaert</span>, 
+<span class="title">"Factor graphs and GTSAM: A hands-on introduction"</span>, 
+Tech. Report, GT-RIM-CP&R-2012-002, <span class="year">2012</span>.
+
+</li><br>
+<li id=Tedrake15>
+<span class="author">Russ Tedrake and Scott Kuindersma and Robin Deits and Kanako Miura</span>, 
+<span class="title">"A closed-form solution for real-time ZMP gait generation and feedback stabilization"</span>, 
+<span class="publisher">Proceedings of the International Conference on Humanoid Robotics</span> , November, <span class="year">2015</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Tedrake15.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Hargraves87>
+<span class="author">C. R. Hargraves and S. W. Paris</span>, 
+<span class="title">"Direct Trajectory Optimization using Nonlinear Programming and Collocation"</span>, 
+<span class="publisher">J Guidance</span>, vol. 10, no. 4, pp. 338-342, July-August, <span class="year">1987</span>.
+
+</li><br>
+<li id=Garg11>
+<span class="author">Divya Garg and Michael Patterson and Camila Francolin and Christopher Darby and Geoffrey Huntington and William Hager and Anil Rao</span>, 
+<span class="title">"Direct trajectory optimization and costate estimation of finite-horizon and infinite-horizon optimal control problems using a Radau pseudospectral method"</span>, 
+<span class="publisher">Computational Optimization and Applications</span>, vol. 49, pp. 335-358, <span class="year">2011</span>.
+
+</li><br>
+<li id=Ross12a>
+<span class="author">I. Michael Ross and Mark Karpenko</span>, 
+<span class="title">"A review of pseudospectral optimal control: From theory to flight"</span>, 
+<span class="publisher">Annual Reviews in Control</span>, vol. 36, no. 2, pp. 182--197, dec, <span class="year">2012</span>.
+
+</li><br>
+<li id=Suh22b>
+<span class="author">H. J. Terry Suh and Max Simchowitz and Kaiqing Zhang and Russ Tedrake</span>, 
+<span class="title">"Do Differentiable Simulators Give Better Policy Gradients?"</span>, 
+<span class="publisher">Proceedings of the 39th International Conference on Machine Learning</span> , vol. 162, pp. 20668--20696, July, <span class="year">2022</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Suh22b.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Bertsekas82>
+<span class="author">Dimitri P Bertsekas</span>, 
+<span class="title">"Constrained optimization and Lagrange multiplier methods"</span>, Academic press
+, <span class="year">1982</span>.
+
+</li><br>
+<li id=Nocedal06>
+<span class="author">Jorge Nocedal and Stephen J. Wright</span>, 
+<span class="title">"Numerical optimization"</span>, Springer
+, <span class="year">2006</span>.
+
+</li><br>
+<li id=Lin91>
+<span class="author">TC Lin and JS Arora</span>, 
+<span class="title">"Differential dynamic programming technique for constrained optimal control"</span>, 
+<span class="publisher">Computational Mechanics</span>, vol. 9, no. 1, pp. 27--40, <span class="year">1991</span>.
+
+</li><br>
+<li id=Toussaint14>
+<span class="author">Marc Toussaint</span>, 
+<span class="title">"A Novel Augmented Lagrangian Approach for Inequalities and Convergent Any-Time Non-Central Updates"</span>, 
+, <span class="year">2014</span>.
+
+</li><br>
+<li id=Kobilarov12>
+<span class="author">Marin Kobilarov</span>, 
+<span class="title">"Cross-entropy motion planning"</span>, 
+<span class="publisher">The International Journal of Robotics Research</span>, vol. 31, no. 7, pp. 855--871, <span class="year">2012</span>.
+
+</li><br>
+<li id=Williams17>
+<span class="author">Grady Williams and Andrew Aldrich and Evangelos A Theodorou</span>, 
+<span class="title">"Model predictive path integral control: From theory to parallel computation"</span>, 
+<span class="publisher">Journal of Guidance, Control, and Dynamics</span>, vol. 40, no. 2, pp. 344--357, <span class="year">2017</span>.
+
+</li><br>
+<li id=Li18>
+<span class="author">Yunzhu Li and Jiajun Wu and Jun-Yan Zhu and Joshua B. Tenenbaum and Antonio Torralba and Russ Tedrake</span>, 
+<span class="title">"Propagation Networks for Model-Based Control Under Partial Observation"</span>, 
+<span class="publisher">Proceedings of the International Conference on Robotics and Automation (ICRA)</span> , May, <span class="year">2019</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Li18.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Li18a>
+<span class="author">Yunzhu Li and Jiajun Wu and Russ Tedrake and Joshua B. Tenenbaum and Antonio Torralba</span>, 
+<span class="title">"Learning Particle Dynamics for Manipulating Rigid Bodies, Deformable Objects, and Fluids"</span>, 
+<span class="publisher">Proceedings of the International Conference on Learning Representations (ICLR)</span>, <span class="year">2019</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Li18a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Marcucci21>
+<span class="author">Tobia Marcucci and Jack Umenberger and Pablo A. Parrilo and Russ Tedrake</span>, 
+<span class="title">"Shortest Paths in Graphs of Convex Sets"</span>, 
+<span class="publisher">arxiv</span>, <span class="year">2023</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci21.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Marcucci23a>
+<span class="author">Tobia Marcucci and Mark Petersen and David von Wrangel and Russ Tedrake</span>, 
+<span class="title">"Motion planning around obstacles with convex optimization"</span>, 
+<span class="publisher">Science Robotics</span>, vol. 8, no. 84, <span class="year">2023</span>.
+
+</li><br>
+<li id=Mombaur05>
+<span class="author">Katja D. Mombaur and Hans Georg Bock and Johannes P. Schloder and Richard W. Longman</span>, 
+<span class="title">"Open-loop stable solutions of periodic optimal control problems in robotics"</span>, 
+<span class="publisher">Z. Angew. Math. Mech. (ZAMM)</span>, vol. 85, no. 7, pp. 499 â€“ 515, <span class="year">2005</span>.
+
+</li><br>
+<li id=Johnson16>
+<span class="author">Aaron M Johnson and Jennifer E King and Siddhartha Srinivasa</span>, 
+<span class="title">"Convergent planning"</span>, 
+<span class="publisher">IEEE Robotics and Automation Letters</span>, vol. 1, no. 2, pp. 1044--1051, <span class="year">2016</span>.
+
+</li><br>
+<li id=Garcia89>
+<span class="author">Carlos E Garcia and David M Prett and Manfred Morari</span>, 
+<span class="title">"Model predictive control: theory and practice—a survey"</span>, 
+<span class="publisher">Automatica</span>, vol. 25, no. 3, pp. 335--348, <span class="year">1989</span>.
+
+</li><br>
+<li id=Camacho13>
+<span class="author">Eduardo F Camacho and Carlos Bordons Alba</span>, 
+<span class="title">"Model predictive control"</span>, Springer Science &amp; Business Media
+, <span class="year">2013</span>.
+
+</li><br>
+<li id=Bemporad99>
+<span class="author">Alberto Bemporad and Manfred Morari</span>, 
+<span class="title">"Robust model predictive control: A survey"</span>, 
+<span class="publisher">Robustness in identification and control</span> , vol. 245, pp. 207-226, <span class="year">1999</span>.
+
+</li><br>
+<li id=Cory08>
+<span class="author">Rick Cory and Russ Tedrake</span>, 
+<span class="title">"Experiments in Fixed-Wing UAV Perching"</span>, 
+<span class="publisher">Proceedings of the AIAA Guidance, Navigation, and Control Conference</span> , pp. 1-12, <span class="year">2008</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Cory08.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Roberts09>
+<span class="author">John W. Roberts and Rick Cory and Russ Tedrake</span>, 
+<span class="title">"On the Controllability of Fixed-Wing Perching"</span>, 
+<span class="publisher">Proceedings of the American Control Conference (ACC)</span> , <span class="year">2009</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Roberts09.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Cory10a>
+<span class="author">Rick Cory</span>, 
+<span class="title">"Supermaneuverable Perching"</span>, 
+PhD thesis, Massachusetts Institute of Technology, June, <span class="year">2010</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Cory10a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Moore11a>
+<span class="author">Joseph Moore</span>, 
+<span class="title">"Powerline Perching with a Fixed-wing UAV"</span>, 
+, May, <span class="year">2011</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Moore11a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Moore12>
+<span class="author">Joseph Moore and Russ Tedrake</span>, 
+<span class="title">"Control Synthesis and Verification for a Perching UAV using LQR-Trees"</span>, 
+<span class="publisher">In Proceedings of the IEEE Conference on Decision and Control</span>, pp. 8, December, <span class="year">2012</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Moore12.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Moore14b>
+<span class="author">Joseph Moore</span>, 
+<span class="title">"Robust Post-Stall Perching with a Fixed-Wing UAV"</span>, 
+PhD thesis, Massachusetts Institute of Technology, September, <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Moore14b.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Hoerner85>
+<span class="author">Sighard F. Hoerner and Henry V. Borst</span>, 
+<span class="title">"Fluid-Dynamic Lift"</span>, Mrs. Liselotte A. Hoerner
+, <span class="year">1985</span>.
+
+</li><br>
+<li id=Bertsekas00a>
+<span class="author">Dimitri P. Bertsekas</span>, 
+<span class="title">"Dynamic Programming and Optimal Control"</span>, Athena Scientific
+, <span class="year">2000</span>.
+
+</li><br>
+<li id=Murray95>
+<span class="author">Richard M. Murray and Muruhan Rathinam and Willem Sluis</span>, 
+<span class="title">"Differential flatness of mechanical control systems: A catalog of prototype systems"</span>, 
+<span class="publisher">ASME international mechanical engineering congress and exposition</span> , <span class="year">1995</span>.
+
+</li><br>
+<li id=Mellinger11>
+<span class="author">D. Mellinger and V. Kumar</span>, 
+<span class="title">"Minimum snap trajectory generation and control for quadrotors"</span>, 
+<span class="publisher">Proceedings of the 2011 IEEE International Conference on Robotics and Automation (ICRA)</span> , pp. 2520--2525, <span class="year">2011</span>.
+
+</li><br>
+<li id=Li04>
+<span class="author">Weiwei Li and Emanuel Todorov</span>, 
+<span class="title">"Iterative Linear Quadratic Regulator Design for Nonlinear Biological Movement Systems."</span>, 
+<span class="publisher">International Conference on Informatics in Control, Automation and Robotics</span> , pp. 222--229, <span class="year">2004</span>.
+
+</li><br>
+<li id=Sideris05>
+<span class="author">Athanasios Sideris and James E. Bobrow</span>, 
+<span class="title">"A Fast Sequential Linear Quadratic Algorithm for Solving Unconstrained Nonlinear Optimal Control Problems"</span>, 
+, February, <span class="year">2005</span>.
+
+</li><br>
+<li id=Farshidian17>
+<span class="author">Farbod Farshidian and Edo Jelavic and Asutosh Satapathy and Markus Giftthaler and Jonas Buchli</span>, 
+<span class="title">"Real-time motion planning of legged robots: A model predictive control approach"</span>, 
+<span class="publisher">2017 IEEE-RAS 17th International Conference on Humanoid Robotics (Humanoids)</span> , pp. 577--584, <span class="year">2017</span>.
+
+</li><br>
+<li id=Tassa12>
+<span class="author">Y. Tassa and T. Erez and E. Todorov</span>, 
+<span class="title">"Synthesis and stabilization of complex behaviors through online trajectory optimization"</span>, 
+<span class="publisher">Intelligent Robots and Systems (IROS), 2012 IEEE/RSJ International Conference on</span> , pp. 4906--4913, <span class="year">2012</span>.
+
+</li><br>
+<li id=Jacobson70>
+<span class="author">David H. Jacobson and David Q. Mayne</span>, 
+<span class="title">"Differential Dynamic Programming"</span>, American Elsevier Publishing Company, Inc.
+, <span class="year">1970</span>.
+
+</li><br>
+<li id=Richards02>
+<span class="author">A.~Richards and J.P.~How</span>, 
+<span class="title">"Aircraft trajectory planning with collision avoidance using mixed integer linear programming"</span>, 
+<span class="publisher">Proceedings of the 2002 American Control Conference</span> , vol. 3, pp. 1936--1941, <span class="year">2002</span>.
+
+</li><br>
+<li id=Mellinger12>
+<span class="author">Daniel Mellinger and Alex Kushleyev and Vijay Kumar</span>, 
+<span class="title">"Mixed-integer quadratic program trajectory generation for heterogeneous quadrotor teams"</span>, 
+<span class="publisher">2012 IEEE international conference on robotics and automation</span> , pp. 477--483, <span class="year">2012</span>.
+
+</li><br>
+<li id=Deits15>
+<span class="author">Robin Deits and Russ Tedrake</span>, 
+<span class="title">"Efficient Mixed-Integer Planning for UAVs in Cluttered Environments"</span>, 
+<span class="publisher">Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)</span> , <span class="year">2015</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Deits15.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Landry15b>
+<span class="author">Benoit Landry and Robin Deits and Peter R. Florence and Russ Tedrake</span>, 
+<span class="title">"Aggressive Quadrotor Flight through Cluttered Environments Using Mixed Integer Programming"</span>, 
+<span class="publisher">Proceedings of the International Conference on Robotics and Automation (ICRA)</span> , May, <span class="year">2016</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Landry15b.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Wrangel24>
+<span class="author">David von Wrangel and Russ Tedrake</span>, 
+<span class="title">"Using Graphs of Convex Sets to Guide Nonconvex Trajectory Optimization"</span>, 
+<span class="publisher">Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span> , pp. 8, <span class="year">2024</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Wrangel24.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Alessio09>
+<span class="author">A. Alessio and A. Bemporad</span>, 
+<span class="title">"A survey on explicit model predictive control"</span>, 
+<span class="publisher">Int. Workshop on Assessment and Future Directions of Nonlinear Model Predictive Control</span> , <span class="year">2009</span>.
+
+</li><br>
+<li id=Marcucci17>
+<span class="author">Tobia Marcucci and Robin Deits and Marco Gabiccini and Antonio Bicchi and Russ Tedrake</span>, 
+<span class="title">"Approximate Hybrid Model Predictive Control for Multi-Contact Push Recovery in Complex Environments"</span>, 
+<span class="publisher">Humanoid Robots (Humanoids), 2017 IEEE-RAS 17th International Conference on</span> , <span class="year">2017</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci17.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Nganga21>
+<span class="author">John N Nganga and Patrick M Wensing</span>, 
+<span class="title">"Accelerating second-order differential dynamic programming for rigid-body systems"</span>, 
+<span class="publisher">IEEE Robotics and Automation Letters</span>, vol. 6, no. 4, pp. 7659--7666, <span class="year">2021</span>.
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=lyapunov.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=policy_search.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2024</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>

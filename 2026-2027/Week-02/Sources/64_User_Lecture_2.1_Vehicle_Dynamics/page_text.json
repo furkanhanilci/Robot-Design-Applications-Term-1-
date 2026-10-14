@@ -1,0 +1,290 @@
+[
+  {
+    "pdf_page": 1,
+    "text": "\nDepartment\nComputer Engineering\n\nAcademic Term\nFall Semester 2025-2026\n\nLinkedIn\nfurkanhanilci\n\nGitHub\nfurkanhanilci\nFurkan HANİLÇİ\nInstructor\nBased on lecture materials from the University of Tübingen - Self-Driving Cars (Prof. Dr. Andreas Geiger)\nROBOT DESIGN AND APPLICATIONS\n",
+    "images": 4,
+    "drawings": 37
+  },
+  {
+    "pdf_page": 2,
+    "text": "Agenda\n5.1 Introduction\n5.2 Kinematic Bicycle Model\n5.3 Tire Models\n5.4 Dynamic Bicycle Model\n2\n",
+    "images": 0,
+    "drawings": 5
+  },
+  {
+    "pdf_page": 3,
+    "text": "5.1\nIntroduction\n",
+    "images": 0,
+    "drawings": 1
+  },
+  {
+    "pdf_page": 4,
+    "text": "Credits\n▶We cover parts of “Vehicle Dynamics & Control” by Prof. Schildbach (Uni L¨ubeck)\nhttps://youtu.be/Cg0L_HZYxP4\n4\n",
+    "images": 1,
+    "drawings": 2
+  },
+  {
+    "pdf_page": 5,
+    "text": "Electronic Stability Program\nKnowledge of vehicle dynamics enables accurate vehicle control\n5\n",
+    "images": 1,
+    "drawings": 2
+  },
+  {
+    "pdf_page": 6,
+    "text": "Kinematics vs. Kinetics\nKinematics:\n▶Greek origin: “motion”, “moving”\n▶Describes motion of points and bodies\n▶Considers position, velocity, acceleration, ..\n▶Examples: Celestial bodies, particle\nsystems, robotic arm, human skeleton\nKinetics:\n▶Describes causes of motion\n▶Effects of forces/moments\n▶Newton’s laws, e.g., F = ma\n6\n",
+    "images": 1,
+    "drawings": 2
+  },
+  {
+    "pdf_page": 7,
+    "text": "Holonomic Constraints\nHolonomic constraints are constraints on the conﬁguration:\n▶Assume a particle in three dimensions (x, y, z) ∈R3\n▶We can constrain the particle to the x/y plane via:\nz = 0\n⇔\nf(x, y, z) = 0\nwith\nf(x, y, z) = z\nx/y plane\n▶Constraints of the form f(x, y, z) = 0 are called holonomic constraints\n▶They constrain the conﬁguration space\n▶But the system can move freely in that space\n▶Controllable degrees of freedom equal total degrees of freedom (2)\n7\n",
+    "images": 0,
+    "drawings": 30
+  },
+  {
+    "pdf_page": 8,
+    "text": "Non-Holonomic Constraints\nNon-Holonomic constraints are constraints on the velocity:\n▶Assume a vehicle that is parameterized by (x, y, ψ) ∈R2 × [0, 2π]\n▶The 2D vehicle velocity is given by:\n˙x = v cos(ψ)\n˙y = v sin(ψ)\n⇒\n˙x sin(ψ) −˙y cos(ψ) = 0\n▶This non-holonomic constraint cannot be expressed in the form f(x, y, ψ) = 0\n▶The car cannot freely move in any direction (e.g., sideways)\n▶It constrains the velocity space, but not the conﬁguration space\n▶Controllable degrees of freedom less than total degrees of freedom (2 vs. 3)\n8\n",
+    "images": 1,
+    "drawings": 24
+  },
+  {
+    "pdf_page": 9,
+    "text": "Holonomic vs. Non-Holonomic Systems\nHolonomic Systems\n▶Constrain conﬁguration space\n▶Can freely move in any direction\n▶Controllable degrees of freedom\nequal to total degrees of freedom\n▶Constraints can be described by\nf(x1, . . . , xN) = 0\nExample:\n3D Particle\nz = 0\nx/y plane\nNonholonomic Systems\n▶Constrain velocity space\n▶Cannot freely move in any direction\n▶Controllable degrees of freedom less\nthan total degrees of freedom\n▶Constraints cannot be described by\nf(x1, . . . , xN) = 0\nExample:\nCar\n˙x sin(ψ) −˙y cos(ψ) = 0\n9\n",
+    "images": 1,
+    "drawings": 30
+  },
+  {
+    "pdf_page": 10,
+    "text": "Holonomic vs. Non-Holonomic Systems\n▶A robot can be subject to both holonomic and non-holonomic constraints\n▶A car (rigid body in 3D) is kept on the ground by 3 holonomic constraints\n▶One additional non-holonomic constraint prevents sideways sliding\n10\n",
+    "images": 2,
+    "drawings": 2
+  },
+  {
+    "pdf_page": 11,
+    "text": "Coordinate Systems\nInertial Frame\nHorizontal Frame\nHorizontal Plane\nVehicle\nReference\nPoint\nVehicle Frame\n▶Inertial Frame: Fixed to earth with vertical Z-axis and X/Y horizontal plane\n▶Vehicle Frame: Attached to vehicle at ﬁxed reference point; xv points towards\nthe front, yv to the side and zv to the top of the vehicle (ISO 8855)\n▶Horizontal Frame: Origin at vehicle reference point (like vehicle frame) but x-\nand y-axes are projections of xv- and yv-axes onto the X/Y horizontal plane\n11\n",
+    "images": 0,
+    "drawings": 92
+  },
+  {
+    "pdf_page": 12,
+    "text": "Kinematics of a Point\nThe position rP (t) ∈R3 of point P at time t ∈R is given by 3 coordinates.\nVelocity and acceleration are the ﬁrst and second derivatives of the position rP (t).\nrP (t) =\n\n\n\nx(t)\ny(t)\nz(t)\n\n\n\nvP (t) = ˙rP (t) =\n\n\n\n˙x(t)\n˙y(t)\n˙z(t)\n\n\n\naP (t) = ¨rP (t) =\n\n\n\n¨x(t)\n¨y(t)\n¨z(t)\n\n\n\nTrajectory of point P\n12\n",
+    "images": 0,
+    "drawings": 22
+  },
+  {
+    "pdf_page": 13,
+    "text": "Kinematics of a Rigid Body\nA rigid body refers to a collection of inﬁnitely many inﬁnitesimally small mass points\nwhich are rigidly connected, i.e., their relative position remains unchanged over time.\nIt’s motion can be compactly described by the motion of an (arbitrary) reference point\nC of the body plus the relative motion of all other points P with respect to C.\n▶C: Reference point ﬁxed to rigid body\n▶P: Arbitrary point on rigid body\n▶ω: Angular velocity of rigid body\n▶Position: rP = rC + rCP\n▶Velocity: vP = vC + ω × rCP\n▶Due to rigidity, points P can only rotate wrt. C\n▶Thus a rigid body has 6 DoF (3 pos., 3 rot.)\n13\n",
+    "images": 0,
+    "drawings": 28
+  },
+  {
+    "pdf_page": 14,
+    "text": "Instantaneous Center of Rotation\nAt each time instance t ∈R, there exists a particular reference point O (called the\ninstantaneous center of rotation) for which vO(t) = 0. Each point P of the rigid body\nperforms a pure rotation about O:\nvP = vO + ω × rOP = ω × rOP\nExample 1: Turning Wheel\n▶Wheel is completely lifted off the ground\n▶Wheel does not move in x or y direction\n▶Ang. vel. vector ω points into x/y plane\n▶Velocity of point P: vP = ωR with radius R\n14\n",
+    "images": 0,
+    "drawings": 44
+  },
+  {
+    "pdf_page": 15,
+    "text": "Instantaneous Center of Rotation\nAt each time instance t ∈R, there exists a particular reference point O (called the\ninstantaneous center of rotation) for which vO(t) = 0. Each point P of the rigid body\nperforms a pure rotation about O:\nvP = vO + ω × rOP = ω × rOP\nExample 2: Rolling Wheel\n▶Wheel is rolling on the ground without slip\n▶Ground is ﬁxed in x/y plane\n▶Ang. vel. vector ω points into x/y plane\n▶Velocity of point P: vP = 2ωR with radius R\n14\n",
+    "images": 0,
+    "drawings": 61
+  },
+  {
+    "pdf_page": 16,
+    "text": "5.2\nKinematic Bicycle Model\n",
+    "images": 0,
+    "drawings": 1
+  },
+  {
+    "pdf_page": 17,
+    "text": "Rigid Body Motion\nRotation Center\n▶Different points on the rigid body move along different circular trajectories\n16\n",
+    "images": 0,
+    "drawings": 27
+  },
+  {
+    "pdf_page": 18,
+    "text": "Kinematic Bicycle Model\n▶The kinematic bicycle model approximates the 4 wheels with 2 imaginary wheels\n17\n",
+    "images": 0,
+    "drawings": 8
+  },
+  {
+    "pdf_page": 19,
+    "text": "Kinematic Bicycle Model\n▶The kinematic bicycle model approximates the 4 wheels with 2 imaginary wheels\n17\n",
+    "images": 0,
+    "drawings": 10
+  },
+  {
+    "pdf_page": 20,
+    "text": "Kinematic Bicycle Model\nRotation\nCenter\nWheelbase\nVehicle\nVelocity\nFront Wheel\nVelocity\nBack Wheel\nVelocity\nSlip\nAngle\nFront\nSteering\nAngle\nCenter of\nGravity\nHeading\nAngle\nBack\nSteering\nAngle\nTurning\nRadius\nCourse Angle\nAssumptions:\n- Planar motion (no roll, no pitch)\n- Low speed => No wheel slip\n  (wheel orientation = wheel velocity)\n▶The kinematic bicycle model approximates the 4 wheels with 2 imaginary wheels\n17\n",
+    "images": 0,
+    "drawings": 69
+  },
+  {
+    "pdf_page": 21,
+    "text": "Kinematic Bicycle Model\nModel\nRotation Center\nMotion Equations\n˙X = v cos(ψ + β)\n˙Y = v sin(ψ + β)\n˙ψ = v cos(β)\nℓf + ℓr\n(tan(δf) −tan(δr))\nβ = tan−1\n\u0012ℓf tan(δr) + ℓr tan(δf)\nℓf + ℓr\n\u0013\n(proof as exercise)\n18\n",
+    "images": 0,
+    "drawings": 71
+  },
+  {
+    "pdf_page": 22,
+    "text": "Kinematic Bicycle Model\nModel\nRotation Center\nMotion Equations\n˙X = v cos(ψ + β)\n˙Y = v sin(ψ + β)\n˙ψ = v cos(β)\nℓf + ℓr\ntan(δ)\nβ = tan−1\n\u0012ℓr tan(δ)\nℓf + ℓr\n\u0013\n(only front steering)\ntan δ = lf + lr\nR′\n⇒\n1\nR′ = tan δ\nlf + lr\n⇒\ntan β = lr\nR′ = lr tan δ\nlf + lr\ncos β = R′\nR\n⇒\n1\nR = cos β\nR′\n⇒\n˙ψ = ω = v\nR = v cos(β)\nR′\n= v cos(β)\nlf + lr\ntan(δ)\n18\n",
+    "images": 0,
+    "drawings": 76
+  },
+  {
+    "pdf_page": 23,
+    "text": "Kinematic Bicycle Model\nModel\nRotation Center\nMotion Equations\n˙X = v cos(ψ)\n˙Y = v sin(ψ)\n˙ψ =\nvδ\nℓf + ℓr\n(assuming β and δ are very small)\n19\n",
+    "images": 1,
+    "drawings": 76
+  },
+  {
+    "pdf_page": 24,
+    "text": "Kinematic Bicycle Model\nModel\nRotation Center\nMotion Equations\nXt+1 = Xt + v cos(ψt) ∆t\nYt+1 = Yt + v sin(ψt) ∆t\nψt+1 = ψt +\nvδ\nℓf + ℓr\n∆t\n(time discretized model)\n19\n",
+    "images": 0,
+    "drawings": 64
+  },
+  {
+    "pdf_page": 25,
+    "text": "Ackermann Steering Geometry\nFront Steering Angles\nTurning Radius\nRotation Center\nWheelbase\nTrack\n▶In practice, the left and right wheel steering angles are not equal if no wheel slip\n▶Combination of admissible steering angles called Ackerman steering geometry\n▶If angles are small, the left/right steering wheel angles can be approximated:\nδl ≈tan\n\u0012\nL\nR + 0.5B\n\u0013\n≈\nL\nR + 0.5B\nδr ≈tan\n\u0012\nL\nR −0.5B\n\u0013\n≈\nL\nR −0.5B\n20\n",
+    "images": 0,
+    "drawings": 42
+  },
+  {
+    "pdf_page": 26,
+    "text": "Ackermann Steering Geometry\nTrapezoidal Geometry\nLeft Turn\nRight Turn\n▶In practice, this setup can be realized using a trapezoidal tie rod arrangement\n21\n",
+    "images": 0,
+    "drawings": 26
+  },
+  {
+    "pdf_page": 27,
+    "text": "5.3\nTire Models\n",
+    "images": 0,
+    "drawings": 1
+  },
+  {
+    "pdf_page": 28,
+    "text": "Kinematics is not enough ..\nWhich assumption of our model is violated in this case?\n23\n",
+    "images": 1,
+    "drawings": 2
+  },
+  {
+    "pdf_page": 29,
+    "text": "Tire Models\nvl\nω\nRd\nContact\n▶Tire models describe the lateral and longitudinal forces at the tires\n▶There exist many different tire models at various levels of complexity\n▶For a simple qualitative description we consider the tread block model\n▶Question: Why do tires “slip”?\n24\n",
+    "images": 0,
+    "drawings": 96
+  },
+  {
+    "pdf_page": 30,
+    "text": "Tread Block Model\nStatic\nFriction\nCircumferential Force\nSliding\nFriction\nStatic\nFriction\nSliding\nFriction\nLongitudinal Force:\n▶As soon as the wheel is driven externally, the\ntire tread blocks start deforming and slipping\n▶The tire tread blocks adhere to the ground,\ndeform and slip when loosing contact\n▶When the driving force increases and static\nfriction is exceeded the blocks slip earlier\n▶As sliding friction is smaller than static friction,\nthis decreases the transmitted driving force\n▶If the tire tread blocks start sliding at the\nbeginning, only sliding friction can be applied\n25\n",
+    "images": 0,
+    "drawings": 35
+  },
+  {
+    "pdf_page": 31,
+    "text": "Tread Block Model\nSlippage s\nForce F\nStatic Friction\nSliding Friction\n▶Slippage: Difference between surface speed of the wheel and vehicle speed\n▶The force F grows linearly with the slippage s in the beginning (linear deform.)\n▶Large slippage s leads to a reduction of F (sliding friction < static friction)\n26\n",
+    "images": 0,
+    "drawings": 14
+  },
+  {
+    "pdf_page": 32,
+    "text": "Tread Block Model\nSlippage s\nForce F\nStatic Friction\nSame slope at beginning\n(no sliding & same elasticity of rubber)\nSome blocks slip earlier due to lower friction\nPoint of highest friction is reached earlier\nSliding Friction\nLow Friction\nHigh Friction\nHow does the force curve F(s) change for slippery terrain (low friction)?\n▶Start of the curve doesn’t change as the elasticity of the blocks doesn’t change\n▶However, the maximum reduces due to the decreased static friction, i.e.,\nthe tread blocks start sliding earlier due to a decrease in friction\n27\n",
+    "images": 0,
+    "drawings": 24
+  },
+  {
+    "pdf_page": 33,
+    "text": "Tread Block Model\nSlippage\nForce\nStatic Friction\nSliding Friction\nLateral Force: (the ﬁgure above shows a top view onto a wheel)\n▶Lateral force Fy analogous to longitudinal force but blocks move laterally now\n▶Lateral force for small s and α given by: Fy = c s = c tan(α) ≈c α\n▶v = wheel velocity, vx = longitudinal vel., vy = lateral vel., c = cornering stiffness\n28\n",
+    "images": 0,
+    "drawings": 36
+  },
+  {
+    "pdf_page": 34,
+    "text": "Circle of Forces\nCircle of Forces:\n▶Lateral Fy and longitudinal Fx force cannot exceed max. friction force ∥F∥max\n▶More long. force implies less lat. force; max. acceleration only for straight driving\n▶Allows to make statements about maximal possible vehicle accelerations\n29\n",
+    "images": 1,
+    "drawings": 14
+  },
+  {
+    "pdf_page": 35,
+    "text": "5.4\nDynamic Bicycle Model\n",
+    "images": 0,
+    "drawings": 1
+  },
+  {
+    "pdf_page": 36,
+    "text": "Dynamics of a Rigid Body\nTranslatory Motion of a Point:\n▶Consider point P with mass m in R3\n▶Let rP (t) ∈R3 be its position in an inertial reference frame\n▶Let vP (t) denote its velocity and aP (t) its acceleration\n▶The linear momentum of P is deﬁned as pP (t) = mvP (t)\n▶By Newton’s second law we have\nd\ndtpP (t) = m aP (t) = Fnet(t) =\nX\ni\nFi(t)\nwhere Fi(t) represent all forces acting on the point mass P\nTrajectory of point P\n31\n",
+    "images": 0,
+    "drawings": 37
+  },
+  {
+    "pdf_page": 37,
+    "text": "Dynamics of a Rigid Body\nTranslatory Motion of a Rigid Body:\n▶Consider a rigid body B with mass m in R3\n▶Let rC(t) ∈R3 be the position of its center of gravity C\n▶Let vC(t) denote its velocity and aC(t) its acceleration\n▶The linear momentum of B is deﬁned as pB(t) = mvC(t)\n▶The center of gravity of a rigid body behaves like a point\nmass with mass m and as if all forces act on that point\nd\ndtpB(t) = m aC(t) = Fnet(t) =\nX\ni\nFi(t)\nwhere Fi(t) represent all forces acting on the rigid body B\n32\n",
+    "images": 0,
+    "drawings": 39
+  },
+  {
+    "pdf_page": 38,
+    "text": "Dynamics of a Rigid Body\nRotatory Motion of a Rigid Body:\n▶For the rotatory motion, also the geometric shape of B\nand the spatial distribution of its mass is important\n▶Let ρ(x, y, z) be the body’s density function:\nm =\nZ\nB\nρ(x, y, z) dx dy dz =\nZ\nB\ndm\n▶The inertia tensor of B is deﬁned as\nΘ =\n\n\nIx\nIxy\nIxz\nIyx\nIy\nIyz\nIzx\nIzy\nIz\n\n\nIx =\nR\nB(y2 + z2) dm\nIy =\nR\nB(x2 + z2) dm\nIz =\nR\nB(x2 + y2) dm\n|\n{z\n}\nmoments of inertia\nIxy = Iyx = −\nR\nB xy dm\nIxz = Izx = −\nR\nB xz dm\nIyz = Izy = −\nR\nB yz dm\n|\n{z\n}\nmoments of deviation\n33\n",
+    "images": 0,
+    "drawings": 51
+  },
+  {
+    "pdf_page": 39,
+    "text": "Dynamics of a Rigid Body\nRotatory Motion of a Rigid Body:\n▶Let ω be the vector of angular velocities:\nω = (ωx ωy ωz)⊤\n▶The angular momentum LC of the rigid body B is given by\nLC = Θ ω\n▶By the angular momentum principle\nd\ndtLC(t) = Θ ˙ω = Mnet(t) =\nX\ni\nMi(t)\nwhere Mi(t) are the moments of all forces acting on B\nwith respect to the center of gravity C.\n34\n",
+    "images": 0,
+    "drawings": 51
+  },
+  {
+    "pdf_page": 40,
+    "text": "Dynamics of a Rigid Body\nRotatory Motion of a Rigid Body with Canonical Coordinates:\n▶If the body frame is chosen as a principal axis system for the\nrigid body (symmetry axes), the inertia tensor is diagonal:\nΘ =\n\n\nIx\n0\n0\n0\nIy\n0\n0\n0\nIz\n\n\n▶For the planar motion of a rigid body in the x/y-plane:\nωx = ωy = 0\nand\nMx = My = 0\n▶Hence the angular momentum becomes Lz = Iz ωz(t)\nand the angular momentum principle yields Iz ˙ωz = P\ni Mi\n35\n",
+    "images": 0,
+    "drawings": 31
+  },
+  {
+    "pdf_page": 41,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nAssumptions:\n▶The vehicle’s motion is restricted to the X/Y plane\n▶The vehicle is considered as a rigid body\n▶Only lateral tire forces, generated by a linear tire model\n▶Small steering angle δ:\nsin δ ≈δ\ntan δ ≈δ\ncos δ ≈1\n▶Constant longitudinal velocity vx\n36\n",
+    "images": 0,
+    "drawings": 92
+  },
+  {
+    "pdf_page": 42,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nLateral Dynamics:\nmay =\nX\ni\nFy,i = Fr + Ff cos δ ≈Fr + Ff\nay = ˙vy + ω vx\n(ω vx = centripetal acc.)\n⇒\nm(˙vy + ωvx) = Fr + Ff\n37\n",
+    "images": 0,
+    "drawings": 92
+  },
+  {
+    "pdf_page": 43,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nYaw Dynamics:\nIz ˙ω =\nX\ni\nMi = −lrFr + lfFf cos δ\n|{z}\n≈1\n⇒\nIz ˙ω = −lrFr + lfFf\n38\n",
+    "images": 0,
+    "drawings": 94
+  },
+  {
+    "pdf_page": 44,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nTire Forces:\nFr = −crαr ≈−cr tan(αr) = −cr\nvB,y\nvB,x\nFf = −cfαf ≈−cf tan(αf) = −cf\nvA,η\nvA,ξ\nvB,x = vx\nvB,y = vy −ωlr\nvA,x = vx\nvA,y = vy + ωlf\nvA,ξ = vA,x cos(δ)\n| {z }\n≈1\n+vA,y sin(δ)\n| {z }\n≈δ\nvA,η = −vA,x sin(δ)\n| {z }\n≈δ\n+vA,y cos(δ)\n| {z }\n≈1\n39\n",
+    "images": 0,
+    "drawings": 102
+  },
+  {
+    "pdf_page": 45,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nTire Forces:\nFr = −cr\nvB,y\nvB,x\n= −cr\nvy −ωlr\nvx\nFf = −cf\nvA,η\nvA,ξ\n= −cf\n−vxδ + vy + ωlf\nvx + (vy + ωlf)δ ≈cfδ −cf\nvy + ωlf\nvx\nLast approximation due to: vx ≫(vy + ωlf)δ\n40\n",
+    "images": 0,
+    "drawings": 97
+  },
+  {
+    "pdf_page": 46,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nState Space Representation:\nm(˙vy + ωvx) = −cr\nvy −ωlr\nvx\n|\n{z\n}\n=Fr\n+ cfδ −cf\nvy + ωlf\nvx\n|\n{z\n}\n=Ff\nIz ˙ω = −lr\n\u0012\n−cr\nvy −ωlr\nvx\n\u0013\n|\n{z\n}\nFr\n+ lf\n\u0012\ncfδ −cf\nvy + ωlf\nvx\n\u0013\n|\n{z\n}\n=Ff\n41\n",
+    "images": 0,
+    "drawings": 104
+  },
+  {
+    "pdf_page": 47,
+    "text": "Dynamic Bicycle Model\nCenter of Gravity\nState Space Representation:\n\n\n˙vy\n˙ψ\n˙ω\n\n=\n\n\n−cr+cf\nmvx\n0\ncrlr−cflf\nmvx\n−vx\n0\n0\n1\nlrcr−lfcf\nIzvx\n0\n−\nl2\nfcf+l2\nrcr\nIzvx\n\n\n\n\nvy\nψ\nω\n\n\n| {z }\nState\n+\n\n\ncf\nm\n0\ncf\nIz lf\n\n\nδ\n|{z}\nInput\nCan be augmented by the global position to a nonlinear state space model\n42\n",
+    "images": 0,
+    "drawings": 100
+  },
+  {
+    "pdf_page": 48,
+    "text": "Summary\n▶A vehicle can be modeled as a rigid body\n▶It is subject to holonomic and non-holonomic constraints\n▶The bicycle model approximates the vehicle using 2 wheels\n▶The kinematic bicycle model assumes no wheel slip (low speeds)\n▶However, modeling tires requires to consider slip\n▶Sliding friction is smaller than static friction\n▶We want to operate in the static friction area of the force curve\n▶The circle of forces tells us that lat. and long. forces are dependent\n▶The dynamic bicycle model takes into account tire foces and wheel slip\n43\n",
+    "images": 0,
+    "drawings": 2
+  }
+]

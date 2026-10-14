@@ -1,0 +1,1728 @@
+Chapter 9: Arrays and Functional Debugging
+Chapter 9: Arrays, Time, and Functional
+Debugging
+Jonathan
+Valvano and
+Ramesh Yerraballi
+In this chapter, we will illustrate a formal
+method for
+testing. Because embedded systems are deployed in safety-critical
+systems, we
+need to be rigorous in our methods that evaluate if the deployed system
+performs its tasks as required. Embedded systems not only need to
+arrive at the
+correct answer, they need to arrive at it at the correct time. We will
+introduce a simple hardware counter that we can use to measure time.
+The
+testing method we will develop in this chapter will be to create a data
+logger
+to store when and what our system is doing.
+Learning Objectives:
+Understand the concept of minimally intrusive
+debugging
+Learn how the SysTick counter works
+Learn about arrays
+Learn how to use indexing to access arrays
+Understand precision, length and origin
+Learn how to create a debugging dump
+Understand that a formal method to verify
+program correctness
+Learn how to use the dump to collect debugging
+information in real time
+Video
+9.0
+. Introduction to Arrays and Functional Debugging
+9.1. Debugging
+Theory
+Every programmer is faced with the need to debug
+and verify
+the correctness of his or her software. A debugging
+instrument
+is
+hardware or software used for the purpose of debugging. In this class,
+we will study
+hardware-level probes like the logic analyzer, oscilloscope, and Joint
+Test
+Action Group (JTAG standardized as the IEEE 1149.1) interface; software-level
+tools like
+simulators, monitors, and profilers; and manual tools like inspection
+and print
+statements.
+Nonintrusiveness
+is the characteristic or
+quality of a
+debugger that allows the software/hardware system to operate normally
+as if the
+debugger did not exist. Intrusiveness is used as a measure of the
+degree of
+perturbation caused in system performance by the debugging instrument
+itself.
+For example, a print statement added to your source code is very
+intrusive
+because it significantly affects the real-time interaction of the
+hardware and
+software. It is important to quantify the intrusiveness of an
+instrument. Let
+t
+be the average time it takes to run the software code comprising
+the debugging instrument.
+This time
+t
+is how much less time the system has, in order to perform its
+regular
+duties. Let
+Δt
+be the average time between executions of
+the
+instrument. A quantitative measure of intrusiveness is
+t
+/
+Δt
+,
+which is the fraction of the time consumed by the process of debugging
+itself.
+A debugging instrument is classified as
+minimally intrusive
+if
+it has a negligible effect on the system being debugged. In other
+words, if
+t
+/
+Δt
+is
+so small that the debugging activities have a finite but
+inconsequential effect
+on the system behavior, we classify it as minimally intrusive. In a
+real
+microcomputer system, breakpoints and single-stepping are intrusive,
+because
+the real hardware continues to change while the software has stopped.
+When a
+program interacts with real-time events, the performance can be
+significantly
+altered when using intrusive debugging tools. On the other hand, we
+will learn
+later in this chapter that dumps, dumps with filter, and monitors
+(e.g., which output
+strategic information on LEDs or an OLED display) are much less intrusive. A logic
+analyzer that passively monitors the activity of the software is
+completely
+nonintrusive. Interestingly, breakpoints and single-stepping on a mixed
+hardware/software simulator are often nonintrusive, because the
+simulated
+hardware and the simulated software are affected together.
+For example, the heartbeat code GPIO_PORTF_DATA_R ^= 0x02; requires only 6 bus cycles to execute. 
+If the heartbeat runs every 1ms, and the bus clock is 80 MHz, then is equal to 6/80000. 
+Normally, if this ratio is less than 1/1000 we classify it minimally intrusive.
+Checkpoint 9.1
+:
+What does it mean for a
+debugging instrument to be minimally intrusive? Give both a general
+answer and
+a specific criterion.
+Research in the area of program monitoring and
+debugging mirrors the rapid pace of developments in other areas of
+computer architecture and
+software systems. Because of the complexity explosion in computer
+systems,
+effective debugging tools are essential. The critical aspect of
+debugging an
+embedded system is the ability to see what the software is doing, where
+it is
+executing, and when it did it, without the debugger itself modifying
+system
+behavior. Terms such as program testing, diagnostics, performance
+debugging,
+functional debugging, tracing, profiling, instrumentation,
+visualization,
+optimization, verification, performance measurement, and execution
+measurement
+have specialized meanings, but they are also used interchangeably, and
+they
+often describe overlapping functions. For example, the terms profiling,
+tracing, performance measurement, or execution measurement may be used
+to
+describe the process of examining a program from a time perspective. But,
+tracing
+is also a term that may be used to describe the process of monitoring a
+program
+state or history for functional errors, or to describe the process of
+stepping
+through a program with a debugger. Usage of these terms among
+researchers and
+users vary.
+Furthermore, the meaning and scope of the term
+debugging
+itself is not clear. In this class the goal of debugging is to maintain
+and
+improve software, and the role of a debugger is to support this
+endeavor. The
+debugging process is defined as testing, stabilizing, localizing, and
+correcting errors. Although testing, stabilizing, and localizing errors
+are
+important and essential to debugging, they are auxiliary processes: the
+primary
+goal of debugging is to remedy faults or to correct errors in a
+program.
+Stabilization
+is process of fixing the inputs so
+that the system can be run over and over
+again yielding repeatable outputs.
+Although, a wide variety of program monitoring and
+debugging
+tools are available today, in practice it is found that an overwhelming
+majority of users either still prefer or rely mainly on “rough
+and ready”
+manual methods for locating and correcting program errors. These
+methods
+include desk-checking, dumps, and print statements, with print
+statements being
+one of the most popular manual methods. Manual methods are useful
+because they
+are readily available, and they are relatively simple to use. But, the
+usefulness of manual methods is limited: they tend to be highly
+intrusive, and
+they do not provide adequate control over repeatability, event
+selection, or
+event isolation. A real-time system, where software execution timing is
+critical,
+usually cannot be debugged with simple print statements, because the
+print
+statement itself will require too much time to execute.
+Black-box testing
+is simply observing the
+inputs and
+outputs without looking inside. Black-box testing has an important
+place in
+debugging a module for its functionality. On the other hand,
+white-box
+testing
+allows you to control and observe the internal workings of
+a
+system. A common mistake made by new engineers is to just perform black
+box
+testing. Effective debugging uses both. One must always start with
+black-box
+testing by subjecting a hardware or software module to appropriate
+test-cases.
+Once we document the failed test-cases, we can use them to aid us in
+effectively performing the task of white-box testing.
+A print statement is a common example of a
+debugging
+instrument. Using the editor, one adds print statements to the code
+that either
+verify proper operation or illustrate the programming errors. If we
+test a
+system, then remove the instruments, the system may actually stop
+working,
+because of the importance of timing in embedded systems. If we leave
+debugging
+instruments in the final product, we can use the instruments to test
+systems on
+the production line, or test systems returned for repair. On the other
+hand,
+sometimes we wish to provide a mechanism to reliably and
+efficiently remove
+all instruments when the debugging is done. Consider the following
+mechanisms
+as you develop your own unique debugging style.
+•
+Place all instruments in a unique column, so you can
+easily
+distinguish instruments from regular programs.
+•
+Define all debugging instruments as functions that all
+have a
+specific pattern in their names. In this way, the find/replace
+mechanism of the
+editor can be used to find all the calls to the instruments.
+•
+Define the instruments so that they test a run time
+global flag.
+When this flag is turned off, the instruments perform no function.
+Notice that
+this method leaves a permanent copy of the debugging code in the final
+system,
+causing it to suffer a runtime overhead, but the debugging code can be
+activated dynamically without recompiling. Many commercial software
+applications utilize this method because it simplifies
+“on-site” customer
+support.
+•
+Use conditional compilation (or conditional assembly)
+to turn on
+and off the instruments when the software is compiled. When the
+assembler or
+compiler supports this feature, it can provide both performance and
+effectiveness.
+The emergence of concurrent languages and the
+increasing use
+of embedded real-time systems place further demands on debuggers. The
+complexities introduced by the interaction of multiple events or time
+dependent
+processes are much more difficult to debug than errors associated with
+sequential programs. The behavior of non-real-time sequential programs
+is
+reproducible: for a given set of inputs their outputs remain the same.
+In the
+case of concurrent or real-time programs this does not hold true.
+Control over
+repeatability, event selection, and event isolation is even more
+important for
+concurrent or real-time environments.
+Checkpoint 9.2
+:
+Consider the difference
+between a runtime flag that activates a debugging command versus an
+assembly/compile-time flag. In both cases it is easy to
+activate/deactivate the
+debugging statements. For each method, list one factor for which that
+method is
+superior to the other.
+Checkpoint 9.3
+:
+What is the advantage of
+leaving debugging instruments in a final delivered
+product?
+Observation:
+There are two important components of
+debugging:
+having control over events and being able to see what is happening.
+Remember:
+control
+and
+observability
+!
+Common Error:
+The most common debugging mistake new
+programmers
+make is to simply observe the overall inputs and outputs system without
+looking
+inside the device. Then they go to their professor and say, “My
+program gives
+incorrect output. Do you know why?”
+9.2. SysTick Timer
+Before we describe the process of instumentation, we will discus a feature 
+that exists on all Cortex
+Ô
+-M microcontrollers, a timer, called
+SysTick
+.
+Therefore, the use of SysTick in designing your system will assure you that your
+system will easily port to other Cortex-M microcontrollers. SysTick is a simple counter that we can use
+to create time
+delays and generate periodic interrupts. Table 9.1
+shows the
+register definitions for SysTick. The basis of SysTick is a 24-bit down
+counter
+that runs at the bus clock frequency. There are four steps involved in the
+initialization of the
+SysTick timer. First, we clear the
+ENABLE
+bit to turn off
+SysTick during
+initialization. Second, we set the
+RELOAD
+register. Third, we
+write to
+the
+NVIC_ST_CURRENT_R
+value to clear the counter. Lastly, we write the desired mode to the
+control
+register,
+NVIC_ST_CTRL_R
+. 
+The mode involves the
+CLK_SRC
+and the
+INTEN
+bits. We set
+the
+CLK_SRC
+bit
+specifying the core clock will be used. We will set
+CLK_SRC
+=1,
+so the
+counter runs off the system clock. Later, we will set
+INTEN
+to
+enable
+interrupts, but in this first example we clear
+INTEN
+so
+interrupts will
+not be requested. We need to set the
+ENABLE
+bit so the counter
+will run. Once the initialization is complete, the timer starts to count down, i.e.,
+CURRENT
+is decremented once every clock tick.
+When the
+CURRENT
+value counts down from 1 to 0, the
+COUNT
+flag is
+set. On the next clock, the
+CURRENT
+is loaded with the
+RELOAD
+value. In this way, the SysTick counter (
+CURRENT
+) is
+continuously
+decrementing. If the
+RELOAD
+value is
+n
+, then the
+SysTick counter
+operates at modulo
+n
++1 (…
+n
+,
+n
+-1,
+n
+-2
+… 1, 0,
+n
+,
+n
+-1, …). In other words, it rolls over every
+n
++1
+counts. In this
+chapter we set
+RELOAD
+to 0x00FFFFFF, so the
+CURRENT
+value is a
+simple indicator of what count is now. Noting what the count was at some point and then what it is now, allows us to calculate the time that has elapsed
+Address
+31-24
+23-17
+16
+15-3
+2
+1
+0
+Name
+$E000E010
+0
+0
+COUNT
+0
+CLK_SRC
+INTEN
+ENABLE
+NVIC_ST_CTRL_R
+$E000E014
+0
+24-bit RELOAD value
+NVIC_ST_RELOAD_R
+$E000E018
+0
+24-bit CURRENT value of SysTick counter
+NVIC_ST_CURRENT_R
+Table 9.1. SysTick registers.
+Without activating the phase-lock-loop (PLL),
+our TM4C123
+LaunchPad will run at 16 MHz, meaning the SysTick counter decrements
+every 62.5
+ns. If we activate the PLL to run the microcontroller at 80 MHz, then
+the
+SysTick counter decrements every 12.5 ns. In general, if the period of
+the core
+bus clock is
+t
+, then the
+COUNT
+flag will be set every (
+n
++1)
+t
+.
+Note that, reading the
+NVIC_ST_CTRL_R
+control register will return the
+COUNT
+flag in bit 16. The act of reading this register when the
+COUNT
+flag is set will automatically
+clear it (post read). Also, writing any value to the
+NVIC_ST_CURRENT_R
+register will reset the counter to zero and clear the
+COUNT
+flag.
+Program 9.1 initializes the SysTick. To determine the time, one simply
+reads
+the
+NVIC_ST_CURRENT_R
+register.
+#define
+NVIC_ST_CTRL_R      (*((volatile unsigned long
+*)0xE000E010))
+#define
+NVIC_ST_RELOAD_R    (*((volatile unsigned long
+*)0xE000E014))
+#define
+NVIC_ST_CURRENT_R   (*((volatile unsigned long *)0xE000E018))
+void
+SysTick_Init(void){
+NVIC_ST_CTRL_R =
+0;             
+// 1) disable SysTick during setup
+NVIC_ST_RELOAD_R = 0x00FFFFFF;   // 2) maximum reload value
+NVIC_ST_CURRENT_R =
+0;           // 3)
+any write to current clears it
+NVIC_ST_CTRL_R = 0x00000005;     // 4) enable
+SysTick with core clock
+}
+Program 9.1. Initialization of SysTick.
+Video
+9.1
+. Working of the Systick Timer
+Program 9.2 shows how to measure the elapsed time between calls to a
+function.
+Assume the system calls the function
+Action()
+over and over. The variable
+Now
+is the time (in 12.5ns units) when the function has been called. The
+variable
+Last
+is the time (also in 12.5ns
+units) when the function was called previously. To measure elapsed
+time, we
+perform a time subtraction. Since the SysTick counts down we subtract
+Last-Now
+. Since the
+time is only
+24 bits and the software variables are 32 bits we “
+and”
+with 0x00FFFFFF
+to create a 24-bit difference.
+unsigned long
+Now;      // 24-bit time at this call
+(12.5ns)
+unsigned long
+Last;     // 24-bit time at previous
+call (12.5ns)
+unsigned long
+Elapsed;  // 24-bit time between calls
+(12.5ns)
+void
+Action(void){      // function under test
+Now =
+NVIC_ST_CURRENT_R;         //
+what time is
+it now?
+Elapsed =
+(Last-Now)&0x00FFFFFF; // 24-bit
+difference
+Last =
+Now;                     
+// set up for
+next
+...
+}
+Program 9.2. Use of
+SysTick to
+measure elapsed time.
+The first measurement will be wrong because
+there is no
+previous execution from which to measure. The system will be accurate
+as long
+as the elapsed time is less than 0.209 second. More precisely, as long as
+the
+elapsed time is less than 2
+24
+*12.5ns. This is similar to the
+problem
+of using an analog clock to measure elapsed time. For example you
+notice the
+clock says 10:00 when you go to sleep, and you notice it says 7:00 when
+you
+wake up. As long as you are sure you slept less than 12 hours, you are
+confident you slept for 9 hours.
+Our TM4C123 microcontroller has some 32-bit and
+some
+64-bit timers, but we will use SysTick because it is much simpler to
+configure.
+We just have to be aware that we are limited to 24 bits.
+Checkpoint 9.4
+.
+If we activate the PLL and
+change
+the bus clock to 50 MHz (20ns), what is the longest elapsed time we
+could
+measure with Program 9.2?
+9.3. Arrays
+Video
+9.2
+. Introduction to Arrays
+In developing our instrument we will need a place to put data. One of the
+simplest and
+fastest places to store data is in RAM memory. The TM4C123 has 32
+kibibytes of
+RAM, and we can use it to store temporary data. If the information is a
+constant, and we know its values at compile time, we can place the data
+in ROM.
+The TM4C123 has 256 kibibytes of flash ROM, and we can use it to store
+constant
+data.
+Random access
+means one can read and
+write any element
+in any order. Random access is allowed for all indexable data
+structures. An
+indexed data structure has elements of the same size and can be
+accessed
+knowing the name of the structure, the size of each element, and the
+element
+number. In C, we use the syntax
+[]
+to access an indexed structure. Arrays, matrices, and tables are
+examples of
+indexed structures available in C.
+Sequential access
+means one reads and
+writes the
+elements in order. Pointers are usually employed in these types of data
+structures. Strings, linked-lists, stacks, queues, and trees are
+examples of
+sequential structures. The first in first out circular queue (
+FIFO
+)
+is useful for data flow problems.
+An
+array
+is made of elements of equal
+precision and
+allows random access. The
+precision
+is
+the size of each element. Typically, precision is expressed in bits or
+bytes.
+The
+length
+is the number of elements. The
+origin
+is
+the index of the first element. A data structure with the first element
+existing at index zero is called
+zero-origin indexing
+.
+In C, zero-origin index is the default. For example,
+Data[0]
+is the first
+element of
+the array
+Data
+.
+Just like any variable, arrays must be declared
+before they
+can be accessed. The number of elements in an array is determined by
+its
+declaration. Appending a constant expression in square brackets to a
+name in a
+declaration identifies the name as the name of an array with the number
+of
+elements indicated. Multi-dimensional arrays require multiple sets of
+brackets.
+These examples illustrate valid declarations of arrays. Because there
+is no
+const
+modifier, the arrays will be
+defined in RAM. The C compiler will add code that runs before your
+main, which
+will initialize all RAM-based variables to zero.
+short
+Data[5];      // allocate space for 5 16-bit
+integers
+long
+scores[20];    // allocate space for 20 32-bit integers
+int Width[6];
+      // 6 signed, precision depends
+on compiler
+char
+Image[5][10];  // allocate space for 50 8-bit
+integers
+short
+Points[5][5][5];// allocate space for 125
+16-bit ints
+If you would like the compiler to initialize to
+something
+other than zero, you can explicitly define the initial values. Again,
+this
+initialization will occur before your main is executed. Even though
+they have
+nonzero initial values, these arrays are in RAM, and thus can be
+modified at
+run time.
+short
+Data[5]={1,-1,2,-2,6};
+long
+scores[20]={-2,-1,0,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}
+int
+Width[6]={-10,-20,10,100,2000,40};
+short
+Image[5][10]={
+{0,0,1,0,1,1,1,0,1,0},
+{0,0,1,0,0,1,0,0,1,0},
+{0,0,1,0,0,1,0,0,1,0},
+{0,0,1,0,0,0,0,0,1,0},
+{0,0,0,1,1,1,1,1,0,0}};
+Figure
+9.1. The
+Data
+array has
+5
+16-bit elements, and
+the
+scores
+array has
+20
+32-bit elements.
+If the array contains constants, and we know the
+values at
+compile time, we can place the data in ROM using the
+const
+modifier. For
+ROM-based data, we must define
+the value explicitly in the software. These arrays are in ROM, and thus
+cannot
+be modified at run time.
+const short
+Data2[5]={1,2,3,4,5};
+const long
+scores2[20]={-2,-1,0,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}
+const int
+Width2[6]={-10,-20,10,100,2000,40};
+const short
+Image2[5][10]={
+{0,0,1,0,1,1,1,0,1,0},
+{0,0,1,0,0,1,0,0,1,0},
+{0,0,1,0,0,1,0,0,1,0},
+{0,0,1,0,0,0,0,0,1,0},
+{0,0,0,1,1,1,1,1,0,0}};
+In a formal way,
+const
+actually means “constant”. More specifically it means the
+executing software
+cannot change the value at run time. This means in C programs not
+implemented
+on an embedded system,
+const
+data could be stored in RAM, initialized at startup. In this case, the
+const
+modifier simply
+means the
+running program cannot change the values. However, in the class we are
+writing
+C code that will be deployed into a microcontroller as part of an
+embedded
+system, so
+const
+data
+will be stored in ROM.
+When an array element is referenced, the
+subscript
+expression designates the desired element by its position in the data.
+The
+first element occupies position zero, the second position one, and so
+on. It
+follows that the last element is subscripted by [N-1] where N is the
+number of
+elements in the array. The statement
+scores
+[9] = 0;
+for instance, sets the tenth element of the
+array to zero.
+The array subscript can be any expression that results in an integer.
+The
+following for-loop clears 20 elements of the array data to zero.
+for(j=0;j<20;j++)
+scores
+[j] = 0;
+If the array has two dimensions, then two
+subscripts are
+specified when referencing. As programmers we may any assign logical
+meaning to
+the first and second subscripts. For example we could consider the
+first
+subscript as the row and the second as the column. Then, the statement
+TheValue
+=
+Image[3][5];
+copies the information from the 4th row 6th
+column into
+the variable
+TheValue
+.
+If
+the array has three dimensions, then three subscripts are specified
+when
+referencing. Again we may assign any logical meaning to the various
+subscripts.
+For example we could consider the first subscript as the x coordinate,
+the
+second subscript as the y coordinate and the third subscript as the z
+coordinate. Then, the statement
+Points[2][3][4]=100;
+sets the values at position (2,3,4) to 100.
+Array
+subscripts are treated as signed integers. It is the programmer's
+responsibility to see that only positive values are produced, since a
+negative
+subscript would refer to some point in memory preceding the array. One
+must be
+particularly careful about assuming what existing either in front of or
+behind
+our arrays in memory.
+Example 9.1.
+Assume there are 50
+students in
+the class, and their grades on the first exam are stored in an array.
+Write a
+function that calculates and returns class average. Write a second
+function
+that finds and returns the highest grade on the exam.
+Solution:
+Assuming the grades vary from 0 to 100, the data could be stored in
+char
+,
+short
+or
+long
+format. To be compatible with the ARM architecture, we will create a
+32-bit
+array. In this example, we will not worry about how grades are entered,
+but
+assume there is data in this array.
+long Grades[50];
+To calculate
+average, we sum the values and divide by the number of students. The
+return
+statement will return the 32-bit calculation of sum/50. This will never
+create
+an error, because the sum of 50 numbers ranging from 0 to 100 will
+always be
+less than 4 trillion (2
+32
+) and the average of these numbers
+will
+never go below 0 or above 100.
+long
+Average(void){long sum,i;
+sum = 0;
+for(i=0;
+i<50; i++){
+sum = sum+Grades[i];
+}
+return
+(sum/50);
+}
+Program
+9.3. A function that
+calculates the average of data stored in an array.
+To make this more general, we will pass in the
+array and
+the size.
+long Average(long
+class[],long size){
+long sum,i;
+sum = 0;
+for(i=0;
+i<size; i++){
+sum = sum+class[i];  // add up all values
+}
+return
+(sum/size);
+}
+The array parameter is actually a pointer to the
+array. So
+to use this new function we call
+MyClassAverage = Average(Grades, 50);
+Similarly to find the largest we will search the
+array. We
+initialized the result parameter (
+largest
+) to the smallest possible answer, and
+then
+every time we find one larger, we replace the result parameter.
+long Max(long
+class[],long size){
+long largest,i;
+largest =
+0;  // smallest possible value
+for(i=0;
+i<size; i++){
+if(class[i] > largest){
+largest = class[i];  // new maximum
+}
+}
+return
+(largest);
+}
+To use this new function we call
+HighestsScore = Max(Grades,
+50);
+Example 9.2.
+Design an exponential
+function,
+y
+= 10
+x
+, with a
+32-bit
+output.
+Solution:
+Since the output is less than
+4,294,967,295,
+the input must be between 0 and 9. One simple solution is to employ a
+constant
+word array, as shown in Figure 9.3. Each element is 32 bits. In
+assembly, we
+define a word constant using
+DCD
+,
+making sure in exists in ROM.
+In C, the
+syntax for accessing all array types is independent of precision. See
+Program 9.4.
+The compiler automatically performs the correct address correction. We
+will
+assume the input is less than or equal to 9. If
+x
+is the index and
+Base
+is the base address of the array, then the address of the element at
+x
+is
+Base+4*x
+.
+In assembly, we
+can access the array using indexed addressing. We will assume the
+input (which is in Register R0)
+is less than or equal to 9. We show the asembly equivalent of the C code below (and examples that follow) just to pique your curiosity, you may ignore it if you choose.
+0x00000134
+1
+0x00000138
+10
+0x0000013C
+100
+0x00000140
+1,000
+0x00000144
+10,000
+0x00000148
+100,000
+0x0000014C
+1,000,000
+0x00000150
+10,000,000
+0x00000154
+100,000,000
+0x00000158
+1,000,000,000
+Figure
+9.2. A word array with
+10
+elements.
+Addresses illustrate the array is
+stored in ROM as 4 bytes each.
+AREA  |.text|,CODE,READONLY,ALIGN=2
+Powers DCD 
+1, 10, 100, 1000, 10000
+DCD  100000, 1000000, 10000000
+DCD  100000000, 1000000000
+; Input:
+R0=x    Output: R0=10^x
+power 
+LSL R0, R0, #2   ; x = x*4
+LDR R1,
+=Powers  ; R1 = &Powers
+LDR R0, [R0, R1] ; y=Powers[x]
+BX  LR
+const unsigned
+long Powers[10]
+={1,10,100,1000,10000,
+100000,1000000,10000000,
+100000000,1000000000};
+unsigned long
+power(unsigned long x){
+return
+Powers[x];
+}
+Program
+9.4. Array implementation of
+a nonlinear function.
+In general, let
+n
+be the precision of a zero-origin indexed array in bytes. If
+I
+is the index and
+Base
+is the beginning
+address of
+the array, then the address of the element at
+I
+is
+Base+n*I
+The origin of an array is the index of the
+first element. The
+origin of a zero-origin indexed array is zero. In general, if
+o
+is the origin of the
+array, then
+the address of the element at
+I
+is
+Base+n*(I-o)
+9.4. Strings
+A
+string
+is
+simply an array of ASCII characters. In C, strings are automatically null-terminated by the compiler:
+const char
+Hello[] = "Hello world\n\r";
+const char Name[]
+= "Yerraballi";
+When defining
+constant strings
+or arrays we must specify their value because the data will be loaded
+into ROM
+and cannot be changed at run time. In the previous constant arrays we
+specified
+the size; however for constant arrays the size can be left off and the
+compiler
+will calculate the size automatically. Notice also the string can
+contain
+special characters, some of which are listed in Table 9.1. The
+Hello
+string has 13
+characters
+followed by a null (0) termination.
+Character
+Escape
+Sequence
+alert
+(beep)
+\a
+backslash
+\\
+backspace
+\b
+carriage
+return
+\r
+double
+quote
+\"
+form
+feed
+\f
+horizontal
+tab
+\t
+newline
+\n
+null
+character
+\0
+single
+quote
+\'
+vertical
+tab
+\v
+question
+mark
+\?
+Table 9.1. Escape sequences.
+Note, that in C, ASCII strings are stored with
+null-termination. So, the C compiler automatically adds the zero at the end, but in
+assembly, the
+zero must be explicitly defined.
+Example 9.3.
+Write software to output an
+ASCII string
+an output device.
+Solution:
+Because the length of the string may be too long to place all the ASCII
+characters into the registers at the same time, call by reference
+parameter
+passing will be used. With call by reference, a pointer to the string
+will be
+passed. The function
+OutString
+,
+shown in Program 9.5, will output the string data to the display. We will assume the
+function
+OutChar
+is given to us, which outputs a single
+ASCII character. In C, we process one character (
+*pt
+gives us the current character) of the string 
+in each iteration of the while loop, which ends when the null value is reached. Each iteration advances the pointer by incrementing it (
+pt++
+).  
+In the assembly version, R4 is used as a pointer to the string; one is added
+to the
+pointer each time through the loop because each element in the string
+is one byte. Since this function calls a subfunction it must save its original return address (LR). The POP
+PC operation will perform the function return.
+;Input: R0 points
+to string
+OutString
+PUSH
+{R4, LR}
+MOV  R4,
+R0
+loop
+LDRB R0, [R4]
+ADD  R4, #1  ;next
+CMP  R0,
+#0  ;done?
+BEQ  done    ;0
+termination
+BL   OutChar ;print character
+B    loop
+done POP 
+{R4, PC}
+// displays a
+string
+void
+OutString(char *pt){
+while(*pt){
+OutChar(*pt); // output
+pt++;         // next
+}
+}
+Program
+9.5. A variable length string
+contains ASCII data.
+Observation:
+Most C compilers have standard libraries. If you include
+“string.h” you will
+have access to many convenient string operations.
+When dealing with strings we must remember that
+they are
+arrays of characters with null termination. In C, we can pass a string
+as a
+parameter, but doing so creates a constant string and implements call
+by
+reference. Assuming
+Hello
+is as defined above, these three invocations are identical:
+OutString(Hello);
+OutString(&Hello[0]);
+OutString("Hello world\n\r");
+Previously we dealt with constant strings.
+With string
+variables, we do not know the length at compile time, so we must
+allocate space
+for the largest possible size the string could be. E.g., if we know the
+string
+size could vary from 0 to 19 characters, we would allocate 20 bytes.
+char String1[20];
+char String2[20];
+In C, we cannot assign one string to another.
+I.e., these
+are illegal
+String1 = "Hello";   //********illegal************
+String2 = String1;  
+//********illegal************
+We can make this operation occur by calling a
+function
+called
+strcpy
+,
+which copies one string to another. This function takes two pointers.
+We must
+however make sure the destination string has enough space to hold the
+string
+being copied.
+strcpy(String1,"Hello");  // copies
+"Hello" into String1
+strcpy(String2,String1);  // copies String1
+into String2
+Program 9.6 shows two implementations of this
+string copy function. R0 and R1 are pointers, and R2 contains the
+data as it is being copied.
+In this case,
+dest++;
+is
+implemented as an “add 1” because the data is one byte
+each (char). In other non-string
+situations, the increment pointer would be “add 2” for
+halfword data (short) and would
+be “add 4” for word data(long). Again, the C compiler does this automatically, but when writing in assembly one has to do this explicitly.
+;
+Input: R0=&dest    R1=&source
+strcpy
+LDRB R2,[R1]  ;source data
+STRB R2,[R0]  ;copy
+CMP 
+R2,#0    ;termination?
+BEQ  done
+ADD  R1,#1    ;next
+ADD  R0,#1
+B    strcpy
+done  
+BX   LR
+;faster
+version
+strcpy
+LDRB R2,[R1],#1 ;source data
+STRB R2,[R0],#1 ;copy
+CMP 
+R2,#0      ;termination?
+BEQ  done
+B    strcpy
+done  
+BX   LR
+// copy string
+from source to dest
+void strcpy(char
+*dest, char *source){
+while(*source){
+*dest = *source;  // copy
+dest++;           //
+next
+source++;
+}
+*dest =
+*source;   // termination
+}
+// another version
+void strcpy(char
+*dest, char *source){
+char data;
+do{
+data
+= *dest++ = *source++;
+}
+while(data);
+}
+Program 9.6. Simple
+string copy
+functions.
+9.5. Functional debugging
+Video
+9.3
+. Testing and Debugging - Intrusiveness
+9.5.1.
+Stabilization
+Functional debugging
+involves the
+verification of
+input/output parameters. Functional debugging is a static process where
+inputs
+are supplied, the system is run, and the outputs are compared against
+the
+expected results. Four methods of functional debugging are
+presented in this section. There
+are two important aspects of debugging: control and observability. The
+first
+step of debugging is to
+stabilize
+the system. In the
+debugging context,
+we stabilize the system by creating a test routine that fixes (or
+stabilizes)
+all the inputs. In this way, we can reproduce the exact inputs over and
+over
+again. Stabilization is an effective approach to debugging because we
+can
+control exactly what software is being executed. Once stabilized, if we
+modify
+the program, we are sure that the change in our outputs is a function
+of the
+modification we made in our software and not due to a change in the
+input
+parameters. When a system has a small number of possible inputs (e.g.,
+less
+than a million), it makes sense to test them all. When the number of
+possible
+inputs is large we need to choose a set of inputs. There are many ways
+to make
+this choice. We can select values:
+Near the extremes and in the
+middle
+Most typical of how our
+clients will
+properly use the system
+Most typical of how our
+clients will
+improperly
+attempt to
+use the system
+That differ by one
+You know your system will
+find difficult
+Using a random number
+generator
+To stabilize the system we define a fixed set of
+inputs to test,
+run the system on these inputs, and record the outputs. Debugging is a
+process
+of finding patterns in the differences between recorded behavior and
+expected
+results. The advantage of modular programming is that we can perform
+modular
+debugging. We make a list of modules that might be causing the bug. We
+can then
+create new test routines to stabilize these modules and debug them one
+at a
+time. Unfortunately, sometimes all the modules seem to work, but the
+combination of modules does not. In this case we study the interfaces
+between
+the modules, looking for intended and unintended (e.g., unfriendly
+code)
+interactions.
+9.5.2. Single
+Stepping
+Many debuggers allow you to set the program counter
+to a
+specific address then execute one instruction at a time. The debugger
+provides
+three stepping commands
+Step
+,
+StepOver
+and
+StepOut
+commands.
+Step
+is the usual execute one assembly instruction.
+However,
+when debugging C we can also execute one line of C.
+StepOver
+will
+execute one assembly instruction, unless that instruction is a
+subroutine call,
+in which case the debugger will execute the entire subroutine and stop
+at the
+instruction following the subroutine call.
+StepOut
+assumes the
+execution
+has already entered a subroutine, and will finish execution of the
+subroutine
+and stop at the instruction following the subroutine call.
+9.5.3.
+Breakpoints
+A
+breakpoint
+is a mechanism to tag
+places in our
+software, which when executed will cause the software to stop.
+Normally, you
+can break on any line of your program.
+One of the problems with breakpoints is that
+sometimes we
+have to observe many breakpoints before the error occurs. One way to
+deal with
+this problem is the conditional breakpoint. To illustrate the
+implementation of
+conditional breakpoints, add a global variable called
+Count
+and initialize it
+to 32 in
+the initialization ritual. Add the following conditional breakpoint to
+the
+appropriate location in your software. Using the debugger, we set a
+regular
+breakpoint at
+bkpt
+.
+We
+run the system again (you can change the 32 to match the situation that
+causes
+the error.)
+PUSH
+{R1, R2}   ; save R1 and R2
+LDR  R2,
+=Count ; R2 = Count
+LDR  R1, [R2]   ; R1 = Count
+SUBS R1, R1, #1 ; Count = Count – 1
+STR  R1, [R2]   ; store to Count
+BNE  DEBUG_skip ; if Count != 0, skip
+DEBUG_bkpt
+NOP            
+; put breakpoint here
+DEBUG_skip
+POP {R1, R2}    ; restore R1 and R2
+if(--Count==0)
+bkpt
+Notice that the breakpoint occurs only on the 32
+nd
+time the break is encountered. Any appropriate condition can be
+substituted. Most
+modern debuggers allow you to set breakpoints that will trigger on a
+count. However,
+this method allows flexibility of letting you choose the exact
+conditions that
+cause the break.
+9.5.4.
+Instrumentation:
+Print Statements
+The use of print statements is a popular and
+effective means
+for functional debugging. One difficulty with print statements in
+embedded
+systems is that a standard “printer” may not be available.
+Another problem with
+printing is that most embedded systems involve time-dependent
+interactions with
+its external environment. The print statement itself may be so slow,
+that the
+debugging process itself causes the system to fail. In this regard, the
+print
+statement is
+intrusive
+. Therefore, throughout this book we will
+utilize
+debugging methods that do not rely on the availability of a standard
+output
+device.
+9.5.5.
+Instrumentation:
+Dump into Array without Filtering
+There are three limitations of using print
+statements to
+debug. First, many embedded systems do not have a standard output
+device onto
+which we could stream debugging information. A second difficulty with
+print
+statements is that they can significantly slow down the execution speed
+in
+real-time systems. The bandwidth of the print functions often cannot
+keep pace
+with the real-time execution. For example, our system may wish to call
+a
+function 1000 times a second (or every 1 ms). If we add print
+statements to it
+that require more than 1 ms to perform, the presence of the print
+statements
+will cause the system to crash. In this situation, the print statements
+would
+be considered extremely intrusive. Another problem with print
+statements occurs
+when the system is using the same output hardware for its normal
+operation, as
+is required to perform the print function. For example, your watch may
+have an
+LCD, but that display is used to implement the watch functionality. If
+we
+output debugging information to the LCD, the debugger output and normal
+system
+output are intertwined.
+To solve these limitations, we can add a debugging
+instrument
+that dumps strategic information into an array at run time. We can then
+observe
+the contents of the array at a later time. One of the advantages of
+dumping is
+that the JTAG debugger allows you to visualize memory even when
+the program is
+running. So this technique will be quite useful in systems with a JTAG
+debugger. Assume
+happy
+and
+sad
+are
+strategic
+8-bit variables. The first step when instrumenting a dump is to define
+a buffer
+in RAM to save the debugging measurements.
+SIZE    
+EQU 20
+HappyBuf SPACE
+SIZE
+SadBuf  
+SPACE SIZE
+Cnt     
+SPACE 4
+#define SIZE 20
+unsigned char
+HappyBuf[SIZE];
+unsigned char
+SadBuf[SIZE];
+unsigned long Cnt;
+The
+Cnt
+will be used to index into the buffers.
+Cnt
+must be initialized to zero, before the debugging begins. The debugging
+instrument, shown in Program 9.7, dumps the strategic variables into
+the
+buffers. When writing debugging instruments it is good style to
+preserve all
+registers.
+Save
+PUSH {R0-R3,LR}
+LDR  R0,=Cnt  ;R0 = &Cnt
+LDR  R1,[R0]  ;R1 = Cnt
+CMP  R1,#SIZE
+BHS 
+done     ;full?
+LDR  R3,=Happy
+LDRB
+R3,[R3]  ;R3 is happy
+LDR  R2,=HappyBuf
+STRB R3,[R2,R1] ;save happy
+LDR  R3,=Sad
+LDRB R3,[R3]  ;R3 is sad
+LDR  R2,=SadBuf
+STRB R3,[R2,R1] ;save sad
+ADD  R1,#1
+STR  R1,[R0] ;save Cnt
+done
+POP  {R0-R3,PC}
+void Save(void){
+if(Cnt <
+SIZE){
+HappyBuf[Cnt] = happy;
+SadBuf[Cnt] = sad;
+Cnt++;
+}
+}
+Program 9.7. Instrumentation dump.
+Next, you add
+BL Save
+statements at
+strategic places within the system. You can either use the debugger to
+display
+the results, or add software that prints the results after the program
+has run
+and stopped.
+9.5.6.
+Instrumentation:
+Dump into Array with Filtering.
+One problem with dumps is that they can generate a
+tremendous
+amount of information. If you suspect a certain situation is causing
+the error,
+you can add a
+filter
+to the instrument. A filter is a
+software/hardware
+condition that must be true in order to place data into the array. In
+this
+situation, if we suspect the error occurs when another variable gets
+large, we
+could add a filter that saves in the array only when the variable is
+above a
+certain value. In the example shown in Program 9.8, the instrument
+dumps only
+when
+sad
+is
+greater than
+100.
+Save
+PUSH {R0-R3,LR}
+LDR  R3,=Sad
+LDRB R3,[R3]  ;R3 is sad
+CMP  R3,#100
+BLS  done     ;assuming unsigned
+LDR 
+R0,=Cnt  ;R0 = &Cnt
+LDR  R1,[R0]  ;R1 = Cnt
+CMP  R1,#SIZE
+BHS  done     ;full?
+LDR 
+R2,=SadBuf
+STRB R3,[R2,R1] ;save sad
+LDR  R3,=Happy
+LDRB R3,[R3]  ;R3 is happy
+LDR  R2,=HappyBuf
+STRB R3,[R2,R1] ;save happy
+ADD  R1,#1
+STR  R1,[R0] ;save Cnt
+done
+POP  {R0-R3,PC}
+void Save(void){
+if(sad >
+100){
+if(Cnt < SIZE*2){
+HappyBuf[Cnt] = happy;
+SadBuf[Cnt] = sad;
+Cnt++;
+}
+}
+}
+Program 9.8. Instrumentation dump with filter.
+9.5.7. Prove that our system is functioning as intended.
+Video
+9.4
+. Making the case for Functional Debugging
+When embedded systems are deployed in safety
+critical
+situations we need to document how the system was tested, and provide
+proof it
+is functioning as intended. We will illustrate the process with the
+example from
+module 2. In Lab02 the goal was to create a system that toggled the
+light at 5
+Hz. This means the red LED should be on for 0.1 sec and off for 0.1
+sec. If we
+look at the LED with our eyes it looks like it is running correctly. If
+we look
+at the signal on the oscilloscope or logic analyzer, again it looks
+correct.
+But can we prove it? In this first debugging process we will dump the
+value of
+PF1 in one array and the time difference in a second array, see Program
+9.9.
+When we run this program, it reveals all 49 measurements where the average time
+difference is 
+1,599,996 bus cycles, which is 0.09999975 seconds, which is close to
+the
+desired time of 0.1 second.
+Video
+9.5
+. Functional Debugging with Lab02 modified
+// first data
+point is wrong, the other 49 will be
+correct
+unsigned long
+Time[50];
+unsigned long
+Data[50];
+int
+main(void){
+unsigned long i,last,now;
+// initialize PF0 and PF4 and make
+them inputs
+PortF_Init();   // make PF3-1 out (PF3-1 built-in
+LEDs)
+SysTick_Init(); // initialize SysTick, runs at 16
+MHz
+i =
+0;          // array index
+last =
+NVIC_ST_CURRENT_R;
+while(1){
+Led = GPIO_PORTF_DATA_R;   // read previous
+Led =
+Led^0x02;           
+// toggle red LED
+GPIO_PORTF_DATA_R = Led;   // output
+if(i<50){
+now = NVIC_ST_CURRENT_R;
+Time[i] = (last-now)&0x00FFFFFF;  //
+24-bit time difference
+Data[i] = GPIO_PORTF_DATA_R&0x02; //
+record PF1
+last = now;
+i++;
+}
+Delay();
+}
+}
+Program 9.9.
+Instrumentation to
+record the first 49 time differences (debugging shown in bold).
+However compelling this data is, it doesn’t
+prove it is
+always 0.1 sec. Let’s further specify the desire is to create a
+system that is
+accurate to ±0.01%. This means any time difference
+1,600,000±160 cycles is
+acceptable. In Program 9.10 we will count the number of times the time
+difference
+is unacceptable. If we run this program for a month we can observe its
+behavior
+over 25 million times. Furthermore, we can leave this debugging code
+into the
+deployed system, and verify the system is running as expected for the
+entire
+life of the system.
+// first data
+point is wrong, the others will be
+correct
+long Errors;
+#define CORRECT
+1600000
+#define TOLERANCE
+160
+int main(void){
+unsigned long last,now,diff;
+// initialize PF0 and PF4 and make
+them inputs
+PortF_Init();   // make PF3-1 out (PF3-1 built-in
+LEDs)
+SysTick_Init(); // initialize SysTick, runs at 16
+MHz
+Errors =
+-1;    // no errors (ignore first
+measurement)
+last =
+NVIC_ST_CURRENT_R;
+while(1){
+Led = GPIO_PORTF_DATA_R;   // read previous
+Led =
+Led^0x02;           
+// toggle red LED
+GPIO_PORTF_DATA_R = Led;   // output
+now = NVIC_ST_CURRENT_R;
+diff = (last-now)&0x00FFFFFF;  // 24-bit
+time difference
+if((diff<(CORRECT-TOLERANCE))||(diff>(CORRECT+TOLERANCE)){
+Error++;
+}
+last = now;
+Delay();
+}
+}
+Program 9.10.
+Instrumentation
+to count the number of mistakes (debugging shown in bold).
+One interesting feature we could add to this system
+is to
+implement the
+Error
+count
+in ROM. The flash ROM allows the running program to change its value.
+The
+disadvantage of storing data in ROM is it takes over 1ms to cause the
+change. In
+situations where we have infrequent but important data, this 1ms
+overhead is
+not significant. The advantage of storing infrequent but important
+debugging information
+in ROM is that this data is available even if power is removed and
+restored.
+For example, if the embedded system were to be involved in a loss of
+life
+accident, the data stored in ROM could be recovered to determine if any
+run-time errors might have contributed to the accident. Conversely,
+this data
+stored in ROM could verify that no errors in the operation of the
+embedded
+system had occurred prior to the accident. If you wish to write to
+flash ROM,
+look at example projects called “flash” on
+http://users.ece.utexas.edu/~valvano/arm/.
+Reprinted with approval from
+Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers
+, 2014, ISBN:
+978-1477508992,
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+Embedded Systems - Shape the World
+by
+Jonathan Valvano and Ramesh Yerraballi
+is licensed under a
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

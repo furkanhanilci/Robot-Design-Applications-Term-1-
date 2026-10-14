@@ -1,0 +1,182 @@
+Ch. 26 - Miscellaneous
+Underactuated Robotics
+Algorithms for Walking, Running, Swimming, Flying, and Manipulation
+Russ Tedrake
+© Russ Tedrake, 2024
+Last modified
+.
+How to cite these notes, use annotations, and give feedback.
+Note:
+These are working notes used for
+a course being taught
+at MIT
+. They will be updated throughout the Spring 2024 semester.
+Lecture videos are available on YouTube
+.
+Previous Chapter
+Table of contents
+Miscellaneous
+How to cite these notes
+Thank you for citing these notes in your work.  Please use the following
+    citation:
+Russ Tedrake.
+Underactuated Robotics:
+    Algorithms for Walking, Running, Swimming, Flying, and Manipulation (Course
+    Notes for MIT 6.832).
+Downloaded on [date] from
+    https://underactuated.csail.mit.edu/
+@book{underactuated,
+  title        = "Underactuated Robotics",
+  subtitle     = "Algorithms for Walking, Running, Swimming, Flying, and Manipulation",
+  howpublished = "Course Notes for MIT 6.832",
+  author       = "Tedrake, Russ",
+  year         = 2023,
+  url          = "https://underactuated.csail.mit.edu",
+}
+Annotation tool etiquette
+My primary goal for the annotation tool is to host a completely open
+  dialogue on the intellectual content of the text.  However, it has turned out
+  to serve an additional purpose: it's a convenient way to point out my
+  miscellaneous typos and grammatical blips.  The only problem is that if you
+  highlight a typo, and I fix it 10 minutes later, your highlight will persist
+  forevermore.  Ultimately this pollutes the annotation content.
+There are two possible solutions:
+you can make a public editorial comment, but must promise to delete that comment once it has been addressed.
+You can
+join my "editorial" group
+and post your editorial comments
+using this group "scope"
+.
+Ideally, once I mark a comment as "done", I would appreciate it if you can delete that comment.
+I highly value both the discussions and the corrections.  Please keep them coming, and thank you!
+Some great final projects
+Each semester students put together a final project using the tools from this class.  Many of them are fantastic!  Here is a small sample.
+Spring 2024 Outstanding Project Awards:
+Acceleration Constrained
+      Quadrotor Trajectory Optimization in Dense Obstacle Fields Using Graphs Of Convex
+      Sets
+by Michael Tibbs
+Collision Free Trajectory Optimization
+      for Control of Fixed-Wing UAVs using Graph of Convex Set
+by Steve Nomeny
+Co-training for
+      Visuomotor Policy Learning
+by Abhinav Agarwal and Adam Wei
+Graph of Convex Sets for Trajectory
+      Optimization on Spot
+by Johannes Ihle, Aileen Liao, and Lukas Molnar
+Satellite Attitude Planning using
+      Semidefinite Programming
+by Brandon Eickert and Shreeyam Kacker
+Here is a playlist
+containing all of the public projects from the term.
+Spring 2023:
+Trajectory
+      optimization for swing-up of multi-link cart-pole
+by Siro Corsi
+SalmonBot
+by Erick
+      Fuentes
+Cooperative
+      Shared-Load Carrying by Quadrotors
+by Seiji Shaw and Tommy Cohn
+Flying bird robot
+by Quang
+      Kieu
+QP inverse dynamics for Spot
+      with an arm
+by Namir Jawdat
+Staff Spinning Using
+      Trajectory Optimization
+by Shruti Garg
+GCS as a policy
+by Savva
+      Morozov
+Spring 2022:
+Bowling Strikes
+      with Trajectory Optimization
+by Benjamin Qi
+Quantum Control
+      via Constrained Trajectory Optimization
+by Shantanu Jha and Shoumik
+      Chowdhury
+Trajectory
+      Optimization of Simple Skateboarding Tricks through Contact
+by
+      Michael Burgess
+Contact-Aware
+      Controller Design via Alternating Optimization
+by Richard Li and
+      Timur Garipov
+Certifying
+      Stability for Magnetically Actuated Satellites
+by Alex Meredith
+Quadrotor
+      Trajectory Optimization with Stochastic Wind Disturbance
+by Mason
+      Darveaux
+Contraction
+      Metrics-based Stability Analysis via SOS Programming
+by Sunbochen
+      Tang
+Brachiation
+      Trajectory Optimization
+by Kaleb Blake and John Flynn
+Spring 2021:
+Linearized MPC
+      for a kinematic bicycle model
+by Mike Schoder. [
+code
+]
+Trajectory
+      Optimization of Interplanetary Travel using Gravity Assist
+      Maneuver
+Differential
+      Flatness Trajectory Stabilization of Quadrotors
+by Charles
+      Vorbach
+Trajectory
+      Planning of a Quadrotor in Random Environments
+by Susan Ni, Christian
+      Schillinger, and Max Thomsen
+Spring 2020:
+Collision Free
+      Mixed Integer Planning for Quadrotors Using Convex Safe Regions
+by
+      Bernhard Paus Græsdal
+Pancake
+      flipping via trajectory optimization
+by Charles Dawson
+Dynamic
+      Soaring
+by Lukas Lao Beyer
+Acrobatic
+      Humanoid
+by Matt Chignoli and AJ Miller
+Trajectory
+      Optimization for the Furuta Pendulum
+by Samuel Cherna and Philip
+      Murzynowski
+Even before we started posting project presentations on YouTube, some great projects from class have turned into full publications.  Here are a few examples:
+Feedback Control of the Pusher-Slider System: A Story of Hybrid and Underactuated Contact Dynamics
+Harnessing Structures for Value-Based Planning and Reinforcement Learning
+The famous Mini Cheetah backflip in
+Mini Cheetah: A Platform for Pushing the Limits of Dynamic Quadruped Control
+started as an
+underactuated project
+.
+Please give me feedback!
+I'm very interested in your feedback.  The annotation tool is one
+  mechanism, but you can also comment directly on the YouTube lectures, or even
+  add issues to the
+github repo
+that
+  hosts these course notes.
+I've also created
+this simple survey
+to collect your general comments/feedback.
+Previous Chapter
+Table of contents
+Accessibility
+© Russ
+      Tedrake, 2024

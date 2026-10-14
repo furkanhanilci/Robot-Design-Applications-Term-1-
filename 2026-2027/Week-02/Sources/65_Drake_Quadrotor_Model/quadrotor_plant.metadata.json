@@ -1,0 +1,7 @@
+{
+  "source": "https://raw.githubusercontent.com/RobotLocomotion/drake/master/examples/quadrotor/quadrotor_plant.cc",
+  "access_date": "2026-10-12",
+  "sha256": "4099668dec7dae4c247458454b597aaecebe98598abdc07b3627c86a99493343",
+  "read": "entire implementation; rotor force cross products, Newton-Euler and hover input",
+  "adaptation": "one-based plus numbering; input fi physical newtons; z-up world/body; derived mixing inverse"
+}

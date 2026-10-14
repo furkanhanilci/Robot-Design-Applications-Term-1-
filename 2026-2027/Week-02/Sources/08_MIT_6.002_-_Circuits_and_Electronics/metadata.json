@@ -1,0 +1,838 @@
+{
+  "id": 8,
+  "name": "MIT 6.002 - Circuits and Electronics",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/",
+  "folder": "08_MIT_6.002_-_Circuits_and_Electronics",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/",
+      "kind": "html",
+      "bytes": 50818,
+      "sha256": "8e24152ec04e855926a33b2ef7e4ca622d9f540cbee7fd1fb1283fa2e949f5db"
+    },
+    {
+      "file": "page_2118b174c9.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/syllabus/",
+      "kind": "html",
+      "bytes": 60418,
+      "sha256": "436be6824185c1a51d8e7876e4aed54f33c5f1e1b7f0e8744c6ba41b6704e689"
+    },
+    {
+      "file": "page_42d5dee417.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 55247,
+      "sha256": "c6c93264f75adc1f6e714f234fb103a915f035a11503078e5152e9f08b943a88"
+    },
+    {
+      "file": "page_36969f97fe.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l1/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l1/",
+      "kind": "html",
+      "bytes": 53018,
+      "sha256": "919e62ea222f0c88daa1fd30504875841bfc4fd0c6ea08e8bdce71699e6b6500"
+    },
+    {
+      "file": "page_25a1030898.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l2/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l2/",
+      "kind": "html",
+      "bytes": 52868,
+      "sha256": "327f50c1d5caf23166a465eecc83625947f1c74b6a9a87bb1163111955125be5"
+    },
+    {
+      "file": "page_0fefe545ef.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l3/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l3/",
+      "kind": "html",
+      "bytes": 52898,
+      "sha256": "636b086d606fee94cbe4b7035a31eb12b70d5b7e41d3dcef44777c24148e9404"
+    },
+    {
+      "file": "page_f32019c3cb.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l4/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l4/",
+      "kind": "html",
+      "bytes": 52894,
+      "sha256": "f39e793dae8aa52bcbc5a9aa9e65301294c2e64f25e15730bc8104d5e427d609"
+    },
+    {
+      "file": "page_2fe7108b0a.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l5/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l5/",
+      "kind": "html",
+      "bytes": 52822,
+      "sha256": "62f6aabc4e3f254f43c955f6f47dbb53fa3770e7f3bb11fec4fcd3715dbfc5a8"
+    },
+    {
+      "file": "page_dd9f8b34a3.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l6/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l6/",
+      "kind": "html",
+      "bytes": 52817,
+      "sha256": "739ef42df7d2752dac0161c180d41068688bfcd608f25f29eea528d2affb2b29"
+    },
+    {
+      "file": "page_68b5dee442.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l7/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l7/",
+      "kind": "html",
+      "bytes": 52899,
+      "sha256": "4af523c3defa0038a3f12e8c490b7f0a2149f42e07fb19408189dc447699b9c7"
+    },
+    {
+      "file": "page_29ae994ed6.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l8/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l8/",
+      "kind": "html",
+      "bytes": 52915,
+      "sha256": "296a31ee1d851923d8e5eeee7c1b9d4303dd420c496ee3098ea22cc2e3055c91"
+    },
+    {
+      "file": "page_0cc0d526fe.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l9/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l9/",
+      "kind": "html",
+      "bytes": 52893,
+      "sha256": "432d3ea9de9923865b184174b1b15ba6261033ea3aa51d64be80c73856ad8f64"
+    },
+    {
+      "file": "page_d4b13811b3.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l10/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l10/",
+      "kind": "html",
+      "bytes": 52747,
+      "sha256": "a5bb7d99ffdf6f6fba374c9a97751aad40ad3cf235c87e93c440a0639b4428b7"
+    },
+    {
+      "file": "page_330e566441.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l11/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l11/",
+      "kind": "html",
+      "bytes": 52969,
+      "sha256": "eda017e150df38cad92c129a792f8e583f65638b0e6ab5aa0b1d9e2c13cf6568"
+    },
+    {
+      "file": "page_79fe0438f4.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l12/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l12/",
+      "kind": "html",
+      "bytes": 52902,
+      "sha256": "bfb38bd06b420499481bb1f86b2e9b934692b0cb52128293f94cdcaa47075eaf"
+    },
+    {
+      "file": "page_11c9b6d50a.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l13/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l13/",
+      "kind": "html",
+      "bytes": 52829,
+      "sha256": "6dd7e37a3b5c6fde2643a316dba2dee43f1e87f4a0814db4a1188d14d2014d25"
+    },
+    {
+      "file": "page_9c978478fa.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l14/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l14/",
+      "kind": "html",
+      "bytes": 52868,
+      "sha256": "3e1879d087a085cfda855574c6a0a116df3d66f21be39956cac2455319b6ce15"
+    },
+    {
+      "file": "page_278fc9d77e.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l15/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l15/",
+      "kind": "html",
+      "bytes": 52916,
+      "sha256": "b8b9018e90283d71fe25c8c9481af5167ed940121547ee56644b41dd7acdbd18"
+    },
+    {
+      "file": "page_7484029caa.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l15b/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l15b/",
+      "kind": "html",
+      "bytes": 52781,
+      "sha256": "dd2085dc923d5d4cc220d18bf4f18656cbfe3952f5c93c1b63a25bcd78c3d35a"
+    },
+    {
+      "file": "page_2b0315f121.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l16/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l16/",
+      "kind": "html",
+      "bytes": 52807,
+      "sha256": "df8ee358d3f396ee53a69cd112c6c3f4bcae2c188084f479a67dbcab518f500f"
+    },
+    {
+      "file": "page_042ff35861.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l17/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l17/",
+      "kind": "html",
+      "bytes": 52807,
+      "sha256": "ec20ec3a62856543ef5d520a68f75d179be5f71439d6e17bf821da8cc82a863c"
+    },
+    {
+      "file": "page_279bfaee39.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l18/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l18/",
+      "kind": "html",
+      "bytes": 52791,
+      "sha256": "6fca7918e61f5e2bfe6d84cf85dcbab63a2dd076e758133d877a684de295f452"
+    },
+    {
+      "file": "page_6186fcd652.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l19/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l19/",
+      "kind": "html",
+      "bytes": 52961,
+      "sha256": "d3a9538b68599683a1426cc422c61fbc0109556f9a0e34f49adaac7c1ec37c7e"
+    },
+    {
+      "file": "page_f9919da193.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l20/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l20/",
+      "kind": "html",
+      "bytes": 53086,
+      "sha256": "314abce6f0893d4676b39002fb2fe8e025cc24abdeaa3cbea44fc375210f1ebb"
+    },
+    {
+      "file": "page_d89c1f034a.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l21/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l21/",
+      "kind": "html",
+      "bytes": 52841,
+      "sha256": "e28e328731d1535e3c0c19b0f3de752e15fdd3d6d44aa701bb301b4c447e45bc"
+    },
+    {
+      "file": "page_205652bc68.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l22/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l22/",
+      "kind": "html",
+      "bytes": 52752,
+      "sha256": "e1f115877c204aa38d033fe9fea19cbc566ee0d71b5d7e63aca08941ebb68f8b"
+    },
+    {
+      "file": "page_8a465d5f05.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l23/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l23/",
+      "kind": "html",
+      "bytes": 52792,
+      "sha256": "e55b43f744c8a609bd9d43d310705523f619064dc9ee8b37581e7b776afbb37a"
+    },
+    {
+      "file": "page_ae2a426547.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l25/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/6002_l25/",
+      "kind": "html",
+      "bytes": 52949,
+      "sha256": "8adc6306bb5ec8b8c4d9d4a8e36b2768f6549a8dd6c1152562530ccfd21f59cf"
+    },
+    {
+      "file": "page_d7c4efd98e.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/readings/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/readings/",
+      "kind": "html",
+      "bytes": 57136,
+      "sha256": "720adb5637cd60cbedbc9bf71f82745df241e775ba7804e9be2e78fecbe8dbd3"
+    },
+    {
+      "file": "page_ff6961ccfb.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/labs/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/labs/",
+      "kind": "html",
+      "bytes": 51733,
+      "sha256": "70767bc72cc7b7878f6632f2ebbab81a72bdb764a2d96df236d2cb8243be8595"
+    },
+    {
+      "file": "page_566e3fdb57.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/labpractices/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/labpractices/",
+      "kind": "html",
+      "bytes": 52634,
+      "sha256": "4da5828a9774e2b5f32871de751cb27595d4fb4dd20054cce00629e7bfb57878"
+    },
+    {
+      "file": "page_6cbf6445e3.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/eesafety/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/eesafety/",
+      "kind": "html",
+      "bytes": 52715,
+      "sha256": "7cf4f39818ce2c76568eb30f7803871d606df4086dc2500d5496a5758c702810"
+    },
+    {
+      "file": "page_47f7a9c72d.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab_handout/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab_handout/",
+      "kind": "html",
+      "bytes": 53016,
+      "sha256": "af57270ac38036df31f6bcf5fe752447be1d6c3d8c2a10aab2ebe20aca2b18ff"
+    },
+    {
+      "file": "page_7d481e52c6.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab0/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab0/",
+      "kind": "html",
+      "bytes": 52601,
+      "sha256": "9475b15185cc9eb93e6210da45ecbc184e12f37d616f29480c18a610b1419488"
+    },
+    {
+      "file": "page_66328a05c9.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab1/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab1/",
+      "kind": "html",
+      "bytes": 52813,
+      "sha256": "b6621b06724b0d5ca2f651c038b0579b5ac92ace3bd4b950ffc44794caf1d15f"
+    },
+    {
+      "file": "page_20259827fe.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab2/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab2/",
+      "kind": "html",
+      "bytes": 52731,
+      "sha256": "f14abf7e1d1194976e8f2dc976be5ff494eb52492d73edc66b2b63d4f849a8b9"
+    },
+    {
+      "file": "page_9fc7b341fb.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab3/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab3/",
+      "kind": "html",
+      "bytes": 52956,
+      "sha256": "218b38d81ed9c4566345c8eae653973ef354c1bb5d11cb19758edf8993bb701e"
+    },
+    {
+      "file": "page_d48f2bc42d.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/prelab_3_2/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/prelab_3_2/",
+      "kind": "html",
+      "bytes": 52149,
+      "sha256": "1e8297affb2f045eaee8f66ca7fe86e42f1faae4b7730eed852bf183e2d5ed2a"
+    },
+    {
+      "file": "page_5a572a6605.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/prelab_3_5/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/prelab_3_5/",
+      "kind": "html",
+      "bytes": 52133,
+      "sha256": "ab7d18db2f4108cadd08ab1f14b1ea75aa408caffd8e4f0b0177217b1b867422"
+    },
+    {
+      "file": "page_deb611aa1e.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab4/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/lab4/",
+      "kind": "html",
+      "bytes": 52639,
+      "sha256": "337a199a29c8d2ea6815b910871f004852aa008816df023ade6dbb4361edcbd2"
+    },
+    {
+      "file": "page_d2b4d765a1.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/assignments/",
+      "kind": "html",
+      "bytes": 51101,
+      "sha256": "fe96106a0911ba874ded297a8f9e9a672eb599ad4f93b23c168357be7957e5ad"
+    },
+    {
+      "file": "page_9578686e44.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw1/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw1/",
+      "kind": "html",
+      "bytes": 52757,
+      "sha256": "e65545a85a65b4bacd51d11a5487a1f93407fc3742c5842d10f39ed240464374"
+    },
+    {
+      "file": "page_3a257f1eb4.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw2/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw2/",
+      "kind": "html",
+      "bytes": 52573,
+      "sha256": "71da7923222a9447b581bcd31362fc8f4370950ac61db7722fccf9c8401bfac7"
+    },
+    {
+      "file": "page_ad6dded1f2.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw3/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw3/",
+      "kind": "html",
+      "bytes": 52565,
+      "sha256": "460daa4f0f865a2dca36e8f6a473a41177cc5ffac25a54232c46a5923ab66422"
+    },
+    {
+      "file": "page_f3579e3dd3.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw4/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw4/",
+      "kind": "html",
+      "bytes": 52589,
+      "sha256": "9d709973e8b972b95a8553eb2c6b8e34d4a353c52bfefc5b49eefc3b5a2669ff"
+    },
+    {
+      "file": "page_0f6a51f885.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw5/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw5/",
+      "kind": "html",
+      "bytes": 52510,
+      "sha256": "2bf33eb8e51e7f327c04225ed837d3d96c443b403486dad521c9dd301b9b0cc5"
+    },
+    {
+      "file": "page_ebc1f61244.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw6/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw6/",
+      "kind": "html",
+      "bytes": 52537,
+      "sha256": "0a50e80df2d849dc97157ea7cb4a54f6bc2b81a86cba703c7864874d75412ade"
+    },
+    {
+      "file": "page_9f3f317ac0.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw7/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw7/",
+      "kind": "html",
+      "bytes": 52829,
+      "sha256": "74783b9ddf9b1883654b31f93a6554d6e57392ce9284c0d2d0837c38229400f7"
+    },
+    {
+      "file": "page_d9c665324d.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw8/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw8/",
+      "kind": "html",
+      "bytes": 52405,
+      "sha256": "767cd063acfa2049375b6325fba62dc3203a81ee40e5206fe2fff0a7a95d9cf1"
+    },
+    {
+      "file": "page_b536c6cf65.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw9/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw9/",
+      "kind": "html",
+      "bytes": 52726,
+      "sha256": "f3241f9bd46bfe964dd0194840374243ada424bf350deaa581cd968347d6f520"
+    },
+    {
+      "file": "page_c507191197.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw10/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw10/",
+      "kind": "html",
+      "bytes": 52602,
+      "sha256": "1f101454bee93e93129b14c350110cfa012cb5ad5cc96ddd496647c6e4454250"
+    },
+    {
+      "file": "page_816b8152fd.html",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw11/",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/resources/hw11/",
+      "kind": "html",
+      "bytes": 52751,
+      "sha256": "4f8e8f906e61aa66adbc7ed9921f13b0353c8d6aa812d8cc0ba281793e10d4eb"
+    },
+    {
+      "file": "f6ad70417c73f585b7ca065153d25d25_6002_l1.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/f6ad70417c73f585b7ca065153d25d25_6002_l1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/f6ad70417c73f585b7ca065153d25d25_6002_l1.pdf",
+      "kind": "pdf",
+      "bytes": 196880,
+      "sha256": "28461794e57c15e10e1aee87d56860b8839836d01744c1da2ab49a302a96a1b7",
+      "pdf_pages": 24
+    },
+    {
+      "file": "99b2a662083d1b1f487c55ea0f0d0220_6002_l2.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/99b2a662083d1b1f487c55ea0f0d0220_6002_l2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/99b2a662083d1b1f487c55ea0f0d0220_6002_l2.pdf",
+      "kind": "pdf",
+      "bytes": 175289,
+      "sha256": "4a5d80a6414c0107d49d6d9d0a23e2904835faefb9f421a6981a57f48bb386c6",
+      "pdf_pages": 19
+    },
+    {
+      "file": "5ec9a8524891d6940e4572e1c97b0cf1_6002_l3.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/5ec9a8524891d6940e4572e1c97b0cf1_6002_l3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/5ec9a8524891d6940e4572e1c97b0cf1_6002_l3.pdf",
+      "kind": "pdf",
+      "bytes": 166033,
+      "sha256": "96c22aede85777d7b2ed7de15ed8bde2cfcd05f0005b97f3843ae1e7fba851d7",
+      "pdf_pages": 22
+    },
+    {
+      "file": "f648f9566bf6a6c85b52c43afedf2e20_6002_l4.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/f648f9566bf6a6c85b52c43afedf2e20_6002_l4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/f648f9566bf6a6c85b52c43afedf2e20_6002_l4.pdf",
+      "kind": "pdf",
+      "bytes": 142498,
+      "sha256": "2187ff752d48fd9ffcae9518d4d93fc5fdf8edbe43490f9d58f52a0eae5e8d0a",
+      "pdf_pages": 20
+    },
+    {
+      "file": "d0413280d1bd2a7f5b7ba1d5a87e9984_6002_l5.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/d0413280d1bd2a7f5b7ba1d5a87e9984_6002_l5.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/d0413280d1bd2a7f5b7ba1d5a87e9984_6002_l5.pdf",
+      "kind": "pdf",
+      "bytes": 146339,
+      "sha256": "a46888d28216561efbc8b03f49a2219aa115024fe96d809b9a806bb9eaf69e1a",
+      "pdf_pages": 20
+    },
+    {
+      "file": "84d1600d783b816b7622e436c6a289ed_6002_l6.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/84d1600d783b816b7622e436c6a289ed_6002_l6.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/84d1600d783b816b7622e436c6a289ed_6002_l6.pdf",
+      "kind": "pdf",
+      "bytes": 117244,
+      "sha256": "c65e42d26bc3ba99fabb39c683a9e0c21b389a7f2c80eb858336f14298946718",
+      "pdf_pages": 11
+    },
+    {
+      "file": "8419449b545945d3988437d9bef23612_6002_l7.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8419449b545945d3988437d9bef23612_6002_l7.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8419449b545945d3988437d9bef23612_6002_l7.pdf",
+      "kind": "pdf",
+      "bytes": 165034,
+      "sha256": "3dad55c5d3ee6307182f2a3f751258b8d78113aa9879909041b4b299f8d869f6",
+      "pdf_pages": 13
+    },
+    {
+      "file": "05fef0ad87134781c8f285e47973023b_6002_l8.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/05fef0ad87134781c8f285e47973023b_6002_l8.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/05fef0ad87134781c8f285e47973023b_6002_l8.pdf",
+      "kind": "pdf",
+      "bytes": 227098,
+      "sha256": "fe4f7f80c82102721274356646b0148099ad3ae86743b28ca711a573ddb13ede",
+      "pdf_pages": 24
+    },
+    {
+      "file": "5d9288b54aceb1737d8f831d3c66739b_6002_l9.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/5d9288b54aceb1737d8f831d3c66739b_6002_l9.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/5d9288b54aceb1737d8f831d3c66739b_6002_l9.pdf",
+      "kind": "pdf",
+      "bytes": 223687,
+      "sha256": "0b871fe828fa64fa476bb45993f3da23709538399b651cb37795f93954e4f70b",
+      "pdf_pages": 21
+    },
+    {
+      "file": "3fd86dd2d2f64b08e2484dbb73a68b7b_6002_l10.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/3fd86dd2d2f64b08e2484dbb73a68b7b_6002_l10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/3fd86dd2d2f64b08e2484dbb73a68b7b_6002_l10.pdf",
+      "kind": "pdf",
+      "bytes": 160313,
+      "sha256": "fc0da64d61ec30e9da9326bc6be3baa00d65a237c2c7485598837a68b5b7c3ea",
+      "pdf_pages": 15
+    },
+    {
+      "file": "223a71c6e0b77090a6bdfd3b28aa1d5f_6002_l11.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/223a71c6e0b77090a6bdfd3b28aa1d5f_6002_l11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/223a71c6e0b77090a6bdfd3b28aa1d5f_6002_l11.pdf",
+      "kind": "pdf",
+      "bytes": 118179,
+      "sha256": "339cd415b900a9ac69b9346947223849ff4c80ddfb16d62f3365c2418db73ac8",
+      "pdf_pages": 13
+    },
+    {
+      "file": "84f4b553fc6a1ddd7007465041c4e213_6002_l12.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/84f4b553fc6a1ddd7007465041c4e213_6002_l12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/84f4b553fc6a1ddd7007465041c4e213_6002_l12.pdf",
+      "kind": "pdf",
+      "bytes": 112208,
+      "sha256": "bb37eeeecaec82f02df918b032c3384d120407c5099960e68c1155efa523ad67",
+      "pdf_pages": 13
+    },
+    {
+      "file": "93f7f25de3c5baf4c514b8add531fa3f_6002_l13.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/93f7f25de3c5baf4c514b8add531fa3f_6002_l13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/93f7f25de3c5baf4c514b8add531fa3f_6002_l13.pdf",
+      "kind": "pdf",
+      "bytes": 191203,
+      "sha256": "f39a0bfce6c3e1fca5a5c794c0f5693f008caf64af62afe317872305b337e173",
+      "pdf_pages": 17
+    },
+    {
+      "file": "b703ee58f9dd8239b823eb6a4d20de0e_6002_l14.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/b703ee58f9dd8239b823eb6a4d20de0e_6002_l14.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/b703ee58f9dd8239b823eb6a4d20de0e_6002_l14.pdf",
+      "kind": "pdf",
+      "bytes": 120123,
+      "sha256": "d93b445c421644affd1d97659ebb3a6063e6379142872dd34b064be002afc9c7",
+      "pdf_pages": 16
+    },
+    {
+      "file": "34dd2fd3821b725a8b2191558673296b_6002_l15.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/34dd2fd3821b725a8b2191558673296b_6002_l15.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/34dd2fd3821b725a8b2191558673296b_6002_l15.pdf",
+      "kind": "pdf",
+      "bytes": 200077,
+      "sha256": "d3eb6e1eaeae084f83d8750083f05750cfbe71ad214d93c3ce68748502ed8e01",
+      "pdf_pages": 19
+    },
+    {
+      "file": "c794c9c9e067b6c16274ed844894ace7_6002_l15b.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/c794c9c9e067b6c16274ed844894ace7_6002_l15b.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/c794c9c9e067b6c16274ed844894ace7_6002_l15b.pdf",
+      "kind": "pdf",
+      "bytes": 352736,
+      "sha256": "ef2c880583c65ea51e0c14133e0ad730126b43f9a5fd840bf26db7e14b7dce97",
+      "pdf_pages": 24
+    },
+    {
+      "file": "fed27650027942843313fd984a133e64_6002_l16.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/fed27650027942843313fd984a133e64_6002_l16.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/fed27650027942843313fd984a133e64_6002_l16.pdf",
+      "kind": "pdf",
+      "bytes": 200096,
+      "sha256": "14d2e6cf8585f2a9e84b32dd2ee93229be500b2e0a77b2af16f0368c29826ebf",
+      "pdf_pages": 18
+    },
+    {
+      "file": "66adf4d4611a57b949efa1b00a842a46_6002_l17.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/66adf4d4611a57b949efa1b00a842a46_6002_l17.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/66adf4d4611a57b949efa1b00a842a46_6002_l17.pdf",
+      "kind": "pdf",
+      "bytes": 184980,
+      "sha256": "68f8d5a8190dce5ca990764e69a7620f1c883e941ee89d3256edeb1db0b64777",
+      "pdf_pages": 14
+    },
+    {
+      "file": "d4e136975654a01f7fc2c9b49196d376_6002_l18.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/d4e136975654a01f7fc2c9b49196d376_6002_l18.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/d4e136975654a01f7fc2c9b49196d376_6002_l18.pdf",
+      "kind": "pdf",
+      "bytes": 175033,
+      "sha256": "55283db30f2f66514f628aa4cda623907a9251499eed00a59507247de366b8a7",
+      "pdf_pages": 17
+    },
+    {
+      "file": "8dcd447b7211b053e4dac01d80555d89_6002_l19.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8dcd447b7211b053e4dac01d80555d89_6002_l19.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8dcd447b7211b053e4dac01d80555d89_6002_l19.pdf",
+      "kind": "pdf",
+      "bytes": 176475,
+      "sha256": "bb22f1f2111bc91890e7650ad0a8afad50789d7d9cc7d92b6e72971d6de6ec39",
+      "pdf_pages": 15
+    },
+    {
+      "file": "e7d4a7f9d1caee6423433e898bd940cc_6002_l20.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/e7d4a7f9d1caee6423433e898bd940cc_6002_l20.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/e7d4a7f9d1caee6423433e898bd940cc_6002_l20.pdf",
+      "kind": "pdf",
+      "bytes": 158696,
+      "sha256": "55f6742334c2ed29181767c9b283bd0cc5d1a97142ff49423b5cfe16dad62c6b",
+      "pdf_pages": 9
+    },
+    {
+      "file": "27776d035c056201a47d86d6d44f361a_6002_l21.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/27776d035c056201a47d86d6d44f361a_6002_l21.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/27776d035c056201a47d86d6d44f361a_6002_l21.pdf",
+      "kind": "pdf",
+      "bytes": 201976,
+      "sha256": "db1a6e62d04149a3ac3069f723dac555b9f89e0ddc0fc7e0444a3f931d292878",
+      "pdf_pages": 14
+    },
+    {
+      "file": "62cc78db14ad37dede55c361711ba2ae_6002_l22.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/62cc78db14ad37dede55c361711ba2ae_6002_l22.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/62cc78db14ad37dede55c361711ba2ae_6002_l22.pdf",
+      "kind": "pdf",
+      "bytes": 118780,
+      "sha256": "dbc8d9725c5c81d3cce02bd20b48e3a5d54c393cacbe601ba298896c944e5c56",
+      "pdf_pages": 15
+    },
+    {
+      "file": "e91dbb295f31c6d799483e77c6b35cbe_6002_l23.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/e91dbb295f31c6d799483e77c6b35cbe_6002_l23.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/e91dbb295f31c6d799483e77c6b35cbe_6002_l23.pdf",
+      "kind": "pdf",
+      "bytes": 386542,
+      "sha256": "1ea5ab1a5bc0ca9163ce8681b9b81cccfbd75af734f8ecbc42e88899eb2a3083",
+      "pdf_pages": 13
+    },
+    {
+      "file": "656bfb530a818da1593fdbf57f997d49_6002_l25.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/656bfb530a818da1593fdbf57f997d49_6002_l25.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/656bfb530a818da1593fdbf57f997d49_6002_l25.pdf",
+      "kind": "pdf",
+      "bytes": 139106,
+      "sha256": "fe2a77eb46fae34fce432eff4d2a74c9f9e87c1efff0abb53508a00999315f90",
+      "pdf_pages": 13
+    },
+    {
+      "file": "Agarwal_and_Lang_2005_Foundations_of_Analog_and_Digital.pdf",
+      "url": "https://neurophysics.ucsd.edu/courses/physics_120/Agarwal%20and%20Lang%20%282005%29%20Foundations%20of%20Analog%20and%20Digital.pdf",
+      "final_url": "https://neurophysics.ucsd.edu/courses/physics_120/Agarwal%20and%20Lang%20%282005%29%20Foundations%20of%20Analog%20and%20Digital.pdf",
+      "kind": "pdf",
+      "bytes": 8502702,
+      "sha256": "b6c4a90e0813d0720a8dab51cfdfa843c2b7d3a1ae276a05d61625914ac20d09",
+      "pdf_pages": 1009
+    },
+    {
+      "file": "8d05b0f4d4ce5dab988346463658efa7_labpractices.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8d05b0f4d4ce5dab988346463658efa7_labpractices.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8d05b0f4d4ce5dab988346463658efa7_labpractices.pdf",
+      "kind": "pdf",
+      "bytes": 190897,
+      "sha256": "8ffb64f73bc3fb99503a60ff056f9dac35010fb61aed1210a3ff8ddf95718c67",
+      "pdf_pages": 4
+    },
+    {
+      "file": "4232f38c3f2a88558a44f62beb490698_eesafety.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/4232f38c3f2a88558a44f62beb490698_eesafety.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/4232f38c3f2a88558a44f62beb490698_eesafety.pdf",
+      "kind": "pdf",
+      "bytes": 33722,
+      "sha256": "c519f7f39d7ec2830720632fe3ef11c669c6e5c062fd18dcb9844627417a1d55",
+      "pdf_pages": 3
+    },
+    {
+      "file": "992c85451e40984a2b3a6f4878bb1a76_lab_handout.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/992c85451e40984a2b3a6f4878bb1a76_lab_handout.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/992c85451e40984a2b3a6f4878bb1a76_lab_handout.pdf",
+      "kind": "pdf",
+      "bytes": 643613,
+      "sha256": "4b81410c8e1aba21fd399521e0be424e694ecd4cd17b11b5915889052e9338f0",
+      "pdf_pages": 23
+    },
+    {
+      "file": "8bb4e0f80644d9414bb7cd3b1364e8e3_lab0.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8bb4e0f80644d9414bb7cd3b1364e8e3_lab0.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/8bb4e0f80644d9414bb7cd3b1364e8e3_lab0.pdf",
+      "kind": "pdf",
+      "bytes": 33426,
+      "sha256": "a6b79a78d418169925df334c7bea28ff340de10fd366fe7656786ba13af1bb85",
+      "pdf_pages": 1
+    },
+    {
+      "file": "56d60da013efade4a97056c23c4c9c5a_lab1.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/56d60da013efade4a97056c23c4c9c5a_lab1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/56d60da013efade4a97056c23c4c9c5a_lab1.pdf",
+      "kind": "pdf",
+      "bytes": 1358166,
+      "sha256": "7ed1994290fa54977f2b6842f6e5b183577399f2dd208b08e9da5b67c66a3b1b",
+      "pdf_pages": 5
+    },
+    {
+      "file": "56c767318f89cccd7448ac5e8af375bf_lab2.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/56c767318f89cccd7448ac5e8af375bf_lab2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/56c767318f89cccd7448ac5e8af375bf_lab2.pdf",
+      "kind": "pdf",
+      "bytes": 194477,
+      "sha256": "b946d16822782b620492090d987c4698ecb4130055e270f81a8eaa98b54c41d6",
+      "pdf_pages": 8
+    },
+    {
+      "file": "d96ecf98f18cefe60249e8aec9a387ec_lab3.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/d96ecf98f18cefe60249e8aec9a387ec_lab3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/d96ecf98f18cefe60249e8aec9a387ec_lab3.pdf",
+      "kind": "pdf",
+      "bytes": 182591,
+      "sha256": "1cbd007a345440f41106bea02ee604d95b26d9c3442b808e9737cb23565e884b",
+      "pdf_pages": 7
+    },
+    {
+      "file": "33d6731c206313c3addd121084d9f3b1_lab4.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/33d6731c206313c3addd121084d9f3b1_lab4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/33d6731c206313c3addd121084d9f3b1_lab4.pdf",
+      "kind": "pdf",
+      "bytes": 93424,
+      "sha256": "4052ca4141de060ce17a80477e380ed279aac4fc3a3d4f849aaada0b10071daa",
+      "pdf_pages": 6
+    },
+    {
+      "file": "ab181ec7aec9431046763e8dd8f55286_hw1.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/ab181ec7aec9431046763e8dd8f55286_hw1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/ab181ec7aec9431046763e8dd8f55286_hw1.pdf",
+      "kind": "pdf",
+      "bytes": 40134,
+      "sha256": "1b33d080192a80e9716154d8f1fb66587c757372730e5c55bca5a8f5e72cefb4",
+      "pdf_pages": 2
+    },
+    {
+      "file": "15878f74dcca61c4298c957999778bc0_hw2.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/15878f74dcca61c4298c957999778bc0_hw2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/15878f74dcca61c4298c957999778bc0_hw2.pdf",
+      "kind": "pdf",
+      "bytes": 83964,
+      "sha256": "dbb6f56e326286994d34def6429b4e90198b370de3a0cd85bfa20b356079a3c5",
+      "pdf_pages": 3
+    },
+    {
+      "file": "78ffb2358df6708444c4b05fc44f920c_hw3.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/78ffb2358df6708444c4b05fc44f920c_hw3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/78ffb2358df6708444c4b05fc44f920c_hw3.pdf",
+      "kind": "pdf",
+      "bytes": 86420,
+      "sha256": "6036c9a904a9924159f64e96e2c87a548784852b5d580dd4e7da12d26a8ba72e",
+      "pdf_pages": 2
+    },
+    {
+      "file": "457f2ef8b94f22ec16e3ff52705c89e6_hw4.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/457f2ef8b94f22ec16e3ff52705c89e6_hw4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/457f2ef8b94f22ec16e3ff52705c89e6_hw4.pdf",
+      "kind": "pdf",
+      "bytes": 75150,
+      "sha256": "4bd076584715facaac4f4bfd40f476c7115b52c0da2c23040528f444a6ab9a4a",
+      "pdf_pages": 2
+    },
+    {
+      "file": "e26921fde419a3632a4241786551171e_hw5.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/e26921fde419a3632a4241786551171e_hw5.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/e26921fde419a3632a4241786551171e_hw5.pdf",
+      "kind": "pdf",
+      "bytes": 182605,
+      "sha256": "0c1830decaa7320ab9e9482efb173f613927feb50c3ed175ae75c677c0c44fe8",
+      "pdf_pages": 2
+    },
+    {
+      "file": "95e622ad8c877e6c14daafecc0b09516_hw6.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/95e622ad8c877e6c14daafecc0b09516_hw6.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/95e622ad8c877e6c14daafecc0b09516_hw6.pdf",
+      "kind": "pdf",
+      "bytes": 68326,
+      "sha256": "9c2124ded148073ef45fc73ce6976b922c4826b53c4276643b68c1d8d1c103f3",
+      "pdf_pages": 2
+    },
+    {
+      "file": "83a70cc0d4a8f73b2dfc8ed329949367_hw7.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/83a70cc0d4a8f73b2dfc8ed329949367_hw7.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/83a70cc0d4a8f73b2dfc8ed329949367_hw7.pdf",
+      "kind": "pdf",
+      "bytes": 76845,
+      "sha256": "326d314bcdca767169eee431ee98c0dbf03da725e3843e5910acec35538e7199",
+      "pdf_pages": 3
+    },
+    {
+      "file": "65346a991b4299dfc3e7ce4a8dd6165b_hw8.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/65346a991b4299dfc3e7ce4a8dd6165b_hw8.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/65346a991b4299dfc3e7ce4a8dd6165b_hw8.pdf",
+      "kind": "pdf",
+      "bytes": 41862,
+      "sha256": "89517884d1acaee96b9f459be377788643dd0217052985988f5726a9f3eae6f3",
+      "pdf_pages": 2
+    },
+    {
+      "file": "3bcfb33ff7a4e60cee8cf8acbffbd110_hw9.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/3bcfb33ff7a4e60cee8cf8acbffbd110_hw9.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/3bcfb33ff7a4e60cee8cf8acbffbd110_hw9.pdf",
+      "kind": "pdf",
+      "bytes": 122885,
+      "sha256": "57cbe645e254e5f219c9716dfc6b04745038264f6fe7dd317af766b0d6255e6c",
+      "pdf_pages": 3
+    },
+    {
+      "file": "c9c4deafe4bb5a665d8322778aa5d194_hw10.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/c9c4deafe4bb5a665d8322778aa5d194_hw10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/c9c4deafe4bb5a665d8322778aa5d194_hw10.pdf",
+      "kind": "pdf",
+      "bytes": 81191,
+      "sha256": "2f9d8d0ae57460f440df61a66dbced8aa469453c555fd61319594706b2dd964a",
+      "pdf_pages": 2
+    },
+    {
+      "file": "4cc083a23637573e307b98d0919a8c51_hw11.pdf",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/4cc083a23637573e307b98d0919a8c51_hw11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/4cc083a23637573e307b98d0919a8c51_hw11.pdf",
+      "kind": "pdf",
+      "bytes": 141913,
+      "sha256": "5a7e060cbff25ce6596d693fae1414356eb6c1cecb07fb6f9a457a14a01772ab",
+      "pdf_pages": 6
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 45,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

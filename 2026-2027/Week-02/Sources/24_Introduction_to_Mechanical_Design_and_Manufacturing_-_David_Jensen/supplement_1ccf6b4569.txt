@@ -1,0 +1,192 @@
+Design for Casting and Molding Principles and Best Practices – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Design for Casting and Molding Principles and Best Practices
+Summary of Concepts
+Types of Defects
+Cast metal parts are prone to certain defects based on the type of process and material used. Some of the common defects are:
+Misrun
+: A misrun is a defect where the metal does not fill the mold cavity completely, resulting in a thin or incomplete casting. It is caused by low pouring temperature, high viscosity of the molten metal, insufficient fluidity, or improper design of the gating system.
+Cold Shut
+: A cold shut is a defect where two streams of metal do not fuse properly in the mold cavity, creating a discontinuity or a crack in the casting. It is caused by low pouring temperature, high pouring speed, insufficient fluidity, or turbulence in the molten metal.
+Porosity
+: Porosity is a defect where there are small holes, voids, or pockets of air in the casting. It is caused by trapped gas in the molten metal, improper venting of the mold or core, excessive moisture in the mold or core, or low permeability of the sand.
+Shrinkage Void:
+A shrinkage void is a defect where there is a cavity or a depression in the casting due to insufficient feeding of the molten metal during solidification. It is caused by high pouring temperature, large temperature gradient, improper design of the riser or feeder, or insufficient contraction allowance.
+Hot tear
+: A hot tear is a defect where there is a crack or a fracture in the casting due to thermal stress during solidification. It is caused by high pouring temperature, high cooling rate, low ductility of the metal, or improper design of the mold or core.
+Core Shift:
+A core shift is a defect where there is a misalignment of the core in the mold cavity, resulting in a deviation from the desired shape or dimension of the casting. It is caused by improper alignment of the core, loose core prints, insufficient support for the core, or excessive pressure of the molten metal.
+Inclusion:
+An inclusion is a defect where there are foreign materials such as slag, sand, oxide, or metal particles embedded in the casting. It is caused by improper cleaning of the furnace or ladle, improper fluxing of the molten metal, improper gating system, or formation of insoluble compounds during solidification.
+DFM for Metal Casting
+The design of casting parts should consider the material properties, the casting process, and the part requirements to ensure optimal performance, quality, and cost-effectiveness.
+Some of the design for manufacturing (DFM) principles for casting parts are:
+Choose the appropriate material and process for the part function, specification, and quality level. Different materials have different melting points, fluidity, shrinkage, and mechanical properties that affect the casting process and the final part characteristics. Different casting processes have different advantages and disadvantages in terms of accuracy, surface finish, production rate, and complexity.
+Design the part geometry to facilitate smooth and complete filling of the mold cavity. The part should have uniform wall thickness to avoid hot spots and cold spots that can cause warping, cracking, or porosity. The part should also have smooth transitions and rounded corners to reduce turbulence and resistance in the liquid metal flow. The part should avoid undercuts or features that require side cores or slides that can increase the mold complexity and cost.
+Design the part orientation and ejection mechanism to minimize defects and damage. The part should be oriented in the mold such that the direction of mold closure is perpendicular to the largest cross-section of the part. This can reduce the number of parting lines and improve the dimensional accuracy and surface quality of the part. The part should also have adequate draft angles and ejection pins or sleeves to facilitate easy removal from the mold without causing deformation or scratches. Additionally, the simpler the ejection system the cheaper the dies and molds will be.
+More detailed DFM for Casting and Powder Metallurgy can be found in the
+ASM Metals Handbook.
+Questions:
+Previous/next navigation
+Previous: Powder Metal Processes
+Next: Manufacturing – Forming and Shaping Processes
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

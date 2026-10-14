@@ -1,0 +1,305 @@
+TIDA-00792 reference design | TI.com
+Home
+Design & development
+Reference designs
+TIDA-00792
+Multi-Cell 36-48V Battery Management System Reference Design
+Design files
+TIDA-00792
+Design files
+Overview
+This reference design provides monitoring, balancing, primary protection and gauging for a 12- to 15-cell lithium-ion or lithium-iron phosphate-based batteries. This board is intended to be mounted in an enclosure for industrial systems. The reference design provides battery protection and gauging configuration with parameters avoiding code development and provides high-side protection switching to allow simple PACK-referenced SMBus communication for battery status, even while protected.
+Features
+12- to 15-cell li-ion and phosphate battery management system
+High-side protection switching using N-channel MOSFETs
+Cell balancing for extended battery life
+Gas gauging for estimation of system run-time
+Tested and includes GUI and getting started guide
+Industrial
+Battery pack with AFE & cell balancing
+Battery pack with AFE & cell balancing
+Battery pack with protection & gauge
+Battery pack with protection & gauge
+Battery pack with protection, gauge & external communication
+Battery pack with protection, gauge & external communication
+Battery pack with protector & fuel gauge
+Battery pack with protector+fuel gauge
+Mobile robot BMS
+Mobile robot BMS
+UPS - single phase line interactive
+UPS - single phase online
+Data center
+Analog-controlled BBU
+Digital-controlled BBU
+Download
+View video with transcript
+Video
+Design files & products
+Design files
+Download ready-to-use system files to speed your design process.
+download
+Design guide — TIDA-00792
+TIDUCN1.PDF (3262 KB)
+Reference design overview and verified performance test data
+download
+Assembly drawing — TIDA-00792
+TIDRQY9.PDF (442 KB)
+Detailed overview of design layout for component placement
+download
+Bill of materials (BOM) — TIDA-00792
+TIDRQY8.PDF (70 KB)
+Complete listing of design components, reference designators, and manufacturers/part numbers
+download
+CAD/CAE symbol — TIDA-00792
+TIDRQZ1A.ZIP (1909 KB)
+Files used for 3D models or 2D drawings of IC components
+download
+Gerber file — TIDA-00792
+TIDCDF8.ZIP (845 KB)
+Design file that contains information on physical board layer of design PCB
+download
+PCB layout — TIDA-00792
+TIDRQZ0.PDF (2198 KB)
+PCB layer plot file used for generating PCB design layout
+download
+Schematic — TIDA-00792
+TIDRQY7.PDF (470 KB)
+Detailed schematic diagram for design layout and components
+Products
+Includes TI products in the design and potential alternatives.
+Battery fuel gauges
+BQ78350-R1
+—
+CEDV li-ion gas gauge and battery management controller
+Data sheet:
+PDF
+|
+HTML
+Battery fuel gauges
+BQ78350-R1A
+—
+CEDV li-ion gas gauge and battery management controller
+Data sheet:
+PDF
+|
+HTML
+Battery monitors & balancers
+BQ76940
+—
+9 to 15-series cell li-ion and li-phosphate battery monitor (bq76940 family)
+Data sheet:
+PDF
+|
+HTML
+Battery protectors
+BQ76200
+—
+High-side n-channel FET driver
+Data sheet:
+PDF
+|
+HTML
+ESD protection diodes
+TPD1E10B06
+—
+12-pF, ±5.5V, ±30-kV ESD protection diode in 0402 and SOD-523 package
+Data sheet:
+PDF
+|
+HTML
+MOSFETs
+CSD13381F4
+—
+12-V, N channel NexFET™ power MOSFET, single LGA 1 mm x  0.6mm, 180 mOhm, gate ESD protection
+Data sheet:
+PDF
+|
+HTML
+MOSFETs
+CSD19536KTT
+—
+100-V, N channel NexFET™ power MOSFET, single D2PAK, 2.4 mOhm
+Data sheet:
+PDF
+|
+HTML
+Start development
+Hardware development
+Evaluation board
+BQ76940EVM
+— µC-Controlled AFE Family for 5/10/15-Series Cell Li-Ion and Phosphate Evaluation Module
+This reference design provides monitoring, balancing, primary protection and gauging for a 12- to 15-cell lithium-ion or lithium-iron phosphate-based batteries. This board is intended to be mounted in an enclosure for industrial systems. The reference design provides battery protection and gauging (...)
+EVM user’s guide:
+PDF
+Supported products & hardware
+Supported products & hardware
+Hardware development
+Reference design
+TIDA-00792
+—
+Multi-Cell 36-48V Battery Management System Reference Design
+TIDA-01093
+—
+Industrial Battery Management Module for 20S Applications Reference Design
+In stock
+Limit:
+Log in to order
+lock
+Log in to view inventory
+Out of stock on TI.com
+Not available on TI.com
+BQ76940EVM
+—
+µC-Controlled AFE Family for 5/10/15-Series Cell Li-Ion and Phosphate Evaluation Module
+close
+Latest version
+Version: null
+Release date:
+open-in-new
+View all versions
+Hardware development
+Reference design
+TIDA-00792
+—
+Multi-Cell 36-48V Battery Management System Reference Design
+TIDA-01093
+—
+Industrial Battery Management Module for 20S Applications Reference Design
+TI’s Standard Terms and Conditions for Evaluation Items apply.
+Software development
+Firmware
+BQ78350-DEVICE-FW
+— BQ78350 family of gauges firmware
+BQ78350 family of gauges firmware is a firmware-only release that can be flashed onto any existing BQ78350 hardware (such as the BQ78350, BQ78350-R1, BQ78350-R2, … devices). The firmware incorporates the CEDV Li-ion and LiFePO4 battery management controller to create a pack-based solution that (...)
+Supported products & hardware
+Supported products & hardware
+Products
+Battery fuel gauges
+BQ78350
+—
+Companion CEDV Fuel Gauge Battery Management Controller for bq76940 Monitor Family
+BQ78350-R1
+—
+CEDV li-ion gas gauge and battery management controller
+BQ78350-R1A
+—
+CEDV li-ion gas gauge and battery management controller
+Hardware development
+Reference design
+TIDA-00792
+—
+Multi-Cell 36-48V Battery Management System Reference Design
+Evaluation board
+BQ76920EVM
+—
+BQ76920 evaluation board with BQ78350
+BQ76930EVM
+—
+BQ76930 evaluation board with BQ78350
+BQ76940EVM
+—
+BQ76940 evaluation board with BQ78350
+Download options
+BQ78350-DEVICE-FW
+—
+BQ78350 family of gauges firmware
+close
+Latest version
+Version: R3-V3.00
+Release date: Jan 13, 2023
+open-in-new
+Release notes
+open-in-new
+View all versions
+lock
+bq78350R3FirmwareBundle-3.00-windows-installer.exe
+— 6106 K
+BQ78350-R3 Device firmware bundle installer
+SHA-256 checksum
+lock
+= Requires export approval (1 minute)
+Products
+Battery fuel gauges
+BQ78350
+—
+Companion CEDV Fuel Gauge Battery Management Controller for bq76940 Monitor Family
+BQ78350-R1
+—
+CEDV li-ion gas gauge and battery management controller
+BQ78350-R1A
+—
+CEDV li-ion gas gauge and battery management controller
+Hardware development
+Reference design
+TIDA-00792
+—
+Multi-Cell 36-48V Battery Management System Reference Design
+Evaluation board
+BQ76920EVM
+—
+BQ76920 evaluation board with BQ78350
+BQ76930EVM
+—
+BQ76930 evaluation board with BQ78350
+BQ76940EVM
+—
+BQ76940 evaluation board with BQ78350
+Documentation
+open-in-new
+SLUUCM2
+Technical reference manual addendum for BQ78350-R3
+open-in-new
+bq78350R3_manifest.html
+Software Manifest
+Release Information
+Overview
+BQ78350 family of gauges firmware is a firmware-only release that can be flashed onto any existing BQ78350 hardware (such as the BQ78350, BQ78350-R1, BQ78350-R2, … devices). The firmware incorporates the CEDV Li-ion and LiFePO4 battery management controller to create a pack-based solution that provides a rich array of features for gas gauging, protection, authentication, and monitoring using the companion BQ769x0 family of analog front end (AFE) protection devices for upto 15-series cell Li-ion and Li-polymer battery packs.
+The BQ78350-R1A device offers optional LED or LCD display configurations for capacity reporting. It also makes data available over its SMBus 1.1 interface. Battery history and diagnostic data is also kept within the device in non-volatile memory and is available over the same interface.
+Features
+The BQ78350-DEVICE-FW firmware is usable on any previous version of the BQ78350 hardware. Refer the release notes for more information.
+What's new
+This is a firmware only download
+See Technical Reference Manual addendum for changes from the BQ78350-R1 device
+Technical documentation
+star
+=
+Top documentation selected by TI
+No results found. Please clear your search and try again.
+View all 1
+Top documentation
+Type
+Title
+Format options
+Date
+*
+Design guide
+Multicell 36-V to 48-V Battery Management System Reference Design
+Nov 18, 2016
+Related design resources
+Reference designs
+REFERENCE DESIGN
+TIDA-00255
+—
+15 Cell Lithium Ion Battery Controller Analog Front End Reference Design
+TIDA-00449
+—
+10s Battery Pack Monitoring, Balancing, and Comprehensive Protection. 50A Discharge Reference Design
+Software development
+APPLICATION SOFTWARE & FRAMEWORK
+BQSTUDIO
+—
+Battery Management Studio (bqStudio) Software
+Support & training
+TI E2E™ forums with technical support from TI engineers
+View all forum topics
+Content is provided "as is" by TI and community contributors and does not constitute TI specifications. See
+terms of use
+.
+If you have questions about quality, packaging or ordering TI products, see
+TI support
+.
+Video series
+View all videos
+Videos
+Disclaimer
+See the important notice and disclaimer covering reference designs and other TI resources.

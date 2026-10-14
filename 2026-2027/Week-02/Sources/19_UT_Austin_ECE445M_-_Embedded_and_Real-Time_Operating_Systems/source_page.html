@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>ECE445M: EMBEDDED AND REAL-TIME SYSTEMS</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+body { font-family:arial, helvetica, sans-serif; font-size:small }
+h1 { font-size: x-large }
+h2 { font-size: medium }
+h4 { font-size: small }
+#menu {
+width: 100%;
+height: 20px;
+text-align: center
+background-color: #cccccc;
+}
+#menu ul {
+padding: 0px;
+margin: 0 auto;
+text-align: center;
+white-space: nowrap;
+list-style-type: none;
+text-decoration:none; font-weight:bold; font-size: small; color:#000000;
+background-color: #cccccc;
+line-height: 20px;
+width: 100%;
+display: inline;
+float: left;
+}
+#menu ul li { display: block; float: left;
+width: 100px;
+border-right: 1px solid #666666;
+background-color: #cccccc;
+}
+#menu ul li a {
+display: block; float: left;
+width: 100px;
+text-decoration:none; color:#CC5500;
+background-color: #cccccc;
+}
+#menu ul li a:hover {
+background-color: #eeeeee;
+text-decoration: underline;
+color: #CC5500;
+}
+  </style>
+</head>
+<body style="background-color: rgb(255, 255, 255);" alink="#990033"
+ link="#333399" vlink="#663399">
+<p>
+
+<h1>Embedded and Real-Time Systems
+/ Real-Time Operating Systems</h1>
+<h4>ECE445M, Unique: 18305, 18310, 18320, 18325<br>
+ <br>
+Semester: Spring 2026</h4>
+</p>
+<p></p>
+<hr noshade="noshade">
+<div id="menu">
+<ul>
+  <li>Home </li>
+  <li><a href="syllabus.html">Syllabus</a> </li>
+  <li><a href="lectures.html">Lectures</a> </li>
+  <li><a href="labs.html">Labs</a> </li>
+  <li><a href="resources.html">Resources</a> </li>
+  <li><a target="blank" href="https://utexas.instructure.com/courses/1435536"
+ target="_top">Canvas</a> </li>
+</ul>
+</div>
+<hr noshade="noshade">
+<p></p>
+<h2>Instructor Information</h2>
+<ul>
+  <li><b>Instructor</b> <br>
+Jonathan Valvano &lt;<a href="mailto:valvano@mail.utexas.edu">valvano@mail.utexas.edu</a>&gt;
+    <br>
+Office Hours<br>
+&nbsp;&nbsp;&nbsp;Mon 8-9p zoom, link on Canvas<br>
+&nbsp;&nbsp;&nbsp;Tue 11-12 EER 5.820<br>
+&nbsp;&nbsp;&nbsp;Wed 8-9p zoom, link on Canvas<br>
+&nbsp;&nbsp;&nbsp;Thur 11-12 EER 5.820<br>
+&nbsp;&nbsp;&nbsp;Fri 11-12 EER 5.820<br>
+&nbsp;&nbsp;&nbsp;For other times <a href="mailto:valvano@mail.utexas.edu">email me</a> for an appointment.
+&nbsp; </li>
+  <li><b>Teaching
+Assistants</b> <br>
+&nbsp;&nbsp;&nbsp;Andres Fernandez<br>
+&nbsp;&nbsp;&nbsp;Devin Kretschman<br>
+&nbsp;&nbsp;&nbsp;Dylan Kretschman<br>
+Office hours: see Canvas&nbsp; <br>
+&nbsp; </li>
+  <li><b>Mailing
+list</b> <br>
+Email all instructors, TAs and technical staff &lt;<a
+ href="mailto:s26_ece445m@utlists.utexas.edu">s26_ece445m@utlists.utexas.edu</a>&gt;
+    <br>
+&nbsp; </li>
+  <li><b>Discussion
+forum</b> <br>
+We will be using edDiscussion for class discussion. Please post all course
+related questions of general nature to the class' Piazza Discussion
+Board (which will be checked regularly by the instructors and TAs), and
+use e-mail only for personal questions. <br>
+&nbsp; </li>
+</ul>
+<p></p>
+<hr noshade="noshade">
+<p></p>
+<h2>Schedule</h2>
+<ul>
+  <li><b>Lectures</b> <br>
+TTh 12:30-1:45pm&nbsp; ECJ 1.318<br>
+&nbsp; </li>
+  <li><b>Labs</b> <br>
+Unique: 18305 MW 1:30 p.m.-3:00 p.m. ECJ 1.318A, TA TBD<br>
+Unique: 18310 TTH 2:00 p.m.-3:30 p.m. ECJ 1.318A,  TA TBD<br>
+Unique: 18320 MW 6:30 p.m.-8:00 p.m. ECJ 1.318A, TA TBD<br>
+Unique: 18325 TTH 6:30 p.m.-8:00 p.m. ECJ 1.318A, TA TBD<br>
+&nbsp; </li>
+  <li><b>Exams</b> <br>
+Exam 1: Thursday, Feb 19, 12:30-1:45p, closed book, in class&nbsp;<br>
+Exam 2: Thursday, April 8,12:30-1:45p, closed book, in class<br>
+Final: Monday, May 4, 1:00-3:00 pm, UTC 3.104, closed book (regularly scheduled) <br>
+&nbsp; </li>
+</ul>
+<p></p>
+<hr noshade="noshade">
+<p></p>
+<h2>Announcements</h2>
+<ul>
+  <li>Announcements are posted to
+the class' <a target="blank" 
+ href="https://utexas.instructure.com/courses/1435536/announcements"
+ target="_top">web page on Canvas</a>. <br>
+&nbsp; </li>
+</ul>
+<p></p>
+<hr noshade="noshade">
+<p></p>
+<h2>Recovering a dead MSPM0G3507</h2>
+<p>How to unbrick the MSPM0G3507:
+  <ol> 
+  <li>Press-and-hold the BSL_Invoke button (S1, near LED) while pressing and releasing the Reset button.
+  <li> The device should go to BSL and stay in Active mode for ~10secs.
+  <li> Attempt to program immediately after releasing the reset button.
+  <li> Release the BSL_Invoke button (S1, near LED).
+  </ol></p>
+  <p>Try performing a factory reset:<br>
+<a href="https://dev.ti.com/gallery/view/TIMSPGC/MSPM0_Factory_Reset_Tool/ver/1.0.2/" target="_blank">
+https://dev.ti.com/gallery/view/TIMSPGC/MSPM0_Factory_Reset_Tool/ver/1.0.2/</a>
+<p></p>
+<hr noshade="noshade">
+<p></p>
+<h2>Additional Resources</h2>
+<blockquote>
+  <dl>
+    <dt><b><a target="blank" 
+ href="https://users.ece.utexas.edu/~gerstl/ece445m_s25/"
+ title="Spring 2025 Course Web Site" target="_top">Professor
+Gerstlauer's Spring 2025 Course Web site</a></b> </dt>
+    <dd>Course web site on Canvas
+with announcements, course
+documents, grade information, etc. </dd>
+    <dt><b><a target="blank" href="https://users.ece.utexas.edu/~valvano/EE445M/">Prof.
+Valvano: Spring 2026 Course Web Site</a></b> </dt>
+    <dd>Prof. Valvano's Spring
+2026 class site. </dd>
+  </dl>
+</blockquote>
+<p></p>
+<hr noshade="noshade">
+<table summary="Footer information" border="0" width="100%">
+  <tbody>
+    <tr>
+      <td align="left"> <font
+ face="arial, geneva, helvetica, sans-serif" size="-2">Contents
+&copy; Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano </font> </td>
+      <td align="right"> <font
+ face="arial, geneva, helvetica, sans-serif" size="-2"> <em>http://www.ece.utexas.edu/~valvano/EE445M/
+&nbsp;&nbsp;</em></font><font
+ face="arial, geneva, helvetica, sans-serif" size="-2"><em></em></font><font
+ face="arial, geneva, helvetica, sans-serif" size="-2"><em>http://www.ece.utexas.edu/~gerstl/ee445m_s25</em>
+      </font></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

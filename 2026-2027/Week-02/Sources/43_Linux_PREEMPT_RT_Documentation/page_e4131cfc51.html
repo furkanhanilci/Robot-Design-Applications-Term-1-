@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Considering hardware &#8212; The Linux Kernel  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Porting an architecture to support PREEMPT_RT" href="architecture-porting.html" />
+    <link rel="prev" title="How realtime kernels differ" href="differences.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/logo.svg" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../../index.html">The Linux Kernel</a></h1>
+
+
+
+<p class="blurb">7.3.0-rc6</p>
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+<p>
+<h3 class="kernel-toc-contents">Contents</h3>
+<input type="checkbox" class="kernel-toc-toggle" id = "kernel-toc-toggle" checked>
+<label class="kernel-toc-title" for="kernel-toc-toggle"></label>
+
+<div class="kerneltoc" id="kerneltoc">
+<p class="caption" role="heading"><span class="caption-text">Working with the development community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../process/development-process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process/submitting-patches.html">Submitting patches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process/code-of-conduct.html">Code of conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../maintainer/index.html">Maintainer handbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process/index.html">All development-process docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Core API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core-utilities">Core utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../kernel-api.html">The Linux Kernel API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../workqueue.html">Workqueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../watch_queue.html">General notification mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../printk-basics.html">Message logging with printk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../printk-formats.html">How to get printk format specifiers right</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../printk-index.html">Printk Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../symbol-namespaces.html">Symbol Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../asm-annotations.html">Assembler Annotations</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Real-time preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../housekeeping.html">Housekeeping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#data-structures-and-low-level-utilities">Data structures and low-level utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#low-level-entry-and-exit">Low level entry and exit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#concurrency-primitives">Concurrency primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#low-level-hardware-management">Low-level hardware management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#memory-management">Memory management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interfaces-for-kernel-debugging">Interfaces for kernel debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#everything-else">Everything else</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../driver-api/index.html">Driver APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../subsystem-apis.html">Subsystems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../locking/index.html">Locking</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development tools and processes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../process/license-rules.html">Licensing rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc-guide/index.html">Writing documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/index.html">Development tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/testing-overview.html">Testing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kernel-hacking/index.html">Hacking guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trace/index.html">Tracing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fault-injection/index.html">Fault injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../livepatch/index.html">Livepatching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/index.html">Rust</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User-oriented documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../admin-guide/index.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kbuild/index.html">Build system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../admin-guide/reporting-issues.html">Reporting issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Userspace tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userspace-api/index.html">Userspace API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Firmware-related documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../firmware-guide/index.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devicetree/index.html">Firmware and Devicetree</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture-specific documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arch/index.html">CPU architectures</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../staging/index.html">Unsorted documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Translations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../translations/index.html">Translations</a></li>
+</ul>
+
+</div>
+
+<script type="text/javascript"> <!--
+  var sbar = document.getElementsByClassName("sphinxsidebar")[0];
+  let currents = document.getElementsByClassName("current")
+  if (currents.length) {
+    sbar.scrollTop = currents[currents.length - 1].offsetTop;
+  }
+  --> </script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/core-api/real-time/hardware.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+
+
+
+<section id="considering-hardware">
+<h1>Considering hardware<a class="headerlink" href="#considering-hardware" title="Permalink to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sebastian Andrzej Siewior &lt;<a class="reference external" href="mailto:bigeasy&#37;&#52;&#48;linutronix&#46;de">bigeasy<span>&#64;</span>linutronix<span>&#46;</span>de</a>&gt;</p>
+</dd>
+</dl>
+<p>The way a workload is handled can be influenced by the hardware it runs on.
+Key components include the CPU, memory, and the buses that connect them.
+These resources are shared among all applications on the system.
+As a result, heavy utilization of one resource by a single application
+can affect the deterministic handling of workloads in other applications.</p>
+<p>Below is a brief overview.</p>
+<section id="system-memory-and-cache">
+<h2>System memory and cache<a class="headerlink" href="#system-memory-and-cache" title="Permalink to this heading">¶</a></h2>
+<p>Main memory and the associated caches are the most common shared resources among
+tasks in a system. One task can dominate the available caches, forcing another
+task to wait until a cache line is written back to main memory before it can
+proceed. The impact of this contention varies based on write patterns and the
+size of the caches available. Larger caches may reduce stalls because more lines
+can be buffered before being written back. Conversely, certain write patterns
+may trigger the cache controller to flush many lines at once, causing
+applications to stall until the operation completes.</p>
+<p>This issue can be partly mitigated if applications do not share the same CPU
+cache. The kernel is aware of the cache topology and exports this information to
+user space. Tools such as <strong>lstopo</strong> from the Portable Hardware Locality (hwloc)
+project (<a class="reference external" href="https://www.open-mpi.org/projects/hwloc/">https://www.open-mpi.org/projects/hwloc/</a>) can visualize the hierarchy.</p>
+<p>Avoiding shared L2 or L3 caches is not always possible. Even when cache sharing
+is minimized, bottlenecks can still occur when accessing system memory. Memory
+is used not only by the CPU but also by peripheral devices via DMA, such as
+graphics cards or network adapters.</p>
+<p>In some cases, cache and memory bottlenecks can be controlled if the hardware
+provides the necessary support. On x86 systems, Intel offers Cache Allocation
+Technology (CAT), which enables cache partitioning among applications and
+provides control over the interconnect. AMD provides similar functionality under
+Platform Quality of Service (PQoS). On Arm64, the equivalent is Memory
+System Resource Partitioning and Monitoring (MPAM).</p>
+<p>These features can be configured through the Linux Resource Control interface.
+For details, see <a class="reference internal" href="../../filesystems/resctrl.html"><span class="doc">User Interface for Resource Control feature (resctrl)</span></a>.</p>
+<p>The perf tool can be used to monitor cache behavior. It can analyze
+cache misses of an application and compare how they change under
+different workloads on a neighboring CPU. Even more powerful, the perf
+c2c tool can help identify cache-to-cache issues, where multiple CPU
+cores repeatedly access and modify data on the same cache line.</p>
+</section>
+<section id="hardware-buses">
+<h2>Hardware buses<a class="headerlink" href="#hardware-buses" title="Permalink to this heading">¶</a></h2>
+<p>Real-time systems often need to access hardware directly to perform their work.
+Any latency in this process is undesirable, as it can affect the outcome of the
+task. For example, on an I/O bus, a changed output may not become immediately
+visible but instead appear with variable delay depending on the latency of the
+bus used for communication.</p>
+<p>A bus such as PCI is relatively simple because register accesses are routed
+directly to the connected device. In the worst case, a read operation stalls the
+CPU until the device responds.</p>
+<p>A bus such as USB is more complex, involving multiple layers. A register read
+or write is wrapped in a USB Request Block (URB), which is then sent by the
+USB host controller to the device. Timing and latency are influenced by the
+underlying USB bus. Requests cannot be sent immediately; they must align with
+the next frame boundary according to the endpoint type and the host controller’s
+scheduling rules. This can introduce delays and additional latency. For example,
+a network device connected via USB may still deliver sufficient throughput, but
+the added latency when sending or receiving packets may fail to meet the
+requirements of certain real-time use cases.</p>
+<p>Additional restrictions on bus latency can arise from power management. For
+instance, PCIe with Active State Power Management (ASPM) enabled can suspend
+the link between the device and the host. While this behavior is beneficial for
+power savings, it delays device access and adds latency to responses. This issue
+is not limited to PCIe; internal buses within a System-on-Chip (SoC) can also be
+affected by power management mechanisms.</p>
+</section>
+<section id="virtualization">
+<h2>Virtualization<a class="headerlink" href="#virtualization" title="Permalink to this heading">¶</a></h2>
+<p>In a virtualized environment such as KVM, each guest CPU is represented as a
+thread on the host. If such a thread runs with real-time priority, the system
+should be tested to confirm it can sustain this behavior over extended periods.
+Because of its priority, the thread will not be preempted by lower-priority
+threads (such as SCHED_OTHER), which may then receive no CPU time. This can
+cause problems if a lower-priority thread is pinned to a CPU already occupied by
+a real-time task and unable to make progress. Even if a CPU has been isolated,
+the system may still (accidentally) start a per‑CPU thread on that CPU.
+Ensuring that a guest CPU goes idle is difficult, as it requires avoiding both
+task scheduling and interrupt handling. Furthermore, if the guest CPU does go
+idle but the guest system is booted with the option <strong>idle=poll</strong>, the guest
+CPU will never enter an idle state and will instead spin until an event
+arrives.</p>
+<p>Device handling introduces additional considerations. Emulated PCI devices or
+VirtIO devices require a counterpart on the host to complete requests. This
+adds latency because the host must intercept and either process the request
+directly or schedule a thread for its completion. These delays can be avoided if
+the required PCI device is passed directly through to the guest. Some devices,
+such as networking or storage controllers, support the PCIe SR-IOV feature.
+SR-IOV allows a single PCIe device to be divided into multiple virtual functions,
+which can then be assigned to different guests.</p>
+</section>
+<section id="networking">
+<h2>Networking<a class="headerlink" href="#networking" title="Permalink to this heading">¶</a></h2>
+<p>For low-latency networking, the full networking stack may be undesirable, as it
+can introduce additional sources of delay. In this context, XDP can be used
+as a shortcut to bypass much of the stack while still relying on the kernel’s
+network driver.</p>
+<p>The requirements are that the network driver must support XDP- preferably using
+an “skb pool” and that the application must use an XDP socket. Additional
+configuration may involve BPF filters, tuning networking queues, or configuring
+qdiscs for time-based transmission. These techniques are often
+applied in Time-Sensitive Networking (TSN) environments.</p>
+<p>Documenting all required steps exceeds the scope of this text. For detailed
+guidance, see the TSN documentation at <a class="reference external" href="https://tsn.readthedocs.io">https://tsn.readthedocs.io</a>.</p>
+<p>Another useful resource is the Linux Real-Time Communication Testbench
+<a class="reference external" href="https://github.com/Linutronix/RTC-Testbench">https://github.com/Linutronix/RTC-Testbench</a>.
+The goal of this project is to validate real-time network communication. It can
+be thought of as a “cyclictest” for networking and also serves as a starting
+point for application development.</p>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p>The firmware often plays a significant role in system operation because it can
+perform tasks that the kernel cannot directly access, and in some cases it can
+even preempt or intercept the kernel.</p>
+<p>A common example of firmware assisting the kernel is when it provides a generic
+interface to a resource. Instead of accessing an RTC chip through an I2C host
+controller, the kernel may query the firmware for the current time, and the
+firmware then accesses the RTC behind the scenes.</p>
+<p>Firmware can also intercept kernel execution by providing services that
+temporarily take control of the system. One example is memory scrubbing, where
+the firmware periodically pauses the kernel, reads back portions of system
+memory, and then returns control. During this time, the kernel is effectively
+interrupted.
+In contrast, some systems provide hardware-based memory scrubbing, which
+operates independently of firmware or software. See
+<a class="reference internal" href="../../edac/scrub.html"><span class="doc">Scrub Control</span></a> for details.</p>
+<p>If the kernel is intercepted for longer periods then these periods can be made
+visible with the hardware latency detector. See
+<a class="reference internal" href="../../trace/hwlat_detector.html"><span class="doc">Hardware Latency Detector</span></a>.</p>
+<p>The kernel can also be intercepted in response to specific events, such as
+overheating. In this case, the firmware may throttle the CPU or shut it down
+immediately to prevent hardware damage.</p>
+<p>Unless the firmware is well documented, it should be thoroughly tested to
+uncover any unexpected behaviour.</p>
+<section id="efi">
+<h3>EFI<a class="headerlink" href="#efi" title="Permalink to this heading">¶</a></h3>
+<p>EFI provides runtime services that act as a communication interface between the
+firmware and the operating system. One such service is reading and writing EFI
+variables, which are used, for example, to determine the boot source.</p>
+<p>Invoking a runtime service may require the architecture to disable kernel
+preemption or interrupts during the call. This means the duration of a service
+invocation directly affects the system’s observable latency. There is also
+nothing that prevents a service call from disabling interrupts internally while
+it runs.</p>
+<p>For these reasons, EFI runtime services are disabled by default on a PREEMPT_RT
+kernel. They can still be enabled at boot time or via a Kconfig option if
+required.
+The native EFI runtime service implementation (where both the EFI service and
+the kernel are either 32-bit or 64-bit executables) uses a wrapper mechanism
+that invokes the service through a dedicated workqueue. This workqueue is named
+efi_runtime, and it can be restricted to a housekeeping CPU using the
+<code class="docutils literal notranslate"><span class="pre">/sys/devices/virtual/workqueue/efi_runtime/cpumask</span></code> sysfs file. Assigning it
+to a housekeeping CPU ensures that potentially long service invocations do not
+impact the real-time workload which is restricted to other CPUs.</p>
+<p>It must also be verified that the runtime services behave as expected. Some
+implementations on the x86 architecture pause all other CPUs while one CPU
+performs the service call. In such cases, the interruption affects all CPUs,
+and restricting the workqueue to a single CPU provides no benefit.</p>
+</section>
+<section id="op-tee-arm">
+<h3>OP-TEE (ARM)<a class="headerlink" href="#op-tee-arm" title="Permalink to this heading">¶</a></h3>
+<p>Execution flows from the normal world (Linux) into the secure world (OP-TEE)
+through the secure monitor at EL3. The transition is initiated by the <cite>smc</cite>
+(Secure Monitor Call) opcode or the <cite>hvc</cite> (Hypervisor Call) opcode together
+with a function identifier. The calling convention defines two types of calls:
+<strong>yielding calls</strong> and <strong>fast calls</strong>:</p>
+<ul class="simple">
+<li><p>A <strong>yielding call</strong> unmasks interrupts before handling the requested service,
+allowing normal world interrupts to occur.</p></li>
+<li><p>A <strong>fast call</strong> handles the requested service atomically, without allowing
+interrupts from either the normal world or the secure world.</p></li>
+</ul>
+<p>In addition, the secure world (EL3 and OP-TEE) can receive interrupts routed to
+the secure world. While a secure world interrupt is being serviced,
+normal world interrupts are masked and cannot preempt the operation.</p>
+<p>The transition from normal world to secure monitor to OP-TEE and back introduces
+additional latency due to world switching and context save/restore. This
+overhead is typically a few microseconds and usually remains within the noise
+floor.</p>
+<p>It is worth noting that the normal world cannot mask secure interrupts, while
+the secure world can mask normal-world interrupts during execution. How OP-TEE
+affects real-time workloads depends on whether secure interrupts are enabled
+and which OP-TEE services are invoked.</p>
+<p>A practical concern is any fast call that runs longer than expected, for
+example a function that occasionally performs a long-running cryptographic
+computation. Another example that may block in an unexpected way are OP-TEE
+drivers that issue RPC requests. An OP-TEE service in the secure world (RPMB
+for instance) may need to issue a request back to the normal world (the Linux
+driver) in order to complete the operation. While Linux remains preemptible,
+the thread that issued the request stays blocked until the RPC completes and
+the secure function call returns.</p>
+<p>The TF-A project provides documentation on interrupt management:
+<a class="reference external" href="https://trustedfirmware-a.readthedocs.io/en/latest/design/interrupt-framework-design.html#interrupt-management-framework">https://trustedfirmware-a.readthedocs.io/en/latest/design/interrupt-framework-design.html#interrupt-management-framework</a></p>
+<p>The OP-TEE project provides documentation on how interrupts are handled:
+<a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/core.html#interrupt-handling">https://optee.readthedocs.io/en/latest/architecture/core.html#interrupt-handling</a></p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;The kernel development community.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/core-api/real-time/hardware.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

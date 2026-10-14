@@ -1,0 +1,282 @@
+Electrical Engineering Textbooks - Open Textbook Library
+Skip to content
+Search the Library
+Textbook Search
+Browse Subjects
+Business
++
+Accounting
+Finance
+Human Resources
+Management
+Marketing
+Computer Science
++
+Databases
+Information Systems
+Programming Languages
+Education
++
+Curriculum & Instruction
+Distance Education
+Early Childhood
+Elementary Education
+Higher Education
+Secondary Education
+Engineering & Technology
++
+Civil Engineering
+Electrical Engineering
+Mechanical Engineering
+Humanities
++
+Arts
+History
+Languages
+Linguistics
+Literature, Rhetoric, and Poetry
+Music
+Philosophy
+Religion
+Journalism, Media Studies & Communications
++
+New Media Journalism
+Law
++
+Administrative Law
+Civil Law
+Constitutional Law
+Contract Law
+Criminal Law
+Procedural Law
+Property Law
+Mathematics
++
+Algebra
+Analysis
+Applied
+Calculus
+Geometry and Trigonometry
+Pure
+Statistics
+Medicine
++
+Nursing
+Nutrition
+Natural Sciences
++
+Biology
+Chemistry
+Earth Sciences
+Physics
+Social Sciences
++
+Anthropology
+Cultural & Ethnic Studies
+Economics
+Gender & Sexuality Studies
+Geography
+Library Science and Museum Studies
+Political Science
+Psychology
+Sociology
+Student Success
+About Open Textbooks
+FAQ
+Friends
+Submit
+Discovery
+Open Education Network
+You are offline and only viewing locally cached content.
+Electrical Engineering Textbooks
+Filters
++
+Language
+All languages
+Arabic
+Azerbaijani
+Bulgarian
+Chinese
+Dutch; Flemish
+English
+French
+German
+Greek, Modern (1453-)
+Italian
+Japanese
+Korean
+Polish
+Portuguese
+Russian
+Slovenian
+Spanish; Castilian
+Swahili
+Ukrainian
+License
+Attribution
+(CC BY)
+Attribution-ShareAlike
+(CC BY-SA)
+Attribution-NonCommercial
+(CC BY-NC)
+Attribution-NonCommercial-ShareAlike
+(CC BY-NC-SA)
+No Rights Reserved
+(CC0)
+Free Documentation License (GNU)
+Formats
+Hardcopy
+eBook
+Online
+PDF
+Google Doc
+MS Word
+LaTeX
+XML
+ODF
+Audiobook
+Order by
+Date added to library
+Faculty rating
+Publication date
+Electromagnetics Vol 1
+Copyright Year:
+2018
+Author:
+Ellingson
+Publisher:
+Virginia Tech Libraries
+License:
+CC BY-SA
+Electromagnetics Volume 1 by Steven W. Ellingson is a 238-page, peer-reviewed open educational resource intended for electrical engineering students in the third year of a bachelor of science degree program. It is intended as a primary textbook for a one-semester first course in undergraduate engineering electromagnetics. The book employs the “transmission lines first” approach in which transmission lines are introduced using a lumped-element equivalent circuit model for a differential length of transmission line, leading to one-dimensional wage equations for voltage and current.
+(2 reviews)
+READ MORE
+Electromagnetics Vol 2
+Copyright Year:
+2020
+Author:
+Ellingson
+Publisher:
+Virginia Tech Publishing
+License:
+CC BY-SA
+Electromagnetics, volume 2 by Steven W. Ellingson is a 216-page peer-reviewed open textbook designed especially for electrical engineering students in the third year of a bachelor of science degree program. It is intended as the primary textbook for the second semester of a two-semester undergraduate engineering electromagnetics sequence. The book addresses magnetic force and the Biot-Savart law; general and lossy media; parallel plate and rectangular waveguides; parallel wire, microstrip, and coaxial transmission lines; AC current flow and skin depth; reflection and transmission at planar boundaries; fields in parallel plate, parallel wire, and microstrip transmission lines; optical fiber; and radiation and antennas.
+No ratings
+(0 reviews)
+READ MORE
+Microwave and RF Design: Amplifiers and Oscillators
+Copyright Year:
+2019
+Author:
+Steer
+Publisher:
+North Carolina State University Libraries
+License:
+CC BY-NC
+Microwave and RF Design: Amplifiers and Oscillators presents the design of amplifiers and oscillators in a way that enables state-of-the-art designs to be realized. Detailed strategies and case studies are presented. Design of competitive microwave amplifiers and oscillators is particularly challenging as many trade-offs are required in design, and the design decisions cannot be reduced to a formulaic flow. The emphasis is on developing design skills. This book is suitable as both an undergraduate and graduate textbook, as well as a career-long reference book.
+No ratings
+(0 reviews)
+READ MORE
+Microwave and RF Design: Modules
+Copyright Year:
+2019
+Author:
+Steer
+Publisher:
+North Carolina State University Libraries
+License:
+CC BY-NC
+Microwave and RF Design: Modules focuses on the design of systems based on microwave modules. The use of modules has become increasingly important in RF and microwave engineering for rapidly realizing high performance microwave systems. When integration is ultimately to be used, building a system up using modules provides a rapid means of prototyping and testing system concepts. A wide variety of RF modules including amplifiers, local oscillators, switches, circulators, isolators, phase detectors, frequency multipliers and dividers, phase-locked loops, and direct digital synthesizers are considered. Detailed design strategies for synthesizing filters based on parallel coupled lines are presented. The reader will gain an appreciation of design by synthesis. This book is suitable as both an undergraduate and graduate textbook, as well as a career-long reference book.
+No ratings
+(0 reviews)
+READ MORE
+Microwave and RF Design: Transmission Lines
+Copyright Year:
+2019
+Author:
+Steer
+Publisher:
+North Carolina State University Libraries
+License:
+CC BY-NC
+Microwave and RF Design: Transmission Lines builds on the concepts of forward- and backward-traveling waves. Many examples are included of advanced techniques for analyzing and designing transmission line networks with microstrip lines primarily used in design examples. Coupled-lines are an important functional element in microwave circuits, and circuit equivalents of coupled lines are introduced as fundamental building blocks in design. The text and examples introduce the often hidden design requirements of mitigating parasitic effects and eliminating unwanted modes of operation. This book is suitable as both an undergraduate and graduate textbook, as well as a career-long reference book.
+No ratings
+(0 reviews)
+READ MORE
+Microwave and RF Design: Radio Systems
+Copyright Year:
+2019
+Author:
+Steer
+Publisher:
+North Carolina State University Libraries
+License:
+CC BY-NC
+Microwave and RF Design: Radio Systems is a circuits- and systems-oriented approach to modern microwave and RF systems. Sufficient details at the circuits and sub-system levels are provided to understand how modern radios are implemented. Design is emphasized throughout. The evolution of radio from what is now known as 0G, for early radio, through to 6G, for sixth generation cellular radio, is used to present modern microwave and RF engineering concepts. Two key themes unify the text: 1) how system-level decisions affect component, circuit and subsystem design; and 2) how the capabilities of technologies, components, and subsystems impact system design. This book is suitable as both an undergraduate and graduate textbook, as well as a career-long reference book.
+(1 review)
+READ MORE
+Microwave and RF Design: Networks
+Copyright Year:
+2019
+Author:
+Steer
+Publisher:
+North Carolina State University Libraries
+License:
+CC BY-NC
+Microwave and RF Design: Networks presents the tools and techniques required to analyze and design microwave and RF circuits. Because of the finite speed of light, microwave circuits must be considered to be spatially distributed and so there is not a single ground. As such metrics that can be used to describe power flow are of most use. The topics covered include scattering parameters, signal flow graphs, and Smith charts. Acquiring expertise in these is the biggest barriers to a successful career in microwave and RF engineering. This book is suitable as both an undergraduate and graduate textbook, as well as a career-long reference book.
+No ratings
+(0 reviews)
+READ MORE
+Direct Energy
+Copyright Year:
+2018
+Author:
+Mitofsky
+Publisher:
+Andrea M. Mitofsky
+License:
+CC BY-NC
+Direct Energy Conversion discusses both the physics behind energy conversion processes and a wide variety of energy conversion devices. A direct energy conversion process converts one form of energy to another through a single process. The first half of this book surveys multiple devices that convert to or from electricity including piezoelectric devices, antennas, solar cells, light emitting diodes, lasers, thermoelectric devices, and batteries. In these chapters, physical effects are discussed, terminology used by engineers in the discipline is introduced, and insights into material selection is studied. The second part of this book puts concepts of energy conversion in a more abstract framework. These chapters introduce the idea of calculus of variations and illuminate relationships between energy conversion processes.
+(1 review)
+READ MORE
+Semiconductor Devices: Theory and Application
+Copyright Year:
+2018
+Author:
+Fiore
+Publisher:
+dissidents
+License:
+CC BY-NC-SA
+The goal of this text, as its name implies, is to allow the reader to become proficient in the analysis and design of circuits utilizing discrete semiconductor devices. It progresses from basic diodes through bipolar and field effect transistors. The text is intended for use in a first or second year course on semiconductors at the Associate or Baccalaureate level. In order to make effective use of this text, students should have already taken coursework in basic DC and AC circuits, and have a solid background in algebra and trigonometry along with exposure to phasors. Calculus is used in certain sections of the text but for the most part it is used for equation derivations and proofs, and is kept to a minimum. For students without a calculus background these sections may be skipped without a loss of continuity.
+(1 review)
+READ MORE
+Operational Amplifiers & Linear Integrated Circuits: Theory and Application - 3e
+Copyright Year:
+2018
+Author:
+Fiore
+Publisher:
+dissidents
+License:
+CC BY-NC-SA
+The goal of this text, as its name implies, is to allow the reader to become proficient in the analysis and design of circuits utilizing modern linear ICs. It progresses from the fundamental circuit building blocks through to analog/digital conversion systems. The text is intended for use in a second year Operational Amplifiers course at the Associate level, or for a junior level course at the Baccalaureate level. In order to make effective use of this text, students should have already taken a course in basic discrete transistor circuits, and have a solid background in algebra and trigonometry, along with exposure to phasors. Calculus is used in certain sections of the text, but for the most part, its use is kept to a minimum. For students without a calculus background, these sections may be skipped without a loss of continuity. (The sole exception to this being Chapter Ten, Integrators and Differentiators, which hinges upon knowledge of calculus.)
+(2 reviews)
+READ MORE
+1
+2
+3
+Next
+Last
+Stay Updated
+Bluesky
+Mastodon
+LinkedIn
+YouTube
+Join Our Newsletter
+Email Address
+CENTER FOR OPEN EDUCATION | The Open Education Network is based in the Center for Open Education in the University of Minnesota’s College of Education and Human Development.
+University of Minnesota, 330 Wulling Hall, 86 Pleasant Street S.E., Minneapolis, MN 55455
+Except where otherwise noted, content on this site is licensed under a
+Creative Commons Attribution 4.0 License

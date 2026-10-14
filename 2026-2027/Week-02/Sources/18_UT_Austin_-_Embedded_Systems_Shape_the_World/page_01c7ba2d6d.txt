@@ -1,0 +1,1824 @@
+Chapter 15: Complete Embedded System
+Chapter 15: Complete Embedded System
+Modified to be compatible with EE319K Lab 10
+Jonathan Valvano and Ramesh
+Yerraballi
+So far in this course have presented embedded
+systems from
+an interfacing or component level. This chapter will introduce systems
+level
+design. The chapter begins with a discussion of requirements document
+and modular
+design. Next, we will describe data structures used to represent
+graphics
+images. We will conclude this course with a project of building a
+hand-held
+game. We will call it a project rather than a lab because we have no
+automatic
+grader capable of evaluating a game. However, we will have a mechanism
+to share
+games between students.
+Learning
+Objectives:
+Review
+course contents
+Integrate
+components into a complete embedded system
+Use
+structures to organize data
+Introduce
+graphics
+First-In-First-Out (FIFO) Queue
+Build a hand-held game
+Video
+15.0
+. Introduction to Programming Games
+15.1. Requirements
+Document
+A
+Requirements
+Document
+states what the system will do.
+It does
+not state how the system will do it. The main purpose of a requirements
+document is to serve as an agreement between you and your clients
+describing
+what the system will do. This agreement can become a legally binding
+contract.
+We should write the document so that it is easy to read and understand
+by
+others. It should be unambiguous, complete, verifiable, and modifiable.
+In this
+chapter we will use the framework of the requirements document to
+describe the
+hand-held game project.
+1. Overview
+1.1. Objectives: Why are we
+doing this
+project? What is the purpose?
+The
+overall
+objective of this project is to integrate the individual components
+taught in
+this class into a single system. More specifically, the objectives of
+this project
+are: 1) design, test, and debug a large C program; 2) to review I/O
+interfacing
+techniques used in this class; and 3) to design a system that performs
+a useful
+task.  In particular we will design an 80’s-style shoot-em
+up game like
+Space
+Invaders
+.
+1.2. Process: How will the project be
+developed?
+Similar to the labs, this lab has starter projects:
+Lab10_EE319K
+for EE319K and
+Lab10_C++
+for EE319H. The projects
+include some art and sounds to get you started.
+1.3. Roles and Responsibilities: Who
+will do
+what?  Who are the clients?
+Students may develop their games
+using their EE319K teams. The clients
+for this
+project will be other classmates and your EE319K professors.
+1.4. Interactions with Existing
+Systems: How
+will it fit in?
+The game must be developed in C on the Keil IDE
+and run on
+a Tiva LaunchPad. We expect you to combine your solutions to
+Lab 3
+(switches, LED), Lab 6 (interrupts, DAC and sounds), Lab
+7 (LCD), Lab 8(slide pot and ADC) into one system. We expect everyone to use the
+slide pot,
+two switches, two LEDs, one DAC, and the ST7735R or Nokia5110 LCD screen.
+1.5. Terminology: Define terms used in
+the
+document.
+BMP
+is a simple file format to store graphical
+images. A
+sprite
+is a virtual entity that is created, moves around the screen, and might
+disappear. A
+public
+function is one that can be called by
+another
+module. For example if the main program calls
+Sound_Play
+,
+then
+Sound_Play
+is a
+public function.
+1.6. Security: How will intellectual
+property be
+managed?
+Uploading a YouTube video on this project does contribute to your Lab 10 grade.
+To reduce the chance of spreading viruses, we only be sharing YouTube videos.
+2. Function Description
+2.1. Functionality: What will the
+system do
+precisely?
+You will design, implement and debug an 80’s or
+90’s-style video
+game. You are free to simplify the rules but your game should be
+recognizable and fun.
+The LCD,
+LEDs, and sound are the outputs. The slide pot is a simple yet
+effective means to move your ship. Interrupts must be appropriately
+used
+control the input/output, and will make a profound impact on how the
+user
+interacts with the game. You could use an edge-triggered interrupt to
+execute
+software whenever a button is pressed. You could create two periodic
+interrupts. Use one fixed-frequency periodic interrupt to output sounds
+with
+the DAC. You could decide to move a sprite using a second periodic
+interrupt,
+although the actual LCD output should always be performed in the main
+program.
+2.2. Scope: List the phases and what
+will be
+delivered in each phase.
+The first phase is forming a team and
+defining the
+exact rules of game play. You next will specify the modules: e.g., the
+main
+game engine, a module to input from switches, a module to output to
+LEDs, a
+module to draw images on the LCD, and a module that inputs from the
+slide
+pot. Next you will design the prototypes for the public functions. At
+this
+phase of the project, individual team members can develop and test
+modules
+concurrently. The last phase of the project is to combine the modules
+to create
+the overall system.
+2.3. Prototypes: How will intermediate
+progress
+be demonstrated?
+In a system such as
+this each module
+must be individually tested. Your system will have four or more
+modules. Each
+module has a separate header and code file. For each module create a
+header
+file, a code file and a separate main program to test that particular
+module.
+2.4. Performance: Define the measures
+and
+describe how they will be determined.
+The game should be easy to
+learn, and
+fun to play.
+2.5. Usability: Describe the
+interfaces. Be
+quantitative if possible.
+The usability of your game will be outlined in your proposal.
+2.6. Safety: Explain any safety
+requirements and
+how they will be measured.
+To reduce the chance of spreading
+viruses we will only share YouTube videos. The usual rules
+about
+respect and tolerance as defined for the forums apply as well to the
+output of
+the video games.
+3. Deliverables
+3.1. Reports: How will the system be
+described?
+Add
+comments to the top of your C file to explain the purpose and
+functionality of
+your game.
+3.2. Audits: How will the clients
+evaluate
+progress?
+There will be a discussion forum that will allow you to
+evaluate
+the performance (easy to learn, fun to play) of the other games.
+3.3. Outcomes: What are the
+deliverables?
+How
+do we know when it is done? You will commit your software to github and you will upload a YouTube video for others to watch.
+Video
+15.1
+.
+                  Overview of requirements
+15.2. Modular Design
+The design process involves the conversion of a
+problem
+statement into hardware and software components. Successive refinement
+is the
+transformation from the general to the specific. In this section, we
+introduce
+the concept of modular programming and demonstrate that it is an
+effective way
+to organize our software projects. There are four reasons for forming
+modules.
+First, functional abstraction allows us to reuse a software module
+from
+multiple locations. Second, complexity abstraction allows us to
+divide a
+highly complex system into smaller less complicated components. The
+third
+reason is portability. If we create modules for the I/O devices, then
+we can
+isolate the rest of the system from the hardware details. This approach
+is
+sometimes called a hardware abstraction layer. Since all the software
+components that access an I/O port are grouped together, it will be
+easier to
+redesign the embedded system on a machine with different I/O ports.
+Finally,
+another reason for forming modules is security. Modular systems by
+design hide
+the inner workings from other modules and provide a strict set of
+mechanisms to
+access data and I/O ports. Hiding details and restricting access
+generates a
+more secure system.
+Software must deal with
+complexity
+. Most
+real
+systems have many components, which interact in a complex manner. The
+size and
+interactions will make it difficult to conceptualize, abstract,
+visualize, and
+document. In this chapter we will present data flow graphs and call
+graphs as
+tools to describe interactions between components. Software must deal
+with
+conformity
+.
+All design, including software design, must interface with existing
+systems and
+with systems yet to be designed. Interfacing with existing systems
+creates an
+additional complexity. Software must deal with
+changeability
+.
+Most of
+the design effort involves change. Creating systems that are easy to
+change
+will help manage the rapid growth occurring in the computer industry.
+The basic goals of
+modular design is to maximize the number of modules and minimize the interdependence. There are many ways modules interact with each other. Three of the ways modules interact are
+•
+Invocation coupling
+: one module calls another module,
+•
+Bandwidth coupling
+: one module sends data to another,
+•
+Control coupling
+: shared globals in one module affects behavior in another
+We specify invocation coupling when we draw the
+call graph
+.
+We specify bandwidth coupling when we draw the
+data flow graph
+.
+Control coupling occurs when we have shared global variables, and should be avoided. However, I/O registers are essentially shared global objects. So one module writing to an I/O register may affect behavior in another module using the sample I/O. Minimizing control coupling was the motivation behind writing friendly code.
+A software module has three files:
+•
+Header file
+: comments that explain what the module does, prototypes for public functions, shared #define, shared structures, shared typedef, shared enum
+•
+Code file
+: comments that explain how the module works, implementation of all functions, private variables (statics), helper functions, comments to explain how to change the module
+•
+Test main file
+: comments that explain how the module is tested, test cases, examples of module usage
+The key to completing any complex task is to
+break it down
+into manageable subtasks. Modular programming is a style of
+software
+development that divides the software problem into distinct
+well-defined
+modules. The parts are as small as possible, yet relatively
+independent.
+Complex systems designed in a modular fashion are easier to debug
+because each
+module can be tested separately. Industry experts estimate that 50 to
+90% of
+software development cost is spent in maintenance. All five aspects of
+software
+maintenance
+• Correcting mistakes,
+• Adding new features,
+• Optimizing for execution speed or program size,
+• Porting to new computers or operating systems, and
+• Reconfiguring the software to solve a similar related program
+are simplified by organizing the software system
+into
+modules. The approach is particularly useful when a task is large
+enough to
+require several programmers.
+A
+program module
+is a
+self-contained software
+task with clear entry and exit points. There is a distinct difference
+between a
+module and a C language function. A module is usually a collection of
+functions
+that in its entirety performs a well-defined set of tasks. A collection
+of
+32-bit trigonometry functions is an example of a module. A device
+driver is a
+software module that facilitates the use of I/O. In particular it is
+collection
+of software functions for a particular I/O device. Modular programming
+involves
+both the specification of the individual modules and the connection
+scheme
+whereby the modules are interfaced together to form the software
+system. While
+the module may be called from many locations throughout the software,
+there
+should be well-defined
+entry points
+. In C, the entry point of a
+module
+is defined in the header file and is specified by a list of function
+prototypes
+for the public functions.
+Common Error:
+In many situations the input
+parameters have a restricted range. It would be inefficient for the
+module and
+the calling routine to both check for valid input. On the other hand,
+an error
+may occur if neither checks for valid input.
+An
+exit point
+is the ending point
+of a program
+module. The exit point of a function is used to return to the calling
+routine.
+We need to be careful about exit points. Similarly, if the function
+returns
+parameters, then all exit points should return parameters in an
+acceptable
+format. If the main program has an exit point it either stops the
+program or
+returns to the debugger. In most embedded systems, the main program
+does not
+exit.
+In this section, an object refers to either a
+function or
+a data element. A
+public
+object is one that is shared by
+multiple
+modules. This means a public object can be accessed by other modules.
+Typically, we make the most general functions of a module public, so
+the
+functions can be called from other modules. For a module performing
+I/O,
+typical public functions include initialization, input, and output. A
+private
+object
+is one that is not shared. I.e., a private object can be accessed by
+only one
+module. Typically, we make the internal workings of a module private,
+so we
+hide how a private function works from user of the module. In an
+object-oriented language like C++ or Java, the programmer clearly
+defines a
+function or data object as public or private. The software in this
+course uses
+the naming convention of using the module name followed by an underline
+to
+identify the public functions of a module. For example if the module is
+ADC,
+then
+ADC_Init
+and
+ADC_Input
+are public functions.
+Functions without the underline in its name are private. In this manner
+we can
+easily identify whether a function or data object as public or private.
+At a first glance, I/O devices seem to be
+public. For
+example, Port D resides permanently at the fixed address of 0x400073FC,
+and the
+programmer of every module knows that. In other words, from a syntactic
+viewpoint, any module has access to any I/O device. However, in order
+to reduce
+the complexity of the system, we will restrict the number of modules
+that
+actually do access the I/O device. From a “what do we actually
+do” perspective,
+however, we will write software that considers I/O devices as private,
+meaning
+an
+I/O device should be accessed by only one module
+. In
+general, it will
+be important to clarify which modules have access to I/O devices and
+when they
+are allowed to access them. When more than one module accesses an I/O
+device,
+then it is important to develop ways to arbitrate or synchronize. 
+If two
+or more want to access the device simultaneously arbitration determines
+which
+module goes first. Sometimes the order of access matters, so we use
+synchronization to force a second module to wait until the first module
+is
+finished. Most microcontrollers do not have architectural features that
+restrict access to I/O ports, because it is assumed that all software
+burned
+into its ROM was designed for a common goal, meaning from a security
+standpoint
+one can assume there are no malicious components. However, as embedded
+systems
+become connected to the Internet, providing the power and flexibility,
+security
+will become important issue.
+Checkpoint 15.1
+:
+Multiple modules may use Port F,
+where each module has an initialization. What conflict could arise
+around the initialization of a port?
+Information hiding
+is similar to
+minimizing
+coupling. It is better to separate the mechanisms of software from its
+policies. We should separate “what the function does” from
+“how the function
+works”. What a function does is defined by the relationship
+between its inputs
+and outputs. It is good to hide certain inner workings of a module and
+simply
+interface with the other modules through the well-defined input/output
+parameters. For example we could implement a variable size buffer by
+maintaining the current byte count in a global variable,
+Count
+. A good module
+will hide how
+Count
+is
+implemented from
+its users. If the user wants to know how many bytes are in the buffer,
+it calls
+a function that returns the count. A badly written module will not hide
+Count
+from its
+users. The user
+simply accesses the global variable
+Count
+.
+If we update the buffer routines, making them faster or better, we
+might have
+to update all the programs that access
+Count
+too. Allowing all software to access
+Count
+creates a security risk, making the system vulnerable to malicious or
+incompetent software. The object-oriented programming environments
+provide
+well-defined mechanisms to support information hiding. This separation
+of
+policies from mechanisms is discussed further in the section on
+layered
+software.
+Maintenance Tip:
+It is good practice to
+make all
+permanently-allocated data and all I/O devices private. Information is
+transferred from one module to another through well-defined function
+calls.
+The
+Keep It Simple Stupid
+approach tries
+to
+generalize the problem so that the solution uses an abstract model.
+Unfortunately, the person who defines the software specifications may
+not
+understand the implications and alternatives. As a software developer,
+we
+always ask ourselves these questions:
+“How important is this feature?”
+“What if it worked this different way?”
+Sometimes we can restate the problem to allow
+for a
+simpler and possibly more powerful solution. We begin the design of the
+game by
+listing possible modules for our system.
+ADC               
+The interface to the
+joystick
+Switch              
+User interaction
+with LEDs and switches
+Sound              
+Sound output using
+the DAC
+ST7735             
+Images displayed on the
+LCD
+Game
+engine     The central controller
+that implements the game
+Figure 15.1 shows a possible
+call graph
+for the
+game. An arrow in a call graph means software in one module can call
+functions
+in another module. This is a very simple organization with one master
+module
+and four slave modules. Notice the slave modules do not call each
+other. This
+configuration is an example of good modularization because there are 5
+modules but
+only 4 arrows.
+Figure 15.1. Possible call graph for the game.
+Figure 15.2 shows on possible data flow graph
+for the game.
+Recall that arrows in a data
+flow graph
+represent data passing from one module to another. Notice the high
+bandwidth
+communication occurs between the sound module and its hardware, and
+between the
+LCD module and its hardware. We will design the system such that
+software
+modules do not need to pass a lot of data to other software modules.
+Figure 15.2. Possible data flow graph for the
+game. You can add LEDs if you wish.
+The Timer2A ISR will
+output a
+sequence of numbers to the DAC to create sound. Let
+explosion
+be an array of 2000 4-bit numbers, representing
+a sound
+sampled at 11 kHz. If the game engine wishes to make the explosion
+sound, it
+calls
+Sound_Play(explosion,2000);
+This function call simply passes a pointer to
+the
+explosion
+sound array into the sound module. The Timer2A
+ISR will
+output one 4-bit number to the DAC for the next 2000 interrupts.
+ Notice the
+data flow from the game engine to the sound module is only two
+parameters
+(pointer and count), causing 2000 4-bit numbers to flow from the sound
+module
+to the DAC.
+The LCD module
+needs to
+send images to the LCD. The
+ screen
+should be updated 30 times/sec so changes in the image looks smooth to the eye.
+Figure 15.3 shows on
+possible
+flow chart for the game engine. It is important to perform the actual
+LCD
+output in the foreground. In this design there are three threads: the
+main
+program and two interrupts. Multithreading allows the processor to
+execute
+multiple tasks. The main loop performs the game engine and updates the
+image on
+the screen. At 30 Hz, which is fast enough to look continuous, the
+SysTick ISR
+will sample the ADC and switch inputs. Based on user input and the game
+function, the ISR will decide what actions to take and signal the main
+program.
+To play a sound, we send the Sound module an array of data and arm
+Timer2A.
+Each Timer2A interrupt outputs one value to the DAC. When the sound is
+over we
+disarm Timer2A.
+Figure 15.3. Possible flowchart for the game.
+For example, if the
+ADC notices
+a motion to the left, the SysTick ISR can tell the main program to move
+the
+player ship to the left. Similarly, if the SysTick ISR notices the fire
+button
+has been pushed, it can create a missile object, and for the next 100
+or so
+interrupts the SysTick ISR will move the missile until it goes off
+screen or
+hits something. In this way the missile moves a pixel or two every
+33.3ms,
+causing its motion to look continuous. In summary, the ISR responds to
+input
+and time, but the main loop performs the actual output to the LCD.
+Checkpoint 15.2
+:
+Notice the algorithm in
+Figure 15.3 samples the ADC and the fire button at 30 Hz. How times/sec can we fire
+a missile or wiggle the slide pot?  Hint: think Nyquist Theorem.
+Checkpoint 15.3
+:
+Similarly, in Figure 15.3, what frequency components are in the sound output?
+Video
+15.2
+.
+                  Modular design
+15.3. Introduction to Graphics
+15.3.1. 2-D Matrix
+A
+matrix
+is a two-dimensional data
+structure accessed
+by row and column. Each element of a matrix is the same type and
+precision. In
+C, we create matrices using two sets of brackets. Figure 15.4 shows
+this byte
+matrix with six 8-bit elements. The figure also shows two possible ways
+to map
+the two-dimensional data structure into the linear address space of
+memory.
+unsigned
+char M[2][3]; // byte matrix with 2 rows and 3 columns
+Figure 15.4. A byte matrix with 2 rows and 3
+columns.
+With row-major allocation, the elements of
+each row are
+stored together. Let
+i
+be
+the row index,
+j
+be the
+column index,
+n
+be the
+number of bytes in each row (equal to the number of columns), and
+Base
+is the base
+address of the
+byte matrix, then the address of the element at
+i
+,
+j
+is
+Base+n*i+j
+With a
+halfword
+matrix, each element requires two bytes of storage. Let
+i
+be the row index,
+j
+be the column index,
+n
+be the number of
+halfwords in
+each row (equal to the number of columns), and
+Base
+is the base
+address of the word matrix, then the
+address of the element at
+i
+,
+j
+is
+Base+2*(n*i+j)
+With a
+word
+matrix, each element requires four bytes of storage. Let
+i
+be the row index,
+j
+be the column index,
+n
+be the number of
+words in each
+row (equal to the number of columns), and
+Base
+is the base address of the word matrix, then the address of the element
+at
+i
+,
+j
+is
+Base+4*(n*i+j)
+15.3.2. Buffer-based Graphics on the Nokia 5110
+The size of the Nokia LCD is so small we can implement an approach called
+buffered graphics
+,
+which means we will maintain a complete image in RAM. When we change what the user sees we:
+1) clear, modify, fill, or draw into the RAM buffer as needed;
+2) send the entire RAM buffer to the display;
+The main program sends this RAM buffer to the LCD 30 times/sec to create smooth images on the display.
+This is a very flexible approach to graphics because the software has complete control
+over every pixel in the rendered image. Consider the Nokia display as a matrix, that contains the 48 by 84 by 1-bit graphics display, see
+Figure 15.5.
+Figure 15.5. A 1-bit
+matrix
+with 48 rows and 84 columns, each pixel is 1 bit on the Nokia 5110.
+Placing a 0 into a pixel location will display that
+pixel in
+a color ranging from off (0) and a 1 is fully on. In this display, the
+first bit
+is the top left corner of the display, and the last bit is the bottom
+right
+corner. The graphical image on this 48 by 84 display will be stored in
+the 1-bit
+array called
+Screen
+.
+Since the Nokia 5110 has a total of 4032 pixels, and each byte can store 8
+pixels, we
+need 504 bytes to store the entire image. In C, we define the following
+in
+global RAM,
+char
+Screen[504]; // stores the next
+image to be printed on the screen
+//********Nokia5110_Init*****************
+//
+Initialize Nokia 5110 48x84 LCD by sending the proper
+//
+commands to the PCD8544 driver.
+//
+inputs: none
+//
+outputs: none
+//
+assumes: system clock rate of 50 MHz or less
+void
+Nokia5110_Init(void);
+//********Nokia5110_OutChar*****************
+//
+Print a character to the Nokia 5110 48x84 LCD.  The
+//
+character will be printed at the current cursor position,
+//
+the cursor will automatically be updated, and it will
+//
+wrap to the next row or back to the top if necessary.
+//
+One blank column of pixels will be printed on either side
+//
+of the character for readability.  Since characters are 8
+//
+pixels tall and 5 pixels wide, 12 characters fit per row,
+//
+and there are six rows.
+//
+inputs: data  character to print
+//
+outputs: none
+//
+assumes: LCD is in default horizontal addressing mode (V = 0)
+void
+Nokia5110_OutChar(unsigned char data);
+//********Nokia5110_OutString*****************
+//
+Print a string of characters to the Nokia 5110 48x84 LCD.
+//
+The string will automatically wrap, so padding spaces may
+//
+be needed to make the output look optimal.
+//
+inputs: ptr  pointer to NULL-terminated ASCII string
+//
+outputs: none
+//
+assumes: LCD is in default horizontal addressing mode (V = 0)
+void
+Nokia5110_OutString(char *ptr);
+//********Nokia5110_OutUDec*****************
+//
+Output a 16-bit number in unsigned decimal format with a
+//
+fixed size of five right-justified digits of output.
+//
+Inputs: n  16-bit unsigned number
+//
+Outputs: none
+//
+assumes: LCD is in default horizontal addressing mode (V = 0)
+void
+Nokia5110_OutUDec(unsigned short n);
+//********Nokia5110_SetCursor*****************
+//
+Move the cursor to the desired X- and Y-position.  The
+//
+next character will be printed here.  X=0 is the leftmost
+//
+column.  Y=0 is the top row.
+//
+inputs: newX  new X-position of the cursor (0<=newX<=11)
+//        
+newY  new Y-position of the cursor (0<=newY<=5)
+//
+outputs: none
+void
+Nokia5110_SetCursor(unsigned char newX, unsigned char newY);
+//********Nokia5110_Clear*****************
+//
+Clear the LCD by writing zeros to the entire screen and
+//
+reset the cursor to (0,0) (top left corner of screen).
+//
+inputs: none
+//
+outputs: none
+void
+Nokia5110_Clear(void);
+//********Nokia5110_DrawFullImage*****************
+//
+Fill the whole screen by drawing a 48x84 bitmap image.
+//
+inputs: ptr  pointer to 504 byte bitmap
+//
+outputs: none
+//
+assumes: LCD is in default horizontal addressing mode (V = 0)
+void
+Nokia5110_DrawFullImage(const char *ptr);
+//********Nokia5110_PrintBMP*****************
+//
+Bitmaps contain their header data and may contain padding
+//
+to preserve 4-byte alignment.  This function takes a
+//
+bitmap in the previously described format and puts its
+//
+image data in the proper location in the buffer so the
+//
+image will appear on the screen after the next call to
+//  
+Nokia5110_DisplayBuffer();
+//
+inputs: xpos      horizontal position of
+bottom left corner of
+image,
+//                   
+ columns from the left edge
+//                    
+must be less than 84
+//                    
+0 is on the left; 82 is near the right
+//        
+ypos      vertical position of bottom left
+corner of
+image,
+//                    
+rows from the top edge
+//                    
+must be less than 48
+//                    
+2 is near the top; 47 is at the bottom
+//     
+   ptr       pointer to a
+16 color BMP image
+//        
+threshold grayscale colors above this number make pixel
+'on'
+//                    
+0 to 14
+//     
+          0 is fine
+for ships, explosions, projectiles,
+and bunkers
+//
+outputs: none
+void
+Nokia5110_PrintBMP(unsigned char xpos, unsigned char ypos,
+const unsigned char *ptr, unsigned char threshold);
+//
+There is a buffer in RAM that holds one screen
+//
+This routine clears this buffer
+void
+Nokia5110_ClearBuffer(void);
+//********Nokia5110_DisplayBuffer*****************
+//
+Fill the whole screen by drawing a 48x84 screen image.
+//
+inputs: none
+//
+outputs: none
+//
+assumes: LCD is in default horizontal addressing mode (V = 0)
+void
+Nokia5110_DisplayBuffer(void);
+Program 15.1. Functions that display images on
+the LCD.
+Video
+15.3
+.
+                  Graphics on the Nokia 5110
+In the game industry an entity that moves around
+the
+screen is called a
+sprite
+. You will find lots of sprites in the
+Lab15Files
+directory of the starter project. You can create additional sprites as
+needed using
+a drawing program like Paint. Most students will be able to complete
+the
+project using only the existing sprites in the starter package. Because
+of the
+way pixels are packed onto the screen, we will limit the placing of
+sprites to
+even addresses along the x-axis. Sprites can be placed at any position
+along
+the y-axis. Having a 2-pixel black border on the left and right of the
+image
+will simplify moving the sprite 2 pixels to the left and right without
+needing
+to erase it. Similarly having a 1-pixel black border on the top and
+bottom of
+the image will simplify moving the sprite 1 pixel up or down without
+needing to
+erase it. You can create your own sprites using Paint by saving the
+images as
+16-color BMP images. Figure 15.6 is an example BMP image. Because of
+the black
+border, this image can be moved left/right 2 pixels, or up/down 1
+pixel. Use
+the
+BmpConvert.exe
+program to convert the BMP image into a
+two-dimensional array that can be displayed on the LCD using the
+function
+Nokia5110_PrintBMP()
+.
+To build an interactive
+game, you will need to write programs for drawing and animating your
+sprites.
+Figure 15.6. Example BMP file. Each is 16-color,
+16 pixels
+wide by 10 pixels high.
+Program 15.2 shows an example BMP file in C
+program
+format. There are 0x76 bytes of header data. At locations 0x12-0x15 is
+the
+width in little endian format. In this case
+(shown
+in
+blue)
+the width for this sprite is 16 pixels.  At locations
+0x16-0x19 is
+the height also in little endian format.
+const
+unsigned char Enemy10Point1[] = {
+0x42,0x4D,0xC6,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x76,0x00,0x00,0x00,0x28,0x00,
+0x00,0x00,
+0x10,0x00,0x00,0x00,
+// width is 16
+pixels
+0x0A,0x00,0x00,0x00,
+// height is 16
+pixels
+0x01,0x00,0x04,0x00,0x00,0x00,
+0x00,0x00,0x50,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x80,
+0x00,0x00,0x00,0x80,0x80,0x00,0x80,0x00,0x00,0x00,0x80,0x00,0x80,0x00,0x80,0x80,
+0x00,0x00,0x80,0x80,0x80,0x00,0xC0,0xC0,0xC0,0x00,0x00,0x00,0xFF,0x00,0x00,0xFF,
+0x00,0x00,0x00,0xFF,0xFF,0x00,0xFF,0x00,0x00,0x00,0xFF,0x00,0xFF,0x00,0xFF,0xFF,
+0x00,0x00,0xFF,0xFF,0xFF,0x00,
+0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 
+// bottom row
+0x00,0x0F,0x00,0x00,0x00,0x00,0xF0,0x00,
+0x00,0x00,0xF0,0x00,0x00,0x0F,0x00,0x00,
+0x00,0x0F,0xFF,0xFF,0xFF,0xFF,0xF0,0x00,
+0x00,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0x00,
+0x00,0xFF,0xF0,0xFF,0xFF,0x0F,0xFF,0x00,
+0x00,0xF0,0xFF,0xFF,0xFF,0xFF,0x0F,0x00,
+0x00,0xF0,0x0F,0x00,0x00,0xF0,0x0F,0x00,
+0x00,0x00,0xF0,0x00,0x00,0x0F,0x00,0x00,
+0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 
+// top row
+0xFF};
+Program 15.2. Example BMP file written as a C
+constant
+allocated in ROM.
+In this case
+(shown
+in red)
+the height for this sprite is 10 pixels. The
+Nokia5110_PrintBMP()
+function restricts the width to an even number. This function also
+assumes the
+entire image will fit onto the screen, and not stick off the side, the
+top, or
+the bottom. There is other information in the header, but it is
+ignored. As
+mentioned earlier, you must save the BMP as a 16-color image. These
+sixteen
+colors will map to the on/off format of the LCD pixels. The 4-bit color
+0xF is on
+and the color 0x0 is off or black. The function takes a threshold
+parameter to
+decide whether the colors 1 to 14 will be on or off. Starting in
+position 0x76,
+the image data is stored as 4-bit color pixels, with two pixels packed
+into
+each byte. Program 15.1 shows the
+purple
+data
+with 16 pixels per line in row-major. If the width of your image is not
+a
+multiple of 16 pixels, the BMP format will pad extra bytes into each
+row so the
+number of bytes per row is always divisible by 8. In this case, no
+padding is
+needed. The
+Nokia5110_PrintBMP()
+function will automatically ignore the padding.
+Figure 15.7 shows the data portion of the BMP
+file as one
+digit hex with 0’s replaced with dots. The 2-D image is stored in
+row-major
+format. Notice in Program 15.2 the image is stored up-side down. When
+plotting
+it on the screen the
+Nokia5110_PrintBMP()
+function will reverse it so it is seen right-side up.
+................
+...F........F...
+....F......F....
+...FFFFFFFFFF...
+..FFFFFFFFFFFF..
+..FFF.FFFF.FFF..
+..F.FFFFFFFF.F..
+..F..F....F..F..
+....F......F....
+................
+Figure 15.7. The raw data from BMP file to
+illustrate how
+the image is stored (0s replaced with dots).
+Video
+15.4
+.
+                  Custom image creation for the Nokia 5110
+15.3.3. Demand-based Graphics on the ST7735R
+Let's begin with an overview of the two functions needed to implement the game. The first function is
+ST7735_FillScreen
+, which will
+set the entire screen to a single color. The videos implement a black background, but any solid color would suffice. The second function is
+ST7735_DrawBitmap
+, which will draw a BMP image on the screen. Its prototype is
+//------------ST7735_DrawBitmap------------
+// Displays a 16-bit color BMP image.
+// (x,y) is the screen location of the lower left corner of BMP image
+// Requires (11 + 2*w*h) bytes of transmission (assuming image fully on screen)
+// Input: x     horizontal position of the bottom left corner of the image, columns from the left edge
+//        y     vertical position of the bottom left corner of the image, rows from the top edge
+//        image pointer to a 16-bit color BMP image
+//        w     number of pixels wide
+//        h     number of pixels tall
+// Output: none
+// Must be less than or equal to 128 pixels wide by 160 pixels high
+void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+Video
+15.4b
+.
+                  Custom image creation for the ST7735R
+The size of the ST7735R LCD is too large to implement
+buffered graphics
+. Each pixel has a 16-bit color, requiring 2 bytes.
+The LCD is 160 by 128. Therefore the image would require 160*128*2=40960 bytes, which is more than the 32,768 bytes of available RAM. Furthermore,
+even if you had more RAM, it would take too long to send an entire image to the LCD and it would flicker. In this section, we discus
+an approach called
+demand-based
+that does not require you to place an entire image in RAM. We create small static images and place them in ROM as described
+by the first video. The basic approach to demand based graphics to only call the function
+ST7735_FillScreen
+once at the beginning, or when transistioning
+from one level of the game to another.
+In order to eliminate flicker during game play, we will not attempt to draw large images on the screen. Our images will be small objects called sprites, where small usually
+means less than 20 by 20 pixels. There are two
+approaches to drawing sprites on the screen. Assume for now your game uses a black background. A simple approach is to make a 2-pixel black border around each
+sprite. If we limit the movement of each sprite to -2,-1,0,1,2 change  from one frame to the next in both x and y dimensions, we can simple move the sprite by drawing it on the screen.
+It will automatically cover up its position from the previous frame. If we update the screen at 30 Hz, this means our maximum sprite speed is 60 pixels per second,
+which should be fast enough for most games If the sprite has moved since the last frame we redraw it with one call:
+1)
+ST7735_DrawBitmap(x,y,image,w,h);
+A more flexible approach allows you to move a sprite anywhere on the screen between frames. Again assume your game uses a black background. With this approach, 
+we make a second image the same size as the regular image, but color it all black. In this approach we explicitly cover up the sprite
+from the last frame by drawing a blank image in the old location. If the sprite has moved since the last frame we redraw it with two calls:
+1)
+ST7735_DrawBitmap(oldx,oldy,black,w,h);
+2)
+ST7735_DrawBitmap(newx,newy,image,w,h);
+This second approach is more flexible, but runs twice as slow and may cause weird images if sprites overlap in space.
+It is important not to erase the screen during normal game play.
+If you erase the screen 30 times/sec it will flicker badly.
+15.4. Creating and playing audio
+Say you want to convert a wav file
+(blah.wav
+)
+you want to use in your game. Here is a Matlab (or a free alternative to Matlab from GNU called Octave –
+http://octave.org
+) script file (
+WavConv.m
+) you can use to convert the
+wav file into a C array declaration that can be used in your code. Run the script by passing it the file as input:
+WavConv('blah')
+.
+That’s it, you should
+have a file (called
+blah.txt
+) with a declaration
+you can cut and paste in your code. Note that the samples are 4-bit samples to be played at 11.025kHz.
+Video
+15.xx
+.
+                  Converting WAV files to C code
+The following video shows a simple approach to sound.  Timer0 periodic interrupts are used to output sounds to the DAC.
+Video
+15.xx
+.
+                  Playing simple sound on the DAC
+The following video shows a more elegant approach to sound. You can see the code at
+WavPlay.zip
+. Timer1 periodic interrupts are used to output sounds to the DAC.
+Edge triggered interrupts are used to start sounds. This approach also uses a structure to manage the sounds.
+Video
+15.xx
+.
+                  Playing multiple sounds with periodic interrupt and edge triggered interrupts
+15.5.
+Using
+Structures to Organizing Data
+When defining the variables used to store the
+state of the
+game, we collect the attributes of a virtual object and store/group
+them
+together. In C, the
+struct
+allows us to build new data types. In the following example we define a
+new
+data type called
+Sprite_t
+that we will use to define sprites. The enumerated type defines the status of the sprite.
+Notice, we use signed integers so positions that end up negative are considered off the screen at the correct orientation.
+typedef enum {dead,alive} status_t;
+struct sprite {
+int32_t x;      // x coordinate
+int32_t y;      // y coordinate
+int32_t vx,vy;  // pixels/30Hz
+const unsigned short *image; // ptr->image
+const unsigned short *black;
+status_t life;        // dead/alive
+int32_t w; // width
+int32_t h; // height
+uint32_t needDraw; // true if need to draw
+};
+typedef struct sprite sprite_t;
+}
+Program 15.3. Example use of structures.
+Video
+15.5a
+.
+                  Buffer-based graphics on the Nokia 5110
+Video
+15.5b
+.
+                 Demand-based Graphics on the ST7735R
+In C++, the
+class
+allows us to build new data types, and provide methods. In the following example we define a
+new
+class called
+Sprite
+that we will use to define sprites. The enumerated type defines the status of the sprite.
+Notice, we use signed integers so positions that end up negative are considered off the screen at the correct orientation.
+typedef enum {dead,alive} status_t;
+class Sprite {
+private:
+int32_t x;      // x coordinate
+int32_t y;      // y coordinate
+int32_t vx,vy;  // pixels/30Hz
+const unsigned short *image; // ptr->image
+const unsigned short *black;
+status_t life;        // dead/alive
+int32_t w; // width
+int32_t h; // height
+uint32_t needDraw; // true if need to draw
+public:
+// constructor, Init, Move, Draw
+};
+Video
+15.5c
+.
+                 Introduction to C++ in Lab 10, starter code
+Video
+15.5d
+.
+                 Creating a simple sprite class for Lab 10
+15.6. Periodic Interrupt using Timer 2A
+The TM4C123 has six timers and each timer has
+two modules,
+as shown in Figure 15.8. In periodic timer mode the timer is configured
+as a
+32-bit down-counter. When the timer counts from 1 to 0 it sets the
+trigger
+flag. On the next count, the timer is reloaded with the value in
+TIMER2_TAILR_R
+. We
+select periodic
+timer mode by setting the 2-bit
+TAMR
+field of the
+TIMER2_TAMR_R
+to 0x02. In periodic mode the timer runs continuously.  The timers
+can be used
+to create pulse width modulated outputs and measure pulse width,
+period, or
+frequency. For more information on the timers see Chapter 6 of Volume 2
+(
+Embedded
+Systems: Real-Time Interfacing to ARM® Cortex™-M
+Microcontrollers
+, 2014.)
+In this section we will use Timer2A to trigger a
+periodic
+interrupt. The precision is 32 bits and the resolution will be the bus
+cycle
+time of 12.5 ns. This means we could trigger an interrupt as slow as
+every 2
+32
+*12.5ns,
+which is 53 seconds.  The interrupt period will be
+(
+TIMER2_TAILR_R
++1)*12.5ns
+Each periodic timer module has
+A clock
+enable bit, bit 2 in
+SYSCTL_RCGCTIMER_R
+A control
+register,
+TIMER2_
+CTL
+_R
+(set to 0 to disable, 1 to enable)
+A configuration
+register,
+TIMER2_CFG_R
+(set to 0 for 32-bit mode)
+A mode register,
+TIMER2_TAMR_R
+(set to 2 for
+periodic mode)
+A 32-bit reload
+register,
+TIMER2_TAILR_R
+A
+resolution register,
+TIMER2_TAPR_R
+(set to 0 for 12.5ns)
+An
+interrupt clear register,
+TIMER2_ICR_R
+(bit 0)
+An
+interrupt arm bit, TATOIM,
+TIMER2_IM_R
+(bit 0)
+A flag
+bit,
+TATORIS,
+TIMER2_RIS_R
+(bit 0)
+Figure 15.8. Periodic timers on the TM4C123.
+unsigned
+long TimerCount;
+void
+Timer2_Init(unsigned long period){
+unsigned long volatile delay;
+SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+delay = SYSCTL_RCGCTIMER_R;
+TimerCount = 0;
+TIMER2_CTL_R = 0x00000000;   // 1) disable timer2A
+TIMER2_CFG_R = 0x00000000;   // 2) 32-bit mode
+TIMER2_TAMR_R = 0x00000002;  // 3) periodic mode
+TIMER2_TAILR_R = period-1;   // 4) reload value
+TIMER2_TAPR_R =
+0;           // 5)
+clock resolution
+TIMER2_ICR_R = 0x00000001;   // 6) clear timeout flag
+TIMER2_IMR_R = 0x00000001;   // 7) arm timeout
+NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000;
+//
+8) priority 4
+NVIC_EN0_R =
+1<<23;          //
+9) enable IRQ 23 in
+TIMER2_CTL_R = 0x00000001;   // 10) enable timer2A
+}
+//
+trigger is Timer2A Time-Out Interrupt
+//
+set periodically TATORIS set on rollover
+void
+Timer2A_Handler(void){
+TIMER2_ICR_R = 0x00000001;  // acknowledge
+TimerCount++;
+//
+run some background stuff here
+}
+void
+Timer2A_Stop(void){
+TIMER2_CTL_R &= ~0x00000001; // disable
+}
+void
+Timer2A_Start(void){
+TIMER2_CTL_R |= 0x00000001;   // enable
+}
+Program 15.4. Periodic interrupts using Timer2A
+(included
+in EE319K starter projects).
+Video
+15.6
+.
+                  Timer2A
+15.7. Random Number Generator
+The starter project includes a random number
+generator. To
+learn more about this simple method for creating random numbers, do a
+web
+search for
+linear congruential multiplier
+. The random number
+generator
+in the starter file seeds the number with a constant; this means you
+get
+exactly the same random numbers each time you run the program. To make
+your
+game more random, you could seed the random number sequence using the
+SysTick
+counter that exists at the time the user first pushes a button (copy
+the value
+from NVIC_ST_CURRENT_R into the private variable M).  
+The problem with LCG functions is the least significant bits go through very short cycles. For example
+bit 0 has a cycle length of 2, repeating the pattern 0,1,....
+bit 1 has a cycle length of 4, repeating the pattern 0,0,1,1,....
+bit 2 has a cycle length of 8, repeating the pattern 0,1,0,0,1,0,1,1,....
+Therefore using the lower order bits is not recommended. For example
+n = Random()&0x03;   // has the short repeating pattern 1 0 3 2
+m = Random()&0x07;   // has the short repeating pattern 0 7 2 1 4 3 6 5
+You will
+need to extend this
+random number module to provide random numbers as needed for your game.
+For
+example, if you wish to generate a random number between 1 and 5, you
+could
+define this function
+unsigned long Random5(void){
+return
+((Random()>>24)%5)+1;  // returns 1, 2, 3,
+4, or 5
+}
+Using bits 31-24 of the number will produce a random number sequence with a cycle length of 2
+24
+. Seeding it with 1 will create the exact same
+sequence each
+execution. If you wish different results each time, seed it once after
+a button
+has been pressed for the first time, assuming SysTick is running
+Seed(NVIC_ST_CURRENT_R);
+15.8.
+First-In-First-Out (FIFO) Queue
+The first in first out circular queue (FIFO) is useful for data flow situations, as shown the following figure. 
+These data structures can be used to link a source process (the producer is hardware/software that generates data) 
+to a sink process (the consumer is hardware/software that consumes data.) In both cases the data is order-preserving, 
+such that the order in which data is saved equals the order in which it is retrieved.
+ There are many producer-consumer applications.
+Figure 15.xx. FIFO queues can be used to pass data from a producer to a consumer.
+You can download and run the project from
+FiFo.zip
+.
+Video
+15.7
+.
+                  First in first out queue
+#define FIFO_SIZE 7
+static uint8_t PutI;  // index to put new
+static uint8_t GetI;  // index of oldest
+static char Fifo[FIFO_SIZE];
+void Fifo_Init(){
+PutI = GetI = 0;  // empty
+}
+uint8_t Fifo_Put(char data){
+if(((PutI+1)%FIFO_SIZE) == GetI) return 0; // fail if full
+Fifo[PutI] = data;         // save in Fifo
+PutI = (PutI+1)%FIFO_SIZE; // next place to put
+return 1;
+}
+uint8_t Fifo_Get(char *datapt){
+if(GetI == PutI) return 0; // fail if empty
+*datapt = Fifo[GetI];      // retrieve data
+GetI = (GetI+1)%FIFO_SIZE; // next place to get
+return 1;
+}
+Program 15.xx. Implementation of a two-index FIFO
+The next video shows you how to implement the FIFO in C++
+Video
+15.8
+.
+                  First in first out queue in C++
+In the following video, there is a data acquisition system where data are produced at
+1000 samples per second, or one point per ms. Since the data acquisition is interrupt driven,
+the instantaneous and the average producer rate is exaqctly 1000 samples/sec. With software averaging, 100 data points are averaged,
+and every 100ms the average is displayed on the LCD screen. The time to display the average is 6 ms, so it takes 6 ms to consume 100 samples.
+The average consumer rate is 100/6ms, or 16667 samples/sec. Every 100th point it takes 6ms, and the other 99 points are on the order of about 10us. 
+Therefore, the instantaneous consumer rate varies from a low of 1/6ms(17 samples/sec) to a high of 1/10us (100,000 samples/sec).
+Since the average producer rate is less than the average consumer rate,
+the system has a solution. However, a FIFO is needed to prevent data loss during the 6ms it takes to do the LCD output.
+The next video shows how a FIFO can be used to prevent data loss in this typical application.
+Video
+15.9
+.
+                  Using a First in first out queue in a data acquisition system
+void SysTick_Handler(void){ // 1000 Hz sampling, interrupt every 1 ms
+uint16_t data = ADC_In(); // new data
+Fifo_Put(data);   // save data
+}
+int main(void){uint32_t sum=0,n=0,p;
+uint16_t d;
+Init();     // other initialization
+Fifo_Init();// this fifo passes 16-bit data
+while(1){
+while(Fifo_Get(&d)==0){};
+sum = sum+d; // average
+n = n+1;
+if(n == 100){// output every 100th sample
+p = Convert(sum/100);
+LCD_OutFix(p);
+sum = n = 0;
+}
+}
+}
+Program 15.xx. Using a First in first out queue in a data acquisition system
+15.9.
+Summary and Best Practices
+As we bring this class to a close, we thought we'd review some of the
+important topics and end with a list of best practices. Most important topics,
+of course, became labs. So, let's review what we learned.
+Embedded Systems
+encapsulate physical, electrical and software
+components to create a device with a dedicated purpose. In this class, we
+assumed the device was controlled by a single chip computer hidden inside. A
+single chip computer includes a processor, memory, and I/O and is called a
+microcontroller
+.
+The TM4C123 was our microcontroller, which is based on the ARM Cortex M4
+processor.
+Systems are constructed by
+components
+, connected together
+with
+interfaces
+. Therefore all engineering design involves
+either a component or an interface. The focus of this class has been the
+interface, which includes hardware and software so information can flow into or
+out of the computer. A second focus of this class has been
+time
+.
+In embedded system it was not only important to get the right answer, but
+important to get it at the correct time. Consequently, we saw a rich set of
+features to measure time and control the time events occurred.
+We learned the tasks performed by a
+computer
+: collect inputs, perform
+calculations, make decisions, store data, and affect outputs. The
+microcontroller used
+ROM
+to store programs and constants, and
+RAM
+to store data. ROM is
+nonvolatile
+, so it retains its
+information when power is removed and then restored. RAM is
+volatile
+,
+meaning its data is lost when power is removed.
+We wrote our software in
+C
+, which is a structured language meaning
+there are just a few simple building blocks with which we create software:
+sequence, if-then and while-loop. First, we organized software into functions,
+and then we collected functions and organized them in modules. Although
+programming itself was not the focus of this class, you were asked to write and
+debug a lot of software.  We saw four mechanisms to represent data in the
+computer. A
+variable
+was a simple construct to hold one number. We
+grouped multiple data of the same type into an
+array
+. We stored
+variable-length ASCII characters in a
+string
+, which had a
+null-termination. During the FSM (Lab 5) and again in the game (Lab 10) we
+used
+structs
+to group multiple elements of different types into one data
+object.  In this chapter, we introduced
+two-dimensional arrays
+as a
+means to represent graphical images.
+The focus of this class was on the
+input/output
+performed by the
+microcontroller. We learned that parallel ports allowed multiple bits to be
+input or output at the same time. Digital input signals came from sensors like
+switches and keyboards. The software performed input by reading from input
+registers, allowing the software to sense conditions occurring outside of the
+computer. For example, the software could detect whether or not a switch is
+pressed. Digital outputs went to lights and motors. We could toggle the outputs
+to flash LEDs, make sound or control motors. When performing port input/output
+the software reads from and writes to I/O registers. In addition to the
+registers used to input/output most ports have multiple registers that we use
+to configure the port. For example, we used
+direction registers
+to
+specify whether a pin was an input or output.
+We saw two types of
+serial input/output
+, UART and SSI. Serial I/O
+means we transmit and receive one bit at a time. There are two reasons serial
+communication is important. First, serial communication has fewer wires so it
+is less expensive and occupies less space than parallel communication. Second,
+it turns out, if distance is involved, serial communication is faster and more
+reliable. Parallel communication protocols are all but extinct: parallel
+printer, SCSI, IEEE488, and parallel ATA are examples of obsolete parallel
+protocols, where 8 to 32 bits are transmitted at the same time. However, two
+examples of parallel communication persist: memory to processor interfaces, and
+the PCI graphics card interface. In this class, we used the
+UART
+to
+communicate between computers. The UART protocol is classified as
+asynchronous
+because the cable did not include the clock. We used the
+SSI
+to
+communicate between the microcontroller and the Nokia display. The SSI protocol
+is classified as
+synchronous
+because the clock was included in the
+cable. Although this course touched on two of the simplest protocols, serial
+communication is ubiquitous in the computer field, including Ethernet, CAN,
+SATA, FireWire, Thunderbolt, HDMI, and wireless.
+While we are listing I/O types, let's include two more: analog and time. The
+essence of
+sampling
+is to represent continuous signals in the computer
+as discrete digital numbers sampled at finite time intervals. The
+Nyquist
+Theorem
+states that if we sample data at frequency f
+s
+, then the
+data can faithfully represent information with frequency components 0 to ½ f
+s
+.
+We built and used the
+DAC
+to convert digital numbers into analog
+voltages. By outputting a sequence of values to the DAC we created waveform
+outputs. When we connected the DAC output to headphones, the system was able to
+create
+sounds
+. Parameters of the DAC included
+precision
+,
+resolution
+,
+range
+and
+speed
+. We used the ADC to convert analog signals into
+digital form. Just like the DAC, we used the Nyquist Theorem to choose the ADC
+sampling rate. If we were interested in processing a signal that could
+oscillate up to
+f
+times per second, then we must choose a sampling rate
+greater than 2
+f
+. Parameters of the ADC also included
+precision
+,
+resolution
+,
+range
+and
+speed
+.
+One of the factors that make embedded systems so pervasive is their ability
+to measure, control and manipulate
+time
+. Our TM4C123 had a timer called
+SysTick. We used SysTick three ways in this class. First, we used SysTick to
+measure elapsed time by reading the counter before and after a task. Second, we
+used SysTick to control how often software was executed. In Lab 10, we used it
+to create accurate time delays, and then in Labs 12-15, we used SysTick to
+create
+periodic interrupts
+. Interrupts allowed software tasks could be
+executed at a regular rate. Lastly, we used SysTick to create
+pulse width
+modulated (PWM)
+signals. The PWM outputs gave our software the ability to
+adjust power delivered to the DC motors.
+In general,
+interrupts
+allow the software to operate on
+multiple tasks concurrently. For example, in your game you could use one
+periodic interrupt to move the sprites, a second periodic interrupt to play
+sounds, and edge-triggered interrupts to respond to the buttons. A fourth task
+is the main program, which outputs graphics to the LCD display.
+One of the pervasive themes of this class was how the software interacted
+with the hardware. In particular, we developed three ways to
+synchronize
+quickly executing software with slowly reacting hardware device. The first
+technique was called blind. With
+blind synchronization
+the software
+executed a task, blindly waited a fixed amount of time, and then executed
+another tasks. The LED output in Lab 3 was an example of blind synchronization.
+The second technique was called busy wait. With
+busy-wait
+synchronization, there was a status bit in the hardware that the software could
+poll. In this way the software could perform an operation and wait for the
+hardware to complete. The UART I/O, and the ADC input in Lab
+8 were examples of busy-wait synchronization. The third method was
+interrupts.  With
+interrupt synchronization
+, there is a hardware
+status flag, but we arm the flag to cause an interrupt. In this way, the
+interrupt is triggered whenever the software has a task to perform. In Labs 6,
+8, and 10 we used SysTick interrupts to execute a software task at a regular
+rate. In Lab 10, we saw that interrupts could be triggered on rising or
+falling edges of digital inputs. In this chapter we added more periodic
+interrupts using the timers.  Embedded systems must respond to external
+events.
+Latency
+is defined as the elapsed time from a request to its
+service. A
+real-time system
+, one using interrupts, guarantees the
+latency to be small and bounded. By the way, there is a fourth synchronization
+technique not discussed in this class called
+direct memory access
+(DMA).
+With DMA synchronization, data flows directly from an input device into memory
+or from memory to an output device without having to wait on or trigger
+software.
+When synchronizing one software task with another software tasks we used
+semaphores, mailboxes, and FIFO queues. Global memory was required to pass data
+or status between interrupt service routines and the main program. A
+semaphore
+is a global flag that is set by one software task and read by another. When we
+added a data variable to the flag, it became a
+mailbox
+. The
+FIFO
+queue
+is an order-preserving data structure used to stream data in a
+continuous fashion from one software task to another. You should have noticed
+that most of the I/O devices on the microcontroller also use FIFO queues to
+stream data: the UART, SSI and ADC also employ hardware FIFO queues in the data
+stream.
+Another pervasive theme of this class was
+debugging
+or testing. The
+entire objective of Lab 4 was for you to learn debugging techniques. However,
+each of the labs had a debugging component. A benefit of you interacting with
+the automatic graders in the class was that it allowed us to demonstrate to you
+how we would test lab assignments. For example, the Lab 10 grader would
+complain if you moved a light from green to red without first moving through
+yellow.
+Question
+: How does the automatic graders in the Exam2 projects work?
+Answer
+: It
+first sets the input parameter, then it dumps your I/O data into a buffer, and then looks to see if your I/O data makes sense.
+Furthermore, you had the opportunity to use test equipment such as a
+voltmeter
+(PD3+TExaS),
+logic analyzer
+(Keil simulation), and
+oscilloscope
+(PD3+TExaSdisplay). Other debugging tools you used included
+heartbeats
+,
+dumps
+,
+breakpoints
+, and
+single stepping
+.
+Intrusiveness
+is the
+level at which the debugging itself modifies the system you are testing. One of
+the most powerful debugging skills you have learned is to connect unused output
+pins to a scope or logic analyzer so that you could profile your real-time
+system. A
+profile
+describes when and where our software is executing.
+Debugging is not a process we perform after a system is built; rather it is a
+way of thinking we consider at all phases of a design. Debugging is like
+solving a mystery, where you have to ask the right questions and interpret the
+responses. Remember the two keys to good debugging:
+control and
+observability
+.
+Although this was just an introductory class, we hope you gained some
+insight into the
+design process
+. The
+requirements document
+defines the scope, purpose, and expected outcomes. We hope you practice the skills you learned in this class to design a
+fun game to share with friends and classmates.
+Our parting thoughts about best practices (in no particular order of
+importance):
+Here are thoughts about things to remember when designing or building
+embedded systems, in no particular order of importance:
+Consider debugging when defining,
+     designing, implementing, building and deploying.
+Careful thought during design can
+     save lots of time during implementation and debugging.
+Choose good variable names so the
+     software is easier to understand.
+Divide large projects into modules
+     and test each module separately.
+Separate hardware from software
+     bugs by first testing the software on a simulator.
+When designing modules start with
+     the interfaces, e.g., the header files.
+The second step when designing
+     modules is pseudo code typed in as comments.
+Make the time to service an
+     interrupt short compared to the time between interrupts.
+When developing a modular system,
+     try not to change the header files.
+Use a consistent coding style so
+     all your software is easy to read, change, and debug.
+Most of your time is spent changing
+     or fixing existing code called
+maintenance
+.
+So, when designing code plan for
+     testing and make it easy to change.
+Writing friendly code makes it
+     easier to combine components into systems.
+Use quality connectors, because
+     faulty connectors can be a difficult flaw to detect.
+It is your responsibility to debug
+     your hardware and software.
+It is also your responsibility to
+     debug other hardware/software you put into your system.
+A simple solution is often more
+     powerful than a complex solution.
+Listen carefully to your customer
+     so you can understand their needs.
+Draw wiring diagrams of electrical
+     circuits before building.
+Double-check all the wiring before
+     turning on the power.
+Double-check all signals in cables,
+     don’t assume red is power and black is ground.
+Be courageous enough to show your
+     work to others.
+Be humble enough to allow others to
+     show you how your system could be better.
+Reprinted with approval from
+Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers
+, 2014, ISBN:
+978-1477508992,
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+and from
+Embedded Systems: Real-Time
+Interfacing to ARM®
+Cortex™-M Microcontrollers
+, 2014, ISBN: 978-1463590154,
+http://users.ece.utexas.edu/~valvano/arm/outline.htm
+Embedded Systems - Shape the World
+by
+Jonathan Valvano and Ramesh Yerraballi
+is licensed under a
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Timer Drivers &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/timing/system_timer_drivers.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Atomic Services" href="../other/atomic.html" />
+    <link rel="prev" title="Timers" href="timers.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#timing">Timing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="clocks.html">Kernel Timing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timers.html">Timers</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">System Timer Drivers</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#timer-drivers">Timer Drivers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#timer-driver-locking">Timer Driver Locking</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#smp-details">SMP Details</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#generic-tickless-core">Generic Tickless Core</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#backend-selection">Backend selection</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#optional-macros">Optional macros</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>System Timer Drivers</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/timing/system_timer_drivers.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Ftiming%2Fsystem_timer_drivers%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Ftiming%2Fsystem_timer_drivers%0A-+Version%3A+main%0A-+SHA-1%3A+8528d2792916c9e2d41e5adfc4e845da1e1844e3&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="system-timer-drivers">
+<span id="id1"></span><h1>System Timer Drivers<a class="headerlink" href="#system-timer-drivers" title="Link to this heading"></a></h1>
+<p>This page describes the interface between the kernel’s tick accounting and
+the driver for the hardware that produces those ticks.  The kernel side of
+that accounting, and everything an application sees, is described in
+<a class="reference internal" href="clocks.html#kernel-timing"><span class="std std-ref">Kernel Timing</span></a>.</p>
+<section id="timer-drivers">
+<h2>Timer Drivers<a class="headerlink" href="#timer-drivers" title="Link to this heading"></a></h2>
+<p>Kernel timing at the tick level is driven by a timer driver with a
+comparatively simple API.</p>
+<ul>
+<li><p>The driver is expected to be able to “announce” new ticks to the
+kernel via the <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9a90b75ed61618b3ccf0122a19f2f661" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce()</span></code></a> call, which passes an integer
+number of ticks that have elapsed since the last announce call (or
+system boot).  These calls can occur at any time, but the driver is
+expected to attempt to ensure (to the extent practical given
+interrupt latency interactions) that they occur near tick boundaries
+(i.e. not “halfway through” a tick), and most importantly that they
+be correct over time and subject to minimal skew vs. other counters
+and real world time.</p></li>
+<li><p>The driver is expected to provide a <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> call
+to the kernel which indicates how many ticks may elapse before the
+kernel must receive an announce call to trigger registered timeouts.
+It is legal to announce new ticks before that moment (though they
+must be correct) but delay after that will cause events to be
+missed.  Note that the timeout value passed here is in a delta from
+current time, but that does not absolve the driver of the
+requirement to provide ticks at a steady rate over time.  Naive
+implementations of this function are subject to bugs where the
+fractional tick gets “reset” incorrectly and causes clock skew.</p></li>
+<li><p>The driver is expected to provide a <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaa9b6d8eebc69d2808beb0580d974bb84" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_elapsed()</span></code></a> call which
+provides a current indication of how many ticks have elapsed (as
+compared to a real world clock) since the last call to
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9a90b75ed61618b3ccf0122a19f2f661" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce()</span></code></a>, which the kernel needs to test newly
+arriving timeouts for expiration.</p></li>
+<li><p>The driver may optionally provide a <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gacb9fad0efce687f8701dd90408a2ec7c" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_no_timeout()</span></code></a> call.
+The kernel invokes it in place of <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> when no
+timeout is pending, that is when the timeout queue is empty, and
+<a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_CLOCK_SLOPPY_IDLE" title="CONFIG_SYSTEM_CLOCK_SLOPPY_IDLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_CLOCK_SLOPPY_IDLE</span></code></a> is enabled.</p>
+<p>No tick announcement is forthcoming and the system does not care about precise
+uptime keeping, so the driver may do something to save resources.  Normal
+operation resumes at the next <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a>; unlike
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga49c900ab49a72c347d0aefb14aecb550" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_disable()</span></code></a>, this is not a teardown.</p>
+<p>The timer <em>counter</em> must not be stopped.  <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga42dcd1878309a82246dbfa26510f868a" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_cycle_get_32()</span></code></a>
+and <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga25328a181bd0229ef5110c15e8452fc1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_cycle_get_64()</span></code></a> must keep counting up as if the call had
+never happened.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CPU keeps running with an empty timeout queue, for instance because
+the ready queue still holds threads, or because an interrupt fires.  Those
+threads and ISRs may call <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga208687de625e0036558343b4e66143d3" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cycle_get_32()</span></code></a> or
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga550b642e071480323e589866abb99c22" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_busy_wait()</span></code></a>.  That limits what an implementation may do: masking
+the timer interrupt is safe, gating the timer’s clock most likely is not.
+Exactly what is safe is hardware specific.</p>
+</div>
+<p>The hook is optional.  Without it, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> is asked
+for the longest wait it can express, <code class="docutils literal notranslate"><span class="pre">UINT32_MAX</span></code> ticks.  That is
+numerically what <code class="docutils literal notranslate"><span class="pre">K_TICKS_FOREVER</span></code> was here, the long-standing “no deadline”
+signal, so a driver that has not been converted keeps working.</p>
+</li>
+<li><p>The driver may optionally provide a <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaab6df10ce3054ee84921aa90a1bc53d1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_idle_enter()</span></code></a> call,
+which the power-management path uses in place of
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> when the CPU is about to enter low-power
+idle.  It receives the number of ticks until the next expected wakeup, or
+<code class="docutils literal notranslate"><span class="pre">SYS_CLOCK_IDLE_FOREVER</span></code> when there is none and the uptime accounting may
+drift.</p>
+<p>A driver that hands off to a low-power wakeup timer, or otherwise
+reconfigures itself for sleep, does so here.  Told <code class="docutils literal notranslate"><span class="pre">SYS_CLOCK_IDLE_FOREVER</span></code>
+it may also stop its time base, which <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gacb9fad0efce687f8701dd90408a2ec7c" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_no_timeout()</span></code></a> does not
+allow, because the CPU is on its way out and <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga6ca2139000b8c75b1ed2c6c1f672ff79" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_idle_exit()</span></code></a> is
+guaranteed to run on the way back in.  Only the calling CPU goes idle, so a
+driver whose time base is shared between CPUs must ensure only the last CPU
+going idle stops the clock.</p>
+<p>The hook is optional.  Without it, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> is called
+with its deprecated <code class="docutils literal notranslate"><span class="pre">idle</span></code> argument set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, so a driver still
+keying its low-power handling on that argument keeps working.</p>
+</li>
+</ul>
+<p>The last three entry points divide the four states a system can be in:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 45.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>nothing pending</p></th>
+<th class="head"><p>something pending</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>running</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sys_clock_no_timeout()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sys_clock_set_timeout(ticks)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>idle</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sys_clock_idle_enter(SYS_CLOCK_IDLE_FOREVER)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sys_clock_idle_enter(ticks)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Without <a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_CLOCK_SLOPPY_IDLE" title="CONFIG_SYSTEM_CLOCK_SLOPPY_IDLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_CLOCK_SLOPPY_IDLE</span></code></a> the left column never
+arises: the kernel keeps a synthetic deadline armed so the uptime stays exact,
+and a driver only ever sees the right one.</p>
+</section>
+<section id="timer-driver-locking">
+<h2>Timer Driver Locking<a class="headerlink" href="#timer-driver-locking" title="Link to this heading"></a></h2>
+<p>The kernel exposes a unified timer lock via <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gadd7d5f211ed669860ec45888bacd43ae" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_lock()</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaeaa92a73a82cae29ba09ce7fb14dc640" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_unlock()</span></code></a>.  This lock protects both the kernel’s internal
+tick accounting (<code class="docutils literal notranslate"><span class="pre">curr_tick</span></code>, the timeout queue) and any driver-private
+state that must be consistent with it (e.g. a hardware cycle counter
+baseline).</p>
+<p>Timer drivers that maintain internal state should acquire this lock at
+the start of their ISR, update their hardware state, then pass the lock
+key to <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga1ddcdf65784a84d6623805ae3c8dbd45" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce_locked()</span></code></a> which consumes it.  This
+ensures that the driver’s cycle counter baseline and the kernel’s
+<code class="docutils literal notranslate"><span class="pre">curr_tick</span></code> are always updated under the same lock, eliminating race
+conditions that can arise on SMP systems (or, less commonly, on UP
+systems where higher-priority ISRs need consistent realtime references)
+when two separate locks are used.</p>
+<p>The driver-provided callbacks <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaa9b6d8eebc69d2808beb0580d974bb84" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_elapsed()</span></code></a> are always invoked by the kernel with this
+lock already held.</p>
+<p>For backward compatibility, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9a90b75ed61618b3ccf0122a19f2f661" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce()</span></code></a> remains
+available and acquires the lock internally.  New and migrated drivers
+should prefer the <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gadd7d5f211ed669860ec45888bacd43ae" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_lock()</span></code></a> /
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga1ddcdf65784a84d6623805ae3c8dbd45" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce_locked()</span></code></a> pattern.</p>
+<p>Note that a natural implementation of this API results in a “tickless”
+kernel, which receives and processes timer interrupts only for
+registered events, relying on programmable hardware counters to
+provide irregular interrupts.  But a traditional, “ticked” or “dumb”
+counter driver can be trivially implemented also:</p>
+<ul class="simple">
+<li><p>The driver can receive interrupts at a regular rate corresponding to
+the OS tick rate, calling <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9a90b75ed61618b3ccf0122a19f2f661" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce()</span></code></a> with an argument of one
+each time.</p></li>
+<li><p>The driver can ignore calls to <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a>, as every
+tick will be announced regardless of timeout status.</p></li>
+<li><p>The driver can return zero for every call to <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaa9b6d8eebc69d2808beb0580d974bb84" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_elapsed()</span></code></a>
+as no more than one tick can be detected as having elapsed (because
+otherwise an interrupt would have been received).</p></li>
+</ul>
+</section>
+<section id="smp-details">
+<h2>SMP Details<a class="headerlink" href="#smp-details" title="Link to this heading"></a></h2>
+<p>In general, the timer API described above does not change when run in
+a multiprocessor context.  The kernel will internally synchronize all
+access appropriately, and ensure that all critical sections are small
+and minimal.  But some notes are important to detail:</p>
+<ul class="simple">
+<li><p>Zephyr is agnostic about which CPU services timer interrupts.  It is
+not illegal (though probably undesirable in some circumstances) to
+have every timer interrupt handled on a single processor.  Existing
+SMP architectures implement symmetric timer drivers.</p></li>
+<li><p>The <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9a90b75ed61618b3ccf0122a19f2f661" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce()</span></code></a> call is expected to be globally
+synchronized at the driver level.  The kernel does not do any
+per-CPU tracking, and expects that if two timer interrupts fire near
+simultaneously, that only one will provide the current tick count to
+the timing subsystem.  The other may legally provide a tick count of
+zero if no ticks have elapsed.  It should not “skip” the announce
+call because of timeslicing requirements (see the time slicing notes in
+<a class="reference internal" href="clocks.html#kernel-timing"><span class="std std-ref">Kernel Timing</span></a>).</p></li>
+<li><p>Some SMP hardware uses a single, global timer device, others use a
+per-CPU counter.  The complexity here (for example: ensuring counter
+synchronization between CPUs) is expected to be managed by the
+driver, not the kernel.</p></li>
+<li><p>The next timeout value passed back to the driver via
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a> is done identically for every CPU.
+So by default, every CPU will see simultaneous timer interrupts for
+every event, even though by definition only one of them should see a
+non-zero ticks argument to <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga9a90b75ed61618b3ccf0122a19f2f661" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_announce()</span></code></a>.  This is probably
+a correct default for timing sensitive applications (because it
+minimizes the chance that an errant ISR or interrupt lock will delay
+a timeout), but may be a performance problem in some cases.  The
+current design expects that any such optimization is the
+responsibility of the timer driver.</p></li>
+</ul>
+</section>
+<section id="generic-tickless-core">
+<h2>Generic Tickless Core<a class="headerlink" href="#generic-tickless-core" title="Link to this heading"></a></h2>
+<p>The work described above, the cycle-to-tick conversion, the announce baseline,
+the tick-aligned deadline computation and the counter wrap and range handling,
+is nearly the same in every tickless driver, and the hand-rolled variations are
+a recurring source of timer bugs.
+<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/blob/main/drivers/timer/system_timer_generic.h">drivers/timer/system_timer_generic.h</a> carries that logic once.</p>
+<p>It is an implementation header, not a declaration header: including it
+<em>defines</em> <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga48b323a58eb10bcb05eba2c273a47181" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_set_timeout()</span></code></a>, <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gaa9b6d8eebc69d2808beb0580d974bb84" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_elapsed()</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga42dcd1878309a82246dbfa26510f868a" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_cycle_get_32()</span></code></a> / <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga25328a181bd0229ef5110c15e8452fc1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">sys_clock_cycle_get_64()</span></code></a>.  Any number
+of drivers can be built on it; each includes it once, after providing the macros
+and primitives below.  A build compiles a single system timer driver, so those
+definitions land once.  The driver then works in cycles only; the core owns the
+tick domain.</p>
+<p>The core emits both cycle getters, the 64-bit one whatever the counter’s width:
+the announce baseline is 64-bit, and the linker drops the getter where nothing
+calls it.</p>
+<p>Whether a driver also selects
+<a class="reference internal" href="../../../kconfig.html#CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER" title="CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER</span></code></a> stays its own call.  That
+option says a 64-bit read is cheap, or at least no dearer than a 32-bit one, so
+nothing is gained by preferring the narrower getter.  With
+<code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_NONATOMIC</span></code> both go through the clock lock and that holds;
+with an atomic counter narrower than 64 bits only the 64-bit getter takes the
+lock, and the 32-bit one stays a lock-free read.</p>
+<p>Two primitives are required: <code class="docutils literal notranslate"><span class="pre">timer_driver_cycle_get()</span></code>, which reads the
+hardware cycle counter, and one arming function, <code class="docutils literal notranslate"><span class="pre">timer_driver_set_compare()</span></code>
+or <code class="docutils literal notranslate"><span class="pre">timer_driver_set_reload()</span></code> depending on the backend.  The driver’s ISR
+acknowledges the hardware then calls <code class="docutils literal notranslate"><span class="pre">timer_core_announce()</span></code>, its init
+connects the IRQ then calls <code class="docutils literal notranslate"><span class="pre">timer_core_init()</span></code>, and on SMP its
+<code class="docutils literal notranslate"><span class="pre">smp_timer_init()</span></code> calls <code class="docutils literal notranslate"><span class="pre">timer_core_smp_prime()</span></code>.</p>
+<section id="backend-selection">
+<h3>Backend selection<a class="headerlink" href="#backend-selection" title="Link to this heading"></a></h3>
+<p>Exactly one of these states what the hardware is:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_BACKEND_COMPARE_ORDERED</span></code></dt><dd><p>Absolute comparator, ordered match: the interrupt fires once the counter has
+reached or passed the programmed value, so a deadline already in the past
+fires at once.  The usable range is half the counter width.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_BACKEND_COMPARE_EXACT</span></code></dt><dd><p>Absolute comparator, equality match: a value written after the counter has
+passed it is missed for a whole counter period.  The core writes the
+comparator through a verify loop, so the driver needs no minimum-delay floor
+of its own.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_BACKEND_RELOAD</span></code></dt><dd><p>Relative delay: down-counters and compare-match-reset periodics.  Assumed to
+auto-reload, so a ticked kernel free-runs from the value set at init.</p>
+</dd>
+</dl>
+</section>
+<section id="optional-macros">
+<h3>Optional macros<a class="headerlink" href="#optional-macros" title="Link to this heading"></a></h3>
+<p>Each is defined only when the default, given below, does not fit:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_CYCLES_PER_SEC</span></code></dt><dd><p>Counter rate, in Hz.  Defaults to the kernel system clock rate.  Set it when
+the counter is prescaled or runs at a fixed rate of its own.  The core derives
+<code class="docutils literal notranslate"><span class="pre">TIMER_CORE_CYC_PER_TICK</span></code> from it, which a driver may read for its own
+hardware setup, typically the one-tick period it programs at init, but never
+defines itself.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_CYCLES_PER_SEC_RUNTIME</span></code></dt><dd><p>The rate above is a variable, not a build-time constant, because it is read
+from the clock controller or computed at init.  The core then precomputes the
+cycles per tick once instead of relying on the division folding.  The variable
+must hold its final value before <code class="docutils literal notranslate"><span class="pre">timer_core_init()</span></code> is called.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_WIDTH</span></code></dt><dd><p>Width, in bits, up to 64, of the count <code class="docutils literal notranslate"><span class="pre">timer_driver_cycle_get()</span></code> returns.
+Defaults to the native register width.  A counter of another width states its
+own, and must: a genuine 64-bit counter on a 32-bit CPU would otherwise inherit
+a 32-bit mask and lose any span past 2^32 cycles.  The core masks every delta to
+this width, so a narrow counter is read raw and the driver never has to widen
+the count in software.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_NONMONOTONIC</span></code></dt><dd><p>The counter may momentarily read behind a value already observed, as a global
+timer does under QEMU SMP.  The core treats a backwards read as no elapse
+rather than a huge jump.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_NONATOMIC</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">timer_driver_cycle_get()</span></code> is not a single atomic read but a value
+synthesized from state the ISR also touches.  The core then reads it under
+the clock lock.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_HAVE_CYCLE_GET_32</span></code>, <code class="docutils literal notranslate"><span class="pre">TIMER_CORE_HAVE_CYCLE_GET_64</span></code></dt><dd><p>The driver defines that entry point itself and the core does not.  For a
+counter that needs scaling.  <code class="docutils literal notranslate"><span class="pre">timer_core_cycle_get()</span></code>, available after the
+include, gives the full-width count in the counter’s own domain to scale
+from.</p>
+<p>The 32-bit one is required of a driver that sets
+<code class="docutils literal notranslate"><span class="pre">TIMER_CORE_CYCLES_PER_SEC</span></code>, a counter running at a rate of its own being
+one the kernel cannot read raw.  The core then emits no 64-bit getter
+either, that being in the domain the driver just declared foreign.  Supply
+one as well to have it.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_ALARM_MAX_CYCLES</span></code></dt><dd><p>Largest value the arming primitive can express, nothing more.  Defaults to the
+whole span of <code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_WIDTH</span></code>, the alarm and the counter usually
+being one piece of hardware.  Set it where the arming range is decided by
+something else: a compare or reload register narrower than the counter, or a
+separate device.</p>
+<p>It states hardware capacity, so it carries no safety margin.  The core derives
+its own from <code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_WIDTH</span></code>: it arms no further ahead of the last
+announce than half the counter’s span, a quarter with
+<code class="docutils literal notranslate"><span class="pre">TIMER_CORE_COUNTER_NONMONOTONIC</span></code>, so a late announce still yields a delta the
+masking can resolve.  Whichever of the two binds first wins.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_ALARM_MIN_CYCLES</span></code></dt><dd><p>Reload floor, in cycles, <code class="docutils literal notranslate"><span class="pre">TIMER_CORE_BACKEND_RELOAD</span></code> only.  Defaults to 1.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMER_CORE_ALARM_LEAD_CYCLES</span></code></dt><dd><p>Cycles a compare must be ahead of the counter for the match to be caught,
+<code class="docutils literal notranslate"><span class="pre">TIMER_CORE_BACKEND_COMPARE_EXACT</span></code> only.  Defaults to 1, a comparator
+written while the counter is still below it firing.  Raise it for hardware
+that has to carry the write into the counter’s clock domain first and misses
+a match programmed closer than that.</p>
+</dd>
+</dl>
+<p>New tickless drivers should build on this header rather than reimplement the
+tick accounting.  The header documents each macro and primitive in full.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Jul 22, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

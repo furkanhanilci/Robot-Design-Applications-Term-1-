@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ch. 25 - An Optimization
+  Playbook</title>
+    <meta name="Ch. 25 - An Optimization
+  Playbook" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/playbook.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+    <script type="text/javascript" src="notebooks.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script src="htmlbook/mathjax-loader.js" defer></script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2024<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="https://underactuated.csail.mit.edu/Spring2024/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2024 semester.  <a
+href="https://www.youtube.com/playlist?list=PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=optimization.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=misc.html>Next Chapter</a></td>
+</tr></table>
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter class="appendix" style="counter-reset: chapter 3"><h1>An Optimization
+  Playbook</h1>
+
+  <p>This chapter is intended to provide a collection of tips and formulations
+  that can make seemingly non-smooth constraints smooth, seemingly non-convex
+  constraints convex, etc.  (It's very much a work in progress...)</p>
+  
+  <section><h1>Matrices</h1>
+    <todo>max eigenvalue.  min eigenvalue. rank (nuclear norm, ...)</todo>
+
+  </section>
+
+  <section><h1>Ellipsoids</h1>
+
+    <p>Imagine an ellipsoid centered at the origin: $E = \{x | x^T S x \leq
+    1\}$ with $S=S^T\succ0$. The volume of this ellipse is proportional to
+    $\left(\det S^{-1} \right)^\frac{1}{2}$.  We know that $\log\det(S)$ is a
+    concave function in the elements of $S$ <elib>Boyd04a</elib>.</p>
+
+    <p>maximizing volume.</p>
+
+    <p>minimizing volume.</p>
+
+    <p>volume of a semi-algebraic set.  (via a contained ellipsoid)</p>
+  </section>
+
+  <section><h1>Polytopes</h1>
+    <todo>Sadra's linear encodings of polytopic containment</todo>
+  </section>
+
+  <section><h1>Perspective functions</h1>
+  
+  </section>
+
+  <section><h1>(Mixed-)Integer Programming</h1>
+
+  </section>
+
+  <section><h1>Bilinear Matrix Inequalities (BMIs)</h1>
+    
+  <todo>PQ trick from LQR</todo>
+  <todo>Rank minimization</todo>
+  </section>
+
+  <section><h1>Geometry (SE(3), Penetration, and
+    Contact)</h1>
+  <todo>Hongkai's smooth non-penetration constraints for polygons</todo>
+
+  <todo>"Soft" absolute value: $|x|_epsilon \approx \sqrt{x^2 +
+    \epsilon}$.
+    import numpy as np
+    import matplotlib.pyplot as plt
+    x = np.linspace(-2.,2.,101)
+    plt.plot(x, np.sqrt(np.power(x,2) + 0.01))
+  </todo>
+  </section>
+  <todo>Barrier function for friction cones in Grandia 2019, Feedback MPC for
+  Torque-Controlled Legged Robots.</todo>
+
+  <todo>Linearization of the rotation matrix in Real-time Model Predictive
+  Control for Versatile Dynamic Motions in Quadrupedal Robots</todo>
+
+  <todo>Briat15 chapter 1 has some good modeling tricks for LPV systems</todo>
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Boyd04a>
+<span class="author">Stephen Boyd and Lieven Vandenberghe</span>, 
+<span class="title">"Convex Optimization"</span>, Cambridge University Press
+, <span class="year">2004</span>.
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=optimization.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=misc.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2024</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>

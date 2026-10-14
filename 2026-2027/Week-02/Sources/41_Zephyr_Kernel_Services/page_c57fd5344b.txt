@@ -1,0 +1,404 @@
+Message Queues — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Data Passing
+Queues
+FIFOs
+LIFOs
+Stacks
+Message Queues
+Concepts
+Implementation
+Defining a Message Queue
+Writing to a Message Queue
+Reading from a Message Queue
+Peeking into a Message Queue
+Suggested Uses
+Configuration Options
+API Reference
+Mailboxes
+Pipes
+Memory Management
+Timing
+Other
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Message Queues
+Open on GitHub
+Report an issue with this page
+Message Queues
+A
+message queue
+is a kernel object that implements a simple
+message queue, allowing threads and ISRs to asynchronously send and receive
+fixed-size data items.
+Concepts
+Implementation
+Defining a Message Queue
+Writing to a Message Queue
+Reading from a Message Queue
+Peeking into a Message Queue
+Suggested Uses
+Configuration Options
+API Reference
+Concepts
+Any number of message queues can be defined (limited only by available RAM).
+Each message queue is referenced by its memory address.
+A message queue has the following key properties:
+A
+ring buffer
+of data items that have been sent but not yet received.
+A
+data item size
+, measured in bytes.
+A
+maximum quantity
+of data items that can be queued in the ring buffer.
+A message queue must be initialized before it can be used.
+This sets its ring buffer to empty.
+A data item can be
+sent
+to a message queue by a thread or an ISR.
+The data item pointed at by the sending thread is copied to a waiting thread,
+if one exists; otherwise the item is copied to the message queue’s ring buffer,
+if space is available. In either case, the size of the data area being sent
+must
+equal the message queue’s data item size.
+If a thread attempts to send a data item when the ring buffer is full,
+the sending thread may choose to wait for space to become available.
+Any number of sending threads may wait simultaneously when the ring buffer
+is full; when space becomes available
+it is given to the highest priority sending thread that has waited the longest.
+A data item can be
+received
+from a message queue by a thread.
+The data item is copied to the area specified by the receiving thread;
+the size of the receiving area
+must
+equal the message queue’s data item size.
+If a thread attempts to receive a data item when the ring buffer is empty,
+the receiving thread may choose to wait for a data item to be sent.
+Any number of receiving threads may wait simultaneously when the ring buffer
+is empty; when a data item becomes available it is given to
+the highest priority receiving thread that has waited the longest.
+A thread can also
+peek
+at the message on the head of a message queue without
+removing it from the queue.
+The data item is copied to the area specified by the receiving thread;
+the size of the receiving area
+must
+equal the message queue’s data item size.
+Note
+The kernel does allow an ISR to receive an item from a message queue,
+however the ISR must not attempt to wait if the message queue is empty.
+Note
+Alignment of the message queue’s ring buffer is not necessary.
+The underlying implementation uses
+memcpy()
+(which is
+alignment-agnostic) and does not expose any internal pointers.
+Implementation
+Defining a Message Queue
+A message queue is defined using a variable of type
+k_msgq
+.
+It must then be initialized by calling
+k_msgq_init()
+.
+The following code defines and initializes an empty message queue
+that is capable of holding 10 items, each of which is 12 bytes long.
+struct
+data_item_type
+{
+uint32_t
+field1
+;
+uint32_t
+field2
+;
+uint32_t
+field3
+;
+};
+char
+my_msgq_buffer
+[
+10
+*
+sizeof
+(
+struct
+data_item_type
+)];
+struct
+k_msgq
+my_msgq
+;
+k_msgq_init
+(
+&
+my_msgq
+,
+my_msgq_buffer
+,
+sizeof
+(
+struct
+data_item_type
+),
+10
+);
+Alternatively, a message queue can be defined and initialized at compile time
+by calling one of the following macros:
+K_MSGQ_DEFINE
+– Defines a public message queue.
+K_MSGQ_DEFINE_STATIC
+– Defines a private (static scope) message
+queue.
+K_MSGQ_DEFINE_TYPE
+– Defines a public message queue for given
+item type.
+K_MSGQ_DEFINE_STATIC_TYPE
+– Defines a private message queue for
+given item type.
+The following code has the same effect as the code segment above. Observe
+that the macro defines both the message queue and its buffer.
+K_MSGQ_DEFINE
+(
+my_msgq
+,
+sizeof
+(
+struct
+data_item_type
+),
+10
+,
+1
+);
+The
+K_MSGQ_DEFINE_TYPE
+shorthand can be used if the queue item type
+is known at compile time. This macro configures the queue item size and
+alignment automatically:
+K_MSGQ_DEFINE_TYPE
+(
+my_msgq
+,
+struct
+data_item_type
+,
+10
+);
+Writing to a Message Queue
+A data item is added to a message queue by calling
+k_msgq_put()
+.
+The following code builds on the example above, and uses the message queue
+to pass data items from a producing thread to one or more consuming threads.
+If the message queue fills up because the consumers can’t keep up, the
+producing thread throws away all existing data so the newer data can be saved.
+Note that this api will trigger reschedule.
+void
+producer_thread
+(
+void
+)
+{
+struct
+data_item_type
+data
+;
+while
+(
+1
+)
+{
+/* create data item to send (e.g. measurement, timestamp, ...) */
+data
+=
+...
+/* send data to consumers */
+while
+(
+k_msgq_put
+(
+&
+my_msgq
+,
+&
+data
+,
+K_NO_WAIT
+)
+!=
+0
+)
+{
+/* message queue is full: purge old data & try again */
+k_msgq_purge
+(
+&
+my_msgq
+);
+}
+/* data item was successfully added to message queue */
+}
+}
+Reading from a Message Queue
+A data item is taken from a message queue by calling
+k_msgq_get()
+.
+The following code builds on the example above, and uses the message queue
+to process data items generated by one or more producing threads. Note that
+the return value of
+k_msgq_get()
+should be tested as
+-ENOMSG
+can be returned due to
+k_msgq_purge()
+.
+void
+consumer_thread
+(
+void
+)
+{
+struct
+data_item_type
+data
+;
+while
+(
+1
+)
+{
+/* get a data item */
+k_msgq_get
+(
+&
+my_msgq
+,
+&
+data
+,
+K_FOREVER
+);
+/* process data item */
+...
+}
+}
+Peeking into a Message Queue
+A data item is read from a message queue by calling
+k_msgq_peek()
+.
+The following code peeks into the message queue to read the data item at the
+head of the queue that is generated by one or more producing threads.
+void
+consumer_thread
+(
+void
+)
+{
+struct
+data_item_type
+data
+;
+while
+(
+1
+)
+{
+/* read a data item by peeking into the queue */
+k_msgq_peek
+(
+&
+my_msgq
+,
+&
+data
+);
+/* process data item */
+...
+}
+}
+Suggested Uses
+Use a message queue to transfer small data items between threads
+in an asynchronous manner.
+Note
+A message queue can be used to transfer large data items, if desired.
+However, this can increase interrupt latency as interrupts are locked
+while a data item is written or read. The time to write or read a data item
+increases linearly with its size since the item is copied in its entirety
+to or from the buffer in memory. For this reason, it is usually preferable
+to transfer large data items by exchanging a pointer to the data item,
+rather than the data item itself.
+A synchronous transfer can be achieved by using the kernel’s mailbox
+object type.
+Configuration Options
+Related configuration options:
+None.
+API Reference
+Message
+Queue
+APIs
+Related code samples
+Message Queue
+Implement a basic message queue producer/consumer thread pair.
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Jun 26, 2026.

@@ -1,0 +1,550 @@
+Embedded Systems - Shape The World
+E
+m
+bedded Systems
+- Shape The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+Index
+2-bit DAC circuit
+eBook Section 13.2
+AAPCS
+eBook Section 2.5
+Abstraction
+eBook Section 15.2
+Accuracy of a DAC
+eBook Section 13.2
+Acknowledge interrupt
+eBook Section 12.1
+ADC introduction
+eBook Section 14.1
+ADC on the TM4C123
+eBook Section 14.2
+ADC software
+eBook Section 14.2
+Adder
+eBook Section 4.4
+Address map
+eBook Section 2.7
+Aliasing
+eBook Section 14.3
+AND operation
+eBook Section 4.2
+Animation
+eBook Section 15.4
+Arm interrupt
+eBook Section 12.1
+Arrays
+eBook Section 9.3
+Assembly language
+eBook Section 2.6
+Associativity in C
+eBook Section 5.3
+Autonomous robot car
+eBook Section 10.5
+B3F switch
+eBook Section 8.2
+Bandwidth
+eBook Section 11.1
+Battery
+eBook Section 3
+Baud rate
+eBook Section 11.2
+Baud rate setting
+eBook Section 11.2
+Binary
+eBook Section 2.1
+Binary weighted DAC
+eBook Section 13.2
+Bipolar stepper motor
+eBook Section 10.5
+Bit specific addressing
+eBook Section 6.3
+Black box testing
+eBook Section 9.1
+Blind cycle synchronization
+eBook Section 11.1
+BMP images
+eBook Section 15.3
+Boolean Algebra
+eBook Section 4.2
+Breakpoint
+eBook Section 7.6
+Breakpoint
+eBook Section 9.5
+Buffered I/O
+eBook Section 11.1
+Busy wait
+eBook Section 11.1
+Call by reference
+eBook Section 7.4
+Call by value
+eBook Section 7.4
+Call graph
+eBook Section 7.1
+Call graph for Lab 15
+eBook Section 15.2
+Chat tool
+eBook Section 11.4
+Chord. music
+eBook Section 13.4
+Circuits
+eBook Section 3
+Complexity
+eBook Section 15.2
+Context switch
+eBook Section 12.3
+Control System
+eBook Section 14.5
+CPU bound
+eBook Section 11.1
+Current
+eBook Section 3
+Current divider
+eBook Section 3.1
+Current sense amplifier
+eBook Section 10.1
+DAC
+eBook Section 13.2
+Data acquisition
+eBook Section 14.1
+Data acquisition system
+eBook Section 14.4
+Data flow graph
+eBook Section 7.1
+Data flow graph for Lab 15
+eBook Section 15.2
+Data types in C
+eBook Section 5.3
+DC motor
+eBook Section 12.6
+Debouncing a switch
+eBook Section 8.2
+Debugging
+eBook Section 9.1
+Digitization
+eBook Section 13.1
+Distance sensor
+eBook Section 14.5
+Distributed systems
+eBook Section 11.4
+DMA
+eBook Section 11.1
+do while loop
+eBook Section 7.5
+Driver
+eBook Section 8.3
+Dump
+eBook Section 9.5
+Edge-triggered interrupt
+eBook Section 12.4
+Elapsed time
+eBook Section 9.2
+Electical circuits
+eBook Section 3
+Enable/disable interrupt
+eBook Section 12.3
+Energy
+eBook Section 3
+Envelope, music
+eBook Section 13.4
+Expressions in C
+eBook Section 5.3
+FIFO queue concept
+eBook Section 11.1
+Finite state machines
+eBook Section 10.4
+Flip flop
+eBook Section 4.3
+Flowchart
+eBook Section 5
+Flowchart for Lab 15
+eBook Section 15.2
+for loop
+eBook Section 7.5
+Frame
+eBook Section 11.2
+Friendly code
+eBook Section 6.3
+Functional debugging
+eBook Section 7.6
+Functional debugging
+eBook Section 9.5
+Functions in C
+eBook Section 5.4
+Game engine
+eBook Section 15.4
+Gibibyte
+eBook Section 4.5
+GPIO registers
+eBook Section 6.3
+GPIO registers, detailed
+eBook Section 12.4
+Graphics LCD
+eBook Section 11.5
+Graphics output
+eBook Section 15.3
+Hard fault
+eBook Section 15.5
+Heartbeat
+eBook Section 6.4
+Hexadecimal
+eBook Section 2.1
+HLMP-D150 LED
+eBook Section 8.3
+I/O bound
+eBook Section 11.1
+I/O pin
+eBook Section 6.2
+I/O ports
+eBook Section 2.4
+if then
+eBook Section 7.5
+Image
+eBook Section 15.3
+Information hiding
+eBook Section 15.2
+Input port
+eBook Section 6.2
+Instrument, music
+eBook Section 13.4
+Interrupt priority
+eBook Section 12.3
+Interrupt vector
+eBook Section 12.3
+Interrupts
+eBook Section 12.1
+Intrusive
+eBook Section 9.1
+IR distance sensor
+eBook Section 14.5
+Kibibyte
+eBook Section 4.5
+Kirchhoff KCL KVL
+eBook Section 3.1
+L293 motor driver
+eBook Section 10.5
+Latency
+eBook Section 11.1
+LCD
+eBook Section 11.5
+LED interface
+eBook Section 8.3
+Legacy clock registers
+eBook Section 15.5
+Line tracking robot
+eBook Section 10.4
+Linear congruential multiplier
+eBook Section 15.6
+Logic analyzer
+eBook Section 6.5
+Logic operations
+eBook Section 4.2
+Loudness of sound
+eBook Section 13.4
+Low power design
+eBook Section 10.1
+Mailbox
+eBook Section 12.2
+Maintanence
+eBook Section 7.3
+Maintanence
+eBook Section 15.2
+Matrix
+eBook Section 15.3
+MAX3232 serial driver
+eBook Section 11.2
+Mealy FSM
+eBook Section 10.4
+Mebibyte
+eBook Section 4.5
+Memory
+eBook Section 4.5
+Modular code
+eBook Section 7.4
+Modular design
+eBook Section 15.2
+Monotonic ADC
+eBook Section 14.1
+Moore FSM
+eBook Section 10.4
+MOS transistors
+eBook Section 4.1
+Motor control
+eBook Section 12.7
+Motor interface
+eBook Section 12.6
+Music introduction
+eBook Section 13.4
+Network topology
+eBook Section 11.4
+Nokia 5110
+eBook Section 11.5
+Nonintrusive
+eBook Section 9.1
+Number conversion
+eBook Section 2.1
+Number conversion example
+eBook Section 11.3
+NVIC
+eBook Section 12.3
+Nyquist Theorem
+eBook Section 13.1
+Nyquist Theorem, detailed
+eBook Section 14.3
+Odd 1's detector
+eBook Section 10.4
+Ohm's Law
+eBook Section 3
+Operations in C
+eBook Section 5.3
+OR operation
+eBook Section 4.2
+Output port
+eBook Section 6.2
+Overrun
+eBook Section 11.2
+parallel port
+eBook Section 6.3
+Parameters in C
+eBook Section 5.4
+Parity
+eBook Section 11.2
+PCTL
+eBook Section 6.1
+Periodic interrupt
+eBook Section 15.5
+Periodic polling
+eBook Section 11.1
+Periodic polling example
+eBook Section 12.5
+Phase Lock Loop (PLL)
+eBook Section 10.1
+Pitch
+eBook Section 13
+Port F initialization
+eBook Section 6.3
+Port initialization
+eBook Section 6.3
+Ports
+eBook Section 2.4
+Power
+eBook Section 3
+Precedence in C
+eBook Section 5.3
+Precision of a DAC
+eBook Section 13.2
+printf in C
+eBook Section 5.2
+Priority
+eBook Section 12.3
+Procedure Call Standard
+eBook Section 2.5
+Pull up and pull down
+eBook Section 12.4
+Pulse width modulation
+eBook Section 12.6
+Punctuation
+eBook Section 5.2
+PWM software
+eBook Section 12.6
+R-2R DAC
+eBook Section 13.4
+Random number generator
+eBook Section 15.6
+Real time
+eBook Section 11.1
+Registers
+eBook Section 2.5
+Requirements document
+eBook Section 7.1
+Requirements document example
+eBook Section 8.4
+Requirements document for Lab15
+eBook Section 15.1
+Resistance
+eBook Section 3
+Resistor divider
+eBook Section 3.1
+Resolution of a DAC
+eBook Section 13.2
+Ring network
+eBook Section 11.4
+Robot car controller
+eBook Section 14.5
+Robot car motor circuit
+eBook Section 12.7
+Row major allocation
+eBook Section 15.3
+RS232
+eBook Section 11.2
+Sampling
+eBook Section 13.1
+scanf in C
+eBook Section 5.6
+Semaphore
+eBook Section 12.2
+Sensors
+eBook Section 14
+Serial communication
+eBook Section 11
+Sine wave tone
+eBook Section 13.4
+Solderless breadboard
+eBook Section 8.1
+Sound introduction
+eBook Section 13
+Sound play Lab 15
+eBook Section 15.5
+Sound, detailed
+eBook Section 13.4
+Speaker, squarewave tone
+eBook Section 12.5
+Speakers
+eBook Section 13.3
+Sprites
+eBook Section 15.3
+SSI
+eBook Section 11.5
+Stabilization
+eBook Section 9.1
+Stabilization
+eBook Section 9.5
+Stepper motor
+eBook Section 10.5
+Strings
+eBook Section 9.4
+Structured programming
+eBook Section 7.2
+Structures in C
+eBook Section 10.3
+Structures in Lab 15
+eBook Section 15.4
+Successive approximation
+eBook Section 14.1
+Successive refinement
+eBook Section 7.2
+Successive refinement example
+eBook Section 11.3
+Successive refinement Lab 15
+eBook Section 15.2
+Switch bounce
+eBook Section 12.4
+Switch interface
+eBook Section 8.2
+switch statement
+eBook Section 7.5
+Synchronization
+eBook Section 11.1
+SysTick initialization
+eBook Section 9.2
+SysTick interrupts
+eBook Section 12.5
+SysTick_Wait
+eBook Section 10.2
+Tactile switch
+eBook Section 8.2
+Temp, music
+eBook Section 13.4
+Thread synchronization
+eBook Section 12.2
+Throughput
+eBook Section 11.1
+Time delay
+eBook Section 10.2
+Timer periodic interrupt
+eBook Section 15.5
+Timer triggered ADC
+eBook Section 14.2
+TIP120
+eBook Section 12.6
+TIP120 in robot
+eBook Section 14.5
+TM4C123 pins
+eBook Section 6.1
+Traffic Light Controller
+eBook Section 10.4
+Transducer
+eBook Section 14.4
+Transistors
+eBook Section 4.1
+Trigger
+eBook Section 12.1
+Tristate
+eBook Section 4.3
+UART
+eBook Section 11.2
+UART decimal I/O
+eBook Section 11.3
+UART device driver
+eBook Section 11.2
+Unipolar stepper motor
+eBook Section 10.5
+Variables in C
+eBook Section 5.3
+Vector
+eBook Section 12.3
+Vending Machine
+eBook Section 10.4
+VIL and VIH
+eBook Section 4.1
+VOL and VOH
+eBook Section 4.1
+volatile in C
+eBook Section 5.7
+Voltage
+eBook Section 3
+Wally the wall follower
+eBook Section 14.5
+WAV files
+eBook Section 15.5
+while loop statement
+eBook Section 7.5
+White box testing
+eBook Section 9.1
+This material is being developed for an online class that is
+running January 2015 to May 2015 on the EdX platform. This website
+is meant to supplement not replace the content on edX. This site has
+been our sandbox where we first built the information before uploading
+to edX. If you need closed captions, please use the edX site because
+the captions on edX have been reviewed and edited by Valvano and
+Yerraballi.
+When viewing the videos on YouTube you can activate their closed
+captioning, but these captions have not been reviewed or edited.
+However, many students have asked for two things: 1) a more linear or
+book-like resource of the class material; and 2) a list of the video
+links.
+This website provides both. All videos are hosted in two places:
+YouTube and Amazon S3. It is our plan to make the edX pages as accurate
+as possible and will strive to make corrections as we can. Again, this
+website contains the material prior to uploading to edX and hence may
+be more inaccurate. Knowing that however, it is our goal to reach as
+many people as possible and we hope this site makes the class more
+accessible for those having technical issues reading and watching the
+material on edX. All quizzes and labs must be performed on the edX
+site.
+https://www.edx.org/course/utaustinx/utaustinx-ut-6-02x-embedded-systems-4806
+Reprinted
+with approval from
+Embedded
+Systems:
+Introduction to ARM Cortex-M Microcontrollers
+,
+2014, ISBN:
+978-1477508992, For more
+information about the textbook see
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+Embedded
+Systems - Shape the World
+by
+Jonathan Valvano
+and Ramesh Yerraballi
+is licensed under a
+Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

@@ -1,0 +1,1007 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workqueue Threads &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/threads/workqueue.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Operation without Threads" href="nothread.html" />
+    <link rel="prev" title="System Threads" href="system_threads.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html">Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html">Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html#cpu-idling">CPU Idling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="system_threads.html">System Threads</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Workqueue Threads</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#work-item-lifecycle">Work Item Lifecycle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#delayable-work">Delayable Work</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#triggered-work">Triggered Work</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#system-workqueue">System Workqueue</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#how-to-use-workqueues">How to Use Workqueues</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#defining-and-controlling-a-workqueue">Defining and Controlling a Workqueue</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#submitting-a-work-item">Submitting a Work Item</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#scheduling-a-delayable-work-item">Scheduling a Delayable Work Item</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#synchronizing-with-work-items">Synchronizing with Work Items</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#workqueue-best-practices">Workqueue Best Practices</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#avoid-race-conditions">Avoid Race Conditions</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#check-return-values">Check Return Values</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#don-t-optimize-prematurely">Don’t Optimize Prematurely</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="nothread.html">Operation without Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../interrupts.html">Interrupts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../polling.html">Polling API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/semaphores.html">Semaphores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/mutexes.html">Mutexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/condvar.html">Condition Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/events.html">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/spinlocks.html">Spinlocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../smp/smp.html">Symmetric Multiprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Workqueue Threads</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/threads/workqueue.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fthreads%2Fworkqueue%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fthreads%2Fworkqueue%0A-+Version%3A+main%0A-+SHA-1%3A+3994c841bc0c26f19059bad488240d4bc2336270&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="workqueue-threads">
+<span id="workqueues-v2"></span><h1>Workqueue Threads<a class="headerlink" href="#workqueue-threads" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#work-item-lifecycle" id="id1">Work Item Lifecycle</a></p></li>
+<li><p><a class="reference internal" href="#delayable-work" id="id2">Delayable Work</a></p></li>
+<li><p><a class="reference internal" href="#triggered-work" id="id3">Triggered Work</a></p></li>
+<li><p><a class="reference internal" href="#system-workqueue" id="id4">System Workqueue</a></p></li>
+<li><p><a class="reference internal" href="#how-to-use-workqueues" id="id5">How to Use Workqueues</a></p></li>
+<li><p><a class="reference internal" href="#workqueue-best-practices" id="id6">Workqueue Best Practices</a></p></li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id7">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id8">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id9">API Reference</a></p></li>
+</ul>
+</nav>
+<p>A <em class="dfn">workqueue</em> is a kernel object that uses a dedicated thread to process
+work items in a first in, first out manner. Each work item is processed by
+calling the function specified by the work item. A workqueue is typically
+used by an ISR or a high-priority thread to offload non-urgent processing
+to a lower-priority thread so it does not impact time-sensitive processing.</p>
+<p>Any number of workqueues can be defined (limited only by available RAM). Each
+workqueue is referenced by its memory address.</p>
+<p>A workqueue has the following key properties:</p>
+<ul class="simple">
+<li><p>A <strong>queue</strong> of work items that have been added, but not yet processed.</p></li>
+<li><p>A <strong>thread</strong> that processes the work items in the queue. The priority of the
+thread is configurable, allowing it to be either cooperative or preemptive
+as required.</p></li>
+</ul>
+<p>Regardless of workqueue thread priority the workqueue thread will yield
+between each submitted work item, to prevent a cooperative workqueue from
+starving other threads.</p>
+<p>A workqueue must be initialized before it can be used. This sets its queue to
+empty and spawns the workqueue’s thread.  The thread runs forever, but sleeps
+when no work items are available.</p>
+<section id="work-item-lifecycle">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Work Item Lifecycle</a><a class="headerlink" href="#work-item-lifecycle" title="Link to this heading"></a></h2>
+<p>Any number of <strong>work items</strong> can be defined. Each work item is referenced
+by its memory address.</p>
+<p>A work item is assigned a <strong>handler function</strong>, which is the function
+executed by the workqueue’s thread when the work item is processed. This
+function accepts a single argument, which is the address of the work item
+itself.  The work item also maintains information about its status.</p>
+<p>A work item must be initialized before it can be used. This records the work
+item’s handler function and marks it as not pending.</p>
+<p>A work item may be <strong>queued</strong> (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ggae539da4c3f3d31b039bc49b9e76744ebaa7f8855bc9931bff79062ce53b06eb85" title=""><code class="xref c c-enumerator docutils literal notranslate"><span class="pre">K_WORK_QUEUED</span></code></a>) by submitting it to a
+workqueue by an ISR or a thread.  Submitting a work item appends the work item
+to the workqueue’s queue.  Once the workqueue’s thread has processed all of
+the preceding work items in its queue the thread will remove the next work
+item from the queue and invoke the work item’s handler function. Depending on
+the scheduling priority of the workqueue’s thread, and the work required by
+other items in the queue, a queued work item may be processed quickly or it
+may remain in the queue for an extended period of time.</p>
+<p>A delayable work item may be <strong>scheduled</strong> (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ggae539da4c3f3d31b039bc49b9e76744ebab4bf9e74435077b2bbfe1de1f4e80aed" title=""><code class="xref c c-enumerator docutils literal notranslate"><span class="pre">K_WORK_DELAYED</span></code></a>) to a
+workqueue; see <a class="reference internal" href="#delayable-work">Delayable Work</a>.</p>
+<p>A work item will be <strong>running</strong> (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ggae539da4c3f3d31b039bc49b9e76744ebac6bee9a104cf6ee3853579f5eb15c165" title=""><code class="xref c c-enumerator docutils literal notranslate"><span class="pre">K_WORK_RUNNING</span></code></a>) when it is running
+on a work queue, and may also be <strong>canceling</strong> (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ggae539da4c3f3d31b039bc49b9e76744eba9fdc4327489bcdcca3de0ee9eed6b732" title=""><code class="xref c c-enumerator docutils literal notranslate"><span class="pre">K_WORK_CANCELING</span></code></a>)
+if it started running before a thread has requested that it be cancelled.</p>
+<p>A work item can be in multiple states; for example it can be:</p>
+<ul class="simple">
+<li><p>running on a queue;</p></li>
+<li><p>marked canceling (because a thread used <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gab2b05cfe3af08f7d32c3946fa1c808f9" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_sync()</span></code></a> to
+wait until the work item completed);</p></li>
+<li><p>queued to run again on the same queue;</p></li>
+<li><p>scheduled to be submitted to a (possibly different) queue</p></li>
+</ul>
+<p><em>all simultaneously</em>.  A work item that is in any of these states is <strong>pending</strong>
+(<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga0d1d2e1d2ba2e89a560a1bdc5365d9e0" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_is_pending()</span></code></a>) or <strong>busy</strong> (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaba8a8734768d768b433f9d8490e7df7b" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_busy_get()</span></code></a>).</p>
+<p>A handler function can use any kernel API available to threads. However,
+operations that are potentially blocking (e.g. taking a semaphore) must be
+used with care, since the workqueue cannot process subsequent work items in
+its queue until the handler function finishes executing.</p>
+<p>The single argument that is passed to a handler function can be ignored if it
+is not required. If the handler function requires additional information about
+the work it is to perform, the work item can be embedded in a larger data
+structure. The handler function can then use the argument value to compute the
+address of the enclosing data structure with <a class="reference internal" href="../../../doxygen/html/group__sys-util.html#gac5bc561d1bfd1bf68877fe577779bd2f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">CONTAINER_OF</span></code></a>, and
+thereby obtain access to the additional information it needs.</p>
+<p>A work item is typically initialized once and then submitted to a specific
+workqueue whenever work needs to be performed. If an ISR or a thread attempts
+to submit a work item that is already queued the work item is not affected;
+the work item remains in its current place in the workqueue’s queue, and
+the work is only performed once.</p>
+<p>A handler function is permitted to re-submit its work item argument
+to the workqueue, since the work item is no longer queued at that time.
+This allows the handler to execute work in stages, without unduly delaying
+the processing of other work items in the workqueue’s queue.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A pending work item <em>must not</em> be altered until the item has been processed
+by the workqueue thread. This means a work item must not be re-initialized
+while it is busy. Furthermore, any additional information the work item’s
+handler function needs to perform its work must not be altered until
+the handler function has finished executing.</p>
+</div>
+</section>
+<section id="delayable-work">
+<span id="k-delayable-work"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Delayable Work</a><a class="headerlink" href="#delayable-work" title="Link to this heading"></a></h2>
+<p>An ISR or a thread may need to schedule a work item that is to be processed
+only after a specified period of time, rather than immediately. This can be
+done by <strong>scheduling</strong> a <strong>delayable work item</strong> to be submitted to a
+workqueue at a future time.</p>
+<p>A delayable work item contains a standard work item but adds fields that
+record when and where the item should be submitted.</p>
+<p>A delayable work item is initialized and scheduled to a workqueue in a similar
+manner to a standard work item, although different kernel APIs are used.  When
+the schedule request is made the kernel initiates a timeout mechanism that is
+triggered after the specified delay has elapsed. Once the timeout occurs the
+kernel submits the work item to the specified workqueue, where it remains
+queued until it is processed in the standard manner.</p>
+<p>Note that work handler used for delayable still receives a pointer to the
+underlying non-delayable work structure, which is not publicly accessible from
+<a class="reference internal" href="../../../doxygen/html/structk__work__delayable.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_delayable</span></code></a>.  To get access to an object that contains the
+delayable work object use this idiom:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">work_handler</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">k_work</span><span class="w"> </span><span class="o">*</span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_work_delayable</span><span class="w"> </span><span class="o">*</span><span class="n">dwork</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k_work_delayable_from_work</span><span class="p">(</span><span class="n">work</span><span class="p">);</span>
+<span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">work_context</span><span class="w"> </span><span class="o">*</span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONTAINER_OF</span><span class="p">(</span><span class="n">dwork</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">work_context</span><span class="p">,</span>
+<span class="w">                                                </span><span class="n">timed_work</span><span class="p">);</span>
+<span class="w">        </span><span class="p">...</span>
+</pre></div>
+</div>
+</section>
+<section id="triggered-work">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Triggered Work</a><a class="headerlink" href="#triggered-work" title="Link to this heading"></a></h2>
+<p>The <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gad9f222e46d72c4f98739395a0c8bb4ea" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_poll_submit()</span></code></a> interface schedules a triggered work
+item in response to a <strong>poll event</strong> (see <a class="reference internal" href="../polling.html#polling-v2"><span class="std std-ref">Polling API</span></a>), that will
+call a user-defined function when a monitored resource becomes available
+or poll signal is raised, or a timeout occurs.
+In contrast to <a class="reference internal" href="../../../doxygen/html/group__poll__apis.html#gac550dc93662ce164fb22a5a91d6830db" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_poll()</span></code></a>, the triggered work does not require
+a dedicated thread waiting or actively polling for a poll event.</p>
+<p>A triggered work item is a standard work item that has the following
+added properties:</p>
+<ul class="simple">
+<li><p>A pointer to an array of poll events that will trigger work item
+submissions to the workqueue</p></li>
+<li><p>A size of the array containing poll events.</p></li>
+</ul>
+<p>A triggered work item is initialized and submitted to a workqueue in a similar
+manner to a standard work item, although dedicated kernel APIs are used.
+When a submit request is made, the kernel begins observing kernel objects
+specified by the poll events. Once at least one of the observed kernel
+object’s changes state, the work item is submitted to the specified workqueue,
+where it remains queued until it is processed in the standard manner.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The triggered work item as well as the referenced array of poll events
+have to be valid and cannot be modified for a complete triggered work
+item lifecycle, from submission to work item execution or cancellation.</p>
+</div>
+<p>An ISR or a thread may <strong>cancel</strong> a triggered work item it has submitted
+as long as it is still waiting for a poll event. In such case, the kernel
+stops waiting for attached poll events and the specified work is not executed.
+Otherwise the cancellation cannot be performed.</p>
+</section>
+<section id="system-workqueue">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">System Workqueue</a><a class="headerlink" href="#system-workqueue" title="Link to this heading"></a></h2>
+<p>The kernel defines a workqueue known as the <em>system workqueue</em>, which is
+available to any application or kernel code that requires workqueue support.
+The system workqueue is optional, and only exists if the application makes
+use of it.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Additional workqueues should only be defined when it is not possible
+to submit new work items to the system workqueue, since each new workqueue
+incurs a significant cost in memory footprint. A new workqueue can be
+justified if it is not possible for its work items to co-exist with
+existing system workqueue work items without an unacceptable impact;
+for example, if the new work items perform blocking operations that
+would delay other system workqueue processing to an unacceptable degree.</p>
+<p>Also note: The system workqueue has the lowest cooperative priority by
+default. This means that draining the system workqueue takes precedence over
+<em>all preemptible threads</em>. Configuring the system workqueue’s priority to be
+preemptible is risky, because subsystems and drivers may implicitly rely on
+work items being executed in a cooperative context. Therefore, a separate
+workqueue with lower priority may be appropriate for low-priority tasks.</p>
+</div>
+</section>
+<section id="how-to-use-workqueues">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">How to Use Workqueues</a><a class="headerlink" href="#how-to-use-workqueues" title="Link to this heading"></a></h2>
+<section id="defining-and-controlling-a-workqueue">
+<h3>Defining and Controlling a Workqueue<a class="headerlink" href="#defining-and-controlling-a-workqueue" title="Link to this heading"></a></h3>
+<p>A workqueue is defined using a variable of type <a class="reference internal" href="../../../doxygen/html/structk__work__q.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_q</span></code></a>.
+The workqueue is initialized by defining the stack area used by its
+thread, initializing the <a class="reference internal" href="../../../doxygen/html/structk__work__q.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_q</span></code></a>, either zeroing its
+memory or calling <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gada77d818ea9e4d07c14a960872ed5492" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_queue_init()</span></code></a>, and then calling
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gadfc56554f9bfe7b52309d79660188593" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_queue_start()</span></code></a>. The stack area must be defined using
+<a class="reference internal" href="../../../doxygen/html/group__thread__stack__api.html#gac5368ce24fdeab3863b5c8dee2ebd955" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_THREAD_STACK_DEFINE</span></code></a> to ensure it is properly set up in
+memory.</p>
+<p>The following code defines and initializes a workqueue:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_STACK_SIZE 512</span>
+<span class="cp">#define MY_PRIORITY 5</span>
+
+<span class="n">K_THREAD_STACK_DEFINE</span><span class="p">(</span><span class="n">my_stack_area</span><span class="p">,</span><span class="w"> </span><span class="n">MY_STACK_SIZE</span><span class="p">);</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">k_work_q</span><span class="w"> </span><span class="n">my_work_q</span><span class="p">;</span>
+
+<span class="n">k_work_queue_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_work_q</span><span class="p">);</span>
+
+<span class="n">k_work_queue_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_work_q</span><span class="p">,</span><span class="w"> </span><span class="n">my_stack_area</span><span class="p">,</span>
+<span class="w">                   </span><span class="n">K_THREAD_STACK_SIZEOF</span><span class="p">(</span><span class="n">my_stack_area</span><span class="p">),</span><span class="w"> </span><span class="n">MY_PRIORITY</span><span class="p">,</span>
+<span class="w">                   </span><span class="nb">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In addition the queue identity and certain behavior related to thread
+rescheduling can be controlled by the optional final parameter; see
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gadfc56554f9bfe7b52309d79660188593" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_queue_start()</span></code></a> for details.</p>
+<p>The following API can be used to interact with a workqueue:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga0fefe3e0225ac99b47b250849f6cd863" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_queue_drain()</span></code></a> can be used to block the caller until the
+work queue has no items left.  Work items resubmitted from the workqueue
+thread are accepted while a queue is draining, but work items from any other
+thread or ISR are rejected.  The restriction on submitting more work can be
+extended past the completion of the drain operation in order to allow the
+blocking thread to perform additional work while the queue is “plugged”.
+Note that draining a queue has no effect on scheduling or processing
+delayable items, but if the queue is plugged and the deadline expires the
+item will silently fail to be submitted.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaa0463bb79af3ec470f7d3be02052139f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_queue_unplug()</span></code></a> removes any previous block on submission to
+the queue due to a previous drain operation.</p></li>
+</ul>
+</section>
+<section id="submitting-a-work-item">
+<h3>Submitting a Work Item<a class="headerlink" href="#submitting-a-work-item" title="Link to this heading"></a></h3>
+<p>A work item is defined using a variable of type <a class="reference internal" href="../../../doxygen/html/structk__work.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work</span></code></a>.  It must
+be initialized by calling <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaf20080884a2893d39cd8e862b34a2a30" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_init()</span></code></a>, unless it is defined using
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaf8e003eefa5dd66ba883688f9d39c333" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_WORK_DEFINE</span></code></a> in which case initialization is performed at
+compile-time.</p>
+<p>An initialized work item can be submitted to the system workqueue by
+calling <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gace61b59575093d7442f39ccb7be686d7" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_submit()</span></code></a>, or to a specified workqueue by
+calling <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga5353e76f73db070614f50d06d292d05c" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_submit_to_queue()</span></code></a>.</p>
+<p>The following code demonstrates how an ISR can offload the printing
+of error messages to the system workqueue. Note that if the ISR attempts
+to resubmit the work item while it is still queued, the work item is left
+unchanged and the associated error message will not be printed.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">device_info</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_work</span><span class="w"> </span><span class="n">work</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+<span class="p">}</span><span class="w"> </span><span class="n">my_device</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="w"> </span><span class="n">detected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">k_work_submit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_device</span><span class="p">.</span><span class="n">work</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_error</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">k_work</span><span class="w"> </span><span class="o">*</span><span class="n">item</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">device_info</span><span class="w"> </span><span class="o">*</span><span class="n">the_device</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">CONTAINER_OF</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">device_info</span><span class="p">,</span><span class="w"> </span><span class="n">work</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="s">"Got error on device %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">the_device</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/* initialize name info for a device */</span>
+<span class="n">strcpy</span><span class="p">(</span><span class="n">my_device</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">"FOO_dev"</span><span class="p">);</span>
+
+<span class="cm">/* initialize work item for printing device's error messages */</span>
+<span class="n">k_work_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_device</span><span class="p">.</span><span class="n">work</span><span class="p">,</span><span class="w"> </span><span class="n">print_error</span><span class="p">);</span>
+
+<span class="cm">/* install my_isr() as interrupt handler for the device (not shown) */</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>The following API can be used to check the status of or synchronize with the
+work item:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaba8a8734768d768b433f9d8490e7df7b" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_busy_get()</span></code></a> returns a snapshot of flags indicating work item
+state.  A zero value indicates the work is not scheduled, submitted, being
+executed, or otherwise still being referenced by the workqueue
+infrastructure.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga0d1d2e1d2ba2e89a560a1bdc5365d9e0" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_is_pending()</span></code></a> is a helper that indicates <code class="docutils literal notranslate"><span class="pre">true</span></code> if and only
+if the work is scheduled, queued, or running.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabd1cda459bab538fb2d6dfd84a73b253" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_flush()</span></code></a> may be invoked from threads to block until the work
+item has completed.  It returns immediately if the work is not pending.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga389fe2a8fb20f9bd593cf8d990727078" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel()</span></code></a> attempts to prevent the work item from being
+executed.  This may or may not be successful. This is safe to invoke
+from ISRs.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gab2b05cfe3af08f7d32c3946fa1c808f9" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_sync()</span></code></a> may be invoked from threads to block until
+the work completes; it will return immediately if the cancellation was
+successful or not necessary (the work wasn’t submitted or running).  This
+can be used after <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga389fe2a8fb20f9bd593cf8d990727078" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel()</span></code></a> is invoked (from an ISR) to
+confirm completion of an ISR-initiated cancellation.</p></li>
+</ul>
+</section>
+<section id="scheduling-a-delayable-work-item">
+<h3>Scheduling a Delayable Work Item<a class="headerlink" href="#scheduling-a-delayable-work-item" title="Link to this heading"></a></h3>
+<p>A delayable work item is defined using a variable of type
+<a class="reference internal" href="../../../doxygen/html/structk__work__delayable.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_delayable</span></code></a>. It must be initialized by calling
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga2876c5d82fb2340a093bc4d689a55465" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_init_delayable()</span></code></a>.</p>
+<p>For delayed work there are two common use cases, depending on whether a
+deadline should be extended if a new event occurs. An example is collecting
+data that comes in asynchronously, e.g. characters from a UART associated with
+a keyboard.  There are two APIs that submit work after a delay:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga5c113ea2bc8e8e5cd7a5c8bc5ec595d3" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_schedule()</span></code></a> (or <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga17f863c9f6ff2fb41dc0f3b7de4fdf23" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_schedule_for_queue()</span></code></a>)
+schedules work to be executed at a specific time or after a delay.  Further
+attempts to schedule the same item with this API before the delay completes
+will not change the time at which the item will be submitted to its queue.
+Use this if the policy is to keep collecting data until a specified delay
+since the <strong>first</strong> unprocessed data was received;</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaacaab408fb7c848d466ad1f069dfa648" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_reschedule()</span></code></a> (or <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabf5db091eac19b19a4e12c0cb381f0a8" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_reschedule_for_queue()</span></code></a>)
+unconditionally sets the deadline for the work, replacing any previous
+incomplete delay and changing the destination queue if necessary.  Use this
+if the policy is to keep collecting data until a specified delay since the
+<strong>last</strong> unprocessed data was received.</p></li>
+</ul>
+<p>If the work item is not scheduled both APIs behave the same.  If
+<a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_NO_WAIT</span></code></a> is specified as the delay the behavior is as if the item
+was immediately submitted directly to the target queue, without waiting for a
+minimal timeout (unless <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga5c113ea2bc8e8e5cd7a5c8bc5ec595d3" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_schedule()</span></code></a> is used and a previous
+delay has not completed).</p>
+<p>Both also have variants that allow
+control of the queue used for submission.</p>
+<p>The helper function <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabcb822a03ce7ea9ee1ed046afe31ffca" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_delayable_from_work()</span></code></a> can be used to get
+a pointer to the containing <a class="reference internal" href="../../../doxygen/html/structk__work__delayable.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_delayable</span></code></a> from a pointer to
+<a class="reference internal" href="../../../doxygen/html/structk__work.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work</span></code></a> that is passed to a work handler function.</p>
+<p>The following additional API can be used to check the status of or synchronize
+with the work item:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga1b76969667844f0981d348c9c671bc9f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_delayable_busy_get()</span></code></a> is the analog to <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaba8a8734768d768b433f9d8490e7df7b" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_busy_get()</span></code></a>
+for delayable work.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga66e598dbc73f653cbfec03c21168df2e" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_delayable_is_pending()</span></code></a> is the analog to
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga0d1d2e1d2ba2e89a560a1bdc5365d9e0" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_is_pending()</span></code></a> for delayable work.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gad47d54e513030304be2600d75b1a965f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_flush_delayable()</span></code></a> is the analog to <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabd1cda459bab538fb2d6dfd84a73b253" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_flush()</span></code></a>
+for delayable work.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga92355914ee178d4c3e848a1946bed3e4" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_delayable()</span></code></a> is the analog to
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga389fe2a8fb20f9bd593cf8d990727078" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel()</span></code></a> for delayable work; similarly with
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga7e7ec237648556fc16bfda8d35f7cd86" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_delayable_sync()</span></code></a>.</p></li>
+</ul>
+</section>
+<section id="synchronizing-with-work-items">
+<h3>Synchronizing with Work Items<a class="headerlink" href="#synchronizing-with-work-items" title="Link to this heading"></a></h3>
+<p>While the state of both regular and delayable work items can be determined
+from any context using <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaba8a8734768d768b433f9d8490e7df7b" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_busy_get()</span></code></a> and
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga1b76969667844f0981d348c9c671bc9f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_delayable_busy_get()</span></code></a> some use cases require synchronizing
+with work items after they’ve been submitted.  <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabd1cda459bab538fb2d6dfd84a73b253" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_flush()</span></code></a>,
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gab2b05cfe3af08f7d32c3946fa1c808f9" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_sync()</span></code></a>, and <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga7e7ec237648556fc16bfda8d35f7cd86" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_delayable_sync()</span></code></a>
+can be invoked from thread context to wait until the requested state has been
+reached.</p>
+<p>These APIs must be provided with a <a class="reference internal" href="../../../doxygen/html/structk__work__sync.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_work_sync</span></code></a> object that has no
+application-inspectable components but is needed to provide the
+synchronization objects.  These objects should not be allocated on a stack if
+the code is expected to work on architectures with
+<a class="reference internal" href="../../../kconfig.html#CONFIG_KERNEL_COHERENCE" title="CONFIG_KERNEL_COHERENCE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_KERNEL_COHERENCE</span></code></a>.</p>
+</section>
+</section>
+<section id="workqueue-best-practices">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Workqueue Best Practices</a><a class="headerlink" href="#workqueue-best-practices" title="Link to this heading"></a></h2>
+<section id="avoid-race-conditions">
+<h3>Avoid Race Conditions<a class="headerlink" href="#avoid-race-conditions" title="Link to this heading"></a></h3>
+<p>Sometimes the data a work item must process is naturally thread-safe, for
+example when it’s put into a <a class="reference internal" href="../../../doxygen/html/structk__queue.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_queue</span></code></a> by some thread and processed
+in the work thread. More often external synchronization is required to avoid
+data races: cases where the work thread might inspect or manipulate shared
+state that’s being accessed by another thread or interrupt.  Such state might
+be a flag indicating that work needs to be done, or a shared object that is
+filled by an ISR or thread and read by the work handler.</p>
+<p>For simple flags <a class="reference internal" href="../other/atomic.html#atomic-v2"><span class="std std-ref">Atomic Services</span></a> may be sufficient.  In other cases spin
+locks (<a class="reference internal" href="../../../doxygen/html/structk__spinlock.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_spinlock</span></code></a>) or thread-aware locks (<a class="reference internal" href="../../../doxygen/html/structk__sem.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_sem</span></code></a>,
+<a class="reference internal" href="../../../doxygen/html/structk__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_mutex</span></code></a> , …) may be used to ensure data races don’t occur.</p>
+<p>If the selected lock mechanism can <a class="reference internal" href="../../../develop/api/terminology.html#api-term-sleep"><span class="std std-ref">sleep</span></a> then allowing the
+work thread to sleep will starve other work queue items, which may need to
+make progress in order to get the lock released. Work handlers should try to
+take the lock with its no-wait path. For example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">work_handler</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">work</span><span class="w"> </span><span class="o">*</span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">work_context</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONTAINER_OF</span><span class="p">(</span><span class="n">work</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">work_context</span><span class="p">,</span>
+<span class="w">                                                   </span><span class="n">work_item</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">lock</span><span class="p">,</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/* NB: Submit will fail if the work item is being cancelled. */</span>
+<span class="w">                </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">k_work_submit</span><span class="p">(</span><span class="n">work</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* do stuff under lock */</span>
+<span class="w">        </span><span class="n">k_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">lock</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/* do stuff without lock */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Be aware that if the lock is held by a thread with a lower priority than the
+work queue the resubmission may starve the thread that would release the lock,
+causing the application to fail.  Where the idiom above is required a
+delayable work item is preferred, and the work should be (re-)scheduled with a
+non-zero delay to allow the thread holding the lock to make progress.</p>
+<p>Note that submitting from the work handler can fail if the work item had been
+cancelled.  Generally this is acceptable, since the cancellation will complete
+once the handler finishes.  If it is not, the code above must take other steps
+to notify the application that the work could not be performed.</p>
+<p>Work items in isolation are self-locking, so you don’t need to hold an
+external lock just to submit or schedule them. Even if you use external state
+protected by such a lock to prevent further resubmission, it’s safe to do the
+resubmit as long as you’re sure that eventually the item will take its lock
+and check that state to determine whether it should do anything.  Where a
+delayable work item is being rescheduled in its handler due to inability to
+take the lock, some other self-locking state, such as an atomic flag set by the
+application/driver when the cancel is initiated, would be required to detect
+the cancellation and avoid the cancelled work item being submitted again after
+the deadline.</p>
+</section>
+<section id="check-return-values">
+<h3>Check Return Values<a class="headerlink" href="#check-return-values" title="Link to this heading"></a></h3>
+<p>All work API functions return status of the underlying operation, and in many
+cases it is important to verify that the intended result was obtained.</p>
+<ul class="simple">
+<li><p>Submitting a work item (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga5353e76f73db070614f50d06d292d05c" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_submit_to_queue()</span></code></a>) can fail if the
+work is being cancelled or the queue is not accepting new items.  If this
+happens the work will not be executed, which could cause a subsystem that is
+animated by work handler activity to become non-responsive.</p></li>
+<li><p>Asynchronous cancellation (<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga389fe2a8fb20f9bd593cf8d990727078" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel()</span></code></a> or
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga92355914ee178d4c3e848a1946bed3e4" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_delayable()</span></code></a>) can complete while the work item is still
+being run by a handler.  Proceeding to manipulate state shared with the work
+handler will result in data races that can cause failures.</p></li>
+</ul>
+<p>Many race conditions have been present in Zephyr code because the results of
+an operation were not checked.</p>
+<p>There may be good reason to believe that a return value indicating that the
+operation did not complete as expected is not a problem.  In those cases the
+code should clearly document this, by (1) casting the return value to <code class="docutils literal notranslate"><span class="pre">void</span></code>
+to indicate that the result is intentionally ignored, and (2) documenting what
+happens in the unexpected case.  For example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* If this fails, the work handler will check pub-&gt;active and</span>
+<span class="cm"> * exit without transmitting.</span>
+<span class="cm"> */</span>
+<span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">k_work_cancel_delayable</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pub</span><span class="o">-&gt;</span><span class="n">timer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>However in such a case the following code must still avoid data races, as it
+cannot guarantee that the work thread is not accessing work-related state.</p>
+</section>
+<section id="don-t-optimize-prematurely">
+<h3>Don’t Optimize Prematurely<a class="headerlink" href="#don-t-optimize-prematurely" title="Link to this heading"></a></h3>
+<p>The workqueue API is designed to be safe when invoked from multiple threads
+and interrupts. Attempts to externally inspect a work item’s state and make
+decisions based on the result are likely to create new problems.</p>
+<p>So when new work comes in, just submit it. Don’t attempt to “optimize” by
+checking whether the work item is already submitted by inspecting snapshot
+state with <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga0d1d2e1d2ba2e89a560a1bdc5365d9e0" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_is_pending()</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gaba8a8734768d768b433f9d8490e7df7b" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_busy_get()</span></code></a>, or
+checking for a non-zero delay from
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabce78598a014f3ed87730fe6a9fe61b4" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_delayable_remaining_get()</span></code></a>. Those checks are fragile: a “busy”
+indication can be obsolete by the time the test is returned, and a “not-busy”
+indication can also be wrong if work is submitted from multiple contexts, or
+(for delayable work) if the deadline has completed but the work is still in
+queued or running state.</p>
+<p>A general best practice is to always maintain in shared state some condition
+that can be checked by the handler to confirm whether there is work to be
+done.  This way you can use the work handler as the standard cleanup path:
+rather than having to deal with cancellation and cleanup at points where items
+are submitted, you may be able to have everything done in the work handler
+itself.</p>
+<p>A rare case where you could safely use <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#ga0d1d2e1d2ba2e89a560a1bdc5365d9e0" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_is_pending()</span></code></a> is as a
+check to avoid invoking <a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gabd1cda459bab538fb2d6dfd84a73b253" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_flush()</span></code></a> or
+<a class="reference internal" href="../../../doxygen/html/group__workqueue__apis.html#gab2b05cfe3af08f7d32c3946fa1c808f9" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_work_cancel_sync()</span></code></a>, if you are <em>certain</em> that nothing else might
+submit the work while you’re checking (generally because you’re holding a lock
+that prevents access to state used for submission).</p>
+</section>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use the system workqueue to defer complex interrupt-related processing from an
+ISR to a shared thread. This allows the interrupt-related processing to be
+done promptly without compromising the system’s ability to respond to
+subsequent interrupts, and does not require the application to define and
+manage an additional thread to do the processing.</p>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>Related configuration options:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE" title="CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_WORKQUEUE_PRIORITY" title="CONFIG_SYSTEM_WORKQUEUE_PRIORITY"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_WORKQUEUE_PRIORITY</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_SYSTEM_WORKQUEUE_NO_YIELD" title="CONFIG_SYSTEM_WORKQUEUE_NO_YIELD"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_WORKQUEUE_NO_YIELD</span></code></a></p></li>
+</ul>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__workqueue__apis.html" title=""><span class="pre">Work</span> <span class="pre">Queue</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Sep 01, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

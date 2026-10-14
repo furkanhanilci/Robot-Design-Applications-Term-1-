@@ -1,0 +1,25 @@
+{
+  "id": 58,
+  "name": "MathWorks MIL SIL PIL HIL",
+  "type": "Resmi doğrulama kılavuzu",
+  "url": "https://www.mathworks.com/discovery/hardware-in-the-loop-hil.html",
+  "folder": "58_MathWorks_MIL_SIL_PIL_HIL",
+  "files": [],
+  "errors": [
+    {
+      "url": "https://www.mathworks.com/discovery/hardware-in-the-loop-hil.html",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/company/events/webinar-cta/3591908-Presentation.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "status": "unavailable",
+  "retrieved_at": "2026-10-05T20:49:09+0300",
+  "pdf_count": 0,
+  "status_tr": "Dosya erişimi sağlanamadı",
+  "notes": [
+    "İndirme istekleri zaman aşımı veya HTTP erişim engeli ile sonuçlandı. Bu kaynak için indirilmiş içerik varmış gibi gösterilmemiştir."
+  ]
+}

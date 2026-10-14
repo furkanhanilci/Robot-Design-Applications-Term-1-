@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Building and using MCUboot with Zephyr | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Building and using MCUboot with Zephyr" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/readme-zephyr.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/readme-zephyr.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building and using MCUboot with Zephyr" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"Building and using MCUboot with Zephyr","url":"https://docs.mcuboot.com/readme-zephyr.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Building and using MCUboot with Zephyr</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="building-and-using-mcuboot-with-zephyr">Building and using MCUboot with Zephyr</h1>
+
+<p>MCUboot began its life as the bootloader for Mynewt.  It has since
+acquired the ability to be used as a bootloader for Zephyr as well.
+There are some pretty significant differences in how apps are built
+for Zephyr, and these are documented here.</p>
+
+<p>Please see the <a href="/design.html">design document</a> for documentation on the design
+and operation of the bootloader itself. This functionality should be the same
+on all supported RTOSs.</p>
+
+<p>The first step required for Zephyr is making sure your board has flash
+partitions defined in its device tree. These partitions are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">boot_partition</code>: for MCUboot itself</li>
+  <li><code class="language-plaintext highlighter-rouge">slot0_partition</code>: the primary slot of Image 0</li>
+  <li><code class="language-plaintext highlighter-rouge">slot1_partition</code>: the secondary slot of Image 0</li>
+</ul>
+
+<p>It is not recommended to use the swap-using-scratch algorithm of MCUboot, but
+if this operating mode is desired then the following flash partition is also
+needed (see end of this help file for details on creating a scratch partition
+and how to use the swap-using-scratch algorithm):</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">scratch_partition</code>: the scratch slot</li>
+</ul>
+
+<p>Currently, the two image slots must be contiguous. If you are running
+MCUboot as your stage 1 bootloader, <code class="language-plaintext highlighter-rouge">boot_partition</code> must be configured
+so your SoC runs it out of reset. If there are multiple updateable images
+then the corresponding primary and secondary partitions must be defined for
+the rest of the images too (for example, <code class="language-plaintext highlighter-rouge">slot2_partition</code> and
+<code class="language-plaintext highlighter-rouge">slot3_partition</code> for Image 1).</p>
+
+<p>The flash partitions are typically defined in the Zephyr boards folder, in a
+file named <code class="language-plaintext highlighter-rouge">boards/&lt;vendor&gt;/&lt;board&gt;/&lt;board&gt;.dts</code>. An example <code class="language-plaintext highlighter-rouge">.dts</code> file with
+flash partitions defined is the frdm_k64f’s in
+<code class="language-plaintext highlighter-rouge">boards/nxp/frdm_k64f/frdm_k64f.dts</code>. Make sure the DT node labels in your board’s
+<code class="language-plaintext highlighter-rouge">.dts</code> file match the ones used there.</p>
+
+<h2 id="installing-requirements-and-dependencies">Installing requirements and dependencies</h2>
+
+<p>MCUboot is included as part of Zephyr. Follow the getting started guide for the
+version of Zephyr you wish to use to get Zephyr itself, including MCUboot.
+Install additional packages required for development with MCUboot:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cd ~/zephyrproject-rtos/bootloader/mcuboot  # or to your directory where MCUboot is
+  pip3 install --user -r scripts/requirements.txt
+</code></pre></div></div>
+
+<h2 id="building-the-bootloader-and-application-together-sysbuild">Building the bootloader and application together (sysbuild)</h2>
+
+<p>Sysbuild is a CMake project in zephyr which allows for building multiple Zephyr
+images as part of a single build. It has configuration for the sysbuild image
+itself which can be used to build other images or set configuration, including
+MCUboot configuration. To enable MCUboot support in a project, one simply needs
+to enable the <code class="language-plaintext highlighter-rouge">SB_CONFIG_BOOTLOADER_MCUBOOT</code> sysbuild Kconfig, as an example
+using hello world, <code class="language-plaintext highlighter-rouge">samples/hello_world</code> in the Zephyr tree:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cd samples/hello_world
+  west build -b &lt;board&gt; --sysbuild -- -DSB_CONFIG_BOOTLOADER_MCUBOOT=y
+</code></pre></div></div>
+
+<p>This will build MCUboot and hello world, including enabling the MCUboot Kconfigs
+in the hello world application to allow MCUboot to build it. Sysbuild is the
+recommended way of building an application with MCUboot support in Zephyr,
+though MCUboot itself (and the application) can also be built manually, as
+described below.</p>
+
+<p>See the <code class="language-plaintext highlighter-rouge">share/sysbuild/images/bootloader/Kconfig</code> file in the Zephyr tree for
+sysbuild Kconfig options that can be used to configure MCUboot in a project,
+including mode of MCUboot, the signing/encryption keys and other options. These
+options will be propagated to both MCUboot and the application by sysbuild
+automatically.</p>
+
+<h2 id="building-the-bootloader-itself-manually">Building the bootloader itself (manually)</h2>
+
+<p>The bootloader is an ordinary Zephyr application, at least from
+Zephyr’s point of view.  There is a bit of configuration that needs to
+be made before building it.  Most of this can be done as documented in
+the <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> file in boot/zephyr.  There are comments there for
+guidance.  It is important to select a signature algorithm, and decide
+if the primary slot should be validated on every boot.</p>
+
+<p>To build MCUboot, use west:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cd boot/zephyr
+  west build -b &lt;board&gt;
+</code></pre></div></div>
+
+<p>In addition to the partitions defined in DTS, some additional
+information about the flash layout is currently required to build
+MCUboot itself. All the needed configuration is collected in
+<code class="language-plaintext highlighter-rouge">boot/zephyr/include/target.h</code>. Depending on the board, this information
+may come from board-specific headers, Device Tree, or be configured by
+MCUboot on a per-SoC family basis.</p>
+
+<p>After building the bootloader, the binaries should reside in
+<code class="language-plaintext highlighter-rouge">build/zephyr/zephyr.{bin,hex,elf}</code>, where <code class="language-plaintext highlighter-rouge">build</code> is the build
+directory you chose when running <code class="language-plaintext highlighter-rouge">west build</code>. Use <code class="language-plaintext highlighter-rouge">west flash</code>
+to flash these binaries from the build directory. Depending
+on the target and flash tool used, this might erase the whole of the flash
+memory (mass erase) or only the sectors where the bootloader resides prior to
+programming the bootloader image itself.</p>
+
+<h2 id="building-applications-for-the-bootloader-manually">Building applications for the bootloader (manually)</h2>
+
+<p>In addition to flash partitions in DTS, some additional configuration
+is required to build applications for MCUboot.</p>
+
+<p>This is handled internally by the Zephyr configuration system and is wrapped
+in the <code class="language-plaintext highlighter-rouge">CONFIG_BOOTLOADER_MCUBOOT</code> Kconfig variable, which must be enabled in
+the application’s <code class="language-plaintext highlighter-rouge">prj.conf</code> file.</p>
+
+<p>The directory <code class="language-plaintext highlighter-rouge">samples/subsys/mgmt/mcumgr/smp_svr</code> in the Zephyr tree contains
+a simple application with everything you need. You can try it on your
+board and then just make a copy of it to get started on your own
+application; see samples/zephyr/README.md for a tutorial.</p>
+
+<p>The Zephyr <code class="language-plaintext highlighter-rouge">CONFIG_BOOTLOADER_MCUBOOT</code> configuration option
+<a href="https://docs.zephyrproject.org/latest/kconfig.html#CONFIG_BOOTLOADER_MCUBOOT">documentation</a>
+provides additional details regarding the changes it makes to the image
+placement and generation in order for an application to be bootable by MCUboot.</p>
+
+<p>With this, build the application as your normally would.</p>
+
+<h3 id="signing-the-application-manually">Signing the application (manually)</h3>
+
+<p>In order to upgrade to an image (or even boot it, if
+<code class="language-plaintext highlighter-rouge">MCUBOOT_VALIDATE_PRIMARY_SLOT</code> is enabled), the images must be signed.
+To make development easier, MCUboot is distributed with some example
+keys.  It is important to stress that these should never be used for
+production, since the private key is publicly available in this
+repository.  See below on how to make your own signatures.</p>
+
+<p>With Zephyr images, they will be signed automatically by the build system if
+<code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SIGNATURE_KEY_FILE</code> is set to the private key signing file, so
+no manual steps are necessary in this case.</p>
+
+<p>To sign images manually, use the <code class="language-plaintext highlighter-rouge">scripts/imgtool.py</code> script.  It is best
+to look at <code class="language-plaintext highlighter-rouge">samples/zephyr/Makefile</code> for examples on how to use this.</p>
+
+<h3 id="flashing-the-application">Flashing the application</h3>
+
+<p>The application itself can flashed with regular flash tools, but will
+need to be programmed at the offset of the primary slot for this particular
+target. Depending on the platform and flash tool you might need to manually
+specify a flash offset corresponding to the primary slot starting address. This
+is usually not relevant for flash tools that use Intel Hex images (.hex) instead
+of raw binary images (.bin) since the former include destination address
+information. Additionally you will need to make sure that the flash tool does
+not perform a mass erase (erasing the whole of the flash) or else you would be
+deleting MCUboot.
+These images can also be marked for upgrade, and loaded into the secondary slot,
+at which point the bootloader should perform an upgrade.  It is up to
+the image to mark the primary slot as “image ok” before the next reboot,
+otherwise the bootloader will revert the application.</p>
+
+<h2 id="managing-signing-keys">Managing signing keys</h2>
+
+<p>The signing keys used by MCUboot are represented in standard formats,
+and can be generated and processed using conventional tools.  However,
+<code class="language-plaintext highlighter-rouge">scripts/imgtool.py</code> is able to generate key pairs in all of the
+supported formats.  See <a href="/imgtool.html">the docs</a> for more details on
+this tool.</p>
+
+<h3 id="generating-a-new-keypair">Generating a new keypair</h3>
+
+<p>Generating a keypair with imgtool is a matter of running the keygen
+subcommand:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ ./scripts/imgtool.py keygen -k mykey.pem -t rsa-2048
+</code></pre></div></div>
+
+<p>The argument to <code class="language-plaintext highlighter-rouge">-t</code> should be the desired key type.  See the
+<a href="/imgtool.html">the docs</a> for more details on the possible key types.</p>
+
+<h3 id="extracting-the-public-key">Extracting the public key</h3>
+
+<p>The generated keypair above contains both the public and the private
+key.  It is necessary to extract the public key and insert it into the
+bootloader.  Use the <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> Kconfig option to
+provide the path to the key file so the build system can extract
+the public key in a format usable by the C compiler.
+The generated public key is saved in <code class="language-plaintext highlighter-rouge">build/zephyr/autogen-pubkey.h</code>, which is included
+by the <code class="language-plaintext highlighter-rouge">boot/zephyr/keys.c</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> accepts either a keypair PEM or a
+public-key-only PEM: only the public key is consumed during the build.
+This enables production flows in which the signing private key is held
+by a release team and only an exported public key is provided to
+bootloader builders. Signing images (<code class="language-plaintext highlighter-rouge">imgtool sign</code>) requires the
+private key.</p>
+
+<p>The Zephyr port supports embedding multiple verification keys in the
+bootloader. <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> accepts a single PEM path or
+a comma-separated list, e.g.
+<code class="language-plaintext highlighter-rouge">"prod_pubkey.pem,dev_pubkey.pem"</code> or
+<code class="language-plaintext highlighter-rouge">"\${CMAKE_CURRENT_LIST_DIR}/prod_pubkey.pem,\${CMAKE_CURRENT_LIST_DIR}/dev_pubkey.pem"</code>.
+Only the public-key bytes are ever embedded in the bootloader image,
+regardless of which form is passed in. Up to eight total keys are
+supported by the Zephyr port. All entries must use the same
+<code class="language-plaintext highlighter-rouge">BOOT_SIGNATURE_TYPE</code>, and multi-key mode is mutually exclusive with
+<code class="language-plaintext highlighter-rouge">BOOT_HW_KEY</code>, <code class="language-plaintext highlighter-rouge">BOOT_BUILTIN_KEY</code>, and <code class="language-plaintext highlighter-rouge">BOOT_BYPASS_KEY_MATCH</code>.</p>
+
+<p>The first entry <strong>may</strong> be a keypair PEM or a public-only PEM. A
+keypair is required only if the same file is also used with
+<code class="language-plaintext highlighter-rouge">imgtool sign</code>; otherwise a public-only PEM is sufficient — and
+preferred, since private material embedded in the bootloader image is
+recoverable from flash. Subsequent entries (positions past the first)
+<strong>must</strong> be public-only PEMs; the build is rejected at CMake time
+otherwise (via <code class="language-plaintext highlighter-rouge">imgtool keyinfo --require public</code>).</p>
+
+<h3 id="custody-model">Custody model</h3>
+
+<p>The feature is for separating signing custody from verification custody.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Custody</th>
+      <th>Distribution</th>
+      <th>Blast radius if lost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Production private</td>
+      <td>HSM, signing ceremony, release team only</td>
+      <td>Never leaves the HSM</td>
+      <td>Catastrophic: attacker can sign images that boot on the prod fleet</td>
+    </tr>
+    <tr>
+      <td>Production public</td>
+      <td>N/A (public material)</td>
+      <td>Embedded in dev bootloaders so dev units can verify prod images</td>
+      <td>None: public by design</td>
+    </tr>
+    <tr>
+      <td>Development private</td>
+      <td>Loosely held by engineers</td>
+      <td>On dev workstations / dev signing infra</td>
+      <td>Bounded: only authorizes firmware on non-deployed dev hardware</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Production bootloaders should embed only the production public key, so
+that production units boot only production-signed images. Development
+bootloaders embed both the production public key and the development
+public key, so a dev unit can boot a production-signed image (verified
+against the prod public key) without re-signing, while still allowing
+engineers to flash development-signed images.</p>
+
+<p>The bootloader’s existing key-matching logic (<code class="language-plaintext highlighter-rouge">bootutil_find_key()</code>)
+hashes the image’s KEYHASH TLV against every embedded key and accepts
+the first match. There is no per-key behaviour: multi-key mode is purely
+about accepting more than one valid signer.</p>
+
+<p>Once MCUboot is built, this new keypair file (<code class="language-plaintext highlighter-rouge">mykey.pem</code> in this
+example) can be used to sign images.</p>
+
+<h2 id="using-swap-using-scratch-flash-algorithm">Using swap-using-scratch flash algorithm</h2>
+
+<p>Note: This mode is not recommended for use and swap-using-offset or
+swap-using-move are recommended instead. Swap-using-scratch is required to be
+used if the primary and secondary slots have different sector sizes, or if
+either slot’s sector sizes are not uniform over the whole NVM area.</p>
+
+<p>To use the swap-using-scratch flash algorithm, a scratch partition needs to be
+present for the target board which is used for holding the data being swapped
+from both slots, this section must be at least as big as the largest sector
+size of the 2 partitions (e.g. if a device has a primary slot in main flash
+with a sector size of 512 bytes and secondar slot in external off-chip flash
+with a sector size of 4KB then the scratch area must be at least 4KB in size).
+The number of sectors must also be evenly divisable by this sector size, e.g.
+4KB, 8KB, 12KB, 16KB are allowed, 7KB, 7.5KB are not. This scratch partition
+needs adding to the .dts file for the board, e.g. for the nrf52dk_nrf52832
+board thus would involve updating
+<code class="language-plaintext highlighter-rouge">&lt;zephyr&gt;/boards/nordic/nrf52dk/nrf52dk_nrf52832.dts</code> with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    boot_partition: partition@0 {
+            compatible = "zephyr,mapped-partition";
+            label = "mcuboot";
+            reg = &lt;0x00000000 0xc000&gt;;
+    };
+
+    slot0_partition: partition@c000 {
+            compatible = "zephyr,mapped-partition";
+            label = "image-0";
+            reg = &lt;0x0000C000 0x37000&gt;;
+    };
+
+    slot1_partition: partition@43000 {
+            compatible = "zephyr,mapped-partition";
+            label = "image-1";
+            reg = &lt;0x00043000 0x37000&gt;;
+    };
+
+    scratch_partition: partition@7a000 {
+            compatible = "zephyr,mapped-partition";
+            label = "image-scratch";
+            reg = &lt;0x0007a000 0x00006000&gt;;
+    };
+</code></pre></div></div>
+
+<p>Which would make the application size 220KB and scratch size 24KB (the nRF52832
+has a 4KB sector size so the size of the scratch partition can be reduced at
+the cost of vastly reducing flash lifespan, e.g. for a 32KB firmware update
+with an 8KB scratch area, the scratch area would be erased and programmed 8
+times per image upgrade/revert). To configure MCUboot to work in
+swap-using-scratch mode, the Kconfig value must be set when building it:
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SWAP_USING_SCRATCH=y</code>.</p>
+
+<p>Note that it is possible for an application to get into a stuck state when
+swap-using-scratch is used whereby an application has loaded a firmware update
+and marked it as test/confirmed but MCUboot will not swap the images and
+erasing the secondary slot from the zephyr application returns an error
+because the slot is marked for upgrade.</p>
+
+<h2 id="serial-recovery">Serial recovery</h2>
+
+<h3 id="interface-selection">Interface selection</h3>
+
+<p>A serial recovery protocol is available over either a hardware serial port or a USB CDC ACM virtual serial port.
+The SMP server implementation can be enabled by the <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SERIAL=y</code> Kconfig option.
+To set a type of an interface, use the <code class="language-plaintext highlighter-rouge">BOOT_SERIAL_DEVICE</code> Kconfig choice, and select either the <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_UART</code> or the <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM</code> value.
+Which interface belongs to the protocol shall be set by the devicetree-chosen node:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">zephyr,console</code> - If a hardware serial port is used.</li>
+  <li><code class="language-plaintext highlighter-rouge">zephyr,cdc-acm-uart</code> - If a virtual serial port is used.</li>
+</ul>
+
+<p>When <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM=y</code> is selected, MCUboot manages the USB device stack
+internally and only initializes it when serial recovery is actually triggered — not on every boot.
+This avoids consuming hardware USB events that the application would otherwise receive.
+The USB device descriptors can be configured with the following Kconfig options:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_VID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x2fe3</code></td>
+      <td>USB Vendor ID</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_PID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x0004</code></td>
+      <td>USB Product ID</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_MANUFACTURER_STRING</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"MCUBoot"</code></td>
+      <td>Manufacturer string descriptor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_PRODUCT_STRING</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"CDC ACM serial recovery"</code></td>
+      <td>Product string descriptor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_SELF_POWERED</code></td>
+      <td><code class="language-plaintext highlighter-rouge">n</code></td>
+      <td>Set the self-powered attribute in the USB configuration descriptor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_MAX_POWER</code></td>
+      <td><code class="language-plaintext highlighter-rouge">125</code></td>
+      <td><code class="language-plaintext highlighter-rouge">bMaxPower</code> value in the USB configuration descriptor, in 2 mA units (default: 250 mA)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="entering-the-serial-recovery-mode">Entering the serial recovery mode</h3>
+
+<p>To enter the serial recovery mode, the device has to initiate rebooting, and a triggering event has to occur (for example, pressing a button).</p>
+
+<p>By default, the serial recovery GPIO pin active state enters the serial recovery mode.
+Use the <code class="language-plaintext highlighter-rouge">mcuboot_button0</code> devicetree button alias to assign the GPIO pin to the MCUboot.</p>
+
+<p>Alternatively, MCUboot can wait for a limited time to check if DFU is invoked by receiving an MCUmgr command.
+Select <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_WAIT_FOR_DFU=y</code> to use this mode. <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_WAIT_FOR_DFU_TIMEOUT</code> option defines
+the amount of time in milliseconds the device will wait for the trigger.</p>
+
+<h3 id="direct-image-upload">Direct image upload</h3>
+
+<p>By default, the SMP server implementation will only use the first slot.
+To change it, invoke the <code class="language-plaintext highlighter-rouge">image upload</code> MCUmgr command with a selected image number, and make sure the <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SERIAL_DIRECT_IMAGE_UPLOAD=y</code> Kconfig option is enabled.
+Note that the <code class="language-plaintext highlighter-rouge">CONFIG_UPDATEABLE_IMAGE_NUMBER</code> Kconfig option adjusts the number of image-pairs supported by the MCUboot.</p>
+
+<p>The mapping of image number to partition is as follows:</p>
+<ul>
+  <li>0 and 1 - image-0, the primary slot of the first image.</li>
+  <li>2 - image-1, the secondary slot of the first image.</li>
+  <li>3 - image-2.</li>
+  <li>4 - image-3.</li>
+</ul>
+
+<p>0 is a default upload target when no explicit selection is done.</p>
+
+<h3 id="system-specific-commands">System-specific commands</h3>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">CONFIG_ENABLE_MGMT_PERUSER=y</code> Kconfig option to enable the following additional commands:</p>
+<ul>
+  <li>Storage erase - This command allows erasing the storage partition (enable with <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MGMT_CUSTOM_STORAGE_ERASE=y</code>).</li>
+</ul>
+
+<h3 id="more-configuration">More configuration</h3>
+
+<p>For details on other available configuration options for the serial recovery protocol, check the Kconfig options  (for example by using <code class="language-plaintext highlighter-rouge">menuconfig</code>).</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

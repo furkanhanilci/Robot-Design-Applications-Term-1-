@@ -1,0 +1,1212 @@
+Chapter 16: Internet of Things
+Chapter
+16: Internet of Things
+Embedded
+Systems - Shape
+The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+This chapter provides a brief introduction
+to the
+Internet of Things
+. We will show you how the Internet evolved
+from the simple idea of connection two machines, like we did in Chapter 11, to
+its current form where millions of machines from mainframes, server farms,
+desktops/laptops, tablets/phones, all the way down to little embedded devices,
+seamlessly communicate with each other.
+Learning
+Objectives:
+The Internet in a nutshell – The layered model
+The Internet is the Transport and
+     Network layers (TCP/IP)
+Media Access Control (MAC) – Data-Link and Physical Layers
+The CC3100 Boosterpack for Launchpad
+Application Layer Client-Server protocols – SMTP,HTTP, FTP, POP, IMAP.
+Video
+16.0
+. Introduction to IoT
+16.1.
+The Internet
+in a nutshell
+Much
+has been written about the Internet with the current buzz being the so called
+“Internet of Things”. Let’s see how we got here. Recall in Chapter 11, the
+simple notion of two LaunchPads communicating with each other shown in Figure
+16.1.
+Figure 16.1  Two LaunchPads connected together by the UARTs,
+implementing point-to-point communication.
+Video
+16.1
+.
+Internet in a Nutshell
+Checkpoint16.1
+:
+Assuming the baud-rate is 115,200 bps, what is the total bandwidth of the communication network
+in Figure 16.1?
+Imagine this 3-wire cable (TxD line, RxD line, and Common Ground) being extended
+to ten meters. We now have two machines that could possibly be located in
+separate rooms connected to each other and exchanging information. Going a
+farther distance of a hundred meters, across buildings say, will require some
+hardware to boost the signal. It is an obvious next step to want more machines
+to connect with each other. Rather than lay a separate cable for each pair, it
+makes sense to leverage a single cable that each machine could tap into. The
+TM4C123 does have eight UART ports, meaning we could connect nine LaunchPads
+together such that there is a dedicated connection between each pair. However,
+if we connect
+n
+computers together like this, the interconnection scheme
+would require (
+n
+-1) UART ports and ½*
+n*
+(
+n
+-1) cables. The
+TM4C123 does have 8 UARTs, so you could create a network of 9 microcontrollers.
+However, this small network would require 36 cables. You can see from Figure
+16.2, the complexity of the network grows on order
+n
+2
+, which
+we label as O(
+n
+2
+).
+Figure 16.2  Network created with direct connections, or
+point-to-point communication, using UARTs grows in complexity on O(n
+2
+).
+Checkpoint 16.2.
+:
+How many cables would it take to connect 100 machines using the direct connection approach
+shown in Figure 16.2?
+This approach becomes impractical even for
+a small set of machines. Also, the labor cost of laying cable dominates most
+network infrastructure. To make it practical, we will need to connect multiple
+nodes into the same cable. Once you have multiple machines tapping into the
+same cable (we call this the
+network
+) we will need the machines to
+adhere to a “protocol” that will allow them to communicate with each other
+effectively. Furthermore, each network interface will need a unique identity,
+its hardware address. A simple protocol could be for each machine to get a turn
+(say a token) during which it communicates with another machine that has tapped
+into the same network. One of the early implementations of this model was the
+IEEE 802.5 Token Ring
+protocol where the cable was a loop (a ring), see Figure 16.3.
+Figure 16.3  Network created by connecting to a ring. Each
+node only requires one connection. In this figure node
+Checkpoint 16.3.
+:
+Assume each node
+on the ring has the token for 1us, and there are n nodes in the ring, as drawn
+in Figure 16.3. During the time a node owns the token, it can transmit 100
+bytes of data to another node. What is the maximum bandwidth of the ring
+network?
+An alternate “protocol” choice is for each
+machine to try to communicate as a when it wants to, by sensing whether the
+network is idle.  If another machine attempted to communicate at the same then
+this would cause a collision and the machines follow a pattern of reattempting
+to communicate that reduces chances of further collisions. An implementation of
+this model of communication was at the forefront of the emergence of the
+Internet. This was the
+IEEE
+802.3
+Carrier Sense Multiple Access-Collision Detection (
+CSMA/CD
+)
+protocol or popularly recognized as
+Ethernet
+,
+see Figure 16.4.
+Figure 16.4  Network created by using an Ethernet switch.
+When we use microwave transmission
+(instead of a cable) we have wireless communication in the 2.4, 3.6, 5 and 60
+GHz frequency bands, which is standardized as the WiFi
+IEEE 802.11
+and the
+Bluetooth IEEE 802.15 protocols, Figure 16.5. These wireless standards use
+variations of the Carrier Sense Multiple Access-Collision Avoidance (
+CSMA/CA
+)
+protocol.
+Figure 16.5  Network created by using wifi, which
+communicates wirelessly.
+Once we configure machines to communicate
+with each to other as a small local area network (LAN), the next logical
+challenge is to make multiple such LANs to communicate with each other. This
+interconnection of networks is the
+Internet
+. The collective issues
+concerning the interconnection of networks are addressed by what is called the
+Network
+layer
+. The first issue is one of identities. For machines to learn
+identities of the (possibly hundreds of) machines in other LANs , we need a naming
+mechanism and accompanying discovery methods. This naming mechanism gives each
+machine a “unique” identity called, its IP (Internet Protocol) address. A more
+appropriate name for this identity would be
+Internet address
+, as it is
+the address by which machines connected to the interconnection of networks are
+identified.  The IP address is a 32-bit numerical identity that is written in a
+“dot” format, for example,
+128.83.40.146
+. Each of the four numbers can
+be 0 to 255, meaning each is an 8-bit byte. Together the four numbers represent
+a 32-bit IP address. It is easy for a small set of machines in a LAN to learn
+the IP addresses of each other, there is a protocol called Address Resolution
+Protocol (
+ARP
+)
+that accomplishes this. The ARP protocol’s target is to get every machine to
+learn the hardware address (aka the MAC address) and the corresponding IP address of every other
+machine in a LAN. The 32-bit IP-address that is unique to each machine poses
+the problem of being hard to remember, like phone numbers. A lookup service called
+Domain Name Service (
+DNS
+),
+maps a symbolic name (like www.utexas.edu) to its corresponding IP address. The
+second issue that the
+Network
+layer
+addresses is
+routing
+.
+That is, the movement of information (packaged in chunks called
+Datagrams
+) from one
+machine to another in an optimal way.
+Figure 16.6. The internet is a network of networks.
+Video
+16.2
+.
+Internet: Network of Networks
+Now imagine Bob lives in New York city with
+a unique address and Mary lives in Austin, and the two exchange communications with
+each other the old-fashioned way by writing letters. If little Bobby in Bob’s
+house wants to write to Little Suzy in Mary’s house, then Bobby would write Suzy’s
+name on the letter sent to Mary’s household. This way, multiple people in
+Mary’s household receive letters at the same address but the letter is
+addressed to them individually. The equivalent of this in the Internet is a
+port
+.
+Each machine has multiple ports at which it can send and receive messages.
+Furthermore, these ports fall into two categories, TCP ports and UDP ports. TCP
+ports provide reliable communication (akin to say registered post) and UDP
+ports provide unreliable best-effort communication. The
+Transport
+layer
+is
+responsible for providing this abstraction of ports and their related
+implementation. To stretch the analogy further, you may think of TCP as being a guaranteed post (say registered mail that requires an
+explicit acknowlegement of delivery) and UDP being normal post (a
+best-effort  delivery).
+Therefore, an end-point of communication can be seen
+as containing a port number, its type (TCP/UDP) and the IP address. A
+socket
+captures this end-point from a programmer’s perspective. Therefore, programming
+in the Internet is nothing but programming the
+socket
+API, where different
+applications running on different machines across the Internet, exchange
+information. Not everybody fancies writing code using the
+socket
+API, so
+higher level
+Application layer
+protocols, like HTTP, SMTP, FTP, have
+been developed that serve a specific purposes of hyper-text transfer,
+mail-transfer, file-transfer respectively. These Application layer protocols
+use sockets that are TCP-based for reliability. Multimedia applications like
+VoIP use UDP sockets as the goal there is speed and not reliability. So, the
+layered model that the Internet uses can be seen as having four layers, the
+Application layer, the Transport layer, the Network layer and the Media Access
+Layer. This is popularly referred to as the TCP/IP model. The
+OSI
+model, which the TCP/IP
+model is said to be compliant with, defines more layers but the correspondence
+between the two can be seen in Figure 16.7. For an excellent description of the
+TCP/IP
+(Transmission
+Control Protocol/Internet Protocol) protocol the reader is referred to W.
+Richard Stevens,
+TCP/IP Illustrated, Volume 1: The Protocols
+.
+Figure 16.7. The TCP/IP model has four layers.
+Note also that the layered model can
+clearly be perceived by looking at the format of data at each layer as seen in
+Figure 16.8. User data, which is application dependent, is tagged with an
+application header that is specific to the application and serves to convey how
+the data must be interpreted. Together this is a
+message
+. The
+Transport
+layer
+tags the
+message
+with a TCP/UDP header that among other things
+has the
+port
+information and checksum for integrity. This is referred to
+as
+packet
+or
+segment
+. The
+Network
+layer
+adds the IP
+address and routing information in the form of an IP header, giving us an IP
+datagram
+.
+The Data Link layer adds its own protocol specific header to form a
+frame
+.
+Figure 16.8. Overview of message packets used at various
+layers.
+Checkpoint 16.4.
+:
+What is the
+difference between TCP and UDP
+Checkpoint 16.5.
+:
+Do an internet
+search to look up
+IGMP
+. How does IGMP affect routing?
+Checkpoint 16.6.
+:
+What does Internet Protocol
+Stack
+mean?
+16.2. Internet of Things
+With the proliferation of embedded systems
+and the pervasiveness of the Internet, it is only natural to connect the two.
+The
+Internet of Things
+(
+IoT
+) is the
+combination of embedded systems, which have sensors to collect data and
+actuators to affect the surrounding, and the internet, which provides for
+ubiquitous remote and secure communication. This section will not describe how
+the internet works, but rather we will discuss both the general and specific
+approaches for connecting embedded systems to the internet. For a general
+description of the internet of things, see Vasseur and Dunkels,
+Interconnecting
+Smart Objects with IP
+. This book provides a good overview of network technologies
+used for connecting devices.
+Figure 16.9 illustrates the distributed
+approach taken with the internet of things. A
+distributed
+solution deploys
+multiple sensors and actuators connected by the internet. Another name given
+for an embedded system connected to the internet is
+smart object
+. Smart
+objects
+include sensors
+to collect data, processing to detect events and make decisions, and actuators
+to manipulate the local environment. There are many reasons to consider a
+distributed solution (network) over a centralized solution. Often multiple
+simple microcontrollers can provide a higher performance at lower cost compared
+to one computer powerful enough to run the entire system. Some embedded
+applications require input/output activities that are physically distributed.
+For real-time operation there may not be enough time to allow communication between
+a remote sensor and a central computer. Another advantage of distributed system
+is improved debugging. For example, we could use one node in a network to
+monitor and debug the others. Often, we do not know the level of complexity of
+our problem at design time. Similarly, over time the complexity may increase or
+decrease. A distributed system can often be deployed that supports scaling. For
+example, as the complexity increases more nodes can be added, and if the
+complexity were to decrease nodes could be removed. Table 16.1 lists some
+existing applications and the things they sense or control.
+Figure 16.9.  The internet of things places
+input, output and processing at multiple locations connected together over the
+internet.
+Video
+16.3
+.
+The Internet of Things
+Industrial Automation      Factories,
+machines, shipping
+Environment                   
+Weather,
+pollution, public safety
+Smart
+Grid                      
+Electric
+power, energy delivery
+Smart
+Cities                    
+Transportation,
+hazards, public services
+Social Networks               Ideas,
+politics, sales, and communication
+Home Networks               Lighting,
+heat, security, information
+Building Networks           Energy,
+hazards, security, maintenance
+Structural Monitors          Bridges,
+roads, building
+Health
+Care                      
+Heart
+function, medical data, remote care
+Law
+enforcement             
+Crime,
+public safety
+Table 16.1.  Applications of smart objects.
+Checkpoint 16.7.
+:
+In the context of
+this course, what is a
+thing?
+Challenges.
+On a local scale,
+the design of smart objects faces the same challenges existing in all embedded
+systems: power, size, reliability, longevity, and cost. Luckily the deployment
+of billions of microcontrollers into the market has created a technology race
+to reduce power, size and cost while increasing the performance. At the
+microcontroller level things are getting smaller, but at the network level,
+complexity is increasing and protocols are constantly changing as the world’s
+thirst for information and communication rapidly grows.
+Standardization.
+The existence of
+standards allows for a wide variety of objects to communicate with each other.
+Adhering to a standard will increase the acceptance of our device by customers,
+and allow our customers to apply our device to solve problems we never
+envisioned.
+uIP
+is a light-weight implementation of the IP stack
+specifically designed to operate with the available memory resources of smart
+objects. In this section we will start with a microcontroller with the hardware
+and software to implement TCP/IP protocols, and build our application on top of
+this standard.
+Interoperability
+means our device
+can function with a wide range of other devices made with different
+technologies, sold by different vendors, and produced by different companies.
+Evolution
+is process of how
+new technologies are introduced into the market. If there is one constant in
+this world, it is that things will change. Every thousand years, one big
+discovery fundamentally changes how we operate (fire, language, metal tools).
+More frequently, change is introduced gradually such that those technologies
+that give us a competitive advantage survive. If we build our business model on
+the premise evolutionary change, then we can be nimble to deploy new technology
+when it provides lower cost and/or better performance.
+Stability.
+Even though
+technology will advance, our customers demand products that work reliably, for
+a long time, and in a manner with which they are comfortable. Over the last 50
+years automotive technology has drastically improved, but the driving
+experience, how we drive, has remained almost constant.
+Abstraction.
+You will notice
+the approach in this section differs widely from the other examples in this
+book. The rest of the book deploys a bottom up approach. With bottom-up
+education, the details are first explained, so there is no magic, and then
+abstraction occurs by encapsulating that we fully understand. In this section
+we will purchase hardware and software with capabilities to communicate with
+the internet, and use this abstraction without fully understanding how some of
+the lower levels operate.
+Scalability.
+ARM reports over
+50 million devices with an ARM core have been shipped from 1993 to 2013, and
+predicts another 50 billion before the end of this decade. In order to be
+effective and profitable, we need to develop systems that can scale.
+Security.
+Because embedded
+systems are deployed in life-critical situations, and because the quality of
+service affects our profits, we must protect the system from a determined
+adversary. A chain is only as strong as its weakest link. Security
+cannot be
+obtained simply by operating in secret, because once the secret is out, the
+system will be extremely vulnerable. “Security by obscurity” is a very poor
+design method. Security involves more than encrypting the data. The first
+aspect of security is
+confidentiality
+. We must decide what it means to
+view/change the data and who has the right to read/write. Authentication is the
+means to ensure the identity of the sender is correct. Confidentiality will
+require both logical and physical measures to protect against an attack.
+Encryption makes it harder for an unauthorized party to view a message. The
+second aspect is data
+integrity
+. For most of the applications listed in
+Table 16.1 it is important that data reach the rightful recipient in an
+unaltered fashion. To support network integrity we need techniques that support
+both detection and prevention. The third aspect is
+availability
+. A
+secure communication not only requires the correct data arrive at the correct
+place, but also at the correct time. A Denial of Service (DoS) attack attempts
+to breach the availability of the network by sending a large amounts of simulated traffic to a server. The sole purpose of such traffic is to disrupt the service from being available to actual customers. There are several ways to thwart DoS attacks,  for wired networks, we can reroute
+traffic along multiple paths. With wireless networks, we can channel hop by switching channels on a pseudorandom fashion, making it harder for an attacker to jam.
+For more information on security, see Frank Stajano,
+Security for Ubiquitous
+Computing
+.
+Checkpoint 16.8.
+:
+What does evolution mean in the context of the Internet of Things?
+16.3.
+IP Addresses
+IP-addresses being 32-bit numbers, we
+could potentially have 4 billion addresses. With the emerging demand to connect
+embedded devices to the Internet, it would seem inevitable that we run out of IP
+addresses. Fortunately, the
+IETF
+envisioned this and set aside IP addresses that can be used in private networks.
+These pool of private IP addresses are listed in Table 16.2. These IP addresses
+could be used for embedded devices within Intranets. By using a technique
+called Network Address Translation (
+NAT
+), these
+embedded devices inside Intranets can communicate (if needed) with other
+entities in the Internet, by sharing one non-private IP address among a set of
+devices. Figure 16.10 shows messages arriving at the public IP address are
+routed by the NAT to the correct private IP. NAT modified the headers of outgoing traffic from the machines in the Intranet, to appear like the traffic is originating from the one machine which has a public IP address.
+Figure 16.10.  Intranet is a local network
+than with private IP addresses.
+Video
+16.4
+.
+IP Addresses and Intranets
+Start
+End
+Number of addresses
+10.0.0.0
+10.255.255.255
+2
+24
+172.16.0.0
+172.31.255.255
+2
+20
+192.168.0.0
+192.168.255.255
+2
+16
+Table 16.2. Private IP addresses.
+Because of the growth of the internet, the
+32-bit IP address (IPv4) is being replaced with a 128-bit address (IPv6), which
+will provide for about 3∙10
+38
+addresses.
+Checkpoint 16.9.
+:
+If you remove the private emails from the list, how many public IP addresses are there in IPv4?
+Checkpoint 16.10.
+:
+What is the major difference between IPv6 and IPv4?
+For more information see:
+http://en.wikipedia.org/wiki/IPv6
+16.4. CC3100 Booster Pack
+As described above, from an application
+programmer’s perspective writing applications that involve communication over
+the Internet is quite simply making calls to the
+socket API
+, to make a
+connection, transmit/receive application data and close the connection.
+However, this assumes that the software support (from the OS) and the hardware
+support (from physical hardware and firmware) is available on the machine. In
+our case the hardware/firmware support comes from the
+CC3100
+Booster Pack. The relevant
+software that implements the Data-Link layer, the Network Layer and the
+Transport layer is made available through libraries that we will link to our
+application.
+Figure 16.11 shows the method most systems use to create a
+wifi connection. In particular there is a small amount of hardware that manages
+the physical layers of the connection and the remaining layers are implemented
+in software on the host.
+Figure 16.11.  Typical manner for implementing wifi connections.
+For most embedded microcontroller, there
+is not enough memory and processor performance to implement all the layers of
+the internet stack. Therefore the CC3100 solution, similar to other wifi
+solutions for embedded systems, is to shift most of the internet layers onto
+firmware, as shown in Figure 16.12. In this approach only a small footprint
+remains on the host microcontroller. Texas Instruments calls this footprint
+SimpleLink. When looking at the software, the SimpleLink software driver functions
+begin with
+sl_
+. Figure 16.13
+shows the CC3100 booster pack connected to the LaunchPad.
+Figure 16.12.  CC3100 solution for implementing wifi connections.
+Video
+16.5
+.
+The Launchpad and the CC3100 booster pack
+When plugging it onto the LaunchPad make sure the writing on the white silkscreen has the same orientation.
+Figure 16.13.  The CC3100 booster packet provides
+IEEE802.11 wireless connectivity.
+Table 16.3 shows the hardware connections
+to the CC3100 Booster pack. Unused pins can be used by user application. You
+can see the CC3100 could be interfaced with either SSI2 (PB4-7, PE0) or UART1
+(PB0, PB1, PC4, PC5). The software in this example uses SSI2. Remember that PB7
+is connected to PD1 via 0Ω R10 resistor on the LaunchPad, and PB6 is
+connected to PD0 via 0Ω R9 resistor. So if you wish to use PD0 or PD1 with
+the CC3100, you must remove R9 and R10 from your LaunchPad, see
+http://youtu.be/MWIX7wgS9PM
+Pin 
+  Signal   
+ Direction      Pin
+   Signal      Direction
+P1.1 
+3.3 VCC       
+IN          P2.1 
+Gnd  
+GND       IN
+P1.2  PB5 UNUSED     NA
+P2.2  PB2   IRQ       OUT
+P1.3  PB0 UART1_TX   OUT
+P2.3  PE0   SSI2_CS   IN
+P1.4  PB1 UART1_RX   IN
+P2.4  PF0  
+UNUSED    NA
+P1.5  PE4 nHIB       IN
+P2.5  Reset nRESET    IN
+P1.6  PE5 UNUSED     NA
+P2.6  PB7   SSI2_MOSI IN
+P1.7  PB4 SSI2_CLK   IN
+P2.7  PB6   SSI2_MISO OUT
+P1.8 
+PA5 UNUSED    
+NA          P2.8 
+PA4   UNUSED 
+  NA
+P1.9 
+PA6 UNUSED   
+ NA         
+P2.9  PA3   UNUSED 
+  NA
+P1.10
+PA7 UNUSED   
+ NA          P2.10
+PA2   UNUSED 
+  NA
+Pin 
+  Signal    
+ Direction     Pin
+   Signal      Direction
+P3.1 
++5  +5 V      
+IN          P4.1  PF2
+UNUSED      OUT
+P3.2 
+Gnd GND       
+IN          P4.2  PF3
+UNUSED      OUT
+P3.3  PD0 UNUSED     NA          P4.3  PB3
+UNUSED      NA
+P3.4  PD1 UNUSED     NA
+P4.4  PC4 UART1_CTS   IN
+P3.5  PD2 UNUSED     NA
+P4.5  PC5 UART1_RTS   OUT
+P3.6  PD3 UNUSED     NA          P4.6  PC6
+UNUSED      NA
+P3.7  PE1 UNUSED     NA
+P4.7  PC7 NWP_LOG_TX  OUT
+P3.8  PE2 UNUSED     NA
+P4.8  PD6 WLAN_LOG_TX OUT
+P3.9  PE3 UNUSED     NA          P4.9  PD7
+UNUSED      IN (see R74)
+P3.10 PF1 UNUSED     NA          P4.10 PF4
+UNUSED      OUT(see R75)
+Table 16.3.  Hardware connections to the CC3100 booster
+packet.
+The actual TCP/IP software stack resides
+in firmware on the CC3100 booster pack itself. Therefore, when using the
+wireless booster packs, Texas Instruments recommends us to upgrade the
+firmware. The examples of this chapter ran on version 3.3 CC3100 booster packs
+without needing to upgrade the firmware.
+Checkpoint16.11
+:
+Assume you use the
+CC3100 for a smart object and connect an analog signal to the ADC on PD0. What
+would happen if you do not remove R9 and R10 from the LaunchPad?
+16.5. Client Server Communication
+The client-server paradigm is the dominant
+communication pattern over the Internet. The
+socket
+API supports two
+forms of this paradigm, a TCP-based connection-oriented form and a UDP-based
+connection-less form. Table 16.4 shows various popular applications and the
+underlying application and transport protocols they use.
+Table 16.4.  Applications their protocols and Transport
+protocol they depend on.
+The popular Hyper-Text Transfer Protocol
+(HTTP), which is used in the implementation of the World Wide Web (WWW) is
+TCP-based. A web browser like Firefox is a
+client
+(a HTTP client) and a
+web server like www.edX.org is a server (a HTTP server). The paradigm can be
+seen to function as described in Figure 16.14.
+Figure 16.14.  Client-Server paradigm with a multi-threaded server, serving multiple clients.
+Video
+16.6
+.
+The Client-Server Paradigm
+A server running at a machine (say
+host.network.org) creates a socket bound to a port xyz. This port number is
+either a standard port or one chosen specifically for the service. For example,
+if the server is a
+web server
+that is publicly accessible, then the port
+number is 80. On the other hand, if it’s a proprietary server, the service may
+choose an arbitrary number for xyz (say 6565) and let clients know about it so
+they can connect for service. This socket is called a connection socket (
+conSocket
+)where
+the servers waits for connection requests from clients. A client that wants to
+access the service provided by the server creates a client socket (
+clientSocket
+).
+The client needs to know the hostname and the port at which the service is
+running to establish the connection using the client socket. Once the server
+sees the request, it accepts it on a separate socket (
+servSocket)
+. It
+does not serve the client on the connection socket because, if it takes too
+long to serve the client then the server will be inaccessible to other clients
+seeking service. By accepting each client at a separate socket, the server can
+remain ready for connection requests from new clients.
+Once the server accepts a client (say A)
+it creates a
+thread
+to service that client by passing to the thread the
+socket at which the client was accepted. The main thread is now free to accept
+other clients. The exchange between client A and the thread serving it may
+involve multiple messages transferred back and forth or a single
+request/response as shown in the figure. A Web Browser like Firefox (a commonly
+used client) makes one connection for each object it requests from a Web
+Server. Note that each client connection is to port 80, which is a standard
+port at which HTTP servers (aka Web Server) run.
+Checkpoint16.12
+:
+What is a
+socket
+?
+Checkpoint16.13
+:
+What is a
+port
+?
+For more information see:
+http://en.wikipedia.org/wiki/Port_(computer_networking)
+In the example in the
+next section, we will have the Launchpad connect to a web server running at
+openweathermap.org
+,
+a public server that gives weather information for any city in the world. So,
+the process is to create a socket and connect to the web server (we will call
+it the weather server) running on openweathermap.org at port 80. Once
+connected, we send it a request using the HTTP GET command. The server responds
+with a well-formatted string containing weather details for the city whose
+weather information was sought in the
+GET
+request.
+16.6. Communication with a Weather Server
+This application creates a web client that
+fetches weather data from a server. To see the features of the server, go to
+openweathermap.org
+(link to
+http://openweathermap.org/)
+, enter
+Austin Texas
+into the search box, and
+click search. The goal of this smart object is to display weather data on the
+LCD. The approach for implementing a smart object
+over wifi is to
+begin with a hardware/software platform that implements IEEE801.11 wifi. The
+CC3100BOOST
+is a boosterpack
+that can be used with the TM4C123 LaunchPad as shown in Figure 16.15. We will
+connect a Nokia 5110 LCD to the LaunchPad that we will use to display the
+weather. This Nokia 5110 LCD interface was presented earlier in Section 11.5. If
+you do not have a Nokia 5110, the weather output will also be sent to UART0 at
+115200 bits/sec and can be observed with TExaSdisplay similar to Labs 5 and 11.
+Figure 16.15.  The smart object displays real-time weather
+information.
+Video
+16.7
+.
+The openweathermap.org server
+Program 16.1 shows the high-level client
+software, which initializes the wifi module and connects to the access point.
+There is a mechanism using SmartConfig to automate this discovery, but in this
+example I named the AP
+valvano
+so I used a manual method to define the
+connection between the node and AP.  My access point uses WPA encryption and
+its passkey is
+calvin50
+. So if you are
+ever wandering by my office on the University of Texas, you’ll be able to
+connect to my access point.
+Video
+16.8
+.
+Configuring/Getting settings from an Access Point
+Video
+16.9
+.
+Walkthrough of the Code
+Lines 1, 2 and 3 define the parameters needed to
+connect to your access point. You will need to refer to the directions on your
+access point to determine its name, type of security, and password. You should
+set
+SEC_TYPE
+to
+SL_SEC_TYPE_OPEN
+if there is no
+security, and you should set
+SEC_TYPE
+to
+SL_SEC_TYPE_WEP
+to use WEP security. Lines 4-7
+start the main program and initialize variables. Line 8 doesn’t do anything; it
+was in the starter code from Texas Instruments, so we left it in. Line 8
+configures the PLL to use the crystal and operate at 50 MHz. Line 10
+initializes the LCD display. Line 11 initializes the switch inputs and LED
+outputs on the LaunchPad Port F. Line 12 sends a hello message to the screen.
+Lines 13-24 will initialize the CC3100.  If the initialization fails the red
+LED will flash quickly. Line 25 will connect to the access point using the
+parameters specified in Lines 1-3. If it cannot connect, it will hang inside
+WlanConnect
+. Line 26 tells us
+we are connected to the access point.
+Video
+16.10
+.
+Checking the Access Point logs to see if launchpad is connected to the wifi Network
+The while loop runs over and over, you can
+adjust the time delay between updates by changing the constant in Line 36. Lines
+32 and 40 are a heartbeat, setting the green LED each time a valid packet is
+received. The
+getWeather
+call in Line 30
+will populate the three strings
+City
+Temperature
+and
+Weather
+. If valid, Lines 29, 35-37 will
+display the weather information on the LCD. The entire received packet is sent
+to the PC via the UART0 link in lines 33-34.
+#define
+SSID_NAME  "valvano"    
+                           1
+#define
+SEC_TYPE  
+SL_SEC_TYPE_WPA        
+                 2
+#define
+PASSKEY   
+"calvin50"       
+                       3
+int
+main(void){                                            
+4
+int32_t
+retVal;                                          
+5
+char *pConfig =
+NULL;             
+                       6
+retVal =
+initializeAppVariables();                       
+7
+stopWDT();        // Stop WDT
+                            8
+initClk();        // PLL 50
+MHz                          
+9
+LCD_Init();                        
+                     10
+LED_Init();       // initialize LaunchPad
+I/O           
+11
+LCD_OutString("Weather
+App\n");                   
+      12
+retVal =
+configureSimpleLinkToDefaultState(pConfig);     13
+if(retVal <
+0){                                 
+        14
+if(DEVICE_NOT_IN_STATION_MODE ==
+retVal){             
+15
+LCD_OutString(" Failed to
+configure\r\n");         
+16
+Crash(4000000);                                    
+17
+}                                                     
+18
+}                                                       
+19
+retVal = sl_Start(0, pConfig,
+0);                       
+20
+if((retVal < 0) || (ROLE_STA != retVal)
+){              
+21
+LCD_OutString(" Failed to start the device
+\r\n");     22
+Crash(8000000);                                       
+23
+}                                                       
+24
+WlanConnect();                                          
+25
+LCD_OutString("Connected\n");             
+              26
+while(1){ 
+                                              27
+Nokia5110_SetCursor(0,2);                             
+29
+retVal =
+getWeather();                                
+30
+if(retVal == 0){  //
+valid                            
+31
+LED_GreenOn();
+                                      32
+UARTprintf("\r\n\r\n");                             
+33
+UARTprintf(appData.Recvbuff); UARTprintf("\r\n");   
+34
+LCD_OutString(City);
+LCD_OutString("\n");          
+ 35
+LCD_OutString(Temperature); LCD_OutString("
+C\n");   36
+LCD_OutString(Weather); 
+                            37
+}                                                     
+38
+while(Board_Input()==0){}; // wait for touch          
+39
+LED_GreenOff();                 
+                      40
+}                                                       
+41
+}                                                         
+42
+Program 16.1. Client software that initializes the system
+and displays weather information on the screen.
+Program 16.2 shows lower level function
+that communicates with the weather server.  Figure 16.16 shows an actual
+appData.Recvbuff
+received from the
+openweathermap.org
+server. Line 1
+defines the request to be sent to the server. Lines 2-5 define the three strings
+that will be extracted from the weather information that you will receive back
+from the server. It will check for maximum length (
+MAXLEN
+) so the program
+will not crash if bad or weird data is returned from the server. Lines 1 and 6 specify
+the logical name of the server. Lines 7-18 define the data structure used to
+manage the connection. Again it will check for maximum lengths to reduce the
+chance of crash on buffer overflow. The
+Socket
+(
+SockID
+) is a local structure
+managed in the CC3100 used to specify the connection. In this case there is
+just one connection, but it would be possible to manage multiple connections in
+other applications by having more than one socket open at a time.  Lines 19-20
+define the function and its local variables. The variable
+i
+will index into
+the string arrays, and the pointer
+pt
+will be used to parse the returned
+message from the weather server. The
+getWeather
+function returns 0 on success and -1 on
+failure. Lines 21 and 22 will perform the logical to physical address translation.
+Inside
+GetHostIP
+, it will call the
+Simple Link driver function
+sl_NetAppDnsGetHostByName
+, which will take the
+openweathermap.org
+logical address
+and find the physical IP address of the weather server. Line 23 creates a
+connection by opening a socket to that physical IP address. The string
+appData.SendBuff
+contains the
+request to fetch the weather for Austin Texas. You could change line 1 to fetch
+weather from a different city. For details of the format of this request, see
+openweathermap.org
+. Another change
+to consider is in Line 1; you could change the units from
+metric
+to
+imperial
+. If you change to
+imperial, you should also change the units in the main program from
+C
+to
+F
+.  Lines 24 and 25
+sends the request to the server, and Line 26 receives the response from the
+server. Line 27 guarantees the receive buffer is null-terminated. To understand
+Lines 28-37, refer to Figure 16.16. These lines search for
+"
+name
+"
+, skip over the
+quotes, and copy the name into
+City
+string until the second quote. In a similar
+manner, Lines 38-47 search for
+"temp"
+, skip past the quotes, and copy
+the temperature into
+Temperature
+string until the
+second quote. Finally, Lines 48-57 search for
+"description"
+, skip past the
+quotes, and copy the weather information into
+Weather
+string until the second quote.
+Since we opened the socket in Line 23, we will close the socket in Line 58
+before returning.
+#define
+REQUEST "GET /data/2.5/weather?q=Austin Texas&units=metric
+HTTP/1.1\r\nUser-Agent:
+Keil\r\nHost:api.openweathermap.org\r\n
+Accept: */*\r\n\r\n"
+                                            1
+#define
+MAXLEN
+100                                                
+2
+char
+City[MAXLEN];                                                
+3
+char
+Temperature[MAXLEN];                         
+                4
+char
+Weather[MAXLEN];                                             
+5
+#define
+SERVER  
+           "openweathermap.org"                  
+6
+#define
+MAX_RECV_BUFF_SIZE 
+1024                                  
+7
+#define
+MAX_SEND_BUFF_SIZE 
+512                                   
+8
+#define
+MAX_HOSTNAME_SIZE   40     
+                               9
+#define
+MAX_PASSKEY_SIZE   
+32                                   
+10
+#define
+MAX_SSID_SIZE      
+32                                   
+11
+struct{   
+                                                       12
+char
+Recvbuff[MAX_RECV_BUFF_SIZE];                           
+13
+char
+SendBuff[MAX_SEND_BUFF_SIZE];                           
+14
+char
+HostName[MAX_HOSTNAME_SIZE];                      
+      15
+unsigned long
+DestinationIP;                                 
+16
+int
+SockID;                                                  
+17
+}appData;                                                        
+18
+static
+uint32_t getWeather(void){uint32_t
+i;                     
+19
+char *pt =
+NULL;                                
+               20
+memcpy(appData.HostName,
+SERVER,strlen(SERVER));              
+ 21
+if(GetHostIP() ==
+0){                                          
+22
+if( (appData.SockID = CreateConnection()) < 0 ) return -1;    23
+strcpy(appData.SendBuff, REQUEST);
+                           24
+sl_Send(appData.SockID,
+appData.SendBuff,
+strlen(appData.SendBuff),
+0);                        
+25
+sl_Recv(appData.SockID,
+&appData.Recvbuff[0],
+MAX_RECV_BUFF_SIZE,
+0);                              
+26
+appData.Recvbuff[strlen(appData.Recvbuff)] = '\0';            27
+pt = strstr(appData.Recvbuff, "\"name\"");  
+                 28
+i =
+0;                                                       
+29
+if( NULL != pt
+){                                    
+        30
+pt = pt + 8; // skip over "name":"    
+                     31
+while((i<MAXLEN)&&(*pt)&&(*pt!='\"')){
+                     32
+City[i] = *pt; // copy into City
+string         
+         33
+pt++; i++;   
+                                            34
+}                                                          
+35
+}                   
+                                         36
+City[i] =
+0;                                                 
+37
+pt = strstr(appData.Recvbuff, "\"temp\"");  
+                 38
+i =
+0;                                                       
+39
+if( NULL != pt
+){                                    
+        40
+pt = pt+7; // skip over
+"temp":                    
+        41
+while((i<MAXLEN)&&(*pt)&&(*pt !=
+'\"')){    
+               42
+Temperature[i] = *pt; // copy into string    
+            43
+pt++; i++;   
+                                            44
+}                                                          
+45
+}                                                            
+46
+Temperature[i] =
+0;          
+                                47
+pt = strstr(appData.Recvbuff, "\"description\"");             48
+i =
+0;                                                       
+49
+if( NULL != pt
+){                                   
+         50
+pt = pt + 15; // skip over "description":" 
+                51
+while((i<MAXLEN)&&(*pt)&&(*pt!='\"')){     
+                52
+Weather[i] = *pt; // copy into
+string           
+         53
+pt++; i++;
+                                               54
+}                                                          
+55
+}                                                            
+56
+Weather[i] =
+0;                                              
+57
+sl_Close(appData.SockID);        
+                            58
+}                                                              
+59
+return
+0;                                                      
+60
+}                                                                
+61
+Program 16.2. Client software that communicates with the
+weather server.
+HTTP/1.1 200 OK
+Server: nginx/1.6.2
+Date: Fri, 20 Feb 2015 15:47:34 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 484
+Connection: keep-alive
+X-Source: redis
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET, POST
+{"coord":{"lon":-97.74,"lat":30.27},"sys":{"message":0.0046,"country":"Unit
+ed States of America","sunrise":1424437547,"sunset":1424478207},"weather":[
+{"id":803,"main":"Clouds","description":"
+broken clouds
+","icon":"04d"}],"bas
+e":"cmc stations","main":{"temp":
+15.298
+,"temp_min":15.298,"temp_max":15.298
+,"pressure":1005.04,"sea_level":1030.13,"grnd_level":1005.04,"humidity":88}
+,"wind":{"speed":5.48,"deg":185},"clouds":{"all":76},"dt":1424446455,"id":4
+671654,"name":"
+Austin
+","cod":200}
+Figure 16.16. Weather information received from the
+openweathermap.org
+server. The weather information is one long string (the line breaks were added
+for web page formatting). The highlighted fields are extracted from the message
+and displayed on the LCD.
+Reprinted with approval from
+Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers
+, 2014, ISBN:
+978-1477508992,
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+and from
+Embedded Systems: Real-Time
+Interfacing to ARM® Cortex™-M Microcontrollers
+, 2014,
+ISBN: 978-1463590154,
+http://users.ece.utexas.edu/~valvano/arm/outline.htm
+Embedded
+Systems - Shape the World
+by
+Jonathan Valvano
+and Ramesh Yerraballi
+is licensed under a
+Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

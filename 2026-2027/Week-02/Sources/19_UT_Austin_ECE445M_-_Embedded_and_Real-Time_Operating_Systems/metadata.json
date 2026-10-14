@@ -1,0 +1,49 @@
+{
+  "id": 19,
+  "name": "UT Austin ECE445M - Embedded and Real-Time Operating Systems",
+  "type": "Üniversite dersi",
+  "url": "https://users.ece.utexas.edu/~valvano/EE445M/",
+  "folder": "19_UT_Austin_ECE445M_-_Embedded_and_Real-Time_Operating_Systems",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://users.ece.utexas.edu/~valvano/EE445M/",
+      "final_url": "https://users.ece.utexas.edu/~valvano/EE445M/",
+      "kind": "html",
+      "bytes": 6152,
+      "sha256": "4b828717bbe1ade08c7812d0a8e363cce2934e329b21ee0d013864efce49e5a4"
+    },
+    {
+      "file": "page_9c9ef6f000.html",
+      "url": "https://users.ece.utexas.edu/~valvano/EE445M/syllabus.html",
+      "final_url": "https://users.ece.utexas.edu/~valvano/EE445M/syllabus.html",
+      "kind": "html",
+      "bytes": 33014,
+      "sha256": "dacba07795309ff9abd788e5fff884edc9fb04ed230981565cfbf6a30d5c9e71"
+    },
+    {
+      "file": "page_020682d5ff.html",
+      "url": "https://users.ece.utexas.edu/~valvano/EE445M/lectures.html",
+      "final_url": "https://users.ece.utexas.edu/~valvano/EE445M/lectures.html",
+      "kind": "html",
+      "bytes": 9055,
+      "sha256": "ca2ca0ad1dfc838f59c33811203e3c28d0c7a5eb98c8bfb2826c87cde5fe56fa"
+    },
+    {
+      "file": "page_66046a1241.html",
+      "url": "https://users.ece.utexas.edu/~valvano/EE445M/labs.html",
+      "final_url": "https://users.ece.utexas.edu/~valvano/EE445M/labs.html",
+      "kind": "html",
+      "bytes": 9639,
+      "sha256": "e3bd43d4fa6abfa22f5db413723b9ab2d2e8d31f150b76efa2a56aa1d56c837d"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:47:14+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

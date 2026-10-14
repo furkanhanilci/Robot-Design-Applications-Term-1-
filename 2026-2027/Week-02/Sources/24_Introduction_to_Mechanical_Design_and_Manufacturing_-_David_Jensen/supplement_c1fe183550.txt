@@ -1,0 +1,239 @@
+Types of Cutting and Machining Pocess and Tolerances – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Types of Cutting and Machining Pocess and Tolerances
+Machining is a manufacturing method that involves removing material from a workpiece using a cutting tool. Machining can produce parts with high accuracy and surface finish, but it also requires careful design considerations to optimize the process and reduce the cost. In this chapter, we will discuss some of the important aspects of design for machining, such as cutting tool nomenclature, machining cost and tool life.
+Cutting Tool Nomenclature
+A cutting tool is the device that performs the actual material removal in machining. It has various features that affect its performance and suitability for different operations. The following table summarizes some of the common terms used to describe a cutting tool and their meanings.
+Term
+Description
+Base
+The part of the tool that is clamped or held by the machine
+Cutting Edge
+The edge of the tool that contacts and cuts the workpiece
+Cutting Angle
+The angle between the cutting edge and the direction of tool motion
+Back-Rake Angle
+The angle between the face and a plane perpendicular to the base
+Side-Rake Angle
+The angle between the face and a plane parallel to the base
+Face
+The surface of the tool that is perpendicular to the cutting edge
+Flank
+The surface of the tool that is adjacent to and behind the cutting edge
+Size
+The dimensions of the tool, such as length, width and thickness
+Shank
+The part of the tool that extends from the base and connects to the machine
+Tool Point
+The tip or end of the tool where the cutting edges meet
+Machining Cost and Tolerance
+The cost of machining a part depends on several factors, such as the type of machining process, the material properties, the part geometry, the surface finish and the dimensional tolerance. Generally, machining processes can be classified into two categories: roughing and finishing. Roughing processes remove large amounts of material quickly but produce low accuracy and surface finish. Finishing processes remove small amounts of material slowly but produce high accuracy and surface finish. Therefore, a trade-off exists between machining time and quality.
+The tolerance is the allowable deviation from a specified dimension or feature. It reflects the degree of precision required for a part. A tighter tolerance means a higher precision, but also a higher machining cost. Therefore, designers should specify tolerances that are appropriate for the function and performance of the part and avoid over-tolerancing or under-tolerancing.
+Machining Defects and Tool Life
+Machining is a complex process that involves high temperatures, pressures, stresses and friction. These factors can cause various defects in the machined part or wear in the cutting tool. Some of the common machining defects and tool wear mechanisms are listed in the following table.
+Defect or Wear Type
+Description
+Flank Wear
+The gradual wear of the flank surface due to abrasion by the workpiece material
+Crater Wear
+The formation of a depression on the face surface due to diffusion or chemical reaction between the tool and workpiece materials
+Diffusion
+The transfer of atoms between the tool and workpiece materials due to high temperature and contact pressure
+Adhesion/Attrition
+The welding or tearing of material from one surface to another due to high temperature and friction
+Chipping
+The breaking or cracking of a small portion of the cutting edge due to impact or thermal shock
+Built-up Edge
+The accumulation of workpiece material on the cutting edge due to adhesion or plastic deformation
+Notching Wear
+The formation of grooves or notches on the cutting edge due to abrasion by hard particles or inclusions in the workpiece material
+Plastic Deformation
+The permanent change in shape or size of the tool due to high temperature and stress
+Tool life is defined as the time that a cutting tool can perform satisfactorily before it needs to be replaced or reconditioned. Tool life is affected by many factors, such as cutting speed, feed rate, depth of cut, tool geometry, tool material, workpiece material, coolant, etc.
+One of the empirical models used to estimate tool life is given by:
+[latex]V*T^{n} = C[/latex]
+*Where
+V
+is the cutting speed,
+T
+is tool life and
+C
+and
+n
+are constants that depend on various machining parameters. This equation implies that increasing the cutting speed will decrease tool life exponentially, and vice versa.
+Watch Professor Cummings'
+Video
+on Cutting Tools
+Expected Tolerances
+Read through the following helpful guide on expected tolerances for common machining processes -
+Guide for Machining Tolerances
+The international tolerance grades (IT grades) are a system of standardized tolerances for designing mechanical components. They specify the allowable deviation from a nominal dimension for different manufacturing processes. The IT grades range from IT01 to IT18, with lower numbers indicating higher precision and smaller tolerances.
+The IT grade for a given dimension can be calculated using the formula:
+[latex]T = 0.45 \cdot D^{\frac{1}{3}} \cdot 10^{0.2 \cdot ITG}[/latex]
+where T is the tolerance in micrometers, D is the geometric mean dimension in millimeters, and ITG is the IT grade number.
+*Watch this
+video
+to learn more about International Tolerance Relation to Machining Process.
+Previous/next navigation
+Previous: Manufacturing – Machining Processes
+Next: Milling
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

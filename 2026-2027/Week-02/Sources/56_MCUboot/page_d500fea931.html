@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MCUboot port for NuttX | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="MCUboot port for NuttX" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/readme-nuttx.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/readme-nuttx.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MCUboot port for NuttX" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"MCUboot port for NuttX","url":"https://docs.mcuboot.com/readme-nuttx.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">MCUboot port for NuttX</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="mcuboot-port-for-nuttx">MCUboot port for NuttX</h1>
+
+<h2 id="description">Description</h2>
+
+<p>The NuttX port of MCUboot secure boot library expects that the platform provides a Flash storage with the following partitions:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_PRIMARY_SLOT_PATH</code>: MTD partition for the application firmware image PRIMARY slot;</li>
+  <li><code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SECONDARY_SLOT_PATH</code>: MTD partition for the application firmware image SECONDARY slot;</li>
+  <li><code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SCRATCH_PATH</code>: MTD partition for the Scratch area;</li>
+</ul>
+
+<p>Also, these are optional features that may be enabled:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_WATCHDOG</code>: If <code class="language-plaintext highlighter-rouge">CONFIG_WATCHDOG</code> is enabled, MCUboot shall reset the watchdog timer indicated by <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_WATCHDOG_DEVPATH</code> to the current timeout value, preventing any imminent watchdog timeouts.</li>
+</ul>
+
+<p>The porting layer of MCUboot library consists of the following interfaces:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;flash_map_backend/flash_map_backend.h&gt;</code>, for enabling MCUboot to manage the application firmware image slots in the device storage.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;mcuboot_config/mcuboot_config.h&gt;</code>, for configuration of MCUboot’s features.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;mcuboot_config/mcuboot_logging.h&gt;</code>, for providing logging capabilities.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;os/os_malloc.h&gt;</code>, for providing MCUboot access to the OS memory management interfaces.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;sysflash/sysflash.h&gt;</code>, for configuration of the system’s flash area organization.</li>
+</ul>
+
+<p>The NuttX port of MCUboot is implemented at application-level and requires minimal knowledge about characteristics of the underlying storage device. This is achieved by means of the <code class="language-plaintext highlighter-rouge">BCH</code> and <code class="language-plaintext highlighter-rouge">FTL</code> subsystems, which enable MCUboot to manage MTD partitions via character device drivers using standard POSIX filesystem operations (e.g. <code class="language-plaintext highlighter-rouge">open()</code> / <code class="language-plaintext highlighter-rouge">close()</code> / <code class="language-plaintext highlighter-rouge">read()</code> / <code class="language-plaintext highlighter-rouge">write()</code>).</p>
+
+<h2 id="creating-mcuboot-compatible-application-firmware-images">Creating MCUboot-compatible application firmware images</h2>
+
+<p>One common use case for MCUboot is to integrate it to a firmware update agent, which is an important component of a secure firmware update subsystem. Through MCUboot APIs an application is able to install a newly received application firmware image and, once this application firmware image is assured to be valid, the application may confirm it as a stable image. In case that application firmware image is deemed bogus, MCUboot provides an API for invalidating that update, which will induce a rollback procedure to the most recent stable application firmware image.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_UPDATE_AGENT_EXAMPLE</code> example demonstrates this workflow by downloading an application firmware image from a webserver, installing it and triggering the firmware update process for the next boot after a system reset. There is also the <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SLOT_CONFIRM_EXAMPLE</code>, which is a fairly simple example that just calls an MCUboot API for confirming the executing application firmware image as stable.</p>
+
+<h2 id="using-mcuboot-on-nuttx-as-a-secure-boot-solution">Using MCUboot on NuttX as a secure boot solution</h2>
+
+<p>NuttX port for MCUboot also enables the creation of a secure bootloader application requiring minimal platform-specific implementation. The logical implementation for the secure boot is performed at application-level by the MCUboot library. Once MCUboot validates the application firmware image, it delegates the loading and execution of the application firmware image to a platform-specific routine, which is accessed via <code class="language-plaintext highlighter-rouge">boardctl(BOARDIOC_BOOT_IMAGE)</code> call. Each platform must then provide an implementation for the <code class="language-plaintext highlighter-rouge">board_boot_image()</code> for executing the required actions in order to boot a new application firmware image (e.g. deinitialize peripherals, load the Program Counter register with the application firmware image entry point address).</p>
+
+<p>The MCUboot bootloader application may be enabled by selecting the <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_BOOTLOADER</code> option.</p>
+
+<h2 id="assumptions">Assumptions</h2>
+
+<h3 id="ioctl-mtd-commands">IOCTL MTD commands</h3>
+
+<p>The implementation of <code class="language-plaintext highlighter-rouge">&lt;flash_map_backend/flash_map_backend.h&gt;</code> expects that the MTD driver for a given image partition handles the following <code class="language-plaintext highlighter-rouge">ioctl</code> commands:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MTDIOC_GEOMETRY</code>, for retrieving information about the geometry of the MTD, required for the configuration of the size of each flash area.</li>
+  <li><code class="language-plaintext highlighter-rouge">MTDIOC_ERASESTATE</code>, for retrieving the byte value of an erased cell of the MTD, required for the implementation of <code class="language-plaintext highlighter-rouge">flash_area_erased_val()</code> interface.</li>
+</ul>
+
+<h3 id="write-access-alignment">Write access alignment</h3>
+
+<p>Through <code class="language-plaintext highlighter-rouge">flash_area_align()</code> interface MCUboot expects that the implementation provides the shortest data length that may be written via <code class="language-plaintext highlighter-rouge">flash_area_write()</code> interface. The NuttX implementation passes through the <code class="language-plaintext highlighter-rouge">BCH</code> and <code class="language-plaintext highlighter-rouge">FTL</code> layers, which appropriately handle the write alignment restrictions of the underlying MTD. So The NuttX implementation of <code class="language-plaintext highlighter-rouge">flash_area_align()</code> is able to return a fixed value of 1 byte, even if the MTD does not support byte operations.</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<h3 id="flash_map_backendflash_map_backendh-functions-are-not-multitasking-safe"><code class="language-plaintext highlighter-rouge">&lt;flash_map_backend/flash_map_backend.h&gt;</code> functions are not multitasking-safe</h3>
+
+<p>MCUboot’s documentation imposes no restrictions regarding the usage of its public interfaces, which doesn’t mean they are thread-safe.
+But, regarding NuttX implementation of the <code class="language-plaintext highlighter-rouge">&lt;flash_map_backend/flash_map_backend.h&gt;</code>, it is safe to state that they are <strong>not</strong> multitasking-safe. NuttX implementation manages the MTD partitions via character device drivers. As file-descriptors cannot be shared between different tasks, if one task calls <code class="language-plaintext highlighter-rouge">flash_area_open</code> and another task calls <code class="language-plaintext highlighter-rouge">flash_area_&lt;read/write/close&gt;</code> passing the same <code class="language-plaintext highlighter-rouge">struct flash_area</code> instance, it will result in failure.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

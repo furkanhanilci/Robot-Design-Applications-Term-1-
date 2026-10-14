@@ -1,0 +1,400 @@
+Introduction to Embedded Systems
+Chapter
+1: Welcome
+Embedded Systems - Shape
+The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+Welcome to our course
+on Embedded Systems offered to you on the
+EdX
+MOOC platform. In this chapter we will introduce the course, who we
+are, our objectives in teaching this course in an online format, the
+equipment (software and hardware) you will need to perform the hands-on
+labs that the course entails. We will also show you a glimpse of the
+all the labs you will perform towards successful completion of the
+course and receiving certification.
+NB
+:
+This e-book exists as a 
+resource for the EdX course offering for Spring 2015. 
+However, it can also be used as a standalone resource if you ignore references to the EdX course.
+Video
+1.0
+. Welcome to UT.6.01x Embedded Systems - Shape The World
+Video
+1.1
+. Your Instructors (Jon Valvano and Ramesh Yerraballi)
+1.0 Introduction
+An embedded system combines mechanical,
+electrical, and chemical components along with a computer, hidden
+inside, to
+perform a single dedicated purpose. There are more computers on this
+planet
+than there are people, and most of these computers are single-chip
+microcontrollers that are the brains of an embedded system. Embedded
+systems
+are a ubiquitous component of our everyday lives. We interact with
+hundreds of
+tiny computers every day that are embedded into our houses, our cars,
+our
+bridges, our toys, and our work. As our world has become more complex,
+so have
+the capabilities of the microcontrollers embedded into our devices.
+Therefore
+the world needs a trained workforce to develop and manage products
+based on
+embedded microcontrollers.
+1.0.1 Impact
+The innovative aspect of this class is to
+effectively
+teach a course with a substantial lab component within the MOOC format.
+If
+MOOCs are truly going to transform the education, then they must be
+able to
+deliver laboratory classes. This offering will go a long way in
+unraveling the
+perceived complexities in delivering a laboratory experience to tens of
+thousands of students. If successful, the techniques developed in this
+class
+will significantly transform the MOOC environment. We believe effective
+education requires students to learn by doing. In the traditional
+academic
+setting this active learning is delivered in a lab format.  A
+number of
+important factors have combined that allow a lab class like this to be
+taught
+at this time. First, we have significant support from industrial
+partners ARM
+Inc and Texas Instruments. Second, the massive growth of embedded
+microcontrollers has made the availability of lost-cost development
+platforms
+feasible. Third, your instructors have the passion, patience, and
+experience of
+delivering quality lab experiences to large classes. Fourth, on-line
+tools now
+exist that allow students to interact and support each other.
+The overall educational objective of this class
+is to allow students to discover how the computer interacts with its
+environment. It will provide hands-on experiences of how an embedded
+system
+could be used to solve problems. The focus of this introductory course
+will be
+understanding and analysis rather than design. It takes an effective
+approach
+to learning new techniques by doing them. We feel we have solved the
+dilemma in
+learning a laboratory-based topic like embedded systems where there is
+a
+tremendous volume of details that first must be learned before hardware
+and
+software systems can be designed.
+1.0.2 Approach and Learning Philosophy
+The approach taken in this course is to learn by
+doing in a bottom-up fashion. One of the advantages of a bottom-up
+approach to
+learning is that the student begins by mastering simple concepts. Once
+the
+student truly understands simple concepts, he or she can then embark on
+the
+creative process of design, which involves putting the pieces together
+to
+create a more complex system. True creativity is needed to solve
+complex
+problems using effective combinations of simple components. Embedded
+systems
+afford an effective platform to teach new engineers how to program for
+three
+reasons. First, there is no operating system. Thus, in a bottom-up
+fashion the
+student can see, write, and understand all software running on a system
+that
+actually does something. Second, embedded systems involve real
+input/output
+that is easy for the student to touch, hear, and see. Third, embedded
+systems
+are employed in many every-day products, motivating students to see
+firsthand,
+how engineering processes can be applied in the real world.
+Video
+1.2
+. Learning Philosophy
+1.0.3 Audience and Background
+This course is intended for beginning college
+students with some knowledge of electricity as would have been taught
+in an
+introductory college physics class. Secondly, it is expected students
+will have
+some basic knowledge of programming and logic design. No specific
+language will
+be assumed as prior knowledge but this class could be taken as their
+second
+programming class.
+Video
+1.3
+. Expectations: who and prerequisites
+1.1 Structure and Objectives
+The analog to digital converter (ADC) and
+digital to analog converter (DAC) are the chosen mechanism to bridge
+the computer
+and electrical worlds. Electrical engineering concepts include Ohms
+Law, LED
+voltage/current, resistance measurement, and motor control. Computer
+engineering concepts include I/O device drivers, debugging, stacks,
+FIFO
+queues, local variables and interrupts. The hardware construction is
+performed
+on a breadboard and debugged using a multimeter (students learn to
+measure
+voltage). Software is developed in C; all labs will be first simulated
+then run
+on the real microcontroller. Software debugging occurs during the
+simulation
+stage. Verification occurs in both stages.
+The course has 11 labs and a final project. Each
+lab has a small and well-defined educational objective. Students begin
+by learning
+the fundamental concepts via lectures, interactive animations and
+readings. The
+second task is for students to observe an expert working through an
+example lab
+project (interactive tutorial where the students are required to follow
+along
+by building exactly what the instructor is building). Third, students
+are
+examined to make sure they understand the concepts by solving homework
+problems.
+Fourth, they are given a lab assignment where they must design hardware
+and
+software. Students connect circuits to their microcontroller board and
+write
+software to run on the board. The automatic grading system to verify
+specifications have been met. If the students are unsuccessful they
+will
+interact with their peers and be able to attempt the lab again.
+1.1.1 Learning objectives:
+Although the students are engaged with a fun and
+rewarding lab experience, the educational pedagogy is centered on
+fundamental
+learning objectives. After the successful conclusion of this class,
+students should
+be able to understand the basic components of a computer, write C
+language
+programs that perform I/O functions and implement simple data
+structures,
+manipulate numbers in multiple formats, and understand how software
+uses global
+memory to store permanent information and the stack to store temporary
+information. Our goal is for students to learn these concepts:
+Understanding how the computer stores and manipulates
+data,
+The understanding of embedded systems using modular
+design and abstraction,
+C programming: considering both function and style,
+The strategic use of memory,
+Debugging and verification using a simulator and on the real
+microcontroller
+How input/output using switches, LEDs, DACs, ADCs, motors,
+and serial ports,
+The implementation of an I/O driver, multithreaded
+programming,
+Understanding how local variables and parameters work,
+Analog to digital conversion (ADC), periodic sampling,
+Simple motors (e.g., open and closed-loop stepper motor
+control),
+Digital to analog conversion (DAC), used to make simple
+sounds,
+Design and implementation of elementary data structures.
+1.2 Syllabus
+The best way to understand what you will
+learn in this class
+is to list the labs you will complete and the example projects we will
+build. You
+will complete each lab first in simulation and then on the real board.
+For each
+module we will design a system and you will build and test a similar
+system as part of the lab for that module.
+Video
+1.5
+. The Kit and Labs demonstrated
+Following is the liast of all modules, the corresponding examples we
+will build in each and the relevant lab you will complete. Some of the
+modules do not have examples or labs.
+Module 1: Welcome and Introduction to
+course and staff
+Your Lab 1
+. Install the Keil IDE and
+drivers for programming the labs
+Module 2: Fundamental concepts: numbers,
+computers, and
+the ARM Cortex M processor
+Our Example
+. Develop a system that
+toggles an LED on the
+LaunchPad
+Your Lab 2
+. Run existing project on
+LaunchPad with switch input
+and LED output
+Module 3: Electronics: resistors, voltage,
+current and
+Ohm’s Law
+Module 4: Digital Logic: transistors, flip
+flops and
+logic functions
+Your Lab 4
+. Debug C software that
+inputs from two switches and outputs an LED output
+Module 5: Introduction to C programming
+Our Example
+. Develop a system that
+inputs and outputs on the
+serial port
+Your Lab 5
+. Write a C function and
+perform input/output on the
+serial port
+Module 6: Microcontroller Input/Output
+Our Example
+. Develop a system that
+inputs from a switch and
+toggles an LED output
+Your Lab 6
+. Write C software that
+inputs from a switch and
+toggles an LED output
+Module 7: Design and Development Process
+Our Example
+. Develop a system that
+outputs a pattern on an LED
+Your Lab 7
+. Write C functions that
+inputs from one switch and outputs to two LEDs
+Module 8: Interfacing Switches and LEDs
+Our Example
+. Develop a system with an
+external switch and LED
+Your Lab 8
+. Interface an external
+switch and LED and write
+input/output software.
+Module 9: Arrays and Functional Debugging
+Our Example
+. Develop a system that
+debugs by dumping data into
+an array
+Your Lab 9
+. Write C functions using
+array data structures that
+collect/debug your system.
+Module 10: Finite State Machines
+Our Example 1
+. Develop a simple finite
+state machine
+Our Example 2
+. Develop a vending
+machine using a finite state
+machine
+Our Example 3
+. Develop a stepper motor
+robot using a finite state
+machine
+Your Lab 10
+. Interface 3 switches and 6
+LEDs and create a traffic
+light finite state machine
+Module 11: UART - The Serial Interface, I/O
+Synchronization
+Our Example
+. Develop a communication
+network using the serial
+port
+Your Lab 11
+. Write C functions that
+output decimal and fixed-point
+numbers to serial port
+Module 12: Interrupts
+Our Example 1
+. Develop a system that
+outputs a square wave
+using interrupts
+Our Example 2
+. Develop a system that
+inputs from a switch using
+interrupts
+Our Example 3
+. Develop a system that
+outputs to a DC motor that
+uses pulse width modulation
+Your Lab 12
+. Design and test a guitar
+tuner, producing a 440 Hz
+tone
+Module 13: DAC and Sound
+Our Example
+. Develop a system that
+outputs analog signal with
+a R-2R digital to analog converter
+Your Lab 13
+. Design and test a digital
+piano, with 4 inputs,
+digital to analog conversion, and sound
+Module 14: ADC and Data Acquisition
+Our Example 1
+. Develop a system that
+inputs an analog signal
+with an analog to digital  converter
+Our Example 2
+. Develop an autonomous
+robot that uses two DC
+motors and two distance sensors
+Your Lab 14
+. Design and test a position
+measurement, with analog
+to digital conversion and calibrated output
+Module 15: Systems Approach to Game Design
+Your Lab 15
+. Design and test a
+hand-held video game, which
+integrates all components from previous labs.
+1.2.1 Assessment
+There will be five components of
+assessment.
+First, each module will have a quiz, which is a set of multiple
+choice/numerical questions that must be answered. If the student does
+not pass
+this quiz, then they can ask for help in the discussion forums and be
+allowed
+to retake the quiz. The second assessment involves solving the lab in
+simulation, and the third assessment is completing a physical lab. This
+means
+the student will wire up a simple circuit, write microcontroller code,
+and run
+the software on the real computer. Added to the student’s
+software will be a
+grading engine that can assess the quantitative performance of the
+system.  The
+labs result in a numerical score describing how many of the lab
+requirements
+the student successfully completed.
+10% quizzes
+45% labs in simulation
+45% labs running on the real board
+Video
+1.6
+. The role of simulation and working in teams
+1.3 New for Spring 2015
+We have made some enhancements to the content and made the certification process more flexible:
+Video
+1.7
+. What is new in Spring 2015?
+Embedded Systems - Shape the World
+by
+Jonathan Valvano and Ramesh Yerraballi
+is licensed under a
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

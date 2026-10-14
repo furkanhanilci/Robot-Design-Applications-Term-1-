@@ -1,0 +1,177 @@
+Typical Types of Product Design – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Typical Types of Product Design
+If product design is a decision-centric process, it can be helpful to consider what types of decisions need to be made. The overall type of design activity strongly influences the type of decision a designer will need to make. While designing a product, engineers will often utilize many of the following types of design activities. However, it is often the case that one primary type of activity dominates. The specific order sequence of decisions, the type of tools and best practices, and some of the goals will be different depending on the type of design activity.
+Selection Design
+Selection design is a type of product design that involves choosing and combining components from existing catalogs, rather than creating new ones from scratch. Selection design can reduce the cost and time of product development, as well as ensure compatibility and reliability of the components. However, selection design also requires careful analysis of the requirements and constraints of the product, as well as evaluation of the available components in terms of their performance, quality, and cost. An example of selection design is designing a bicycle by selecting and assembling different parts from various suppliers, such as the frame, wheels, brakes, gears, and so on.
+Variant Design
+Variant design is a product design method that involves choosing the best options from a set of alternative sub-assemblies to meet the customer’s requirements. Variant design allows the designer to create different versions of a product that share some common features but differ in others. For example, when building a custom desktop computer, the designer can use variant design to select the best combination of components such as CPU, RAM, GPU, motherboard, storage, etc. based on the customer’s needs and budget. Variant design can reduce the design time and cost by reusing existing sub-assemblies and avoiding unnecessary changes.
+Assembly or Packaging Design
+Assembly or packaging design is a type of product design that involves the integration of the components specifically to meet high level functions. For example, in a smartphone, the assembly or packaging design determines how the processor, memory, battery, camera, and other components are arranged and connected inside the phone case. Assembly or packaging design can affect the performance, reliability, cost, and manufacturability of the product. Therefore, it requires careful consideration of various factors such as the materials, geometry, interfaces, connections, and environmental conditions of the components and the product as a whole. Assembly or packaging design also involves trade-offs between competing objectives such as minimizing weight, maximizing strength, optimizing heat transfer, and reducing noise and vibration.
+Novel Design
+Novel design is a term used to describe a design that is original and not primary derived from an existing solution. Novel design often involves technology push, meaning that a new technology is developed or adapted to meet the needs and expectations of the stakeholders. Technology push can create new opportunities but faces challenges such as aspects of feasibility, usability and acceptability are typically unknown beforehand. A novel design should balance the benefits and risks of technology push with the requirements and preferences of the users and other stakeholders. Often, the first company to introduce the novel design has an advantage.
+Redesign
+Redesign is a type of design that builds on existing solutions rather than creating new ones from scratch. It is often driven by market-pull, which means that there is a demand or an opportunity for improvement in the current market. For example, a redesign project might be initiated when there are changes in the market conditions, such as new competitors, customer preferences, or regulations. Alternatively, a redesign project might be triggered by the identification of a new stakeholder or an unmet need that was not addressed by the original solution. Redesign involves analyzing the existing solution, identifying its strengths and weaknesses, and proposing modifications or enhancements that can increase its value, usability, or performance.
+Previous/next navigation
+Previous: Three Views of Product Design
+Next: Design Process Overview
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

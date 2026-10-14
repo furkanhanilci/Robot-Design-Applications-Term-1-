@@ -1,0 +1,444 @@
+Ch. 11 - Policy
+  Search
+Underactuated Robotics
+Algorithms for Walking, Running, Swimming, Flying, and Manipulation
+Russ Tedrake
+© Russ Tedrake, 2024
+Last modified
+.
+How to cite these notes, use annotations, and give feedback.
+Note:
+These are working notes used for
+a course being taught
+at MIT
+. They will be updated throughout the Spring 2024 semester.
+Lecture videos are available on YouTube
+.
+Previous Chapter
+Table of contents
+Next Chapter
+Policy
+  Search
+In our case study on
+perching
+  aircraft
+, we solved a challenging control problem, but our approach to
+  control design was based on only linear optimal control (around an optimized
+  trajectory).  We've also discussed some approaches to nonlinear optimal
+  control that could scale beyond small, discretized state spaces.  These were
+  based on estimating the cost-to-go function, including
+value iteration using function
+  approximation
+and
+approximate dynamic
+  programming as a linear program or as a sums-of-squares program
+.
+There are a lot of things to like about methods that estimate the
+  cost-to-go function (aka value function).  The cost-to-go function reduces
+  the long-term planning problem into a one-step planning problem; it encodes
+  all relevant information about the future (and nothing more).  The HJB gives
+  us optimality conditions for the cost-to-go that give us a strong algorithmic
+  handle to work with.
+In this chapter, we will explore another very natural idea: let us
+  parameterize a controller with some decision variables, and then search over
+  those decision variables directly in order to achieve a task and/or optimize
+  a performance objective.  One specific motivation for this approach is the
+  (admittedly somewhat anecdotal) observation that often times simple policies
+  can perform very well on complicated robots and with potentially complicated
+  cost-to-go functions.
+We'll refer to this broad class of methods as "policy search" or, when
+  optimization methods are used, we'll sometimes use "policy optimization".
+  This idea has not received quite as much attention from the controls
+  community, probably because we know many relatively simple cases where it
+  does not work well.  But it has become very popular again lately due to the
+  empirical success of "policy gradient" algorithms in reinforcement learning
+  (RL).  This chapter includes a discussion of the "model-based" version of
+  these RL policy-gradient algorithms; we'll describe their "model-free"
+  versions in
+a future chapter
+.
+Problem formulation
+Consider a static full-state feedback policy, $$\bu =
+    \bpi_\balpha(\bx),$$ where $\bpi$ is potentially a nonlinear function, and
+    $\balpha$ is the vector of parameters that describe the controller.  The
+    control might take time as an input, or might even have it's own internal
+    state, but let's start with this simple form.
+Using our prescription for optimal control using additive costs, we can
+    evaluate the performance of this controller from any initial condition
+    using, e.g.: \begin{align*} J_\balpha(\bx) =& \int_0^\infty \ell(\bx(t),
+    \bu(t)) dt, \\ \subjto \quad & \dot\bx = f(\bx, \bu), \quad \bu =
+    \bpi_\balpha(\bx), \quad  \bx(0) = \bx.\end{align*}  In order to provide a
+    scalar cost for each set of policy parameters, $\balpha$, we need one more
+    piece: a relative importance for the different initial conditions.
+As we will further elaborate when we discuss
+stochastic optimal control
+, a very natural choice --
+    one that preserves the recursive structure of the HJB -- is to optimize the
+    expected value of the cost, given some distribution over initial
+    conditions: $$\min_\balpha E_{\bx \sim {\mathcal X}_0} \left[J_\balpha(\bx)
+    \right],$$ where ${\mathcal X}_0$ is a probability distribution over
+    initial conditions, $\bx(0).$
+Linear Quadratic Regulator
+To start thinking about the problem of searching directly in the policy
+    parameters, it's very helpful to start with a problem we know and can
+    understand well.  In LQR problems for linear, time-invariant systems, we
+    know that the optimal policy is a linear function: $\bu = -{\bf K}\bx.$
+    So far, we have always obtained ${\bf K}$ indirectly -- by solving a
+    Riccati equation to find the cost-to-go and then backing out the optimizing
+    policy.  Here, let us study the case where we parameterize the elements of
+    ${\bf K}$ as decision variables, and attempt to optimize the expected
+    cost-to-go directly.
+Policy Evaluation
+First, let's evaluate our objective for a given ${\bf K}$.  This step
+      is known as "
+policy evaluation
+".  If we use a Gaussian with mean
+      zero and covariance ${\bf \Omega}$ as our distribution over initial
+      conditions, then for LQR we have \begin{align*} & E\left[ \int_0^\infty
+      [\bx^T{\bf Q}\bx + \bu^T\bR\bu] dt \right], \\ \subjto \quad & \dot\bx =
+      {\bf A}\bx + {\bf B}\bu, \quad \bu = - {\bf K}\bx, \quad \bx(0) \sim
+      \mathcal{N}(0, {\bf \Omega}).\end{align*}   This problem is also known as
+      the $\mathcal{H}_2$ optimal control problem
+Chen15a
+, since the
+      expected-cost-to-go here is the $\mathcal{H}_2$-norm of the linear system
+      from disturbance input (here only an impulse that generates our initial
+      conditions) to performance output (which here would be e.g. $\bz =
+      \begin{bmatrix} \bQ^{\frac{1}{2}}\bx \\ \bR^{\frac{1}{2}}\bu
+      \end{bmatrix}).$
+To evaluate a policy $\bK$, let us first re-arrange the cost function
+      slightly, using the properties of the matrix trace: \begin{gather*}
+      \bx^T\bQ\bx + \bx^T\bK^T\bR\bK\bx = \bx^T(\bQ + \bK^T\bR\bK)\bx^T =
+      \trace\left((\bQ + \bK^T\bR\bK)\bx\bx^T\right), \end{gather*} and the
+      linearity of the integral and expected value: $$E\left[ \int_0^\infty
+      \trace((\bQ + \bK^T\bR\bK)\bx\bx^T) dt \right] = \trace\left((\bQ +
+      \bK^T\bR\bK) E \left[\int_0^\infty \bx\bx^T dt \right]\right),$$ For any
+      given initial condition, the solution of the closed-loop dynamics is
+      given by the matrix exponential: $$\bx(t) = e^{(\bA - \bB\bK)t}\bx(0).$$
+      For the distribution of initial conditions, we have \begin{gather*}  \\
+      E\left[\bx(t)\bx(t)^T\right] = e^{(\bA - \bB\bK)t}
+      E\left[\bx(0)\bx(0)^T\right] e^{(\bA - \bB\bK)^Tt} = e^{(\bA - \bB\bK)t}
+      {\bf \Omega} e^{(\bA - \bB\bK)^Tt}, \end{gather*} which is just a
+      (symmetric) matrix function of $t$.  The integral of this function, call
+      it ${\bf X}$, represents the expected 'energy' of the closed-loop
+      response: $${\bf X} = E\left[ \int_0^\infty \bx \bx^T dt \right].$$
+      Assuming $\bK$ is stabilizing, ${\bf X}$ can be computed as the (unique)
+      solution to the Lyapunov equation: $$(\bA - \bB\bK){\bf X} + {\bf X}(\bA
+      - \bB\bK)^T + {\bf \Omega} = 0.$$  (You can see a closely related derivation
+here
+).  Finally, the total policy evaluation
+      is given by \begin{equation}E_{\bx \sim \mathcal{N}(0,{\bf \Omega})}
+      [J_\bK(\bx)] = \trace\left((\bQ + \bK^T\bR\bK){\bf
+      X}\right)\label{eq:lqr_evaluation}.\end{equation}
+A nonconvex objective in ${\bf K}$
+Unfortunately, the Lyapunov equation represents a nonlinear constraint
+      (on the pair $\bK$, ${\bf X}$).  Indeed, it is well known that even the
+      set of controllers that stabilizing a linear systems can be nonconvex in
+      the parameters $\bK$ when there are 3 or more state
+      variables
+Fazel18
+.
+The set of stabilizing $\bK$ can be non-convex
+The following example was given in
+Fazel18
+.  Consider a
+        discrete-time linear system with $\bA = {\bf I}_{3 \times 3}, \bB =
+        {\bf I}_{3 \times 3}$. The controllers given by $${\bf K}_1 =
+        \begin{bmatrix} 1 & 0 & -10 \\ -1 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+        \quad \text{and} \quad \bK_2 = \begin{bmatrix} 1 & -10 & 0 \\ 0 & 1 & 0
+        \\ -1 & 0 & 1 \end{bmatrix},$$ are both stabilizing controllers for
+        this system (all eigenvalues of $\bA - \bB\bK$ are inside the unit
+        circle of the complex plane).  However the controller $\hat{\bK} =
+        (\bK_1 + \bK_2)/2$ has two eigenvalues outside the unit circle.
+Since the set of controllers that achieve finite total cost is
+      non-convex, clearly the cost function we consider here is also
+      non-convex.
+As an aside, for this problem we do actually know a change of
+      variables that make the problem convex.  Let's introduce a new variable
+      ${\bf Y} = {\bf KX}.$  Since ${\bf X}$ is PSD, we can back out $\bK =
+      {\bf YX}^{-1}.$  Now we can rewrite the optimization: \begin{align*}
+      \min_{{\bf X}, {\bf Y}} & \quad \trace{\bQ^\frac{1}{2} {\bf X}
+      \bQ^\frac{1}{2}} + \trace{\bR^\frac{1}{2} {\bf Y} {\bf X}^{-1} {\bf Y}^T
+      \bR^\frac{1}{2}} \\ \subjto & \quad \bA{\bf X} - \bB{\bf Y} + {\bf
+      X}\bA^T - {\bf Y}^T\bB^T + {\bf \Omega} = 0, \\ & \quad {\bf X} \succ
+      0.\end{align*}  The second term in the objective appears to be nonconvex,
+      but is actually convex.  In order to write it as a SDP, we can replace it
+      exactly with one more slack variable, ${\bf Z}$, and a Schur
+      complement
+Johnson07
+: \begin{align*} \min_{{\bf X}, {\bf Y},
+      {\bf Z}} & \quad \trace{\bQ^\frac{1}{2} {\bf X} \bQ^\frac{1}{2}} +
+      \trace{\bf Z} \\ \subjto & \quad \bA{\bf X} - \bB{\bf Y} + {\bf X}\bA^T -
+      {\bf Y}^T\bB^T + {\bf \Omega} = 0, \\ & \quad \begin{bmatrix} {\bf Z} &
+      \bR^\frac{1}{2} {\bf Y} \\ {\bf Y}^T \bR^\frac{1}{2} & {\bf X}
+      \end{bmatrix} \succeq 0.\end{align*}
+Nevertheless, our original question is asking about searching directly
+      in the original parameterization, $\bK$.  If the objective in nonconvex in those parameters, then how should we perform the search?
+No local minima
+Although convexity is sufficient to guarantee that an optimization
+      landscape does not have any local minima, it is not actually necessary.
+Fazel18
+showed that for this LQR objective, all local optima
+      are in fact global optima.  This analysis was extended in
+Mohammadi19
+to give a simpler analysis and include
+      convergence rates.
+How does one show that an optimization landscape has no local minima
+      (even though it may be non-convex)?  One of the most popular tools is to
+      demonstrate
+gradient dominance
+with the famous
+Polyak-Lojasiewicz (PL) inequality
+Karimi16
+.  For an
+      optimization problem $$\min_{\bx \in \Re^d} f(\bx)$$ we first assume the
+      function $f$ is $L$-smooth (
+Lipschitz
+gradients): $$\forall \bx,\bx', \quad \| \nabla f(\bx') - \nabla f(\bx)
+      \|_2 \le L \| \bx' - \bx \|_2.$$ Then we say that the function satisfies
+      the PL-inequality if the following holds for some $\mu > 0$: $$\forall
+      \bx, \quad \frac{1}{2} \| \nabla f(\bx) \|_F^2 \ge \mu (f(\bx) - f^*),$$
+      where $f^*$ is a value obtained at the optima.  In words, the gradient of
+      the objective must grow faster than the gradient of a quadratic function.
+      Note, however, that the distance here is measured in $f(\bx)$, not $\bx$;
+      we do not require (nor imply) that the optimal solution is unique.  It
+      clearly implies that for any minima, $\bx'$ with $\nabla f(x') = 0$,
+      since the left-hand side is zero, we must have the right-hand side also
+      be zero, so $x'$ is also a global optima: $f(x') = f^*$.
+A nonconvex function with no local minima
+Consider the function $$f(x) = x^2 + 3 \sin^2(x).$$
+We can establish that this function is not convex by observing that
+        for $a=\frac{\pi}{4}$, $b=\frac{3\pi}{4}$, we have
+        $$f\left(\frac{a+b}{2}\right) = \frac{\pi^2}{4} + 3 \approx 5.47 >
+        \frac{f(a)+f(b)}{2} = \frac{5\pi^2}{16} + \frac{3}{2} \approx 4.58.$$
+We can establish the PL conditions using the gradient $$\nabla f(x)
+        = 2x + 6 \sin(x) \cos(x).$$  We can establish that this function is
+        $L$-smooth with $L=8$ by $$\| \nabla f(b) - \nabla f(a) \|_2 = |2b - 2a
+        + 6\sin(b-a)| \le 8|b - a|,$$ because $\sin(x) \le x.$  Finally, we
+        have gradient-dominance from the PL-inequality:
+        $$\frac{1}{2}(2x+6\sin(x)\cos(x))^2 \ge \mu(x^2 + 3\sin^2(x)),$$ with
+        $\mu=0.175$. (I confirmed this with a small
+dReal
+program
+).
+Karimi16
+gives a convergence rate for convergence to an
+      optima for
+gradient descent
+given the PL conditions.
+Mohammadi19
+showed that the gradients of the LQR cost we
+      examine here with respect to $\bK$ satisfy the PL conditions on any
+      sublevel set of the cost-to-go function.
+True gradient descent
+The results described above suggest that one can use gradient descent
+      to obtain the optimal controller, $\bK^*$ for LQR.  For the variations
+      we've seen so far (where we know the model), I would absolutely recommend
+      that solving the Riccati equations is a much better algorithm; it is
+      faster and more robust, with no parameters like step-size to tune.  But
+      gradient descent becomes more interesting / viable when we think of it as
+      a model for a less perfect algorithm, e.g. where the plant model is not
+      given and the gradients are estimated from noisy samples.
+It is a rare luxury, due here to our ability to integrate the linear
+      plants/controllers, quadratic costs, and Gaussian initial conditions,
+      that we could compute the value function exactly in
+      (\ref{eq:lqr_evaluation}).  We can also compute the true gradient -- this
+      is a pinnacle of exactness we should strive for in our methods but will
+      rarely achieve again.  The gradient is given by $$\pd{E[J_\bK(\bx)]}{\bK}
+      = 2(\bR\bK - \bB^T{\bf P}){\bf X},$$ where ${\bf P}$ satisfies another
+      Lyapunov equation: $$(\bA - \bB\bK)^T{\bf P} + {\bf P}(\bA - \bB\bK) +
+      \bQ + \bK^T\bR\bK = 0.$$
+cite Jack if/when we publish our draft
+Note that the term
+policy gradient
+used in reinforcement
+      learning typically refers to the slightly different class of algorithms I
+      hinted at above. In those algorithms, we use the true gradients of the
+      policy (only), but estimate the remainder of the terms in the gradient
+      through sampling.  These methods typically require many samples to
+      estimate the gradients we compute here, and should only be weaker (less
+      efficient) than the algorithms in this chapter.  The papers investigating
+      the convergence of gradient descent for LQR have also started exploring
+      these cases.  We will study these so-called
+model-free" policy search
+algorithms soon.
+More convergence results and counter-examples
+LQR / $\mathcal{H}_2$ control is one of the good cases, where we know
+    that for the objective parameterized directly in $\bK$, all local optima
+    are global optima.
+Zhang20
+extended this result for mixed
+    $\mathcal{H}_2/\mathcal{H}_\infty$ control.
+Agarwal20a
+gives a
+    recent treatment of the tabular (finite) MDP case.
+For LQR, we also know alternative parameterizations of the controller
+    which make the objective actually convex, including the
+LMI formulation
+and the
+Youla parameterization
+.  Their utility in a policy
+    search setting was studied initially in
+Roberts11
+.
+Unfortunately, we do not expect these nice properties to hold in general.  There
+    are a number of nearby problems which are known to be nonconvex in the original
+    parameters, and which will not have a smooth change of variables which makes them
+    convex.  The case of
+static output
+    feedback
+is an important one. There are many other known counter-examples.
+Bhandari20
+gives a particularly simple one with a two state MDP.  One of the big open questions is whether deep network parameterizations are an example of a good case.
+Trajectory-based policy search
+Although we cannot expect gradient descent to converge to a global
+    minima in general, it is still very reasonable to try using gradient
+    descent to find policies for more complicated nonlinear control problems.
+    In the general form, this means that the first step of optimizing
+    $$\min_\balpha E_{\bx \sim {\mathcal X}_0} \left[J_\balpha(\bx) \right],$$
+    is estimating $$\pd{}{\balpha} E_{\bx \sim {\mathcal X}_0}
+    \left[J_\balpha(\bx) \right].$$  In the LQR problem, we were able to
+    compute these terms exactly; with the biggest simplification coming from
+    the fact that
+the response of a
+    linear system to Gaussian initial conditions stays Gaussian
+. This is
+    not true for more general nonlinear systems.  So what are we to do?
+The most common/general technique (despite it not being very efficient),
+    is to approximate the expected cost-to-go using a sampling (Monte-Carlo)
+    approximation using a large number, $N$, of samples: $$E_{\bx \sim
+    {\mathcal X}_0}[J_\balpha(\bx)] \approx \frac{1}{N} \sum_{i=0}^{N-1}
+    J_\balpha(\bx_i), \quad \bx_i \sim \mathcal{X}_0.$$  The gradients follow
+    easily: $$\pd{}{\balpha} E_{\bx \sim {\mathcal X}_0}[J_\balpha(\bx)]
+    \approx \frac{1}{N} \sum_{i=0}^{N-1} \pd{J_\balpha(\bx_i)}{\balpha}, \quad
+    \bx_i \sim \mathcal{X}_0.$$  Our confidence in the accuracy of this
+    estimate will improve as we increase $N$; see e.g. Section 4.2 of
+Rubinstein16
+for details on the confidence intervals.  The
+    most optimistic among us will say that it's quite fine to have only a noisy
+    estimate of the gradient -- this leads to stochastic gradient descent which
+    can have some very desirable properties.  But it does make the algorithm
+    harder to analyze and debug.
+Using the Monte-Carlo estimator, the total gradient update is just a sum
+    over gradients with respect to particular initial conditions,
+    $\pd{J_\balpha(\bx_i)}{\balpha}.$  But for finite-horizon objectives, these
+    are precisely the gradients that we have already studied in the context of
+    trajectory optimization.  They can be computed efficiently using an adjoint
+    method.  The difference is that here we think of $\balpha$ as the
+    parameters of a feedback controller, whereas before we thought of them as
+    the parameters of a trajectory, but this makes no difference to the chain
+    rule.
+LQR with true gradients vs approximate gradients
+Pendulum Swing-Up And Balance
+Reference Guided Policy Search, etc (see Robert V's review);
+    PILCO and PIPPS (arxiv from Doya).
+Infinite-horizon objectives
+by adding an approximate cost-to-go as the terminal cost.
+Search strategies for global optimization
+To combat local minima... Evolutionary strategies, ...
+Evolutionary strategies with gradients?
+Bayesian optimization?  Others?
+Policy Iteration
+In the chapter on Lyapunov analysis we also explored a handful
+    techniques
+for control design
+.
+One of these
+even directly
+    parameterized the controller (as a polynomial feedback), and used
+    alternations to switch between policy evaluation and policy optimization.
+Another
+generated lower-bounds to the
+    optimal cost-to-go.
+Coming soon...
+DK iterations
+LSPI (e.g. w/ linear function approximation), Zhouran, etc.
+Shen's work?
+References
+Ben M. Chen
+,
+"H2 Optimal Control"
+,
+Encyclopedia of Systems and Control
+, pp. 515--520,
+2015
+.
+Maryam Fazel and Rong Ge and Sham M. Kakade and Mehran Mesbahi
+,
+"Global Convergence of Policy Gradient Methods for the Linear Quadratic Regulator"
+,
+International Conference on Machine Learning
+,
+2018
+.
+Erik A Johnson and Baris Erkus
+,
+"Dissipativity and performance analysis of smart dampers via LMI synthesis"
+,
+Structural Control and Health Monitoring: The Official Journal of the International Association for Structural Control and Monitoring and of the European Association for the Control of Structures
+, vol. 14, no. 3, pp. 471--496,
+2007
+.
+Hesameddin Mohammadi and Armin Zare and Mahdi Soltanolkotabi and Mihailo R Jovanovi\'c
+,
+"Global exponential convergence of gradient methods over the nonconvex landscape of the linear quadratic regulator"
+,
+2019 IEEE 58th Conference on Decision and Control (CDC)
+, pp. 7474--7479,
+2019
+.
+Hamed Karimi and Julie Nutini and Mark Schmidt
+,
+"Linear convergence of gradient and proximal-gradient methods under the polyak-\lojasiewicz condition"
+,
+Joint European Conference on Machine Learning and Knowledge Discovery in Databases
+, pp. 795--811,
+2016
+.
+Kaiqing Zhang and Bin Hu and Tamer Basar
+,
+"Policy Optimization for ℋ₂ Linear Control with ℋ∞ Robustness Guarantee: Implicit Regularization and Global Convergence"
+,
+Proceedings of the 2nd Conference on Learning for Dynamics and Control
+, vol. 120, pp. 179--190, 10--11 Jun,
+2020
+.
+Alekh Agarwal and Sham M. Kakade and Jason D. Lee and Gaurav Mahajan
+,
+"On the Theory of Policy Gradient Methods: Optimality, Approximation, and Distribution Shift"
+, 
+,
+2020
+.
+John Roberts and Ian Manchester and Russ Tedrake
+,
+"Feedback Controller Parameterizations for Reinforcement Learning"
+,
+Proceedings of the 2011 IEEE Symposium on Adaptive Dynamic Programming and Reinforcement Learning (ADPRL)
+,
+2011
+.
+[
+link
+]
+Jalaj Bhandari and Daniel Russo
+,
+"Global Optimality Guarantees For Policy Gradient Methods"
+,
+arXiv:1906.01786 [cs, stat]
+, oct,
+2020
+.
+Reuven Y Rubinstein and Dirk P Kroese
+,
+"Simulation and the Monte Carlo method"
+, John Wiley & Sons
+, vol. 10,
+2016
+.
+Previous Chapter
+Table of contents
+Next Chapter
+Accessibility
+© Russ
+      Tedrake, 2024

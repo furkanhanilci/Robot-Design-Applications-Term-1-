@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+  <title>Introduction to Embedded Systems</title>
+  <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Lucida Grande";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Lucida Grande";}
+span.MsoSubtleEmphasis
+	{color:#404040;
+	font-style:italic;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Lucida Grande";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+  </style>
+</head>
+<body lang="EN-US" link="blue" vlink="#954f72">
+<div class="WordSection1">
+<p class="MsoNormal" style="text-align: center;" align="center"><a
+ name="_Toc357150927"><span
+ style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Chapter&nbsp;</span><span
+ style="font-size: 14pt;">1: Welcome</span></a><br>
+<span style="font-weight: 700;"><font size="4">Embedded Systems - Shape
+The World</font></span></p>
+<p class="MsoNormal" style="text-align: center; font-style: italic;"
+ align="center">
+<font size="4">Jonathan
+Valvano
+and Ramesh Yerraballi</font></p>
+<p class="MsoNormal"><b>&nbsp;</b></p>
+<p style="margin-left: 40px;" class="MsoBodyText">Welcome to our course
+on Embedded Systems offered to you on the <a href="http://edx.org">EdX</a>
+MOOC platform. In this chapter we will introduce the course, who we
+are, our objectives in teaching this course in an online format, the
+equipment (software and hardware) you will need to perform the hands-on
+labs that the course entails. We will also show you a glimpse of the
+all the labs you will perform towards successful completion of the
+course and receiving certification. <br>
+<u>NB</u>: <i>This e-book exists as a 
+resource for the EdX course offering for Spring 2015. 
+However, it can also be used as a standalone resource if you ignore references to the EdX course.</i></p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/EcEOGGmX8c8?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.0<span
+ lang="en-US">. Welcome to UT.6.01x Embedded Systems - Shape The World </span></p>
+      </td>
+      <td>
+      <p class="MsoNormal"> <iframe
+ src="http://www.youtube.com/embed/Jwoe_CF8ozA?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="120" width="160"></iframe> <iframe
+ src="http://www.youtube.com/embed/ahTNBXBI-rA?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="120" width="160"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.1<span
+ lang="en-US">. Your Instructors (Jon Valvano and Ramesh Yerraballi)</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal"><b>&nbsp;</b></p>
+<h2>1.0 Introduction</h2>
+<p class="MsoNormal">An embedded system combines mechanical,
+electrical, and chemical components along with a computer, hidden
+inside, to
+perform a single dedicated purpose. There are more computers on this
+planet
+than there are people, and most of these computers are single-chip
+microcontrollers that are the brains of an embedded system. Embedded
+systems
+are a ubiquitous component of our everyday lives. We interact with
+hundreds of
+tiny computers every day that are embedded into our houses, our cars,
+our
+bridges, our toys, and our work. As our world has become more complex,
+so have
+the capabilities of the microcontrollers embedded into our devices.
+Therefore
+the world needs a trained workforce to develop and manage products
+based on
+embedded microcontrollers.</p>
+<h3>1.0.1 Impact</h3>
+<p class="MsoNormal">The innovative aspect of this class is to
+effectively
+teach a course with a substantial lab component within the MOOC format.
+If
+MOOCs are truly going to transform the education, then they must be
+able to
+deliver laboratory classes. This offering will go a long way in
+unraveling the
+perceived complexities in delivering a laboratory experience to tens of
+thousands of students. If successful, the techniques developed in this
+class
+will significantly transform the MOOC environment. We believe effective
+education requires students to learn by doing. In the traditional
+academic
+setting this active learning is delivered in a lab format. &nbsp;A
+number of
+important factors have combined that allow a lab class like this to be
+taught
+at this time. First, we have significant support from industrial
+partners ARM
+Inc and Texas Instruments. Second, the massive growth of embedded
+microcontrollers has made the availability of lost-cost development
+platforms
+feasible. Third, your instructors have the passion, patience, and
+experience of
+delivering quality lab experiences to large classes. Fourth, on-line
+tools now
+exist that allow students to interact and support each other.</p>
+<p class="MsoNormal">The overall educational objective of this class
+is to allow students to discover how the computer interacts with its
+environment. It will provide hands-on experiences of how an embedded
+system
+could be used to solve problems. The focus of this introductory course
+will be
+understanding and analysis rather than design. It takes an effective
+approach
+to learning new techniques by doing them. We feel we have solved the
+dilemma in
+learning a laboratory-based topic like embedded systems where there is
+a
+tremendous volume of details that first must be learned before hardware
+and
+software systems can be designed. </p>
+<h3>1.0.2 Approach and Learning Philosophy</h3>
+The approach taken in this course is to learn by
+doing in a bottom-up fashion. One of the advantages of a bottom-up
+approach to
+learning is that the student begins by mastering simple concepts. Once
+the
+student truly understands simple concepts, he or she can then embark on
+the
+creative process of design, which involves putting the pieces together
+to
+create a more complex system. True creativity is needed to solve
+complex
+problems using effective combinations of simple components. Embedded
+systems
+afford an effective platform to teach new engineers how to program for
+three
+reasons. First, there is no operating system. Thus, in a bottom-up
+fashion the
+student can see, write, and understand all software running on a system
+that
+actually does something. Second, embedded systems involve real
+input/output
+that is easy for the student to touch, hear, and see. Third, embedded
+systems
+are employed in many every-day products, motivating students to see
+firsthand,
+how engineering processes can be applied in the real world. </td>
+<p class="MsoNormal"> <iframe
+ src="http://www.youtube.com/embed/JLEl0dWoqW8?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.2<span
+ lang="en-US">. Learning Philosophy </span></p>
+
+<h3>1.0.3 Audience and Background</h3>
+This course is intended for beginning college
+students with some knowledge of electricity as would have been taught
+in an
+introductory college physics class. Secondly, it is expected students
+will have
+some basic knowledge of programming and logic design. No specific
+language will
+be assumed as prior knowledge but this class could be taken as their
+second
+programming class. 
+<p class="MsoNormal"> <iframe
+ src="http://www.youtube.com/embed/y2yCXlQAcZs?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.3<span
+ lang="en-US">. Expectations: who and prerequisites</span></p>
+
+<h2>1.1 Structure and Objectives </h2>
+<p class="MsoNormal">The analog to digital converter (ADC) and
+digital to analog converter (DAC) are the chosen mechanism to bridge
+the computer
+and electrical worlds. Electrical engineering concepts include Ohms
+Law, LED
+voltage/current, resistance measurement, and motor control. Computer
+engineering concepts include I/O device drivers, debugging, stacks,
+FIFO
+queues, local variables and interrupts. The hardware construction is
+performed
+on a breadboard and debugged using a multimeter (students learn to
+measure
+voltage). Software is developed in C; all labs will be first simulated
+then run
+on the real microcontroller. Software debugging occurs during the
+simulation
+stage. Verification occurs in both stages. </p>
+<p class="MsoNormal">The course has 11 labs and a final project. Each
+lab has a small and well-defined educational objective. Students begin
+by learning
+the fundamental concepts via lectures, interactive animations and
+readings. The
+second task is for students to observe an expert working through an
+example lab
+project (interactive tutorial where the students are required to follow
+along
+by building exactly what the instructor is building). Third, students
+are
+examined to make sure they understand the concepts by solving homework
+problems.
+Fourth, they are given a lab assignment where they must design hardware
+and
+software. Students connect circuits to their microcontroller board and
+write
+software to run on the board. The automatic grading system to verify
+specifications have been met. If the students are unsuccessful they
+will
+interact with their peers and be able to attempt the lab again.</p>
+<h3>1.1.1 Learning objectives:</h3>
+<p class="MsoNormal">Although the students are engaged with a fun and
+rewarding lab experience, the educational pedagogy is centered on
+fundamental
+learning objectives. After the successful conclusion of this class,
+students should
+be able to understand the basic components of a computer, write C
+language
+programs that perform I/O functions and implement simple data
+structures,
+manipulate numbers in multiple formats, and understand how software
+uses global
+memory to store permanent information and the stack to store temporary
+information. Our goal is for students to learn these concepts:</p>
+<ol>
+  <li> Understanding how the computer stores and manipulates
+data, </li>
+  <li> The understanding of embedded systems using modular
+design and abstraction, </li>
+  <li> C programming: considering both function and style, </li>
+  <li> The strategic use of memory,
+  </li>
+  <li> Debugging and verification using a simulator and on the real
+microcontroller </li>
+  <li> How input/output using switches, LEDs, DACs, ADCs, motors,
+and serial ports, </li>
+  <li> The implementation of an I/O driver, multithreaded
+programming, </li>
+  <li> Understanding how local variables and parameters work, </li>
+  <li> Analog to digital conversion (ADC), periodic sampling, </li>
+  <li> Simple motors (e.g., open and closed-loop stepper motor
+control),
+  </li>
+  <li> Digital to analog conversion (DAC), used to make simple
+sounds,
+  </li>
+  <li> Design and implementation of elementary data structures.
+  </li>
+</ol>
+<h2>1.2 Syllabus</h2>
+<p class="MsoNormal">The best way to understand what you will
+learn in this class
+is to list the labs you will complete and the example projects we will
+build. You
+will complete each lab first in simulation and then on the real board.
+For each
+module we will design a system and you will build and test a similar
+system as part of the lab for that module.</p>
+
+<p class="MsoNormal"> <iframe
+ src="http://www.youtube.com/embed/Y6A3kajLgP0?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.5<span
+ lang="en-US">. The Kit and Labs demonstrated</span></p>
+
+Following is the liast of all modules, the corresponding examples we
+will build in each and the relevant lab you will complete. Some of the
+modules do not have examples or labs.
+<ul>
+  <li>
+    <p class="MsoNormal"><b>Module 1: Welcome and Introduction to
+course and staff</b></p>
+    <p class="MsoNormal"><b>Your Lab 1</b>. Install the Keil IDE and
+drivers for programming the labs</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 2: Fundamental concepts: numbers,
+computers, and
+the ARM Cortex M processor</b></p>
+    <p class="MsoNormal"><b>Our Example</b>. Develop a system that
+toggles an LED on the
+LaunchPad</p>
+    <p class="MsoNormal"><b>Your Lab 2</b>. Run existing project on
+LaunchPad with switch input
+and LED output</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 3: Electronics: resistors, voltage,
+current and
+Ohm&rsquo;s Law</b></p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 4: Digital Logic: transistors, flip
+flops and
+logic functions</b></p>
+    <p class="MsoNormal"><b> Your Lab 4</b>. Debug C software that
+inputs from two switches and outputs an LED output</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 5: Introduction to C programming</b></p>
+    <p class="MsoNormal"><b>Our Example</b>. Develop a system that
+inputs and outputs on the
+serial port</p>
+    <p class="MsoNormal"><b> Your Lab 5</b>. Write a C function and
+perform input/output on the
+serial port</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 6: Microcontroller Input/Output</b></p>
+    <p class="MsoNormal"><b> Our Example</b>. Develop a system that
+inputs from a switch and
+toggles an LED output</p>
+    <p class="MsoNormal"><b> Your Lab 6</b>. Write C software that
+inputs from a switch and
+toggles an LED output</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 7: Design and Development Process</b></p>
+    <p class="MsoNormal"><b>Our Example</b>. Develop a system that
+outputs a pattern on an LED </p>
+    <p class="MsoNormal"><b>Your Lab 7</b>. Write C functions that
+inputs from one switch and outputs to two LEDs</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 8: Interfacing Switches and LEDs</b></p>
+    <p class="MsoNormal"><b>Our Example</b>. Develop a system with an
+external switch and LED</p>
+    <p class="MsoNormal"><b> Your Lab 8</b>. Interface an external
+switch and LED and write
+input/output software.</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 9: Arrays and Functional Debugging</b></p>
+    <p class="MsoNormal"><b>Our Example</b>. Develop a system that
+debugs by dumping data into
+an array</p>
+    <p class="MsoNormal"><b>Your Lab 9</b>. Write C functions using
+array data structures that
+collect/debug your system.</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 10: Finite State Machines</b></p>
+    <p class="MsoNormal"><b>Our Example 1</b>. Develop a simple finite
+state machine</p>
+    <p class="MsoNormal"><b>Our Example 2</b>. Develop a vending
+machine using a finite state
+machine</p>
+    <p class="MsoNormal"><b>Our Example 3</b>. Develop a stepper motor
+robot using a finite state
+machine</p>
+    <p class="MsoNormal"><b>Your Lab 10</b>. Interface 3 switches and 6
+LEDs and create a traffic
+light finite state machine</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 11: UART - The Serial Interface, I/O
+Synchronization</b></p>
+    <p class="MsoNormal"><b>Our Example </b>. Develop a communication
+network using the serial
+port</p>
+    <p class="MsoNormal"><b>Your Lab 11</b>. Write C functions that
+output decimal and fixed-point
+numbers to serial port</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 12: Interrupts</b></p>
+    <p class="MsoNormal"><b>Our Example 1</b>. Develop a system that
+outputs a square wave
+using interrupts</p>
+    <p class="MsoNormal"><b>Our Example 2</b>. Develop a system that
+inputs from a switch using
+interrupts</p>
+    <p class="MsoNormal"><b>Our Example 3</b>. Develop a system that
+outputs to a DC motor that
+uses pulse width modulation</p>
+    <p class="MsoNormal"><b>Your Lab 12</b>. Design and test a guitar
+tuner, producing a 440 Hz
+tone</p>
+    <p class="MsoNormal"><b>&nbsp;</b></p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 13: DAC and Sound</b></p>
+    <p class="MsoNormal"><b>Our Example</b>. Develop a system that
+outputs analog signal with
+a R-2R digital to analog converter </p>
+    <p class="MsoNormal"><b>Your Lab 13</b>. Design and test a digital
+piano, with 4 inputs,
+digital to analog conversion, and sound</p>
+    <p class="MsoNormal">&nbsp;</p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 14: ADC and Data Acquisition</b></p>
+    <p class="MsoNormal"><b>Our Example 1</b>. Develop a system that
+inputs an analog signal
+with an analog to digital&nbsp; converter </p>
+    <p class="MsoNormal"><b>Our Example 2</b>. Develop an autonomous
+robot that uses two DC
+motors and two distance sensors </p>
+    <p class="MsoNormal"><b>Your Lab 14</b>. Design and test a position
+measurement, with analog
+to digital conversion and calibrated output</p>
+    <p class="MsoNormal">&nbsp;</p>
+  </li>
+  <li>
+    <p class="MsoNormal"><b>Module 15: Systems Approach to Game Design</b></p>
+    <p class="MsoNormal"><b>Your Lab 15</b>. Design and test a
+hand-held video game, which
+integrates all components from previous labs.</p>
+    <p class="MsoNormal">&nbsp;</p>
+  </li>
+</ul>
+<h3>1.2.1 Assessment</h3>
+<p class="MsoNormal"> There will be five components of
+assessment.
+First, each module will have a quiz, which is a set of multiple
+choice/numerical questions that must be answered. If the student does
+not pass
+this quiz, then they can ask for help in the discussion forums and be
+allowed
+to retake the quiz. The second assessment involves solving the lab in
+simulation, and the third assessment is completing a physical lab. This
+means
+the student will wire up a simple circuit, write microcontroller code,
+and run
+the software on the real computer. Added to the student&rsquo;s
+software will be a
+grading engine that can assess the quantitative performance of the
+system. &nbsp;The
+labs result in a numerical score describing how many of the lab
+requirements
+the student successfully completed. </p>
+      <ol>
+        <li>
+          <p class="MsoNormal"><b> 10% quizzes</b></p>
+        </li>
+        <li>
+          <p class="MsoNormal"><b> 45% labs in simulation</b></p>
+        </li>
+        <li>
+          <p class="MsoNormal"><b> 45% labs running on the real board</b></p>
+        </li>
+      </ol>
+<p class="MsoNormal"> <iframe
+ src="http://www.youtube.com/embed/Rc1ohac7Fi8?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.6<span
+ lang="en-US">. The role of simulation and working in teams</span></p>
+
+
+<h3>1.3 New for Spring 2015</h3>
+ <p class="MsoNormal"> We have made some enhancements to the content and made the certification process more flexible: </p>
+<p class="MsoNormal">
+ <iframe
+ src="http://www.youtube.com/embed/mG7l8QrBhoQ?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;Video </span>1.7<span
+ lang="en-US">. What is new in Spring 2015?</span></p>
+</div>
+</body>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded Systems - Shape the World</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://users.ece.utexas.edu/~valvano/" property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano and Ramesh Yerraballi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://users.ece.utexas.edu/~valvano/arm/outline1.htm" rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+
+
+</html>

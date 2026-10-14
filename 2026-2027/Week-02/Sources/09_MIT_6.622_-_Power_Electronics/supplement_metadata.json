@@ -1,0 +1,1238 @@
+{
+  "id": 9,
+  "files": [
+    {
+      "file": "supplement_656fca2579.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/lists/handwritten-lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/lists/handwritten-lecture-notes/",
+      "kind": "html",
+      "bytes": 101840,
+      "sha256": "fa86f5525c5732bb21f5f6c78155afca728004cc5a9f850fc65853d1658dec2b"
+    },
+    {
+      "file": "supplement_684385efc8.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/lists/typed-lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/lists/typed-lecture-notes/",
+      "kind": "html",
+      "bytes": 100586,
+      "sha256": "96f1d275b0a11a819288668175cef493af437a3de862e47bd69137d807e56751"
+    },
+    {
+      "file": "mit6_622_s23_lec01_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec01_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec01_hand.pdf",
+      "kind": "pdf",
+      "bytes": 6018724,
+      "sha256": "a2bd1ea541494ef236aab48aa5845b3fac558acb4ce96091c34f16b528143cd4"
+    },
+    {
+      "file": "supplement_5cc381229f.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec01_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec01_hand_pdf/",
+      "kind": "html",
+      "bytes": 56242,
+      "sha256": "42f3d74dc634cb8f6dc9c6f56f5f4a3c2854eee44c22fcd6eb9d1ff0b62432c4"
+    },
+    {
+      "file": "mit6_622_s23_lec02_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec02_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec02_hand.pdf",
+      "kind": "pdf",
+      "bytes": 672547,
+      "sha256": "038714b404fd580b7b3abdcc250425422d404b56858467e0d45d89fdcc203102"
+    },
+    {
+      "file": "supplement_0c063eae03.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec02_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec02_hand_pdf/",
+      "kind": "html",
+      "bytes": 56339,
+      "sha256": "dca048c9f78ef4f6f6bdab5041ab24747150d43e14bc12f8bcd43fd49419d5b2"
+    },
+    {
+      "file": "mit6_622_s23_lec03_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec03_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec03_hand.pdf",
+      "kind": "pdf",
+      "bytes": 725752,
+      "sha256": "cb2d52354d13be1b2c7cd1e5d63d6a9b5fa8265893e084f3e399ae43db279ab1"
+    },
+    {
+      "file": "supplement_b1d3d9f414.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec03_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec03_hand_pdf/",
+      "kind": "html",
+      "bytes": 56259,
+      "sha256": "880a46137deb3d54569237106c43c97f84effca64873f433729141bf121a1808"
+    },
+    {
+      "file": "mit6_622_s23_lec04_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec04_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec04_hand.pdf",
+      "kind": "pdf",
+      "bytes": 595676,
+      "sha256": "b8f9ff9c374df4e9c2b418ea1f26aeecdcf3010f4d894423a6e4eb80ced8ccb2"
+    },
+    {
+      "file": "supplement_ed4c80e5d2.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec04_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec04_hand_pdf/",
+      "kind": "html",
+      "bytes": 56244,
+      "sha256": "8b5c6fe250e9daaa44599b67c7f50b526cb51776fbe7088aba0d5f925223c276"
+    },
+    {
+      "file": "mit6_622_s23_lec05_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec05_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec05_hand.pdf",
+      "kind": "pdf",
+      "bytes": 528717,
+      "sha256": "3755c501aff2bb41c134558d149a34bb889ff3544ebecc6d1e1b555678230c0a"
+    },
+    {
+      "file": "supplement_3338c8dc64.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec05_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec05_hand_pdf/",
+      "kind": "html",
+      "bytes": 56295,
+      "sha256": "edadeee37eb46efa4cc4e2f81c116f342f48e533768921164da8ee2420f6bbcc"
+    },
+    {
+      "file": "mit6_622_s23_lec06_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec06_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec06_hand.pdf",
+      "kind": "pdf",
+      "bytes": 604142,
+      "sha256": "1086ad567d1f46b265ed7535ed8a62ea3307d73f54202aa20413acbaf3705c65"
+    },
+    {
+      "file": "supplement_fe6d622e7c.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec06_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec06_hand_pdf/",
+      "kind": "html",
+      "bytes": 56255,
+      "sha256": "8044606a5aecd7b542b9ced707c3561250ec7d2db54c7b3cf5f7d1df89e7d24a"
+    },
+    {
+      "file": "mit6_622_s23_lec07_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec07_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec07_hand.pdf",
+      "kind": "pdf",
+      "bytes": 635459,
+      "sha256": "6c770ec3dc322492026510fd1024349cfc3445715d1e0bf9667a0b60012cb4d6"
+    },
+    {
+      "file": "supplement_775594b369.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec07_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec07_hand_pdf/",
+      "kind": "html",
+      "bytes": 56250,
+      "sha256": "e8e8929c52777d277da4517ba857f0745e86d2e02514edd8d2a6e22d5c47c761"
+    },
+    {
+      "file": "mit6_622_s23_lec08_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec08_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec08_hand.pdf",
+      "kind": "pdf",
+      "bytes": 749031,
+      "sha256": "ff5c4e2824b29013e8dde4d15a8ee2b1eb2b043c3122434e4502ecbc154eca26"
+    },
+    {
+      "file": "supplement_fc2d2f2e7a.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec08_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec08_hand_pdf/",
+      "kind": "html",
+      "bytes": 56250,
+      "sha256": "3b78bdaaab079b01d3cf9f069931a97953b4ec4efb3924a930e04d547fe31196"
+    },
+    {
+      "file": "mit6_622_s23_lec09_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec09_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec09_hand.pdf",
+      "kind": "pdf",
+      "bytes": 688006,
+      "sha256": "34b0ae50520f61242c6e16c9a93731d8a5ff31ef775da657bfaf249348c82264"
+    },
+    {
+      "file": "supplement_6d41fc8269.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec09_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec09_hand_pdf/",
+      "kind": "html",
+      "bytes": 56269,
+      "sha256": "4d3093804548a0dd9c7d1f7dc2881794a43f30ca5c997e06782a2b0746c2e65a"
+    },
+    {
+      "file": "mit6_622_s23_lec10_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec10_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec10_hand.pdf",
+      "kind": "pdf",
+      "bytes": 603572,
+      "sha256": "cbdf11382aaec5b71f27ce4c27aa80457df96f2542d589b86212e108ee2dd647"
+    },
+    {
+      "file": "supplement_bfba6c66d0.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec10_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec10_hand_pdf/",
+      "kind": "html",
+      "bytes": 56274,
+      "sha256": "7b0973e9f0f863b4496f6004b5f96a166833afaa58787bc13582583a613e7557"
+    },
+    {
+      "file": "mit6_622_s23_lec11_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec11_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec11_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1241940,
+      "sha256": "381ec5394a20e0182e9c322486a8577d796cab08362d16949b96c2d2cbc5416e"
+    },
+    {
+      "file": "supplement_4727841494.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec11_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec11_hand_pdf/",
+      "kind": "html",
+      "bytes": 56272,
+      "sha256": "127be83e4e137c238b8d98eb254dd81de9639c404b2d7ef80a288e9601b02bd1"
+    },
+    {
+      "file": "mit6_622_s23_lec12_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec12_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec12_hand.pdf",
+      "kind": "pdf",
+      "bytes": 767452,
+      "sha256": "28753d61743a15c8a02706d86f1f8b4cd767b876ea6279953b598dc5f1a204b5"
+    },
+    {
+      "file": "supplement_ff68f53836.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec12_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec12_hand_pdf/",
+      "kind": "html",
+      "bytes": 56274,
+      "sha256": "93ba7594e698973e9df757d116703af246a988e1269f144f5e41c898a0da277a"
+    },
+    {
+      "file": "mit6_622_s23_lec13_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec13_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec13_hand.pdf",
+      "kind": "pdf",
+      "bytes": 704476,
+      "sha256": "9aa43359dca8cb6d475a2449f55a357929b8e47dff645c5d212b477e97c2f84a"
+    },
+    {
+      "file": "supplement_e742af6a20.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec13_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec13_hand_pdf/",
+      "kind": "html",
+      "bytes": 56355,
+      "sha256": "98816630bfe6d3fdda88f9af87eccec82b59a1f6d7f1b93070db20b1e3da0d46"
+    },
+    {
+      "file": "mit6_622_s23_lec14_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec14_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec14_hand.pdf",
+      "kind": "pdf",
+      "bytes": 897763,
+      "sha256": "b0b5dcdda0b0d4b0eefe66cc66557007b08252c9b80f16efe3186bd4568b486d"
+    },
+    {
+      "file": "supplement_f4cd20b084.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec14_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec14_hand_pdf/",
+      "kind": "html",
+      "bytes": 56355,
+      "sha256": "bc51bfb7d1d70771980e56ca75494d8a52ab7258a2adb999e07f805a9b507594"
+    },
+    {
+      "file": "mit6_622_s23_lec15_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec15_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec15_hand.pdf",
+      "kind": "pdf",
+      "bytes": 801695,
+      "sha256": "a6ac13ff0fadfea7a53bb57000210330059aad27d6abb94724307bc56e5fcd12"
+    },
+    {
+      "file": "supplement_03963ec5a6.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec15_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec15_hand_pdf/",
+      "kind": "html",
+      "bytes": 56334,
+      "sha256": "207e775015db821b716b0d3c0210141ac9eb56a6914689dd8cd26441d39331c6"
+    },
+    {
+      "file": "mit6_622_s23_lec16_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec16_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec16_hand.pdf",
+      "kind": "pdf",
+      "bytes": 982875,
+      "sha256": "5f114e4b77c843aee308a9233ef8b38dba0ffc7bfc231020f61fd02a4450cc6f"
+    },
+    {
+      "file": "supplement_4cad6e0b1d.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec16_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec16_hand_pdf/",
+      "kind": "html",
+      "bytes": 56354,
+      "sha256": "494aa0452ce5ca23180394cda39a89e4d02f29a99b8b974c7dbe7aa0d8ca4f27"
+    },
+    {
+      "file": "mit6_622_s23_lec17_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec17_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec17_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1018941,
+      "sha256": "8f9e1683487e901a46562f2b0aeb1bff45605d48262fcc8e1bf5988d23ac88a3"
+    },
+    {
+      "file": "supplement_0b71de6934.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec17_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec17_hand_pdf/",
+      "kind": "html",
+      "bytes": 56274,
+      "sha256": "f6db09d369f865d3e45f7727cd51226ebd191c25e6048911672257ff3add250a"
+    },
+    {
+      "file": "mit6_622_s23_lec18_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec18_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec18_hand.pdf",
+      "kind": "pdf",
+      "bytes": 802077,
+      "sha256": "56fba43676bf516af489541563f709e9e0e30269be934bb8a5e8abc171de91fd"
+    },
+    {
+      "file": "supplement_9daf220c5c.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec18_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec18_hand_pdf/",
+      "kind": "html",
+      "bytes": 56274,
+      "sha256": "0db4ec06e788d5a1d5abb634ad30bc264fee24c20efdbbd1548b8e3db0849ce6"
+    },
+    {
+      "file": "mit6_622_s23_lec19_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec19_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec19_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1134621,
+      "sha256": "558bfb57a69c878c0b5c3aac98f032fc546dd1d056d47ac3697784c0cb06b9a8"
+    },
+    {
+      "file": "supplement_243f7e7692.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec19_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec19_hand_pdf/",
+      "kind": "html",
+      "bytes": 56272,
+      "sha256": "2e1eb5eb35abc508ab9c693e59d1a79768363d369c1d19c1d453406729eae428"
+    },
+    {
+      "file": "mit6_622_s23_lec20_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec20_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec20_hand.pdf",
+      "kind": "pdf",
+      "bytes": 705125,
+      "sha256": "29543150c1e2802949654d894d88a418d833550e781e9f3e15e400b2d96431f7"
+    },
+    {
+      "file": "supplement_a4938a498c.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec20_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec20_hand_pdf/",
+      "kind": "html",
+      "bytes": 56309,
+      "sha256": "71d69588b37f9b92d044937aa43c11c00619fb76573674b4b617e27110958dd2"
+    },
+    {
+      "file": "mit6_622_s23_lec21_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec21_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec21_hand.pdf",
+      "kind": "pdf",
+      "bytes": 809478,
+      "sha256": "36a2eb18aaa1de4440e97232ba1da42e8da05bcf20809325dbf92cf724287663"
+    },
+    {
+      "file": "supplement_f4241ff8c7.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec21_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec21_hand_pdf/",
+      "kind": "html",
+      "bytes": 56324,
+      "sha256": "0fde4540e10df2d493dde19c99b549808404353da3ea215b4d37f4854ccd7283"
+    },
+    {
+      "file": "mit6_622_s23_lec22_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec22_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec22_hand.pdf",
+      "kind": "pdf",
+      "bytes": 874209,
+      "sha256": "f0c0e2038dae12fe4b2737dce1943c9376a7e6de39b142a50cae41a64bc94ab1"
+    },
+    {
+      "file": "supplement_d532a076ba.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec22_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec22_hand_pdf/",
+      "kind": "html",
+      "bytes": 56324,
+      "sha256": "f88c9fb44841549d6456048c214434ff30fd9e0d5e13ea55a5d71e7ab57e5dbb"
+    },
+    {
+      "file": "mit6_622_s23_lec23_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec23_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec23_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1200276,
+      "sha256": "2a18b0a9566086a38031626a54cc41d9d2e406420bc227d466e4d9cccb128a94"
+    },
+    {
+      "file": "supplement_839b533dfe.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec23_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec23_hand_pdf/",
+      "kind": "html",
+      "bytes": 56292,
+      "sha256": "f5d4cf967adc99cab176114f4d2582297a2996cc5bf8d5b69a82d5e5d3ac1e7e"
+    },
+    {
+      "file": "mit6_622_s23_lec24_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec24_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec24_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1158520,
+      "sha256": "be6c953e14c6d08baedbc90697cfc9fc53fbdc6bb9e50c045d9b1e071c3ec114"
+    },
+    {
+      "file": "supplement_93162a8ddd.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec24_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec24_hand_pdf/",
+      "kind": "html",
+      "bytes": 56262,
+      "sha256": "2e6aba0469584760ec82016bcdab0e933a299fedec61a9220ae1c6418c98fcda"
+    },
+    {
+      "file": "mit6_622_s23_lec25_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec25_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec25_hand.pdf",
+      "kind": "pdf",
+      "bytes": 749363,
+      "sha256": "cc472a1457765d38df095c51d88a5f522f71428eaec93f8ce56eb58c3db53981"
+    },
+    {
+      "file": "supplement_8f953e2538.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec25_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec25_hand_pdf/",
+      "kind": "html",
+      "bytes": 56264,
+      "sha256": "b34ac16be1ef9370cff2c51690f742853a6be37a5e32357352e063f99afa94fa"
+    },
+    {
+      "file": "mit6_622_s23_lec26_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec26_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec26_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1074834,
+      "sha256": "00050c15d0772c4f58957872c04d04a4fb014de9217a90f022c9a5189f4adf18"
+    },
+    {
+      "file": "supplement_b98fff0b73.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec26_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec26_hand_pdf/",
+      "kind": "html",
+      "bytes": 56262,
+      "sha256": "2b72d18ae15d0c0e89a35d9f4cae2f0d05c559a9812e2e1d10c44e0c2d1fce30"
+    },
+    {
+      "file": "mit6_622_s23_lec27_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec27_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec27_hand.pdf",
+      "kind": "pdf",
+      "bytes": 548104,
+      "sha256": "6b61615883c12162a143165e6303d76e74af1557e1874448c44354cb73efefc1"
+    },
+    {
+      "file": "supplement_ded2c49a1a.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec27_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec27_hand_pdf/",
+      "kind": "html",
+      "bytes": 56289,
+      "sha256": "11958779a79202fea62dcdae20035b04df32fdaa02bba20040ddf9a3a3e5f039"
+    },
+    {
+      "file": "mit6_622_s23_lec28_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec28_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec28_hand.pdf",
+      "kind": "pdf",
+      "bytes": 551914,
+      "sha256": "0a13b05b0a34a7d2e7a64484e55101d04f17e41ecb769bc8b5edf049e593f7ca"
+    },
+    {
+      "file": "supplement_83373e7574.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec28_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec28_hand_pdf/",
+      "kind": "html",
+      "bytes": 56284,
+      "sha256": "bfb30e73c6e41b3b5565eef95eb4fc76cdd02a0ce6b507e90d5b795b9534e599"
+    },
+    {
+      "file": "mit6_622_s23_lec29_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec29_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec29_hand.pdf",
+      "kind": "pdf",
+      "bytes": 839257,
+      "sha256": "1830f092b4684b7b4fdf59900b5d9c0c54a54fb3372687940f30521e0c74a9d2"
+    },
+    {
+      "file": "supplement_c6960fd5ad.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec29_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec29_hand_pdf/",
+      "kind": "html",
+      "bytes": 56284,
+      "sha256": "5e95557b22939576abd18ca7e6252971ae1ee29e64a32ec65326e5ab7536aefc"
+    },
+    {
+      "file": "mit6_622_s23_lec30_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec30_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec30_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1078534,
+      "sha256": "0fecf6fc1d4d8787a131eb6f1dea92750cb61a614d59a944689d32be18530b0b"
+    },
+    {
+      "file": "supplement_f865afae23.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec30_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec30_hand_pdf/",
+      "kind": "html",
+      "bytes": 56357,
+      "sha256": "7147c206d387ca2ed7017e8c3ec32350e627c9ae406fd4c2d36599ab1a72333e"
+    },
+    {
+      "file": "mit6_622_s23_lec31_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec31_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec31_hand.pdf",
+      "kind": "pdf",
+      "bytes": 916310,
+      "sha256": "71bd6d3c13f27b978446aef33917322609bc5b5a3ba1612960d6aa202b4bf203"
+    },
+    {
+      "file": "supplement_379c585363.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec31_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec31_hand_pdf/",
+      "kind": "html",
+      "bytes": 56379,
+      "sha256": "46af649dbb905f63028a98a9cc2e0a75efedeb1c0521ef6057b0952094823f2d"
+    },
+    {
+      "file": "mit6_622_s23_lec32_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec32_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec32_hand.pdf",
+      "kind": "pdf",
+      "bytes": 704265,
+      "sha256": "0d7ab17d882b03cb31b49bef8c0fe966bcad756ccf7394ae9b6c01350fca9ebd"
+    },
+    {
+      "file": "supplement_b23a10c6c2.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec32_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec32_hand_pdf/",
+      "kind": "html",
+      "bytes": 56374,
+      "sha256": "ae9e8e492df62dc0d31a3dd80144e2f11a4c27d1383a3cf44cf31ffcd81dd1bb"
+    },
+    {
+      "file": "mit6_622_s23_lec33_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec33_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec33_hand.pdf",
+      "kind": "pdf",
+      "bytes": 509639,
+      "sha256": "cc3825e3600e6bab4194ab0a40f0371441452a83a6018a6300ea019f62a50a71"
+    },
+    {
+      "file": "supplement_fd619275ed.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec33_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec33_hand_pdf/",
+      "kind": "html",
+      "bytes": 56304,
+      "sha256": "46c8da13faef9a82fa54a8d979bfde16d9ecdbf64c319603978f98a51470c39a"
+    },
+    {
+      "file": "mit6_622_s23_lec34_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec34_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec34_hand.pdf",
+      "kind": "pdf",
+      "bytes": 637135,
+      "sha256": "f56e935813b06b5952d9c7a368123e8dfe69aeb647c325d45699af5420f15c09"
+    },
+    {
+      "file": "supplement_e0e8e6cf96.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec34_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec34_hand_pdf/",
+      "kind": "html",
+      "bytes": 56299,
+      "sha256": "883553aeeb15e0a4352ffeac57537798ab6c27817b3d31ab7fefef23172d8ed6"
+    },
+    {
+      "file": "mit6_622_s23_lec35_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec35_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec35_hand.pdf",
+      "kind": "pdf",
+      "bytes": 835020,
+      "sha256": "2d0721e6faf0a0edcfbd53cda6dedc81a32e66e8212814803d5259bfa021aabc"
+    },
+    {
+      "file": "supplement_2b0cdb7626.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec35_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec35_hand_pdf/",
+      "kind": "html",
+      "bytes": 56354,
+      "sha256": "f14f27d244d16f71f338b9118778eec8b2ecfe304ae7e763fc32d19f13e757be"
+    },
+    {
+      "file": "mit6_622_s23_lec36_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec36_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec36_hand.pdf",
+      "kind": "pdf",
+      "bytes": 911348,
+      "sha256": "301768c582f31cf9dd3cce7913bd9ee1e71495d892fee0adc54cfc77762121c4"
+    },
+    {
+      "file": "supplement_7eb48ec93c.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec36_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec36_hand_pdf/",
+      "kind": "html",
+      "bytes": 56354,
+      "sha256": "5a344cba2ac6b82c833d8cc109a16e14470b308d1d201dbe3f4b75885188c262"
+    },
+    {
+      "file": "mit6_622_s23_lec37_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec37_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec37_hand.pdf",
+      "kind": "pdf",
+      "bytes": 678325,
+      "sha256": "2cae01715bf8d9468905250c3210076d68861a9f2bae02a3b67db9460c90a999"
+    },
+    {
+      "file": "supplement_669ea4f365.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec37_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec37_hand_pdf/",
+      "kind": "html",
+      "bytes": 56379,
+      "sha256": "9da4a90278e1b176c7d616c985786665fc8afbca01f13535f21b2f97a4216beb"
+    },
+    {
+      "file": "mit6_622_s23_lec38_hand.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec38_hand.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec38_hand.pdf",
+      "kind": "pdf",
+      "bytes": 1135763,
+      "sha256": "d1e985e0ac34de1d2c9145ff21d68a78c023533c427989c412bdd8df35e31d38"
+    },
+    {
+      "file": "supplement_7811d9ab10.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec38_hand_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec38_hand_pdf/",
+      "kind": "html",
+      "bytes": 56342,
+      "sha256": "e98d8976209445c7666f396c586bb6dff138c2c28b95d8c7804328048c666d2c"
+    },
+    {
+      "file": "mit6_622_s23_lec01.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec01.pdf",
+      "kind": "pdf",
+      "bytes": 6018745,
+      "sha256": "4af5bb66005646e226555351942c36c32b86b350233b8269f25b4bc6de8ad9f7"
+    },
+    {
+      "file": "supplement_87549be300.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec01_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec01_pdf/",
+      "kind": "html",
+      "bytes": 56102,
+      "sha256": "90f3ec87d28c97394679eeb406931b5be0cbbcd0399ff1a22512d598a03458b7"
+    },
+    {
+      "file": "mit6_622_s23_lec02.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec02.pdf",
+      "kind": "pdf",
+      "bytes": 431887,
+      "sha256": "f6631e47487af9fa7a71adf749f6155af727cd078135d7c85902bcc30cb1689c"
+    },
+    {
+      "file": "supplement_0b5027a458.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec02_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec02_pdf/",
+      "kind": "html",
+      "bytes": 56199,
+      "sha256": "bc919f338b909bd3865b006780c74f0afcd264f7fe990818e446f34bb386626b"
+    },
+    {
+      "file": "mit6_622_s23_lec03.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec03.pdf",
+      "kind": "pdf",
+      "bytes": 395837,
+      "sha256": "827f5babe9653d35e47ff3b257dd79c1d030d7880993841c9f47c78851714b30"
+    },
+    {
+      "file": "supplement_4bc3dcb3cf.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec03_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec03_pdf/",
+      "kind": "html",
+      "bytes": 56119,
+      "sha256": "505cc2b078bc3b339094d6a0804a92448d057d4458b553f90653d0bf17120f52"
+    },
+    {
+      "file": "mit6_622_s23_lec04.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec04.pdf",
+      "kind": "pdf",
+      "bytes": 482876,
+      "sha256": "746b6dcdd0dc7d702e3caca392996e0193063e14522de26317d852b48af428bd"
+    },
+    {
+      "file": "supplement_464f681cf1.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec04_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec04_pdf/",
+      "kind": "html",
+      "bytes": 56104,
+      "sha256": "bea82af9fe1efa0417985bfc93582e2333098a4145f2743300080d1663d9d0ae"
+    },
+    {
+      "file": "mit6_622_s23_lec05.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec05.pdf",
+      "kind": "pdf",
+      "bytes": 403139,
+      "sha256": "60c987599938d61b555f89a7e20e34259d52156c005465ec2ae8d625765ee0a3"
+    },
+    {
+      "file": "supplement_f9c7e3e434.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec05_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec05_pdf/",
+      "kind": "html",
+      "bytes": 56155,
+      "sha256": "765c26dd32088ea467611ebe8ea907c3c8f64a372e1723ad61cc8de0fa559723"
+    },
+    {
+      "file": "mit6_622_s23_lec06.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec06.pdf",
+      "kind": "pdf",
+      "bytes": 428326,
+      "sha256": "3976a56a5da7e14dadb596674d44fbc6e8cc9ac7889ef4db5fa9070efb7f8460"
+    },
+    {
+      "file": "supplement_69e95c7a5a.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec06_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec06_pdf/",
+      "kind": "html",
+      "bytes": 56110,
+      "sha256": "0726cfa648d0e99ae3009610b9ffa76965ad547fd3f6d1886a8206638d60f4d6"
+    },
+    {
+      "file": "mit6_622_s23_lec07.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec07.pdf",
+      "kind": "pdf",
+      "bytes": 383250,
+      "sha256": "040c8e55ea07cfedb64c0c2539f1f3d2400e48eb9f3676ae2bf09f02715a814e"
+    },
+    {
+      "file": "supplement_08e6ea3ffb.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec07_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec07_pdf/",
+      "kind": "html",
+      "bytes": 56110,
+      "sha256": "02076c3935ca43990a404d4c587f8c48d66dacfcd9c86205ef0ecd1313e5c240"
+    },
+    {
+      "file": "mit6_622_s23_lec08.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec08.pdf",
+      "kind": "pdf",
+      "bytes": 383340,
+      "sha256": "ec24dfcd39c216a20fa3a1b9d9111bc5133428922d2d225e5c17f39d4804512a"
+    },
+    {
+      "file": "supplement_6d297b36dc.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec08_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec08_pdf/",
+      "kind": "html",
+      "bytes": 56110,
+      "sha256": "0feb97f5d5b5f9e8790346b9b2045eec384204870a2411fb30d69a76917fd88c"
+    },
+    {
+      "file": "mit6_622_s23_lec09.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec09.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec09.pdf",
+      "kind": "pdf",
+      "bytes": 401757,
+      "sha256": "8dbe10a0b2b37a1164ca4aa972e8476f41886c026f4ac76fb3490e965bf9fb96"
+    },
+    {
+      "file": "supplement_c9de1b87d6.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec09_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec09_pdf/",
+      "kind": "html",
+      "bytes": 56129,
+      "sha256": "f391112bfdb81dc3ca691c219ed2a77e6ecf3063448b96767aa401df32c20990"
+    },
+    {
+      "file": "mit6_622_s23_lec102.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec102.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec102.pdf",
+      "kind": "pdf",
+      "bytes": 384876,
+      "sha256": "700506c791ebcbdb4bd2d1c01f79ed9219834d91d27977b28f62d0453fee9b3a"
+    },
+    {
+      "file": "supplement_80d0b8b788.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec10_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec10_pdf2/",
+      "kind": "html",
+      "bytes": 56142,
+      "sha256": "0a26efd5eef8b300a0441a11cdd0db1ebb925699399864c52085acc2c0c5af21"
+    },
+    {
+      "file": "mit6_622_s23_lec112.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec112.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec112.pdf",
+      "kind": "pdf",
+      "bytes": 510439,
+      "sha256": "88522abc1578fbdea0e888bd6aa19c096797815385588dd80047fc75c69e4b38"
+    },
+    {
+      "file": "supplement_173f66a1b8.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec11_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec11_pdf2/",
+      "kind": "html",
+      "bytes": 56142,
+      "sha256": "ed8f35447e791bc9a2cd55167237a1115bf7b10b6014f773b44e4017de8c5380"
+    },
+    {
+      "file": "mit6_622_s23_lec122.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec122.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec122.pdf",
+      "kind": "pdf",
+      "bytes": 362281,
+      "sha256": "0d63d53733e6846f86187fbefa0b32710794c7234a60c5c63cba08a6ee8d390f"
+    },
+    {
+      "file": "supplement_dd62a8f3f4.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec12_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec12_pdf2/",
+      "kind": "html",
+      "bytes": 56142,
+      "sha256": "553a874e54a225f704504812f5a8d700c34f6a9dc58dc1c7278af0063f25a5ba"
+    },
+    {
+      "file": "mit6_622_s23_lec132.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec132.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec132.pdf",
+      "kind": "pdf",
+      "bytes": 445545,
+      "sha256": "7dc7e608636b5d00e06ed86d866a48551172ab274990c4eb902f4757bf7374c8"
+    },
+    {
+      "file": "supplement_792006484d.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec13_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec13_pdf2/",
+      "kind": "html",
+      "bytes": 56223,
+      "sha256": "acbfb6de606062f2194f6b7808621a4076774a0d9132255671187b71d63e5973"
+    },
+    {
+      "file": "mit6_622_s23_lec142.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec142.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec142.pdf",
+      "kind": "pdf",
+      "bytes": 536790,
+      "sha256": "155a65cd2b9f687395d5918b81a543f68aa29a9c3ac2abea4130966f5ac53b64"
+    },
+    {
+      "file": "supplement_a08281058c.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec14_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec14_pdf2/",
+      "kind": "html",
+      "bytes": 56223,
+      "sha256": "961ee84af452bb294606475eaf003dde67e3e6f0f4b52931ba1a59fc4b80890d"
+    },
+    {
+      "file": "mit6_622_s23_lec152.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec152.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec152.pdf",
+      "kind": "pdf",
+      "bytes": 424028,
+      "sha256": "272a8daf4dbc45d6e43ae3de1736231830dbdc17b00be65aaadb0e70e2e60512"
+    },
+    {
+      "file": "supplement_1f0f5ffc33.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec15_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec15_pdf2/",
+      "kind": "html",
+      "bytes": 56202,
+      "sha256": "e549da63081ebafecbe35dd42be22cebd6b098b4ea67dce6380938051d930182"
+    },
+    {
+      "file": "mit6_622_s23_lec162.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec162.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec162.pdf",
+      "kind": "pdf",
+      "bytes": 478792,
+      "sha256": "be5ccb7e32721d196fea7e23d7a3848f3150b0ab6504789d544b432da43b9a44"
+    },
+    {
+      "file": "supplement_b0166caa4f.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec16_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec16_pdf2/",
+      "kind": "html",
+      "bytes": 56222,
+      "sha256": "8a85e775707d31dacc28cfc49a8da8d667b54123f53feac77ae9d321ecb5db74"
+    },
+    {
+      "file": "mit6_622_s23_lec172.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec172.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec172.pdf",
+      "kind": "pdf",
+      "bytes": 575182,
+      "sha256": "a2a4db5aefb6af750733cfc443f994a9dfde65712944de93fbe25ca60a251f4f"
+    },
+    {
+      "file": "supplement_8ec34a654e.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec17_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec17_pdf2/",
+      "kind": "html",
+      "bytes": 56142,
+      "sha256": "5ea7e7a648d2b37a2cc21aaf6ff4d0aea417a1f00e1a78cadb4683cfcb8ebdb7"
+    },
+    {
+      "file": "mit6_622_s23_lec182.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec182.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec182.pdf",
+      "kind": "pdf",
+      "bytes": 359401,
+      "sha256": "faa4921e9d5a4957cfe8a6db026180c03c5cfbefe8b31374d44b46f7bc21d376"
+    },
+    {
+      "file": "supplement_dfb55c9e12.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec18_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec18_pdf2/",
+      "kind": "html",
+      "bytes": 56142,
+      "sha256": "ced6b02211d053aa4e0d4a3d5f58e86ebcb579fce05ee95bc0e05455f2c5069e"
+    },
+    {
+      "file": "mit6_622_s23_lec192.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec192.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec192.pdf",
+      "kind": "pdf",
+      "bytes": 472926,
+      "sha256": "eda6b20f1639b2e721aee5cf787f9a4de152f2d4effa87b40dfd1a86d194346d"
+    },
+    {
+      "file": "supplement_dccc814d15.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec19_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec19_pdf2/",
+      "kind": "html",
+      "bytes": 56142,
+      "sha256": "3eee943cf849809179b9cc311bf9004ff0dc8d593a04d3d51106b8c0c9ca753b"
+    },
+    {
+      "file": "mit6_622_s23_lec202.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec202.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec202.pdf",
+      "kind": "pdf",
+      "bytes": 402940,
+      "sha256": "21ad148ca8c25e5e26c8b690c9e385d2103f7cc37aa4078dd39c65def9088045"
+    },
+    {
+      "file": "supplement_bf2431645d.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec20_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec20_pdf2/",
+      "kind": "html",
+      "bytes": 56177,
+      "sha256": "d72b5598f0815d75cc65b8f46ccf628dd835d0b24f7412b04b67552ffa80dd0c"
+    },
+    {
+      "file": "mit6_622_s23_lec212.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec212.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec212.pdf",
+      "kind": "pdf",
+      "bytes": 430833,
+      "sha256": "fdf33d88fc59f17f1b08a9aeaf07410e52d839ae354455ba2227c68f1c0887f9"
+    },
+    {
+      "file": "supplement_49324b5e18.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec21_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec21_pdf2/",
+      "kind": "html",
+      "bytes": 56192,
+      "sha256": "f3213e3607d150403ae6324fc4cce60edfb2460ab770c9509f9b09aed9c42206"
+    },
+    {
+      "file": "mit6_622_s23_lec222.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec222.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec222.pdf",
+      "kind": "pdf",
+      "bytes": 572258,
+      "sha256": "d58bdf21e0a7980314a7d15d7bd9b9b4df5136cf9e7c67d70ab9b5b3a4207dd0"
+    },
+    {
+      "file": "supplement_d4f09c3945.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec22_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec22_pdf2/",
+      "kind": "html",
+      "bytes": 56192,
+      "sha256": "eb637bafbf0aef44566c6ca043efdb8a7f9cf899ab6b6505952bf342ee83d9b8"
+    },
+    {
+      "file": "mit6_622_s23_lec232.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec232.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec232.pdf",
+      "kind": "pdf",
+      "bytes": 574582,
+      "sha256": "7c7702cae5524ff5f9d41d48899e6c37c054e7a29d534f5d15d4ff44ee163696"
+    },
+    {
+      "file": "supplement_2231eff0dd.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec23_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec23_pdf2/",
+      "kind": "html",
+      "bytes": 56162,
+      "sha256": "47f30cac25f230f02bfa95b621764dcdb8bd62b0db9f9b086c525e72309cb0b3"
+    },
+    {
+      "file": "mit6_622_s23_lec242.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec242.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec242.pdf",
+      "kind": "pdf",
+      "bytes": 752012,
+      "sha256": "db29089421f621bfc563e92bb1a68fc9284e5d95dcc2022f19858fdee35e442b"
+    },
+    {
+      "file": "supplement_ea34adf11d.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec24_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec24_pdf2/",
+      "kind": "html",
+      "bytes": 56132,
+      "sha256": "a6f7dd591574b1c7e5981098e7e7002d99e0ebd12f668e3b61c47892862bdc1a"
+    },
+    {
+      "file": "mit6_622_s23_lec252.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec252.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec252.pdf",
+      "kind": "pdf",
+      "bytes": 501097,
+      "sha256": "10f83a0b0d019ca2d7e7836bdb7b4d982705a961af3f4682b5146fadcf8ee1ba"
+    },
+    {
+      "file": "supplement_91150a2b44.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec25_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec25_pdf2/",
+      "kind": "html",
+      "bytes": 56132,
+      "sha256": "96fd08b580c01d4bdb8f4f0569422f73cc3b99263c6d5c32922823b652a295a0"
+    },
+    {
+      "file": "mit6_622_s23_lec262.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec262.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec262.pdf",
+      "kind": "pdf",
+      "bytes": 940112,
+      "sha256": "610b3ef5bab5ec0c4e7fb85ffc1034d5bd37e5ab74508f9f7a09826cac063467"
+    },
+    {
+      "file": "supplement_b9e4e94cf8.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec26_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec26_pdf2/",
+      "kind": "html",
+      "bytes": 56132,
+      "sha256": "6c29a57aae11b30b1ccafaf6a80ec7e0f023ff9ccfc5b6d414c510ede27c5696"
+    },
+    {
+      "file": "mit6_622_s23_lec272.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec272.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec272.pdf",
+      "kind": "pdf",
+      "bytes": 295031,
+      "sha256": "e3e7e6b9d056e981331145f2e911219d79aeed5b65af43b86c409043e153cb80"
+    },
+    {
+      "file": "supplement_f1a17c8a7b.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec27_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec27_pdf2/",
+      "kind": "html",
+      "bytes": 56157,
+      "sha256": "be9e78c988e86aa8bb616b8cb2b3c4b812892846ca62a0c53bd5414c3a8b82c6"
+    },
+    {
+      "file": "mit6_622_s23_lec282.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec282.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec282.pdf",
+      "kind": "pdf",
+      "bytes": 346543,
+      "sha256": "d94538f58b2ca52d97ffb7e7e1ea1554960af598ca47e522b45d371162cfd8a1"
+    },
+    {
+      "file": "supplement_9e511d7da6.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec28_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec28_pdf2/",
+      "kind": "html",
+      "bytes": 56152,
+      "sha256": "bf9509ea69add2b411560a387d089e0008bbee3b78c7557946ed692c2a30a8bd"
+    },
+    {
+      "file": "mit6_622_s23_lec292.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec292.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec292.pdf",
+      "kind": "pdf",
+      "bytes": 528357,
+      "sha256": "ead671ebfcacc2c5ff7278b636641b171e6f3f926a0033fe6d75f9ac9cd1e877"
+    },
+    {
+      "file": "supplement_6dedef85c7.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec29_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec29_pdf2/",
+      "kind": "html",
+      "bytes": 56152,
+      "sha256": "b3ae490532c6ad5ef93df71ccc90ff5844cb0b4b371e6a2b408f7c2074d338b7"
+    },
+    {
+      "file": "mit6_622_s23_lec302.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec302.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec302.pdf",
+      "kind": "pdf",
+      "bytes": 755735,
+      "sha256": "e29d1e4d1e067b48b4af9eec7bad864263bb0b3d3b9c147e9ce8ce32890d6d61"
+    },
+    {
+      "file": "supplement_5cfedaf64a.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec30_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec30_pdf2/",
+      "kind": "html",
+      "bytes": 56222,
+      "sha256": "bbb88183f888a231818db700d499c88095f5a070c6f52ce9be663081b1d30da0"
+    },
+    {
+      "file": "mit6_622_s23_lec312.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec312.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec312.pdf",
+      "kind": "pdf",
+      "bytes": 368402,
+      "sha256": "cd2ddeda7ddfdf753bb4eb39b3409c6b16923a104401030c39d149752681c3c9"
+    },
+    {
+      "file": "supplement_2b1a854995.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec31_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec31_pdf2/",
+      "kind": "html",
+      "bytes": 56242,
+      "sha256": "db8c5c553022f943d86281e7d1bc717213f07ddcb5d97a686996fd5402c64981"
+    },
+    {
+      "file": "mit6_622_s23_lec322.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec322.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec322.pdf",
+      "kind": "pdf",
+      "bytes": 420529,
+      "sha256": "5afa796c1bb5e75dee7a7e85ab34b84b6568dc4f63da5ba702031f1113cc7317"
+    },
+    {
+      "file": "supplement_0f225e3817.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec32_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec32_pdf2/",
+      "kind": "html",
+      "bytes": 56242,
+      "sha256": "9a4ee36a42f35355cec8fef67d8f8d569affc3b678f15095d89a52c2d1f28c11"
+    },
+    {
+      "file": "mit6_622_s23_lec332.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec332.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec332.pdf",
+      "kind": "pdf",
+      "bytes": 306539,
+      "sha256": "658f0ba8bf4cdc5a49da1728b7de54d7144fb4e0fe04525ce75671d717859e9b"
+    },
+    {
+      "file": "supplement_9fe0b3d89d.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec33_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec33_pdf2/",
+      "kind": "html",
+      "bytes": 56167,
+      "sha256": "8c4ffe646f6664d0488b3a086bafb3805dba6460a5a3c4848ed26f6896f348f7"
+    },
+    {
+      "file": "mit6_622_s23_lec342.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec342.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec342.pdf",
+      "kind": "pdf",
+      "bytes": 377070,
+      "sha256": "1b0ead279dc6f496c64c633e58b8e258817df48cc96d86b384b81c03b90caccf"
+    },
+    {
+      "file": "supplement_9125965d21.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec34_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec34_pdf2/",
+      "kind": "html",
+      "bytes": 56167,
+      "sha256": "6fc97c6f185c8253db3a027dd7b106b19f87fb28d76337114b1bc9f2083203cd"
+    },
+    {
+      "file": "mit6_622_s23_lec352.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec352.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec352.pdf",
+      "kind": "pdf",
+      "bytes": 337463,
+      "sha256": "259929647b238adb75045684e8994cf3f300db28094585a79321e760bb10c027"
+    },
+    {
+      "file": "supplement_ca0b9089c2.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec35_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec35_pdf2/",
+      "kind": "html",
+      "bytes": 56222,
+      "sha256": "b90a1dcc01118cadd7b66d84b51b00031cdc49e834cc2c51a3f3cf8e52b67445"
+    },
+    {
+      "file": "mit6_622_s23_lec362.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec362.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec362.pdf",
+      "kind": "pdf",
+      "bytes": 558959,
+      "sha256": "5ad93b2534066b8529aa6b87ba7ccdf91052952f413e16a94dcc20d977b7b8f0"
+    },
+    {
+      "file": "supplement_cce5ae8119.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec36_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec36_pdf2/",
+      "kind": "html",
+      "bytes": 56222,
+      "sha256": "4b16f5758c641c08475af22935019cfce76f38895fc6ccbb38f1e05675de5361"
+    },
+    {
+      "file": "mit6_622_s23_lec372.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec372.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec372.pdf",
+      "kind": "pdf",
+      "bytes": 355081,
+      "sha256": "0867d26445497addaf39dbff9533d879f653b0365a6c978538e4e8e6c64eae15"
+    },
+    {
+      "file": "supplement_f801e6f91a.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec37_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec37_pdf2/",
+      "kind": "html",
+      "bytes": 56247,
+      "sha256": "08178582b30f95365188d9640d38eca2e6deb0b81f7c8481a158553cb6df3444"
+    },
+    {
+      "file": "mit6_622_s23_lec382.pdf",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec382.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/mit6_622_s23_lec382.pdf",
+      "kind": "pdf",
+      "bytes": 491641,
+      "sha256": "199a33550ea18a18dc392fd3d8d6ba9b5fb2a24b258d549d1204f0958e8967bc"
+    },
+    {
+      "file": "supplement_c03bae5074.html",
+      "url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec38_pdf2/",
+      "final_url": "https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/resources/mit6_622_s23_lec38_pdf2/",
+      "kind": "html",
+      "bytes": 56212,
+      "sha256": "553a0c1786d8b1bb4c4b42a8807e5278e5f65bb3f8ad70e5001380be584c8464"
+    }
+  ],
+  "errors": []
+}

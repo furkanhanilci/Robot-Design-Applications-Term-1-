@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>18-349/14-642: Introduction to Embedded Systems</title>
+
+    <!-- Bootstrap -->
+    <link href="support/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      body {
+        color: #464646;
+      }
+
+      h1, a, a:hover {
+        color: #990000;
+      }
+
+      nav {
+        margin-top: 20px;
+      }
+
+      nav ul {
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        display: block;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 10px;
+        border-left: 4px solid #CCCCCC;
+        color: #464646;
+      }
+
+      nav ul li a:hover {
+        border-left: 4px solid #990000;
+        text-decoration: none;
+        color: #990000;
+      }
+
+      .sidebar img{
+        width: 100%;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          
+          <h1><font size="+3">18-349/14-642: Introduction to Embedded Systems</font></h1>
+          <h2 id="overview">Overview and Resources</h2>
+
+          <p>Welcome to 18-349/14-642 Spring 2020. 
+ 
+          <p>This page offers a course overview for audiences other than currently enrolled 
+             students.  Currently enrolled students should use the official course resources linked 
+             below.
+
+          <UL>
+            <LI> Official course resources for enrolled students:
+                 <a href="https://canvas.cmu.edu/courses/13196">Canvas</a> /
+                 <a href="https://piazza.com/cmu/spring2020/1834914642/home">Piazza</a> /
+                 <a href="https://github.com/18349-14642">Git Hub</A> 
+            <LI> Unofficial and tentative course documents (pdf): 
+                 <a href="docs/18349_S20_Syllabus.pdf">Syllabus</a> /
+                 <a href="docs/18349_S20_Tentative_Schedule.pdf">Schedule</a> /
+                 <a href="docs/18349_S20_Lab_descriptions.pdf">Projects In Brief</a> 
+            <LI> Instructor contact:
+                 <a href=https://www.cylab.cmu.edu/directory/bios/pereira-nuno.html>Nuno Pereira</A> /
+                 <a href=https://www.ece.cmu.edu/~agr>Anthony Rowe</A>
+            <LI> Meeting times: 
+                <UL>
+                    <LI>Monday: 7pm-8pm (HH 1303)
+                    <LI>Tuesday: 3.30pm-5.30pm (HH 1303)
+                    <LI>Wednesday: 4:30pm-5:30pm (HH 1303)
+                    <LI>Thursday: 5pm-7pm (HH 1303)
+                    <LI>Friday: 1pm-3pm (HH 1303)
+                </UL>
+          </UL>
+
+<h2 id="hardware">Hardware Platform</h2>
+<P>
+The hardware platform includes a PCB designed by and custom-made for each
+student team, that interfaces an STM32 Nucleo board to various sensors and peripherals.
+Peripherals include an analog microphone, light sensors, 7-segment display, servo 
+controller port, motor encoder and an H-Bridge circuit for driving motor outputs. The 
+PCB also has a connection to a Raspberry Pi which is used to communicate between the 
+STM32 and the RPi. This allows students to explore big-little architectures
+that run a hybrid of Linux (on the RPi) and real-time firmware on the STM32.
+</P>
+
+<img src="support/IMG_1676.JPG" WIDTH=750 alt="Hardware platform B" >
+<br>
+          <h2 id="description">Catalog Description</h2>
+
+          <p>This practical, hands-on course introduces the various building blocks and underlying scientific and engineering principles behind embedded real-time systems. The course covers the integrated hardware and software aspects of embedded processor architectures, along with advanced topics such as real-time, resource/device and memory management. Students can expect to learn how to program with the embedded architecture that is ubiquitous in cell-phones, portable gaming devices, robots, tablets, etc. Students will then go on to learn and apply real-time principles that are used to drive critical embedded systems like automobiles, avionics, medical equipment, wearables, etc. Topics covered include embedded architectures (building up to modern 16/32/64-bit embedded processors); interaction with devices (buses, memory architectures, memory management, device drivers); concurrency (software and hardware interrupts, timers); real-time principles (multi-tasking, scheduling, synchronization); implementation trade-offs, profiling and code optimization (for performance and memory); embedded software (exception handling, loading, mode-switching, programming embedded systems). Through a series of laboratory exercises with state-of-the-art embedded processors and industry-strength development tools, students will acquire skills in the design/implementation/debugging of core embedded real-time functionality.</p>
+
+        </div>
+
+        <div class="col-sm-3 sidebar">
+          <div class="col-xs-6 col-sm-12">
+            <a href="http://www.ece.cmu.edu/"><img src="support/ece-wordmark-150dpi-320x66.png"></a>
+          </div>
+          <div class="col-xs-6 col-sm-12">
+            <a href="http://www.cmu.edu/"><img src="support/CMU_logo_horiz_red.png"></a>
+          </div>
+
+          <div class="col-xs-12">
+            <nav>
+              <ul>
+                <li><a href="#overview">Overview and Resources</a></li>
+                <li><a href="#hardware">Hardware Platform</a></li>
+                <li><a href="#description">Catalog Description</a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+        </div>
+      </div> <!-- /.row -->
+
+    </div> <!-- /.container -->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="support/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="support/bootstrap.min.js"></script>
+  
+
+</body></html>

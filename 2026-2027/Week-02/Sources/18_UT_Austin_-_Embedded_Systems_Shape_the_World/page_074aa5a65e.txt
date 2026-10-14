@@ -1,0 +1,3352 @@
+Chapter 2: Fundamental Concepts
+Chapter
+2: Fundamental Concepts
+Embedded
+Systems - Shape
+The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+This
+chapter covers the basic foundation
+concepts needed to build upon in this course. Specifically we will look
+at number representation, digital logic, embedded system components,
+and computer architecture: the Central Processing Unit (Arithmetic
+Logic Unit, Control Unit and Registers), the memory and the Instruction
+Set Architecture (ISA).
+Learning
+Objectives:
+Understand
+the
+binary number system, hexadecimal representation and the representation
+of signed and unsigned integers.
+Learn what
+an
+Embedded System is.
+Know the
+terms:
+microcontroller (CPU, Busses, Memory, I/O ports)
+Learn the
+composition of a CPU.
+Know the
+terms:
+Arithmetic Logic Unit, Control Unit, Registers, Bus, Von Neumann,
+Harvard
+Learn the
+memory
+map
+See some
+of the
+Cortex M instruction set.
+Video
+2.0
+. Introduction, Examples of
+Embedded Systems
+2.0. Introduction
+Embedded
+systems are a ubiquitous component of
+our everyday lives. We interact with hundreds of tiny computers every
+day that are embedded into our houses, our cars, our toys, and our
+work. As our world has become more complex, so have the capabilities of
+the microcontrollers embedded into our devices. The
+ARM
+®
+Cortex
+™
+-M
+family represents a new class of microcontrollers much more powerful
+than the devices available ten years ago. The purpose of this class is
+to present the design methodology to train young engineers to
+understand the basic building blocks that comprise devices like a cell
+phone, an MP3 player, a pacemaker, antilock brakes, and an engine
+controller.
+An
+embedded system is a system that performs a
+specific task and has a computer embedded inside. A system is comprised
+of components and interfaces connected together for a common purpose.
+This class is an introduction to embedded systems. Specific topics
+include microcontrollers, fixed-point numbers, the design of software
+in C, elementary data structures, programming input/output including
+interrupts, analog to digital conversion, digital to analog conversion.
+In
+general, the area of embedded systems is an
+important and growing discipline within electrical and computer
+engineering. In the past, the educational market of embedded systems
+has been dominated by simple microcontrollers like the PIC, the 9S12,
+and the 8051. This is because of their market share, low cost, and
+historical dominance. However, as problems become more complex, so must
+the systems that solve them. A number of embedded system paradigms must
+shift in order to accommodate this growth in complexity. First, the
+number of calculations per second will increase from millions/sec to
+billions/sec. Similarly, the number of lines of software code will also
+increase from thousands to millions. Thirdly, systems will involve
+multiple microcontrollers supporting many simultaneous operations.
+Lastly, the need for system verification will continue to grow as these
+systems are deployed into safety critical applications. These changes
+are more than a simple growth in size and bandwidth. These systems must
+employ parallel programming, high-speed synchronization, real-time
+operating systems, fault tolerant design, priority interrupt handling,
+and networking. Consequently, it will be important to provide our
+students with these types of design experiences. The ARM platform is
+both low cost and provides the high-performance features required in
+future embedded systems. In addition, the ARM market share is large and
+will continue to grow. As of July 2013, ARM reports that over 35
+billion ARM processors have been shipped from over 950 companies.
+Furthermore, students trained on the ARM will be
+equipped to design systems across the complete spectrum from simple to
+complex. The purpose of this course is to bring engineering education
+into the 21
+st
+century.
+2.1. Binary number systems
+To
+solve problems using a computer we need to
+understand numbers and what they mean. Each digit in a
+decimal
+number has a place and a value. The
+place
+is a power of 10
+and the
+value
+is selected from the set {0, 1, 2, 3, 4, 5, 6, 7,
+8, 9}. A decimal number is simply a combination of its digits
+multiplied by powers of 10. For example
+1984 = 1
+•
+10
+3
++ 9
+•
+10
+2
++ 8
+•
+10
+1
++ 4
+•
+10
+0
+Fractional
+values can be represented by using the
+negative powers of 10. For example,
+273.15 = 2
+•
+10
+2
++ 7
+•
+10
+1
++ 3
+•
+10
+0
++ 1
+•
+10
+-1
++ 5
+•
+10
+-2
+In a
+similar manner, each digit in a
+binary
+number has a place and a value. In binary numbers, the place
+is a power of 2, and the value is selected from the set {0, 1}. A
+binary number is simply a combination of its digits multiplied by
+powers of 2. To eliminate confusion between decimal numbers and binary
+numbers, we will put a subscript 2 after the number to mean binary.
+Because of the way the microcontroller operates,
+most of the binary numbers in this class will have 8, 16, or 32 bits.
+An 8-bit number is called a
+byte
+,
+and a 16-bit number is called
+a
+halfword
+.
+For example, the 8-bit binary number for 106 is
+0
+1
+1
+0
+1
+0
+1
+0
+2
+=
+0
+•
+2
+7
++
+1
+•
+2
+6
++
+1
+•
+2
+5
++
+0
+•
+2
+4
++
+1
+•
+2
+3
++
+0
+•
+2
+2
++
+1
+•
+2
+1
++
+0
+•
+2
+0
+=
+64
++
+32
++
+8
++
+2
+= 106
+Checkpoint 2.1
+:
+What is the numerical value of the 8-bit binary number
+11111111
+2
+?
+Video
+2.1
+. Binary
+representation
+Interactive
+Tool 2.1
+You
+have already learned how to
+convert from a binary number to its decimal representation. All you
+need
+to do is to calculate its value by multiplying each coefficient by its
+placeholder values and summing all of them together. If you want to
+practice, first think of an 8-digit binary number, and next type into
+the box from 1 to 8 binary digits. Try to calculate the decimal
+representation in your head. Then click
+"convert" to check your result.
+Binary
+is the natural language of computers but
+a big nuisance for us humans. To simplify working with binary numbers,
+humans use a related number system called
+hexadecimal
+,
+which
+uses base 16. Just like decimal and binary, each hexadecimal digit has
+a place and a value. In this case, the place is a power of 16 and the
+value is selected from the set {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C,
+D, E, F}. As you can see, hexadecimal numbers have more possibilities
+for their digits than are available in the decimal format; so, we add
+the letters A through F, as shown in Table 2.1. A hexadecimal number is
+a combination of its digits multiplied by powers of 16. To eliminate
+confusion between various formats, we will put a 0x or a $ before the
+number to mean hexadecimal. Hexadecimal
+representation
+is a convenient
+mechanism for us humans to define binary information, because it is
+extremely simple for humans to convert back and forth between binary
+and hexadecimal. Hexadecimal number system is often abbreviated as
+“hex”. A
+nibble
+is defined as 4 binary
+bits, or one hexadecimal digit. Each value of the 4-bit nibble is
+mapped into a unique hex digit, as shown in Table 2.1.
+Hex
+Digit
+Decimal 
+Value
+Binary
+Value
+0
+0
+0000
+1
+1
+0001
+2
+2
+0010
+3
+3
+0011
+4
+4
+0100
+5
+5
+0101
+6
+6
+0110
+7
+7
+0111
+8
+8
+1000
+9
+9
+1001
+A or a
+10
+1010
+B or b
+11
+1011
+C or c
+12
+1100
+D or d
+13
+1101
+E or e
+14
+1110
+F or f
+15
+1111
+Table
+2.1. Definition of hexadecimal
+representation.
+For
+example, the hexadecimal number for the 16-bit
+binary 0001 0010 1010 1101 is
+0x12AD = 1
+•
+16
+3
++ 2
+•
+16
+2
++ 10
+•
+16
+1
++ 13
+•
+16
+0
+=
+4096+512+160+13 = 4781
+Observation:
+In order to maintain
+consistency between assembly and C programs, we will use the 0x format
+when writing hexadecimal numbers in this class.
+Interactive
+Tool 2.2
+You
+have already learned how to convert from a hexadecimal number to its
+decimal representation. All you need to do is to calculate its value by
+multiplying each coefficient by its placeholder values and summing all
+of them together. If you want to practice, Choose an 4-digit
+hexadecimal number number. Try to calculate the decimal representation.
+Then type the number in the following field and click "convert" to
+check your result.
+Checkpoint 2.2
+:
+What is the numerical value of the 8-bit hexadecimal
+number 0xFF?
+As illustrated in
+Figure 2.1, to convert from binary to hexadecimal we can:
+1)
+Divide the binary number into right justified nibbles,
+2)
+Convert each nibble into its corresponding hexadecimal digit.
+Figure
+2.1. Example conversion from binary to
+hexadecimal.
+Checkpoint 2.3
+:
+Convert the binary number  01000101
+2
+to
+hexadecimal.
+Checkpoint 2.4
+:
+Convert the binary number 110010101011
+2
+to
+hexadecimal.
+As illustrated in
+Figure 2.2, to convert from hexadecimal to binary we can:
+1)
+Convert each hexadecimal digit into its corresponding 4-bit binary
+nibble,
+2)
+Combine the nibbles into a single binary number.
+Figure
+2.2. Example conversion from hexadecimal
+to binary.
+Checkpoint 2.5
+:
+Convert the hex number 0x40 to binary.
+Checkpoint 2.6
+:
+Convert the hex number 0x63F to binary.
+Checkpoint 2.7
+:
+How many binary bits does it take to represent 0x123456?
+Video
+2.2
+. Hexadecimal representation
+Computer
+programming environments use a wide
+variety of symbolic notations to specify the numbers in hexadecimal. As
+an example, assume we wish to represent the binary number 01111010.
+Some assembly languages use $7A. Some assembly languages use 7AH. The C
+language uses 0x7A. Patt’s LC-3 simulator uses x7A.
+Precision
+is the number of distinct or
+different values. We express precision in alternatives, decimal digits,
+bytes, or binary bits.
+Alternatives
+are defined as the total
+number of possibilities. For example, an 8-bit number format can
+represent 256 different numbers. An 8-bit
+digital
+to analog
+converter
+(DAC) can
+generate 256 different analog outputs. An
+8-bit
+analog to digital
+converter
+(ADC) can
+measure 256
+different analog inputs. Table 2.2 illustrates the relationship between
+precision in binary bits and precision in alternatives. The operation [[
+x
+]]
+is defined as the greatest integer of
+x
+.
+E.g., [[2.1]] 
+[[2.9]]  and [[3.0]] are all equal to 3. The
+Bytes
+column
+in Table 2.1 specifies how many bytes of memory it would take to store
+a number with that precision assuming the data were not packed or
+compressed in any way.
+Binary bits
+Bytes
+Alternatives
+8
+1
+256
+10
+2
+1024
+12
+2
+4096
+16
+2
+65536
+20
+3
+1,048,576
+24
+3
+16,777,216
+30
+4
+1,073,741,824
+32
+4
+4,294,967,296
+n
+[[n/8]]
+2
+n
+Table
+2.2. Relationship between bits, bytes and
+alternatives as units of precision.
+Checkpoint 2.8
+:
+How many bytes of memory would it take to store a
+50-bit number?
+A
+byte
+contains 8 bits as shown in
+Figure 2.3, where each bit b
+7
+,...,b
+0
+is binary and has the value 1
+or 0. We specify b
+7
+as
+the
+most significant bit
+or MSB, and b
+0
+as the least significant bit or
+LSB.
+Figure
+2.3. 8-bit binary format.
+If a
+byte is used to represent an unsigned
+number, then the value of the number is
+N = 128
+•
+b
+7
++ 64
+•
+b
+6
++ 32
+•
+b
+5
++ 16
+•
+b
+4
++ 8
+•
+b
+3
++ 4
+•
+b
+2
++ 2
+•
+b
+1
++ b
+0
+Notice
+that the significance of bit
+n
+is
+2
+n
+.
+There are 256 different unsigned 8-bit numbers. The
+smallest unsigned 8-bit number is 0 and the largest is 255. For
+example, 00001010
+2
+is 8+2 or 10. Other examples are shown in Table
+2.3. The least significant bit can tell us if the number is even or odd.
+binary
+hex
+Calculation
+decimal
+00000000
+2
+0x00
+0
+00100001
+2
+0x21
+32
++1
+33
+01000110
+2
+0x46
+64
++4+2
+70
+10001011
+2
+0x8B
+128+8+2+1
+139
+11111111
+2
+0xFF
+128+64+32+16+8+4+2+1
+255
+Table
+2.3. Example conversions from unsigned
+8-bit binary to hexadecimal and to decimal.
+Checkpoint 2.9
+:
+Convert the binary number 01101001
+2
+to unsigned
+decimal.
+Checkpoint 2.10
+:
+Convert the hex number 0x54 to unsigned decimal.
+The
+basis
+of a number system is a subset
+from which linear combinations of the basis elements can be used to
+construct the entire set. The basis represents the
+“places”
+in a “place-value” system. For positive integers,
+the basis
+is the infinite set {1, 10, 100, …}, and the
+“values” can range from 0 to 9. Each positive
+integer has a
+unique set of values such that the dot-product of the value vector
+times the basis vector yields that number. For example, 2345 is
+(…, 2,3,4,5)
+·
+(…,
+1000,100,10,1), which is 2*1000+3*100+4*10+5. For the unsigned 8-bit
+number system, the basis elements are
+{1, 2, 4, 8, 16, 32, 64, 128}
+The
+values of a binary number system can only be
+0 or 1. Even so, each 8-bit unsigned integer has a unique set of values
+such that the dot-product of the values times the basis yields that
+number. For example, 69 is (0,1,0,0,0,1,0,1)
+·
+(128,64,32,16,8,4,2,1),
+which equals 0*128+1*64+0*32+0*16+0*8+1*4+0*2+1*1. Conveniently, there
+is no other set of 0’s and 1’s, such that set of
+values
+multiplied by the basis is 69. In other words, each 8-bit unsigned
+binary representation of the values 0 to 255 is unique.
+One
+way for us to convert a decimal number into
+binary is to use the basis elements. The overall approach is to start
+with the largest basis element and work towards the smallest. More
+precisely, we start with the most significant bit and work towards the
+least significant bit. One by one, we ask ourselves whether or not we
+need that basis element to create our number. If we do, then we set the
+corresponding bit in our binary result and subtract the basis element
+from our number. If we do not need it, then we clear the corresponding
+bit in our binary result. We will work through the algorithm with the
+example of converting 100 to 8-bit binary, see Table 2.4. We start with
+the largest basis element (in this case 128) and ask whether or not we
+need to include it to make 100? Since our number is less than 128, we
+do not need it, so bit 7 is zero. We go the next largest basis element,
+64 and ask, “do we need it?” We do need 64 to
+generate our
+100, so bit 6 is one and we subtract 100 minus 64 to get 36. Next, we
+go the next basis element, 32 and ask, “do we need
+it?”
+Again, we do need 32 to generate our 36, so bit 5 is one and we
+subtract 36 minus 32 to get 4. Continuing along, we do not need basis
+elements 16 or 8, but we do need basis element 4. Once we subtract the
+4, our working result is zero, so basis elements 2 and 1 are not
+needed. Putting it together, we get 01100100
+2
+(which means 64+32+4).
+Checkpoint 2.11
+:
+In this conversion algorithm, how can we tell if a
+basis element is needed?
+Observation:
+If the least significant
+binary bit is zero, then the number is even.
+Observation:
+If the right-most n bits
+(least sign.) are zero, then the number is divisible by 2
+n
+.
+Observation:
+Consider an 8-bit unsigned
+number system. If bit 7 is low, then the number is between 0 and 127,
+and if bit 7 is high then the number is between 128 and 255.
+Number
+Basis
+Need it?
+bit
+Operation
+100
+128
+no
+bit 7=0
+none
+100
+64
+yes
+bit 6=1
+subtract 100-64
+36
+32
+yes
+bit 5=1
+subtract 36-32
+4
+16
+no
+bit 4=0
+none
+4
+8
+no
+bit 3=0
+none
+4
+4
+yes
+bit 2=1
+subtract 4-4
+0
+2
+no
+bit 1=0
+none
+0
+1
+no
+bit 0=0
+none
+Table
+2.4. Example conversion from decimal to
+unsigned 8-bit binary to hexadecimal.
+Checkpoint 2.12
+:
+Give the representations of the decimal 45 in 8-bit
+binary and hexadecimal.
+Checkpoint 2.13
+:
+Give the representations of the decimal 200 in 8-bit
+binary and hexadecimal.
+Interactive
+Tool 2.3
+There are a few techniques for
+converting decimal numbers to binaries. One of them is consecutive
+divisions. We start by dividing the decimal number by 2. Then we
+iteratively divide the result (the quotient) by 2 until the answer is
+0. The equivalent binary is formed by the remainders of the divisions.
+The last remainder found is the most significant digit. Enter a number
+between 0 and 255 in the following field and click convert to see an
+example. Try to convert a decimal number to binary.
+One
+of the first schemes to represent signed
+numbers was called
+one’s
+complement
+. It was called
+one’s complement because to negate a number, we complement
+(logical not) each bit. For example, if 25 equals 00011001
+2
+in
+binary,
+then –25 is 11100110
+2
+.
+An 8-bit one’s complement
+number can
+vary from ‑127 to +127. The most significant bit is a sign bit, which
+is 1 if and only if the number is negative. The difficulty with this
+format is that there are two zeros +0 is 00000000
+2
+,
+and –0 is
+11111111
+2
+.
+Another problem is that one’s complement numbers do
+not
+have basis elements. These limitations led to the use of
+two’s
+complement.
+The
+two’s
+complement
+number
+system is the most common approach used to define signed numbers. It is
+called two’s complement because to negate a number, we
+complement
+each bit (like one’s complement), then add 1. For example, if
+25
+equals 00011001
+2
+in binary, then –25 is 11100111
+2
+.
+If a byte is
+used to represent a signed two’s complement number, then the
+value of the number is
+N = -128
+•
+b
+7
++ 64
+•
+b
+6
++ 32
+•
+b
+5
++ 16
+•
+b
+4
++ 8
+•
+b
+3
++ 4
+•
+b
+2
++ 2
+•
+b
+1
++ b
+0
+Observation:
+One usually means two’s
+complement when one refers to signed integers.
+There
+are 256 different signed 8-bit numbers.
+The smallest signed 8-bit number is -128 and the largest is 127. For
+example, 10000010
+2
+equals -128+2 or -126. Other examples are shown in
+Table 2.5.
+binary
+Hex
+Calculation
+decimal
+00000000
+2
+0x00
+0
+00010010
+2
+0x12
+16
++2
+18
+00100110
+2
+0x26
+32
++4+2
+38
+11000111
+2
+0xC7
+-128+64+4+2+1
+-57
+11111111
+2
+0xFF
+-128+64+32+16+8+4+2+1
+-1
+Table
+2.5. Example conversions from signed
+8-bit binary to hexadecimal and to decimal.
+Checkpoint 2.14
+:
+Convert the signed binary number 11011010
+2
+to
+signed
+decimal.
+Checkpoint 2.15
+:
+Are the signed and unsigned decimal representations of
+the 8-bit hex number 0x95 the same or different?
+For
+the signed 8-bit number system the basis
+elements are
+{1, 2, 4, 8, 16, 32, 64, -128}
+Observation:
+The most significant bit in a
+two’s complement signed number will specify the sign.
+Notice
+that the same binary pattern of
+11111111
+2
+could represent either 255 or –1. It is very
+important
+for the software developer to keep track of the number format. The
+computer cannot determine whether the 8‑bit number is signed or
+unsigned. You, as the programmer, will determine whether the number is
+signed or unsigned by the specific assembly instructions you select to
+operate on the number. Some operations like addition, subtraction, and
+shift left (multiply by 2) use the same hardware (instructions) for
+both unsigned and signed operations. On the other hand, divide, and
+shift right (divide by 2) require separate hardware (instruction) for
+unsigned and signed operations.
+Similar
+to the unsigned algorithm, we can use
+the basis to convert a decimal number into signed binary. We will work
+through the algorithm with the example of converting –100 to
+8‑bit binary, as shown in Table 2.6. We start with the most significant
+bit (in this case –128) and decide do we need to include it
+to
+make –100? Yes (without –128, we would be unable to
+add the
+other basis elements together to get any negative result), so we set
+bit 7 and subtract the basis element from our value. Our new value
+equals –100 minus –128, which is 28. We go the next
+largest
+basis element, 64 and ask, “do we need it?” We do
+not need
+64 to generate our 28, so bit 6 is zero. Next we go the next basis
+element, 32 and ask, “do we need it?” We do not
+need 32 to
+generate our 28, so bit 5 is zero. Now we need the basis element 16, so
+we set bit 4, and subtract 16 from our number 28 (28-16=12). Continuing
+along, we need basis elements 8 and 4 but not 2, 1. Putting it together
+we get 10011100
+2
+(which means -128+16+8+4).
+Number
+Basis
+Need it
+bit
+Operation
+-100
+-128
+yes
+bit 7=1
+subtract -100 - -128
+28
+64
+no
+bit 6=0
+none
+28
+32
+no
+bit 5=0
+none
+28
+16
+yes
+bit 4=1
+subtract 28-16
+12
+8
+yes
+bit 3=1
+subtract 12-8
+4
+4
+yes
+bit 2=1
+subtract 4-4
+0
+2
+no
+bit 1=0
+none
+0
+1
+no
+bit 0=0
+none
+Table
+2.6. Example conversion from decimal to
+signed 8-bit binary.
+Observation:
+To take the negative of a
+two’s complement signed number we first complement (flip) all
+the
+bits, then add 1.
+A
+second way to convert negative numbers into
+binary is to first convert them into unsigned binary, then do a
+two’s complement negate. For example, we earlier found that
++100
+is 01100100
+2
+.
+The two’s complement negate is a two-step
+process.
+First we do a logic complement (flip all bits) to get 10011011
+2
+.
+Then
+add one to the result to get 10011100
+2
+.
+A third way to convert negative numbers into binary uses the number
+wheel. Let n be the number of bits in the binary representation. We
+specify precision, M=2^n, as the number of distinct values that can be
+represented. To convert negative numbers into binary is to first add M
+to the number, then convert the unsigned result to binary using the
+unsigned method. This works because binary numbers with a finite n are
+like the minute-hand on a clock. If we add 60 minutes, the minute-hand
+is in the same position. Similarly if we add M to or subtract M from an
+n-bit number, we go around the number wheel and arrive at the same
+place. This is one of the beautiful properties of 2's complement:
+unsigned and signed addition/subtraction are same operation. In this
+example we have an 8-bit number so the precision is 256. So, first we
+add 256 to the number, then convert the unsigned result to binary using
+the unsigned method. For example, to find –100, we add 256 plus
+–100 to get 156. Then we convert 156 to binary resulting in
+10011100
+2
+. This method works because in 8-bit binary math
+adding 256 to number does not change the value. E.g., 256-100 has the
+same 8-bit binary value as –100.
+Checkpoint 2.16
+:
+Give the representations of  -54 in 8-bit binary
+and hexadecimal.
+Checkpoint 2.17
+:
+Why can’t you represent the number 150 using
+8-bit signed binary?
+When dealing with numbers on the computer, it
+will be convenient to memorize some
+Powers of 2
+as shown in
+Table 2.7.
+exponent
+decimal
+2
+0
+1
+2
+1
+2
+2
+2
+4
+2
+3
+8
+2
+4
+16
+2
+5
+32
+2
+6
+64
+2
+7
+128
+2
+8
+256
+2
+9
+512
+2
+1
+0
+1024
+about a thousand
+2
+11
+2048
+2
+12
+4096
+2
+13
+8192
+2
+14
+16384
+2
+15
+32768
+2
+1
+6
+65536
+2
+20
+about
+a million
+2
+30
+about
+a billion
+2
+40
+about
+a trillion
+Table 2.7. Some powers of two that will be
+useful to memorize.
+Checkpoint 2.18
+:
+Use Table 2.7 to determine the approximate value of 2
+3
+2
+?
+A
+halfword
+or
+double byte
+contains
+16 bits, where each bit b
+15
+,...,b
+0
+is binary and has the value 1
+or 0, as shown in Figure 2.4.
+Figure
+2.4. 16-bit binary format.
+If a
+halfword is used to represent an unsigned
+number, then the value of the number is
+N = 32768
+•
+b
+15
++
+16384
+•
+b
+14
++
+8192
+•
+b
+13
++
+4096
+•
+b
+12
++ 2048
+•
+b
+11
++
+1024
+•
+b
+10
++ 512
+•
+b
+9
++ 256
+•
+b
+8
++ 128
+•
+b
+7
++ 64
+•
+b
+6
++ 32
+•
+b
+5
++ 16
+•
+b
+4
++ 8
+•
+b
+3
++ 4
+•
+b
+2
++ 2
+•
+b
+1
++ b
+0
+There
+are 65536 different unsigned 16-bit
+numbers. The smallest unsigned 16-bit number is 0 and the largest is
+65535. For example, 0010000110000100
+2
+or
+0x2184 is 8192+256+128+4 or
+8580. Other examples are shown in Table 2.8.
+binary
+hex
+Calculation
+decimal
+0000000000000000
+2
+0x0000
+0
+0000010000000001
+2
+0x0401
+1024+1
+1025
+0000110010100000
+2
+0x0CA0
+2048+1024+128+32
+3232
+1000111000000010
+2
+0x8E02
+32768+2048+1024+512+2
+36354
+1111111111111111
+2
+0xFFFF
+32768+16384+8192+4096+2048+1024
++512+256+128+64+32+16+8+4+2+1
+65535
+Table
+2.8. Example conversions from unsigned
+16-bit binary to hexadecimal and to decimal.
+Checkpoint 2.19
+:
+Convert the 16-bit binary number 0010000001101010
+2
+to
+unsigned decimal.
+Checkpoint 2.20
+:
+Convert the 16-bit hex number 0x1234 to unsigned
+decimal.
+For
+the unsigned 16-bit number system the basis
+elements are
+{1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384,
+32768}
+Checkpoint 2.21
+:
+Convert the unsigned decimal number 1234 to 16-bit
+hexadecimal.
+Checkpoint 2.22
+:
+Convert the unsigned decimal number 10000 to 16-bit
+binary.
+There
+are also 65536 different signed 16-bit
+numbers. The smallest two’s complement signed 16‑bit number
+is
+–32768 and the largest is 32767. For example,
+1101000000000100
+2
+or 0xD004 is –32768+16384+4096+4 or –12284. Other
+examples
+are shown in Table 2.9.
+binary
+hex
+Calculation
+decimal
+0000000000000000
+2
+0x0000
+0
+0000010000000001
+2
+0x0401
+1024+1
+1025
+0000110010100000
+2
+0x0CA0
+2048+1024+128+32
+3232
+1000010000000010
+2
+0x8402
+-32768+1024+2
+-31742
+1111111111111111
+2
+0xFFFF
+-32768+16384+8192+4096+2048+1024
++512+256+128+64+32+16+8+4+2+1
+-1
+Table
+2.9. Example conversions from signed
+16-bit binary to hexadecimal and to decimal.
+If a
+halfword is used to represent a signed
+two’s complement number, then the value of the number is
+N = -32768
+•
+b
+15
++
+16384
+•
+b
+14
++
+8192
+•
+b
+13
++
+4096
+•
+b
+12
++ 2048
+•
+b
+11
++
+1024
+•
+b
+10
++ 512
+•
+b
+9
++ 256
+•
+b
+8
++ 128
+•
+b
+7
++ 64
+•
+b
+6
++ 32
+•
+b
+5
++ 16
+•
+b
+4
++ 8
+•
+b
+3
++ 4
+•
+b
+2
++ 2
+•
+b
+1
++ b
+0
+Checkpoint 2.23
+:
+Convert the 16-bit hex number 0x1234 to signed
+decimal.
+Checkpoint 2.24
+:
+Convert the 16-bit hex number 0xABCD to signed
+decimal.
+For
+the signed 16-bit number system the basis
+elements are
+{1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384,
+-32768}
+Common
+Error:
+An error will occur if
+you
+use 16-bit operations on 8-bit numbers, or use 8-bit operations on
+16-bit numbers.
+Maintenance
+Tip:
+To improve the clarity of
+your software, always specify the precision of your data when defining
+or accessing the data.
+Checkpoint 2.25
+:
+Convert the signed decimal number 1234 to 16-bit
+hexadecimal.
+Checkpoint 2.26
+:
+Convert the signed decimal number –10000 to
+16-bit binary.
+A
+word
+on the ARM Cortex M will have 32
+bits. Consider
+an unsigned number with 32
+bits,
+where each bit b
+31
+,...,b
+0
+is binary and has the value 1
+or 0. If a 32-bit number is used to represent an unsigned integer, then
+the value of the number is
+N = 2
+31
+•
+b
+31
++ 2
+30
+•
+b
+30
++ ...
++ 2
+•
+b
+1
++ b
+0
+= sum(
+2
+i
+•
+b
+i
+) for
+i=0 to
+31
+There
+are 2
+32
+different unsigned 32-bit
+numbers. The smallest unsigned 32-bit number is 0 and the largest is 2
+32
+-1.
+This range is 0 to about 4 billion. For
+the unsigned 32-bit number system, the basis elements are
+{1, 2, 4, ... , 2
+29
+,
+2
+30
+,
+2
+31
+}
+If
+a 32-bit binary number is used to represent a
+signed two’s complement number, then the value of the number
+is
+N
+= -2
+31
+•
+b
+31
++ 2
+30
+•
+b
+30
++ ... + 2
+•
+b
+1
++ b
+0
+= -2
+31
+•
+b
+31
++
+sum(
+2
+i
+•
+b
+i
+) for
+i=0 to
+30
+There
+are also 2
+32
+different signed
+32-bit numbers. The smallest signed 32-bit number is -2
+31
+and
+the largest is 2
+31
+-1.
+This range is about -2 billion to about +2 billion. For the signed
+32-bit number system,
+the basis elements are
+{1, 2, 4, ... ,
+2
+29
+,
+2
+30
+,
+-2
+31
+}
+Maintenance
+Tip:
+When programming in C, we
+will use data types
+char
+short
+and
+long
+when we wish to
+explicitly specify the precision as 8-bit, 16-bit or 32-bit. Whereas,
+we will use the
+int
+data type only when we don’t care about precision, and we
+wish
+the compiler to choose the most efficient way to perform the operation.
+For most compilers for the ARM processor,
+int
+will be 32 bits.
+Observation:
+When programming in assembly,
+we will always explicitly specify the precision of our numbers and
+calculations.
+We
+will use
+fixed-point
+numbers
+when we wish to express values in our computer that have noninteger
+values. A fixed-point number contains two parts. The first part is a
+variable integer, called
+I
+.
+The variable integer will be stored
+on the computer. The second part of a fixed-point number is a fixed
+constant, called the
+resolution
+Δ
+.
+The fixed
+constant will NOT be stored on the computer. The fixed constant is
+something we keep track of while designing the software operations. The
+value of the number is the product of the variable integer times the
+fixed constant. The integer may be signed or unsigned. An unsigned
+fixed-point number is one that has an unsigned variable integer. A
+signed fixed-point number is one that has a signed variable integer.
+The
+precision
+of
+a number system is the total number of
+distinguishable values that can be represented. The precision of a
+fixed-point number is determined by the number of bits used to store
+the variable integer. On most microcontrollers, we can use 8, 16, or 32
+bits for the integer. With
+binary
+fixed point
+the fixed
+constant is a power of 2. An example is shown in Figure 2.5.
+Binary
+fixed-point value
+=
+I
+• 2
+n
+for some
+constant integer
+n
+Figure
+2.5. 16-bit binary fixed-point format with
+Δ
+=2
+-6
+.
+Video
+2.3
+. Signed vs. Unsigned Numbers
+Interactive
+Tool 2.4
+The computer does not distinguish between signed and unsigned numbers
+in memory. The interpretation is yours to make. Enter an 8-bit binary
+number in the following field and press "show" to see its value if
+interpreted as signed or unsigned integer. For convenience, you can
+also enter hexadecimal input with '0x' prefix.
+2.2. Embedded Systems
+To
+better understand the expression
+embedded
+microcomputer system
+, consider
+each word separately. In this
+context, the word “embedded” means hidden inside so
+one
+can’t see it. The term “micro” means
+small, and a
+“computer” contains a processor, memory, and a
+means to
+exchange data with the external world. The word
+“system”
+means multiple components interfaced together for a common purpose.
+Systems have structure, behavior, and interconnectivity operating in a
+framework bound by rules and regulations. In an embedded system, we use
+ROM for storing the software and fixed constant data and RAM for
+storing temporary information. Many microcomputers employed in embedded
+systems use Flash EEPROM, which is an electrically-erasable
+programmable ROM, because the information can easily be erased and
+reprogrammed. The functionality of a digital watch is defined by the
+software programmed into its ROM. When you remove the batteries from a
+watch and insert new batteries, it still behaves like a watch because
+the ROM is nonvolatile storage. As shown in Figure 2.6, the term
+embedded microcomputer system refers to a device that contains one or
+more microcomputers inside.
+Microcontrollers
+,
+which are microcomputers incorporating the processor, RAM, ROM and I/O
+ports into a single package, are often employed in an embedded system
+because of their low cost, small size, and low power requirements.
+Microcontrollers like the Texas Instruments TM4C
+are available with a large number and wide variety of I/O devices, such
+as parallel ports, serial ports, timers, digital to analog converters
+(DAC), and analog to digital converters (ADC). The I/O devices are a
+crucial part of an embedded system, because they provide necessary
+functionality. The software together with the I/O ports and associated
+interface circuits give an embedded computer system its distinctive
+characteristics. The microcontrollers often must communicate with each
+other. How the system interacts with humans is often called the
+human-computer
+interface
+(HCI) or
+man-machine
+interface
+(MMI).
+Figure
+2.6. An embedded system includes a
+microcomputer interfaced to external devices.
+Checkpoint 2.27
+:
+What is an embedded system?
+A
+digital multimeter, as shown in Figure 2.7, is a
+typical embedded system. This embedded system has two inputs: the mode
+selection dial on the front and the red/black test probes. The output
+is a liquid crystal display (LCD) showing measured parameters. The
+large black chip inside the box is a microcontroller. The software that
+defines its very specific purpose is programmed into the ROM of the
+microcontroller. As you can see, there is not much else inside this box
+other than the microcontroller, a fuse, a rotary dial to select the
+mode, a few interfacing resistors, and a battery.
+Figure
+2.7. A digital multimeter contains a
+microcontroller programmed to measure voltage, current and resistance.
+As
+defined previously, a microcomputer is a
+small computer. One typically restricts the term
+embedded
+to
+refer to systems that do not look and behave like a typical computer.
+Most embedded systems do not have a keyboard, a graphics display, or
+secondary storage (disk). There are two ways to develop embedded
+systems. The first technique uses a microcontroller, like the ARM
+Cortex M-series. In general, there is no operating system, so the
+entire software system is developed. These devices are suitable for
+low-cost, low-performance systems. The book
+Embedded
+Systems: Real-Time Operating Systems for ARM Cortex-M Microcontrollers
+describes how to design
+a real-time operating system for the Cortex M family of
+microcontrollers. On the other hand, one can develop a high-performance
+embedded system around a more powerful microcontroller such as the ARM
+Cortex A-series. These systems typically employ an operating system and
+are first designed on a development platform, and then the software and
+hardware are migrated to a stand-alone embedded platform.
+Checkpoint 2.28
+:
+What is a microcomputer?
+The
+external devices attached to the
+microcontroller allow the system to interact with its environment. An
+interface
+is
+defined as the hardware and software that combine to allow the computer
+to communicate with the external hardware. We must also learn how to
+interface a wide range of inputs and outputs that can exist in either
+digital or analog form. In this class we provide an introduction to
+microcomputer programming, hardware interfacing, and the design of
+embedded systems. The book
+Embedded
+Systems: Real-Time Interfacing to ARM Cortex-M Microcontrollers
+on the details of
+hardware interfacing and system design. The book
+Embedded
+Systems: Real-Time Operating Systems for ARM Cortex-M Microcontrollers
+describes real-time
+operating systems and applies embedded system design to real-time data
+acquisition, digital signal processing, high-speed networks, and
+digital control systems. In general, we can classify I/O interfaces
+into parallel, serial, analog or time. Because of low cost, low power,
+and high performance, there has been and will continue to be an
+advantage of using time-encoded inputs and outputs.
+A
+device
+driver
+is a set of
+software
+functions that facilitate the use of an I/O port. One of the simplest
+I/O ports on the Stellaris
+®
+microcontrollers is a parallel port or General Purpose Input/Output
+(GPIO). One such parallel port is Port A. The software will refer to
+this port using the name
+GPIO_PORTA_DATA_R
+.
+Ports are a collection of pins, usually 8, which can be used for either
+input or output. If Port A is an input port, then when the software
+reads from
+GPIO_PORTA_DATA_R
+,
+it gets eight bits (each bit is 1 or 0), representing the digital
+levels (high or low) that exist at the time of the read. If Port A is
+an output port, then when the software writes to
+GPIO_PORTA_DATA_R
+,
+it
+sets the outputs on the eight pins high (1) or low (0), depending on
+the data value the software has written.
+The
+other general concept involved in most embedded
+systems is they run in
+real
+time
+. In a real-time computer
+system, we can put an upper bound on the time required to perform the
+input-calculation-output sequence. A real-time system can guarantee a
+worst case upper bound on the response time between when the new input
+information becomes available and when that information is processed.
+This response time is called interface
+latency
+.
+Another
+real-time requirement that exists in many embedded systems is the
+execution of periodic tasks. A periodic task is one that must be
+performed at equal-time intervals. A real-time system can put a small
+and bounded limit on the time error between when a task should be run
+and when it is actually run. Because of the real-time nature of these
+systems, microcontrollers have a rich set of features to handle many
+aspects of time.
+Checkpoint 2.29
+:
+An input device allows information to be entered into
+the computer. List some of the input devices available on a general
+purpose computer.
+Checkpoint 2.30
+:
+An output device allows information to exit the
+computer. List some of the output devices available on a general
+purpose computer.
+The
+embedded computer systems
+in this course
+will contain a Texas Instruments TM4C123 microcontroller, which will be
+programmed to perform a
+specific dedicated application. Software for embedded systems typically
+solves only a limited range of problems. The microcomputer is embedded
+or hidden inside the device. In an embedded system, the software is
+usually programmed into ROM and therefore fixed. Even so,
+software
+maintenance
+(e.g.,
+verification of proper operation, updates,
+fixing bugs, adding features, extending to new applications, end user
+configurations) is still extremely important. In fact, because
+microcomputers are employed in many safety-critical devices, injury or
+death may result if there are hardware and/or software faults.
+Consequently, testing must be considered in the original design, during
+development of intermediate components, and in the final product. The
+role of simulation is becoming increasingly important in
+today’s
+market place as we race to build better and better machines with
+shorter and shorter design cycles. An effective approach to building
+embedded systems is to first design the system using a
+hardware/software simulator, then download and test the system on an
+actual microcontroller.
+Video
+2.4
+. Embedded Systems
+2.3. Introduction to Computers
+A
+computer
+combines a processor, random access memory (RAM), read only
+memory (ROM), and input/output (I/O) ports. The common bus in
+Figure 2.8 defines the von Neumann architecture. Computers are not
+intelligent. Rather, you are the true genius. Computers are electronic
+idiots. They can store a lot of data, but they will only do exactly
+what we tell them to do. Fortunately, however, they can execute our
+programs quite quickly, and they don’t get bored doing the
+same
+tasks over and over again.
+Software
+is
+an ordered sequence
+of very specific instructions that are stored in memory, defining
+exactly what and when certain tasks are to be performed. It is a set of
+instructions, stored in memory, that are executed in a complicated but
+well-defined manner. The
+processor
+executes
+the software by retrieving and interpreting these instructions one at a
+time. A
+microprocessor
+is
+a small processor, where small
+refers to size (i.e., it fits in your hand) and not computational
+ability. For example, Intel Xeon E7, AMD Fusion, and Sun SPARC are
+microprocessors. An
+ARM
+®
+Cortex
+™
+-M
+microcontroller includes a processor together with the bus and some
+peripherals.
+Figure
+2.8. The basic components of a von Neumann
+computer include processor, memory and I/O.
+A
+microcomputer
+is
+a small computer, where again small refers to size (i.e., you can carry
+it) and not computational ability. For example, a desktop PC is a
+microcomputer. Small in this context describes its size not its
+computing power. Consequently, there can be great confusion over the
+term microcomputer, because it can refer to a very wide range of
+devices from a PIC12C508, which is an 8-pin chip with 512 words of ROM
+and 25 bytes RAM, to the most powerful I7-based personal computer.
+A
+port
+is
+a physical connection between the computer and its outside world. Ports
+allow information to enter and exit the system. Information enters via
+the input ports and exits via the output ports. Other names used to
+describe ports are I/O ports, I/O devices, interfaces, or
+sometimes just devices. A
+bus
+is a collection of wires used to
+pass information between modules.
+A
+very small microcomputer, called a
+microcontroller
+,
+contains all the components of a computer (processor, memory, I/O) on a
+single chip. As shown in Figure 2.9, the Atmel ATtiny, the Texas
+Instruments MSP430, and the Texas Instruments TM4C123 are examples of
+microcontrollers. Because a microcomputer is a small computer, this
+term can be confusing because it is used to describe a wide range of
+systems from a 6-pin ATtiny4 running at 1 MHz with 512 bytes of program
+memory to a personal computer with state-of-the-art 64-bit multi-core
+processor running at multi-GHz speeds having terabytes of storage.
+The
+computer can store information in
+RAM
+by
+writing to it, or it can retrieve previously stored data by reading
+from it. RAMs are
+volatile
+;
+meaning if power is interrupted and
+restored the information in the RAM is lost. Most microcontrollers have
+static RAM
+(SRAM)
+using six metal-oxide-semiconductor
+field-effect transistors (MOS or MOSFET) to create each memory bit.
+Four transistors are used to create two cross-coupled inverters that
+store the binary information, and the other two are used to read and
+write the bit.
+Figure
+2.9. A microcontroller is a complete
+computer on a single chip.
+Information
+is programmed into
+ROM
+using
+techniques more complicated than writing to RAM. From a programming
+viewpoint, retrieving data from a ROM is identical to retrieving data
+from RAM. ROMs are nonvolatile; meaning if power is interrupted and
+restored the information in the ROM is retained. Some ROMs are
+programmed at the factory and can never be changed. A Programmable
+ROM (PROM) can be erased and reprogrammed by the user, but the
+erase/program sequence is typically 10000 times slower than the time to
+write data into a RAM. Some PROMs are erased with ultraviolet light and
+programmed with voltages, while electrically erasable PROM (EEPROM) are
+both erased and programmed with voltages. We cannot program ones into
+the ROM. We first erase the ROM, which puts ones into the entire
+memory, and then we program the zeros as needed.
+Flash
+ROM
+is
+a popular type of EEPROM. Each flash bit requires only two MOSFET
+transistors. The input (gate) of one transistor is electrically
+isolated, so if we trap charge on this input, it will remain there for
+years. The other transistor is used to read the bit by sensing whether
+or not the other transistor has trapped charge. In regular EEPROM, you
+can erase and program individual bytes. Flash ROM must be erased in
+large blocks. On many of Stellaris family of microcontrollers, we can
+erase the entire ROM or just a 1024-byte block. Because flash is
+smaller than regular EEPROM, most microcontrollers have a large flash
+into which we store the software. For all the systems in this class, we
+will store instructions and constants in flash ROM and place variables
+and temporary data in static RAM.
+Checkpoint 2.31
+:
+What are the differences between a microcomputer, a
+microprocessor, and a microcontroller?
+Checkpoint 2.32
+:
+Which has a higher information density on the chip in
+bits per mm
+2
+:
+static RAM or flash ROM? Assume all MOSFETs
+are approximately the same size in mm
+2
+.
+Figure
+2.10 shows a simplified block diagram of
+a microcontroller based on the
+ARM
+®
+Cortex
+™
+-M
+processor. It is a
+Harvard
+architecture
+because it
+has
+separate data and instruction buses. The Cortex-M
+instruction set combines the high performance typical of a 32-bit
+processor with high code density typical of 8-bit and 16-bit
+microcontrollers. Instructions are fetched from flash ROM using the
+ICode bus. Data are exchanged with memory and I/O via the system bus
+interface. On the Cortex-M4
+there is a second I/O bus for high-speed devices like USB. There are
+many sophisticated debugging features utilizing the DCode bus. The
+nested vectored interrupt controller (NVIC) manages
+interrupts
+,
+which are hardware-triggered software functions. Some internal
+peripherals, like the NVIC communicate directly with the processor via
+the private peripheral bus (PPB). The tight integration of the
+processor and interrupt controller provides fast execution of interrupt
+service routines (ISRs), dramatically reducing the interrupt latency.
+Figure
+2.10. Harvard architecture of an ARM
+®
+Cortex-M-based
+microcontroller.
+Even though
+data and instructions are fetched 32-bits at a time, each 8-bit byte
+has a unique address. This means memory and I/O ports are byte
+addressable. The processor can read or write 8-bit, 16-bit, or 32-bit
+data. Exactly how many bits are affected depends on the instruction,
+which we will see later in this chapter.
+Video
+2.5
+. Computer Organization
+2.4. I/O Ports
+The
+external devices attached to the
+microcontroller provide functionality for the system. A
+pin
+is one wire on the microcontroller used for input or output. There are 43 I/O pins on the TM4C123. A
+port
+is a collection of pins. An
+input
+port
+is
+hardware on the microcontroller that allows information about the
+external world to be entered into the computer. The microcontroller
+also has hardware called an
+output
+port
+to send
+information out to the external world. Most of the pins shown in Figure
+2.11 are input/output ports.
+An
+interface
+is
+defined as the
+collection of the I/O port, external electronics, physical devices, and
+the software, which combine to allow the computer to communicate with
+the external world. An example of an input interface is a switch, where
+the operator toggles the switch, and the software can recognize the
+switch position. An example of an output interface is a light-emitting
+diode (LED), where the software can turn the light on and off, and the
+operator can see whether or not the light is shining. There is a wide
+range of possible inputs and outputs, which can exist in either digital
+or analog form. In general, we can classify I/O interfaces into four
+categories
+Parallel
+-
+binary data are available simultaneously on a
+group of lines
+Serial
+-
+binary data are available one bit at a time on a
+single line
+Analog
+-
+data are encoded as an electrical voltage,
+current, or power
+Time
+-
+data are encoded as a period, frequency, pulse
+width, or phase shift
+Figure
+2.11. Architecture of TM4C123
+microcontroller.
+Video
+2.6
+. I/O Ports and Interfacing
+Reading
+Assignment:
+The
+PDF document for the Launchpad Microcontroller Cortex M4
+http://users.ece.utexas.edu/~valvano/Volume1/TM4C123_LaunchPadUsersManual.pdf
+2.5. CPU Registers
+Registers
+are high-speed storage inside the
+processor. The registers are depicted in Figure 2.12. R0 to
+R12
+are general purpose registers and contain either data or addresses.
+Register R13 (also called the stack pointer, SP) points to the top
+element of the stack. Register R14 (also called the link register, LR)
+is used to store the return location for functions. The LR is also used
+in a special way during exceptions, such as interrupts. Interrupts are
+covered in Chapter 12. Register R15 (also called the program counter,
+PC) points to the next instruction to be fetched from memory. The
+processor fetches an instruction using the PC and then increments the
+PC.
+Figure 2.12. Registers
+on the ARM
+®
+Cortex-M
+processor.
+The
+ARM Architecture
+Procedure
+Call Standard
+,
+AAPCS, part of the ARM
+Application
+Binary Interface
+(ABI),
+uses registers R0, R1, R2, and R3 to pass input
+parameters into a
+C function. Also according to AAPCS we place the return parameter in
+Register R0. In this class, the SP will always be the main stack
+pointer (MSP), not the Process Stack Pointer (PSP).
+There are three
+status registers named Application Program Status Register (APSR), the
+Interrupt Program Status Register (IPSR), and the Execution Program
+Status Register (EPSR) as shown in Figure 2.13. These registers can be
+accessed individually or in combination as the
+Program
+Status
+Register
+(PSR). The N,
+Z, V, C, and Q bits give information
+about the result of a previous ALU operation. In general, the
+N
+bit
+is
+set after an arithmetical or logical operation signifying whether or
+not the result is negative. Similarly, the
+Z
+bit
+is set if
+the result is zero. The
+C bit
+means
+carry and is set on an
+unsigned overflow, and the
+V
+bit
+signifies signed
+overflow.  The
+Q bit
+indicates
+that
+“saturation” has occurred – while you
+might want to
+look it up, saturated arithmetic is beyond the scope of this class.
+Figure 2.13.
+The program status register of the ARM
+®
+Cortex-M
+processor.
+The
+T
+bit
+will always be 1,
+indicating the
+ARM
+®
+Cortex
+™
+-M
+processor is executing Thumb
+®
+instructions.
+The ISR_NUMBER indicates which interrupt if any the processor is
+handling. Bit 0 of the special register
+PRIMASK
+is
+the
+interrupt mask bit. If this bit is 1, most interrupts and exceptions
+are not allowed. If the bit is 0, then interrupts are allowed. Bit 0 of
+the special register
+FAULTMASK
+is
+the fault mask bit. If this bit is 1, all interrupts and faults are not
+allowed. If the bit is 0, then interrupts and faults are allowed. The
+nonmaskable interrupt (NMI) is not affected by these mask bits. The
+BASEPRI
+register
+defines the priority of the executing software. It prevents interrupts
+with lower or equal priority but allows higher priority interrupts. For
+example if
+BASEPRI
+equals 3, then requests with level 0, 1, and
+2 can interrupt, while requests at levels 3 and higher will be
+postponed. A lower number means a higher priority interrupt. The
+details of interrupt processing will be presented in subsequent
+chapters.
+Video
+2.7
+. Registers
+2.6. Assembly Language
+This
+section focuses on the ARM®
+Cortex™-M assembly language. There are many ARM
+®
+processors,
+and this class focuses on Cortex-M
+microcontrollers, which executes Thumb
+®
+instructions
+extended with Thumb-2 technology. This class will not describe
+in
+detail all the Thumb instructions. Rather, we focus on only a subset of
+the Thumb
+®
+instructions. This subset will be functionally complete without regard
+to minimizing code size or optimizing for execution speed. Furthermore,
+we will show general forms of instructions, but in many cases there are
+specific restrictions on which registers can be used and the sizes of
+the constants. For further details, please refer to the ARM
+®
+Cortex™-M Technical Reference Manual.
+2.6.1. Syntax
+Assembly
+language instructions have four fields
+separated by spaces or tabs. The
+label
+field
+is optional
+and starts in the first column and is used to identify the position in
+memory of the current instruction. You must choose a unique name for
+each label. The
+opcode field
+specifies
+the processor
+command to execute. The
+operand
+field
+specifies where
+to
+find the data to execute the instruction. Thumb instructions have 0, 1,
+2, 3, or 4 operands, separated by commas. The
+comment
+field
+is
+also optional and is ignored by the assembler, but it allows you to
+describe the software making it easier to understand. You can add
+optional spaces between operands in the operand field. However, a
+semicolon must separate the operand and comment fields. Good
+programmers add comments to explain the software.
+Label     
+Opcode 
+Operands              
+Comment
+Func  MOV
+R0,
+#100    ; this sets R0 to 100
+BX
+LR     
+; this is a function return
+Observation:
+A good comment explains why
+an operation is being performed, how it is used, how it can be changed,
+or how it was debugged. A bad comment explains what the operation does.
+The comments in the above two assembly lines are examples of bad
+comments.
+When
+describing assembly instructions we will
+use the following list of symbols
+Ra
+Rd
+Rm
+Rn
+Rt
+and
+Rt2
+represent registers
+{Rd,}
+represents an optional
+destination register
+#imm12
+represents a
+12-bit constant, 0 to 4095
+#imm16
+represents a
+16-bit constant, 0 to 65535
+operand2
+represents
+the flexible second operand as described in Section 3.4.2
+{cond}
+represents an
+optional logical condition as listed in Table 2.10
+{type}
+encloses an
+optional data type
+{S}
+is an optional
+specification that this instruction sets the condition code bits
+Rm
+{, shift}
+specifies an optional shift on
+Rm
+Rn
+{, #offset}
+specifies an optional offset to
+Rn
+For
+example, the general description of the addition instruction
+ADD
+{cond} {Rd,}
+Rn,
+#imm12
+could
+refer to either of the following examples.
+ADD
+  R0,#1
+       ;
+R0=R0+1
+ADD   R0,R1,#10    ;
+R0=R1+10
+Table
+2.10 shows the conditions
+{cond}
+that we will use for conditional branching.
+Suffix
+Flags
+Meaning
+EQ
+Z = 1
+Equal
+NE
+Z = 0
+Not equal
+CS
+or
+HS
+C = 1
+Higher
+or same, unsigned ≥
+CC
+or
+LO
+C = 0
+Lower,
+unsigned <
+MI
+N = 1
+Negative
+PL
+N = 0
+Positive
+or zero
+VS
+V = 1
+Overflow
+VC
+V = 0
+No
+overflow
+HI
+C = 1
+and Z = 0
+Higher,
+unsigned >
+LS
+C = 0 or
+Z = 1
+Lower or
+same, unsigned ≤
+GE
+N = V
+Greater
+than or equal, signed ≥
+LT
+N ≠ V
+Less
+than, signed <
+GT
+Z = 0
+and N = V
+Greater
+than, signed >
+LE
+Z = 1
+and N ≠  V
+Less
+than or equal, signed ≤
+AL
+Can have
+any value
+Always.
+This is the default when no suffix specified
+Table 2.10.
+Condition code suffixes used to optionally execution instruction.
+It
+is much better to add comments to explain how
+or even better why we do the action. Good comments also describe how
+the code was tested and identify limitations. But for now we are
+learning what the instruction is doing, so in this chapter comments
+will describe what the instruction does. The assembly
+source
+code
+is
+a text file (with Windows file extension
+.s
+)
+containing a list
+of instructions. If register R0 is an input parameter, the following is
+a function that will return in register R0 the value (100*input+10).
+Func
+MOV  
+R1,#100     ; R1=100
+MUL   R0,R0,R1    ;
+R0=100*input
+ADD  
+R0,#10      ;
+R0=100*input+10
+BX   
+LR         
+; return 100*input+10
+The
+assembler
+translates
+assembly
+source code into
+object code
+,
+which are the machine
+instructions executed by the processor. All object code is
+halfword-aligned. This means instructions can be 16 or 32 bits wide,
+and the program counter bit 0 will always be 0. The
+listing
+is
+a text file containing a mixture of the object code generated by the
+assembler together with our original source code.
+Address          
+Object
+code       
+Label 
+Opcode 
+Operand                
+comment
+0x000005E2
+F04F0164  Func MOV   R1,#0x64
+    ;
+R1=100
+0x000005E6
+FB00F001 
+     MUL  
+R0,R0,R1
+    ; R0=100*input
+0x000005EA
+F100000A 
+     ADD  
+R0,R0,#0x0A  ; R0=100*input+10
+0x000005EE
+4770          
+BX   
+LR          
+; return 100*input+10
+When we
+build
+a
+project all files are assembled or compiled then linked together. The
+address values shown in the listing are relative to the particular file
+being assembled. When the entire project is built, the files are linked
+together, and the
+linker
+decides
+exactly where in memory
+everything will be. After building the project, it can be downloaded,
+which programs the object code into flash ROM. You are allowed to load
+and execute software out of RAM. But for an embedded system, we
+typically place executable instructions into nonvolatile flash ROM. The
+listing you see in the debugger will specify the absolute address
+showing you exactly where in memory your variables and instructions
+exist.
+2.6.2. Addressing Modes and
+Operands
+A
+fundamental issue in program development is
+the differentiation between data and address. When we put the number
+1000 into Register R0, whether this is data or address depends on how
+the 1000 is used. To run efficiently, we try to keep frequently
+accessed information in registers. However, we need to access memory to
+fetch parameters or save results. The
+addressing
+mode
+is the
+format the instruction uses to specify the memory location to read or
+write data. The addressing mode is associated more specifically with
+the operands, and a single instruction could exercise multiple
+addressing modes for each of the operands. When the import is obvious
+though, we will use the expression “the addressing mode of
+the
+instruction”, rather than “the addressing mode of
+an
+operand in an instruction". All instructions begin by fetching the
+machine instruction (op code and operand) pointed to by the PC. When
+extended with Thumb-2 technology, some machine instructions are 16 bits
+wide, while others are 32 bits. Some instructions operate completely
+within the processor and require no memory data fetches. For example,
+the
+ADD
+R1,R2
+instruction
+performs R1+R2 and stores the sum back into R1. If the data is found in
+the instruction itself, like
+MOV R0,#1
+,
+the
+instruction uses
+immediate
+addressing
+mode. A
+register
+that contains the address or the location of the data is called a
+pointer
+or
+index
+register.
+Indexed
+addressing
+mode
+uses a register pointer to access memory. The addressing mode that uses
+the PC as the pointer is called
+PC-relative
+addressing
+mode.
+It is used for branching, for calling functions, and accessing constant
+data stored in ROM. The addressing mode is called PC relative because
+the machine code contains the address difference between where the
+program is now and the address to which the program will access. The
+MOV
+instruction will
+move data within the processor without accessing memory. The
+LDR
+instruction
+will read a 32-bit word from memory and place the data in a register.
+With PC-relative addressing, the assembler automatically calculates the
+correct PC offset.
+Register.
+Most instructions operate on
+the registers. In general, data flows towards the op code (right to
+left). In other words, the register closest to the op code gets the
+result of the operation. In each of these instructions, the result goes
+into R2.
+MOV  
+R2,#100      ; R2=100,
+immediate addressing
+LDR  
+R2,[R1]      ; R2= value
+pointed to by R1
+ADD  
+R2,R0   
+    ; R2= R2+R0
+ADD  
+R2,R0,R1     ; R2= R0+R1
+Register
+list.
+The stack push and stack
+pop instructions can operate on one register or on a list of registers.
+SP is the same as R13, LR is the same as R14, and PC is the same as R15.
+PUSH 
+{LR}        
+; save LR on stack
+POP  
+{LR}        
+; remove from stack and place in LR
+PUSH  {R1,R2,LR}   ; save registers and
+return address
+POP   {R1,R2,PC}   ; restore
+registers and return
+Immediate
+addressing.
+With immediate
+addressing mode, the data itself is contained in the
+instruction.
+Once the instruction is fetched no additional memory access cycles are
+required to get the data. Notice the number 100 (0x64) is embedded in
+the machine code of the instruction shown in Figure 2.14. Immediate
+addressing is only used to get, load, or read data. It will never be
+used with an instruction that stores to memory.
+MOV  
+R0,#100      ; R0=100,
+immediate addressing
+Figure
+2.14. An example of immediate addressing
+mode, data is in the instruction.
+Indexed
+addressing.
+With indexed
+addressing mode, the data is in memory and a register will
+contain
+a pointer to the data. Once the instruction is fetched, one or more
+additional memory access cycles are required to read or write the data.
+In these examples, R1 points to RAM. In this class, we will focus on
+just the first two forms of indexed addressing.
+LDR  
+R0,[R1]      ; R0= value
+pointed to by R1
+LDR   R0,[R1,#4]   ; R0= word
+pointed to by R1+4
+LDR   R0,[R1,#4]!  ; first R1=R1+4, then R0=
+word
+pointed to by R1
+LDR   R0,[R1],#4   ; R0= word
+pointed to by R1,
+then R1=R1+4
+LDR   R0,[R1,R2]   ; R0= word
+pointed to by R1+R2
+LDR   R0,[R1,R2, LSL #2] ; R0= word pointed to by
+R1+4*R2
+In
+Figure 2.15, R1 points to RAM, the
+instruction
+LDR R0,[R1]
+will read the 32-bit value pointed to by R1 and place it in R0. R1
+could be pointing to any valid object in the memory map (i.e., RAM,
+ROM, or I/O), and R1 is not modified by this instruction.
+Figure 2.15. An example
+of indexed addressing mode, data is in memory.
+In
+Figure 2.16, R1 points to RAM, the
+instruction
+LDR R0,[R1,#4]
+will read the 32-bit value pointed to by R1+4 and place it in R0. Even
+though the memory address is calculated as R1+4, the Register R1 itself
+is not modified by this instruction.
+Figure
+2.16. An example of indexed addressing
+mode with offset, data is in memory.
+PC-relative
+addressing.
+PC-relative
+addressing is indexed addressing mode using the PC as the
+pointer.
+The PC always points to the instruction that will be fetched next, so
+changing the PC will cause the program to branch. A simple example of
+PC-relative addressing is the unconditional branch. In assembly
+language, we simply specify the label to which we wish to jump, and the
+assembler encodes the instruction with the appropriate PC-relative
+offset.
+B
+    Location 
+   ; jump to Location, using PC-relative
+addressing
+The
+same addressing mode is used for a function
+call. Upon executing the
+BL
+instruction, the return address is saved in the link register (LR). In
+assembly language, we simply specify the label defining the start of
+the function, and the assembler creates the appropriate PC-relative
+offset.
+BL   
+Subroutine   ; call Subroutine, using PC-relative
+addressing
+Typically,
+it takes two instructions to access
+data in RAM or I/O. The first instruction uses PC-relative addressing
+to create a pointer to the object, and the second instruction accesses
+the memory using the pointer. We can use the
+=Something
+operand for
+any symbol defined by our program. In this case
+Count
+is the label
+defining a 32-bit variable in RAM.
+LDR  
+R1,=Count    ; R1 points to variable Count,
+using
+PC-relative
+LDR  
+R0,[R1]      ; R0= value
+pointed to by R1
+The
+operation caused by the above two
+LDR
+instructions is
+illustrated in Figure 2.17. Assume a 32-bit variable
+Count
+is located in the
+data space at RAM address 0x2000.0000. First,
+LDR R1,=Count
+makes R1
+equal to 0x2000.0000. I.e., R1 points to
+Count
+.
+The assembler
+places a constant 0x2000.0000 in code space and translates the
+=Count
+into the correct
+PC-relative access to the constant (e.g.,
+LDR R1,[PC,#28]
+).
+In
+this case, the constant 0x2000.0000, the address of
+Count
+,
+will be located
+at PC+28. Second, the
+LDR
+R0,[R1]
+instruction will dereference this pointer, bringing
+the 32-bit contents at location 0x2000.0000 into R0. Since
+Count
+is located at
+0x2000.0000, these two instructions will read the value of the variable
+into R0.
+Figure
+2.17. Indexed addressing using R1 as a
+register pointer to access memory. Data is moved into R0. Code space is
+where we place programs and data space is where we place variables.
+Flexible
+second operand <op2>.
+Many
+instructions have a flexible second operand, shown as
+<op2>
+in the
+descriptions of the instruction.
+<op2>
+can be a
+constant or a register with optional shift. The flexible second operand
+can be a constant in the form
+#constant
+ADD Rd, Rn, #constant   ;Rd = Rn+constant
+where
+constant
+is calculated
+as one of these four,
+X
+and
+Y
+are
+hexadecimal digits:
+·
+Constant
+produced by shifting an unsigned 8-bit value
+left by any number of bits
+·
+Constant
+of the form
+0x00XY00XY
+·
+Constant
+of the form
+0xXY00XY00
+·
+Constant
+of the form
+0xXYXYXYXY
+We
+can also specify a flexible second operand in
+the form
+Rm {,shift}
+.
+If
+Rd
+is
+missing,
+Rn
+is
+also the destination. For example:
+ADD Rd, Rn, Rm {,shift}  ;Rd = Rn+Rm
+ADD Rn, Rm {,shift}     
+;Rn = Rn+Rm
+where
+Rm
+is the register
+holding the data for the second operand, and
+shift
+is an optional
+shift to be applied to
+Rm
+.
+The optional
+shift
+can be one of these five formats:
+ASR #n
+Arithmetic (signed) shift right
+n
+bits, 1 ≤
+n
+≤ 32.
+LSL #n
+Logical
+(unsigned) shift left
+n
+bits, 1 ≤
+n
+≤ 31.
+LSR #n
+Logical
+(unsigned) shift right
+n
+bits, 1 ≤
+n
+≤ 32.
+ROR #n
+Rotate
+right
+n
+bits,
+1 ≤
+n
+≤
+31.
+RRX
+Rotate right one
+bit, with extend.
+If
+we omit the shift, or specify
+LSL #0
+,
+the value of
+the flexible second operand is
+Rm
+.
+If we specify a
+shift, the shift is applied to the value in
+Rm
+,
+and the resulting
+32-bit value is used by the instruction. However, the contents in the
+register
+Rm
+remain unchanged. For example,
+ADD R0,R1,LSL #4  
+   ; R0 = R0
++ R1*16 (R1 unchanged)
+ADD R0,R1,R2,ASR #4  
+; signed R0 = R1 + R2/16 (R2 unchanged)
+2.6.3. Memory Access
+An
+aligned
+access
+is an operation
+where a word-aligned address is used
+for a word, dual word, or multiple word access, or where a
+halfword-aligned address is used for a halfword access. Byte accesses
+are always aligned. The address of an aligned word access will have its
+bottom two bits equal to zero. An
+unaligned
+word
+access means we are accessing a 32-bit object (4 bytes) but the address
+is not evenly divisible by 4. The address of an aligned halfword access
+will have its bottom bit equal to zero. An unaligned halfword access
+means we are accessing a 16-bit object (2 bytes) but the address is not
+evenly divisible by 2. The Cortex-M
+processor supports unaligned access only for the following instructions:
+LDR
+Load
+32-bit word
+LDRH
+Load 16-bit unsigned halfword
+LDRSH
+Load
+16-bit signed halfword (sign extend bit 15 to bits 31-16)
+STR
+Store
+32-bit word
+STRH
+Store 16-bit halfword
+Transfers of
+one byte are allowed for the following instructions:
+LDRB
+Load 8-bit unsigned byte
+LDRSB
+Load
+8-bit signed byte (sign extend bit 7 to bits 31-8)
+STRB
+Store 8-bit byte
+When
+loading a 32-bit register with an 8- or
+16-bit value, it is important to use the proper load, depending on
+whether the number being loaded is signed or unsigned. This determines
+what is loaded into the most significant bits of the register to ensure
+that the number keeps the same value when it is promoted to 32 bits.
+When loading an 8-bit unsigned number, the top 24 bits of the register
+will become zero. When loading an 8-bit signed number, the top 24 bits
+of the register will match bit 7 of the memory data (signed extend).
+Note that there is no such thing as a signed or unsigned store. For
+example, there is no
+STRSH
+;
+there is only
+STRH
+.
+This is because 8, 16, or all 32 bits of the register are stored to an
+8-, 16-, or 32-bit location, respectively. No promotion occurs. This
+means that the value stored to memory can be different from the value
+located in the register if there is overflow. When using
+STRB
+to store an 8-bit
+number, be sure that the number in the register is 8 bits or less.
+All
+other read and write memory operations
+generate a usage fault exception if they perform an unaligned access,
+and therefore their accesses must be address aligned. Also, unaligned
+accesses are usually slower than aligned accesses, and some areas of
+memory do not support unaligned accesses. But unaligned accesses may
+allow programs to use memory more efficiently at the cost of
+performance. The tradeoff between speed and size is a common motif.
+Observation:
+We add a dot in the middle of
+32-bit hexadecimal numbers (e.g., 0x2000.0000). This dot helps the
+reader visualize the number. However, this dot should not be used when
+writing actual software.
+Common
+Error:
+Since not every
+instruction
+supports every addressing mode, it would be a mistake to use an
+addressing mode not available for that instruction.
+Checkpoint 2.33
+:
+What
+is the addressing mode used for?
+Checkpoint 2.34
+:
+Assume
+R3 equals 0x2000.0000 at the time
+LDR R2,[R3,#8]
+is
+executed. What address will be accessed? If R3 is changed, to what
+value will R3 become?
+Checkpoint
+2.35
+:
+Assume R3
+equals 0x2000.0000 at the time
+LDR R2,[R3],#8
+is
+executed. What address will be accessed? If R3 is changed, to what
+value will R3 become?
+2.6.4. Logical Operations
+Boolean Logic
+has two states: true and false. As mentioned earlier, the false is 0, and the true state is any nonzero value. 
+A
+binary operation
+produces a single result given two inputs. The logical and (&) operation yields a true result if both input parameters are true. The logical or (|) operation yields a true result if either input parameter is true. The exclusive or  (^) operation yields a true result if exactly one input parameter is true. The logical operators are summarized in the table below. The logical instructions on the ARM Cortex-M processor take two inputs, one from a register and the other from the flexible second operand. These operations are performed in a bit-wise fashion on two 32-bit input parameters yielding one 32-bit output result. The result is stored into the destination register. For example, the calculation r=m&n means each bit is calculated separately, r31=m31&n31, r30=m30&n30,..., r0=m0&n0.
+In C, when we write r=m&n; r=m|n; r=m^n; the logical operation occurs in a bit-wise fashion also described by the table below. However, in C, we define the Boolean functions as  r=m&&n; r=m||n; For Booleans, the operation occurs in a word-wise fashion. For example, r=m&&n; means r will become zero if either m is zero or n is zero. Conversely, r will become 1 (any nonzero) if both m is nonzero and n is nonzero.
+A
+B
+A&B
+A|B
+A^B
+A&(~B)
+A|(~B)
+Rn
+Operand2
+AND
+ORR
+EOR
+BIC
+ORN
+0
+0
+0
+0
+0
+0
+1
+0
+1
+0
+1
+1
+0
+0
+1
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+1
+Table. Logical operations performed by the Cortex-M processor.
+All instructions place the result into the destination register Rd. If Rd is omitted, the result is placed into Rn, which is the register holding the first operand. If the optional S suffix is specified, the N and Z condition code bits are updated on the result of the operation. In the comments next to the instructions below, we use op2 to represent the 32-bit value generated by the flexible second operand,
+. Some flexible second operands may affect the C bit. These logical instructions will leave the V bit unchanged.
+AND{S}{cond} {Rd,} Rn,
+;Rd=Rn&op2
+ORR{S}{cond} {Rd,} Rn,
+;Rd=Rn|op2
+EOR{S}{cond} {Rd,} Rn,
+;Rd=Rn^op2
+BIC{S}{cond} {Rd,} Rn,
+;Rd=Rn&(~op2)
+ORN{S}{cond} {Rd,} Rn,
+;Rd=Rn|(~op2)
+2.6.5. Shift Operations
+Like programming in C, the assembly shift instructions take two input parameters and yield one output result. In C, the left shift operator is
+<
+<
+and the right shift operator is >>. E.g., to left shift the value in M by N bits and store the result in R we execute: R = M
+<
+>N.
+The logical shift right (LSR) is similar to an unsigned divide by 2n, where n is the number of bits shifted. A zero is shifted into the most significant position, and the carry flag will hold the last bit shifted out. The right shift operations do not round. For example, a right shift by 3 bits is similar to divide by 8. However, 15 right-shifted three times (15>>3) is 1, while 15/8 is much closer to 2. In general, the LSR discards bits shifted out, and the UDIV truncates towards 0. Thus, when using UDIV to divide unsigned numbers by a power of 2, UDIV and LSR yield identical results.
+The arithmetic shift right (ASR) is similar to a signed divide by 2^n. Notice that the sign bit is preserved, and the carry flag will hold the last bit shifted out. This right shift operation also does not round. Again, a right shift by 3 bits is similar to divide by 8. However, -9 right-shifted three times (-9>>3) is -2, while implementing -9 divided by 8 using the SDIV instruction yields -1. In general, the ASR discards bits shifted out, and the SDIV truncates towards 0.
+The logical shift left  (LSL) operation works for both unsigned and signed multiply by 2^n. A zero is shifted into the least significant position, and the carry bit will contain the last bit that was shifted out.
+All shift instructions place the result into the destination register Rd. Rm is the register holding the value to be shifted. The number of bits to shift is either in register Rs, or specified as a constant n. If the optional S suffix is specified, the N and Z condition code bits are updated on the result of the operation. The C bit is the carry out after the shift. These shift instructions will leave the V bit unchanged.
+Observation:
+Use logic shift for unsigned numbers and arithmetic shifts for signed numbers.
+LSR{S}{cond} Rd, Rm, Rs  ; logical shift right Rd=Rm>>Rs  (unsigned)
+LSR{S}{cond} Rd, Rm, #n  ; logical shift right Rd=Rm>>n   (unsigned)
+ASR{S}{cond} Rd, Rm, Rs  ; arithmetic shift right Rd=Rm>>Rs (signed)
+ASR{S}{cond} Rd, Rm, #n  ; arithmetic shift right Rd=Rm>>n  (signed)
+LSL{S}{cond} Rd, Rm, Rs  ; shift left Rd=Rm
+<
+LSL{S}{cond} Rd, Rm, #n  ; shift left Rd=Rm
+<
+2.6.6. Arithmetic Operations
+When software executes arithmetic instructions, the operations are performed by digital hardware inside the processor. Even though the design of such logic is complex, we will present a brief introduction, in order to provide a little insight as to how the computer performs arithmetic. It is important to remember that arithmetic operations (addition, subtraction, multiplication, and division) have constraints when performed with finite precision on a processor. An overflow error occurs when the result of an arithmetic operation cannot fit into the finite precision of the register into which the result is to be stored.
+In general, we see that the carry bit is set when we cross over from 255 to 0 while adding. The carry bit is cleared when we cross over from 0 to 255 while subtracting.
+Observation:
+The carry bit, C, is set after an unsigned addition when the result is incorrect. The carry bit, C, is cleared after an unsigned subtraction when the result is incorrect.
+In general, we see that the overflow bit, V, is set when we cross over from 127 to -128 while adding or cross over from -128 to 127 while subtracting.
+Observation:
+The overflow bit, V, is set after a signed addition or subtraction when the result is incorrect.
+In the arithmetic operations below, the 32-bit value can be specified by the #im12 constant or generated by the flexible second operand,
+. When Rd is absent, the result is placed back in Rn.
+ADD{S}{cond} {Rd,} Rn,
+;Rd = Rn + op2
+ADD{S}{cond} {Rd,} Rn, #im12		;Rd = Rn + im12
+SUB{S}{cond} {Rd,} Rn,
+;Rd = Rn - op2
+SUB{S}{cond} {Rd,} Rn, #im12		;Rd = Rn - im12
+RSB{S}{cond} {Rd,} Rn,
+;Rd = op2 - Rn
+RSB{S}{cond} {Rd,} Rn, #im12		;Rd = im12 - Rn
+CMP{cond} Rn,
+;Rn - op2
+CMN{cond} Rn,
+;Rn - (-op2)
+The compare instructions CMP and CMN do not save the result of the subtraction or addition but always set the condition code. The compare instructions are used to create conditional execution, such as if-then, for loops, and while loops. The compiler may use RSB or CMN to optimize execution speed.
+If the optional S suffix is present, addition and subtraction set the condition code bits as shown in the following table. The addition and subtraction instructions work for both signed and unsigned values. As designers, we must know in advance whether we have signed or unsigned numbers. The computer cannot tell from the binary which type it is, so it sets both C and V. Our job as programmers is to look at the C bit if the values are unsigned and look at the V bit if the values are signed.
+Bit
+Name
+Meaning after addition or subtraction
+N
+Negative
+Result is negative
+Z
+Zero
+Result is zero
+V
+Overflow
+Signed overflow
+C
+Carry
+Unsigned overflow
+Table. Condition code bits contain the status of the previous arithmetic operation.
+If the two inputs to an addition operation are considered as unsigned, then the C bit (carry) will be set if the result does not fit. In other words, after an unsigned addition, the C bit is set if the answer is wrong. If the two inputs to a subtraction operation are considered as unsigned, then the C bit (carry) will be clear if the result does not fit. If the two inputs to an addition or subtraction operation are considered as signed, then the V bit (overflow) will be set if the result does not fit. In other words, after a signed addition, the V bit is set if the answer is wrong. If the result is unsigned, the N=1 means the result is greater than or equal to 2^31. Conversely, if the result is signed, the N=1 means the result is negative.
+2.7. Address Space
+Microcontrollers
+within the same family differ
+by the amount of memory and by the types of I/O modules. All LM3S and
+TM4C microcontrollers have a Cortex-M
+processor. There are hundreds of members in this family; some of them
+are listed in Table 2.11.
+Part
+number
+RAM
+Flash
+I/O
+I/O
+modules
+LM3S811
+8
+64
+32
+PWM
+LM3S1968
+64
+256
+52
+PWM
+LM3S2965
+64
+256
+56
+PWM, CAN
+LM3S3748
+64
+128
+61
+PWM,
+DMA, USB
+LM3S6965
+64
+256
+42
+PWM,
+Ethernet
+LM3S8962
+64
+256
+42
+PWM,
+CAN, Ethernet, IEEE1588
+LM4F110B2QR
+12
+32
+43
+floating
+point, CAN, DMA
+LM4F120H5QR
+32
+256
+43
+floating
+point, CAN, DMA, USB
+TM4C123GH6PM
+32
+256
+43
+floating
+point, CAN, DMA, USB, PWM
+KiB
+KiB
+pins
+Table 2.11. Memory
+and I/O modules (all have SysTick, RTC, timers, UART, I
+2
+C,
+SSI, and ADC).
+The memory map
+of TM4C123 is illustrated in Figure 2.18. Although specific for the
+TM4C123, all
+ARM
+®
+Cortex
+™
+-M
+microcontrollers have similar memory maps. In general, Flash ROM begins
+at address 0x0000.0000, RAM begins at 0x2000.0000, the peripheral I/O
+space is from 0x4000.0000 to 0x5FFFF.FFFF, and I/O modules on the
+private peripheral bus exist from 0xE000.0000 to 0xE00F.FFFF. In
+particular, the only differences in the memory map for the various 180
+members of the LM3S/TM4C family are the ending addresses of the flash
+and RAM. Having multiple buses means the processor can perform multiple
+tasks in parallel. The following is some of the tasks that can occur in
+parallel
+ICode
+bus    Fetch opcode from ROM
+DCode
+bus   Read constant data from ROM
+System
+bus  Read/write data from RAM or I/O, fetch opcode from RAM
+PPB              
+Read/write
+data from internal peripherals like the NVIC
+AHB             
+Read/write
+data from high-speed  I/O and parallel ports (M4 only)
+Figure
+2.18
+. Memory map of the TM4C123.
+Video
+2.8
+. Memory Map Layout
+When
+we store 16-bit data into memory it
+requires two bytes. Since the memory systems on most computers are byte
+addressable (a unique address for each byte), there are two possible
+ways to store in memory the two bytes that constitute the 16-bit data.
+Freescale microcomputers implement the
+big
+endian
+approach that
+stores the most significant byte at the lower address. Intel
+microcomputers implement the
+little
+endian
+approach that stores
+the least significant byte at the lower address. The Texas Instruments
+TM4C microcontrollers use the little endian format. Many
+ARM®
+processors are
+biendian
+,
+because they can be configured to
+efficiently handle both big and little endian data. Instruction fetches
+on the ARM are always little endian. Figure 2.19 shows two ways to
+store the 16-bit number 1000 (0x03E8) at locations 0x2000.0850 and
+0x2000.0851. We also can use either the big or little endian approach
+when storing 32-bit numbers into memory that is byte (8-bit)
+addressable. Figure 2.20 shows the big and little endian formats that
+could be used to store the 32-bit number 0x12345678 at locations
+0x2000.0850 through 0x2000.0853.
+Figure 2.19.
+Example of big and little endian formats of a 16-bit number.
+Figure
+2.20. Example of big and little endian
+formats of a 32-bit number.
+In
+the previous two examples, we normally would
+not pick out individual bytes (e.g., the 0x12), but rather capture the
+entire multiple byte data as one nondivisable piece of information. On
+the other hand, if each byte in a multiple byte data structure is
+individually addressable, then both the big and little endian schemes
+store the data in first to last sequence. For example, if we wish to
+store the four ASCII characters ‘LM3S’, which is
+0x4C4D3353
+at locations 0x2000.0850 through 0x2000.0853, then the ASCII
+‘L’=0x4C comes first in both big and little endian
+schemes,
+as illustrated in Figure 2.21.
+Figure
+2.21. Character strings are stored in the
+same for both big and little endian formats.
+The
+terms “big and little endian”
+come from Jonathan Swift’s satire
+Gulliver’s
+Travels
+.
+In Swift’s book, a Big Endian refers to a person who cracks
+their
+egg on the big end. The Lilliputians were Little Endians because they
+insisted that the only proper way is to break an egg on the little end.
+The Lilliputians considered the Big Endians as inferiors. The Big and
+Little Endians fought a long and senseless war over the best way to
+crack an egg.
+Common
+Error:
+An error will occur when data is stored in Big Endian by one computer
+and read in Little Endian format on another.
+2.8. Software Development
+Process
+In this
+class we will begin with assembly language,
+and then introduce C. However, the process described in this section
+applies to both assembly and C. Either the ARM Keil™
+uVision®
+or the Texas
+Instruments
+Code Composer
+Studio
+™
+(CCStudio)
+integrated
+development environment (IDE) can be used to develop software for the
+Texas Instruments
+microcontrollers. Both include an editor, assembler, compiler, and
+simulator. Furthermore, both can be used to download and debug software
+on a real microcontroller. Either way, the entire development process
+is contained in one application, as shown in Figure 2.22. In this
+course, we will use ARM Keil™
+uVision.
+Figure
+2.22. Assembly language or C development
+process.
+To
+develop software, we first use an
+editor
+to
+create our
+source code
+.
+Source code contains specific set of
+sequential commands in human-readable-form. Next, we use an
+assembler
+or
+compiler
+to translate our source code into object code. On ARM
+Keil™ uVision® we compile/assemble by executing the
+command
+Project->Build
+Target
+(short
+cut F7). Object code or machine instructions
+contains these same commands in machine-readable-form. Most assembly
+source code is one-to-one with the object code that is executed by the
+computer. For example, when programming in a high level language like C
+or Java, one line of a program can translate into several machine
+instructions. In contrast, one line of assembly code usually translates
+to exactly one machine instruction. The assembler/compiler may also
+produce a
+listing file
+,
+which is a human-readable output
+showing the addresses and object code that correspond to each line of
+the source program. The
+target
+specifies the platform on which
+we will be running the object code. When testing software with the
+simulator, we choose the
+Simulator
+as the target. When
+simulating, there is no need to download, we simply launch the
+simulator by executing the
+Debug->Start
+Debug Session
+command. The simulator is an easy and
+inexpensive way to get started on a project. However, its usefulness
+will diminish as the I/O becomes more complex.
+In a
+real system, we choose the real
+microcontroller via its JTAG debugger as the target. In this
+way
+the object code is downloaded into the EEPROM of the microcontroller.
+Most microcontrollers contain built-in features that assist in
+programming their EEPROM. In particular, we will use the JTAG debugger
+connected via a USB cable to download and debug programs. The JTAG is
+both a
+loader
+and
+a
+debugger
+.
+We program the
+EEPROM by executing the
+Flash->Download
+command. After downloading we can start the system by hitting the reset
+button on the board or we can debug it by executing
+Debug->Start
+Debug Session
+command in the uVision® IDE.
+In
+contrast, the loader on a general purpose
+computer typically reads the object code from a file on a hard drive or
+CD and stores the code in RAM. When the program is run, instructions
+are fetched from RAM. Since RAM is volatile, the programs on a general
+purpose computer must be loaded each time the system is powered up.
+For
+embedded systems, we typically perform initial
+testing on a simulator. The process for developing applications on real
+hardware is identical except the target is switched from a simulated
+microcontroller to the real microcontroller. It is best to have a
+programming reference manual handy when writing assembly language.
+These three reference manuals for the Cortex
+M4 processor are available
+as pdf files and are posted on the book web site.
+http://users.ece.utexas.edu/~valvano/arm/
+CortexM_InstructionSet.pdf
+Cortex
+-M4 Instruction Set Technical User's
+Manual
+CortexM4_TRM_r0p1.pdf
+Cortex
+-M4 Technical Reference Manual
+QuickReferenceCard.pdf
+ARM® and Thumb-2 Instruction Set Quick Reference Card
+A
+description of each instruction can also be
+found by searching the Contents page of the help engine included with
+the ARM Keil™ uVision® or TI CCStudio applications.
+There are
+a lot of settings required to create a software project from scratch. I
+strongly suggest those new to the process first run lots of existing
+projects. Next, pick an existing project most like your intended
+solution, and then make a copy of that project. Finally, make
+modifications to the copy a little bit at a time as you morph the
+existing project into your solution. After each modification verify
+that it still runs. If you take a project that runs, make hundreds of
+changes to it, and then notice that it no longer runs, you will not
+know which of the many changes caused the failure.
+2.9. Chapter 2 Quiz
+2
+.1
+Make this a matching definition with the word
+a)
+Precision ----------------------------------------------------- number
+of different values
+b)
+Hexadecimal ---------------------------------------------------base
+sixteen
+c)
+Fixed point -----------------------------------------------------
+number system that can be used to define noninteger values
+d)
+Energy ----------------------------------------------------- defines
+the amount of work that can be done
+e)
+Resistance -----------------------------------------------------
+potential divided by flow
+2
+.
+2
+How many bits is each?
+a)
+Binary bit ----------------------------------------------------- 1
+b)
+Nibble ----------------------------------------------------- 4
+c)
+Byte ----------------------------------------------------- 8
+d)
+Halfword --------------------------------------------------16
+e)
+Word ----------------------------------------------------- 32
+Reprinted
+with approval from
+Embedded
+Systems:
+Introduction to ARM Cortex-M Microcontrollers
+,
+2014, ISBN:
+978-1477508992,
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+Embedded
+Systems - Shape the World
+by
+Jonathan Valvano
+and Ramesh Yerraballi
+is licensed under a
+Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

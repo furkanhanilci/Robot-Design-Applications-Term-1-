@@ -1,0 +1,273 @@
+{
+  "id": 18,
+  "name": "UT Austin - Embedded Systems Shape the World",
+  "type": "Açık ders kitabı",
+  "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/",
+  "folder": "18_UT_Austin_-_Embedded_Systems_Shape_the_World",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/",
+      "kind": "html",
+      "bytes": 9031,
+      "sha256": "33608243eb8789f57c48cfb4cdd0d446af08f79e322107ed81ca1f87a87f0f3d"
+    },
+    {
+      "file": "page_3dc3c15cf3.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C1_EmbeddedSystemsShapeTheWorld.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C1_EmbeddedSystemsShapeTheWorld.htm",
+      "kind": "html",
+      "bytes": 21761,
+      "sha256": "05cfff9b489bfb77f1b86099b2061871e076a4fac6b6051475f2748f80476a95"
+    },
+    {
+      "file": "page_074aa5a65e.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C2_FundamentalConcepts.htm",
+      "kind": "html",
+      "bytes": 296810,
+      "sha256": "459ab8a8f4366aee58c3c845b826221308bde146ebb44c069627dcce911a9f39"
+    },
+    {
+      "file": "page_555cbd3bdc.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C3_Electronics.htm",
+      "kind": "html",
+      "bytes": 49067,
+      "sha256": "ac68d11bd6938a5dc2a33679cc7b4fea9ffcb0b5caf97885a9be3e01ca7ef3be"
+    },
+    {
+      "file": "page_55be1c2d47.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C4_DigitalLogic.htm",
+      "kind": "html",
+      "bytes": 160695,
+      "sha256": "479562bc069b99af86e0a4d03d811bed84bbd2614bd22208699f810d718aa7fa"
+    },
+    {
+      "file": "page_52472dfd34.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C5_IntroductionToC.htm",
+      "kind": "html",
+      "bytes": 260086,
+      "sha256": "b7de79cc5da8350d8330467d3127147bfe55c0cdc569feb9cc1e9aa265cb9e81"
+    },
+    {
+      "file": "page_76182925b6.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C6_MicrocontrollerPorts.htm",
+      "kind": "html",
+      "bytes": 511118,
+      "sha256": "c966a0f8bf8e88e50b9b47bc7a362b0a348709a60ee66d395e0d1ecc786c5f01"
+    },
+    {
+      "file": "page_e5750a340e.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C7_DesignDevelopment.htm",
+      "kind": "html",
+      "bytes": 254028,
+      "sha256": "99d2f0aa0f42a08642ae589f107f18bbd7979e50c9d4f7d3aad6dc7c6e1b4ecb"
+    },
+    {
+      "file": "page_45223defce.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C8_SwitchLED.htm",
+      "kind": "html",
+      "bytes": 51947,
+      "sha256": "b6f6bfba81bfa69e9251b8c6c26f2a1ed5fd356df1cc25bd7dddb32006aca950"
+    },
+    {
+      "file": "page_c387364e58.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C9_ArrayFunctionalDebugging.htm",
+      "kind": "html",
+      "bytes": 161319,
+      "sha256": "0816c690c37bef2f48981057ee121d12d15e82cd713d3f1e39a8837ae81bfbcd"
+    },
+    {
+      "file": "page_aef5fc3744.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C10_FiniteStateMachines.htm",
+      "kind": "html",
+      "bytes": 181994,
+      "sha256": "73d52fe76d37f7dfab6e7c1d453406bb836f48cb97ae5a0e8e17d447bfc05b5a"
+    },
+    {
+      "file": "page_a880b8f9ef.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm",
+      "kind": "html",
+      "bytes": 473039,
+      "sha256": "b4333dee93a6bef9483ae5c8163433197f6e51c3bb687fd85cfd0b524aae4d29"
+    },
+    {
+      "file": "page_df889ed557.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm",
+      "kind": "html",
+      "bytes": 457475,
+      "sha256": "10a0106216be543e99cf3a6fc179a98275fd35fd4b0d2d9f7707f42b21223d6d"
+    },
+    {
+      "file": "page_f51b1432ee.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C13_DACSound.htm",
+      "kind": "html",
+      "bytes": 117695,
+      "sha256": "b4056bcce83d2f9aa6c27fef26032388ab476a429468fa7c5ad41bcaef0b17a2"
+    },
+    {
+      "file": "page_a9a2dcf7f4.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C17_Local.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C17_Local.htm",
+      "kind": "html",
+      "bytes": 90100,
+      "sha256": "4fdb4533cf1d72cd0b509047b477282b23dd3d69ffb4c5a44c6a84e2716d6fa5"
+    },
+    {
+      "file": "page_6f9ff0184b.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C14_ADCdataAcquisition.htm",
+      "kind": "html",
+      "bytes": 257410,
+      "sha256": "9308ffa2edba1261c98ebb9919819e6fc3ebef71335ac1e87dcc399fd678ab77"
+    },
+    {
+      "file": "page_01c7ba2d6d.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C15_CompleteEmbeddedSystem.htm",
+      "kind": "html",
+      "bytes": 141118,
+      "sha256": "09b36de1fe15b0e11d6dd4a074e4e67d2322c51db82c4d3eb411d6028c23b456"
+    },
+    {
+      "file": "page_3c90d47dfa.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C16_InternetOfThings.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C16_InternetOfThings.htm",
+      "kind": "html",
+      "bytes": 134149,
+      "sha256": "a9eb75a2cba7e2de8609267744575c7704877b32ba7c965b7120f9fa144033cc"
+    },
+    {
+      "file": "page_ba0be3f52f.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/Appendix.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/Appendix.htm",
+      "kind": "html",
+      "bytes": 453022,
+      "sha256": "c2d0e07fa4715eb00f6713182a54ead0ce750fba73ab4a2d1ecd70ca7d14c6ca"
+    },
+    {
+      "file": "page_f09ae3dafe.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/VideoLinks.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/VideoLinks.htm",
+      "kind": "html",
+      "bytes": 68000,
+      "sha256": "6664ab35e0201af71d14758131810680ee9300f7da29903ee9b2554d584da6f5"
+    },
+    {
+      "file": "page_9407b5df0e.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/captions.html",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/captions.html",
+      "kind": "html",
+      "bytes": 239076,
+      "sha256": "24c3539608025de0ccd9dda8643fc106142d9e049cdc084f71bf1ac09fdad368"
+    },
+    {
+      "file": "page_58cc992cee.html",
+      "url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/EbookIndex.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/E-Book/EbookIndex.htm",
+      "kind": "html",
+      "bytes": 53016,
+      "sha256": "5aea4f9b7ff14df7a77edac42cd20f4849b6d70255f60d5c27b620f6dc186d47"
+    },
+    {
+      "file": "page_52a33aff82.html",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm",
+      "final_url": "https://users.ece.utexas.edu/~valvano/arm/outline1.htm",
+      "kind": "html",
+      "bytes": 16529,
+      "sha256": "5deef1d97ee7ac3fcc0ce8e81ebd859b9174b69097730a9b19bbc9dad6357364"
+    },
+    {
+      "file": "TM4C123_LaunchPadUsersManual.pdf",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/Volume1/TM4C123_LaunchPadUsersManual.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/TM4C123_LaunchPadUsersManual.pdf",
+      "kind": "pdf",
+      "bytes": 635397,
+      "sha256": "6ebe6a285e52649daab1fd7b990f5e24c1b44709e368b5697a3076630df7eb93",
+      "pdf_pages": 27
+    },
+    {
+      "file": "CortexM_InstructionSet.pdf",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/EE345L/Labs/Fall2011/CortexM_InstructionSet.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/EE345L/Labs/Fall2011/CortexM_InstructionSet.pdf",
+      "kind": "pdf",
+      "bytes": 2395014,
+      "sha256": "6415671b3e94c3ab4cdb11a86260be1b4a7c5fb365a58e9c6aadeb56fd1e3b60",
+      "pdf_pages": 221
+    },
+    {
+      "file": "CortexM4_TRM_r0p1.pdf",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/EE345L/Labs/Fall2011/CortexM4_TRM_r0p1.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/EE345L/Labs/Fall2011/CortexM4_TRM_r0p1.pdf",
+      "kind": "pdf",
+      "bytes": 935507,
+      "sha256": "d6f12ce12678dcf80aeba3f13c98ce2be5562601b73c18001c83c4c9fae1d735",
+      "pdf_pages": 121
+    },
+    {
+      "file": "QuickReferenceCard.pdf",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/Volume1/QuickReferenceCard.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/QuickReferenceCard.pdf",
+      "kind": "pdf",
+      "bytes": 191615,
+      "sha256": "a89d95fb7cfb056e03fc6cb5e1581a0d915f653534dc7d472cb37f3026b91b6e",
+      "pdf_pages": 6
+    },
+    {
+      "file": "tm4c123gh6pm.pdf",
+      "url": "http://users.ece.utexas.edu/~valvano/Volume1/tm4c123gh6pm.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Volume1/tm4c123gh6pm.pdf",
+      "kind": "pdf",
+      "bytes": 8431919,
+      "sha256": "a57ea860f78eb79b86421164705f7ca9e4b40bd20e5385612e6d3ec3c5f79fe9",
+      "pdf_pages": 1409
+    },
+    {
+      "file": "MC34119.pdf",
+      "url": "http://users.ece.utexas.edu/%7Evalvano/Datasheets/MC34119.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Datasheets/MC34119.pdf",
+      "kind": "pdf",
+      "bytes": 202910,
+      "sha256": "7f8db5abb52dd4b9a2282991e5534b62e7ce5a621ff941c7f0bab909dbd92af6",
+      "pdf_pages": 12
+    },
+    {
+      "file": "TIP120.pdf",
+      "url": "http://users.ece.utexas.edu/~valvano/Datasheets/TIP120.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/Datasheets/TIP120.pdf",
+      "kind": "pdf",
+      "bytes": 62795,
+      "sha256": "894d22530aae9d799b6421d00b1c0ffe67b2c74e890c33d5192dc997a113d48c",
+      "pdf_pages": 3
+    },
+    {
+      "file": "TOC1.pdf",
+      "url": "https://users.ece.utexas.edu/~valvano/arm/TOC1.pdf",
+      "final_url": "https://users.ece.utexas.edu/~valvano/arm/TOC1.pdf",
+      "kind": "pdf",
+      "bytes": 151678,
+      "sha256": "79ba8aaaa50af65f6c504dab7b5c826d6612ebe9b4b91157cf146e26113a607e",
+      "pdf_pages": 7
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:14+0300",
+  "pdf_count": 8,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

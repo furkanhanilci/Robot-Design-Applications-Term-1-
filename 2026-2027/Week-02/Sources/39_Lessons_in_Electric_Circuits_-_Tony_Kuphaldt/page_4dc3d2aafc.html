@@ -1,0 +1,1978 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html>
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume IV (Digital) - Chapter 8</title>
+
+<meta name="description" content="Karnaugh Mapping">
+<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="DIGI_7.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_9.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume IV</h1>
+<h1>Chapter 8</h1>
+
+
+<!--Created 04/27/2004 to 06/30/2004 (DC)-->
+<!--Modified-->
+<!--Modified 11/14/2004 (DC) -- Added Paul Stokes name to the contributor's list see contrib.sml for change details-->
+<!--Modified 11/14/2004 (DC) -- changed logic diagrams to include cross-overs &amp; dots according to Tony's style-->
+<!--Modified 01/13/2005 (DC) -- converted subsections and subsubsections to sections for better html at www.allaboutcircuits.com-->
+<!--Modified 01/30/2005 (DC) -- fixed 14094.eps top of map incorrect double bar, minor corrections 14162.eps, 14163.eps-->
+<!--Modified 06/19/2005 (DC) -- minor near "This migh be easier" -->
+
+<!--04366.eps re-used from Boolean algebra chapter good for .html bad for printed book-->
+<!--14066.eps re-used from Boolean algebra chapter, as above -->
+
+<!--first table/equation image 14072.eps-->
+<!--last table/equation image 14163.eps-->
+
+
+<h1>KARNAUGH MAPPING</h1> 
+<!--minitoc-->
+
+
+ 
+
+<ul>
+<li><a href="#xtocid92050"><u>Introduction</u></a></li>
+<li><a href="#xtocid92051"><u>Venn diagrams and sets</u></a></li>
+<li><a href="#xtocid92052"><u>Boolean Relationships on Venn Diagrams</u></a></li>
+<li><a href="#xtocid92053"><u>Making a Venn diagram look like a Karnaugh map</u></a></li>
+<li><a href="#xtocid92054"><u>Karnaugh maps, truth tables, and Boolean expressions</u></a></li>
+<li><a href="#xtocid92055"><u>Logic simplification with Karnaugh maps</u></a></li>
+<li><a href="#xtocid92056"><u>Larger 4-variable Karnaugh maps</u></a></li>
+<li><a href="#xtocid92057"><u>Minterm vs maxterm  solution</u></a></li>
+<li><a href="#xtocid92058"><u>&#931; (sum) and &#928; (product) notation</u></a></li>
+<li><a href="#xtocid92059"><u>Don't care cells in the Karnaugh map</u></a></li>
+<li><a href="#xtocid920510"><u>Larger 5 &amp; 6-variable Karnaugh maps</u></a></li></ul>
+
+<p>
+<b>Original author: Dennis Crunkilton</b>
+</p>
+
+<br> </br>
+
+<p>
+<p> <img src="14093.png"> </p> <!-- 3-Kmap- real -->
+</p>
+
+
+<h2><u><a name="xtocid92050">Introduction</a></u></h2>
+
+<a name="Karnaugh map"></a>
+
+<a name="logic simplification"></a>
+
+
+<p>
+Why learn about <i>Karnaugh</i> maps? The Karnaugh map, like Boolean algebra, is a simplification tool applicable to digital logic. See the "Toxic waste incinerator" in the Boolean algebra chapter for an example of Boolean simplification of digital logic. The Karnaugh Map will simplify logic faster and more easily in most cases.
+</p>
+
+<a name="CAD"></a>
+<a name="computer automated design"></a>
+
+<p>
+Boolean simplification is actually faster than the Karnaugh map for a task involving two or fewer Boolean variables. It is still quite usable at three variables, but a bit slower. At four input variables, Boolean algebra becomes tedious. Karnaugh maps are both faster and easier. Karnaugh maps work well for up to six input variables, are usable for up to eight variables. For more than six to eight variables,  simplification should be by <i>CAD</i> (computer automated design).
+</p>
+<p>
+<p> <img src="14072.png"> </p><!--table simplification methods-->
+</p>
+<p>
+In theory any of the three methods will work. However, as a practical matter, the above guidelines work well. We would not normally resort to computer automation to simplify a three input logic block. We could sooner solve the problem with pencil and paper. However, if we had seven of these problems to solve, say for a  <i>BCD</i> (Binary Coded Decimal) to  <i>seven segment decoder</i>, we might want to automate the process. A BCD to seven segment decoder generates the logic signals to drive a seven segment LED (light emitting diode) display.
+</p>
+
+<a name="PALASM"></a>
+<a name="ABEL"></a>
+<a name="Verilog"></a>
+<a name="VHDL"></a>
+<a name="CUPL"></a>
+<p>
+Examples of computer automated design languages for simplification of logic are PALASM, ABEL, CUPL, Verilog, and VHDL. These programs accept a <i>hardware descriptor language</i> input file which is based on Boolean equations and produce an output file describing a <i>reduced</i> (or simplified) Boolean solution. We will not require such tools in this chapter. Let's move on to Venn diagrams as an introduction to Karnaugh maps.
+</p>
+
+
+
+
+<h2><u><a name="xtocid92051">Venn diagrams and sets</a></u></h2>
+
+<a name="Venn Diagram"></a>
+<a name="Venn diagram"></a>
+<a name="sets"></a>
+<a name="element of set"></a>
+<a name="members of set"></a>
+<a name="union"></a>
+<a name="intersection"></a>
+<p>
+Mathematicians use <i>Venn diagrams</i> to show the logical relationships of <i>sets</i> (collections of objects) to one another.  Perhaps you have already seen Venn diagrams in your algebra or other mathematics studies.  If you have, you may remember overlapping circles and the <i>union</i> and <i>intersection</i> of sets. We will review the overlapping circles of the Venn diagram. We will adopt the terms OR and AND instead of union and intersection since that is the terminology used in digital electronics.
+</p>
+<p>
+The Venn diagram bridges the Boolean algebra from a previous  chapter to the Karnaugh Map.  We will relate what you already know about Boolean algebra to Venn diagrams, then transition to Karnaugh maps.
+</p>
+
+<a name="sets"></a>
+
+<p>
+A <i>set</i> is a collection of objects out of a universe as shown below. The <i>members</i> of the set are the objects contained within the set. The members of the set usually have something in common; though, this is not a requirement.  Out of the universe of real numbers, for example, the set of all positive integers {1,2,3...} is a set. The set {3,4,5} is an example of a smaller set, or <i>subset</i> of the set of all positive integers.  Another example is the set of all males out of the universe of college students. Can you think of some more examples of sets?
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14073.png"> </p><!--A in A' B in B' 14073-->
+</p>
+<br> </br>
+
+<p>
+Above left, we have a Venn diagram showing the set A in the circle within the universe U, the rectangular area.  If everything inside the circle is A, then anything outside of the circle is not A. Thus, above center, we label the rectangular area outside of the circle A as A-not instead of U. We show B and B-not in a similar manner.
+</p>
+<p>
+What happens if both A and B are contained within the same universe?  We show four possibilities.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14074.png"> </p> <!--A,B disjoint, OR, AND 14074-->
+</p>
+<br> </br>
+
+<p>
+Let's take a closer look at each of the the four possibilities as shown above.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14075.png"> </p> <!--A,B disjoint-->
+</p>
+<br> </br>
+
+<p>
+The first example  shows that set A and set B have nothing in common according to the Venn diagram. There is no overlap between the A and B circular hatched regions. For example, suppose that sets A and B contain the following members:
+</p>
+
+<blockquote>
+<p>
+set A = {1,2,3,4}  <br> </br> set B = {5,6,7,8}
+</p>
+</blockquote>
+
+<p>
+None of the members of set A are contained within set B, nor are any of the members of B contained within A. Thus, there is no overlap of the circles.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14076.png"> </p> <!--A,B subset-->
+</p>
+<br> </br>
+
+<p>
+In the second example in the above Venn diagram, Set A is totally contained within set B How can we explain this situation? Suppose that sets A and B contain the following members:
+</p>
+
+<blockquote>
+<p>
+set A = {1,2}</p>  <p>set B = {1,2,3,4,5,6,7,8}</p>
+</p>
+</blockquote>
+
+<p>
+All members of set A are also members of set B. Therefore, set A is a subset of Set B. Since all members of set A are members of set B, set A is drawn fully within the boundary of set B.
+</p>
+
+<p>
+There is a fifth case, not shown, with the four examples.  Hint: it is similar to the last (fourth) example. Draw a Venn diagram for this fifth case.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14077.png"> </p> <!--A,B subset-->
+</p>
+<br> </br>
+
+<p>
+The third example above shows perfect overlap between set A and set B. It looks like both sets contain the same identical members. Suppose that sets A and B contain the following:
+</p>
+
+<blockquote>
+<p>
+set A = {1,2,3,4}  set B = {1,2,3,4}
+</p>
+<br> </br>
+<p>
+Therefore,
+</p>
+<br> </br>
+<p>
+Set A = Set B
+</p>
+</blockquote>
+
+
+<p>
+Sets And B are identically equal because they both have the same identical members. The A and B regions within the corresponding Venn diagram above overlap completely. If there is any doubt about what the above patterns represent, refer to any figure above or below to be sure of what the circular regions looked like before they were overlapped.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14078.png"> </p> <!-- A,B partial overlap -->
+</p>
+<br> </br>
+
+<p>
+The fourth example above  shows that there is something in common between set A and set B in the overlapping region. For example, we arbitrarily select the following sets to illustrate our point:
+</p>
+<blockquote>
+
+<p>
+set A = {1,2,3,4}  <br> </br> set B = {3,4,5,6}
+</p>
+
+</blockquote>
+<p>
+Set A and Set B both have the elements 3 and 4 in common These elements are the reason for the overlap in the center common to A and B. We need to take a closer look at this situation
+</p>
+
+
+
+
+<h2><u><a name="xtocid92052">Boolean Relationships on Venn Diagrams</a></u></h2>
+
+<p>
+The fourth example  has <b>A</b> partially overlapping <b>B</b>.  Though, we will first look at the whole of all hatched  area below, then later only the overlapping region. Let's assign some Boolean expressions to the regions above as shown below.
+Below left there is a  red horizontal hatched area for <b>A</b>. There is a blue vertical hatched area for <b>B</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14079.png"> </p> <!-- A,B partial overlap -->
+</p>
+<br> </br>
+
+<p>
+If we look at the whole area of both, regardless of the hatch style, the sum total of all hatched areas, we get the illustration above right which corresponds to the inclusive <b>OR</b> function of A, B. The Boolean expression is <b>A+B</b>. This is shown by the 45<sup>o</sup> hatched area. Anything outside of the hatched area corresponds to <b>(A+B)-not</b> as shown above. Let's move on to next part of the fourth example
+</p>
+
+<p>
+The other way of looking at a Venn diagram with overlapping circles is to look at just the part common to both <b>A</b> and <b>B</b>, the double hatched area below left. The Boolean expression for this common area corresponding to the <b>AND</b> function is <b>AB</b> as shown below right. Note that everything outside of double hatched <b>AB</b> is <b>AB-not</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14080.png"> </p> <!-- A,B partial overlap -->
+</p>
+<br> </br>
+
+<p>
+Note that some of the members of <b>A</b>, above, are members of <b>(AB)'</b>. Some of the members of <b>B</b> are members of <b>(AB)'</b>. But, none of the members of <b>(AB)'</b> are within the doubly hatched area <b>AB</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14084.png"> </p> <!-- B/bold> within A 5th example -->
+</p>
+<br> </br>
+
+<p>
+We have repeated the second example above left. Your fifth example, which you previously sketched, is provided above right for comparison. Later  we will find the occasional element, or group of elements, totally contained within another group in a Karnaugh map.
+</p>
+<br> </br>
+
+<p>Next, we show the development of a Boolean expression involving a complemented variable below.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14081.png"> </p> <!-- A'B  -->
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b> (above)
+</p>
+
+<br> </br>
+
+<p>
+Show a Venn diagram for <b>A'B</b> (A-not AND B).
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+Starting above top left we have red horizontal shaded <b>A'</b> (A-not), then, top right, <b>B</b>. Next, lower left, we form the AND function <b>A'B</b> by overlapping the two previous regions. Most people would use this as the answer to the example posed.  However, only  the double hatched <b>A'B</b> is shown far right for clarity. The expression <b>A'B</b> is the region where both <b>A'</b> and <b>B</b> overlap.  The clear region outside of <b>A'B</b> is <b>(A'B)'</b>, which was not part of the posed example.
+</p>
+
+<p>
+Let's try something similar with the Boolean <b>OR</b> function.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+
+<p>
+Find <b>B'+A</b>
+</p>
+<br> </br>
+<br> </br>
+
+<p>
+<p> <img src="14082.png"> </p> <!-- A or B' overlap -->
+</p>
+
+<br> </br>
+<p><b>Solution:</b></p>
+<br> </br>
+
+<p>
+Above right we start out with <b>B</b> which is complemented to <b>B'</b>. Finally we overlay <b>A</b> on top of <b>B'</b>. Since we are interested in forming the <b>OR</b> function, we will be looking for all hatched area regardless of hatch style.  Thus, <b>A+B'</b> is all hatched area above right.  It is shown as a single hatch region below left for clarity.
+</p>
+<br> </br>
+<a name="DeMorgan's theorem"></a>
+<p>
+<p> <img src="14083.png"> </p> <!-- DeMorgan's -->
+</p>
+<br> </br>
+
+<p><b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Find <b>(A+B')'</b>
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+The green 45<sup>o</sup> <b>A+B'</b> hatched area was the result of the previous example.  Moving on to a to,<b>(A+B')'</b> ,the present  example, above left, let us find the complement of <b>A+B'</b>, which is the white clear area above left corresponding to <b>(A+B')'</b>.  Note that we have repeated, at right,  the <b>AB'</b> double hatched result from a previous example for comparison to our result. The regions corresponding to <b>(A+B')'</b> and <b>AB'</b> above left and right respectively are identical. This can be proven with DeMorgan's theorem and double negation.
+</p>
+
+<p>
+This brings up a point. Venn diagrams don't actually prove anything.  Boolean algebra is needed for formal proofs.  However, Venn diagrams can be used for verification and visualization.  We have verified and visualized DeMorgan's theorem with a Venn diagram.
+</p>
+<br> </br>
+
+<p><b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+What does the Boolean expression <b>A'+B'</b> look like on a Venn Diagram?
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14085.png"> </p> <!-- A'+B'  -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b> above figure
+</p>
+<br> </br>
+
+<p>
+ Start out with red horizontal hatched <b>A'</b> and blue vertical hatched <b>B'</b> above. Superimpose the diagrams as shown. We can still see the <b>A'</b> red horizontal hatch superimposed on the other hatch. It also fills in what used to be part of the <b>B</b> (B-true) circle, but only that part of the <b>B</b> open circle not common to the <b>A</b> open circle. If we only look at the <b>B'</b> blue vertical hatch, it fills that part of the open  <b>A</b> circle not common to <b>B</b>.     Any region with any hatch at all, regardless of type, corresponds to <b>A'+B'</b>. That is, everything but the open white space in the center.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+What does the Boolean expression <b>(A'+B')'</b> look like on a Venn Diagram?
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b> above figure, lower left
+</p>
+<br> </br>
+
+<p>
+Looking at the white open space in the center, it is everything <b>NOT</b> in the previous solution of <b>A'+B'</b>, which is <b>(A'+B')'</b>.
+</p>
+<br> </br>
+
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Show that <b>(A'+B')' = AB </b>
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b> below figure, lower left
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14143.png"> </p> <!-- A'B  -->
+</p>
+<br> </br>
+
+<a name="DeMorgan's theorem"></a>
+
+<p>
+We previously showed on the above right diagram that the white open region is <b>(A'+B')'</b>.  On an earlier example we showed a doubly hatched region at the intersection (overlay) of <b>AB</b>. This is the left and middle figures repeated here. Comparing the two Venn diagrams, we see that this open region , <b>(A'+B')'</b>,  is the same as the doubly hatched region <b>AB</b> (A AND B). We can also prove that <b>(A'+B')'=AB</b> by DeMorgan's theorem and double negation as shown above.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14086.png"> </p> <!-- DeMorgan's -->
+</p>
+<br> </br>
+
+<p>
+We show a three variable Venn diagram above with regions <b>A</b> (red horizontal), <b>B</b> (blue vertical), and, <b>C</b> (green 45<sup>o</sup>). In the very center note that all three regions overlap representing Boolean expression <b>ABC</b>.  There is also a larger  petal shaped region where <b>A</b> and <b>B</b> overlap corresponding to Boolean expression <b>AB</b>. In a similar manner <b>A</b> and <b>C</b> overlap producing Boolean expression <b>AC</b>. And  <b>B</b> and <b>C</b> overlap producing Boolean expression <b>BC</b>.
+</p>
+
+<p>
+Looking at the size of regions described by AND expressions above, we see that region size varies with the number of variables in the associated AND expression.
+<ul>
+<li><b>A</b>, 1-variable is a large circular region.</li>
+<li><b>AB</b>, 2-variable is a smaller petal shaped region.</li>
+<li><b>ABC</b>, 3-variable is the smallest region.</li>
+<li>The more variables in the AND term, the smaller the region.</li>
+</ul>
+</p>
+
+
+
+
+
+<a name="Karnaugh map"></a>
+
+<h2><u><a name="xtocid92053">Making a Venn diagram look like a Karnaugh map</a></u></h2>
+<p>
+Starting with circle <b>A</b> in a rectangular <b>A' universe</b> in figure (a) below, we morph a Venn diagram into almost a Karnaugh map.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14087.png"> </p> <!-- Venn to K-map -->
+</p>
+<br> </br>
+
+<p>
+We expand circle <b>A</b> at (b) and (c), conform to the rectangular <b>A' universe</b>  at (d), and change <b>A</b> to a rectangle at (e).  Anything left outside of <b>A</b> is <b>A' </b>.   We assign a rectangle to <b>A' </b> at (f).  Also, we do not use shading in Karnaugh maps. What we have so far resembles a 1-variable Karnaugh map, but is of little utility. We need multiple variables.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14088.png"> </p> <!-- 2-Kmap -->
+</p>
+<br> </br>
+
+<p>
+Figure (a) above is the same as the previous Venn diagram showing <b>A</b> and  <b>A'</b> above except that the labels <b>A</b> and  <b>A'</b> are above the diagram instead of inside the respective regions.  Imagine that we have go through a process similar to figures (a-f) to  get a "square Venn diagram" for <b>B</b> and  <b>B'</b> as we show in middle figure (b).  We will now superimpose the diagrams in Figures (a) and (b) to get the result at (c), just like we have been doing for Venn diagrams. The reason we do this is so that we may observe that which may be common to two overlapping regions-- say where <b>A</b> overlaps <b>B</b>. The lower right cell in figure (c) corresponds to <b>AB</b> where   <b>A</b> overlaps <b>B</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14089.png"> </p> <!-- 2-Kmap -->
+</p>
+<br> </br>
+
+<p>
+We don't waste time drawing a Karnaugh map like (c) above, sketching a simplified version as above left instead. The column of two cells under <b>A'</b> is understood to be associated with <b>A'</b>, and the heading <b>A</b> is associated with the column of cells under it. The row headed by <b>B'</b> is associated with the cells to the right of it. In a similar manner <b>B</b> is associated with the cells to the right of it.  For the sake of simplicity, we do not delineate the various regions as clearly as with Venn diagrams.
+</p>
+
+<p>
+The Karnaugh map above right is an alternate form used in most texts.  The names of the variables are listed next to the diagonal line. The <b>A</b> above the diagonal indicates that the variable <b>A</b> (and <b>A'</b>) is assigned to the columns. The <b>0</b> is a substitute for <b>A'</b>, and the <b>1</b> substitutes for <b>A</b>.  The <b>B</b> below the diagonal is associated with the rows: <b>0</b> for <b>B'</b>, and <b>1</b> for <b>B</b>
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Mark the cell corresponding to the Boolean expression <b>AB</b> in the Karnaugh map above with a <b>1</b>
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14090.png"> </p> <!-- 2-Kmap -->
+</p>
+<br> </br>
+
+<p><b>Solution:</b></p>
+<br> </br>
+
+<p>
+Shade or circle the region corresponding to <b>A</b>. Then, shade or enclose the region corresponding to <b>B</b>. The overlap of the two regions is <b>AB</b>. Place a <b>1</b> in this cell. We do not necessarily  enclose the <b>A</b> and <b>B</b> regions as at above left.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14091.png"> </p> <!-- 3-Kmap -->
+</p>
+<br> </br>
+
+<p>
+We develop  a 3-variable Karnaugh map above, starting with Venn diagram like regions. The universe (inside the black rectangle) is split into two narrow narrow rectangular regions for <b>A'</b> and <b>A</b>. The variables <b>B'</b> and <b>B</b> divide the universe into two square regions. <b>C</b> occupies a square region in the middle of the rectangle, with <b>C'</b> split into two vertical rectangles on each side of the <b>C</b> square.
+</p>
+
+<p>
+In the final figure, we superimpose all three variables, attempting to clearly label the various regions. The regions are less obvious without color printing, more obvious when compared to the other three figures. This 3-variable <i>K-Map</i> (Karnaugh map) has 2<sup>3</sup> = 8 <i>cells</i>, the small squares within the map. Each individual cell is uniquely identified by the three
+Boolean Variables (<b>A, B, C</b>). For example, <b>ABC'</b> uniquely selects the lower right most cell(*), <b>A'B'C'</b> selects the upper left most cell (x).
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14092.png"> </p> <!-- 3-Kmap -->
+</p>
+<br> </br>
+
+<a name="Karnaugh map"></a>
+<a name="product term"></a>
+<p>
+We don't normally label the Karnaugh map as shown above left. Though this figure clearly shows map coverage by single boolean variables of a 4-cell region. Karnaugh maps are labeled like the illustration at right. Each cell is still uniquely identified by a 3-variable <i>product term</i>, a Boolean <b>AND</b> expression. Take, for example, <b>ABC'</b> following the <b>A</b> row across to the right and the <b>BC'</b> column down, both intersecting at the lower right cell  <b>ABC'</b>. See (*) above figure.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14093.png"> </p> <!-- 3-Kmap- real -->
+</p>
+<br> </br>
+
+<p>
+The above two different forms of a 3-variable Karnaugh map are equivalent, and is the final form that it takes. The version at right is a bit easier to use, since we do not have to write down so many boolean alphabetic headers and complement bars, just <b>1</b>s and <b>0</b>s Use the form of map on the right and look for the the one at left in some texts.  The column headers on the left <b>B'C', B'C, BC, BC'</b> are equivalent to  <b>00, 01, 11, 10</b> on the right. The row headers <b>A, A'</b> are equivalent to <b>0, 1</b> on the right map.
+</p>
+
+
+
+
+
+
+<br> </br>
+<h2><u><a name="xtocid92054">Karnaugh maps, truth tables, and Boolean expressions</a></u></h2>
+
+<a name="Karnaugh map"></a>
+<a name="Karnaugh, Maurice"></a>
+
+<p>
+Maurice Karnaugh, a telecommunications engineer,  developed the Karnaugh map at Bell Labs in 1953 while designing digital logic based telephone switching circuits.
+</p>
+
+<p>
+Now that we have developed the Karnaugh map with the aid of Venn diagrams, let's put it to use. Karnaugh maps <i>reduce</i> logic functions more quickly and easily  compared to Boolean algebra. By reduce we mean simplify, reducing the number of gates and inputs.  We like to simplify logic to a <i>lowest cost </i> form to save costs by elimination of components.  We define lowest cost as being the lowest number of gates with the lowest number of inputs per gate.
+</p>
+
+<p>
+Given a choice, most students do logic simplification with Karnaugh maps rather than  Boolean algebra once they learn this tool.
+</p>
+
+<a name="truth table to Karnaugh map"></a>
+
+<p>
+<p> <img src="14094.png"> </p> <!-- 2-Kmap, 2-TT, gate, RLL, BE -->
+</p>
+<br> </br>
+
+<p>
+We show five individual items above, which are just different ways of representing the same thing: an arbitrary 2-input digital logic function. First is relay ladder logic, then logic gates, a truth table, a Karnaugh map, and a Boolean equation. The point is that any of these are equivalent. Two inputs  <b>A</b> and  <b>B</b> can take on values of either <b>0</b> or  <b>1</b>, high or low, open or closed, True or False, as the case may be. There are 2<sup>2 </sup>= 4 combinations of inputs producing an output. This is applicable to all five examples.
+</p>
+<p>
+These four outputs may be observed on a lamp in the relay ladder logic, on a logic probe on the gate diagram. These outputs may be recorded in the truth table, or in the Karnaugh map. Look at the Karnaugh map as being a rearranged truth table.  The Output of the Boolean equation may be computed by the laws of Boolean algebra and transfered to the truth table or Karnaugh map. Which of the five equivalent logic descriptions should we use?  The one which is most useful for the task to be accomplished.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14095.png"> </p> <!-- 2-Kmap. 2-TT -->
+</p>
+<br> </br>
+
+<p>
+The  outputs of a truth table correspond  on a one-to-one basis to Karnaugh map entries.  Starting at the top of the truth table, the A=0, B=0 inputs produce an output &#945;.  Note that this same output &#945; is found in the Karnaugh map at the A=0, B=0 cell address, upper left corner of K-map where the A=0 row and B=0 column intersect. The other truth table outputs &#946;, &#967;, &#948; from inputs AB=01, 10, 11 are found at corresponding  K-map locations.
+</p>
+<p>
+Below, we show the adjacent 2-cell regions in the 2-variable K-map with the aid of previous rectangular Venn diagram like Boolean regions.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14096.png"> </p> <!-- 2-Kmap adjacent -->
+</p>
+<br> </br>
+
+<p>
+Cells &#945; and &#967; are adjacent in the K-map as ellipses in the left most K-map below.  Referring to the previous truth table, this is not the case. There is another truth table entry (&#946;) between them. Which brings us to the whole point of the organizing the K-map into a square array, cells with any Boolean variables in common need to be close to one another so as to present a pattern that jumps out at us. For cells &#945; and &#967; they have the Boolean variable <b>B'</b> in common. We know this because <b>B=0</b> (same as <b>B'</b>) for the column above cells &#945; and &#967;. Compare this to the square Venn diagram above the K-map.
+</p>
+
+<p>
+A similar line of reasoning shows that &#946; and &#948; have Boolean <b>B</b> (B=1) in common. Then, &#945; and &#946; have Boolean <b>A'</b> (A=0) in common.
+Finally, &#967; and &#948; have Boolean <b>A</b> (A=1) in common. Compare the last two maps to the middle square Venn diagram.
+</p>
+<p>
+To summarize, we are looking for commonality  of Boolean variables among cells. The Karnaugh map is organized so that we may see that commonality. Let's try some examples.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14097.png"> </p> <!-- 2-Kmap adjacent -->
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+
+<br> </br>
+
+<p>
+Transfer the contents of the truth table to the Karnaugh map above.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14098.png"> </p> <!-- 2-Kmap adjacent -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+The truth table contains two <b>1</b>s. the K- map must have both of them.  locate the first  <b>1</b> in the 2nd row of the truth table above.
+<ul>
+<li> note the truth table AB address</li>
+<li> locate the cell in the K-map having the same address</li>
+<li> place a <b>1</b> in that cell </li>
+</ul>
+Repeat the process for the <b>1</b>  in the last line of the truth table.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+For the Karnaugh map in the above problem, write the Boolean expression. Solution is below.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14099.png"> </p> <!-- 2-Kmap adjacent  problem -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+Look for adjacent cells, that is, above or to the side of a cell. Diagonal cells are not adjacent. Adjacent cells will have one or more Boolean variables in common.
+<ul>
+<li>  Group (circle) the two <b>1</b>s in the column</li>
+<li> Find the variable(s) top and/or side which are the same for the group, Write this as the Boolean result. It is <b>B</b> in our case.</li>
+<li> Ignore variable(s) which are not the same for a cell group. In our case A varies, is both 1 and 0, ignore Boolean A. </li>
+<li>Ignore any variable not associated with cells containing 1s. <b>B'</b> has no ones under it. Ignore B' </li>
+<li>  Result <b>Out = B</b></li>
+</ul>
+</p>
+
+<p>
+This might be easier to see by comparing to the Venn diagrams to the right, specifically the <b>B</b> column.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Write the Boolean expression for the Karnaugh map below.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14100.png"> </p> <!-- 2-Kmap adjacent problem -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b> (above)
+<ul>
+<li>  Group (circle) the two <b>1's</b> in the row</li>
+<li> Find the variable(s)  which are the same for the group,  <b>Out = A'</b></li>
+</ul>
+</p>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+For the Truth table below, transfer the outputs to the Karnaugh, then write the Boolean expression for the result.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14101.png"> </p> <!-- 2-Kmap adjacent TT problem -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+Transfer the <b>1</b>s from the locations in the Truth table to the corresponding locations in the K-map.
+<ul>
+<li>Group (circle) the two 1's in the column under <b>B=1</b></li>
+<li>Group (circle) the two 1's in the row right of <b>A=1</b></li>
+<li>Write product term for first group = <b>B</b></li>
+<li>Write product term for second  group = <b>A</b></li>
+<li>Write Sum-Of-Products of above two terms <b>Output = A+B</b></li>
+</ul>
+The solution of the K-map in the middle is the simplest or lowest cost solution. A less desirable solution is at far right. After grouping the two <b>1</b>s, we make the mistake of forming a group of 1-cell. The reason that this is not desirable is that:
+<ul>
+<li> The single cell has a product term of <b>AB'</b></li>
+<li> The corresponding solution is <b>Output = AB' + B </b></li>
+<li> This is not the simplest solution</li>
+</ul>
+The way to pick up this single <b>1</b> is to form a group of two with the <b>1</b> to the right of it as shown in the lower line of the middle K-map, even though this <b>1</b> has already been included in the column group (<b>B</b>). We are allowed to re-use cells in order to form larger groups. In fact, it is desirable because it leads to a simpler result.
+</p>
+
+<p>
+We need to point out that either of the above solutions, Output or Wrong Output, are logically correct. Both circuits yield the same output. It is a matter of the former circuit being the lowest cost solution.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Fill in the Karnaugh map for the Boolean expression below,  then write the Boolean expression for the result.
+</p>
+<br> </br>
+
+
+<p>
+<p> <img src="14102.png"> </p> <!-- 2-Kmap Boolean problem -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b> (above)
+</p>
+<br> </br>
+
+<p>
+The Boolean expression has three product terms. There will be a <b>1</b> entered for each product term. Though, in general,  the number of <b>1</b>s per product term varies with the number of variables in the product term  compared to the size of the K-map.  The product term is the address of the cell where the <b>1</b> is entered. The first product term, <b>A'B</b>, corresponds to the <b>01</b> cell in the map. A  <b>1</b> is entered in this cell. The other two P-terms are entered for a total of three <b>1s</b>
+</p>
+<p>
+Next, proceed with grouping and extracting the simplified result as in the previous truth table problem.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Simplify the logic diagram below.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14103.png"> </p> <!-- 2-Kmap gate problem -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b> (Figure below)
+<ul>
+<li> Write the Boolean expression for the original logic diagram as shown below</li>
+<li> Transfer the product terms to the Karnaugh map</li>
+<li> Form groups of cells as in previous examples</li>
+<li> Write Boolean expression for groups as in previous examples</li>
+<li> Draw simplified logic diagram</li>
+</ul>
+</p>
+
+<p>
+<p> <img src="14104.png"> </p> <!-- 2-Kmap gate solution -->
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Simplify the logic diagram below.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14105.png"> </p> <!-- 2-Kmap gate solution -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+<ul>
+<li> Write the Boolean  expression for the original logic diagram shown above</li>
+<li> Transfer the product terms to the Karnaugh map.</li>
+<li> It is not possible to form groups. </li>
+<li> No simplification is possible; leave it as it is.</li>
+</ul>
+</p>
+
+<p>
+No logic simplification is possible for the above diagram. This sometimes happens.  Neither the methods of Karnaugh maps nor Boolean algebra can simplify this logic further. We show an Exclusive-OR schematic symbol above; however, this is not a logical simplification. It just makes a schematic diagram look nicer. Since it is not possible to simplify the Exclusive-OR logic and it is widely used, it is provided by manufacturers as a basic integrated circuit (7486).
+</p>
+
+
+
+
+<h2><u><a name="xtocid92055">Logic simplification with Karnaugh maps</a></u></h2>
+
+<a name="Karnaugh map"></a>
+
+<p>
+The logic simplification examples that we have done so could have been performed with Boolean algebra about as quickly. Real world logic simplification problems call for larger Karnaugh maps so that we may do serious work. We will work some contrived examples in this section, leaving most of the real world applications for the Combinatorial Logic chapter. By contrived, we mean examples which illustrate techniques. This approach will develop the tools we need to transition to the more complex applications in the Combinatorial Logic chapter.
+</p>
+
+
+<p>We show our previously developed Karnaugh map. We will use the form on the right.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14093.png"> </p> <!-- 2-Kmap gate solution -->
+</p>
+<br> </br>
+
+<a name="Gray code"></a>
+
+<p>
+Note the sequence of numbers across the top of the map. It is not in binary sequence which would be <b>00, 01, 10, 11</b>. It is <b>00, 01, 11 10</b>, which is Gray code sequence. Gray code sequence only changes one binary bit as we go from one number to the next in the sequence, unlike binary. That means that  adjacent cells will only vary by one bit, or Boolean variable. This is what we need to organize the outputs of a logic function so that we may view commonality. Moreover, the column and row headings must be in Gray code order, or the map will not work as a Karnaugh map. Cells sharing common Boolean variables would no longer be adjacent, nor show visual patterns. Adjacent cells vary by only one bit because a Gray code sequence varies by only one bit.
+</p>
+<p>
+If we sketch our own Karnaugh maps, we need to generate Gray code for any size map that we may use. This is how we generate Gray code of any size.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14106.png"> </p> <!--Gray code -->
+</p>
+<br> </br>
+
+<p>
+Note that the Gray code sequence, above right, only varies by one bit as we go down the list, or bottom to top up the list. This property of Gray code is often useful in digital electronics in general.  In particular, it is applicable to Karnaugh maps.
+</p>
+
+<p>
+Let us move on to some examples of simplification with 3-variable Karnaugh maps.  We show how to map the product terms of the unsimplified logic to the K-map. We illustrate how to identify groups of adjacent cells which leads to a Sum-of-Products simplification of the digital logic.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14107.png"> </p> <!-- 3-Kmap A'B' -->
+</p>
+<br> </br>
+
+<p>
+Above we, place the  1's in the K-map for each of the product terms, identify a group of two, then write a <i>p-term</i> (product term) for the sole group as our simplified result.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14108.png"> </p> <!-- 3-Kmap A'-->
+</p>
+<br> </br>
+
+<p>
+Mapping the four product terms above yields a group of four covered by Boolean  <b>A'</b>
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14109.png"> </p> <!-- 3-Kmap C -->
+</p>
+<br> </br>
+
+<p>
+Mapping the four p-terms yields a group of four, which is covered by one variable <b>C</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14110.png"> </p> <!-- 3-Kmap A'+B -->
+</p>
+<br> </br>
+
+<p>
+After mapping the six p-terms above, identify the upper group of four, pick up the lower two cells as a group of four by sharing the two with two more from the other group. Covering these two with a group of four gives a simpler result. Since there are two groups, there will be two p-terms in the Sum-of-Products result <b>A'+B</b>
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14111.png"> </p> <!-- 3-Kmap BC -->
+</p>
+
+<br> </br>
+<p>
+The two product terms above form one group of two and  simplifies to  <b>BC</b>
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14112.png"> </p> <!-- 3-Kmap B -->
+</p>
+<br> </br>
+
+<p>
+Mapping the four p-terms yields a single group of four, which is <b> B</b>
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14113.png"> </p> <!-- 3-Kmap C' -->
+</p>
+<br> </br>
+
+<p>
+Mapping the four p-terms above yields a group of four. Visualize the group of four by rolling up the ends of the map to form a cylinder, then the cells are adjacent. We normally mark the group of four as above left. Out of the variables A, B, C, there is a common variable: C'. C' is a 0 over all four cells. Final result is <b>C'</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14114.png"> </p> <!-- 3-Kmap A' or C' -->
+</p>
+<br> </br>
+
+<p>
+The six cells above from the unsimplified equation can be organized into two groups of four. These two groups should give us two p-terms in our simplified result of <b>A' + C'</b>.
+</p>
+<br> </br>
+
+<p>
+Below, we revisit the Toxic Waste Incinerator from the Boolean algebra chapter. See Boolean algebra chapter for details on this example. We will simplify the logic using a Karnaugh map.
+</p>
+<p>
+<p> <img src="14115.png"> </p> <!-- Toxic waste modified derived from 04364-->
+</p>
+<br> </br>
+
+<p>
+The Boolean equation for the output has four product terms. Map four 1's corresponding to the p-terms. Forming groups of cells, we have three groups of two. There will be three p-terms in the simplified result, one for each group.  See "Toxic Waste Incinerator", Boolean algebra chapter for a gate diagram of the result, which is reproduced below.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="04366.png"> </p> <!-- Toxic waste re-used from Boolean algebra chapter-->
+</p>
+<br> </br>
+
+<p>
+Below we repeat the Boolean algebra simplification of Toxic waste incinerator for comparison.
+</p>
+<br> </br>
+
+
+<p>
+<p> <img src="14066.png"> </p> <!-- Toxic waste re-used from Boolean algebra chapter -->
+</p>
+
+<p>
+Below we repeat the  Toxic waste incinerator Karnaugh map solution for comparison to the above Boolean algebra simplification. This case illustrates why the Karnaugh map is widely used for logic simplification.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14144.png"> </p> <!-- Toxic waste K-map-->
+</p>
+<br> </br>
+<p>
+The Karnaugh map method looks easier than the previous page of
+boolean algebra.
+</p>
+<br> </br>
+<br> </br>
+
+
+
+
+
+<a name="Karnaugh map"></a>
+
+<h2><u><a name="xtocid92056">Larger 4-variable Karnaugh maps</a></u></h2>
+<p>Knowing how to generate Gray code should allow us to build larger maps. Actually, all we need to do is look at the left to right sequence across the top of the 3-variable map, and copy it down the left side of the 4-variable map. See below.
+<p>
+<br> </br>
+
+<p>
+<p> <img src="14116.png"> </p> <!-- 4-Kmap empty -->
+</p>
+<br> </br>
+
+<p>
+The following four variable Karnaugh maps  illustrate reduction of  Boolean expressions too tedious for Boolean algebra. Reductions could be done with Boolean algebra. However, the Karnaugh map is faster and easier, especially if there are many logic reductions to do.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14117.png"> </p> <!-- 4-Kmap AB+CD -->
+</p>
+<p>
+The above Boolean expression has seven product terms. They are mapped top to bottom and left to right on the K-map above. For example, the first P-term <b>A'B'CD</b> is first row 3rd cell, corresponding to map location <b>A=0, B=0, C=1, D=1</b>. The other product terms are placed in a similar manner. Encircling the largest groups possible,  two groups of four are shown above. The dashed horizontal group corresponds the the simplified product term <b>AB</b>. The vertical group corresponds to Boolean CD. Since there are two groups, there will be two product terms in the Sum-Of-Products result of <b>Out=AB+CD</b>.
+</p>
+<br> </br>
+
+<p>
+Fold up the corners of the map below like it is a napkin to make the four cells physically adjacent.
+</p>
+
+<p>
+<p> <img src="14118.png"> </p><!--4-Kmap B'D'-->
+</p>
+
+<p>
+The four cells above are a group of four because they all have the Boolean variables <b>B'</b> and <b>D'</b> in common. In other words, <b>B=0</b> for the four cells, and <b>D=0</b> for the four cells. The other variables <b>(A, B)</b> are <b>0</b> in some cases, <b>1</b> in other cases with respect to the four corner cells. Thus, these variables <b>(A, B)</b> are not involved with this group of four. This single group comes out of the map as one product term for the simplified result: <b>Out=B'C'</b>
+</p>
+<br> </br>
+
+<p>
+For the K-map below, roll the top and bottom edges into a cylinder forming  eight adjacent cells.
+</p>
+<br> </br>
+<p>
+<p> <img src="14119.png"> </p> <!-- 4-Kmap B' -->
+</p>
+<br> </br>
+
+<p>
+The above group of eight has one Boolean variable in common: <b>B=0</b>. Therefore, the one group of eight is covered by one p-term: <b>B'</b>. The original eight term Boolean expression simplifies to <b>Out=B'</b>
+</p>
+<br> </br>
+
+<p>
+The Boolean expression below has nine p-terms, three of which have three Booleans instead of four. The difference is that while  four Boolean variable product terms cover one cell, the three Boolean p-terms cover a pair of cells each.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14120.png"> </p> <!--4-Kmap  B'+D' -->
+</p>
+<br> </br>
+
+<p>
+The six product terms of four Boolean variables map in the usual manner above as single cells.  The three Boolean variable terms (three each) map as cell pairs, which is shown above. Note that we are mapping p-terms into the K-map, not pulling them out at this point.
+</p>
+
+<p>
+For the simplification, we form two groups of eight. Cells in the corners are shared  with both groups. This is fine. In fact, this leads to a better solution than forming a group of eight and a group of four without sharing any cells. Final Solution is <b>Out=B'+D'</b>
+</p>
+<br> </br>
+
+
+<p>
+Below we map the unsimplified Boolean expression to the Karnaugh map.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14121.png"> </p> <!--4-Kmap corners-->
+</p>
+<br> </br>
+
+<p>
+Above, three of the cells form into a  groups of two cells. A fourth cell cannot be combined with anything, which often happens in "real world" problems. In this case, the Boolean p-term <b>ABCD</b> is unchanged in the simplification process. Result: <b>Out= B'C'D'+A'B'D'+ABCD</b>
+</p>
+
+<p>
+Often times there is more than one minimum cost solution to a simplification problem. Such is the case illustrated below.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="14122.png"> </p> <!--4-Kmap  dual solution-->
+</p>
+<br> </br>
+
+<a name="minimal cost"></a>
+
+<p>
+Both results above have four product terms of three Boolean variable each. Both are equally valid <i>minimal cost</i> solutions. The difference in the final solution is due to how the cells are grouped as shown above. A minimal cost solution is a valid logic design with the minimum number of gates with the minimum number of inputs.
+</p>
+<br> </br>
+
+
+<p>
+Below we map the unsimplified Boolean equation as usual and form a group of four as a first simplification step. It may not be obvious how to pick up the remaining cells.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14123.png"> </p> <!--4-Kmap  4-squares -->
+</p>
+<br> </br>
+
+<p>
+Pick up three more cells in a group of four, center above. There are still two cells remaining. the minimal cost method to pick up those is to group them with neighboring cells as groups of four as at above right.
+</p>
+<p>
+On a cautionary note, do not attempt to form groups of three.  Groupings must be powers of 2, that is, 1, 2, 4, 8 ...
+</p>
+<br> </br>
+
+<p>
+Below we have another example of two possible minimal cost solutions. Start by forming a couple of groups of four after mapping the cells.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14124.png"> </p> <!--4-Kmap Dual Solution-->
+</p>
+<br> </br>
+
+<p>
+The two solutions depend on whether the single remaining cell is grouped with the first or the second group of four as a group of two cells. That cell either comes out as either <b>ABC'</b> or <b>ABD</b>, your choice. Either way, this cell is covered by either Boolean product term. Final results are shown above.
+</p>
+<br> </br>
+
+<p>
+Below we have an example of a simplification using the Karnaugh map at left or Boolean algebra at right. Plot <b>C'</b> on the map as the area of all cells covered by address <b>C=0</b>, the 8-cells on the left of the map. Then, plot the single <b>ABCD</b> cell. That single cell forms  a group of 2-cell as shown, which simplifies to P-term <b>ABD</b>, for an end result of <b>Out = C' + ABD</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14125.png"> </p> <!--4-Kmap simplification  -->
+</p>
+<br> </br>
+
+<p>
+This (above) is a rare example of a four variable problem that can be reduced with Boolean algebra without a lot of work, assuming that you remember the theorems.
+</p>
+<br> </br>
+<br> </br>
+
+
+
+
+
+
+<a name="minterm"></a>
+<a name="maxterm"></a>
+<a name="Sum-Of-Products"></a>
+<a name="Product-Of-Sums"></a>
+<a name="SOP"></a>
+<a name="POS"></a>
+
+
+<h2><u><a name="xtocid92057">Minterm vs maxterm  solution</a></u></h2>
+<p>
+So far we have been finding Sum-Of-Product (SOP) solutions to logic reduction problems. For each of these SOP solutions, there is also a Product-Of-Sums solution (POS), which could be more useful, depending on the application.  Before working a Product-Of-Sums solution, we need to introduce some new terminology. The procedure below for mapping  product terms is not new to this chapter. We just want to establish a formal procedure for minterms for comparison to the new procedure for maxterms.
+</p>
+
+<p>
+<p> <img src="14126.png"> </p> <!--3-Kmap POS-->
+</p>
+
+<p>
+A <i>minterm</i> is a Boolean expression resulting in <b>1</b> for the output of a single cell, and <b>0</b>s for all other cells in a Karnaugh map, or truth table. If a minterm has a single <b>1</b> and the remaining cells as <b>0</b>s, it would appear to cover a minimum area of <b>1</b>s. The illustration above left  shows the minterm <b>ABC</b>, a single product term, as a single <b>1</b> in a map that is otherwise <b>0</b>s. We have not shown the <b>0</b>s in our Karnaugh maps up to this point, as it is customary to omit them unless specifically needed.  Another minterm <b>A'BC'</b> is shown above right. The point to review is that the address of the cell corresponds directly to the minterm being mapped. That is, the cell <b>111</b> corresponds to the minterm <b>ABC</b> above left. Above right we see that the minterm <b>A'BC'</b>  corresponds directly to the cell <b>010</b>.   A Boolean expression or map may have multiple minterms.
+</p>
+
+<p>
+Referring to the above figure, Let's summarize the procedure for placing a minterm in a K-map:
+<ul>
+<li>Identify the minterm (product term) term to be mapped. </li>
+<li>Write the corresponding binary numeric value.</li>
+<li> Use binary value as an address to place a <b>1</b> in the K-map</li>
+<li>Repeat steps for other minterms (P-terms within a Sum-Of-Products). </li>
+</ul>
+</p>
+<br> </br>
+<p>
+<p> <img src="14127.png"> </p> <!--3-Kmap  POS-->
+</p>
+<p>
+A Boolean expression will more often than not consist of multiple minterms corresponding to multiple cells in a Karnaugh map as shown above. The multiple minterms in this map are the individual minterms which we examined in the previous figure above. The point we review for reference is that the <b>1</b>s come out of the K-map as a binary cell address which converts directly to one or more product terms. By directly we mean that a <b>0</b> corresponds to a complemented variable, and a <b>1</b>  corresponds to a true variable. Example: <b>010</b> converts directly to <b>A'BC'</b>. There was no reduction in this example.  Though, we do have a Sum-Of-Products result from the minterms.
+</p>
+
+<p>
+Referring to the above figure, Let's summarize the procedure for writing the Sum-Of-Products reduced Boolean equation from a K-map:
+<ul>
+<li>Form largest groups of <b>1</b>s  possible covering all minterms. Groups must be a power of 2. </li>
+<li>Write  binary numeric value for groups.</li>
+<li>Convert binary value to a product term. </li>
+<li>Repeat steps for other groups. Each group yields a p-terms within a Sum-Of-Products.</li>
+</ul>
+</p>
+
+<p>
+Nothing new so far, a formal procedure  has been written down for dealing with minterms. This serves as a pattern for dealing with maxterms.
+</p>
+
+<p>
+Next  we attack the Boolean function which is <b>0</b> for a single cell and <b>1</b>s for all others.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14128.png"> </p> <!--3-Kmap POS A'+B'+C'-->
+</p>
+<br> </br>
+
+<p>
+A <i>maxterm</i> is a Boolean expression resulting in a <b>0</b> for the output of a single cell expression,  and <b>1</b>s for all other cells in the Karnaugh map, or truth table. The illustration above left  shows the maxterm <b>(A+B+C)</b>, a single sum term, as a single <b>0</b> in a map that is otherwise <b>1</b>s. If a maxterm has a single <b>0</b> and the remaining cells as <b>1</b>s, it would appear to cover a maximum area of <b>1</b>s.
+</p>
+
+<p>
+There are some differences now that we are dealing with something  new, maxterms. The maxterm is a <b>0</b>, not a <b>1</b> in the Karnaugh map. A maxterm is a sum term, <b>(A+B+C)</b> in our example, not a product term.
+</p>
+
+<p>
+It also looks strange that <b>(A+B+C)</b> is mapped into the cell <b>000</b>. For the equation <b>Out=(A+B+C)=0</b>, all three variables <b>(A, B, C)</b> must individually be equal to <b>0</b>. Only <b>(0+0+0)=0</b> will equal <b>0</b>. Thus we place our sole <b>0</b> for minterm <b>(A+B+C)</b> in cell  <b>A,B,C=000</b> in the K-map, where the inputs are all<b>0</b> . This is the only case which will give us a <b>0</b> for our maxterm. All other cells contain <b>1</b>s because any input values other than (<b>(0,0,0)</b> for <b>(A+B+C)</b> yields <b>1</b>s upon evaluation.
+</p>
+
+<p>
+Referring to the above figure, the procedure for placing a maxterm in the K-map is:
+<ul>
+<li>Identify the Sum term to be mapped. </li>
+<li>Write corresponding binary numeric value.</li>
+<li>Form the complement </li>
+<li> Use the complement as an address to place a <b>0</b> in the K-map</li>
+<li>Repeat for other maxterms (Sum terms within Product-of-Sums expression).</li>
+</ul>
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14129.png"> </p> <!--3-Kmap POS A'+B'+C'-->
+</p>
+<br> </br>
+
+<p>
+Another maxterm <b>A'+B'+C'</b> is shown above. Numeric <b>000</b> corresponds to <b>A'+B'+C'</b>. The complement is <b>111</b>. Place a <b>0</b> for maxterm <b>(A'+B'+C')</b> in this cell <b>(1,1,1)</b> of the K-map as shown above.
+</p>
+
+<p>
+Why should <b>(A'+B'+C')</b> cause a <b>0</b> to  be in cell <b>111</b>?  When <b>A'+B'+C'</b> is <b>(1'+1'+1')</b>, all <b>1</b>s in, which is <b>(0+0+0)</b> after taking complements, we have the only condition that will give us a <b>0</b>. All the <b>1</b>s are complemented to all <b>0</b>s, which is <b>0</b> when <b>OR</b>ed.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14130.png"> </p> <!--3-Kmap  POS -->
+</p>
+<br> </br>
+
+<p>
+ A Boolean Product-Of-Sums  expression or map may have multiple maxterms as shown above.  Maxterm <b>(A+B+C)</b> yields numeric <b>111</b> which complements to  <b>000</b>, placing a <b>0</b> in cell <b>(0,0,0)</b>. Maxterm <b>(A+B+C')</b> yields numeric <b>110</b> which complements to  <b>001</b>, placing a <b>0</b> in cell <b>(0,0,1)</b>.
+</p>
+
+<p>
+Now that we have the k-map setup, what we are really interested in is showing how to write a Product-Of-Sums reduction.  Form the <b>0</b>s into groups. That would be a group of two below. Write the binary value corresponding to the sum-term which is <b>(0,0,X)</b>. Both A and B are <b>0</b> for the group. But, <b>C</b> is both <b>0</b> and <b>1</b> so we write an <b>X</b> as a place holder for <b>C</b>. Form the complement <b>(1,1,X)</b>. Write the Sum-term <b>(A+B)</b> discarding the <b>C</b> and the <b>X</b> which held its' place. In general, expect to have more sum-terms multiplied together in the Product-Of-Sums result. Though, we have a simple example here.
+</p>
+
+<p>
+<p> <img src="14131.png"> </p> <!--3-Kmap  A+B -->
+</p>
+
+<p>
+Let's summarize the procedure for writing the Product-Of-Sums Boolean reduction for a K-map:
+<ul>
+<li>Form largest groups of <b>0</b>s  possible, covering all maxterms. Groups must be a power of 2. </li>
+<li>Write binary numeric value for group.</li>
+<li>Complement  binary numeric value for group.</li>
+<li>Convert complement value to a sum-term. </li>
+<li>Repeat steps for other groups. Each group yields a sum-term within a Product-Of-Sums result.</li>
+</ul>
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Simplify the Product-Of-Sums Boolean expression below, providing a result in POS form.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14132.png"> </p> <!--POS example-->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+Transfer the seven maxterms to the map below as <b>0</b>s. Be sure to complement the input variables in finding the proper cell location.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14133.png"> </p> <!--4-Kmap  maxterm-->
+</p>
+<br> </br>
+
+<p>
+We map the <b>0</b>s as they appear left to right top to bottom on the map above. We locate the last three maxterms with leader lines..
+</p>
+
+<p>
+Once the cells are in place above, form groups of cells as shown below. Larger groups will give a sum-term with fewer inputs. Fewer groups will yield fewer sum-terms in the result.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14134.png"> </p> <!--4-Kmap   -->
+</p>
+<br> </br>
+
+<p>
+We have three groups, so we expect to have three sum-terms in our POS result above. The group of 4-cells yields a  2-variable sum-term. The two groups of 2-cells give us two 3-variable sum-terms. Details are shown for how we arrived at the Sum-terms above.  For a group, write the binary group input address, then complement it, converting that to the Boolean sum-term.  The final result is product of the three sums.
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Simplify the Product-Of-Sums Boolean expression below, providing a result in SOP form.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14132.png"> </p> <!--4-Kmap   -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+This looks like a repeat of the last problem.  It is except that we ask for a Sum-Of-Products Solution instead of the Product-Of-Sums which we just finished.  Map the maxterm <b>0</b>s from the Product-Of-Sums given as in the previous problem, below left.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14135.png"> </p> <!--4-Kmap   -->
+</p>
+<br> </br>
+
+<p>
+Then fill in the implied <b>1</b>s in the remaining cells of the map above right.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14136.png"> </p> <!--4-Kmap   -->
+</p>
+<br> </br>
+
+<p>
+Form groups of <b>1</b>s to cover all <b>1</b>s. Then write the Sum-Of-Products simplified result as in the previous section of this chapter.  This is identical to a previous problem.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14137.png"> </p> <!--4-Kmap   -->
+</p>
+<br> </br>
+
+<p>
+Above we show both the Product-Of-Sums solution, from the previous example, and the Sum-Of-Products solution from the current problem for comparison. Which is the simpler solution? The POS uses 3-OR gates and 1-AND gate, while the SOP uses 3-AND gates and 1-OR gate. Both use four gates each. Taking a closer look, we count the number of gate inputs. The POS uses 8-inputs; the SOP uses 7-inputs.  By the definition of minimal cost solution, the SOP solution is simpler.  This is an example of a technically correct answer that is of little use in the real world.
+</p>
+<p>
+The better solution depends on complexity and the logic family being used.  The SOP solution is usually better if using the TTL logic family, as NAND gates are the basic building block, which works well with SOP implementations. On the other hand, A POS solution would be acceptable when using the CMOS logic family since all sizes of NOR gates are available.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14138.png"> </p> <!--POS SOP diagram   -->
+</p>
+<br> </br>
+
+<p>
+The gate diagrams for both cases are shown above, Product-Of-Sums left, and Sum-Of-Products right.
+</p>
+
+<p>
+Below, we take a closer look at the Sum-Of-Products version of our example logic, which is repeated at left.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="14139.png"> </p> <!--and/or vs NAND-NAND -->
+</p>
+<br> </br>
+<a name="nand-nand logic"></a>
+<p>
+Above  all AND gates at left have been replaced by NAND gates at right.. The OR gate at the output is replaced by a NAND gate.  To prove that AND-OR logic is equivalent to NAND-NAND logic, move the inverter invert bubbles at the output of the 3-NAND gates to the input of the final NAND as shown in going from above right to below left.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14140.png"> </p> <!--gate diagram -->
+</p>
+<br> </br>
+
+<a name="DeMorgan's theorem"></a>
+
+<p>
+Above right we see that the output NAND gate with inverted inputs is logically equivalent to an OR gate by DeMorgan's theorem and double negation. This information is useful in building digital logic in a laboratory setting where TTL logic family NAND gates are more readily available in a wide variety of configurations than other types.
+</p>
+
+<a name="nand-nand logic"></a>
+
+<p>
+The Procedure for constructing NAND-NAND logic, in place of AND-OR logic is as follows:
+<ul>
+<li>Produce a reduced Sum-Of-Products logic design.</li>
+<li>When drawing the wiring  diagram of the SOP, replace all gates (both AND and OR) with NAND gates.</li>
+<li>Unused inputs should be tied to logic High.</li>
+<li>In case of troubleshooting, internal nodes at the first level of NAND gate outputs do NOT match AND-OR diagram logic levels, but are inverted. Use the NAND-NAND logic diagram. Inputs and final output are identical, though.</li>
+<li>Label any multiple packages U1, U2,.. etc.</li>
+<li>Use data sheet to assign pin numbers to inputs and outputs of all gates. </li>
+</ul>
+</p>
+<br> </br>
+
+<p>
+<b>Example:</b>
+</p>
+<br> </br>
+
+<p>
+Let us revisit a previous problem involving an SOP minimization. Produce a  Product-Of-Sums solution. Compare the POS solution to the previous SOP.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14141.png"> </p> <!--SOP POS   -->
+</p>
+<br> </br>
+
+<p>
+<b>Solution:</b>
+</p>
+<br> </br>
+
+<p>
+Above left we have the original problem starting  with  a 9-minterm Boolean unsimplified expression. Reviewing, we formed four groups of 4-cells to yield a 4-product-term SOP result, lower left.
+</p>
+
+<p>
+In the middle figure, above, we fill in the empty spaces with the implied <b>0</b>s. The <b>0</b>s form two groups of 4-cells. The solid blue group is <b>(A'+B)</b>, the dashed red group is <b>(C'+D)</b>. This yields two sum-terms in the Product-Of-Sums result, above right <b>Out = (A'+B)(C'+D)</b>
+</p>
+
+<p>
+Comparing the previous SOP simplification, left, to the POS simplification, right, shows that the POS is the least cost solution. The SOP uses 5-gates total, the POS uses only 3-gates. This POS solution even looks attractive when using TTL logic due to simplicity of the result. We can find AND gates and an OR gate with 2-inputs.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14142.png"> </p> <!--SOP POS diagram -->
+</p>
+<br> </br>
+
+<p>
+The SOP and POS gate diagrams are shown above for our comparison problem.
+</p>
+
+<p>
+Given the pin-outs for the TTL logic family integrated circuit gates below, label the maxterm diagram above right with Circuit designators (U1-a, U1-b, U2-a, etc), and pin numbers.
+
+</p>
+
+<p>
+<p> <img src="14145.png"> </p> <!--SOP POS diagram -->
+</p>
+<br> </br>
+
+<p>
+Each integrated circuit package that we use will receive a circuit designator: U1, U2, U3.  To distinguish between the individual gates within the  package, they are identified as a, b, c, d, etc. The 7404 hex-inverter package is U1. The individual inverters in it are are U1-a, U1-b, U1-c, etc. U2 is assigned to the 7432 quad OR gate. U3 is assigned to the 7408 quad AND gate. With reference to the pin numbers on the package diagram above, we assign pin numbers to all gate inputs and outputs on the schematic diagram below.
+</p>
+<p>
+We can now build this circuit in a laboratory setting. Or, we could design a <i>printed circuit board</i> for it. A printed circuit board contains copper foil "wiring" backed by a non conductive substrate of phenolic, or epoxy-fiberglass. Printed circuit boards are used to mass produce electronic circuits. Ground the inputs of unused gates.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14146.png"> </p> <!--SOP POS diagram -->
+</p>
+<br> </br>
+
+<p>
+Label the previous POS solution diagram above left (third figure back) with Circuit designators  and pin numbers. This will be similar to what we just did.
+</p>
+
+
+
+<p>
+<p> <img src="14147.png"> </p> <!--TTL 7400, 7420  -->
+</p>
+<br> </br>
+
+<p>
+We can find 2-input AND gates, 7408 in the previous example. However, we have trouble finding a 4-input OR gate in our TTL catalog. The only kind of gate with 4-inputs is the 7420 NAND gate shown above right.
+</p>
+
+<p>
+We can make the 4-input NAND gate into a 4-input OR gate by inverting the inputs to the NAND gate as shown below. So we will use the 7420 4-input NAND gate as an OR gate by inverting the inputs.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14148.png"> </p> <!--SOP DeMorgan's -->
+</p>
+<br> </br>
+
+<p>
+We will not use discrete inverters to invert the inputs to the 7420 4-input NAND gate, but will drive it with 2-input NAND gates in place of the AND gates called for in the SOP, minterm, solution. The inversion at the output of the 2-input NAND gates supply the inversion for the 4-input OR gate.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14149.png"> </p> <!--SOP  diagram -->
+</p>
+<br> </br>
+
+<a name="nand-nand logic"></a>
+<p>
+
+The result is shown above. It is the only practical way to actually build it with TTL gates by using NAND-NAND logic replacing AND-OR logic.
+</p>
+<br> </br>
+
+
+
+
+
+
+<h2><u><a name="xtocid92058">&#931; (sum) and &#928; (product) notation</a></u></h2>
+<p>
+For reference, this section introduces the terminology used in some texts to describe the minterms and maxterms assigned to a Karnaugh map. Otherwise, there is no new material here.
+</p>
+
+<a name="minterm sum &#931; "></a>
+
+<p>
+&#931; (sigma) indicates sum and lower case "m" indicates minterms. &#931;m indicates sum of minterms. The following example is revisited to illustrate our point. Instead of a Boolean equation description of unsimplified logic, we list the minterms.
+</p>
+
+<blockquote>
+<p>
+f(A,B,C,D) = &#931; m(1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15)
+</p>
+<br> </br>
+<p>or</p>
+<br> </br>
+<p>
+f(A,B,C,D) = &#931;(m<sub>1</sub>,m<sub>2</sub>,m<sub>3</sub>,m<sub>4</sub>,m<sub>5</sub>,m<sub>7</sub>,m<sub>8</sub>,m<sub>9</sub>,m<sub>11</sub>,m<sub>12</sub>,m<sub>13</sub>,m<sub>15</sub>)
+</p>
+
+</blockquote>
+<br> </br>
+
+<p>
+The numbers indicate cell location, or address, within a Karnaugh map as shown below right. This is certainly a compact means of describing a list of minterms or cells in a K-map.
+</p>
+
+<br> </br>
+
+<p>
+<p> <img src="14162.png"> </p> <!--SOP (sigma) -->
+</p>
+<br> </br>
+
+<p>
+The Sum-Of-Products solution is not affected by the new terminology. The minterms, <b>1</b>s, in the map have been grouped as usual and a Sum-OF-Products solution written.
+</p>
+
+<a name="maxterm product &#928; "></a>
+
+<p>
+Below, we show the terminology for describing a list of maxterms. Product is indicated by the Greek &#928; (pi), and upper case "M" indicates maxterms. &#928;M indicates product of maxterms. The same example illustrates our point. The Boolean equation description of unsimplified logic, is replaced by a list of maxterms.
+</p>
+
+<blockquote>
+<p>
+f(A,B,C,D) = &#928; M(2, 6, 8, 9, 10, 11, 14)
+</p>
+<br> </br>
+<p>or</p>
+<br> </br>
+<p>
+f(A,B,C,D) = &#928;(M<sub>2</sub>, M<sub>6</sub>, M<sub>8</sub>,  M<sub>9</sub>, M<sub>10</sub>, M<sub>11</sub>, M<sub>14</sub>)
+</p>
+
+</blockquote>
+<br> </br>
+
+<p>
+Once again, the numbers indicate K-map cell address locations. For maxterms this is the location of <b>0</b>s, as shown below. A Product-OF-Sums solution is completed in the usual manner.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="14163.png"> </p> <!--POS PI  -->
+</p>
+<br> </br>
+
+
+
+
+
+<a name="don't cares in Karnaugh map"></a>
+
+<h2><u><a name="xtocid92059">Don't care cells in the Karnaugh map</a></u></h2>
+
+<p>
+Up to this point we have considered logic reduction problems where the input conditions were completely specified. That is, a 3-variable truth table or Karnaugh map had 2<sup>n</sup> =  2<sup>3</sup> or  8-entries, a full table or map. It is not always necessary to fill in the complete truth table for some real-world problems. We may have a choice to not fill in the complete table.
+</p>
+<p>
+For example, when dealing with BCD (Binary Coded Decimal) numbers encoded as four bits, we may not care about any codes above the BCD range of (0, 1, 2...9). The 4-bit binary codes for  the hexadecimal numbers  (Ah, Bh, Ch, Eh, Fh) are not valid BCD codes. Thus, we do not have to fill in those codes at the end of a truth table, or K-map, if we do not care to. We would not normally care to fill in those codes because those codes (1010, 1011, 1100, 1101, 1110, 1111) will never exist as long as we are dealing only with BCD encoded numbers.  These six invalid codes are <i>don't cares</i> as far as we are concerned. That is, we do not care what output our logic circuit produces for these don't cares.
+</p>
+
+<p>
+Don't cares in a Karnaugh map, or truth table, may be either <b>1</b>s or <b>0</b>s, as long as we don't care what the output is for an input condition we never expect to see. We plot these cells with an asterisk, *, among the normal <b>1</b>s and <b>0</b>s. When forming groups of cells,  treat the don't care cell as either a <b>1</b> or a <b>0</b>, or ignore the don't cares. This is helpful if it allows us to form a larger group than would otherwise be possible without the don't cares. There is no requirement to group all or any of the don't cares. Only use them in a group if it simplifies the logic.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14155.png"> </p> <!--3 ea 3-Kmap don't care -->
+</p>
+<br> </br>
+
+<p>
+Above is an example of a logic function where the desired  output is <b>1</b> for input <b>ABC = 101</b> over the range from <b>000 to 101</b>. We do not care what the output is for the other possible inputs (<b>110, 111)</b>. Map those two as don't cares. We show two solutions. The solution on the right Out = AB'C is the more complex solution since we did not use the don't care cells. The solution  in the middle, Out=AC, is less complex because we grouped a don't care cell with the single <b>1</b> to form a group of two. The third solution, a  Product-Of-Sums on the right, results from grouping a don't care with  three zeros forming a group of four <b>0</b>s. This is  the same, less complex, <b>Out=AC</b>. We have illustrated that the don't care cells may be used as either <b>1</b>s or <b>0</b>s, whichever is useful.
+
+
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14156.png"> </p> <!--bicycle -->
+</p>
+<br> </br>
+
+<p>
+The electronics class of Lightning State College has been asked to build the lamp logic for a stationary bicycle exhibit at the local science museum. As a rider increases his pedaling speed, lamps will light on a bar graph display. No lamps will light for no motion. As speed increases, the lower lamp, L1 lights, then L1 and L2, then, L1, L2, and L3, until all lamps light at the highest speed. Once all the lamps illuminate, no further increase in speed will have any effect on the display.
+</p>
+
+<p>
+A small DC generator coupled to the bicycle tire outputs a voltage proportional to speed. It drives a tachometer board which limits the voltage at the high end of speed where all lamps light. No further increase in speed can increase the voltage beyond this level. This is crucial because the downstream A to D (Analog to Digital) converter puts out a 3-bit code, <b>ABC</b>,   2<sup>3</sup> or  8-codes, but we only have five lamps. <b>A</b> is the most significant bit, <b>C</b> the least significant bit.
+</p>
+
+<p>
+The lamp logic needs to respond to the six  codes out of the A to D. For <b>ABC=000</b>, no motion, no lamps light.  For the five codes <b>(001 to 101)</b> lamps L1, L1&amp;L2, L1&amp;L2&amp;L3, up to  all lamps will light, as speed, voltage, and the  A to D code (ABC)  increases. We do not care about the response to input codes <b>(110, 111)</b> because these codes will never come out of the A to D due to the limiting in the tachometer block. We need to design five logic circuits to drive the five lamps.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14157.png"> </p> <!--tachometer maps -->
+</p>
+<br> </br>
+
+<p>
+Since, none of the lamps light for <b>ABC=000</b> out of the A to D, enter a <b>0</b> in all K-maps for cell <b>ABC=000</b>.  Since we don't care about the never to be encountered codes <b>(110, 111)</b>, enter asterisks into those two cells in all five K-maps.
+</p>
+
+<p>
+Lamp L5 will only light for code <b>ABC=101</b>. Enter a <b>1</b> in that cell and five <b>0</b>s into the remaining empty cells of L5 K-map.
+</p>
+<p>
+L4 will light initially for code <b>ABC=100</b>, and will remain illuminated for any code greater, <b>ABC=101</b>, because all lamps below L5 will light when L5 lights. Enter <b>1</b>s into cells <b>100</b> and <b>101</b> of the L4 map so that it will light for those codes. Four <b>0</b>'s fill the remaining L4 cells
+</p>
+<p>
+L3 will initially light for code <b>ABC=011</b>. It will also light whenever L5 and L4 illuminate. Enter three <b>1</b>s into cells <b>011, 100, 101</b> for L3 map. Fill three <b>0</b>s into the remaining L3 cells.
+</p>
+<p>
+L2 lights for <b>ABC=010</b> and codes greater. Fill <b>1</b>s into cells <b>010, 011, 100, 101</b>, and two <b>0</b>s in the remaining cells.
+</p>
+<p>
+The only time L1 is not lighted is for no motion. There is already a <b>0</b> in cell <b>ABC=000</b>. All the other five cells receive  <b>1</b>s.
+</p>
+
+<p>
+Group the <b>1</b>'s as shown above, using don't cares whenever a larger group results. The L1 map shows three product terms, corresponding to three groups of 4-cells. We used both don't cares in two of the groups and one don't care on the third group. The don't cares allowed us to form groups of four.
+</p>
+
+<p>
+In a similar manner, the L2 and L4 maps both produce groups of 4-cells with the aid of the don't care cells. The L4 reduction is striking in that the L4 lamp is controlled by the most significant bit from the A to D converter, <b>L5=A</b>. No logic gates are required for lamp L4. In the L3 and L5 maps, single cells form groups of two with don't care cells.  In all five maps, the reduced Boolean equation is less complex than without the don't cares.
+</p>
+
+<br> </br>
+
+<p>
+<p> <img src="14158.png"> </p> <!--tachometer gates -->
+</p>
+<br> </br>
+
+<p>
+The gate diagram for the circuit is above. The outputs of the five K-map equations drive inverters. Note that the L1 <b>OR</b> gate is not a 3-input gate but a 2-input gate having inputs <b>(A+B), C</b>, outputting <b>A+B+C</b> The <i>open collector</i> inverters, <b>7406</b>, are desirable for driving LEDs, though, not part of the K-map logic design. The output of an open collecter gate or inverter is open circuited at the collector internal to the integrated circuit package so that all collector current may flow through an external load. An active high into any of the inverters pulls the output low, drawing current through the LED and the current limiting resistor. The LEDs would likely be part of a solid state relay driving 120VAC lamps for a museum exhibit, not shown here.
+</p>
+
+
+
+
+<a name="Karnaugh map"></a>
+<a name="fan-in"></a>
+<h2><u><a name="xtocid920510">Larger 5 &amp; 6-variable Karnaugh maps</a></u></h2>
+<p>Larger Karnaugh maps  reduce larger logic designs. How large is large enough? That depends on the number of inputs, <i>fan-ins</i>, to the logic circuit under consideration. One of the large programmable logic companies has an answer.
+</p>
+
+<blockquote>
+Altera's own data, extracted from its library of customer designs, supports the value of heterogeneity. By examining logic cones, mapping them onto LUT-based nodes and sorting them by the number of inputs that would be best at each node, Altera found that the distribution of fan-ins was nearly flat between two and six inputs, with a nice peak at five.
+</blockquote>
+<p>
+The answer is no more than six inputs for most all designs, and  five inputs for the average logic design. The five variable Karnaugh map follows.
+</p>
+
+<br> </br>
+
+<p>
+<p> <img src="14150.png"> </p> <!--5-Kmap Gray code -->
+</p>
+<br> </br>
+
+<p>
+The older version of the five variable K-map, a Gray Code map or reflection map, is shown above. The top (and side for a 6-variable map) of the map is numbered in full Gray code. The Gray code reflects about the middle of the code. This style map is found in older texts. The newer preferred style is below.
+</p>
+<br> </br>
+
+
+<p>
+<p> <img src="14151.png"> </p> <!--5-Kmap, overlay  -->
+</p>
+<br> </br>
+
+<p>
+The overlay version of the Karnaugh map, shown above,  is simply two (four for a 6-variable map) identical maps except for the most significant bit of the 3-bit address across the top. If we look at the top of the map, we will see that the numbering is different from the previous Gray code map. If we ignore the most significant digit of the 3-digit numbers, the sequence <b>00, 01, 11, 10</b> is at the heading of both sub maps of the overlay map. The sequence of eight 3-digit numbers is not Gray code. Though the sequence of four of the least significant two bits is.
+</p>
+<br> </br>
+
+<p>
+Let's put our 5-variable Karnaugh Map to use. Design a circuit which has a 5-bit binary input (A, B, C, D, E), with A being the MSB (Most Significant Bit).  It must produce an output logic High for any prime number detected in the input data.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14152.png"> </p> <!--5-Kmap, Gery code  -->
+</p>
+<br> </br>
+<p>
+We show the solution above on the older Gray code (reflection) map for reference. The prime numbers are (1,2,3,5,7,11,13,17,19,23,29,31). Plot a <b>1</b> in each corresponding cell. Then, proceed with grouping of the cells. Finish by writing the simplified result. Note that 4-cell group A'B'E  consists of two pairs of cell on both sides of the mirror line. The same is true of the 2-cell group AB'DE. It is a group of 2-cells by being reflected about the mirror line. When using this version of the K-map look for mirror images in the other half of the map.
+</p>
+<br> </br>
+
+<p>
+Out = A'B'E + B'C'E + A'C'DE + A'CD'E + ABCE + AB'DE + A'B'C'D
+</p>
+<br> </br>
+
+<p>
+Below we show the more common version of the 5-variable map, the overlay map.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14153.png"> </p> <!--5-Kmap, overlay  -->
+</p>
+<br> </br>
+
+<p>
+If we compare the patterns in the two maps, some of the cells in the right half of the map are moved around since the addressing across the top of the map is different. We also need to take a different approach at spotting commonality between the two halves of the map. Overlay one half of the map atop the other half. Any overlap from the top map to the lower map is a potential group. The figure below shows that group AB'DE is composed of two stacked cells. Group A'B'E consists of two stacked pairs of cells.
+</p>
+
+<p>
+For the <b>A'B'E</b> group of 4-cells <b>ABCDE = 00xx1</b> for the group. That is A,B,E are the same <b>001</b> respectively for the group. And,  <b>CD=xx</b> that is it varies, no commonality in <b>CD=xx</b> for the group of 4-cells. Since <b>ABCDE = 00xx1</b>, the group of 4-cells is covered by <b>A'B'XXE = A'B'E</b>.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14154.png"> </p> <!--5-Kmap, overlay 3-D  -->
+</p>
+<br> </br>
+
+<p>
+The above 5-variable overlay map is shown stacked.
+</p>
+<br> </br>
+
+<p>
+An example of a six variable Karnaugh map follows. We have mentally stacked the four sub maps to see the group of 4-cells corresponding to <b>Out = C'F'</b>
+<br> </br>
+
+<p>
+<p> <img src="14159.png"> </p> <!--6-Kmap, overlay 3-D  -->
+</p>
+<br> </br>
+
+<a name="magnitude comparator"></a>
+
+<p>
+A magnitude comparator (used to illustrate a 6-variable K-map) compares two binary numbers, indicating if they are equal, greater than, or less than each other on three respective outputs. A three bit magnitude comparator has two inputs A<sub>2</sub>A<sub>1</sub>A<sub>0</sub> and B<sub>2</sub>B<sub>1</sub>B<sub>0</sub>
+An integrated circuit magnitude comparator (7485) would actually have four inputs, But, the Karnaugh map below needs to be kept to a reasonable size. We will only solve for the <b>A&#62;B</b> output.
+</p>
+
+<p>
+Below, a 6-variable Karnaugh map aids simplification of the logic for a  3-bit magnitude comparator. This is an overlay type of map. The binary address code across the top and down the left side of the map is not a full 3-bit Gray code. Though the 2-bit address codes of the four sub maps is Gray code. Find redundant expressions by stacking the four sub maps atop one another (shown above). There could be cells common to all four maps, though not in the example below. It does have cells common to pairs of sub maps.
+</p>
+<br> </br>
+
+<p>
+<p> <img src="14160.png"> </p> <!--magnitude comparator-->
+</p>
+<br> </br>
+
+<p>
+The A&#62;B output above is ABC&#62;XYZ on the map below.
+</p>
+
+<p>
+<p> <img src="14161.png"> </p> <!--6-Kmap, ABC GT XYZ  -->
+</p>
+<br> </br>
+
+<p>
+Where ever <b>ABC</b> is greater than <b>XYZ</b>, a <b>1</b> is plotted. In the first line <b>ABC=000</b> cannot be greater than any of the values of <b>XYZ</b>. No <b>1</b>s in this line. In the second line, <b>ABC=001</b>, only the first cell <b>ABCXYZ= 001000</b> is <b>ABC</b> greater than<b> XYZ</b>. A single <b>1</b> is entered in the first cell of the second line. The fourth line, <b>ABC=010</b>, has a pair of <b>1</b>s. The third line, <b>ABC=011</b> has three <b>1</b>s.  Thus, the map is filled with <b>1</b>s in any cells where <b>ABC</b> is greater than <b>XXZ</b>.
+</p>
+
+<p>
+In grouping cells, form groups with adjacent sub maps if possible. All but one group of 16-cells involves cells from  pairs of the sub maps. Look for the following groups:
+<ul>
+<li>1 group of 16-cells</li>
+<li>2 groups of 8-cells</li>
+<li>4 groups of 4-cells</li>
+</ul>
+The group of 16-cells, <b>AX'</b> occupies all of the lower right sub map; though, we don't circle it on the figure above.
+</p>
+
+<p>
+One group of 8-cells is composed of a group of 4-cells in the upper sub map  overlaying a similar group in the lower left map.
+The second group of 8-cells is composed of a similar group of 4-cells in the right sub map overlaying the same group of 4-cells in the lower left map.
+</p>
+
+<p>
+The four groups of 4-cells are shown on the Karnaugh map above with the associated product terms. Along with the product terms for the two groups of 8-cells and the group of 16-cells, the final Sum-Of-Products reduction is shown, all seven terms.  Counting the <b>1</b>s in the map, there is a total of 16+6+6=28 ones. Before the K-map logic reduction there would have been 28 product terms in our SOP output, each with 6-inputs. The Karnaugh map yielded seven product terms of four or less inputs.  This is really what Karnaugh maps are all about!
+</p>
+
+
+<p>
+The wiring diagram is not shown. However, here is the parts list for the 3-bit magnitude comparator for ABC&#62;XYZ using 4 TTL logic family parts:
+<ul>
+<li>1 ea 7410 triple 3-input NAND gate AX', ABY', BX'Y' </li>
+<li>2 ea 7420 dual 4-input NAND gate ABCZ', ACY'Z', BCX'Z', CX'Y'Z'</li>
+<li>1 ea 7430 8-input NAND gate for output of 7-P-terms</li>
+</ul>
+
+</p>
+
+
+<br> </br>
+
+
+<ul>
+
+<li>
+<b>REVIEW:</b>
+</li>
+
+<li>
+Boolean algebra, Karnaugh maps, and CAD (Computer Aided Design) are methods of logic simplification. The goal of logic simplification is a minimal cost solution.
+</li>
+
+<li>
+A minimal cost solution is a valid logic reduction with the minimum number of gates with the minimum number of inputs.
+</li>
+
+<li>
+Venn diagrams allow us to visualize Boolean expressions, easing the transition to Karnaugh maps.
+</li>
+
+<li>
+Karnaugh map cells are organized in Gray code order so that we may visualize redundancy in Boolean expressions which results in simplification.
+</li>
+
+<li>
+The more common Sum-Of-Products (Sum of Minters) expressions are implemented as AND gates (products) feeding  a single OR gate (sum).
+</li>
+
+<li>
+Sum-Of-Products expressions (AND-OR logic) are equivalent to a NAND-NAND  implementation. All AND gates and OR gates are replaced by NAND gates.
+</li>
+
+<li>
+Less often used, Product-Of-Sums expressions are implemented as  OR gates (sums) feeding into a single AND gate (product). Product-Of-Sums expressions are based on the <b>0</b>s, maxterms, in a Karnaugh map.
+</li>
+
+
+</ul>
+
+
+
+
+<br> </br>
+
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2023 Tony R. Kuphaldt, under the terms and conditions of the <a href="DIGI_A3.html">CC BY License</a>.
+</p>
+
+<a href="DIGI_7.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_9.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

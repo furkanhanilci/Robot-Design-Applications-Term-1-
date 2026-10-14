@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>mcuboot | Secure boot for 32-bit Microcontrollers!</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="mcuboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/signed_images.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/signed_images.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="mcuboot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"mcuboot","url":"https://docs.mcuboot.com/signed_images.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">mcuboot</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <!--
+    -
+    - Licensed to the Apache Software Foundation (ASF) under one
+    - or more contributor license agreements.  See the NOTICE file
+    - distributed with this work for additional information
+    - regarding copyright ownership.  The ASF licenses this file
+    - to you under the Apache License, Version 2.0 (the
+    - "License"); you may not use this file except in compliance
+    - with the License.  You may obtain a copy of the License at
+    -
+    -  http://www.apache.org/licenses/LICENSE-2.0
+    -
+    - Unless required by applicable law or agreed to in writing,
+    - software distributed under the License is distributed on an
+    - "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    - KIND, either express or implied.  See the License for the
+    - specific language governing permissions and limitations
+    - under the License.
+    -
+-->
+
+<h2 id="image-signing">Image signing</h2>
+
+<p>This signs the image by computing hash over the image, and then
+signing that hash. Signature is computed by newt tool when it’s
+creating the image. This signature is placed in the image trailer.</p>
+
+<p>The public key of this keypair must be included in the bootloader,
+as it verifies it before allowing the image to run.</p>
+
+<p>This facility allows you to use multiple signing keys. This would
+be useful when you want to prevent production units from booting
+development images, but want development units to be able to boot
+both production images and development images.</p>
+
+<p>On Zephyr, <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> accepts a comma-separated
+list of PEMs. Only the public-key bytes are embedded regardless of which
+form is passed in. The first entry may be a keypair PEM (needed only if
+the same file is also fed to <code class="language-plaintext highlighter-rouge">imgtool sign</code>) or a public-only PEM
+(preferred when signing happens elsewhere); subsequent entries must be
+public-only. The intended use is to separate signing custody (a
+production private key, held only by a release team) from verification
+custody (the production public key, embedded in development bootloaders
+so dev units can boot prod-signed images). See
+<a href="/readme-zephyr.html">readme-zephyr.md</a> for the threat-model table and a
+worked example.</p>
+
+<p>For an alternative solution when the public key(s) doesn’t need to be
+included in the bootloader, see the <a href="/design.html">design</a> document.</p>
+
+<h2 id="creating-signing-keys">Creating signing keys</h2>
+<p>First you need a keypair to use for signing. You can create
+one with openssl command line tool.</p>
+
+<p>openssl genrsa -out image_sign.pem 2048</p>
+
+<p>This created a file which contains both the private and public key,
+and will be used when signing images.</p>
+
+<p>Then you need to extract the public key from this to include it
+in the bootloader. Bootloader need to keep key parsing minimal,
+so it expects simple key format.</p>
+
+<p>openssl rsa -in image_sign.pem -pubout -out image_sign_pub.der -outform DER -RSAPublicKey_out</p>
+
+<p>Now the public key is in file called image_sign_pub.der.</p>
+
+<p>For ECDSA256 these commands are similar.
+openssl ecparam -name prime256v1 -genkey -noout -out image_sign.pem
+openssl ec -in image_sign.pem -pubout -outform DER -out image_sign_pub.der</p>
+
+<p>Note that the bootloader build does not require the private key: the
+exported public-key PEM (produced above, or via
+<code class="language-plaintext highlighter-rouge">imgtool getpub -k image_sign.pem -e pem</code>) is itself a valid input to
+<code class="language-plaintext highlighter-rouge">imgtool getpub</code>, and can be used as the
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> setting for a Zephyr-based bootloader
+build. This supports a development workflow
+in which the production signing team releases only the public key,
+and the private key is never present on developer workstations.
+Running <code class="language-plaintext highlighter-rouge">imgtool sign</code> requires the private key.</p>
+
+<h2 id="creating-a-key-package">Creating a key package</h2>
+
+<p>xxd -i image_sign_pub.der image_sign_pub.c.import</p>
+
+<p>Then you need to create a package containing this key, or keys.</p>
+
+<h2 id="sample-pkgyml">Sample pkg.yml</h2>
+<p>This gets bootutil to turn on image signature validation.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pkg.name: libs/mykeys
+pkg.deps:
+    - "@apache-mynewt-core/boot/bootutil"
+</code></pre></div></div>
+
+<h2 id="sample-source-file">Sample source file</h2>
+<p>This exports the keys.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;bootutil/sign_key.h&gt;
+
+#include "image_sign_pub.c.import"
+
+const struct bootutil_key bootutil_keys[] = {
+    [0] = {
+        .key = image_sign_pub_der,
+        .len = &amp;image_sign_pub_der_len,
+    }
+};
+
+const int bootutil_key_cnt = sizeof(bootutil_keys) / sizeof(bootutil_keys[0]);
+</code></pre></div></div>
+
+<h2 id="building-the-bootloader">Building the bootloader</h2>
+
+<p>Enable the BOOTUTIL_SIGN_RSA syscfg setting in your app or target syscfg.yml
+file</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>syscfg.vals:
+    BOOTUTIL_SIGN_RSA: 1
+</code></pre></div></div>
+
+<p>After you’ve created the key package, you must include it in the build
+for bootloader. So modify the pkg.yml for apps/boot to include it.</p>
+
+<p>The syscfg variable to enable ECDSA256 is BOOTUTIL_SIGN_EC256.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

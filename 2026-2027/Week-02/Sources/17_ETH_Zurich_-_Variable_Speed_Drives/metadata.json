@@ -1,0 +1,25 @@
+{
+  "id": 17,
+  "name": "ETH Zurich - Variable Speed Drives",
+  "type": "Üniversite dersi",
+  "url": "https://vorlesungen.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?abschnittId=120274&ansicht=2&lang=en&seite=0&semkez=2026S",
+  "folder": "17_ETH_Zurich_-_Variable_Speed_Drives",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://vorlesungen.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?abschnittId=120274&ansicht=2&lang=en&seite=0&semkez=2026S",
+      "final_url": "https://vorlesungen.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?abschnittId=120274&ansicht=2&lang=en&seite=0&semkez=2026S",
+      "kind": "html",
+      "bytes": 796555,
+      "sha256": "90e8c59404a44742fe239cb1cbeb0bc4d0145b349e21b34ed02458f0cf6d8e0a"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:47:10+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

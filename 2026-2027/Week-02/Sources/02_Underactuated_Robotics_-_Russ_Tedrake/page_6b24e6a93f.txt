@@ -1,0 +1,348 @@
+Ch. 12 - Sampling-based motion planning
+Underactuated Robotics
+Algorithms for Walking, Running, Swimming, Flying, and Manipulation
+Russ Tedrake
+© Russ Tedrake, 2024
+Last modified
+.
+How to cite these notes, use annotations, and give feedback.
+Note:
+These are working notes used for
+a course being taught
+at MIT
+. They will be updated throughout the Spring 2024 semester.
+Lecture videos are available on YouTube
+.
+Previous Chapter
+Table of contents
+Next Chapter
+Sampling-based motion planning
+The term "motion planning" is a quite general term which almost certainly
+  encompasses the dynamic programming, feedback design, and trajectory optimization
+  algorithms that we have already discussed.  However, there are a number of algorithms
+  and ideas that we have not yet discussed which have grown from the idea of formulating
+  motion planning as a search problem -- for instance searching for a path from a start
+  to a goal in a graph which is too large to fit in memory. In order to deal with the
+  continuous domains that are common in robotics, these algorithms often rely on
+  randomized sampling.
+My goal for this chapter is to introduce these additional tools into our toolkit.
+  For robotics, they will play a particularly valuable role when the planning problem is
+  geometrically complex (e.g. a robot moving around obstacles in 3D) or the optimization
+  landscape is very nonconvex, because these are the problems where the nonlinear
+  trajectory optimization formulations that we've studied before will potentially suffer
+  badly from local minima. Many of these algorithms were developed initially for
+  discrete or purely kinematic planning problems; a major theme of this chapter will be
+  the adaptations that allow them to work for systems with dynamic constraints
+  (including underactuated systems).
+LaValle06
+is a very nice book on planning algorithms in general and on
+  motion planning algorithms in particular.
+Large-scale Incremental Search
+For decades, many AI researchers felt that the route to creating intelligent
+    machines was to collect large ontologies of knowledge, and then perform very
+    efficient search. Some notable examples from this storied history include Samuel's
+    checker players, automated theorem proving,
+Cyc
+, and
+Deep Blue
+playing chess.
+Indeed, thanks to decades of research, planning algorithms in AI have
+    also scaled to impressive heights, making efficient use of heuristics and
+    factorizations to solve impressively large planning instances. Since 1998,
+    the International Conference on Automated Planning and Scheduling (ICAPS)
+    has been hosting
+regular planning
+    competitions
+which have helped to solidify
+problem
+    specification formats
+and to benchmark the state of the art.
+These algorithms have focused on primarily on logical/discrete planning (although
+    they do support "objects", and so can have a sort of open vocabulary).  In the
+    context of these notes, these approaches are most closely related to the
+    discrete-state, discrete-action, discrete-time planning problems that we discussed
+    to introduce
+dynamic programming as graph search
+.
+    Dynamic programming is a very efficient algorithm to solve for the cost-to-go from
+every
+state, but if we only need to find an (optimal) path from a single
+    start state to the goal, we can potentially do better.  In particular, in order to
+    scale to very large planning instances, one of the essential ideas is the idea of
+    "incremental" search, which can avoid ever putting the entire (often exponentially
+    large and sometimes even infinite) graph into memory.
+Is it possible to guarantee that we've found an optimal path from a start to a
+    goal without visiting every node? Yes! Indeed, one of the key insights that powers
+    these incremental algorithms is the use of
+admissible heuristics
+to guide the search -- an approximate cost-to-go which is guaranteed to never
+    over-estimate the cost-to-go. A great example of this would be searching for
+    directions on a road map -- the Euclidean distance from the start to the goal ("as
+    the crow flies") is guaranteed to never over-estimate the true cost to go (which is
+    to stay on the roads). Perhaps most famous search algorithm to leverage these
+    heuristics is
+A*
+. In robotics, we
+    often use online planning extensions, such as
+D* and D*-Lite
+.
+Discrete A*
+The A* algorithm solves a shortest-path problem on a graph defined by vertices
+      $v \in V$, with source vertex, $v_s$ and target vertex, $v_t$, and (weighted)
+      edges defined implicitly by a function
+GetSuccessors(
+$v_i$
+)
+which returns the set of vertices reachable from
+      $v$. We additionally define:
+$g(v)$ is the optimal "cost to come" from $v_s$ to $v$,
+$h(v)$ is the optimal "cost to go" from $v$ to $v_t$,
+$f(v) = g(v) + h(v)$ is the cost of the optimal path from $v_s$ to
+          $v_t$ that is constrained to go through $v$.
+Let's also define a path $p$ as a sequence of vertices (connected by edges in the graph), starting with $v_s$. We can then define the cost-to-come and cost-to-go for $p$:
+$\tilde{g}(p)$ is the cost of traversing the path $p$,
+$\tilde{h}(v)$ is a
+"heuristic"
+approximation the optimal cost to go from $v$ to $v_t,$
+$\tilde{f}(p) = \tilde{g}(p) + \tilde{h}(v)$, where $v$ is the last vertex
+        in the sequence $p$.
+We say that a heuristic is
+admissible
+if it never over-estimates the cost to go: $$\tilde{h}(v) \le h(v), \forall v \in V.$$
+Using these definitions, the A* algorithm can be written as follows:
+\(p = [v_s]\)
+current path
+\(S = \{ v_s : p \}\)
+"visited" dictionary
+\(Q.\text{insert}(p)\)
+priority queue prioritized by lowest $\tilde{f}$
+while not \(Q.\text{empty}()\):
+\(p = Q.\text{pop}()\)
+\(u = p.\text{last}()\)
+if \(u = v_t,\) then return \(p\)
+for all \(v \in\) GetSuccessors\((u)\), where \(v \notin p\):
+\(p' = \text{Path}(p, u)\)
+if \(v \notin S\) or \(\tilde{g}(p')
+<
+\tilde{g}(S[v]),\):
+\(S[v] = p'\)
+\(Q.\text{insert}(p')\)
+return failure
+A* has a remarkable property: if $\tilde{h}(v)$ is an admissible heuristic, then A* will never expand paths
+      for which $\tilde{f}(p) > f(v_s).$ Take a minute to appreciate that! If the
+      heuristic $\tilde{h}(v)$ is the optimal cost to go, then A* will only visit
+      vertices that are on the optimal path!
+Unfortunately, the flip side of this is that A* will expand
+all
+paths in
+      the graph for which $\tilde{f}(p)
+<
+f(v_s).$ Stronger heuristics lead to more
+      performant/scalable search.
+In addition to their empirical performance, there are a handful of features that
+    one might like to understand about incremental planning algorithms like A*. A first
+    is the notion of
+completeness
+; a planning algorithm is complete if it is
+    guaranteed to find a feasible path from the start to the goal if one exists. A
+    second is the notion of
+optimality
+(of the returned solution); an optimal
+    planning algorithm is one that is guaranteed to find the optimal path. The A*
+    algorithm is both complete and optimal.
+In addition to approximate cost-to-go functions, there are numerous other
+    heuristics that power state-of-the-art large-scale logical search algorithms.
+    Another important one is factorization. For a robotics example, consider a robot
+    manipulating many possible objects -- it's reasonable to plan the manipulation of
+    one object assuming it's independent of the other objects and then to revise that
+    plan only when the optimal plan ends up putting two objects on intersecting paths.
+    Many of these heuristics are summarized nicely in the Fast Downward
+    paper
+Helmert06
+; Fast Downward has been at the forefront of the ICAPS
+    planning competitions for many years.
+Some of the most visible success stories in deep learning today still make use of
+    planning. For example: DeepMind's
+AlphaGo
+and
+AlphaZero
+combine the planning
+    algorithms developed over the years in discrete games , notably
+Monte-Carlo Tree Search
+    (MCTS)
+, with learned heuristics in the form of policies and value functions.
+    Finding ways to connect Large-Language Models (LLMs) with planning to support
+    longer-term reasoning is an extremely active area of research.
+Probabilistic RoadMaps (PRMs)
+How can we generalize powerful incremental algorithms like A* to continuous
+    domains for motion planning?
+As typical in this literature, let us start by considering kinematic planning
+    problems; in these problems we only consider the positions (e.g. configurations),
+    $\bq$, and do not consider velocities or accelerations. In the simplest version of
+    the problem, any path between configurations $\bq_1$ and $\bq_2$ that is collision
+    free is considered feasible.
+If we choose a fixed discretization of the configuration space, like the ones
+    that I used when introducing dynamic programming, then we will have sacrificed
+    completeness (and therefore also optimality). For instance, we could have a narrow
+    corridor in configuration space between obstacles -- a path could exist but it could
+    be easily missed by a fixed discretization. So naturally one must consider
+    discretization as an iterative procedure, and start by analyzing the completeness of
+    the planner the limit of infinite iterations. We use the term
+resolution
+    complete
+to describe an algorithm that is complete as the resolution becomes
+    arbitrarily fine. One can invoke minor assumptions, like assuming that feasible
+    paths are not infinitely narrow, to argue that an algorithm which increases the
+    resolution until finding a solution (if it exists) will terminate in a finite number
+    of iterations.
+figure on a fixed discretization failing in a narrow passage
+More popular is a variant which is even simpler to implement, and surprisingly
+    effective in practice. Rather than a fixed discretization, let us sample points from
+    a uniform random distribution over the configuration space, and reject samples that
+    are in collision. We can add edges in the graph to any neighbors for which the
+    straight-line path to the neighbor is collision-free. This allows us to build a
+    "probabilistic roadmap" over the configuration space offline
+Amato96
+.
+    Online, when presented with a new start and a new goal, we simply connect those
+    points to the roadmap and then plan with A* on the graph. This algorithm is complete
+    in the limit of infinite samples; we use the term
+probabilistically
+    complete.
+Probabilistic RoadMap (PRM)
+The PRM algorithm separates the computation into two phases: an offline phase
+      which builds the roadmap, and an online phase which finds a path using that
+      roadmap from a new start to a new goal.
+def BuildRoadmap():
+(offline)
+$V$ = {}, $E$ = {}
+for k = 1 to K:
+do { $\bq$ = UniformRandom() } until $\bq$ is collision-free
+$V$.insert($\bq$)
+for all $\bq$ in $V$:
+for all $\bq_n$ in NearestNeighbors($\bq$, V):
+if {$\bq, \bq_n$} is collision free:
+$E$.insert({$\bq,\bq_n$})
+return $V$, $E$
+def FindPath($V$, $E$, $\bq_s$, $\bq_t$):
+(online "query phase")
+$V$.insert($\bq_s$)
+$E$.insert(shortest collision-free path from $\bq_s$ to $V$)
+$V$.insert($\bq_t$)
+$E$.insert(shortest collision-free path from $V$ to $\bq_t$)
+return DiscreteGraphSearch($V$, $E$, $\bq_s$, $\bq_t$)
+PRM examples!
+PRMs are a simple idea but surprisingly effective in practice, at least up to
+    let's say 10 dimensions. The most expensive steps of the algorithm are the nearest
+    neighbor queries and the collision detection queries that are called not only on the
+    sampled vertices, but also for the edges. Candidate edges are typically checked for
+    collisions by sampling densely along the edge and performing many point collision
+    detection queries, but algorithms with stronger guarantees do exist (c.f.
+Amice23
+). Efficient PRM implementations optimize these queries and
+    parallelize them on the CPU or GPU. At TRI we have optimized implementations which
+    we intend to open-source in Drake, but admittedly
+the issue
+has been
+    open for a long time!
+How well would a PRM swing up a pendulum?
+Getting smooth trajectories
+Even for kinematic motion planning, we might which to impose dynamic
+      constraints which require the path to be continuously differentiable (up to some
+      degree), and perhaps to respect velocity, acceleration, or other limits.
+Post-processing PRM outputs.
+Kinematic
+      trajectory optimization w/ GCS
+(using sampling to generate the regions).
+Rapidly-exploring Random Trees (RRTs)
+Thinking about how to extend the PRM to accommodate dynamic constraints leads up
+    to a slightly different, and also wildly popular, algorithm, known as the RRT.
+Planning with a Random Tree
+Let us denote the data structure which contains the tree as ${\cal
+      T}$.  The algorithm is very simple:
+Initialize the tree with the start state: ${\cal T} \leftarrow \bx_0$.
+On each iteration:
+Select a random node, $\bx_{rand}$, from the tree, ${\cal T}$
+Select a random action, $\bu_{rand}$, from a distribution over feasible actions.
+Compute the dynamics: $\bx_{new} = f(\bx_{rand},\bu_{rand})$
+If $\bx_{new} \in {\cal G}$, then terminate. Solution found!
+Otherwise add the new node to the tree, ${\cal T} \leftarrow \bx_{new}$.
+It can be shown that this algorithm is, in fact, probabilistically
+      complete.  However, without strong heuristics to guide the selection of
+      the nodes scheduled for expansion, it can be extremely inefficient.  For
+      a simple example, consider the system $\bx[n] = \bu[n]$ with $\bx \in
+      \Re^2$ and $\bu_i \in [-1,1]$. We'll start at the origin and put the goal
+      region as $\forall i, 15 \le x_i \le 20$.
+Although this "straw-man" algorithm is probabilistically complete, it
+      is certainly not efficient. After expanding 1000 nodes, the tree is
+      basically a mess of node points all right on top of each other:
+We're nowhere close to the goal yet, and this is a particularly easy
+      problem instance.
+The idea of generating a tree of feasible points has clear advantages,
+    but it seems that we have lost the ability to mark a region of space as
+    having been sufficiently explored. It seems that, to make randomized
+    algorithms effective, we are going to at the very least need some form of
+    heuristic for encouraging the nodes to spread out and explore the space.
+(
+Click here to watch the animation
+)
+(
+Click here to watch the animation
+)
+RRTs for robots with dynamics
+Variations and extensions
+RRT*, RRT-sharp, RRTx, ...
+Kinodynamic-RRT*, LQR-RRT(*)
+Complexity bounds and dispersion limits
+Decomposition methods
+Cell decomposition...
+Approximate decompositions for complex environments (e.g. IRIS)
+Exercises
+RRT Planning
+In this
+we will write code for the Rapidly-Exploring Random 
+         Tree (RRT). Building on this implementation we will also implement RRT*, 
+         a variant of RRT that converges towards an optimal solution.
+Implement RRT
+Implement RRT*
+References
+Steven M. LaValle
+,
+"Planning Algorithms"
+, Cambridge University Press
+,
+2006
+.
+Malte Helmert
+,
+"The fast downward planning system"
+,
+Journal of Artificial Intelligence Research
+, vol. 26, pp. 191--246,
+2006
+.
+N.M. Amato and Y. Wu
+,
+"A randomized roadmap method for path and manipulation planning"
+,
+Proceedings of the IEEE International Conference on Robotics and Automation
+, vol. 1, pp. 113 - 120,
+1996
+.
+Amice and Alexandre and Werner and Peter and Tedrake and Russ
+,
+"Certifying Bimanual RRT Motion Plans in a Second"
+,
+International Conference on Robotics and Automation
+, pp. 9293-9299,
+2024
+.
+[
+link
+]
+Previous Chapter
+Table of contents
+Next Chapter
+Accessibility
+© Russ
+      Tedrake, 2024

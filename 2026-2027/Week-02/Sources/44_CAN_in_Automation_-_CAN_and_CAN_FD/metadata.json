@@ -1,0 +1,178 @@
+{
+  "id": 44,
+  "name": "CAN in Automation - CAN and CAN FD",
+  "type": "Resmi teknik dokümantasyon",
+  "url": "https://www.can-cia.org/services/publications/information-brochures",
+  "folder": "44_CAN_in_Automation_-_CAN_and_CAN_FD",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.can-cia.org/services/publications/information-brochures",
+      "final_url": "https://www.can-cia.org/services/publications/information-brochures",
+      "kind": "html",
+      "bytes": 46495,
+      "sha256": "f7f202cf3215cb333d9a1c56a3726a1356d1946561c231d3ad9cb418e79a912e"
+    },
+    {
+      "file": "25_can_1986_to_2021.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_can_1986_to_2021.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_can_1986_to_2021.pdf",
+      "kind": "pdf",
+      "bytes": 4892982,
+      "sha256": "65d188c158da4fb5c9d81c27d377a2331a8b607b4a87413ff8eca6718a03e495",
+      "pdf_pages": 6
+    },
+    {
+      "file": "can_1986_to_2021.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_1986_to_2021.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_1986_to_2021.pdf",
+      "kind": "pdf",
+      "bytes": 5081138,
+      "sha256": "d64aa504ac2a7238bb6063ae82815002078d2c44a5a431638ae926a1cc393428",
+      "pdf_pages": 6
+    },
+    {
+      "file": "construction_machines.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/construction_machines.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/construction_machines.pdf",
+      "kind": "pdf",
+      "bytes": 9093077,
+      "sha256": "6eff356f53076969034951b57cd2c52bc73b1ad3c4c08e48831d3ef451ab6f29",
+      "pdf_pages": 4
+    },
+    {
+      "file": "can_in_rolling_stock.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_in_rolling_stock.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_in_rolling_stock.pdf",
+      "kind": "pdf",
+      "bytes": 5634775,
+      "sha256": "193b5983fb27acfb0bb24c5189bd531f6f0546ff9f9f6b07757b8cc2b98caf9e",
+      "pdf_pages": 4
+    },
+    {
+      "file": "cia_can_fd_light_2025.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_can_fd_light_2025.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_can_fd_light_2025.pdf",
+      "kind": "pdf",
+      "bytes": 3166250,
+      "sha256": "bdf02c9e482ffe4dd05873c59985b4e9588c151a38ba5615e7764e9dd08060d3",
+      "pdf_pages": 4
+    },
+    {
+      "file": "can_fd_light.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_fd_light.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_fd_light.pdf",
+      "kind": "pdf",
+      "bytes": 3567330,
+      "sha256": "4349e61fc5eeb97fbb8f7d747f4847983e7d0c0c7fd3bbc5d7d7017a74c4dae3",
+      "pdf_pages": 4
+    },
+    {
+      "file": "25_cia_embedded_ai.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_cia_embedded_ai.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_cia_embedded_ai.pdf",
+      "kind": "pdf",
+      "bytes": 4045921,
+      "sha256": "a6536c0105b924744a3a2efdc26899783d18f72f4b0d79229f3de1b6c9a9ce96",
+      "pdf_pages": 4
+    },
+    {
+      "file": "25_cia_documents.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_cia_documents.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_cia_documents.pdf",
+      "kind": "pdf",
+      "bytes": 2609402,
+      "sha256": "bd80f8869c7bc88c716365cb6ad8a6897b1f1c331c4c06c324359765814341f0",
+      "pdf_pages": 6
+    },
+    {
+      "file": "canopen_lift_2025.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/canopen_lift_2025.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/canopen_lift_2025.pdf",
+      "kind": "pdf",
+      "bytes": 4334284,
+      "sha256": "6448b01dd815506cd23d221fa9d6a06771e5557a221d6d9d02d8f4b6111791d6",
+      "pdf_pages": 4
+    },
+    {
+      "file": "cia_image.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_image.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_image.pdf",
+      "kind": "pdf",
+      "bytes": 1761739,
+      "sha256": "2405e899e74288b1b87c99e847e523bb8889e4782781711f248354c256b7d78b",
+      "pdf_pages": 8
+    },
+    {
+      "file": "25_cia-464_welding_and_cutting.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_cia-464_welding_and_cutting.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/25_cia-464_welding_and_cutting.pdf",
+      "kind": "pdf",
+      "bytes": 4608139,
+      "sha256": "199ec18128c7339c6838d4b4c5a7a65031456e9e3696feb01d0ebc0e0c416ca3",
+      "pdf_pages": 4
+    },
+    {
+      "file": "cia_seminars.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_seminars.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_seminars.pdf",
+      "kind": "pdf",
+      "bytes": 6043191,
+      "sha256": "86d873cf3b3ddcdac7b77d14f93bf77a6223fba906a1b777341b1b6e05b39b4e",
+      "pdf_pages": 4
+    },
+    {
+      "file": "cia_can-xl.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_can-xl.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_can-xl.pdf",
+      "kind": "pdf",
+      "bytes": 5850431,
+      "sha256": "7f6753a75486bb285ba8fb319b4b3a2da06d1a7146374afd5bf60b779aef8fe9",
+      "pdf_pages": 4
+    },
+    {
+      "file": "cia_test_center.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_test_center.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_test_center.pdf",
+      "kind": "pdf",
+      "bytes": 5889750,
+      "sha256": "704a13821878f25710af810ea37d41153d45099e188917d0581d80556b24255c",
+      "pdf_pages": 4
+    },
+    {
+      "file": "cia_can_fd.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_can_fd.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/cia_can_fd.pdf",
+      "kind": "pdf",
+      "bytes": 9187124,
+      "sha256": "457c2f4beb687ef81a9fe2972efca6a0422cbcc3fd161d83d0b9e61bdddfe078",
+      "pdf_pages": 4
+    },
+    {
+      "file": "19_canopen_fd.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/19_canopen_fd.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/19_canopen_fd.pdf",
+      "kind": "pdf",
+      "bytes": 5540747,
+      "sha256": "9f47630ac8dda89cd7033cdfa26949952880a8011a72cdc2a7ff8ca5e44e56db",
+      "pdf_pages": 4
+    },
+    {
+      "file": "can_dictionary_v13_2026.pdf",
+      "url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_dictionary_v13_2026.pdf",
+      "final_url": "https://www.can-cia.org/fileadmin/cia/documents/brochures/can_dictionary_v13_2026.pdf",
+      "kind": "pdf",
+      "bytes": 1170329,
+      "sha256": "28be60a46e17557523440e4353edb2445bfe90d3d3012c45c96138c6c832c1b4",
+      "pdf_pages": 108
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:06+0300",
+  "pdf_count": 17,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

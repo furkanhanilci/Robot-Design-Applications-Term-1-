@@ -1,0 +1,186 @@
+Team-Based Design Decision Making – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Team-Based Design Decision Making
+Models of Team-Based Decision-Making
+One of the challenges that product teams face is how to make effective decisions that lead to successful outcomes. There are different models of team decision making that can be applied depending on the situation, the time available, and the level of participation required. As you can see, some of the same models for individual decision making apply to group decision making.
+Rational decision model
+This model focuses on using logical steps to come up with the best solution possible. It involves defining the goal or problem, gathering relevant information, generating a list of options, evaluating the pros and cons of each option, and choosing the optimal one. This model is useful when there is enough time and data to analyze multiple solutions and compare their quality.
+Vroom-Yetton decision model
+This model was designed for collaborative decision making and helps determine how much input should be sought from team members. It involves answering a series of questions about the nature and importance of the decision, the availability and expertise of team members, and the likelihood of acceptance and commitment. Based on the answers, the model suggests one of five decision styles: autocratic, consultative, facilitative, delegative, or collaborative.
+Tuckman’s FSNP/FSNPA model
+This model describes the stages of team development and how they affect decision making. The stages are forming (when team members get to know each other), storming (when team members experience conflicts and disagreements), norming (when team members establish norms and expectations), performing (when team members work effectively and efficiently), and adjourning (when team members complete the task and disband). This model is useful for understanding how team dynamics change over time and how to adapt decision making accordingly.
+*Watch this
+video
+to learn more about Forming, Storming, Norming, and Performing.
+Lencioni model
+This model identifies five dysfunctions that can hinder team decision making and performance: absence of trust, fear of conflict, lack of commitment, avoidance of accountability, and inattention to results. It also provides strategies to overcome each dysfunction and build a cohesive and productive team. This model is useful for diagnosing and resolving issues that may affect team decision making.
+*Watch this
+video
+to learn more about Five Dysfunctions of a Team.
+Can groups even make decisions?
+One mathematical caveat to the above. There is good evidence that there is no such thing as a perfect team-based decision. In fact, it may be that teams cannot actually make decisions, only individuals can. However, in reflection, after a design is developed, many individuals describe the “team” as coming to consensus. In the detailed design stage, we will discuss the tools to support design decision making.
+Specifically, Arrows impossibility theorem is a mathematical result that shows that there is no perfect way to aggregate individual preferences into a collective decision. This has important implications for product design decision making in a design context, where designers often have to balance the needs and wants of different stakeholders, such as users, clients, managers, and themselves. One way to deal with this challenge is to use a structured process that involves defining the problem, generating alternatives, evaluating criteria, and selecting the best option. However, even this process may not guarantee a satisfactory outcome for everyone involved, as different criteria may conflict or contradict each other. Therefore, product designers need to be aware of the limitations and trade-offs of any decision-making method they use and communicate them clearly and transparently to the relevant parties.
+The implication of this mathematical theory is that the best we will identify is tools and best practices for defining and selecting the best option in any decision-making stage.
+Previous/next navigation
+Previous: Identify and Define a Product Design Opportunity
+Next: Individual Design Decision Making
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

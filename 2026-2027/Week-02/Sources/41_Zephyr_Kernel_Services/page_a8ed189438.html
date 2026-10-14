@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scheduling &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/scheduling/index.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="System Threads" href="../threads/system_threads.html" />
+    <link rel="prev" title="Threads" href="../threads/index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../threads/index.html">Threads</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Scheduling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#scheduling-algorithm">Scheduling Algorithm</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#cooperative-time-slicing">Cooperative Time Slicing</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#preemptive-time-slicing">Preemptive Time Slicing</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#per-thread-time-slicing">Per-Thread Time Slicing</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#scheduler-locking">Scheduler Locking</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#thread-sleeping">Thread Sleeping</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#busy-waiting">Busy Waiting</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#forcing-a-scheduling-decision">Forcing a Scheduling Decision</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#querying-preemptibility">Querying Preemptibility</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cpu-idling">CPU Idling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id3">Concepts</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#making-the-cpu-idle">Making the CPU idle</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#making-the-cpu-idle-in-an-atomic-fashion">Making the CPU idle in an atomic fashion</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#id4">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../threads/system_threads.html">System Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../threads/workqueue.html">Workqueue Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../threads/nothread.html">Operation without Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../interrupts.html">Interrupts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../polling.html">Polling API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/semaphores.html">Semaphores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/mutexes.html">Mutexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/condvar.html">Condition Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/events.html">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/spinlocks.html">Spinlocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../smp/smp.html">Symmetric Multiprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Scheduling</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/scheduling/index.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fscheduling%2Findex%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fscheduling%2Findex%0A-+Version%3A+main%0A-+SHA-1%3A+df1208ff5a4435b3d75dc6d6066c991839f35f42&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="scheduling">
+<span id="scheduling-v2"></span><h1>Scheduling<a class="headerlink" href="#scheduling" title="Link to this heading"></a></h1>
+<p>The kernel’s priority-based scheduler allows an application’s threads
+to share the CPU.</p>
+<section id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<p>The scheduler determines which thread is allowed to execute
+at any point in time; this thread is known as the <strong>current thread</strong>.</p>
+<p>There are various points in time when the scheduler is given an
+opportunity to change the identity of the current thread, meaning
+when the scheduler switches the CPU’s execution from one thread
+to another. These points are called <strong>reschedule points</strong>.
+Some potential reschedule points are:</p>
+<ul class="simple">
+<li><p>transition of a thread from running state to a suspended or waiting
+state, for example by <a class="reference internal" href="../../../doxygen/html/group__semaphore__apis.html#gac71e2383c1920dddc45a561cacfef090" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sem_take()</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga093ac91db17ec33696168801d01efe75" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sleep()</span></code></a>.</p></li>
+<li><p>transition of a thread to the <a class="reference internal" href="../threads/index.html#thread-states"><span class="std std-ref">ready state</span></a>, for
+example by <a class="reference internal" href="../../../doxygen/html/group__semaphore__apis.html#gab9be3cf1988af2cd6afdace52d497c84" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sem_give()</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gac539268e0b45c600315a6567ec27f965" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_start()</span></code></a></p></li>
+<li><p>return to thread context after processing an interrupt</p></li>
+<li><p>when a running thread invokes <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga08a3484c33444ecedc2d71d78495a295" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_yield()</span></code></a></p></li>
+</ul>
+<p>A thread <strong>sleeps</strong> when it voluntarily initiates an operation that
+transitions itself to a suspended or waiting state.</p>
+<p>Whenever the scheduler changes the identity of the current thread,
+or when execution of the current thread is replaced by an ISR,
+the kernel first saves the current thread’s CPU register values.
+These register values get restored when the thread later resumes execution.</p>
+<section id="scheduling-algorithm">
+<h3>Scheduling Algorithm<a class="headerlink" href="#scheduling-algorithm" title="Link to this heading"></a></h3>
+<p>The kernel’s scheduler selects the highest priority ready thread
+to be the current thread. When multiple ready threads of the same priority
+exist, the scheduler chooses the one that has been waiting longest.</p>
+<p>A thread’s relative priority is primarily determined by its static priority.
+However, when both earliest-deadline-first scheduling is enabled
+(<a class="reference internal" href="../../../kconfig.html#CONFIG_SCHED_DEADLINE" title="CONFIG_SCHED_DEADLINE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SCHED_DEADLINE</span></code></a>) and a choice of threads have equal
+static priority, then the thread with the earlier deadline is considered
+to have the higher priority. Thus, when earliest-deadline-first scheduling is
+enabled, two threads are only considered to have the same priority when both
+their static priorities and deadlines are equal. The routine
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad887f16c1dd6f3247682a83beb22d1ce" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_deadline_set()</span></code></a> is used to set a thread’s deadline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Execution of ISRs takes precedence over thread execution,
+so the execution of the current thread may be replaced by an ISR
+at any time unless interrupts have been masked. This applies to both
+cooperative threads and preemptive threads.</p>
+</div>
+<p>The kernel can be built with one of several choices for the ready queue
+implementation, offering different choices between code size, constant factor
+runtime overhead and performance scaling when many threads are added.</p>
+<ul>
+<li><p>Simple linked-list ready queue (<a class="reference internal" href="../../../kconfig.html#CONFIG_SCHED_SIMPLE" title="CONFIG_SCHED_SIMPLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SCHED_SIMPLE</span></code></a>)</p>
+<p>The scheduler ready queue will be implemented as a simple unordered list, with
+very fast constant time performance for single threads and very low code size.
+This implementation should be selected on systems with constrained code size
+that will never see more than a small number (3, maybe) of runnable threads in
+the queue at any given time.  On most platforms (that are not otherwise using
+the red/black tree) this results in a savings of ~2k of code size.</p>
+</li>
+<li><p>Red/black tree ready queue (<a class="reference internal" href="../../../kconfig.html#CONFIG_SCHED_SCALABLE" title="CONFIG_SCHED_SCALABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SCHED_SCALABLE</span></code></a>)</p>
+<p>The scheduler ready queue will be implemented as a red/black tree.  This has
+rather slower constant-time insertion and removal overhead, and on most
+platforms (that are not otherwise using the red/black tree somewhere) requires
+an extra ~2kb of code. The resulting behavior will scale cleanly and
+quickly into the many thousands of threads.</p>
+<p>Use this for applications needing many concurrent runnable threads (&gt; 20 or
+so).  Most applications won’t need this ready queue implementation.</p>
+</li>
+<li><p>Traditional multi-queue ready queue (<a class="reference internal" href="../../../kconfig.html#CONFIG_SCHED_MULTIQ" title="CONFIG_SCHED_MULTIQ"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SCHED_MULTIQ</span></code></a>)</p>
+<p>When selected, the scheduler ready queue will be implemented as the
+classic/textbook array of lists, one per priority.</p>
+<p>This corresponds to the scheduler algorithm used in Zephyr versions prior to
+1.12.</p>
+<p>It incurs only a tiny code size overhead vs. the “dumb” scheduler and runs in
+O(1) time in almost all circumstances with very low constant factor.  But it
+requires a fairly large RAM budget to store those list heads, and the limited
+features make it incompatible with features like deadline scheduling that
+need to sort threads more finely, and SMP affinity which need to traverse the
+list of threads.</p>
+<p>Typical applications with small numbers of runnable threads probably want the
+simple scheduler.</p>
+</li>
+</ul>
+<p>The wait_q abstraction used in IPC primitives to pend threads for later wakeup
+shares the same backend data structure choices as the scheduler, and can use
+the same options.</p>
+<ul>
+<li><p>Scalable wait_q implementation (<a class="reference internal" href="../../../kconfig.html#CONFIG_WAITQ_SCALABLE" title="CONFIG_WAITQ_SCALABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_WAITQ_SCALABLE</span></code></a>)</p>
+<p>When selected, the wait_q will be implemented with a balanced tree.  Choose
+this if you expect to have many threads waiting on individual primitives.
+There is a ~2kb code size increase over <a class="reference internal" href="../../../kconfig.html#CONFIG_WAITQ_SIMPLE" title="CONFIG_WAITQ_SIMPLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_WAITQ_SIMPLE</span></code></a> (which may
+be shared with <a class="reference internal" href="../../../kconfig.html#CONFIG_SCHED_SCALABLE" title="CONFIG_SCHED_SCALABLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SCHED_SCALABLE</span></code></a>) if the red/black tree is not
+used elsewhere in the application, and pend/unpend operations on “small”
+queues will be somewhat slower (though this is not generally a performance
+path).</p>
+</li>
+<li><p>Simple linked-list wait_q (<a class="reference internal" href="../../../kconfig.html#CONFIG_WAITQ_SIMPLE" title="CONFIG_WAITQ_SIMPLE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_WAITQ_SIMPLE</span></code></a>)</p>
+<p>When selected, the wait_q will be implemented with a doubly-linked list.
+Choose this if you expect to have only a few threads blocked on any single
+IPC primitive.</p>
+</li>
+</ul>
+</section>
+<section id="cooperative-time-slicing">
+<h3>Cooperative Time Slicing<a class="headerlink" href="#cooperative-time-slicing" title="Link to this heading"></a></h3>
+<p>Once a cooperative thread becomes the current thread, it remains
+the current thread until it performs an action that makes it unready.
+Consequently, if a cooperative thread performs lengthy computations,
+it may cause an unacceptable delay in the scheduling of other threads,
+including those of higher priority and equal priority.</p>
+<blockquote>
+<div><img alt="../../../_images/cooperative.svg" class="align-center" src="../../../_images/cooperative.svg" />
+</div></blockquote>
+<p>To overcome such problems, a cooperative thread can voluntarily relinquish
+the CPU from time to time to permit other threads to execute.
+A thread can relinquish the CPU in two ways:</p>
+<ul class="simple">
+<li><p>Calling <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga08a3484c33444ecedc2d71d78495a295" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_yield()</span></code></a> puts the thread at the back of the scheduler’s
+prioritized list of ready threads, and then invokes the scheduler.
+All ready threads whose priority is higher or equal to that of the
+yielding thread are then allowed to execute before the yielding thread is
+rescheduled. If no such ready threads exist, the scheduler immediately
+reschedules the yielding thread without context switching.</p></li>
+<li><p>Calling <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga093ac91db17ec33696168801d01efe75" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sleep()</span></code></a> makes the thread unready for a specified
+time period. Ready threads of <em>all</em> priorities are then allowed to execute;
+however, there is no guarantee that threads whose priority is lower
+than that of the sleeping thread will actually be scheduled before
+the sleeping thread becomes ready once again.</p></li>
+</ul>
+</section>
+<section id="preemptive-time-slicing">
+<h3>Preemptive Time Slicing<a class="headerlink" href="#preemptive-time-slicing" title="Link to this heading"></a></h3>
+<p>Once a preemptive thread becomes the current thread, it remains
+the current thread until a higher priority thread becomes ready,
+or until the thread performs an action that makes it unready.
+Consequently, if a preemptive thread performs lengthy computations,
+it may cause an unacceptable delay in the scheduling of other threads,
+including those of equal priority.</p>
+<blockquote>
+<div><img alt="../../../_images/preemptive.svg" class="align-center" src="../../../_images/preemptive.svg" />
+</div></blockquote>
+<p>To overcome such problems, a preemptive thread can perform cooperative
+time slicing (as described above), or the scheduler’s time slicing capability
+can be used to allow other threads of the same priority to execute.</p>
+<img alt="../../../_images/timeslicing.svg" class="align-center" src="../../../_images/timeslicing.svg" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For SMP, the behavior would be similar to the above UP image, except that
+Thread 1 would not immediately follow Thread 4. Instead it would be
+Thread 2, Thread 3, Thread 1, ….</p>
+</div>
+<p>The scheduler divides time on each CPU into a series of <strong>time slices</strong>, where
+slices are measured in system clock ticks. The time slice size is configurable,
+but this size can be changed while the application is running. Scheduling a
+new thread causes the time slice timer to be reset.</p>
+<p>At the end of every time slice, the scheduler checks to see if the current
+thread is preemptible and, if so, implicitly invokes <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga08a3484c33444ecedc2d71d78495a295" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_yield()</span></code></a>
+on behalf of the thread. This gives other ready threads of the same priority
+the opportunity to execute before the current thread is scheduled again. If no
+other threads of equal priority are ready, then the current thread remains
+the current thread.</p>
+<p>Threads with a priority higher than specified limit are exempt from preemptive
+time slicing, and are never preempted by a thread of equal priority.
+This allows an application to use preemptive time slicing
+only when dealing with lower priority threads that are less time-sensitive.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The kernel’s time slicing algorithm does <em>not</em> ensure that a set
+of equal-priority threads receive an equitable amount of CPU time,
+since it does not measure the amount of time a thread actually gets to
+execute. However, the algorithm <em>does</em> ensure that a thread never executes
+for longer than a single time slice without being required to yield.</p>
+</div>
+</section>
+<section id="per-thread-time-slicing">
+<h3>Per-Thread Time Slicing<a class="headerlink" href="#per-thread-time-slicing" title="Link to this heading"></a></h3>
+<p>The time slice configured with <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga877c1bfeffbf8f097d1656f9e10a66e8" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sched_time_slice_set()</span></code></a> applies globally
+to every preemptible thread at or below a given priority. When
+<a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICE_PER_THREAD" title="CONFIG_TIMESLICE_PER_THREAD"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICE_PER_THREAD</span></code></a> is enabled, an individual thread
+can instead be given its own time slice with <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga563928f292a4134acd4142029b60e631" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_thread_time_slice_set()</span></code></a>.
+A per-thread slice takes precedence over the global value, and is applied even to
+threads whose priority is above the global time-slicing limit.</p>
+<p>In addition to a slice duration (expressed in ticks), a per-thread slice
+registers a callback that the kernel invokes when the slice expires. This
+callback runs in interrupt context while the affected thread is still the current
+thread, and may, for example, adjust the thread’s priority or slice for its next
+execution, or suspend it.</p>
+</section>
+<section id="scheduler-locking">
+<h3>Scheduler Locking<a class="headerlink" href="#scheduler-locking" title="Link to this heading"></a></h3>
+<p>A preemptible thread that does not wish to be preempted while performing
+a critical operation can instruct the scheduler to temporarily treat it
+as a cooperative thread by calling <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga4f0c5d0b9f279b12a4ad97db0c116a5f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sched_lock()</span></code></a>. This prevents
+other threads from interfering while the critical operation is being performed.</p>
+<p>Once the critical operation is complete the preemptible thread must call
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga7b26f64523cc4c36522cc828ccf85580" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sched_unlock()</span></code></a> to restore its normal, preemptible status.</p>
+<p>If a thread calls <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga4f0c5d0b9f279b12a4ad97db0c116a5f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sched_lock()</span></code></a> and subsequently performs an
+action that makes it unready, the scheduler will switch the locking thread out
+and allow other threads to execute. When the locking thread again
+becomes the current thread, its non-preemptible status is maintained.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Locking out the scheduler is a more efficient way for a preemptible thread
+to prevent preemption than changing its priority level to a negative value.</p>
+</div>
+</section>
+<section id="thread-sleeping">
+<span id="id1"></span><h3>Thread Sleeping<a class="headerlink" href="#thread-sleeping" title="Link to this heading"></a></h3>
+<p>A thread can call <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga093ac91db17ec33696168801d01efe75" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_sleep()</span></code></a> to delay its processing
+for a specified time period. During the time the thread is sleeping
+the CPU is relinquished to allow other ready threads to execute.
+Once the specified delay has elapsed the thread becomes ready
+and is eligible to be scheduled once again.</p>
+<p>A sleeping thread can be woken up prematurely by another thread using
+<a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga9275a019c8ff3c7fe49a81f8c078157e" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_wakeup()</span></code></a>. This technique can sometimes be used
+to permit the secondary thread to signal the sleeping thread
+that something has occurred <em>without</em> requiring the threads
+to define a kernel synchronization object, such as a semaphore.
+Waking up a thread that is not sleeping is allowed, but has no effect.</p>
+</section>
+<section id="busy-waiting">
+<span id="id2"></span><h3>Busy Waiting<a class="headerlink" href="#busy-waiting" title="Link to this heading"></a></h3>
+<p>A thread can call <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga550b642e071480323e589866abb99c22" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_busy_wait()</span></code></a> to perform a <code class="docutils literal notranslate"><span class="pre">busy</span> <span class="pre">wait</span></code>
+that delays its processing for a specified time period
+<em>without</em> relinquishing the CPU to another ready thread.</p>
+<p>A busy wait is typically used instead of thread sleeping
+when the required delay is too short to warrant having the scheduler
+context switch from the current thread to another thread and then back again.</p>
+</section>
+<section id="forcing-a-scheduling-decision">
+<h3>Forcing a Scheduling Decision<a class="headerlink" href="#forcing-a-scheduling-decision" title="Link to this heading"></a></h3>
+<p>A thread can force the scheduler to make an immediate scheduling decision on the
+current CPU by calling <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#gad82575e576cd08906fbc68fe36be48bd" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_reschedule()</span></code></a>. When invoked from a thread (with
+interrupts unlocked) the scheduler runs immediately; when invoked from an ISR the
+decision is deferred until the ISR exits.</p>
+<p>Unlike <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga08a3484c33444ecedc2d71d78495a295" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_yield()</span></code></a>, this routine does not guarantee a switch to a thread of
+equal or higher priority – it simply asks the kernel to re-evaluate which thread
+should run next given the current state. Most applications never need this
+routine.</p>
+</section>
+<section id="querying-preemptibility">
+<h3>Querying Preemptibility<a class="headerlink" href="#querying-preemptibility" title="Link to this heading"></a></h3>
+<p>Code whose behavior depends on whether it can be preempted can query the current
+context with <a class="reference internal" href="../../../doxygen/html/group__isr__apis.html#ga91e1cf0dc7fc93a3214cadb74ed86666" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_is_preempt_thread()</span></code></a>. This returns a non-zero value only
+when the caller is a thread (not an ISR), the thread’s priority is in the
+preemptible range, and the thread has not locked the scheduler.</p>
+<p>The related <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga366b9daa0be65b0a69dbc9f146064b68" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_can_yield()</span></code></a> routine reports whether the current context is
+able to yield or invoke blocking APIs at all. It returns false in contexts such
+as ISRs, the pre-kernel initialization phase, or the idle thread, where yielding
+is not possible.</p>
+</section>
+</section>
+<section id="suggested-uses">
+<h2>Suggested Uses<a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use cooperative threads for device drivers and other performance-critical work.</p>
+<p>Use cooperative threads to implement mutual exclusion without the need
+for a kernel object, such as a mutex.</p>
+<p>Use preemptive threads to give priority to time-sensitive processing
+over less time-sensitive processing.</p>
+</section>
+<section id="configuration-options">
+<h2>Configuration Options<a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICING" title="CONFIG_TIMESLICING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICING</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICE_SIZE" title="CONFIG_TIMESLICE_SIZE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICE_SIZE</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_TIMESLICE_PRIORITY" title="CONFIG_TIMESLICE_PRIORITY"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TIMESLICE_PRIORITY</span></code></a></p></li>
+</ul>
+</section>
+</section>
+<section id="cpu-idling">
+<span id="cpu-idle"></span><h1>CPU Idling<a class="headerlink" href="#cpu-idling" title="Link to this heading"></a></h1>
+<p>Although normally reserved for the idle thread, in certain special
+applications, a thread might want to make the CPU idle.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3" id="id5">Concepts</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id6">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#making-the-cpu-idle" id="id7">Making the CPU idle</a></p></li>
+<li><p><a class="reference internal" href="#making-the-cpu-idle-in-an-atomic-fashion" id="id8">Making the CPU idle in an atomic fashion</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id9">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id10">API Reference</a></p></li>
+</ul>
+</nav>
+<section id="id3">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Concepts</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>Making the CPU idle causes the kernel to pause all operations until an event,
+normally an interrupt, wakes up the CPU. In a regular system, the idle thread
+is responsible for this. However, in some constrained systems, it is possible
+that another thread takes this duty.</p>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="making-the-cpu-idle">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Making the CPU idle</a><a class="headerlink" href="#making-the-cpu-idle" title="Link to this heading"></a></h3>
+<p>Making the CPU idle is simple: call the <a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#ga7b25e1bed511a813b32fbd0f91b09356" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_idle()</span></code></a> API. The CPU will stop
+executing instructions until an event occurs. Most likely, the function will
+be called within a loop. Note that in certain architectures, upon return,
+<a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#ga7b25e1bed511a813b32fbd0f91b09356" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_idle()</span></code></a> unconditionally unmasks interrupts.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">k_sem</span><span class="w"> </span><span class="n">my_sem</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">unused</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">k_sem_give</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sem</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">k_sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* wait for semaphore from ISR, then do related work */</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="cm">/* wait for ISR to trigger work to perform */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_sem_take</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sem</span><span class="p">,</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="cm">/* ... do processing */</span>
+
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* put CPU to sleep to save power */</span>
+<span class="w">        </span><span class="n">k_cpu_idle</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="making-the-cpu-idle-in-an-atomic-fashion">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Making the CPU idle in an atomic fashion</a><a class="headerlink" href="#making-the-cpu-idle-in-an-atomic-fashion" title="Link to this heading"></a></h3>
+<p>It is possible that there is a need to do some work atomically before making
+the CPU idle. In such a case, <a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#gadf88ece6447b65b7d0d2f3a70ab4fe8f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_atomic_idle()</span></code></a> should be used instead.</p>
+<p>In fact, there is a race condition in the previous example: the interrupt could
+occur between the time the semaphore is taken, finding out it is not available
+and making the CPU idle again. In some systems, this can cause the CPU to idle
+until <em>another</em> interrupt occurs, which might be <em>never</em>, thus hanging the
+system completely. To prevent this, <a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#gadf88ece6447b65b7d0d2f3a70ab4fe8f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_atomic_idle()</span></code></a> should have been used,
+like in this example.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">k_sem</span><span class="w"> </span><span class="n">my_sem</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_isr</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">unused</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">k_sem_give</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sem</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">k_sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irq_lock</span><span class="p">();</span>
+
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Wait for semaphore from ISR; if acquired, do related work, then</span>
+<span class="cm">         * go to next loop iteration (the semaphore might have been given</span>
+<span class="cm">         * again); else, make the CPU idle.</span>
+<span class="cm">         */</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_sem_take</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_sem</span><span class="p">,</span><span class="w"> </span><span class="n">K_NO_WAIT</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="n">irq_unlock</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+
+<span class="w">            </span><span class="cm">/* ... do processing */</span>
+
+
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/* put CPU to sleep to save power */</span>
+<span class="w">            </span><span class="n">k_cpu_atomic_idle</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>Use <a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#gadf88ece6447b65b7d0d2f3a70ab4fe8f" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_atomic_idle()</span></code></a> when a thread has to do some real work in addition to
+idling the CPU to wait for an event. See example above.</p>
+<p>Use <a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#ga7b25e1bed511a813b32fbd0f91b09356" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_idle()</span></code></a> only when a thread is only responsible for idling the CPU,
+i.e. not doing any real work, like in this example below.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* ... do some system/application initialization */</span>
+
+
+<span class="w">    </span><span class="cm">/* thread is only used for CPU idling from this point on */</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">k_cpu_idle</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Do not use these APIs unless absolutely necessary.</strong> In a normal system,
+the idle thread takes care of power management, including CPU idling.</p>
+</div>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html" title=""><span class="pre">CPU</span> <span class="pre">Idling</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Aug 25, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

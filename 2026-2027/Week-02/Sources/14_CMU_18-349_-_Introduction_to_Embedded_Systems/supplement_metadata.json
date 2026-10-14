@@ -1,0 +1,38 @@
+{
+  "id": 14,
+  "files": [
+    {
+      "file": "18349_S20_Syllabus.pdf",
+      "url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Syllabus.pdf",
+      "final_url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Syllabus.pdf",
+      "kind": "pdf",
+      "bytes": 166662,
+      "sha256": "81fb85fa5640480bf5a00033ae9c9ba2cb9c8df83644b4479ad28ddff3e884ea"
+    },
+    {
+      "file": "supplement_a7968d9c67.html",
+      "url": "https://course.ece.cmu.edu/~ece349/",
+      "final_url": "https://course.ece.cmu.edu/~ece349/",
+      "kind": "html",
+      "bytes": 6512,
+      "sha256": "ab4f86cee5329728c39dce62f531ac832b75255ba637579595bb210c80f51d31"
+    },
+    {
+      "file": "18349_S20_Tentative_Schedule.pdf",
+      "url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Tentative_Schedule.pdf",
+      "final_url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Tentative_Schedule.pdf",
+      "kind": "pdf",
+      "bytes": 108155,
+      "sha256": "7da4af4ee1f67996fb7a6576d121bd1e97c6ab727e00f95a17b0def726e45bb4"
+    },
+    {
+      "file": "18349_S20_Lab_descriptions.pdf",
+      "url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Lab_descriptions.pdf",
+      "final_url": "https://course.ece.cmu.edu/~ece349/docs/18349_S20_Lab_descriptions.pdf",
+      "kind": "pdf",
+      "bytes": 100360,
+      "sha256": "b2b3275231707cf7dde6052d00a4544222fe8f2fe7705746c9aaaabc0e62480e"
+    }
+  ],
+  "errors": []
+}

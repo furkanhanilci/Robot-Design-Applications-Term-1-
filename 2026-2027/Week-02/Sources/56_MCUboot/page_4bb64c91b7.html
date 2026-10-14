@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MCUboot release notes | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="MCUboot release notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/release-notes.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/release-notes.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MCUboot release notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"MCUboot release notes","url":"https://docs.mcuboot.com/release-notes.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">MCUboot release notes</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="mcuboot-release-notes">MCUboot release notes</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#mcuboot-release-notes" id="markdown-toc-mcuboot-release-notes">MCUboot release notes</a>    <ul>
+      <li><a href="#version-250" id="markdown-toc-version-250">Version 2.5.0</a>        <ul>
+          <li><a href="#upgrade-notes" id="markdown-toc-upgrade-notes">Upgrade notes</a></li>
+          <li><a href="#new-features" id="markdown-toc-new-features">New features</a></li>
+          <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug fixes</a></li>
+          <li><a href="#board-and-soc-support" id="markdown-toc-board-and-soc-support">Board and SoC support</a></li>
+          <li><a href="#imgtool" id="markdown-toc-imgtool">imgtool</a></li>
+          <li><a href="#pending-questions" id="markdown-toc-pending-questions">Pending questions</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-240" id="markdown-toc-version-240">Version 2.4.0</a></li>
+      <li><a href="#version-230" id="markdown-toc-version-230">Version 2.3.0</a></li>
+      <li><a href="#version-220" id="markdown-toc-version-220">Version 2.2.0</a></li>
+      <li><a href="#version-210" id="markdown-toc-version-210">Version 2.1.0</a></li>
+      <li><a href="#version-200" id="markdown-toc-version-200">Version 2.0.0</a>        <ul>
+          <li><a href="#about-this-release" id="markdown-toc-about-this-release">About this release</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-1100" id="markdown-toc-version-1100">Version 1.10.0</a>        <ul>
+          <li><a href="#about-this-release-1" id="markdown-toc-about-this-release-1">About this release</a></li>
+          <li><a href="#security-fixes" id="markdown-toc-security-fixes">Security fixes</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-190" id="markdown-toc-version-190">Version 1.9.0</a>        <ul>
+          <li><a href="#about-this-release-2" id="markdown-toc-about-this-release-2">About this release</a></li>
+          <li><a href="#security-fixes-1" id="markdown-toc-security-fixes-1">Security fixes</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-180" id="markdown-toc-version-180">Version 1.8.0</a>        <ul>
+          <li><a href="#about-this-release-3" id="markdown-toc-about-this-release-3">About this release</a></li>
+          <li><a href="#security-fixes-2" id="markdown-toc-security-fixes-2">Security fixes</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-170" id="markdown-toc-version-170">Version 1.7.0</a>        <ul>
+          <li><a href="#about-this-release-4" id="markdown-toc-about-this-release-4">About this release</a></li>
+          <li><a href="#zephyr-rtos-compatibility" id="markdown-toc-zephyr-rtos-compatibility">Zephyr-RTOS compatibility</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-160" id="markdown-toc-version-160">Version 1.6.0</a>        <ul>
+          <li><a href="#about-this-release-5" id="markdown-toc-about-this-release-5">About this release</a></li>
+          <li><a href="#security-issues-addressed" id="markdown-toc-security-issues-addressed">Security issues addressed</a></li>
+          <li><a href="#zephyr-rtos-compatibility-1" id="markdown-toc-zephyr-rtos-compatibility-1">Zephyr-RTOS compatibility</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-150" id="markdown-toc-version-150">Version 1.5.0</a>        <ul>
+          <li><a href="#about-this-release-6" id="markdown-toc-about-this-release-6">About this release</a></li>
+          <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-140" id="markdown-toc-version-140">Version 1.4.0</a>        <ul>
+          <li><a href="#about-this-release-7" id="markdown-toc-about-this-release-7">About this release</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-131" id="markdown-toc-version-131">Version 1.3.1</a>        <ul>
+          <li><a href="#about-this-release-8" id="markdown-toc-about-this-release-8">About this release</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-130" id="markdown-toc-version-130">Version 1.3.0</a>        <ul>
+          <li><a href="#about-this-release-9" id="markdown-toc-about-this-release-9">About this release</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-120" id="markdown-toc-version-120">Version 1.2.0</a>        <ul>
+          <li><a href="#about-this-release-10" id="markdown-toc-about-this-release-10">About this release</a></li>
+          <li><a href="#known-issues-1" id="markdown-toc-known-issues-1">Known issues</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-110" id="markdown-toc-version-110">Version 1.1.0</a>        <ul>
+          <li><a href="#about-this-release-11" id="markdown-toc-about-this-release-11">About this release</a></li>
+          <li><a href="#known-issues-2" id="markdown-toc-known-issues-2">Known issues</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-100" id="markdown-toc-version-100">Version 1.0.0</a>        <ul>
+          <li><a href="#about-this-release-12" id="markdown-toc-about-this-release-12">About this release</a></li>
+          <li><a href="#known-issues-3" id="markdown-toc-known-issues-3">Known issues</a></li>
+        </ul>
+      </li>
+      <li><a href="#version-090" id="markdown-toc-version-090">Version 0.9.0</a>        <ul>
+          <li><a href="#about-this-release-13" id="markdown-toc-about-this-release-13">About this release</a></li>
+          <li><a href="#known-issues-4" id="markdown-toc-known-issues-4">Known issues</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="version-250">Version 2.5.0</h2>
+
+<p>This release adds support for Mbed TLS 4.x and TF-PSA-Crypto,
+experimental logical sectors for the swap modes, a raw binary
+transport and an inactivity timeout for serial recovery, and
+multiple verification keys in Zephyr builds. Zephyr users of USB DFU,
+CDC ACM serial recovery or RAM load need to update their
+configuration; see the upgrade notes. It also hardens image
+validation and the handling of image encryption keys.</p>
+
+<h3 id="upgrade-notes">Upgrade notes</h3>
+
+<ul>
+  <li>The Mbed TLS submodule has moved from <code class="language-plaintext highlighter-rouge">ext/mbedtls</code> to
+<code class="language-plaintext highlighter-rouge">ext/mbedtls-3.6.0</code> (still Mbed TLS 3.6.0). If you build a port
+that uses the in-tree copy, such as the standalone Espressif port,
+run <code class="language-plaintext highlighter-rouge">git submodule update --init --recursive</code> after updating. The
+old <code class="language-plaintext highlighter-rouge">ext/mbedtls</code> directory is no longer used and can be removed.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr, CDC ACM serial recovery
+(<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM</code>) now uses Zephyr’s USB device-next
+stack, and USB is only started when recovery is entered. The
+legacy <code class="language-plaintext highlighter-rouge">CONFIG_USB_DEVICE_*</code> settings no longer apply. Set the USB
+descriptors with the new <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_VID</code>,
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_PID</code>,
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_MANUFACTURER_STRING</code> and
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_CDC_ACM_PRODUCT_STRING</code> options. Their defaults
+(product ID 0x0004, product string “CDC ACM serial recovery”) differ
+from before, so update any host tooling that matches on them. The
+new stack also makes the bootloader larger; check that it still
+fits its partition.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr, UART serial recovery
+(<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_UART</code>) and the UART log backend
+(<code class="language-plaintext highlighter-rouge">CONFIG_LOG_BACKEND_UART</code>) can no longer share a UART, and such a
+build now fails with an error. Point the <code class="language-plaintext highlighter-rouge">zephyr,uart-mcumgr</code>
+chosen node at a separate UART, or disable the UART log backend.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr, <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_MAX_RECEIVE_SIZE</code>
+must now be at least <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MAX_LINE_INPUT_LEN</code>. Smaller
+values are rejected when the configuration is processed.</li>
+  <li><strong>Zephyr:</strong> This release follows changes made on Zephyr’s main
+branch after Zephyr 4.4.0, including the reworked boot banner, the
+removal of <code class="language-plaintext highlighter-rouge">CONFIG_PSA_CRYPTO_CLIENT</code> and the rename of
+<code class="language-plaintext highlighter-rouge">CONFIG_STM32_MEMMAP</code>. Use it with a Zephyr version newer than
+4.4.0. See also the pending questions at the end of this section.</li>
+  <li><strong>Zephyr:</strong> USB DFU now uses Zephyr’s USB device-next stack and is
+configured the same way as serial recovery. <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU</code>
+enables USB DFU, and the entrance methods <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_WAIT</code>
+and <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_GPIO</code> are now independent options that can
+be enabled together. <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_NO</code> has been removed. If
+you use USB DFU, set <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU=y</code> together with at least
+one entrance method. The legacy <code class="language-plaintext highlighter-rouge">CONFIG_USB_DFU_*</code> and
+<code class="language-plaintext highlighter-rouge">CONFIG_USB_DEVICE_*</code> settings no longer apply: use
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_PERMANENT_DOWNLOAD</code> and the new
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_VID</code>, <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_PID</code>,
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_MANUFACTURER_STRING</code> and
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_USB_DFU_PRODUCT_STRING</code> options, whose defaults match
+the old ones. Downloaded images go to the secondary slot.</li>
+  <li><strong>Zephyr:</strong> RAM load (<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_RAM_LOAD</code> and
+<code class="language-plaintext highlighter-rouge">CONFIG_SINGLE_APPLICATION_SLOT_RAM_LOAD</code>) now takes the RAM region
+to load images into from a <code class="language-plaintext highlighter-rouge">mcuboot,image-ram</code> chosen devicetree
+node. Setting <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_IMAGE_EXECUTABLE_RAM_START</code> and
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_IMAGE_EXECUTABLE_RAM_SIZE</code> by hand is deprecated and
+only possible when that node is missing. Add the chosen node to
+your board overlay.</li>
+  <li><strong>Zephyr:</strong> <code class="language-plaintext highlighter-rouge">CONFIG_MULTIPLE_EXECUTABLE_RAM_REGIONS_DEFAULT_FILE</code>
+and the built-in default <code class="language-plaintext highlighter-rouge">boot_get_image_exec_ram_info()</code> have been
+removed. Builds with <code class="language-plaintext highlighter-rouge">CONFIG_MULTIPLE_EXECUTABLE_RAM_REGIONS</code> must
+now provide their own <code class="language-plaintext highlighter-rouge">boot_get_image_exec_ram_info()</code>.</li>
+  <li><strong>Zephyr:</strong> MCUboot no longer replaces Zephyr’s boot banner, which
+changed after Zephyr 4.4. The <code class="language-plaintext highlighter-rouge">*** Booting MCUboot ... ***</code> line is
+now printed after Zephyr’s own banner instead of before it, so
+update anything that parses boot output. The line is controlled by
+<code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_BOOT_BANNER</code>, which is enabled by default when
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_BANNER</code> is, but no longer requires it.</li>
+  <li><strong>Zephyr:</strong> The STM32 external flash configurations now use
+<code class="language-plaintext highlighter-rouge">CONFIG_FLASH_STM32_NOR_MEMMAP</code>, following its rename in Zephyr from
+<code class="language-plaintext highlighter-rouge">CONFIG_STM32_MEMMAP</code>. Rename the option in your own configuration
+files.</li>
+  <li><strong>Zephyr:</strong> <code class="language-plaintext highlighter-rouge">SOC_FLASH_0_ID</code> and <code class="language-plaintext highlighter-rouge">SPI_FLASH_0_ID</code> have been removed
+from the Zephyr port’s <code class="language-plaintext highlighter-rouge">sysflash.h</code>. The flash device of each slot
+is now taken from its devicetree partition. Out-of-tree code that
+used these macros must use the devicetree partition macros instead.</li>
+  <li><strong>Zephyr:</strong> <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_CLEANUP_RAM</code> now clears the RAM region
+of the <code class="language-plaintext highlighter-rouge">zephyr,sram</code> chosen devicetree node instead of the region
+set by <code class="language-plaintext highlighter-rouge">CONFIG_SRAM_BASE_ADDRESS</code> and <code class="language-plaintext highlighter-rouge">CONFIG_SRAM_SIZE</code>. If your
+board sets those options to a different region, check which RAM is
+cleared before the application starts.</li>
+  <li><strong>Espressif:</strong> The Espressif port now uses the ESP-IDF v6.0.0 HAL.
+Building the standalone port requires ESP-IDF v6.0 sources.</li>
+  <li><strong>Espressif:</strong> The bootloader’s RAM layout has changed on all SoCs.
+A new <code class="language-plaintext highlighter-rouge">dram_loader_seg</code> region holds data used while the
+application is loaded, and the other bootloader regions have moved.
+The application image must not load anything into the bootloader’s
+<code class="language-plaintext highlighter-rouge">iram_loader_seg</code>, <code class="language-plaintext highlighter-rouge">dram_loader_seg</code> or <code class="language-plaintext highlighter-rouge">dram_seg</code> regions. Check
+your OS linker script against the updated memory maps in
+<code class="language-plaintext highlighter-rouge">docs/readme-espressif.md</code>.</li>
+  <li><strong>Espressif:</strong> The default ESP32-C6 <code class="language-plaintext highlighter-rouge">bootloader.conf</code> no longer
+enables virtual eFuses. Builds that use it now program the real
+eFuses. To keep emulating them in flash, set <code class="language-plaintext highlighter-rouge">CONFIG_EFUSE_VIRTUAL</code>
+and the related options in your configuration.</li>
+  <li><strong>Espressif:</strong> The default console baud rate on ESP32-C2 is now
+74880.</li>
+  <li><strong>NuttX:</strong> MCUboot no longer initialises the board through
+<code class="language-plaintext highlighter-rouge">boardctl(BOARDIOC_INIT)</code>. Board initialisation must now be done by
+the NuttX kernel (for example with NuttX’s
+<code class="language-plaintext highlighter-rouge">CONFIG_BOARD_LATE_INITIALIZE</code>).</li>
+</ul>
+
+<h3 id="new-features">New features</h3>
+
+<ul>
+  <li>Added experimental support for logical sectors. A non-zero
+<code class="language-plaintext highlighter-rouge">MCUBOOT_LOGICAL_SECTOR_SIZE</code> makes the swap algorithms work in
+units of that size rather than the device’s hardware sectors. The
+size must be a power of two and a multiple of the hardware erase
+size, and each slot must be a multiple of it. With
+<code class="language-plaintext highlighter-rouge">MCUBOOT_VERIFY_LOGICAL_SECTORS</code>, MCUboot checks the logical layout
+against the flash at boot and, if they do not match, boots the
+primary slot without upgrading. On Zephyr, set
+<code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_LOGICAL_SECTOR_SIZE</code> and
+<code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_VERIFY_LOGICAL_SECTORS</code>.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">MCUBOOT_USE_CUSTOM_CRYPTO</code>, which lets a port supply its own
+hash, signature and encryption primitives (another library, a
+hardware accelerator or a vendor SDK) without modifying MCUboot.
+See <code class="language-plaintext highlighter-rouge">docs/custom_crypto.md</code>.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">MCUBOOT_BOOT_TMPBUF_SZ</code>, which lets a port set the size of
+the buffer used to read an image while hashing it (default 256
+bytes). A larger buffer means fewer flash reads, which helps on
+flash that is not memory mapped. A smaller one saves RAM.</li>
+  <li>The Mbed TLS crypto backend (<code class="language-plaintext highlighter-rouge">MCUBOOT_USE_MBED_TLS</code>) and PSA image
+encryption now also build against Mbed TLS 4.x and TF-PSA-Crypto
+1.x. The Mbed TLS header layout is detected automatically.
+<code class="language-plaintext highlighter-rouge">MCUBOOT_MBEDTLS_CRYPTO_IN_PRIVATE_SUBDIR</code> can override the
+detection. With PSA crypto and <code class="language-plaintext highlighter-rouge">MCUBOOT_FIH_PROFILE_HIGH</code>, the
+fault injection random delay now uses <code class="language-plaintext highlighter-rouge">psa_generate_random()</code>.</li>
+  <li>AES key wrap image encryption (<code class="language-plaintext highlighter-rouge">MCUBOOT_ENCRYPT_KW</code>) can now use the
+PSA Crypto backend (<code class="language-plaintext highlighter-rouge">MCUBOOT_USE_PSA_CRYPTO</code>). It needs a PSA
+implementation that provides <code class="language-plaintext highlighter-rouge">psa_unwrap_key()</code>, and has been
+tested with TF-M.</li>
+  <li><strong>Serial recovery:</strong> Added a raw binary SMP transport,
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_RAW_PROTOCOL</code>, which drops the base64, length,
+CRC and console framing of SMP over console. It uses less flash and
+RAM and transfers faster, but needs a binary-capable serial link.
+It matches Zephyr’s <code class="language-plaintext highlighter-rouge">CONFIG_UART_MCUMGR_RAW_PROTOCOL</code>. By default,
+a partly received packet is discarded after
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT_MS</code> without new data
+(<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT</code>).</li>
+  <li><strong>Serial recovery:</strong> Added the optional MCUmgr parameters command
+(<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MGMT_MCUMGR_PARAMS</code>), which reports the SMP buffer
+size and count so that clients can choose the best fragment size.
+It requires <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MAX_LINE_INPUT_LEN</code> to stay at its default
+of 128.</li>
+  <li><strong>Serial recovery:</strong> Added <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_INACTIVITY_TIMEOUT</code>.
+When serial recovery was entered through
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_BOOT_MODE</code> or <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_WAIT_FOR_DFU</code>,
+it resets the device once no MCUmgr command has arrived for the set
+time. An abandoned upload then no longer leaves the device in
+recovery. The default of 0 keeps the previous behaviour.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr, the UART receive interrupt now
+reads data in batches rather than one byte at a time, cutting
+per-byte overhead during uploads. The batch size is set with
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_UART_RX_BATCH_SIZE</code> (default 512).</li>
+  <li><strong>Zephyr:</strong> <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> now accepts a
+comma-separated list of PEM files, each embedded as a verification
+key. A development bootloader can then accept both production- and
+development-signed images, for example. Every key after the first
+must be public-key only, and all keys must be of the same type.</li>
+  <li><strong>Zephyr:</strong> Added <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_IMAGE_JUMP_HOOKS</code>, which calls a
+user-supplied <code class="language-plaintext highlighter-rouge">boot_image_jump_hook()</code> after an image has been
+selected and just before jumping to it. The hook can inspect or
+change the boot response, for example to set flash access rights
+or remap memory.</li>
+</ul>
+
+<h3 id="bug-fixes">Bug fixes</h3>
+
+<ul>
+  <li>Hardened image validation against malformed image headers and
+TLVs. TLV lengths are now checked against the bounds of the TLV
+area. An image whose header describes more data than its slot
+holds is rejected before it is hashed.</li>
+  <li>Hardened the handling of image encryption keys. With serial
+recovery, the AES key and any decrypted image data are now wiped
+from memory after an encrypted upload is validated or decrypted in
+place. The TinyCrypt backend now wipes the AES key schedule when a
+decryption context is released, as the other backends already
+did.</li>
+  <li>Fixed a hang at boot with <code class="language-plaintext highlighter-rouge">MCUBOOT_DATA_SHARING_BOOTINFO</code> and
+hardware rollback protection when the security counter of an image
+could not be read. The shared boot information now records the
+security counter of every image, not only the first one found.</li>
+  <li>Fixed the secondary slot address check done by
+<code class="language-plaintext highlighter-rouge">MCUBOOT_VERIFY_IMG_ADDRESS</code> (without
+<code class="language-plaintext highlighter-rouge">MCUBOOT_CHECK_HEADER_LOAD_ADDRESS</code>) on Cortex-M. It read the wrong
+vector table entry, so a valid update could be rejected and erased,
+or an image linked for the wrong address accepted.</li>
+  <li>Fixed bootstrap (<code class="language-plaintext highlighter-rouge">MCUBOOT_BOOTSTRAP</code>) in swap-move and swap-offset
+modes. It could read beyond the flash area and erase the wrong
+sectors, and it copied the whole slot instead of only the image.</li>
+  <li>The watchdog is now fed while an image is hashed. Before, a large
+image on slow or external flash could trigger a watchdog reset
+during validation.</li>
+  <li>Fixed the build with <code class="language-plaintext highlighter-rouge">MCUBOOT_HW_ROLLBACK_PROT_LOCK</code>.</li>
+  <li>Fixed a stack overflow when checking split images (<code class="language-plaintext highlighter-rouge">split_go()</code>)
+in builds with <code class="language-plaintext highlighter-rouge">MCUBOOT_SIGN_EC384</code> or <code class="language-plaintext highlighter-rouge">MCUBOOT_SHA512</code>.</li>
+  <li>Fixed decryption of RSA-OAEP encrypted images with the Mbed TLS
+backend built against TF-PSA-Crypto (Mbed TLS 4.x). The private key
+was misparsed, so the image could not be decrypted.</li>
+  <li>Fixed image encryption with the PSA Crypto backend in builds that
+use MCUboot’s generic CMake file, such as TF-M. The PSA encryption
+code was not built, and defining both <code class="language-plaintext highlighter-rouge">MCUBOOT_USE_PSA_CRYPTO</code> and
+<code class="language-plaintext highlighter-rouge">MCUBOOT_USE_MBED_TLS</code> caused a compile error. Encryption schemes
+other than EC256 and X25519 no longer need Mbed TLS headers.</li>
+  <li><code class="language-plaintext highlighter-rouge">docs/PORTING.md</code> now lists all the flash functions a port must
+provide. <code class="language-plaintext highlighter-rouge">flash_area_get_sector()</code>, <code class="language-plaintext highlighter-rouge">flash_device_base()</code> and
+<code class="language-plaintext highlighter-rouge">flash_area_id_from_image_slot()</code> were required but not documented.</li>
+  <li><strong>Serial recovery:</strong> The slot info command reported wrong image
+IDs for upload when direct image upload was disabled.</li>
+  <li><strong>Serial recovery:</strong> An upload with an image number beyond the
+number of images is now rejected with an error instead of writing
+to another flash area. After a failed request, an encrypted image
+is no longer decrypted in place.</li>
+  <li><strong>Serial recovery:</strong> Fixed a possible division by zero during
+in-place decryption of an uploaded encrypted image when the flash
+driver fails to report the sector layout.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr, direct image upload
+(<code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_SERIAL_DIRECT_IMAGE_UPLOAD</code>) now works for image
+IDs 7 to 16. Before, uploads to the slots of images 4 to 8 failed.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr, the wait for a DFU command
+(<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_WAIT_FOR_DFU</code>) now ends after
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_WAIT_FOR_DFU_TIMEOUT</code>. Before, it could last
+several times longer.</li>
+  <li><strong>Serial recovery:</strong> On Zephyr with
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SERIAL_WAIT_FOR_DFU</code>, the console was initialised a
+second time when recovery was also entered through boot mode or
+because there was no application. With CDC ACM this made the
+bootloader panic, and on a UART it lost received bytes.</li>
+  <li><strong>Serial recovery:</strong> Fixed a link error on Zephyr with image
+encryption and deferred logging.</li>
+  <li><strong>Serial recovery:</strong> On ports other than Zephyr and Espressif, such
+as Mynewt, a base64 decoding error in a received frame is now
+detected. Before, the error went unnoticed.</li>
+  <li><strong>Zephyr:</strong> With <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MAX_IMG_SECTORS_AUTO</code>, the maximum
+sector count now takes the slots of every image into account, not
+only image 0. The erase and write sizes of the secondary slot are
+now read from the flash it is actually on.</li>
+  <li><strong>Zephyr:</strong> Fixed the trailer size that sysbuild reserves at the
+end of the application for swap-move and swap-offset. Swap-offset
+could build an application too large to swap, and swap-move
+reserved a sector more than needed.</li>
+  <li><strong>Espressif:</strong> Fixed the build of the standalone port with serial
+recovery (<code class="language-plaintext highlighter-rouge">CONFIG_ESP_MCUBOOT_SERIAL</code>), which lacked an Mbed TLS
+source file.</li>
+  <li><strong>Mynewt:</strong> Fixed the build of serial recovery without image
+encryption.</li>
+</ul>
+
+<h3 id="board-and-soc-support">Board and SoC support</h3>
+
+<ul>
+  <li><strong>Zephyr:</strong> Added configurations for the nRF93M1DK, the MR-NAVQ95B
+(Cortex-M7 core, with MCUboot placed in the boot container by
+default), the FRDM-MCXL255 and the KIT_PSE84_EVAL, and SoC
+configurations for the ESP32-C5, ESP32-C61, ESP32-P4 and ESP32-S31.</li>
+  <li><strong>Zephyr:</strong> On the nRF54H20 application core, multithreading is
+now enabled so that MRAM power-down can be held off while MCUboot
+writes to MRAM, which avoids stalled writes.</li>
+  <li><strong>Espressif:</strong> Added initial support for the ESP32-C5, ESP32-C61
+and ESP32-P4. The ESP32-C61 uses ECDSA image signing.</li>
+</ul>
+
+<h3 id="imgtool">imgtool</h3>
+
+<ul>
+  <li>imgtool now requires Python 3.8 or later. This also fixes key
+export commands, which failed on Python 3.8 and 3.9.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">imgtool keyinfo</code>, which reports whether a PEM file holds a
+key pair or only a public key. With <code class="language-plaintext highlighter-rouge">--require</code>, it fails if the
+kind does not match, which build systems can use as a check.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">--name-suffix</code> to <code class="language-plaintext highlighter-rouge">imgtool getpub</code> and <code class="language-plaintext highlighter-rouge">imgtool getpubhash</code>,
+which appends a suffix to the generated C or Rust symbol names so
+that several keys can be embedded in one image.</li>
+  <li>Public-key-only PEM files are now supported by <code class="language-plaintext highlighter-rouge">imgtool getpub</code>,
+<code class="language-plaintext highlighter-rouge">imgtool getpubhash</code> and <code class="language-plaintext highlighter-rouge">imgtool verify</code>. <code class="language-plaintext highlighter-rouge">imgtool sign</code> given a
+public-only PEM now fails with a clear error.</li>
+</ul>
+
+<h3 id="pending-questions">Pending questions</h3>
+
+<p>These questions are open for this release candidate and will be
+settled before the final 2.5.0 release. If your testing answers one
+of them, please report it on the MCUboot GitHub issue tracker.</p>
+
+<ul>
+  <li><strong>Zephyr:</strong> Does this release still build and work with Zephyr
+4.4.x, or only with Zephyr newer than 4.4.0? The in-tree STM32
+external flash configurations already need the newer Zephyr.</li>
+  <li><strong>Espressif:</strong> The standalone port’s <code class="language-plaintext highlighter-rouge">flash</code> build target now calls
+esptool with its hyphenated option names (<code class="language-plaintext highlighter-rouge">write-flash</code>,
+<code class="language-plaintext highlighter-rouge">--before default-reset</code>, <code class="language-plaintext highlighter-rouge">--after no-reset</code>). Which esptool
+versions accept them? If flashing fails, please report your esptool
+version.</li>
+  <li><strong>NuttX, Mbed:</strong> Extra <code class="language-plaintext highlighter-rouge">flash_area_close()</code> calls were removed from
+the swap code that resumes an interrupted swap and that reads an
+image’s size. On NuttX and Mbed, closing a flash area releases the
+device, so these calls may have caused swap upgrade failures with
+2.4.0. If you saw such failures, does this release candidate fix
+them?</li>
+  <li><strong>Mynewt:</strong> The Mynewt port is built in CI, but the core
+maintainers no longer test it on hardware. Mynewt users, please
+test this release candidate, especially serial recovery.</li>
+</ul>
+
+<h2 id="version-240">Version 2.4.0</h2>
+
+<ul>
+  <li>Added support for using an inbuilt (compiled-in) key in Zephyr
+builds.</li>
+  <li>Added support for using an external PSA crypto library backend
+(a non-mbedTLS PSA backend) in Zephyr builds.</li>
+  <li>Added a Kconfig choice in Zephyr builds to select between Mbed
+TLS legacy crypto and the PSA API for RSA operations. Legacy
+crypto remains the default since the PSA API increases the
+flash footprint and is not acceptable for all targets.</li>
+  <li>Added ECDSA support to the Zephyr port using mbedTLS.</li>
+  <li><code class="language-plaintext highlighter-rouge">BOOT_SIGNATURE_TYPE_RSA</code> no longer selects RSA key exchange
+support, since MCUboot only requires RSA for signature
+verification.</li>
+  <li>Use the new <code class="language-plaintext highlighter-rouge">MBEDTLS_VERSION_4_x</code> Kconfig boolean in Zephyr
+builds to select between Mbed TLS 3.x legacy crypto and the
+TF-PSA-Crypto 1.x backend.</li>
+  <li>Automatically enable <code class="language-plaintext highlighter-rouge">TEST_RANDOM_GENERATOR</code> in Zephyr builds
+when PSA crypto is enabled and no entropy driver is available,
+since <code class="language-plaintext highlighter-rouge">MBEDTLS_PSA_CRYPTO_LEGACY_RNG</code> no longer selects it
+implicitly.</li>
+  <li>Renamed <code class="language-plaintext highlighter-rouge">CONFIG_MBEDTLS_CFG_FILE</code> usage to follow the rename
+in Zephyr.</li>
+  <li>Renamed nRF54H Kconfig symbol usage to follow the rename in
+Zephyr.</li>
+  <li>imgtool: added a new <code class="language-plaintext highlighter-rouge">--custom-tlv-file</code> option that works
+like <code class="language-plaintext highlighter-rouge">--custom-tlv</code> but reads the TLV value from a binary
+file instead of taking it on the command line.</li>
+  <li>imgtool: <code class="language-plaintext highlighter-rouge">dumpinfo</code> now supports a <code class="language-plaintext highlighter-rouge">-f</code>/<code class="language-plaintext highlighter-rouge">--format</code> option
+to select between human, yaml and json output. The defaults
+remain backwards compatible (human for stdout, yaml when
+writing to a file).</li>
+  <li>imgtool: <code class="language-plaintext highlighter-rouge">dumpinfo</code> can now read Intel hex (<code class="language-plaintext highlighter-rouge">.hex</code>) files
+in addition to binary files.</li>
+  <li>Zephyr’s sysbuild hooks have been reworked to support
+arbitrary-named MCUboot images, also allowing for multiple
+MCUboot builds in a single sysbuild project to update
+different images with estimated image overhead sizes.</li>
+  <li>Zephyr builds now use partition macros without the <code class="language-plaintext highlighter-rouge">FIXED_</code>
+prefix, allowing MCUboot to be used on devices that use
+<code class="language-plaintext highlighter-rouge">fixed-partitions</code> and <code class="language-plaintext highlighter-rouge">zephyr,memory-mapped</code> compatibles.</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">DT_REG_ADDR()</code> and <code class="language-plaintext highlighter-rouge">DT_REG_SIZE()</code> devicetree
+macros to obtain the target load area address range, allowing
+nodes that rely on a devicetree <code class="language-plaintext highlighter-rouge">ranges</code> property to be
+used.</li>
+  <li>Removed the forced <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MAX_IMG_SECTORS</code> for
+Espressif targets so that auto detection can take place.</li>
+  <li>Added support for placing image slots in sub-partition
+devicetree nodes when computing MCUboot image overhead.</li>
+  <li>Improved the Zephyr CMake support for finding NVM devices,
+including reading the write and erase block sizes from the
+device.</li>
+  <li>Added support for an <code class="language-plaintext highlighter-rouge">ext_flash_app</code> variant on the
+<code class="language-plaintext highlighter-rouge">stm32h7s3xx</code>, allowing chainloading applications from
+external flash while MCUboot runs from internal flash.</li>
+  <li>Updated the nrf52840 board overlay bindings to use the new
+<code class="language-plaintext highlighter-rouge">zephyr,memory-mapped</code> binding, and added missing <code class="language-plaintext highlighter-rouge">ranges</code>
+properties on a few board overlays.</li>
+  <li>Espressif: separated the <code class="language-plaintext highlighter-rouge">do_boot</code> path so that RISC-V based
+Espressif SoCs no longer fall through to the wrong <code class="language-plaintext highlighter-rouge">do_boot</code>
+implementation.</li>
+  <li>Espressif: updated the default <code class="language-plaintext highlighter-rouge">bootloader.conf</code> files to
+reflect the default flash layout configuration for most
+Espressif boards on Zephyr.</li>
+  <li>Espressif: added a default SoC configuration for ESP32-H2 so
+that DRAM usage does not overflow.</li>
+  <li>Mbed: added <code class="language-plaintext highlighter-rouge">flash_area_get_sector</code> to fix an undefined
+reference for Mbed CE.</li>
+  <li>Mbed: fixed the <code class="language-plaintext highlighter-rouge">MCUBOOT_SWAP_SAVE_ENCTLV</code> configuration
+option by switching to the canonical name and correcting the
+macro name.</li>
+  <li>Mynewt: improved the BOOTUTIL configuration so that only
+<code class="language-plaintext highlighter-rouge">bootutil_public.c</code> is built for non-bootloader builds,
+allowing applications to skip bootloader-only syscfgs.</li>
+  <li>Fixed image size validation to include the
+<code class="language-plaintext highlighter-rouge">ih_protect_tlv_size</code> field.</li>
+  <li>Fix: Corrected the copy size calculation when bootstrapping
+and swapping using <code class="language-plaintext highlighter-rouge">MCUBOOT_SWAP_USING_MOVE</code>. Previously,
+the primary region size was used, which could be larger than
+the secondary region, when using the optimal region sizes.
+Now, the size of the secondary region (excluding the swap
+sector and sectors needed for swapping) is used, ensuring
+only the valid image area is copied. This prevents potential
+over-copying and related issues during image upgrade or
+bootstrap operations.</li>
+  <li>Fixed <code class="language-plaintext highlighter-rouge">image_validate</code> so that the offset of the
+swap-using-move sector is included when pure mode is used in
+swap-offset.</li>
+  <li>Fixed <code class="language-plaintext highlighter-rouge">image_ed25519</code> to no longer call mbedTLS public key
+functions when <code class="language-plaintext highlighter-rouge">MCUBOOT_BUILTIN_KEY</code> is enabled.</li>
+  <li>Fixed the definition of <code class="language-plaintext highlighter-rouge">bootutil_find_key</code> when
+<code class="language-plaintext highlighter-rouge">MCUBOOT_BYPASS_KEY_MATCH</code> is set and <code class="language-plaintext highlighter-rouge">MCUBOOT_HW_KEY</code> is
+not.</li>
+  <li>Fixed typos and incorrect types/pointer indirection in
+<code class="language-plaintext highlighter-rouge">boot_serial_encryption</code>.</li>
+  <li>Added the missing swap-offset source file to the bootutil
+CMake list, and fixed the RAM load source file which was
+using Zephyr-specific Kconfigs to decide whether it should be
+included.</li>
+  <li>RISCV targets in swap mode will no longer erroneously attempt
+to load the image to RAM and will boot the image directly, as
+this is fully supported by RISCV and looks to have been an
+error in a previous code submission.</li>
+  <li>Fixed devicetree <code class="language-plaintext highlighter-rouge">compatible</code> property handling in CMake so
+that matching <code class="language-plaintext highlighter-rouge">soc-nv-flash</code> works for nodes whose
+<code class="language-plaintext highlighter-rouge">compatible</code> property contains multiple strings.</li>
+  <li>Fixed the regression where the mbedTLS include path was not
+added to the MCUboot build, breaking RSA support with
+encryption.</li>
+  <li>Fixed an extra <code class="language-plaintext highlighter-rouge">.</code> in a log message.</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">LOG_PANIC()</code> before jumping to the application so log
+backends have an opportunity to flush in-flight messages
+before the jump.</li>
+  <li>Capture log events that were previously lost very early or
+very late in the boot process: the deferred logging thread
+now starts with <code class="language-plaintext highlighter-rouge">K_NO_WAIT</code> and is woken in
+<code class="language-plaintext highlighter-rouge">zephyr_boot_log_stop()</code> so it drains pending messages
+before MCUboot jumps to the application.</li>
+  <li>Reworked the Zephyr CMake support to fix many issues,
+including a missing project name, casing fixes, deduplicated
+statements, and stopped abusing <code class="language-plaintext highlighter-rouge">zephyr_library_*</code>
+functions where MCUboot is not actually a library.</li>
+  <li>Added error codes to several bootutil loader log messages and
+reformatted others to fit on fewer lines for easier
+readability and grepping.</li>
+  <li>Removed the outdated <code class="language-plaintext highlighter-rouge">hello-world</code> Zephyr sample, since
+Zephyr’s tree contains a sysbuild MCUboot sample that should
+be used instead.</li>
+  <li>Fixed the <code class="language-plaintext highlighter-rouge">ext/nrf/cc310_glue</code> include path to drop the
+deprecated non-<code class="language-plaintext highlighter-rouge">zephyr/</code> prefix.</li>
+  <li>Fixed Kconfig options that were leaking outside of the
+MCUboot menu.</li>
+  <li>Fixed a missing <code class="language-plaintext highlighter-rouge">tsa-crypto</code> dependency twister error.</li>
+  <li>Updated the design documentation to correct an outdated
+comment that suggested the TLV type field is 8-bit when it is
+actually 16-bit.</li>
+</ul>
+
+<h2 id="version-230">Version 2.3.0</h2>
+
+<ul>
+  <li>Added support for booting Cortex-R5 images</li>
+  <li>Add support for cleaning up the Cortex-R core before final jumping</li>
+  <li>Aligned the project security policy with the <a href="https://www.trustedfirmware.org/.well-known/security.txt">TrustedFirmware.org security
+policy</a>.</li>
+  <li>Fixed imgtool dependency on click package version.</li>
+  <li>Enabled support for ram-load revert mode, which functions using the same
+logic as direct-xip revert mode but loads the executable image to ram.</li>
+  <li>Add cache flush after write/erase operations to avoid getting invalid
+data when these are followed by read operation.</li>
+  <li>Fix image wrong state after swap-scratch when hardware flash encryption
+is enabled. When hardware flash encryption is enabled, force expected
+erased value (0xFF) into flash when erasing a region, and also always
+do a real erase before writing data into flash.</li>
+  <li>Move the Virtual eFuse offset in flash configuration from hardcoded value to .conf file.</li>
+  <li>Fixed issue in boot_scramble_regions, where incorrect boundary
+check would cause function to attempt to write pass a designated
+flash area.</li>
+  <li>Fixed issue in image_validate when <code class="language-plaintext highlighter-rouge">MCUBOOT_HASH_STORAGE_DIRECTLY</code> is enabled
+for platforms with NVM memory that does not start at 0x00.</li>
+  <li>Fixed issue in image_validate when <code class="language-plaintext highlighter-rouge">BOOT_SIGNATURE_TYPE_PURE</code> is enabled
+for platforms with NVM memory that does not start at 0x00.</li>
+  <li>Fixed serial recovery with progressive erase for MCUboot modes of single
+updatable slot (<code class="language-plaintext highlighter-rouge">MCUBOOT_SINGLE_APPLICATION_SLOT</code>, <code class="language-plaintext highlighter-rouge">MCUBOOT_FIRMWARE_LOADER</code>,
+<code class="language-plaintext highlighter-rouge">MCUBOOT_SINGLE_APPLICATION_SLOT_RAM_LOAD</code>) which was previously failing due
+to attempting to access non-existent image status fields.</li>
+  <li>Fixed issue with imgtool when trying to compress images with
+no header padding requested.</li>
+  <li>Fixed issue with swap using offset when mininmal erase was
+enabled that did not offset the erase to the second sector and
+wrongly used the (empty) first sector of the secondary slot.</li>
+  <li>Switched to picolibc as the default C library in Zephyr.</li>
+  <li>Fixed wrong define specifying 2 slots in single loader mode
+instead of just 1</li>
+  <li>Fixed wrong slot ID in hook calls from serial recovery.</li>
+  <li>Fixed issues with serial recovery not building/not
+working/faulting.</li>
+  <li>Swap using offset now includes the size of the unprotected TLV
+area which was wrongly missing before, this requires extra space
+in the swap status as the data is not part of the image header</li>
+  <li>Control over compilation of unprotected TLV allow list has been exposed
+using MCUBOOT_USE_TLV_ALLOW_LIST mcuboot configuration identifier.</li>
+  <li>Fixed issue with platforms that have
+MCUBOOT_SUPPORT_DEV_WITHOUT_ERASE set that did not scramble
+(delete) data sections from the trailer that should have been
+deleted.</li>
+  <li>Fixed issue with boot_scramble_region escaping flash area due
+to error in the range check.</li>
+  <li>A few changes to make vscode nicer, including a default package to build at
+the top level, and ignoring some of the cache files from vscode.</li>
+  <li>Zephyr builds are now using Kconfig CONFIG_MCUBOOT_BOOT_MAX_ALIGN
+to set the MCUBOOT_BOOT_MAX_ALIGN.</li>
+  <li>Fixed issue with checking pin reset not checking for single
+flag in Zephyr.</li>
+  <li>imgtool verify when using a public ed25519 key has been fixed
+to work rather than show an invalid key type not matching the
+TLV record error.</li>
+  <li>Zephyr signature and encryption key file path handling has now
+been aligned with Zephyr, this means values can be specified in
+multiple .conf file and the one that last set it will be the set
+value. This also means that key files will no longer be found
+relative to the .conf file and will instead be found relative
+to the build system <code class="language-plaintext highlighter-rouge">APPLICATION_CONFIG_DIR</code> variable, though
+the key file strings are now configured which allows for using
+escaped CMake variables to locate the files, for example with
+<code class="language-plaintext highlighter-rouge">\${CMAKE_CURRENT_LIST_DIR}</code> to specify a file relative to
+the folder that the file is in.</li>
+  <li>
+    <p>Watchdog support in Zephyr has been reworked and fixed to allow
+installing a timeout (with a configurable value) before starting
+it. The default timeout is set to 1 minute and this feature has
+been enabled by default. 3 Kconfig options have been added which
+control how the watchdog is used in MCUboot:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_WATCHDOG_SETUP_AT_BOOT</code> controls setting up
+the watchdog in MCUboot (if not set up, it can still be set,
+if the driver supports this non-compliant behaviour).</li>
+      <li><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_WATCHDOG_INSTALL_TIMEOUT_AT_BOOT</code> controls if
+a timeout is installed at bootup or not.</li>
+      <li><code class="language-plaintext highlighter-rouge">CONFIG_BOOT_WATCHDOG_TIMEOUT_MS</code> sets the value of the
+timeout in ms.</li>
+    </ul>
+  </li>
+  <li>In addition, Zephyr modules can now over-ride the default
+watchdog functionality by replacing the weakly defined functions
+<code class="language-plaintext highlighter-rouge">mcuboot_watchdog_setup</code> and/or <code class="language-plaintext highlighter-rouge">mcuboot_watchdog_feed</code>,
+these functions take no arguments.</li>
+  <li>correct esp32c6 overlay</li>
+</ul>
+
+<h2 id="version-220">Version 2.2.0</h2>
+
+<ul>
+  <li>Added support for retrieving HW embedded private keys for image encryption
+(The private key can be retrieved from trusted sources like OTP, TPM.).</li>
+  <li>Changed bootutil’s order of events to verify the image header
+before checking the image.</li>
+  <li>Added the bootloader state object to the bootutil
+boot_is_header_valid() function</li>
+  <li>Added optional write block size checking to ensure expected
+sizes match what is available on the hardware.</li>
+  <li>Added optional erase size checking to ensure expected sizes
+match what is available on the hardware.</li>
+  <li>Added debug logs for zephyr to output discrepencies in erase
+and write block sizes in dts vs actual hardware configuration
+at run-time.</li>
+  <li>When using swap with scratch, the image is now decrypted when copying from
+the scratch partition to the primary slot. Therefore, the scratch partition
+doesn’t contain plaintext firmware data anymore.</li>
+  <li>Added verification for supported IDF-based HAL version.</li>
+  <li>Fixed missing macro for XMC flash devices on ESP32-S3</li>
+  <li>Extended image loader header to include RTC/LP RAM, DROM and IROM segments.</li>
+  <li>Fixed errors when building for <code class="language-plaintext highlighter-rouge">thingy52</code>, <code class="language-plaintext highlighter-rouge">thingy53</code> and
+<code class="language-plaintext highlighter-rouge">nrf9160dk</code> boards.</li>
+  <li>Fixed chain load address output log message for RAM load
+mode in Zephyr</li>
+  <li>Fixed issue for swap using move whereby a device could get
+stuck in a revert loop despite there being no image in the
+secondary slot</li>
+  <li>Fixed clash when using sysbuild with other
+applications (i.e. tests) using the name mcuboot</li>
+  <li>imgtool: added initial sanity tests for imgtool commands,</li>
+  <li>imgtool: added and enabled unittests in GitGub workflow,</li>
+  <li>Fixed wrong maximum application size calculation when
+operating in swap using move mode</li>
+  <li>Added additional images max size support to shared data
+function</li>
+  <li>Fixed issue with serial recovery image list wrongly using
+number of images as the number of slots and not returning
+complete information for 1 updateable image</li>
+  <li>Added slot info command support to serial recovery mode</li>
+  <li>Fixed issue with serial recovery variables not being
+correctly initialised to default values which could cause
+some commands to do unexpected operations</li>
+  <li>Added a new swap using offset algorithm which is set with
+<code class="language-plaintext highlighter-rouge">MCUBOOT_SWAP_USING_OFFSET</code>. This algorithm is similar to swap
+using move but avoids moving the sectors in the primary slot
+up by having the update image written in the second sector in
+the update slot, which offers a faster update process and
+requires a smaller swap status area</li>
+  <li>Added support for automatically calculating the maximum number
+of sectors that are needed for a build by checking the erase
+sizes of the partitions using CMake for Zephyr. This behaviour
+can be reverted to the old manual behaviour by disabling
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_MAX_IMG_SECTORS_AUTO</code></li>
+  <li>Added protected TLV size to image size check in bootutil</li>
+  <li>Added Kconfig for decompression support in Zephyr</li>
+  <li>Added compressed image flags and TLV to bootutil</li>
+  <li>Added support for removing images with conflicting flags in
+bootutil</li>
+  <li>Added support for removing encrypted/compressed images when
+MCUboot is compiled without support for them</li>
+  <li>Added support for devices that do not require erase prior to write operation.</li>
+  <li>Add corrections to the max app size calculations.</li>
+  <li>Fixed issue with swap using scratch mode that would cause the
+primary image to be corrupt and unbootable after an update if the
+device was rebooted whilst the scratch area was being erased.</li>
+  <li>Fixed issue with serial recovery if canonical CBOR mode was
+enabled.</li>
+  <li>Fixed issue with serial recovery set image state not checking
+primary slot images.</li>
+  <li>Fixed issue with watchdog not being fed during flash erase
+operations, which could cause the watchdog to time out on long
+erase operations and prevent firmware updates from being possible.</li>
+  <li>Fix issues related to calculating the maximum image size for a given
+configuration.</li>
+  <li>Fix an issue with sha hash calculations in a loop.</li>
+  <li>Fix an issue with the security counter being updated before an image is
+confirmed.</li>
+  <li>Added a contributing guideline.</li>
+  <li>Fixed an issue related to referencing the arm-vector table of the
+application, which caused a jump to the incorrect address instead of the
+application reset vector for some Zephyr builds when LTO (link time
+optimization) was enabled.</li>
+  <li>Fixed issue with trailer and swap status sizes wrongly being
+included in single slot/firmware loaded modes which wrongly
+reduced the maximum allowable firmware sizes.</li>
+  <li>Fixes for Zephyr 4.1 and MPU/SYSMPU renaming</li>
+  <li>Fix support for MCX-N9XX with Zephyr.</li>
+</ul>
+
+<h2 id="version-210">Version 2.1.0</h2>
+
+<ul>
+  <li>Boot serial: Add response to echo command if support is not
+enabled, previously the command would have been accepted but no
+response indicating that the command is not supported would have
+been sent.</li>
+  <li>Added support for using builtin keys for image validation
+(available with the PSA Crypto API based crypto backend for ECDSA signatures).</li>
+  <li>Enforce that TLV entries that should be protected are.
+This can be disabled by defining <code class="language-plaintext highlighter-rouge">ALLOW_ROGUE_TLVS</code></li>
+  <li>bootutil: Fixed issue with comparing sector sizes for
+compatibility, this now also checks against the number of usable
+sectors (which is the slot size minus the swap status and moved
+up by one sector).</li>
+  <li>bootutil: Added debug logging to show write location of swap status
+and details on sectors including if slot sizes are not optimal for
+a given board.</li>
+  <li>Update ptest to support test selection. Ptest can now be invoked with <code class="language-plaintext highlighter-rouge">list</code>
+to show the available tests and <code class="language-plaintext highlighter-rouge">run</code> to run them. The <code class="language-plaintext highlighter-rouge">-t</code> argument will
+select specific tests to run.</li>
+  <li>Allow sim tests to skip slow tests.  By setting <code class="language-plaintext highlighter-rouge">MCUBOOT_SKIP_SLOW_TESTS</code> in
+the environment, the sim will skip two tests that are very slow.  In one
+instance this reduces the test time from 2 hours to about 5 minutes.  These
+slow tests are useful, in that they test bad powerdown recovery, but are
+inconvenient when testing other areas.</li>
+  <li>Zephyr: Fixes support for disabling instruction/data caches prior
+to chain-loading an application, this will be automatically
+enabled if one or both of these caches are present. This feature
+can be disabled by setting <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_DISABLE_CACHES</code> to <code class="language-plaintext highlighter-rouge">n</code>.</li>
+  <li>Zephyr: Fix issue with single application slot mode, serial
+recovery and encryption whereby an encrypted image is loaded
+and being wrongly treated as encrypted after decryption.</li>
+  <li>Zephyr: Add estimated image footer size to cache in sysbuild.</li>
+  <li>Added firmware loader configuration type support for Zephyr, this
+allows for a single application slot and firmware loader image in
+the secondary slot which is used to update the primary image
+(loading it in any way it sees fit e.g. via Bluetooth).</li>
+  <li>Zephyr: Remove deprecated ZEPHYR_TRY_MASS_ERASE Kconfig option.</li>
+  <li>Zephyr: Prevent MBEDTLS Kconfig selection when tinycrypt is used.</li>
+  <li>Zephyr: Add USB CDC serial recovery check that now causes a build
+failure if console is enabled and device is the same as the USB
+CDC device.</li>
+  <li>Zephyr: Add USB CDC serial recovery check that now causes a build
+failure if the main thread priority is below 0 (cooperative
+thread), this would prevent USB CDC from working as the driver
+would not have been able to fire callbacks.</li>
+  <li>Use general flash operations to determine the flash reset vector. This
+improves support a bit for some configurations of external flash.</li>
+  <li>fix a memory leak in the HKDF implementation.</li>
+  <li>Zephyr: Added a MCUboot banner which displays the version of
+MCUboot being used and the version of zephyr. This can be
+disabled by setting <code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_BOOT_BANNER=n</code> which
+will revert back to the default zephyr boot banner.</li>
+</ul>
+
+<h2 id="version-200">Version 2.0.0</h2>
+
+<p>Note that this release, 2.0.0 is a new major number, and contains a small API
+change in the interface between mcuboot and the platform.  All platforms
+contained within the MCUboot tree have been updated, but any external platforms
+will have to be adjusted.  The following commit makes the API change, in the
+function <code class="language-plaintext highlighter-rouge">boot_save_shared_data</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 3016d00cd765e7c09a14af55fb4dcad945e4b982
+Author: Jamie McCrae &lt;jamie.mccrae@nordicsemi.no&gt;
+Date:   Tue Mar 14 12:35:51 2023 +0000
+
+    bootutil: Add active slot number and max app size to shared data
+</code></pre></div></div>
+
+<h3 id="about-this-release">About this release</h3>
+
+<ul>
+  <li>Add error when flash device fails to open.</li>
+  <li>Panic bootloader when flash device fails to open.</li>
+  <li>Fixed issue with serial recovery not showing image details for
+decrypted images.</li>
+  <li>Fixes issue with serial recovery in single slot mode wrongly
+iterating over 2 image slots.</li>
+  <li>CDDL auto-generated function code has been replaced with zcbor function
+calls, this now allows the parameters to be supplied in any order.</li>
+  <li>Added currently running slot ID and maximum application size to
+shared data function definition.</li>
+  <li>Make the ECDSA256 TLV curve agnostic and rename it to ECDSA_SIG.</li>
+  <li>imgtool: add P384 support along with SHA384.</li>
+  <li>espressif: refactor after removing IDF submodule</li>
+  <li>espressif: add ESP32-C6, ESP32-C2 and ESP32-H2 new chips support</li>
+  <li>espressif: adjustments after IDF v5.1 compatibility, secure boot build and memory map organization</li>
+  <li>Serial recovery image state and image set state optional commands added</li>
+  <li>imgtool: add ‘dumpinfo’ command for signed image parsing.</li>
+  <li>imgtool: add ‘getpubhash’ command to dump the sha256 hash of the public key</li>
+  <li>imgtool’s getpub can print the output to a file</li>
+  <li>imgtool can dump the raw versions of the public keys</li>
+  <li>Drop ECDSA P224 support</li>
+  <li>Fixed an issue with boot_serial repeats not being processed when
+output was sent, this would lead to a divergence of commands
+whereby later commands being sent would have the previous command
+output sent instead.</li>
+  <li>Fixed an issue with the boot_serial zcbor setup encoder function
+wrongly including the buffer address in the size which caused
+serial recovery to fail on some platforms.</li>
+  <li>zcbor library files have been updated to version 0.7.0</li>
+  <li>Reworked boot serial extensions so that they can be used by modules
+or from user repositories by switching to iterable sections.</li>
+  <li>Removed Zephyr custom img list boot serial extension support.</li>
+  <li>(Zephyr) Adds support for sharing boot information with
+application via retention subsystem</li>
+  <li>Zephyr no longer builds in optimize for debug mode, this saves a
+significant amount of flash space.</li>
+  <li>Reworked image encryption support for Zephyr, static dummy key files
+are no longer in the code, a pem file must be supplied to extract
+the private and public keys. The Kconfig menu has changed to only
+show a single option for enabling encryption and selecting the key
+file.</li>
+  <li>Serial recovery can now read and handle encrypted seondary slot
+partitions.</li>
+  <li>Serial recovery with MBEDTLS no longer has undefined operations which
+led to usage faults when the secondary slot image was encrypted.</li>
+  <li>espressif: allow the use of a different toolchain for building</li>
+</ul>
+
+<h2 id="version-1100">Version 1.10.0</h2>
+
+<p>The 1.10.0 release of MCUboot contains…</p>
+
+<h3 id="about-this-release-1">About this release</h3>
+
+<ul>
+  <li>Various fixes to boot serial.</li>
+  <li>Various fixes to the mbed target.</li>
+  <li>Various fixes to the Espressif native target.</li>
+  <li>Various fixes to the Zephyr target.</li>
+  <li>Workflow improvements with Zephyr CI.</li>
+  <li>Add multi image support to the espressif esp32 target.</li>
+  <li>Improvements and corrections to the simulator.</li>
+  <li>Improve imgtool, including adding 3rd party signing support.</li>
+  <li>Various fixes to the mynewt target.</li>
+  <li>Various fixes to the nuttx target.</li>
+  <li>Dates to dependencies for doc generation.</li>
+  <li>Add downgrade prevention for modes using swap.</li>
+  <li>Various general fixes to the boot code.</li>
+  <li>Prefer swap move on zephyr if the scratch partition is not enabled.</li>
+  <li>Upgrade fault-injection hardening, improving cases injections are detected.</li>
+  <li>Add a new flash api <code class="language-plaintext highlighter-rouge">flash_area_get_sector</code>, along with support for each
+target, that replaces <code class="language-plaintext highlighter-rouge">flash_area_sector_from_off</code>. This is a step in cleaning
+up the flash API used by MCUboot.</li>
+</ul>
+
+<h3 id="security-fixes">Security fixes</h3>
+
+<p>There are no security vulnerabilities reported on the MCUboot code for this
+release. There have been several updates to the dependencies in the Ruby code
+used to generate the documentation. This should only affect users that generate
+their own documentation.</p>
+
+<h2 id="version-190">Version 1.9.0</h2>
+
+<p>The 1.9.0 release of MCUboot contains various bug fixes, improves
+support on some recent targets, and adds support for devices with a
+write alignment larger than 8.</p>
+
+<p>This change introduces a potentially incompatible change to the format
+of the image trailer.  If <code class="language-plaintext highlighter-rouge">BOOT_MAX_ALIGN</code> is kept at 8, the trailer
+format does not change.  However, to support larger write alignments,
+this value can be increased, which will result in a different magic
+number value.  These targets were previously unsupported in MCUboot,
+so this change should not affect any existing targets.  The change has
+been tested with a <code class="language-plaintext highlighter-rouge">BOOT_MAX_ALIGN</code> up to 32 bytes.</p>
+
+<h3 id="about-this-release-2">About this release</h3>
+
+<ul>
+  <li>Add native flash encryption to Espressif targets</li>
+  <li>Numerous documentation improvements</li>
+  <li>Increase coverage of large images in the simulator</li>
+  <li>Add stm32 watchdog support</li>
+  <li>Add support for the <code class="language-plaintext highlighter-rouge">mimxrt685_evk</code> board</li>
+  <li>Add support for “partial multi-image booting”</li>
+  <li>Add support for clear image generation with encryption capability to
+imgtool</li>
+  <li>Fix Zephyr when <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_ENCRYPTION_KEY_FILE</code> is not defined</li>
+  <li>Remove zephyr example test running in shell.  The Go version is
+primary and much more featureful.</li>
+  <li>imgtool: make <code class="language-plaintext highlighter-rouge">--max-align</code> default reasonable in most cases.</li>
+  <li>Implement the mcumgr echo command in serial boot mode</li>
+</ul>
+
+<h3 id="security-fixes-1">Security fixes</h3>
+
+<h2 id="version-180">Version 1.8.0</h2>
+
+<p>The 1.8.0 release of MCUboot contains numerous fixes, and adds support
+for the NuttX RTOS, and the Espressif ESP32 SDK.</p>
+
+<h3 id="about-this-release-3">About this release</h3>
+
+<ul>
+  <li>Add support for the NuttX RTOS.</li>
+  <li>Add support for the Espressif ESP32 SDK.</li>
+  <li><code class="language-plaintext highlighter-rouge">boot_serial</code> changed to use cddl-gen, which removes the dependency
+on tinycbor.</li>
+  <li>Add various hooks to be able to change how image data is accessed.</li>
+  <li>Cypress supports Mbed TLS for encryption.</li>
+  <li>Support using Mbed TLS for ECDSA.  This can be useful if Mbed TLS is
+brought in for another reason.</li>
+  <li>Add simulator support for testing direct-XIP and ramload.</li>
+  <li>Support Mbed TLS 3.0.  Updates the submodule for Mbed TLS to 3.0.</li>
+  <li>Enable direct-xip mode in Mbed-OS port.</li>
+  <li>extract <code class="language-plaintext highlighter-rouge">bootutil_public</code> library, a common interface for MCUboot
+and the application.</li>
+  <li>Allow to boot primary image if secondary one is unreachable.</li>
+  <li>Add AES256 image encryption support.</li>
+  <li>Add Multiimage boot for direct-xip and ram-load mode.</li>
+  <li>Cargo files moved to top level, now <code class="language-plaintext highlighter-rouge">cargo test</code> can be run from the
+top level directory.</li>
+  <li>Fault injection tests use updated TF-M.</li>
+  <li>Thingy:53 now supports multi-image DFU.</li>
+  <li>ram load and image encryption can be used together, allowing the
+entire contents of flash to always remain encrypted.</li>
+</ul>
+
+<h3 id="security-fixes-2">Security fixes</h3>
+
+<ul>
+  <li><a href="https://github.com/mcu-tools/mcuboot/security/advisories/GHSA-gcxh-546h-phg4">GHSA-gcxh-546h-phg4</a>
+has been published.  There is not a fix at this time, but a caution
+to be sure to follow the instructions carefully, and make sure that
+the development keys in the repo are never used in a production
+system.</li>
+</ul>
+
+<h2 id="version-170">Version 1.7.0</h2>
+
+<p>The 1.7.0 release of MCUboot adds support for the Mbed-OS platform,
+Equal slots (direct-xip) upgrade mode, RAM loading upgrade mode,
+hardening against hardware level fault injection and timing attacks
+and single image mode.
+There are bug fixes, and associated imgtool updates as well.</p>
+
+<h3 id="about-this-release-4">About this release</h3>
+
+<ul>
+  <li>Initial support for the Mbed-OS platform.</li>
+  <li>Added possibility to enter deep sleep mode after MCUboot app execution
+for cypress platform.</li>
+  <li>Added hardening against hardware level fault injection and timing attacks.</li>
+  <li>Introduced Abstract crypto primitives to simplify porting.</li>
+  <li>Added RAM-load upgrade mode.</li>
+  <li>Renamed single-image mode to single-slot mode.</li>
+  <li>Allow larger primary slot in swap-move</li>
+  <li>Fixed boostrapping in swap-move mode.</li>
+  <li>Fixed issue causing that interrupted swap-move operation might brick device
+if the primary image was padded.</li>
+  <li>Abstracting MCUboot crypto functions for cleaner porting</li>
+  <li>Droped flash_area_read_is_empty() porting API.</li>
+  <li>boot/zephyr: Added watchdog feed on nRF devices.
+See <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_WATCHDOG_FEED</code> option.</li>
+  <li>boot/zephyr: Added patch for turning off cache for Cortex M7 before
+chain-loading.</li>
+  <li>boot/zephyr: added option to relocate interrupts to application</li>
+  <li>boot/zephyr: clean ARM core configuration only when selected by user</li>
+  <li>boot/boot_serial: allow nonaligned last image data chunk</li>
+  <li>imgtool: added custom TLV support.</li>
+  <li>imgtool: added possibility to set confirm flag for hex files as well.</li>
+  <li>imgtool: Print image digest during verify.</li>
+</ul>
+
+<h3 id="zephyr-rtos-compatibility">Zephyr-RTOS compatibility</h3>
+
+<p>This release of MCUboot works with the Zephyr “main” at the time of the
+release. It was tested as of has 7a3b253ce. This version of MCUboot also
+works with the Zephyr v2.4.0, however it is recommended to enable
+<code class="language-plaintext highlighter-rouge">CONFIG_MCUBOOT_CLEANUP_ARM_CORE</code> while using that version.</p>
+
+<h2 id="version-160">Version 1.6.0</h2>
+
+<p>The 1.6.0 release of MCUboot adds support for the PSOC6 platform,
+X25519 encrypted images, rollback protection, hardware keys, and a
+shared boot record to communicate boot attestation information to
+later boot stages.  There are bug fixes, and associated imgtool
+updates as well.</p>
+
+<h3 id="about-this-release-5">About this release</h3>
+
+<ul>
+  <li>Initial support for the Cypress PSOC6 plaformt.  This platform
+builds using the Cypress SDK, which has been added as submodules.</li>
+  <li>CBOR decoding in serial recovery replaced by code generated from a
+CDDL description.</li>
+  <li>Add support for X25519 encrypted images.</li>
+  <li>Add rollback protection.  There is support for a HW rollback counter
+(which must be provided as part of the platform), as well as a SW
+solution that protects against some types of rollback.</li>
+  <li>Add an optional boot record in shared memory to communicate boot
+attributes to later-run code.</li>
+  <li>Add support for hardware keys.</li>
+  <li>Various fixes to work with the latest Zephyr version.</li>
+</ul>
+
+<h3 id="security-issues-addressed">Security issues addressed</h3>
+
+<ul>
+  <li>CVE-2020-7595 “xmlStringLenDecodeEntities in parser.c in libxml2
+2.9.10 has an infinite loop in a certain end-of-file situation.” Fix
+by updating a dependency in documentation generation.</li>
+</ul>
+
+<h3 id="zephyr-rtos-compatibility-1">Zephyr-RTOS compatibility</h3>
+
+<p>This release of MCUboot works the Zephyr “main” at the time of the
+release.  It was tested as of has 1a89ca1238.  When Zephyr v2.3.0 is
+released, there will be a possible 1.6.1 or similar release of Zephyr
+if needed to address any issues.  There also may be branch releases of
+MCUboot specifically for the current version of Zephyr, e.g.
+v1.6.0-zephyr-2.2.1.</p>
+
+<h2 id="version-150">Version 1.5.0</h2>
+
+<p>The 1.5.0 release of MCUboot adds support for encrypted images using
+ECIES with secp256r1 as an Elliptic Curve alternative to RSA-OAEP. A
+new swap method was added which allows for upgrades without using a
+scratch partition. There are also lots of bug fixes, extra simulator
+testing coverage and some imgtool updates.</p>
+
+<h3 id="about-this-release-6">About this release</h3>
+
+<ul>
+  <li>TLVs were updated to use 16-bit lengths (from previous 8). This
+should work with no changes for little-endian targets, but will
+break compatibility with big-endian targets.</li>
+  <li>A benchmark framework was added to Zephyr</li>
+  <li>ed25519 signature validation can now build without using Mbed TLS
+by relying on a bundled tinycrypt based sha-512 implementation.</li>
+  <li>imgtool was updated to correctly detect trailer overruns by image.</li>
+  <li>Encrypted image TLVs can be saved in swap metadata during a swap
+upgrade instead of the plain AES key.</li>
+  <li>imgtool can dump private keys in C format (getpriv command), which
+can be added as decryption keys. Optionally can remove superfluous
+fields from the ASN1 by passing it <code class="language-plaintext highlighter-rouge">--minimal</code>.</li>
+  <li>Lots of other smaller bugs fixes.</li>
+  <li>Added downgrade prevention feature (available when the overwrite-based
+image update strategy is used)</li>
+</ul>
+
+<h3 id="known-issues">Known issues</h3>
+
+<ul>
+  <li>TLV size change breaks compatibility with big-endian targets.</li>
+</ul>
+
+<h2 id="version-140">Version 1.4.0</h2>
+
+<p>The 1.4.0 release of MCUboot primarily adds support for multi-image
+booting.  With this release, MCUboot can manage two images that can be
+updated independently.  With this, it also supports additions to the
+TLV that allow these dependencies to be specified.</p>
+
+<p>Multi-image support adds backward-incompatible changes to the format
+of the images: specifically adding support for protected TLV entries.
+If multiple images and dependencies are not used, the images will be
+compatible with previous releases of MCUboot.</p>
+
+<h3 id="about-this-release-7">About this release</h3>
+
+<ul>
+  <li>Fixed CVE-2019-5477, and CVE-2019-16892.  These fix issue with
+dependencies used in the generation of the documentation on github.</li>
+  <li>Numerous code cleanups and refactorings</li>
+  <li>Documentation updates for multi-image features</li>
+  <li>Update imgtool.py to support the new features</li>
+  <li>Updated the Mbed TLS submodule to current stable version 2.16.3</li>
+  <li>Moved the Mbed TLS submodule from within sim/mcuboot-sys to ext.
+This will make it easier for other board supports to use this code.</li>
+  <li>Added some additional overflow and bound checks to data in the image
+header, and TLV data.</li>
+  <li>Add a <code class="language-plaintext highlighter-rouge">-x</code> (or <code class="language-plaintext highlighter-rouge">--hex_addr</code>) flag to imgtool to set the base address
+written to a hex-format image.  This allows the image to be flashed
+at an offset, without having to use additional tools to modify the
+image.</li>
+</ul>
+
+<h2 id="version-131">Version 1.3.1</h2>
+
+<p>The 1.3.1 release of MCUboot consists mostly of small bug fixes and updates.
+There are no breaking changes in functionality. This release should work with
+Mynewt 1.6.0 and up, and any Zephyr <code class="language-plaintext highlighter-rouge">main</code> after sha
+f51e3c296040f73bca0e8fe1051d5ee63ce18e0d.</p>
+
+<h3 id="about-this-release-8">About this release</h3>
+
+<ul>
+  <li>Fixed a revert interruption bug</li>
+  <li>Added ed25519 signing support</li>
+  <li>Added RSA-3072 signing support</li>
+  <li>Allow ec256 to run on CC310 interface</li>
+  <li>Some preparation work was done to allow for multi image support, which
+should land in 1.4.0. This includes a simulator update for testing
+multi-images, and a new name for slot0/slot1 which are now called
+“primary slot” and “secondary slot”.</li>
+  <li>Other minor bugfixes and improvements</li>
+</ul>
+
+<h2 id="version-130">Version 1.3.0</h2>
+
+<p>The 1.3.0 release of MCUboot brings in many fixes and updates.  There
+are no breaking changes in functionality.  Many of the changes are
+refactorings that will make the code easier to maintain going forward.
+In addition, support has been added for encrypted images.  See <a href="encrypted_images.md">the
+docs</a> for more information.</p>
+
+<h3 id="about-this-release-9">About this release</h3>
+
+<ul>
+  <li>Modernize the Zephyr build scripts.</li>
+  <li>Add a <code class="language-plaintext highlighter-rouge">ptest</code> utility to help run the simulator in different
+configurations.</li>
+  <li>Migrate the simulator to Rust 2018 edition.  The sim now requires at
+least Rust 1.32 to build.</li>
+  <li>Simulator cleanups.  The simulator code is now built the same way
+for every configuration, and queries the MCUboot code for how it was
+compiled.</li>
+  <li>Abstract logging in MCUboot.  This was needed to support the new
+logging system used in Zephyr.</li>
+  <li>Add multiple flash support.  Allows slot1/scratch to be stored in an
+external flash device.</li>
+  <li>Add support for <a href="/encrypted_images.html">encrypted images</a>.</li>
+  <li>Add support for flash devices that read as ‘0’ when erased.</li>
+  <li>Add support to Zephyr for the <code class="language-plaintext highlighter-rouge">nrf52840_pca10059</code>.  This board
+supports serial recovery over USB with CDC ACM.</li>
+  <li>imgtool is now also available as a python package on pypi.org.</li>
+  <li>Add an option to erase flash pages progressively during recovery to
+avoid possible timeouts (required especially by serial recovery
+using USB with CDC ACM).</li>
+  <li>imgtool: big-endian support</li>
+  <li>imgtool: saves in intel-hex format when output filename has <code class="language-plaintext highlighter-rouge">.hex</code>
+extension; otherwise saves in binary format.</li>
+</ul>
+
+<h2 id="version-120">Version 1.2.0</h2>
+
+<p>The 1.2.0 release of MCUboot brings a lot of fixes/updates, where much of the
+changes were on the boot serial functionality and imgtool utility. There are
+no breaking changes in MCUboot functionality, but some of the CLI parameters
+in imgtool were changed (either removed or added or updated).</p>
+
+<h3 id="about-this-release-10">About this release</h3>
+
+<ul>
+  <li>imgtool accepts .hex formatted input</li>
+  <li>Logging system is now configurable</li>
+  <li>Most Zephyr configuration has been switched to Kconfig</li>
+  <li>Build system accepts .pem files in build system to autogenerate required
+key arrays used internally</li>
+  <li>Zephyr build switched to using built-in flash_map and TinyCBOR modules</li>
+  <li>Serial boot has substantially decreased in space usage after refactorings</li>
+  <li>Serial boot build doesn’t require newlib-c anymore on Zephyr</li>
+  <li>imgtool updates:
+    <ul>
+      <li>“create” subcommand can be used as an alias for “sign”</li>
+      <li>To allow imgtool to always perform the check that firmware does not
+overflow the status area, <code class="language-plaintext highlighter-rouge">--slot-size</code> was added and <code class="language-plaintext highlighter-rouge">--pad</code> was updated
+to act as a flag parameter.</li>
+      <li><code class="language-plaintext highlighter-rouge">--overwrite-only</code> can be passed if not using swap upgrades</li>
+      <li><code class="language-plaintext highlighter-rouge">--max-sectors</code> can be used to adjust the maximum amount of sectors that
+a swap can handle; this value must also be configured for the bootloader</li>
+      <li><code class="language-plaintext highlighter-rouge">--pad-header</code> substitutes <code class="language-plaintext highlighter-rouge">--included-header</code> with reverted semantics,
+so it’s not required for firmware built by Zephyr build system</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="known-issues-1">Known issues</h3>
+
+<p>None</p>
+
+<h2 id="version-110">Version 1.1.0</h2>
+
+<p>The 1.1.0 release of MCUboot brings a lot of fixes/updates to its
+inner workings, specially to its testing infrastructure which now
+enables a more thorough quality assurance of many of the available
+options. As expected of the 1.x.x release cycle, no breaking changes
+were made. From the tooling perpective the main addition is
+newt/imgtool support for password protected keys.</p>
+
+<h3 id="about-this-release-11">About this release</h3>
+
+<ul>
+  <li>serial recovery functionality support under Zephyr</li>
+  <li>simulator: lots of refactors were applied, which result in the
+simulator now leveraging the Rust testing infrastructure; testing
+of ecdsa (secp256r1) was added</li>
+  <li>imgtool: removed PKCS1.5 support, added support for password
+protected keys</li>
+  <li>tinycrypt 0.2.8 and the Mbed TLS ASN1 parser are now bundled with
+MCUboot (eg secp256r1 is now free of external dependencies!)</li>
+  <li>Overwrite-only mode was updated to erase/copy only sectors that
+actually store firmware</li>
+  <li>A lot of small code and documentation fixes and updates.</li>
+</ul>
+
+<h3 id="known-issues-2">Known issues</h3>
+
+<p>None</p>
+
+<h2 id="version-100">Version 1.0.0</h2>
+
+<p>The 1.0.0 release of MCUboot introduces a format change.  It is
+important to either use the <code class="language-plaintext highlighter-rouge">imgtool.py</code> also from this release, or
+pass the <code class="language-plaintext highlighter-rouge">-2</code> to recent versions of the <code class="language-plaintext highlighter-rouge">newt</code> tool in order to
+generate image headers with the new format.  There should be no
+incompatible format changes throughout the 1.x.y release series.</p>
+
+<h3 id="about-this-release-12">About this release</h3>
+
+<ul>
+  <li>Header format change.  This change was made to move all of the
+information about signatures out of the header and into the TLV
+block appended to the image.  This allows
+    <ul>
+      <li>The signature to be replaced without changing the image.</li>
+      <li>Multiple signatures to be applied.  This can be used, for example,
+to sign an image with two algorithms, to support different
+bootloader configurations based on these image.</li>
+      <li>The public key is referred to by its SHA1 hash (or a prefix of the
+hash), instead of an index that has to be maintained with the
+bootloader.</li>
+      <li>Allow new types of signatures in the future.</li>
+    </ul>
+  </li>
+  <li>Support for PKCS#1 v1.5 signatures has been dropped.  All RSA
+signatures should be made with PSS.  The tools have been changed to
+reflect this.</li>
+  <li>The source for Tinycrypt has been placed in the MCUboot tree.  A
+recent version of Tinycrypt introduced breaking API changes.  To
+allow MCUboot to work across various platforms, we stop using the
+Tinycrypt bundled with the OS platform, and use our own version.  A
+future release of MCUboot will update the Tinycrypt version.</li>
+  <li>Support for some new targets:
+    <ul>
+      <li>Nordic nRF51 and nRF52832 dev kits</li>
+      <li>Hexiwear K64</li>
+    </ul>
+  </li>
+  <li>Clearer sample applications have been added under <code class="language-plaintext highlighter-rouge">samples</code>.</li>
+  <li>Test plans for <a href="/testplan-zephyr.html">zephyr</a>, and
+<a href="/testplan-mynewt.html">mynewt</a>.</li>
+  <li>The simulator is now able to test RSA signatures.</li>
+  <li>There is an unimplemented <code class="language-plaintext highlighter-rouge">load_addr</code> header for future support for
+RAM loading in the bootloader.</li>
+  <li>Numerous documentation.</li>
+</ul>
+
+<h3 id="known-issues-3">Known issues</h3>
+
+<p>None</p>
+
+<h2 id="version-090">Version 0.9.0</h2>
+
+<p>This is the first release of MCUboot, a secure bootloader for 32-bit MCUs.
+It is designed to be operating system-agnostic and works over any transport -
+wired or wireless. It is also hardware independent, and relies  on hardware
+porting layers from the operating system it works with. For the first release,
+we have support for three open source operating systems: Apache Mynewt, Zephyr
+and RIOT.</p>
+
+<h3 id="about-this-release-13">About this release</h3>
+
+<ul>
+  <li>This release supports building with and running Apache Mynewt and Zephyr
+targets.</li>
+  <li>RIOT is supported as a running target.</li>
+  <li>Image integrity is provided with SHA256.</li>
+  <li>Image originator authenticity is provided supporting the following
+signature algorithms:
+    <ul>
+      <li>RSA 2048 and RSA PKCS#1 v1.5 or v2.1</li>
+      <li>Elliptic curve DSA with secp224r1 and secp256r1</li>
+    </ul>
+  </li>
+  <li>Two firmware upgrade algorithms are provided:
+    <ul>
+      <li>An overwrite only which upgrades slot 0 with the image in slot 1.</li>
+      <li>A swapping upgrade which enables image test, allowing for rollback to a
+previous known good image.</li>
+    </ul>
+  </li>
+  <li>Supports both Mbed TLS and tinycrypt as backend crypto libraries. One of them
+must be defined and the chosen signing algorithm will require a particular
+library according to this list:
+    <ul>
+      <li>RSA 2048 needs Mbed TLS</li>
+      <li>ECDSA secp224r1 needs Mbed TLS</li>
+      <li>ECDSA secp256r1 needs tinycrypt as well as the ASN.1 code from Mbed TLS
+(so still needs that present).</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="known-issues-4">Known issues</h3>
+
+<ul>
+  <li>The image header and TLV formats are planned to change with release 1.0:
+https://runtimeco.atlassian.net/browse/MCUB-66</li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

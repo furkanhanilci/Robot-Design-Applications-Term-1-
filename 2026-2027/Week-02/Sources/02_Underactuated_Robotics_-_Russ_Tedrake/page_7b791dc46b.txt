@@ -1,0 +1,54 @@
+The underactuated python package — underactuated  documentation
+underactuated
+underactuated.meshcat_utils
+underactuated.multibody
+underactuated.plot_utils
+underactuated.pyplot_utils
+underactuated.utils
+underactuated
+The
+underactuated
+python package
+View page source
+The
+underactuated
+python package
+
+This package contains code to support the
+Underactuated Robotics
+course notes.
+underactuated.meshcat_utils
+AddMeshcatTriad()
+DisplayMeshcat()
+MeshcatSliders
+PublishPositionTrajectory()
+StartMeshcat()
+StopButton
+WsgButton
+plot_mathematical_program()
+underactuated.multibody
+MakePidStateProjectionMatrix()
+ManipulatorDynamics()
+underactuated.plot_utils
+plot_2d_phase_portrait()
+underactuated.pyplot_utils
+AdvanceToAndVisualize()
+AnimatePositionTrajectory()
+HistogramVisualizer
+SliderSystem
+underactuated.utils
+ConfigureParser()
+DrakeVersionGreaterThan()
+FindDataResource()
+FindResource()
+GetDrakeVersion()
+Rgba2Hex()
+Next
+© Copyright 2023, Russ Tedrake.
+Built with
+Sphinx
+using a
+theme
+provided by
+Read the Docs
+.

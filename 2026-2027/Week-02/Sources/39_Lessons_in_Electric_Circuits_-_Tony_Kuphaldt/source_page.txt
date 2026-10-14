@@ -1,0 +1,276 @@
+Lessons In Electric Circuits
+Lessons In Electric Circuits
+A free series of textbooks on the subjects of electricity and
+electronics
+Copyright (C) 2000-2023, Tony R. Kuphaldt
+These books and all related files are published under the terms and
+conditions of the Creative Commons License. These terms and conditions
+allow for free copying, distribution, and/or modification of this
+document by the general public.
+A
+copy
+of the Creative Commons License is
+included at the end of each book volume. For more information about the
+License, see Appendix A3
+As an open and collaboratively developed text, this book is distributed
+in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the Creative Commons License for more details.
+Access individual volumes, I through VI:
+Book Volume:
+Volume I - DC
+Volume II - AC
+Volume III - Semiconductors
+Edition:
+5th
+6th
+5th
+Last revised:
+October 18, 2006
+July 25, 2007
+April 05, 2009
+Minor revision:
+February 03  2023
+November 06  2021
+November 06  2021
+Book Volume:
+Volume IV - Digital
+Volume V - Reference
+Volume VI - Experiments
+Edition:
+4th
+4th
+1st
+Last revised:
+November 27, 2007
+January 18, 2006
+January 18, 2010
+Minor revision:
+November 06  2021
+November 06  2021
+November 06  2021
+Checkout the
+Socratic Instrumentation
+Project.
+If you are interested in industrial instrumentation, Checkout the book "Lessons in Industrial Instrumentation" at the Socratic Instrumentation project. The project provides work sheets too. You will also find links to public-domain textbooks on subjects related to industrial instrumentation.
+Checkout the
+Socratic Electronics
+Project.
+We are sometimes asked for homework questions. While the  Socratic Electronics 
+          Project does not provide questions keyed to specific chapters, it does provide
+          questions related to various electrical/electronic topics in the form of "work
+          sheets". The basic concept is to encourage active as opposed to passive learning.
+Checkout
+allaboutcircuits
+.
+Have questions about electronics, math, physics, embedded systems,  programming? 
+          Need help with homework? Checkout these and other
+forums
+at allaboutcircuits.
+       Ask your question at one of the forums. Curious about questions
+       your peers ask?  Want to report errors you find in our text? Report errors at
+feedback and  suggestions
+forum.
+       See
+example
+of an error submission to allaboutcircuits.
+Checkout
+Romanian utranslation
+.
+Mihai Olteanu has a Romanian translation of Vol 1, "Lessons in Electricity".
+If you have a web site with a translation of "Lessons in Electricity" into another language, contact us. We can put your link here.
+Edition numbers reflect major structural changes to a book volume such
+as the addition of new chapters, the substantial expansion of existing
+chapters, or a change in markup language (source code formatting). I
+may also increment the edition number of a volume due to the
+accumulation of many smaller changes. For a volume under active
+revision, one edition per year is normal.
+"Last revised" dates reflect non-trivial changes only. Minor changes I
+make such as typographical error correction and stylistic changes to
+the text do not warrant increments to this date. New topics added to
+the text, as well as any outside contributions, are the minimum change
+level warranting a new revision date. The "Minor revision" date
+reflects
+minor error corrections: typographical, spelling, minor changes not
+involving addition of new content. See changelog for details.
+
+Please submit errors, typos, or
+suggestions to All About Circuits > Forums > AllAboutCircuits.com
+- Feedback and Suggestions
+allaboutcircuits-feedback
+,
+Feedback and Suggestions forum.
+Like to see an
+example
+of an error submission to allaboutcircuits.com?
+Otherwise, see
+Contacts
+section for address to submit corrections.
+Click here
+for a detailed changelog of all
+books.
+Note to instructors:
+My commitment to those using these texts as student resources in
+instructional curricula is to never delete subject matter content as
+the books evolve through succeeding revisions and editions. New
+subjects will be added, and existing subjects expanded in coverage, but
+I will never omit "old" subjects. My experience is that even "obsolete"
+subjects in electronics hold important lessons for students, and
+sometimes serve to catalyze creativity in new design work. Unlike
+publishers, who must consider the page count (printing costs) of a
+book, my publication costs are zero. Instructors may pattern their
+lesson plans around the subjects contained in this book series without
+being
+forced
+to change their plans as the series matures.
+Interested in contributing to this project?
+Click here.
+News flashes
+(Reverse
+chronologic order)
+January 18, 2010
+Volume 6 Experiments: Ch 8
+555 Timer Circuits
+, new Chapter 8 completed thanks to Bill Marsden.
+April 05, 2009
+Volume 3 Semiconductors: Ch 4 Bipolar junction transistors, completed, Ch 7 Thyristors, completed.
+November 01, 1007
+Thank-you to David Zitzelsberger, who bears the distinction of
+being the second contributor to submit an entire chapter! Go to
+Combinational Logic Functions
+in Volume IV to see his considerable work. This brings the Digital volume IV nearly to completion.
+July 2, 2007
+, Volume 3, Semiconductors, incomplete chapters and sections are being completed over the next year or two. Chapter 1 is proofread and has a new "Attenuator" section. Chapter 2 and 3 have been completed, but need proofreading. Please submit errors and corrections to the forum thread at
+Ch 2
+. 
+Warren Young has written "Input to output phase shift" for chapter 8, Operational amplifiers.
+Read all about it
+.
+Expect Chapter 4, "Bipolar junction transistors" in a few months.
+See
+changelog.
+for short new text additions to Volume 2, AC. (D Crunkilton)
+June 15 2006;
+Volume 2, AC has been reformatted to look more like a printed book. The PDF version has floating captioned figures. Not much change in the appearance of the HTML version. No plans to reformat the other volumes due to the labor involved-- unless there is a lot of interest in printing them. My best guess is that the most interest will be in viewing the HTML and PDF's not  printing. Some new content in the new AC motors chapter.
+March 6;
+The pdf version of volumes are now more navigable with hyperlinks- bookmarks.
+January 1;
+-- All volumes have a mini table of
+contents at chapter head, see
+changelog
+. Volume
+2 has a new
+AC motors
+chapter. (D. Crunkilton)
+June 21, 2005; revised October 30
+-- All volumes  have
+at least minor
+corrections, see
+changelog
+. Volume 3 has a
+new
+Shift Registers
+Chapter. Spice plots have been replaced by Spice-nutmeg graphic plots,
+improving the appearance of volumes 2, and 3.
+July 2004 -- IMPORTANT -- PLEASE READ THIS!
+It has come to my
+attention
+that
+I can no longer continue my role as project coordinator and primary
+author for this textbook series. My life has simply become too busy,
+and I lack the free time necessary to do a good job administrating this
+project. See
+goodnews
+and
+badnews
+for more details. Fortunately, the
+open-source nature of this project has led
+others to develop it in different directions, where it will continue to
+live. The best example of this to date is
+AllAboutCircuits.com
+.
+Please pay them a visit to see what neat things are being done with the
+books.
+A huge thank-you to Dennis Crunkilton, who bears the distinction of
+being the first contributor to submit an entire chapter! Go to
+Karnaugh Mapping
+in Volume IV to see
+his fine work.
+At a reader's suggestion, I made a
+changelog
+for all the books. This is a very good idea and I should have done it
+long ago! In this changelog, you will find a complete listing of all
+the changes made, and when.
+Download the entire collection of books in HTML format
+<--- Click Here!
+All volumes!
+HTML code plus graphic images in JPEG format --
+about 36 megabytes in size, in .tar.gz format
+Download individual volumes in PDF format
+Click on an individual volume above. A link near the bottom of the 
+volume table of contents page 
+is provided for downloading the PDF version, viewable or printable -- a few
+megabytes each. Adobe Acrobat viewer can access the bookmarks in the table
+of contents and index. Otherwise, the open source Xpdf viewer works well, 
+sans bookmarks.
+Download COMPLETE source code for the entire collection of books
+<--- Click Here!
+All volumes!
+One file (liecsrc.tar) containing *src.tar.gz
+files for each volume. Each of these gzipped .tar archives contains all
+the makefiles, conversion scripts, SubML text source, image libraries,
+and graphic images (all formats) needed to compile each volume. About
+100 megabytes in its entirety.
+Download MINIMAL source code for the entire collection of books
+<--- Click Here!
+All volumes!
+One file (liectiny.tar) containing *tiny.tar.gz
+files for each volume. The difference between this source code package
+and the one shown above is that this package contains only one format
+type for each image (EPS for schematics and illustrations, JPG for
+photographs), instead of both formats (EPS
+and
+JPG) for all
+images. This archive is much smaller (because the omitted EPS
+photographic image files are
+huge
+!), but requires that you do a
+lot of image file conversion to produce either HTML or PostScript/PDF
+output. About 8 megabytes in its entirety.
+Some of the free software used in this project
+GNU/Linux
+operating system:
+(what else?)
+Vim
+text editor:
+Xcircuit
+drafting program for illustrations, tables, charts, and
+equations:
+Gimp
+graphics manipulation program (a
+Photoshop
+clone):
+Miscellaneous UNIX utilities, obtainable from the
+Free Software
+Foundation
+:
+You can download an Microsoft Windows executable of the
+sed
+utility, necessary for processing source files for the type of markup
+language used in this book project,
+here.
+Spice
+version 2G6, a public-domain program used to simulate
+analog circuits. Download a statically-linked executable for Linux
+systems here
+(
+spice
+)
+, or the following
+three files for execution on MS-DOS systems:
+spice.exe
+,
+32rtm.exe
+, and
+dpmi32vm.ovl
+(keep these three files in the same directory).

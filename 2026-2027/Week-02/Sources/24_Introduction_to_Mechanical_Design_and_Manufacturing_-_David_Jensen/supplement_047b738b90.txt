@@ -1,0 +1,205 @@
+Types of Prototypes and Prototyping Strategy – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Types of Prototypes and Prototyping Strategy
+Justifying Prototype Development
+Prototyping is not a trivial task and it requires careful planning and justification. Depending on the type of prototype, the expense to develop can be very high and therefore needs a good justification. The type of prototype developed depends on the overall objective of the project and the stage of the design process. Some possible justifications for developing a prototype are:
+Validating a concept, physical phenomenon, or user experience:
+A prototype can be used to test whether the underlying idea or principle of the solution is sound and viable. For example, a prototype can be used to verify if a certain material can withstand a certain stress level, or if a certain interface can provide a satisfactory user experience.
+Securing feedback and buy in from stakeholders:
+A prototype can be used to communicate the vision and value proposition of the solution to the potential users, customers, investors, or partners. A prototype can help elicit feedback and suggestions from the stakeholders, as well as generate interest and support for the project.
+Exploration of design parameters:
+A prototype can be used to explore different aspects of the solution, such as the size, shape, color, functionality, performance, cost, etc. A prototype can help identify the optimal design parameters that can meet the requirements and constraints of the project.
+Types of Prototypes and Uses
+A prototype is a representation of a design that serves a specific purpose: to test a hypothesis or assumption about the design problem. Depending on the nature of the question that needs to be answered, different types of prototypes can be more or less suitable. In this section, we will discuss how to choose the right type of prototype for each stage of the design process, and what are the advantages and limitations of each type.
+One way to classify prototypes is by their format, or how they represent the design idea in a tangible or intangible way. There are three main formats of prototypes:
+Physical prototypes:
+These are real objects that mimic the appearance, functionality, interaction, and fabrication aspects of the design. Physical prototypes can be used to evaluate how the design fits in the context of use, how users interact with it, how it performs its intended functions, and how it can be manufactured and assembled.
+Sketches, layouts, and diagrams:
+These are two-dimensional drawings that illustrate the design concept from different perspectives. Sketches, layouts, and diagrams can be used to communicate the overall idea, the system architecture, the information or material flow, and the comparison between different alternatives.
+Digital and computational models
+: These are mathematical or computer-based representations of the design that capture its behavior, performance, or optimization. Digital and computational models can be used to explore the design space, to analyze the trade-offs between different parameters, to simulate the outcomes under different scenarios, and to optimize the design for specific criteria.
+Additionally, we can characterize prototypes by their primary function or type of hypothesis they can address. These are also listed generally in order of stages in the design processes. Recall that design can often be iterative in nature.
+Proof-of-concept prototype
+: This type of prototype is used to test the feasibility of a concept or idea. It is usually a simple model that demonstrates the basic functionality of the product.
+Form study prototype
+: This type of prototype is used to explore the physical appearance and aesthetics of the product. It is usually a non-functional model that helps designers to visualize the product.
+User experience prototype
+: This type of prototype is used to test the usability and user experience of the product. It is usually a functional model that simulates the interaction between the user and the product.
+Functional prototype
+: This type of prototype is used to test the functionality of the product. It is usually a working model that demonstrates the key features and performance of the product.
+Pre-production prototypes
+: These are the final prototypes that are made with the same materials, processes, and specifications as the mass-produced product. They can be used to validate the manufacturing and assembly plan. They can also be used to verify the quality and consistency of the product, and to prepare for the transition to production. They may also be used for marketing or regulatory purposes.
+Timing and Development Strategy
+The three primary drivers of a prototype development strategy are the flexibility or rigidity of:
+Prototype development cost:
+High-cost prototypes tend to result in lower number of prototypes and prototypes that address only specific aspects of the design. For example, testing prototyping specific engine types rather than the entire aircraft.
+Time to market requirements:
+If getting to market first is the main driver (such as new technology), then spending time refining prototypes is less valuable.
+Product performance requirements:
+If the market for this product already exists, then meeting performance requirements is critical to achieve sales goals. Therefore, spending extra time refining the design through prototypes is justified.
+A strategy will be based on flexibility of cost, time and performance.
+Further, prototypes can be generated sequentially to develop a single concept or in parallel to evaluate multiple concepts concurrently. If we put together these concepts of rigidity and flexibility on the above three constraints and sequential or parallel approach, then we can form the following design recommendations depending on context. 1 represents very rigid while 0 represents completely flexible. A realistic strategy will be somewhere between.
+Design strategy based on flexibility and iterations.
+Previous/next navigation
+Previous: Product Design Prototyping
+Next: Prototyping Methods and Technologies
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

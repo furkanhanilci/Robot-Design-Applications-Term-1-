@@ -1,0 +1,871 @@
+Embedded
+Systems - Shape The World
+Jonathan Valvano and Ramesh
+Yerraballi
+Closed caption file index
+Professors Valvano and
+Yerraballi teach an online class on Embedded Systems.
+For
+more information see:
+https://www.edx.org/course/embedded-systems-shape-world-utaustinx-ut-6-02x
+.
+To download all the caption files,
+YerraballiValvano_srt.zip
+.
+Video file
+YouTube link
+Caption file
+Description
+C1_0
+http://youtu.be/EcEOGGmX8c8
+EcEOGGmX8c8.srt
+Course Overview Video
+C1.1a
+http://youtu.be/Jwoe_CF8ozA
+Jwoe_CF8ozA.srt
+Valvano Introduction
+C1.1b
+http://youtu.be/ahTNBXBI-rA
+ahTNBXBI-rA.srt
+Yerraballi Introduction
+C1.2
+http://youtu.be/JLEl0dWoqW8
+JLEl0dWoqW8.srt
+Learning Philosophy
+C1.3
+http://youtu.be/y2yCXlQAcZs
+y2yCXlQAcZs.srt
+Expectations: who and
+prerequisites
+C1.5
+http://youtu.be/Y6A3kajLgP0
+Y6A3kajLgP0.srt
+Kit and Lab Solutions
+C1.6
+http://youtu.be/Rc1ohac7Fi8
+Rc1ohac7Fi8.srt
+The role of simulation and
+working in teams
+C1.7
+http://youtu.be/mG7l8QrBhoQ
+mG7l8QrBhoQ.srt
+what's
+new?
+C2 0
+http://youtu.be/ZoHjGRtl39s
+ZoHjGRtl39s.srt
+examples of embedded systems
+C2 1a
+http://youtu.be/Rd2BEVNZdDo
+Rd2BEVNZdDo.srt
+binary
+C2 1b
+http://youtu.be/kPnPCaDgz8A
+kPnPCaDgz8A.srt
+hexadecimal
+C2 1c 7
+http://youtu.be/kYxKjMAFDBE
+kYxKjMAFDBE.srt
+signed numbers
+C2 2a
+http://youtu.be/5OJrQDgUmPM
+5OJrQDgUmPM.srt
+Embedded Systems
+C2 2b
+http://youtu.be/LD1dd8uRfj4
+LD1dd8uRfj4.srt
+Computer
+C2 2c
+http://youtu.be/R7RFjNFycyU
+R7RFjNFycyU.srt
+Ports
+C2 3a
+http://youtu.be/VB8iLtfy3Cc
+VB8iLtfy3Cc.srt
+Registers
+C2 3b
+http://youtu.be/F9HZfJWdV-A
+F9HZfJWdV-A.srt
+Assembly
+C2 3c
+http://youtu.be/u9UUVh8YoEg
+u9UUVh8YoEg.srt
+Address space
+C2.4
+http://youtu.be/NGonOa7sCK0
+NGonOa7sCK0.srt
+Embedded system development
+process
+D2.4
+http://youtu.be/47E_7XvvDpo
+47E_7XvvDpo.srt
+Port pins
+D2.7
+http://youtu.be/ndvwEznOyCc
+ndvwEznOyCc.srt
+memory datasheet
+D2.0
+http://youtu.be/EzXcbvVfFOk
+EzXcbvVfFOk.srt
+RCGC2 datasheet lookup
+C3.0a
+http://youtu.be/_DgexVhva9E
+_DgexVhva9E.srt
+Introduction to electronics
+C3.0b
+http://youtu.be/FnG0vOYMu3Q
+FnG0vOYMu3Q.srt
+Voltage division, current
+division
+C3.0c
+http://youtu.be/xpiamDPXQrI
+xpiamDPXQrI.srt
+Battery, power, energy
+D3.0
+http://youtu.be/DM3eO2Y8wgg
+DM3eO2Y8wgg.srt
+resistors datasheet
+C4.0-new
+http://youtu.be/glkEjtsAR6M
+glkEjtsAR6M.srt
+Introduction
+C4.0b
+http://youtu.be/0l4bX4LxeKc
+0l4bX4LxeKc.srt
+Introduction to digital logic
+C4.1
+http://youtu.be/s8hemthErDk
+s8hemthErDk.srt
+Building a NAND gate
+D4.0
+http://youtu.be/QaxFxLZk9mo
+QaxFxLZk9mo.srt
+VOH VOL VIH VIL datasheet
+C5.0
+http://youtu.be/jXledBILjQE
+jXledBILjQE.srt
+Introduction to C
+C5.1.1
+http://youtu.be/KM-RXkXuon8
+KM-RXkXuon8.srt
+History of C
+C5.2-resh
+http://youtu.be/Kr35rtq4Vu4
+Kr35rtq4Vu4.srt
+Running printf
+C5.3
+http://youtu.be/ddtqdE7Fnz0
+ddtqdE7Fnz0.srt
+Calculate area of square room
+C5.4
+http://youtu.be/UkezMg3zw-k
+UkezMg3zw-k.srt
+Writing functions in C
+C5.5
+http://youtu.be/i-DBf3BXGPA
+i-DBf3BXGPA.srt
+if-then and debugging
+C5.6
+http://youtu.be/aiL8uy1OoQI
+aiL8uy1OoQI.srt
+Input and user interaction
+C6.0
+http://youtu.be/BXXbmqezlwM
+BXXbmqezlwM.srt
+Introduction
+C6.1a
+http://youtu.be/nsB1jbKzyb8
+nsB1jbKzyb8.srt
+I/O concepts
+C6.1b
+http://youtu.be/Vps1XmJYSZU
+Vps1XmJYSZU.srt
+Intro to Launchpad
+C6.1c Reshoot
+http://youtu.be/du1c7LVPDFA
+du1c7LVPDFA.srt
+Port F software
+C6.2a
+http://youtu.be/yp9-AbVyljc
+yp9-AbVyljc.srt
+Development in simulator
+C6.2b
+http://youtu.be/0LLD1kLFN-U
+0LLD1kLFN-U.srt
+Friendly code
+D6.0
+http://youtu.be/VI2vrRwzWio
+VI2vrRwzWio.srt
+Datasheet GPIO registers
+C7.0 Introduction
+http://youtu.be/mImPl2MALcQ
+mImPl2MALcQ.srt
+Introduction to Chapter 7
+C7.1
+http://youtu.be/WecgQHZxIAI
+WecgQHZxIAI.srt
+Development cycle
+C7.2
+http://youtu.be/qsFLfXm5GAY
+qsFLfXm5GAY.srt
+Requirements
+C7.3
+http://youtu.be/zsF6gYMuo8o
+zsF6gYMuo8o.srt
+Pseudocode
+and flowchart
+C8.0
+http://youtu.be/ahjCuR8avjE
+ahjCuR8avjE.srt
+Introduction to Chapter 8
+C8.1A
+http://youtu.be/b1nHX5w43NU
+b1nHX5w43NU.srt
+Requirements document
+C8.1B
+http://youtu.be/zKY3R7_Jl_8
+zKY3R7_Jl_8.srt
+Components
+C8.1C
+http://youtu.be/UGaXmUhG3k8
+UGaXmUhG3k8.srt
+Data flow graph
+C8.1D
+http://youtu.be/XOaK2IcmUTg
+XOaK2IcmUTg.srt
+Flowchart
+C8_VideoPre2
+http://youtu.be/wimHddQckWA
+wimHddQckWA.srt
+Switch data sheet
+C8.2
+http://youtu.be/2yMyb80A4IA
+2yMyb80A4IA.srt
+Interface a switch
+C8_VideoPre3
+http://youtu.be/IR8Ikwf5dZM
+IR8Ikwf5dZM.srt
+LED data sheet
+C8.3
+http://youtu.be/CJuJ_cc2JIo
+CJuJ_cc2JIo.srt
+Interface an LED
+C8.4
+http://youtu.be/5m_zvCo1q_s
+5m_zvCo1q_s.srt
+Software solution in
+Simulation
+C8.5
+http://youtu.be/7XrzA4wlYWg
+7XrzA4wlYWg.srt
+Build circuit
+C8.6
+http://youtu.be/3u1jUnvlCSg
+3u1jUnvlCSg.srt
+Debug in hardware
+C8.7
+http://youtu.be/m7MTa6xELZU
+m7MTa6xELZU.srt
+TExaSdisplay scope debug
+C9.0
+http://youtu.be/80saw2XIx8M
+80saw2XIx8M.srt
+Introduction to arrays and
+functional
+debugging
+C9.1
+http://youtu.be/fMqCBMWZ0pk
+fMqCBMWZ0pk.srt
+SysTick timer
+C9 2a
+http://youtu.be/k3TWKrdKmX8
+k3TWKrdKmX8.srt
+Intro to arrays
+C9.2b
+http://youtu.be/ratuOmU_Qkg
+ratuOmU_Qkg.srt
+example of Arrays
+C9 2c
+http://youtu.be/denGqylqjo4
+denGqylqjo4.srt
+Strings
+C9.3a
+http://youtu.be/MPMa70YEFB4
+MPMa70YEFB4.srt
+white/black box testing,
+intrusiveness
+C9.3b
+http://youtu.be/zGX-3FEN5IY
+zGX-3FEN5IY.srt
+logic analyzer debugging,
+toggle PF1
+C9.3c
+http://youtu.be/QLZLfkZn7Jo
+QLZLfkZn7Jo.srt
+functional debugging, save in
+array
+C10 0
+http://youtu.be/PLsSwhjKQZs
+PLsSwhjKQZs.srt
+Finite State Machine
+Introduction
+C10 1a
+http://youtu.be/9tzjY1GURxc
+9tzjY1GURxc.srt
+PLL
+C10 1b
+http://youtu.be/cnlLBQc32Y0
+cnlLBQc32Y0.srt
+Systick
+D10.0.mp4
+http://youtu.be/H6T9Ir7AQ4c
+H6T9Ir7AQ4c.srt
+Data
+sheet SysTick
+C10 2
+http://youtu.be/l3kU-OjP5cY
+l3kU-OjP5cY.srt
+Finite State Machines
+C10 3
+http://youtu.be/lJu8XWjqffE
+lJu8XWjqffE.srt
+Structs
+C10 4
+http://youtu.be/hT0tHMp3m5k
+hT0tHMp3m5k.srt
+FSM example, count odd ones,
+STG
+C10 4b
+http://youtu.be/omupgLSEF4M
+omupgLSEF4M.srt
+FSM example, count odd ones,
+code
+C10_4c
+http://youtu.be/sDjySwqXFKE
+sDjySwqXFKE.srt
+show a traffic light
+C10_TrafficLight
+http://youtu.be/NjaMe4s0Zz8
+NjaMe4s0Zz8.srt
+Traffic light FSM design
+C10.4D.mp4
+http://youtu.be/kgABPjf9qLI
+kgABPjf9qLI.srt
+New Traffic light FSM design
+C10_LineTrackRobot
+http://youtu.be/r-bNPLRdAqk
+r-
+bNPLRdAqk.srt
+Line tracking robot
+C10 5d
+http://youtu.be/sLVCO4G6itA
+sLVCO4G6itA.srt
+show a stepper motor
+C10 5a
+http://youtu.be/Gagr_KyDYAA
+Gagr_KyDYAA.srt
+Stepper motor robot, STG
+C10 5b
+http://youtu.be/GZnFAPGM9mw
+GZnFAPGM9mw.srt
+Stepper motor software
+C10 5c
+http://youtu.be/-RLDOq-sW6g
+-RLDOq-sW6g.srt
+Stepper motor robot
+demonstration
+C10_5_B2
+http://youtu.be/sxgamL2aCn4
+sxgamL2aCn4.srt
+Stepper motor robot logic
+analyzer
+C11_Video0
+http://youtu.be/vNHHbwzKdJo
+vNHHbwzKdJo.srt
+Introduction
+C11_Video1
+http://youtu.be/pBrghZ5XMr8
+pBrghZ5XMr8.srt
+Device types with regards to
+Synchronization
+C11_Video2a
+http://youtu.be/wdOqQCNWC3c
+wdOqQCNWC3c.srt
+UART, History, Concept and
+the RS232 protocol
+C11_Video2b
+http://youtu.be/9xRmNLc7ZOo
+9xRmNLc7ZOo.srt
+UART
+C11_Video3
+http://youtu.be/gGtm9PN44Uo
+gGtm9PN44Uo.srt
+UART Device Driver
+D11.0.mp4
+http://youtu.be/AH8ZpOSkh_Q
+AH8ZpOSkh_Q.srt
+Look up UART registers in
+data sheet
+C11_Video4
+http://youtu.be/zF1swxwoPq8
+zF1swxwoPq8.srt
+Number conversions
+C11 Video 5a
+http://youtu.be/fWgV7fFLJ3k
+fWgV7fFLJ3k.srt
+Chat tool functionality
+C11 Video 5b
+http://youtu.be/kbKg-QGoHDE
+kbKg-QGoHDE.srt
+show logic analyzer signals
+C11 Video 5bLA
+http://youtu.be/CoM92k3nGhQ
+CoM92k3nGhQ.srt
+logic analyzer
+C11 Video 5c
+http://youtu.be/g3V4KnWxdMo
+g3V4KnWxdMo.srt
+Chat Room demonstration
+C12 0
+http://youtu.be/3727LI4TIeE
+3727LI4TIeE.srt
+Introduction
+C12 Video1a
+http://youtu.be/y-v2zJh53bk
+y-v2zJh53bk.srt
+Interrupts
+C12 Video1b
+http://youtu.be/Kt_pVkFPj3c
+Kt_pVkFPj3c.srt
+Interrupt Processing
+C12 Video2
+http://youtu.be/vjboJ9rDEJM
+vjboJ9rDEJM.srt
+Inter-thread Communication
+and
+Synchronization
+C12 Video3a
+http://youtu.be/uRbhW-gimZI
+uRbhW-gimZI.srt
+Use edge-triggered interrupts
+C12 Video3b
+http://youtu.be/sTxtG1UX1_0
+sTxtG1UX1_0.srt
+configuring edge triggered
+interrupts
+C12 Video3c
+http://youtu.be/KIOJTpdS4d8
+KIOJTpdS4d8.srt
+Edge triggered interrupts
+C12 Video3d
+http://youtu.be/sNhlNi0zL2A
+sNhlNi0zL2A.srt
+Demo of
+Systick
+interrupt software
+D12.0.mp4
+http://youtu.be/pStlJQ4WiRc
+pStlJQ4WiRc.srt
+Look up audio jack in data
+sheets
+C12 Video4a
+http://youtu.be/O33fg9621QI
+O33fg9621QI.srt
+DC motor interface
+C12 Video4b
+http://youtu.be/PCfkXtJ549s
+PCfkXtJ549s.srt
+PWM flowcharts
+C12 Video4c
+http://youtu.be/S9Jay8ib9yc
+S9Jay8ib9yc.srt
+PWM software
+C12 Video4d)pre
+http://youtu.be/j7z0LfT25yw
+j7z0LfT25yw.srt
+Building of robot car
+D13B.mp4
+http://youtu.be/3VGVkLo_FDg
+3VGVkLo_FDg.srt
+Look up TIP parameters in the
+data sheet
+C12 Video4d
+http://youtu.be/p4QevDMCuKo
+p4QevDMCuKo.srt
+Scope output showing PWM
+signal
+C12 Video4e
+http://youtu.be/8gEZlEu5GxY
+8gEZlEu5GxY.srt
+Robot car demo
+C13_Video0
+http://youtu.be/XOOEUhV9w5I
+XOOEUhV9w5I.srt
+Introduction to DAC
+C13_Video1
+http://youtu.be/IjNN3gRmmxE
+IjNN3gRmmxE.srt
+Sampling
+C13_Video2
+http://youtu.be/mo0kEPlOIvQ
+mo0kEPlOIvQ.srt
+Nyquist Theorem Both examples
+C13_Video3
+http://youtu.be/5LveKTMGuEM
+5LveKTMGuEM.srt
+A 3-bit binary-weighted DAC
+C13_Video4
+http://youtu.be/V7mA-2kw_ys
+V7mA-2kw_ys.srt
+Sound as an analog signal:
+C13_Video5a_1
+http://youtu.be/BHLSiifPEes
+BHLSiifPEes.srt
+Design of an R-2R DAC
+C13_Video5b_1
+http://youtu.be/DfuhVG5LKxA
+DfuhVG5LKxA.srt
+DAC
+C13_Video5c
+http://youtu.be/FTOcCjC5gbU
+FTOcCjC5gbU.srt
+Show software R2R 3bit
+C13_video5d
+http://youtu.be/bTRFsB3nBDs
+bTRFsB3nBDs.srt
+Construction of a R-2R DAC
+C13_Video5e
+http://youtu.be/7YvyQfn7s1o
+7YvyQfn7s1o.srt
+Connect to scope and show PF3
+and Sine wave
+output
+C13_Video6
+http://youtu.be/cGIpODQyPO4
+cGIpODQyPO4.srt
+speaker oscillating:
+amplitude (power) and
+pitch
+C14 Video 0
+http://youtu.be/4XuVDdLqKrI
+4XuVDdLqKrI.srt
+Introduction to Data
+Acquisition
+C14 Video 1
+http://youtu.be/zilfgmsXeeE
+zilfgmsXeeE.srt
+Digitization
+C14 Video 2
+http://youtu.be/mAtri-cYSvk
+mAtri-cYSvk.srt
+Successive Approximation
+C14 Video 3 1
+http://youtu.be/tXt4c7_Uz98
+tXt4c7_Uz98.srt
+ADC
+C14 Video 4
+http://youtu.be/YCScddUsZZA
+YCScddUsZZA.srt
+Software on the TM4C to
+sample one channel
+D13A.mp4
+http://youtu.be/sNGe_UR5LVY
+sNGe_UR5LVY.srt
+Look up ADC registers in the
+data sheet
+C14 Video 5
+http://youtu.be/VNftf5qLpiA
+VNftf5qLpiA.srt
+Nyquist Theorem and aliasing
+audio added at
+end
+C14 Video 6
+http://youtu.be/0PefsLtHGVw
+0PefsLtHGVw.srt
+Data acquisition (sensor,
+signal processing,
+ADC, software)
+C14 Video 7
+http://youtu.be/Tt9uL9IRyIw
+Tt9uL9IRyIw.srt
+Autonomous Robot Car
+C15_Video0
+http://youtu.be/O5S84d08kfQ
+O5S84d08kfQ.srt
+Introduction (V and Y)
+C15_Video1
+http://youtu.be/YJ855nhKJeA
+YJ855nhKJeA.srt
+Overview requirements document
+C15_Video2
+http://youtu.be/hqTA4uJ6nBg
+hqTA4uJ6nBg.srt
+Modular design
+C15_Video3
+http://youtu.be/ZCNFdYtrNXw
+ZCNFdYtrNXw.srt
+Graphics
+C15_Video4
+http://youtu.be/VyEAtqWR1dQ
+VyEAtqWR1dQ.srt
+Creating new images, has a
+live video insert
+C15_Video5
+http://youtu.be/9BLtHUR5SME
+9BLtHUR5SME.srt
+Sprites, has a live video
+insert
+C15_Video6
+http://youtu.be/BPLeKETEUIs
+BPLeKETEUIs.srt
+Timer 2A
+C15_LabOverview
+http://youtu.be/9s85rfrV6nc
+9s85rfrV6nc.srt
+Overview of lab
+C16_0
+In production
+C16_1
+In production
+C16_2
+In production
+C16_3
+In production
+C16_4
+In production
+C16_5
+In production
+Lab2A
+http://youtu.be/SRr6-6Bwb00
+SRr6-6Bwb00.srt
+Operational Lab 2
+Lab2D
+http://youtu.be/x6Vy7qE2Rmg
+x6Vy7qE2Rmg.srt
+grading Lab 2 in simulation
+Lab2F
+http://youtu.be/46yuxIZlRq0
+46yuxIZlRq0.srt
+grading Lab 2 on the real
+board
+L4A
+http://youtu.be/cYoTOHT02T8
+cYoTOHT02T8.srt
+Operational Lab 4
+L4B
+http://youtu.be/JnW6KwKFMOQ
+JnW6KwKFMOQ.srt
+Debugging techniques
+L4C
+http://youtu.be/KN_yt62A4qw
+KN_yt62A4qw.srt
+grading Lab 4 in simulation
+L4D
+http://youtu.be/t-kB_GUZDJw
+t-
+kB_GUZDJw.srt
+grading Lab 4 on real board
+Lab5A
+http://youtu.be/MsZqh49l2Fc
+MsZqh49l2Fc.srt
+Operational Lab 5
+Lab5B
+http://youtu.be/v3_vIbX4kx4
+v3_vIbX4kx4.srt
+grading Lab 5 in simulation
+Lab5C
+http://youtu.be/vs-I6ahOXGI
+vs-I6ahOXGI.srt
+grading Lab 5 on real board
+Lab6A
+http://youtu.be/NyHpWuVD3gw
+NyHpWuVD3gw.srt
+Operational Lab 6
+Lab6B
+http://youtu.be/dbFz-BKDZL0
+dbFz-BKDZL0.srt
+grading Lab 6 in simulation
+Lab6C
+http://youtu.be/Y5D2SH8Qbx0
+Y5D2SH8Qbx0.srt
+grading Lab 6 on real board
+L7A
+http://youtu.be/QaFlnBglmbA
+QaFlnBglmbA.srt
+Operational Lab 7
+L7B
+http://youtu.be/zYbQNvtkjJo
+zYbQNvtkjJo.srt
+Background on pacemaker
+L7C
+http://youtu.be/h3KOvQsrogw
+h3KOvQsrogw.srt
+grading Lab 7 in simulation
+L7D
+http://youtu.be/aZasX7RmbnQ
+aZasX7RmbnQ.srt
+grading Lab 7 on real board
+Lab8A
+http://youtu.be/bS73Z-WGZz8
+bS73Z-WGZz8.srt
+Operational Lab 8
+Lab8B
+http://youtu.be/sWVA-jwjAtc
+sWVA-jwjAtc.srt
+Lab 8 Simulation Grader
+Lab8C
+http://youtu.be/5KI1_eMCT38
+5KI1_eMCT38.srt
+Lab 8 Real board grader
+Lab8D
+http://youtu.be/_yg_278RhGE
+_yg_278RhGE.srt
+Using voltmeter to measure
+LED current
+Lab8E
+http://youtu.be/mtsOrzoECbk
+mtsOrzoECbk.srt
+how to use the Keil logic
+analyzer
+Lab8F
+http://youtu.be/Meb1-RqBDy8
+Meb1-RqBDy8.srt
+debugging tips for Keil
+Lab9A
+http://youtu.be/74hB62yAIDU
+74hB62yAIDU.srt
+demo of Lab 9
+Lab9B
+http://youtu.be/gEqAvMnxe4k
+gEqAvMnxe4k.srt
+simulation grader
+Lab9C
+http://youtu.be/IcLF4eUJIkQ
+IcLF4eUJIkQ.srt
+grading Lab 9 on real board
+Lab10A
+http://youtu.be/qNl7vayZEz0
+qNl7vayZEz0.srt
+demo of Lab 10
+Lab10B
+http://youtu.be/MUL3QNRy_LE
+MUL3QNRy_LE.srt
+simulation grader
+Lab10C
+http://youtu.be/Szo_LUIdjCg
+Szo_LUIdjCg.srt
+real board grader
+Lab11A
+http://youtu.be/u7Hs55N1FAo
+u7Hs55N1FAo.srt
+demo of Lab 11
+Lab11B
+http://youtu.be/_SxdhTIM0M8
+_SxdhTIM0M8.srt
+simulation grader
+Lab11C
+http://youtu.be/wMOnkRYA1hg
+wMOnkRYA1hg.srt
+real board grader
+Lab12A
+http://youtu.be/VPnIBZxOL-A
+VPnIBZxOL-A.srt
+demo of Lab 12
+Lab12B
+http://youtu.be/z1UY0IRYZZM
+z1UY0IRYZZM.srt
+demonstration of scope
+Lab12C
+http://youtu.be/G-Bk58nYaRE
+G-Bk58nYaRE.srt
+simulation grader
+Lab12D
+http://youtu.be/yW-LjPpYz2w
+yW-LjPpYz2w.srt
+real board grader
+Lab13A
+http://youtu.be/o678t86HEGc
+o678t86HEGc.srt
+demo of Lab 13
+Lab13B
+http://youtu.be/JYKvC6p8yl0
+JYKvC6p8yl0.srt
+demonstration of scope
+Lab13C
+http://youtu.be/_wMFERrmJ9w
+_wMFERrmJ9w.srt
+simulation grader
+Lab13D
+http://youtu.be/7jFpGsn18fA
+7jFpGsn18fA.srt
+real board grader
+Lab14Ademo
+http://youtu.be/URHdTlCaJ1o
+URHdTlCaJ1o.srt
+short demo of Lab 14
+Lab14B
+http://youtu.be/BYRCDWFDBtk
+BYRCDWFDBtk.srt
+Debug the ADC functions
+Lab14C
+http://youtu.be/i7bFg48pYZg
+i7bFg48pYZg.srt
+Debug the convert function
+C14 Video 9
+http://youtu.be/eKnmfacxfX4
+eKnmfacxfX4.srt
+Building of the ADC slide pot
+(Use this in
+the Lab14)
+Lab14D
+http://youtu.be/pDSlkNP2sA8
+pDSlkNP2sA8.srt
+simulation grader
+Lab14E
+http://youtu.be/CRHbDJqk3og
+CRHbDJqk3og.srt
+real board grader
+Lab15A
+http://youtu.be/tJYzdzLf6Sw
+tJYzdzLf6Sw.srt
+Debug game in simulator
+Lab15BuildingBoard
+http://youtu.be/BZwjpMf47F8
+BZwjpMf47F8.srt
+How to build the video game
+on a solder board
+Lab15C
+http://youtu.be/OfGPWmxk0m4
+OfGPWmxk0m4.srt
+new upload procedure
+Lab15VirtualNokia
+http://youtu.be/q50YowFfZgc
+q50YowFfZgc.srt
+Virtual Nokia
+Lab15download
+http://youtu.be/ePdy1yxrsBo
+ePdy1yxrsBo.srt
+download procedure
+Lab16_A
+In production
+Lab16_B
+In production
+Lab16_C
+In production
+Lab16_D
+In production
+Embedded
+Systems - Shape the World
+by
+Jonathan
+Valvano and Ramesh Yerraballi
+is
+licensed under a
+Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License
+.
+Based
+on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

@@ -1,0 +1,102 @@
+Real-time preemption — The Linux Kernel  documentation
+The Linux Kernel
+7.3.0-rc6
+Quick search
+Contents
+Working with the development community
+Development process
+Submitting patches
+Code of conduct
+Maintainer handbook
+All development-process docs
+Internal API manuals
+Core API
+Core utilities
+The Linux Kernel API
+Workqueue
+General notification mechanism
+Message logging with printk
+How to get printk format specifiers right
+Printk Index
+Symbol Namespaces
+Assembler Annotations
+Real-time preemption
+Housekeeping
+Data structures and low-level utilities
+Low level entry and exit
+Concurrency primitives
+Low-level hardware management
+Memory management
+Interfaces for kernel debugging
+Everything else
+Driver APIs
+Subsystems
+Locking
+Development tools and processes
+Licensing rules
+Writing documentation
+Development tools
+Testing guide
+Hacking guide
+Tracing
+Fault injection
+Livepatching
+Rust
+User-oriented documentation
+Administration
+Build system
+Reporting issues
+Userspace tools
+Userspace API
+Firmware-related documentation
+Firmware
+Firmware and Devicetree
+Architecture-specific documentation
+CPU architectures
+Other documentation
+Unsorted documentation
+Translations
+Translations
+This Page
+Show Source
+Real-time preemption
+¶
+This documentation is intended for Linux kernel developers and contributors
+interested in the inner workings of PREEMPT_RT. It explains key concepts and
+the required changes compared to a non-PREEMPT_RT configuration.
+Theory of operation
+Preface
+Scheduling
+Sleeping spin locks
+Priority inheritance
+Threaded interrupts
+Summary
+How realtime kernels differ
+Preface
+Locking
+Execution context
+Spin until ready
+Considering hardware
+System memory and cache
+Hardware buses
+Virtualization
+Networking
+Firmware
+Porting an architecture to support PREEMPT_RT
+Requirements
+Optional features
+Real-Time Kernel configuration
+Introduction
+Configuration options
+Kernel Debug Options
+Summary
+References
+©The kernel development community.
+      
+      |
+      Powered by
+Sphinx 5.3.0
+&
+Alabaster 0.7.16
+|
+Page source

@@ -1,0 +1,26 @@
+{
+  "id": 26,
+  "name": "Fitzgerald and Kingsleys Electric Machinery - Stephen Umans",
+  "type": "Ticari ders kitabı",
+  "url": "https://www.mheducation.com/highered/product/fitzgerald-and-kingsleys-electric-machinery-umans.html",
+  "folder": "26_Fitzgerald_and_Kingsleys_Electric_Machinery_-_Stephen_Umans",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.mheducation.com/highered/product/fitzgerald-and-kingsleys-electric-machinery-umans.html",
+      "final_url": "https://www.mheducation.com/highered/product/fitzgerald-and-kingsleys-electric-machinery-umans.html",
+      "kind": "html",
+      "bytes": 298366,
+      "sha256": "8201127842ca80eead2df6e183b8c86d387b79aaa01fb2ba8b916d1bec245e56"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:28+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

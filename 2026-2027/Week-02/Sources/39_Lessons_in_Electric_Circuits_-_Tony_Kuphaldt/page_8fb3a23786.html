@@ -1,0 +1,2710 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 13</title>
+  <meta name="description" content="AC Motors">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_12.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_14.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 13</h1>
+
+
+
+<!--Created 06/01/2005 (DC)-->
+<!--Modified 02/09/2005 (DC) Floating figures w/ captions -->
+<!--images used, diagrams, 02418.eps to -->
+
+
+<h1>AC MOTORS</h1> 
+<!--minitoc-->
+
+
+ 
+
+<ul>
+<li><a href="#xtocid89750"><u>Introduction</u></a></li>
+<ul>
+<li><a href="#xtocid89751"><u>&nbsp;Hysteresis and Eddy Current </u></a></li>
+</ul>
+<li><a href="#xtocid89752"><u>&nbsp;Synchronous Motors</u></a></li>
+<li><a href="#xtocid89753"><u>Synchronous condenser</u></a></li>
+<li><a href="#xtocid89754"><u>Reluctance motor</u></a></li>
+<ul>
+<li><a href="#xtocid89755"><u>Synchronous reluctance</u></a></li>
+<li><a href="#xtocid89756"><u>Switched reluctance</u></a></li>
+<li><a href="#xtocid89757"><u>Electronic driven variable reluctance motor </u></a></li>
+</ul>
+<li><a href="#xtocid89758"><u>Stepper motors</u></a></li>
+<ul>
+<li><a href="#xtocid89759"><u>Characteristics </u></a></li>
+<li><a href="#xtocid897510"><u>Variable reluctance stepper</u></a></li>
+<li><a href="#xtocid897511"><u>Permanent magnet stepper </u></a></li>
+<ul>
+<li><a href="#xtocid897512">Wave drive</a></li>
+<li><a href="#xtocid897513">Full step drive</a></li>
+<li><a href="#xtocid897514">Half step drive</a></li>
+<li><a href="#xtocid897515">Construction</a></li>
+</ul>
+<li><a href="#xtocid897516"><u>Hybrid stepper motor</u></a></li>
+</ul>
+<li><a href="#xtocid897517"><u>Brushless DC motor</u></a></li>
+<li><a href="#xtocid897518"><u>Tesla polyphase induction motors </u></a></li>
+<ul>
+<li><a href="#xtocid897519"><u>Construction</u></a></li>
+<li><a href="#xtocid897520"><u>Theory of operation </u></a></li>
+<ul>
+<li><a href="#xtocid897521">Motor speed</a></li>
+<li><a href="#xtocid897522">Torque</a></li>
+<li><a href="#xtocid897523">NEMA design classes</a></li>
+<li><a href="#xtocid897524">Power factor</a></li>
+<li><a href="#xtocid897525">Efficiency</a></li>
+</ul>
+<li><a href="#xtocid897526"><u>Nola power factor corrector</u></a></li>
+<li><a href="#xtocid897527"><u>Induction motor alternator</u></a></li>
+<li><a href="#xtocid897528"><u>Motor starting and speed control</u></a></li>
+<ul>
+<li><a href="#xtocid897529">Running 3-phase motors on 1-phase</a></li>
+<li><a href="#xtocid897530">Multiple fields</a></li>
+<li><a href="#xtocid897531">Variable voltage</a></li>
+<li><a href="#xtocid897532">Electronic speed control</a></li>
+</ul>
+<li><a href="#xtocid897533"><u>Linear induction motor</u></a></li>
+</ul>
+<li><a href="#xtocid897534"><u>Wound rotor induction motors </u></a></li>
+<ul>
+<li><a href="#xtocid897535"><u>Speed control</u></a></li>
+<li><a href="#xtocid897536"><u>Doubly-fed induction generator</u></a></li>
+</ul>
+<li><a href="#xtocid897537"><u>Single-phase induction motors</u></a></li>
+<ul>
+<li><a href="#xtocid897538"><u>Permanent-split capacitor motor </u></a></li>
+<li><a href="#xtocid897539"><u>Capacitor-start induction motor </u></a></li>
+<li><a href="#xtocid897540"><u>Capacitor-run motor induction motor </u></a></li>
+<li><a href="#xtocid897541"><u>Resistance split-phase induction motor</u></a></li>
+<li><a href="#xtocid897542"><u>Nola power factor corrector</u></a></li>
+</ul>
+<li><a href="#xtocid897543"><u>&nbsp;Other specialized motors</u></a></li>
+<ul>
+<li><a href="#xtocid897544"><u>&nbsp;Shaded pole induction motor </u></a></li>
+<li><a href="#xtocid897545"><u>&nbsp;2-phase  servo motor</u></a></li>
+<li><a href="#xtocid897546"><u>&nbsp;Hysteresis motor</u></a></li>
+<li><a href="#xtocid897547"><u>&nbsp;Eddy current clutch </u></a></li>
+</ul>
+<li><a href="#xtocid897548"><u>&nbsp;Selsyn (synchro) motors </u></a></li>
+<ul>
+<li><a href="#xtocid897549"><u>Transmitter - receiver</u></a></li>
+<li><a href="#xtocid897550"><u>&nbsp;Differential transmitter - receiver </u></a></li>
+<ul>
+<li><a href="#xtocid897551">&nbsp;Addition vs subtraction</a></li>
+</ul>
+<li><a href="#xtocid897552"><u>&nbsp;Control transformer </u></a></li>
+<li><a href="#xtocid897553"><u>&nbsp;Resolver</u></a></li>
+</ul>
+<li><a href="#xtocid897554"><u>&nbsp;AC commutator motors </u></a></li>
+<ul>
+<li><a href="#xtocid897555"><u>&nbsp;Single phase series motor </u></a></li>
+<li><a href="#xtocid897556"><u>&nbsp;Compensated series motor </u></a></li>
+<li><a href="#xtocid897557"><u>&nbsp;Universal motor </u></a></li>
+<li><a href="#xtocid897558"><u>&nbsp;Repulsion motor </u></a></li>
+<li><a href="#xtocid897559"><u>&nbsp;Repulsion start induction motor </u></a></li>
+</ul>
+<li><a href="#xtocid897560">Bibliography</a></li></ul>
+
+<p>
+<b>Original author: Dennis Crunkilton</b>
+</p>
+
+
+ 
+<a name="02418.png"></a> 
+<p> <img src="02418.png"> </p> 
+<p><i>Conductors of squirrel cage induction motor removed from rotor.</i></p> 
+
+
+
+<h2><u><a name="xtocid89750">Introduction</a></u></h2>
+
+<a name="Tesla, Nikola"></a>
+<a name="Motor, AC"></a>
+<a name="AC motor"></a>
+
+<p>
+After the introduction of the DC electrical distribution system by Edison in the United States, a gradual transition to the more economical AC system commenced. Lighting worked as well on AC as on DC. Transmission of electrical energy covered longer distances at lower loss with alternating current. However, motors were a problem with alternating current. Initially, AC motors were constructed like DC motors. Numerous problems were encountered due to changing magnetic fields, as compared to the static fields in DC motor field coils.
+</p>
+
+
+
+
+ 
+<a name="02420.png"></a> 
+<p> <img src="02420.png"> </p> 
+<p><i>AC electric motor family diagram.</i></p> 
+
+
+
+
+<p>
+Charles  P. Steinmetz contributed to solving these problems with his investigation of hysteresis losses in iron armatures. Nikola Tesla envisioned an entirely new type of motor when he visualized a spinning turbine, not spun by water or steam, but by a rotating magnetic field. His new type of motor, the AC induction motor, is the workhorse of industry to this day. Its ruggedness and simplicity (Figure <a href="#02418.png">  above</a>)  make for long life, high reliability, and low maintenance. Yet small brushed AC motors, similar to the DC variety, persist in small appliances along with small Tesla induction motors. Above one horsepower (750 W), the Tesla motor reigns supreme.
+</p>
+
+<p>
+Modern solid state electronic circuits drive <i>brushless DC motors</i> with AC waveforms generated from a DC source. The brushless DC motor, actually an AC motor, is replacing the conventional brushed DC motor in many applications. And, the <i>stepper motor</i>, a digital version of motor, is driven by alternating current square waves, again, generated by solid state circuitry  Figure <a href="#02420.png">  above</a> shows the family tree of the AC motors described in this chapter.
+</p>
+
+
+<p>
+Cruise ships and other large vessels replace reduction geared drive shafts with large multi-megawatt generators and motors. Such has been the case with diesel-electric locomotives on a smaller scale for many years.
+</p>
+
+ 
+<a name="02421.png"></a> 
+<p> <img src="02421.png"> </p> 
+<p><i>Motor system level diagram.</i></p> 
+
+
+<p>
+At the system level, (Figure <a href="#02421.png">  above</a>) a motor takes in electrical energy in terms of a potential difference and a current flow, converting it to mechanical work. Alas, electric motors are not 100% efficient. Some of the electric energy is lost to heat, another form of energy, due to I<sup>2</sup>R losses in the motor windings. The heat is an undesired byproduct of the conversion. It must be removed from the motor and may adversely affect longevity. Thus, one goal is to maximize motor efficiency, reducing the heat loss.  AC motors also have some losses not encountered by DC motors: hysteresis and eddy currents.
+</p>
+
+
+
+
+<h3><u><a name="xtocid89751">&nbsp;Hysteresis and Eddy Current </a></u></h3>
+
+<p>
+Early designers of AC motors encountered problems traced to losses unique to alternating current magnetics. These problems were encountered when adapting 
+DC motors to AC operation. Though few AC motors today bear any resemblance to DC motors,  these problems  had to be solved before AC motors of any type  could be properly designed before they were built.
+</p>
+
+<a name="Eddy current"></a>
+
+<p>
+Both rotor and stator cores of AC motors are composed of a stack of insulated laminations. The laminations are coated with insulating varnish before stacking and bolting into the final form. <i>Eddy currents</i> are minimized by breaking the potential conductive loop into smaller less lossy segments. (Figure <a href="#02422.png">  below</a>)  The current loops look like shorted transformer secondary turns. The thin isolated laminations break these loops. Also, the silicon (a semiconductor) added to the alloy used in the laminations increases  electrical resistance which decreases the magnitude of eddy currents.
+</p>
+
+ 
+<a name="02422.png"></a> 
+<p> <img src="02422.png"> </p> 
+<p><i>Eddy currents in iron cores.</i></p> 
+
+
+<p>
+If the laminations are made of silicon alloy grain oriented steel,  <i>hysteresis</i> losses are minimized. Magnetic hysteresis is a lagging behind of magnetic field strength as compared to magnetizing force. If a soft iron nail is temporarily magnetized by a solenoid, one would expect the nail to lose the magnetic field once the solenoid is de-energized. However, a small amount of <i>residual magnetization</i>,  B<sub>r</sub>  due to hysteresis  remains. (Figure <a href="#02423.png">  below</a>)  An alternating current has to expend energy, -H<sub>c</sub> the <i>coercive force</i>, in overcoming  this residual magnetization before it can magnetize the core back to zero, let alone in the opposite direction. Hysteresis loss is encountered each time the polarity of the AC reverses. The loss is proportional to the area enclosed by the hysteresis loop on the B-H curve. &ldquo;Soft&rdquo; iron alloys have lower losses than &ldquo;hard&rdquo; high carbon steel alloys. Silicon grain oriented steel, 4% silicon, rolled to preferentially orient the grain or crystalline structure, has still lower losses.
+</p>
+
+ 
+<a name="02423.png"></a> 
+<p> <img src="02423.png"> </p> 
+<p><i>Hysteresis curves for low and high loss alloys.</i></p> 
+
+
+<p>
+Once Steinmetz's Laws of hysteresis could predict iron core losses, it was possible to design AC motors which performed as designed. This was akin to being able to design a bridge ahead of time that would not collapse once it was actually built. This knowledge of eddy current and hysteresis was first applied to building AC commutator motors similar to their DC counterparts. Today this is but a minor category of AC motors. Others invented new types of AC motors bearing little resemblance to their DC kin.
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid89752">&nbsp;Synchronous Motors</a></u></h2>
+
+<a name="Synchronous motor"></a>
+<a name="Motor, AC, synchronous"></a>
+<a name="Motor, synchronous"></a>
+
+<p>
+Single phase synchronous motors are available in small sizes for applications requiring precise timing such as time keeping, (clocks) and tape players. Though battery powered quartz regulated clocks are widely available, the AC line operated variety has better long term accuracy-- over a period of months. This is due to power plant operators purposely maintaining the long term accuracy of the frequency of the AC distribution system. If it falls behind by a few cycles, they will make up the lost cycles of AC so that clocks lose no time. 
+</p>
+
+<p>
+Above 10 Horsepower (10 kW) the higher efficiency and leading powerfactor make large synchronous motors useful in industry. Large synchronous motors are a few percent more efficient than the more common induction motors. Though, the synchronous motor is more complex.
+</p>
+
+<p>
+Since motors and generators are similar in construction, it should be possible to use a generator as a motor, conversely, use a motor as a generator. A synchronous motor is similar to an alternator with a rotating field. The figure below shows small alternators with a permanent magnet rotating field. This figure <a href="#02424.png">  below</a> could either be two paralleled and synchronized alternators driven by a mechanical energy source, or an alternator driving a synchronous motor. Or, it could be two motors, if an external power source were connected. The point is that in either case the rotors must run at the same nominal frequency, and be in phase with each other.  That is, they must be <i>synchronized</i>. The procedure for synchronizing two alternators is to (1) open the switch, (2) drive both alternators at the same rotational rate, (3) advance or retard the phase of one unit until both AC outputs are in phase, (4) close the switch before they drift out of phase. Once synchronized, the alternators will be locked to each other, requiring considerable torque to break one unit loose (out of synchronization) from the other.
+</p>
+
+ 
+<a name="02424.png"></a> 
+<p> <img src="02424.png"> </p> 
+<p><i>Synchronous motor running in step with alternator.</i></p> 
+
+
+<p>
+If more torque in the direction of rotation is applied to the rotor of one of the above rotating alternators, the angle of the rotor will advance (opposite of (3)) with respect to the magnetic field in the stator coils while still synchronized and the rotor will deliver energy to the AC line like an alternator. The rotor will also be advanced with respect to the rotor in the other alternator. If a load such as a brake is applied to one of the above units, the angle of the rotor will lag the stator field as at (3), extracting energy from the AC line, like a motor.  If excessive torque  or drag is applied, the rotor will exceed the maximum <i>torque angle</i>   advancing or lagging  so much that synchronization is lost. Torque is developed only when synchronization of the motor is maintained.
+</p>
+
+<p>
+In the case of a small synchronous motor in place of the alternator Figure <a href="#02424.png">  above</a> right, it is not necessary to go through the elaborate synchronization procedure for alternators. However, the synchronous motor is not self starting and must still be brought up to the approximate alternator electrical speed before it will lock (synchronize) to the generator rotational rate. Once up to speed, the synchronous motor will maintain synchronism with the AC power source and develop torque.
+</p>
+
+ 
+<a name="02425.png"></a> 
+<p> <img src="02425.png"> </p> 
+<p><i>Sinewave drives synchronous motor.</i></p> 
+
+
+<p>
+Assuming that the motor is up to synchronous speed, as the sine wave changes to  positive in Figure <a href="#02425.png">  above</a> (1), the lower north coil pushes the north rotor pole, while the upper south coil attracts that rotor north pole. In a similar manner the rotor south pole is repelled by the upper south coil and attracted to the lower north coil. By the time that the sine wave reaches a peak at (2), the torque holding the north pole of the rotor up is at a maximum. This torque decreases as the sine wave decreases to 0 V<sub>DC</sub> at (3) with the torque at a minimum. 
+</p>
+
+<p>
+As the sine wave changes to  negative between (3&amp;4), the lower south coil pushes the south rotor pole, while attracting rotor north rotor pole.   In a similar manner the rotor north pole is repelled by the upper north coil and attracted to the lower south coil. At (4) the sinewave reaches a negative peak with holding torque again at a maximum. As the sine wave changes from negative to  0 V<sub>DC</sub> to positive, The process repeats for a new cycle of sine wave.
+</p>
+
+<p>
+Note, the above figure illustrates the rotor position for a no-load condition (&#945;=0<sup>o</sup>). In actual practice, loading the rotor will cause the rotor to lag the positions shown by angle &#945;. This angle increases with loading until the maximum motor torque is reached at &#945;=90<sup>o</sup> electrical. Synchronization and torque are lost beyond this angle.
+</p>
+
+<p>
+The current in the coils of a single phase synchronous motor pulsates while alternating polarity. If the permanent magnet rotor speed is close to the frequency of this alternation, it synchronizes to this alternation. Since the coil field pulsates and does not rotate, it is necessary to bring the permanent magnet rotor up to speed with an auxiliary motor. This is a small induction motor similar to those in the next section.
+</p>
+
+ 
+<a name="02426.png"></a> 
+<p> <img src="02426.png"> </p> 
+<p><i>Addition of field poles decreases speed.</i></p> 
+
+
+<p>
+A 2-pole (pair of N-S poles) alternator will generate a 60 Hz sine wave when rotated at 3600 rpm (revolutions per minute). The 3600 rpm corresponds to 60 revolutions per second. A similar 2-pole permanent magnet synchronous motor will also rotate at 3600 rpm. A lower speed motor may be constructed by adding more pole pairs. A 4-pole motor would rotate at 1800 rpm, a 12-pole motor at 600 rpm. The style of construction shown (Figure <a href="#02426.png">  above)</a>) is for illustration. Higher efficiency higher torque multi-pole stator synchronous motors actually have multiple poles in the rotor. 
+</p>
+
+ 
+<a name="02427.png"></a> 
+<p> <img src="02427.png"> </p> 
+<p><i>One-winding 12-pole synchronous motor.</i></p> 
+
+
+
+<p>
+Rather than wind 12-coils for a 12-pole motor, wind a single coil with twelve interdigitated steel poles pieces as shown in Figure <a href="#02427.png">  above</a>. Though the polarity of the coil alternates due to the appplied AC, assume that the top is temporarily north, the bottom south. Pole pieces route the south flux from the bottom and outside of the coil to the top. These 6-souths are interleaved with 6-north tabs bent up from the top of the steel pole piece of the coil. Thus, a permanent magnet rotor bar will encounter 6-pole pairs corresponding to 6-cycles of AC in one physical rotation of the bar magnet. The rotation speed will be 1/6 of the electrical speed of the AC. Rotor speed will be 1/6 of that experienced with a 2-pole synchronous motor. Example: 60 Hz would rotate a 2-pole motor at 3600 rpm, or 600 rpm for a 12-pole motor.  
+</p>
+
+ 
+ 
+<a name="52017.jpg"></a> 
+<p> <img src="52017.jpg"> </p> 
+<p><i>Reprinted by permission of  Westclox History at <a href="http://www.clockHistory.com">www.clockHistory.com</a></i></p> 
+
+<!--Above image too small scale it larger-200%-->
+
+<p>
+The stator (Figure  <a href="#52017.jpg">  above</a>) shows a 12-pole Westclox synchronous clock motor. Construction is similar to the previous figure with a single coil. The one coil style of construction is economical for low torque motors. This 600 rpm motor drives reduction gears  moving clock hands.
+</p>
+
+<p>
+If the Westclox motor were to run at 600 rpm from a 50 Hz power source, how many poles would be required? A 10-pole motor would have 5-pairs of N-S poles. It would rotate at 50/5 = 10 rotations per second or 600 rpm (10 s<sup>-1</sup> x 60 s/minute.)
+</p>
+
+ 
+ 
+<a name="52018.jpg"></a> 
+<p> <img src="52018.jpg"> </p> 
+<p><i>Reprinted by permission of Westclox History at <a href="http://www.clockHistory.com">www.clockHistory.com</a></i></p> 
+
+<!--Above image too small scale it larger-200%-->
+
+
+<p>
+The rotor (Figure <a href="#52018.jpg">  above</a>)  consists of a permanent magnet bar and a steel induction motor cup. The synchronous motor bar rotating within the pole tabs keeps accurate time. The induction motor cup outside of the bar magnet fits outside and over the tabs for self starting.  At one time non-self-starting motors without the induction motor cup were manufactured.
+</p>
+
+<p>
+A 3-phase synchronous motor as shown in  Figure <a href="#02428.png">  below</a> generates an electrically  rotating field in the stator. Such motors are not self starting if started from a fixed frequency power source such as 50 or 60 Hz as found in an industrial setting. Furthermore, the rotor is not a permanent magnet as shown below for the multi-horsepower (multi-kilowatt) motors used in industry, but an electromagnet.  Large industrial synchronous motors are more efficient than induction motors. They are used when constant speed is required. Having a leading power factor, they can correct the AC line for a lagging power factor.
+</p>
+
+<p>
+The three phases of stator excitation add vectorially to produce a single resultant magnetic field which rotates f/2n times per second, where f is the power line frequency, 50 or 60 Hz for industrial power line operated motors. The number of poles is n. For rotor speed in rpm, multiply by 60.
+</p>
+
+
+<pre>
+&nbsp;       S = f120/n
+&nbsp;                               
+&nbsp;       where: S = rotor speed in rpm
+&nbsp;              f = AC line frequency
+&nbsp;              n = number of poles per phase
+</pre>
+
+
+<p>
+The 3-phase 4-pole (per phase) synchronous motor (Figure <a href="#02428.png">  below</a>)  will rotate at 1800 rpm with 60 Hz power or 1500 rpm with 50 Hz power. If the coils are energized one at a time in the sequence &#966;-1, &#966;-2, &#966;-3, the rotor should point to the corresponding poles in turn. Since the sine waves actually overlap, the resultant field will rotate, not in steps, but smoothly. For example, when the &#966;-1 and &#966;-2 sinewaves coincide, the field will be at a peak pointing between these poles. The bar magnet rotor shown is only appropriate for small motors. The rotor with multiple magnet poles (below right) is used in any efficient motor driving a substantial load. These will be slip ring fed electromagnets in large industrial motors. Large industrial synchronous motors are self started by embedded squirrel cage conductors in the armature, acting like an induction motor. The electromagnetic armature is only energized after the rotor is brought up to near synchronous speed.
+</p>
+
+ 
+<a name="02428.png"></a> 
+<p> <img src="02428.png"> </p> 
+<p><i>Three phase, 4-pole synchronous motor</i></p> 
+
+
+<p>
+Small multi-phase synchronous motors (Figure <a href="#02428.png">  above</a>) may be started by ramping the drive frequency from zero to the final running frequency.  The multi-phase drive signals are generated by electronic circuits, and will be square waves in all but the most demanding applications. Such motors are known as brushless DC motors. True synchronous motors are driven by sine waveforms. Two or three phase drive may be used by supplying the appropriate number of windings in the stator. Only 3-phase is shown above.
+</p>
+
+<br> </br>
+ 
+<a name="02429.png"></a> 
+<p> <img src="02429.png"> </p> 
+<p><i>Electronic synchronous motor</i></p> 
+
+<br> </br>
+
+<p>
+The block diagram (Figure <a href="#02429.png">  above</a>) shows the drive electronics associated with a low voltage (12 V<sub>DC</sub>) synchronous motor. These motors have a <i> position sensor</i> integrated within the motor, which provides a low level  signal with a frequency proportional to the  speed of rotation of the motor. The position sensor could be as simple as solid state magnetic field sensors such as <i>Hall effect</i> devices providing commutation (armature current direction) timing to the drive electronics.  The position sensor could be a high resolution angular sensor such as a <a href="#resolver">resolver</a>, 
+<!--split for double ref--> an <a href="AC_12.html#inductosyn">inductosyn</a> (magnetic encoder), or an optical encoder.
+</p>
+
+<p>
+If constant and accurate speed of rotation is required, (as for a disk drive) a <i>tachometer</i> and <i>phase locked loop</i> may be  included. (Figure <a href="#02430.png">  below</a>) This tachometer signal, a pulse train proportional to motor speed, is fed back to a phase locked loop, which compares the tachometer frequency and phase to a stable reference frequency source such as a crystal oscillator. 
+</p>
+
+ 
+<a name="02430.png"></a> 
+<p> <img src="02430.png"> </p> 
+<p><i>Phase locked loop controls synchronous motor speed.</i></p> 
+
+
+<a name="Motor, DC, brushless"></a> 
+<a name="Brushless DC motor"></a>
+<a name="Ripple torque"></a>
+
+<p>
+A motor driven by square waves of current, as provided by simple Hall effect sensors, is known as a <i>brushless DC motor</i>. This type of motor has higher <i>ripple torque</i> torque variation through a shaft revolution than a sine wave driven motor. This is not a problem for many applications. Though, we are primarily interested in synchronous motors in this section.
+</p>
+
+<br> </br>
+ 
+<a name="02431.png"></a> 
+<p> <img src="02431.png"> </p> 
+<p><i>Motor ripple torque and mechanical analog.</i></p> 
+<br> </br>
+
+
+<p>
+Ripple torque, or cogging is caused by magnetic attraction of the rotor poles to the stator pole pieces. (Figure <a href="#02431.png">  above</a>)  Note that there are no stator coils, not even a motor. The PM rotor may be rotated by hand but will encounter attraction to the pole pieces when near them. This is analogous to the mechanical situation. Would ripple torque be a problem for a motor used in a tape player? Yes, we do not want the motor to alternately speed and slow as it moves audio tape past a tape playback head. Would ripple torque be a problem for a fan motor? No.
+</p>
+
+<a name="Resolver"></a>
+<a name="Optical encoder"></a>
+<a name="Magnetic encoder"></a>
+<a name="Encoder, optical"></a>
+<a name="Encoder, magnetic"></a>
+
+ 
+<a name="02432.png"></a> 
+<p> <img src="02432.png"> </p> 
+<p><i>Windings distributed in a belt produce a more sinusoidal field.</i></p> 
+
+
+
+<p>
+If a motor is driven by sinewaves of current synchronous with the motor back emf, it is classified as a synchronous AC motor, regardless of whether the drive waveforms are generated by electronic means.  A synchronous motor will generate a sinusoidal back emf if the stator magnetic field has a sinusoidal distribution. It will be more sinusoidal if pole windings are  distributed in a belt (Figure <a href="#02432.png">  above</a>) across many  slots instead of concentrated on one large pole (as drawn in most of our simplified illustrations). This arrangement cancels many of the stator field odd harmonics. Slots having fewer windings at the edge of the phase winding may share the space with other phases. 
+<!--Split for 2-ref tags-->
+Winding belts may take on an alternate concentric form as shown in Figure <a href="#02487.png">  below</a>.  
+</p>
+
+
+ 
+<a name="02487.png"></a> 
+<p> <img src="02487.png"> </p> 
+<p><i>Concentric belts.</i></p> 
+
+
+
+
+<p>
+For  a 2-phase motor, driven by a sinewave,  the torque is constant throughout a revolution by the trigonometric identity:
+
+</p>
+
+<pre>
+&nbsp;
+&nbsp;        sin<sup>2</sup>&#952; + cos<sup>2</sup>&#952; = 1
+&nbsp;
+</pre>
+
+
+<p>
+The generation and synchronization of the drive waveform requires a more precise rotor position indication than provided by the Hall effect sensors used in brushless DC motors. A <i>resolver</i>, or <i>optical or magnetic encoder</i> provides resolution of hundreds to thousands of parts (pulses) per revolution. A resolver provides analog angular position signals in the form of  signals proportional to the sine and cosine of shaft angle. Encoders provide a digital angular position indication in either serial or parallel format. The sine wave drive may actually be from a PWM, <i>Pulse Width Modulator</i>, a high efficiency method of approximating a sinewave with a digital waveform. (Figure <a href="#02433.png">  below</a>)   Each phase requires drive electronics for this wave form phase-shifted by the appropriate amount per phase.
+</p>
+
+<br> </br>
+ 
+<a name="02433.png"></a> 
+<p> <img src="02433.png"> </p> 
+<p><i>PWM approximates a sinewave.</i></p> 
+<br> </br>
+
+<p>
+Synchronous motor efficiency is higher than that of induction motors. The synchronous motor can also be smaller, especially if high energy permanent magnets are used in the rotor. The advent of modern solid state electronics makes it possible to drive these motors at variable speed. Induction motors are mostly used in railway traction. However, a small synchronous motor, which mounts inside a drive wheel, makes it attractive for such applications. The <i>high temperature superconducting</i> version of this motor is one fifth to one third the weight of a copper wound motor.<a href="#1.bibitem">[1]</a> The largest experimental superconducting synchronous motor is capable of driving a naval destroyer class ship. In all these applications the electronic variable speed drive is essential.
+</p>
+
+
+<p>
+The variable speed drive must also reduce the drive voltage at low speed due to decreased inductive reactance at lower frequency. To develop maximum torque, the rotor needs to lag the stator field direction by 90<sup>o</sup>. Any more, it loses synchronization. Much less results in reduced torque. Thus, the position of the rotor needs to be known accurately. And the position of the rotor with respect to the stator field needs to be calculated, and controlled. This type of control is known as <i>vector phase control</i>. It is implemented with a fast microprocessor driving a pulse width modulator for the stator phases.
+</p>
+
+<p>
+The stator of a synchronous motor is the same as that of the more popular induction motor. As a result the industrial grade electronic speed control used with induction motors is also applicable to large industrial synchronous motors.
+</p>
+
+<p>
+If the rotor and stator of a conventional rotary synchronous motor are unrolled, a synchronous linear motor results. This type of motor is applied to precise high speed linear positioning.<a href="#2.bibitem">[2]</a>
+</p>
+
+
+<p>
+A larger version of the linear synchronous motor with a movable carriage containing high energy NdBFe permanent magnets is being developed to launch aircraft from naval aircraft carriers.<a href="#3.bibitem">[3]</a>
+</p>
+
+
+
+
+
+<h2><u><a name="xtocid89753">Synchronous condenser</a></u></h2>
+<a name="Synchronous condenser"></a>
+
+
+<p>
+Synchronous motors load the power line with a leading power factor. This is often useful in cancelling out the more commonly encountered lagging power factor caused by induction motors and other inductive loads. Originally, large industrial synchronous motors came into wide use because of this ability to correct the lagging power factor of induction motors. 
+</p>
+
+<p>
+This leading power factor can be exaggerated by removing the mechanical load and <i>over exciting</i> the field of the synchronous motor. Such a device is known as a <i>synchronous condenser</i>. Furthermore, the leading power factor can be adjusted by varying the field excitation. This makes it possible to nearly cancel an arbitrary lagging power factor to unity by paralleling the lagging load with a synchronous motor. A synchronous condenser is  operated in a borderline condition between a motor and a generator with no mechanical load to fulfill this function. It can compensate either a leading or lagging power factor, by absorbing or supplying reactive power to the line. This enhances power line voltage regulation.
+</p>
+
+
+<p>
+Since a synchronous condenser does not supply a torque, the output shaft may be dispensed with and the unit easily enclosed in a gas tight shell. The synchronous condenser may then be filled with hydrogen to aid cooling and reduce windage losses. Since the density of hydrogen is 7% of that of air, the windage loss for a hydrogen filled unit is 7% of that encountered in air. Furthermore, the thermal conductivity of hydrogen is ten times that of air. Thus, heat removal is ten times more efficient. As a result, a hydrogen filled synchronous condenser can be driven harder than an air cooled unit, or it may be physically smaller for a given capacity. There is no explosion hazard as long as the hydrogen concentration is maintained above 70%, typically above 91%.
+</p>
+
+<p>
+The efficiency of long power transmission lines may be increased by placing synchronous condensers along the line to compensate lagging currents caused by line inductance. More real power may be transmitted through a fixed size line if the power factor is brought closer to unity by synchronous condensers absorbing reactive power.
+</p>
+
+
+<p>
+The ability of synchronous condensers to absorb or produce reactive power on a transient basis stabilizes the power grid against short circuits and other transient fault conditions. Transient sags and dips of milliseconds duration are stabilized. This supplements longer response times of quick acting voltage regulation and excitation of generating equipment. The synchronous condenser aids voltage regulation by drawing leading current when the line voltage sags, which increases generator excitation thereby restoring line voltage. (Figure <a href="#02434.png">  below</a>) A capacitor bank does not have this ability.
+</p>
+
+ 
+<a name="02434.png"></a> 
+<p> <img src="02434.png"> </p> 
+<p><i>Synchronous condenser improves power line voltage regulation.</i></p> 
+
+
+<p>
+The capacity of a synchronous condenser can be increased by replacing the copper wound iron field rotor with an ironless rotor of <i>high temperature superconducting wire</i>, which must be cooled to the liquid nitrogen boiling point of 77<sup>o</sup>K (-196<sup>o</sup>C). The superconducting wire carries 160 times the current of comparable copper wire, while producing a flux density of 3 Teslas or higher. An iron core would saturate at 2 Teslas in the rotor air gap. Thus, an iron core, approximate &#181;<sub>r</sub>=1000, is of no more use than air, or any other material with a relative permeability &#181;<sub>r</sub>=1, in the rotor. Such a machine is said to have considerable additional transient ability to supply reactive power to troublesome loads like metal melting arc furnaces. The manufacturer describes it as being a &ldquo;reactive power shock absorber&rdquo;. Such a synchronous condenser has a higher power density (smaller physically) than a switched capacitor bank. The ability to absorb or produce reactive power on a transient basis stabilizes the overall power grid against fault conditions. 
+</p>
+
+
+
+
+
+
+<h2><u><a name="xtocid89754">Reluctance motor</a></u></h2>
+
+<a name="Switched reluctance motor"></a>
+<a name="Variable reluctance motor"></a>
+<a name="Reluctance motor"></a>
+<a name="Motor, reluctance"></a>
+<a name="Motor, switched reluctance"></a>
+<a name="Motor, variable reluctance"></a>
+<a name="Variable reluctance stepper motor"></a>
+<a name="Stepper motor, variable reluctance"></a>
+<a name="motor, stepper, variable reluctance"></a>
+
+
+<p>
+The <i>variable reluctance motor</i> is based on the principle that an unrestrained piece of iron will move to complete a magnetic flux path with  minimum <i>reluctance</i>, the magnetic analog of electrical resistance. (Figure <a href="#02435.png">  below</a>)
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid89755">Synchronous reluctance</a></u></h3>
+
+<p>
+If the rotating field of a large synchronous motor with salient poles is de-energized, it will still develop 10 or 15% of synchronous torque. This is due to variable reluctance throughout a rotor revolution. There is no practical application for a large synchronous reluctance motor. However, it is practical in small sizes.
+</p>
+
+<p>
+If slots are cut into the conductorless rotor of an induction motor, corresponding to the stator slots, a <i>synchronous reluctance motor</i>  results. It starts like an induction motor but runs with a small amount of synchronous torque. The synchronous torque is due to changes in reluctance of the magnetic path from the stator through the rotor as the slots align. This motor is an inexpensive means of developing a moderate synchronous torque. Low power factor, low pull-out torque, and low efficiency are characteristics of the direct power line driven variable reluctance motor. Such was the status of the variable reluctance motor for a century before the development of semiconductor power control.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid89756">Switched reluctance</a></u></h3>
+
+<p>
+If an iron  rotor with poles, but  without any conductors, is fitted to a multi-phase stator, a <i>switched reluctance motor</i>, capable of synchronizing with the stator field results. When a stator coil pole pair is energized, the rotor will move to the lowest magnetic reluctance path. (Figure <a href="#02435.png">  below</a>)  A switched reluctance motor is also known as a variable reluctance motor. The reluctance of the rotor to stator flux path varies with the position of the rotor.
+</p>
+
+ 
+<a name="02435.png"></a> 
+<p> <img src="02435.png"> </p> 
+<p><i>Reluctance is a function of rotor position in a variable reluctance motor.</i></p> 
+
+
+<p>
+Sequential switching (Figure <a href="#02436.png">  below</a>) of the stator phases moves the rotor from one position to the next. The mangetic flux seeks the path of least reluctance, the magnetic analog of electric resistance. This is an over simplified rotor and waveforms to illustrate operation. 
+</p>
+
+ 
+<a name="02436.png"></a> 
+<p> <img src="02436.png"> </p> 
+<p><i>Variable reluctance motor, over-simplified operation.</i></p> 
+
+
+<p>
+If one end of each 3-phase winding of the switched reluctance motor is brought out via a common lead wire, we can explain operation as if it were a stepper motor. (Figure <a href="#02436.png">  above</a>)  The other coil connections are successively pulled to ground, one at a time, in a <i>wave drive</i> pattern. This attracts the rotor to the clockwise rotating magnetic field in 60<sup>o</sup> increments.
+</p>
+
+
+<p>
+Various waveforms may drive variable reluctance motors. (Figure <a href="#02511.png">  below</a>) Wave drive (a) is simple, requiring only a single ended unipolar  switch. That is, one which only switches in one direction. More torque is provided by the bipolar drive (b), but requires a bipolar switch. The power driver must pull alternately high and low. Waveforms (a &amp; b) are applicable to the stepper motor version of the variable reluctance motor. For smooth vibration free operation the 6-step approximation of a sine wave (c) is desirable and easy to generate. Sine wave drive (d) may be generated by a pulse width modulator (PWM), or drawn from the power line. 
+</p>
+
+
+ 
+<a name="02511.png"></a> 
+<p> <img src="02511.png"> </p> 
+<p><i>Variable reluctance motor drive waveforms: (a)  unipolar wave drive, (b) bipolar full step (c) sinewave (d) bipolar 6-step.</i></p> 
+
+
+<p>
+Doubling the number of stator poles decreases the rotating speed and increases torque. This might eliminate a gear reduction drive.  A variable reluctance motor intended to move in discrete steps, stop, and start is a <i>variable reluctance stepper motor</i>, covered in another section. If smooth rotation is the goal, there is an electronic driven version of the switched reluctance motor. Variable reluctance motors or steppers actually use rotors like those in Figure <a href="#02437.png">  below</a>.
+</p>
+
+
+
+
+
+
+
+<!--move this to motor drivers in Vol 3-->
+
+
+<h3><u><a name="xtocid89757">Electronic driven variable reluctance motor </a></u></h3>
+
+<p>
+Variable reluctance motors are poor performers when direct power line driven. However, microprocessors and solid state power drive makes this motor an economical high performance solution in some high volume applications.
+</p>
+
+<p>
+Though difficult to control, this motor is easy to spin. Sequential switching of the field coils creates a rotating magnetic field which drags the irregularly shaped rotor around with it as it seeks out the lowest magnetic reluctance path. The relationship between torque and stator current is highly nonlinear&ndash; difficult to control.</p>
+
+ 
+<a name="02437.png"></a> 
+<p> <img src="02437.png"> </p> 
+<p><i>Electronic driven variable reluctance motor.</i></p> 
+
+
+<p>
+An electronic driven variable reluctance motor (Figure <a href="#02438.png">  below</a>)  resembles a brushless DC motor without a permanent magnet rotor. This makes the motor simple and inexpensive. However, this is offset by the cost of the electronic control, which is not nearly as simple as that for a brushless DC motor. 
+</p>
+
+<p>
+While the variable reluctance motor is simple, even more so than an induction motor, it is difficult to control. Electronic control solves this problem and makes it practical to drive the motor well above and below the power line frequency. A variable reluctance  motor driven by a <i>servo</i>, an electronic feedback system, controls  torque and speed, minimizing ripple torque. Figure <a href="#02438.png">  below</a>
+
+</p>
+
+ 
+<a name="02438.png"></a> 
+<p> <img src="02438.png"> </p> 
+<p><i>Electronic driven variable reluctance motor.</i></p> 
+
+
+<p>
+This is the opposite of the high ripple torque desired in stepper motors. Rather than a stepper, a variable reluctance motor is optimized for continuous high speed rotation with minimum ripple torque. It is necessary to measure the rotor position with a rotary position sensor like an optical or magnetic encoder, or derive this from monitoring the stator back EMF. A microprocessor performs complex calculations for switching the windings at the proper time with solid state devices. This must be done precisely to minimize audible  noise and ripple torque. For lowest ripple torque, winding current must be monitored and controlled. The strict drive requirements make this motor only practical for high volume applications like energy efficient vacuum cleaner motors, fan motors, or pump motors. One such vacuum cleaner uses a compact high efficiency electronic driven 100,000 rpm fan motor. The simplicity of the motor compensates for the drive electronics cost. No brushes, no commutator, no rotor windings, no permanent magnets, simplifies motor manufacture. The efficiency of this electronic driven motor can be  high. But, it requires considerable optimization, using specialized design techniques, which is only justified for large manufacturing volumes.
+</p>
+
+<br> </br>
+<b>Advantages</b>
+<ul>
+<li>Simple construction- no brushes, commutator, or permanent magnets, no Cu or Al in the rotor.</li>
+<li>High efficiency and reliability compared to conventional AC or DC motors.</li>
+<li>High starting torque.</li>
+<li>Cost effective compared to bushless DC motor in high volumes.</li>
+<li>Adaptable to very high ambient temperature.</li>
+<li>Low cost accurate speed control possible if volume is high enough.</li>
+</ul>
+
+<b>Disadvantages</b>
+<ul>
+<li>Current versus torque is highly  nonlinear</li>
+<li>Phase switching must be precise to minimize ripple torque</li>
+<li>Phase current must be controlled to minimize ripple torque</li>
+<li>Acoustic and electrical noise</li>
+<li>Not applicable to low volumes due to complex control issues</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid89758">Stepper motors</a></u></h2>
+
+<a name="Stepper motor"></a>
+
+<p>
+A <i>stepper motor</i> is a &ldquo;digital&rdquo; version of the electric motor. The rotor moves in discrete steps as commanded, rather than rotating continuously like a conventional motor. When stopped but energized, a <i>stepper</i> (short for stepper motor) holds its load steady with a <i>holding torque</i>. Wide spread acceptance of the stepper motor within the last two decades was driven by the ascendancy of digital electronics. Modern solid state driver electronics was a key to its success. And, microprocessors readily interface to stepper motor driver circuits.
+</p>
+
+<p>
+Application wise, the predecessor of the stepper motor was the servo motor. Today this is a higher cost solution to high performance motion control applications. The expense and complexity of a servomotor is due to the additional system components: position sensor and  error amplifier. (Figure <a href="#02439.png">  below</a>) It is still the way to position heavy loads beyond the grasp of lower power steppers. High acceleration or unusually high accuracy still requires a servo  motor.  Otherwise, the default is the stepper due to low cost, simple drive electronics, good accuracy, good torque, moderate speed, and low cost.
+
+</p>
+ 
+<a name="02439.png"></a> 
+<p> <img src="02439.png"> </p> 
+<p><i>Stepper motor vs servo motor.</i></p> 
+
+
+<p>
+A stepper motor positions the read-write heads in a floppy drive.  They were once used for the same purpose in harddrives. However, the high speed and accuracy required of modern harddrive head positioning dictates the use of a linear servomotor (voice coil). 
+</p>
+
+<p>
+The servo amplifier is a linear amplifier with some difficult to integrate discrete components. A considerable design effort is required to optimize the servo amplifier gain vs phase response to the mechanical components. The stepper motor drivers are less complex solid state switches, being either &ldquo;on&rdquo; or &ldquo;off&rdquo;. Thus, a stepper motor controller is less complex and costly than a servo motor controller. 
+</p>
+
+<p>
+Slo-syn synchronous motors can run from AC line voltage like a single-phase permanent-capacitor induction motor. The capacitor generates a 90<sup>o</sup> second phase. With the direct line voltage, we have a 2-phase drive.   Drive waveforms of <i>bipolar</i> (&#177;) square waves of 2-24V are more common these days. The bipolar magnetic fields may also be generated from <i>unipolar</i> (one polarity) voltages applied to alternate ends of a center tapped winding. (Figure <a href="#02440.png">  below</a>) In other words, DC can be switched to the motor so that it sees AC. As the windings are energized in sequence, the rotor synchronizes with the consequent stator magnetic field. Thus, we treat stepper motors as a class of AC synchronous motor. 
+</p>
+
+ 
+<a name="02440.png"></a> 
+<p> <img src="02440.png"> </p> 
+<p><i>Unipolar drive of center tapped coil at (b), &nbsp; emulates AC current in single coil at (a).</i></p> 
+
+
+
+<h3><u><a name="xtocid89759">Characteristics </a></u></h3>
+
+<p>
+Stepper motors are rugged and inexpensive because the rotor contains no winding slip rings, or commutator. The rotor is a cylindrical solid, which may also have either salient poles or fine teeth. More often than not the rotor is a permanent magnet. Determine that the rotor is a permanent magnet by unpowered hand rotation showing <i>detent torque</i>, torque pulsations. Stepper motor coils are wound within a laminated stator, except for <i>can stack</i> construction. There may be as few as two winding phases or as many as five. These phases are frequently split  into pairs. Thus, a 4-pole stepper motor may have two phases composed of in-line pairs of poles spaced 90<sup>o</sup> apart. There may also be multiple pole pairs per phase. For example a 12-pole stepper has 6-pairs of poles, three pairs per phase.
+</p>
+
+<p>
+Since stepper motors do not necessarily rotate continuously, there is no horsepower rating. If they do rotate continuously, they do not even approach a sub-fractional hp rated capability. They are truly small low power devices compared to other motors. They have torque ratings to a thousand  in-oz (inch-ounces) or ten n-m (newton-meters) for a 4 kg size unit. A small &ldquo;dime&rdquo; size stepper has a torque of a hundredth of a newton-meter or a few inch-ounces. Most steppers are a few inches in diameter with a fraction of a n-m or a few in-oz torque. The torque available is a function of motor speed, load inertia, load torque, and drive electronics as illustrated on the <i>speed vs torque curve</i>. (Figure <a href="#02441.png">  below</a>)  An energized, holding stepper has a relatively high <i>holding torque</i> rating. There is less torque available for a running motor, decreasing to zero at some high speed. This speed is frequently not attainable due to mechanical resonance of the motor load combination.
+</p>
+
+ 
+<a name="02441.png"></a> 
+<p> <img src="02441.png"> </p> 
+<p><i>Stepper speed characteristics.</i></p> 
+
+
+<p>
+Stepper motors move one step at a time, the <i>step angle</i>, when the drive waveforms are changed. The step angle is related to motor construction details: number of coils, number of poles, number of teeth. It can be from 90<sup>o</sup> to 0.75<sup>o</sup>, corresponding to 4 to 500 steps per revolution. Drive electronics may halve the step angle by moving the rotor in <i>half-steps</i>.
+</p>
+
+<p>
+
+Steppers cannot achieve the speeds on the speed torque curve instantaneously. The <i>maximum start frequency</i> is the highest rate at which a stopped and unloaded stepper can be started. Any load will make this parameter unattainable. In practice, the step rate is ramped up during starting from well below the maximum start frequency.  When stopping a stepper motor, the step rate may be decreased before stopping.
+</p> 
+
+<p>
+ The maximum torque at which a stepper can start and stop is the <i>pull-in torque</i>. This torque load on the stepper is due to frictional (brake) and inertial (flywheel) loads on the motor shaft. Once the motor is up to speed, <i>pull-out torque</i> is the maximum sustainable torque without losing steps. 
+</p>
+
+<p>
+There are three types of stepper motors in order of increasing complexity: variable reluctance, permanent magnet, and hybrid. The variable reluctance stepper has s solid soft steel rotor with salient poles. The permanent magnet stepper has a cylindrical permanent magnet rotor. The hybrid stepper has soft steel teeth added to the permanent magnet rotor for a smaller step angle.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid897510">Variable reluctance stepper</a></u></h3>
+
+<a name="Variable reluctance stepper motor"></a>
+<a name="Stepper motor, variable reluctance"></a>
+<a name="Motor, stepper, variable reluctance"></a>
+
+<p>
+A <i>variable reluctance stepper motor</i> relies upon magnetic flux seeking the lowest reluctance path through a magnetic circuit. This means that an irregularly shaped soft magnetic rotor will move to complete a magnetic circuit, minimizing the length of any high reluctance air gap. The stator typically has three windings distributed between pole pairs , the rotor four salient poles, yielding a 30<sup>o</sup> step angle.(Figure <a href="#02442.png">  below</a>)  A de-energized stepper with no detent torque when hand rotated is identifiable as a variable reluctance type stepper.
+</p>
+
+ 
+<a name="02442.png"></a> 
+<p> <img src="02442.png"> </p> 
+<p><i>Three phase and four phase variable reluctance stepper motors.</i></p> 
+
+
+<p>
+The drive waveforms for the 3-&#966; stepper can be seen in the &ldquo;Reluctance motor&rdquo; section. The drive for a 4-&#966; stepper is shown in Figure <a href="#02443.png">  below</a>. Sequentially switching the stator phases produces a rotating magnetic field which the rotor follows. However, due to the lesser number of rotor poles, the rotor moves less than the stator angle for each step. For a variable reluctance stepper motor, the step angle is given by:
+</p>
+
+<br> </br>
+<pre>
+&nbsp;      &#920;<sub>S</sub> = 360<sup>o</sup>/N<sub>S</sub>
+&nbsp;      &#920;<sub>R</sub> = 360<sup>o</sup>/N<sub>R</sub>
+&nbsp;      &#920;<sub>ST</sub> =  &#920;<sub>R</sub> -  &#920;<sub>S</sub> 
+&nbsp;      where:  &#920;<sub>S</sub> = stator angle,          &#920;<sub>R</sub> = Rotor angle,     &#920;<sub>ST</sub> = step angle 
+&nbsp;              N<sub>S</sub> = number stator poles,    N<sub>P</sub> = number rotor poles
+
+
+</pre>
+
+
+ 
+<a name="02443.png"></a> 
+<p> <img src="02443.png"> </p> 
+<p><i>Stepping sequence for variable reluctance stepper.</i></p> 
+
+
+
+<p>
+In Figure <a href="#02443.png">  above</a>, moving from &#966;<sub>1</sub> to  &#966;<sub>2</sub>, etc., the stator magnetic field rotates clockwise. The rotor moves counterclockwise (CCW). Note what does not happen! The dotted rotor tooth does not move to the next stator tooth. Instead, the &#966;<sub>2</sub> stator field attracts a different tooth in moving the rotor CCW, which is a smaller angle (15<sup>o</sup>) than the stator angle of 30<sup>o</sup>.  The rotor tooth angle of 45<sup>o</sup> enters into the calculation by the above equation. The rotor moved CCW to the next rotor tooth at 45<sup>o</sup>, but it aligns with a CW by 30<sup>o</sup> stator tooth. Thus, the actual step angle is the difference between a  stator angle of 45<sup>o</sup> and a rotor angle of 30<sup>o</sup> . How far would the stepper rotate if the rotor and stator had the same number of teeth? Zero&ndash; no rotation.
+</p>
+
+<p>
+Starting at rest with phase &#966;<sub>1</sub> energized, three pulses are required (&#966;<sub>2</sub>, &#966;<sub>3</sub>, &#966;<sub>4</sub>) to align the &ldquo;dotted&rdquo; rotor tooth to the next CCW stator tooth, which is 45<sup>o</sup>. With 3-pulses per stator tooth, and 8-stator teeth, 24-pulses or steps move the rotor through 360<sup>o</sup>. 
+</p>
+
+
+<p>
+By reversing the sequence of pulses, the direction of rotation is reversed above right. The direction, step rate, and number of steps are controlled by a stepper motor controller feeding a driver or amplifier. This could be combined into a single circuit board. The controller could be a microprocessor or a specialized integrated circuit. The driver is not a linear amplifier, but a simple on-off switch capable of high enough current to energize the stepper. In principle, the driver could be a relay or even a toggle switch for each phase. In practice, the driver is either discrete transistor switches or an integrated circuit. Both driver and controller may be combined into a single integrated circuit accepting a direction command and step pulse. It outputs current to the proper phases in sequence.
+</p>
+
+ 
+<a name="02444.png"></a> 
+<p> <img src="02444.png"> </p> 
+<p><i>Variable reluctance stepper motor.</i></p> 
+
+
+<p>
+Disassemble a reluctance stepper to view the internal components. Otherwise,  we show the internal construction of a variable reluctance stepper motor in Figure <a href="#02444.png">  above</a>. The rotor has protruding poles so that they may be attracted to the rotating stator field as it is switched. An actual motor, is much longer than our simplified illustration. 
+
+ 
+<a name="02445.png"></a> 
+<p> <img src="02445.png"> </p> 
+<p><i>Variable reluctance stepper drives lead screw.</i></p> 
+
+
+
+<p>
+The shaft is frequently fitted with a drive screw. (Figure <a href="#02445.png">  above</a>) This may move the heads of a floppy drive upon command by the floppy drive controller. 
+</p>
+</p>
+
+
+<p>
+Variable reluctance stepper motors are applied when only a moderate level of torque is required and a coarse step angle is adequate. A screw drive, as used in a floppy disk drive is such an application. When the controller powers-up, it does not know the position of the carriage. However, it can drive the carriage toward the optical interrupter, calibrating the position at which the knife edge cuts the interrupter as &ldquo;home&rdquo;. The controller counts step pulses from this position. As long as the load torque does not exceed the motor torque, the controller will know the carriage position.
+</p>
+
+<br> </br>
+<b>Summary: variable reluctance stepper motor</b>
+
+<ul>
+<li>The rotor is a soft iron cylinder with salient (protruding) poles.</li>
+<li>This is the least complex, most inexpensive stepper motor.</li>
+<li>The only type stepper with no detent torque in hand rotation of a de-energized motor shaft.</li>
+<li>Large step angle</li>
+<li>A lead screw is often mounted to the shaft for linear stepping motion.</li>
+</ul>
+
+
+
+
+
+<h3><u><a name="xtocid897511">Permanent magnet stepper </a></u></h3>
+
+<a name="Permanent magnet stepper motor"></a>
+<a name="stepper motor, permanent magnet"></a>
+<a name="motor, stepper, permanent magnet"></a>
+
+<p>
+A <i>permanent magnet stepper motor</i> has a cylindrical permanent magnet rotor. The stator usually has two windings. The windings could be center tapped to allow for a <i>unipolar</i> driver circuit where the polarity of the magnetic field is changed by switching a voltage from one end to the other of the winding. A <i>bipolar</i> drive of alternating polarity is required to power windings without the center tap. A pure permanent magnet stepper usually has a large step angle. Rotation of the shaft of a de-energized motor exhibits detent torque. If the detent angle is large, say 7.5<sup>o</sup> to 90<sup>o</sup>, it is likely a permanent magnet stepper rather than a hybrid stepper (next subsection).
+</p>
+
+
+<p>
+Permanent magnet stepper motors require phased alternating currents applied to the two (or more) windings. In practice, this is almost always square waves generated from DC by solid state electronics. <i>Bipolar</i> drive is square waves alternating between (+) and (-) polarities, say, +2.5 V to -2.5 V.  <i>Unipolar</i> drive supplies a (+) and (-) alternating  magnetic flux to the coils  developed from a pair of positive square waves applied to opposite ends of a center tapped coil. The timing of the bipolar or unipolar wave is wave drive, full step, or half step.
+</p>
+
+
+
+<h4><a name="xtocid897512">Wave drive </a></h4>
+
+
+
+ 
+<a name="02446.png"></a> 
+<p> <img src="02446.png"> </p> 
+<p><i>PM wave drive sequence (a) &#966;<sub>1</sub>+ ,&nbsp;&nbsp; (b) &#966;<sub>2</sub>+ ,&nbsp;&nbsp; (c) &#966;<sub>1</sub>- ,&nbsp;&nbsp;(d) &#966;<sub>2</sub>-.</i></p> 
+
+
+<p>
+Conceptually, the simplest drive is <i>wave drive</i>. (Figure <a href="#02446.png">  above</a>) The rotation sequence left to right is positive &#966;-1 points rotor north pole up, (+) &#966;-2 points rotor north right, negative &#966;-1 attracts rotor north down, (-) &#966;-2 points rotor left. The wave drive waveforms below show that only one coil is energized at a time. While simple, this does not produce as much torque as other drive techniques.
+</p>
+
+
+ 
+<a name="02447.png"></a> 
+<p> <img src="02447.png"> </p> 
+<p><i>Waveforms: bipolar wave drive.</i></p> 
+
+
+<p>
+The waveforms (Figure <a href="#02447.png">  above</a>) are bipolar because both polarities , (+) and (-) drive the stepper. The coil magnetic field reverses because the polarity of the drive current reverses.</p>
+
+ 
+<a name="02448.png"></a> 
+<p> <img src="02448.png"> </p> 
+<p><i>Waveforms: unipolar wave drive.</i></p> 
+
+
+<p>
+The (Figure <a href="#02448.png">  above</a>) waveforms are unipolar because only one polarity is required. This simplifies the drive electronics, but requires twice as many drivers. There are twice as many waveforms because a pair of (+) waves is required to produce an alternating magnetic field by application to opposite ends of a center tapped coil. The motor requires alternating magnetic fields. These may be produced by either unipolar or bipolar waves. However, motor coils must have center taps for unipolar drive. 
+</p>
+
+<p>
+Permanent magnet stepper motors are manufactured with various lead-wire configurations. (Figure <a href="#02449.png">  below</a>)
+</p>
+
+ 
+<a name="02449.png"></a> 
+<p> <img src="02449.png"> </p> 
+<p><i>Stepper motor wiring diagrams.</i></p> 
+
+
+<p>
+The 4-wire motor can only be driven by bipolar waveforms. The 6-wire motor, the most common arrangement, is intended for unipolar drive because of the center taps. Though, it may be driven by bipolar waves if the center taps are ignored. The 5-wire motor can only be driven by unipolar waves, as the common center tap interferes if both windings are energized simultaneously. The 8-wire configuration is rare, but provides maximum flexibility. It may be wired for unipolar drive as for the 6-wire or 5-wire motor. A pair of coils may be connected in series for high voltage bipolar low current drive, or in parallel for low voltage high current drive. 
+</p>
+
+<a name="Bifilar winding, stepper motor"></a> 
+<a name="Stepper motor, bifilar winding"></a> 
+
+<p>
+A <i>bifilar winding</i> is produced by winding the coils with two wires in parallel, often a red and green enamelled wire. This method produces exact 1:1 turns ratios for center tapped windings. This winding method is applicable to all but the 4-wire arrangement above.
+</p>
+
+
+
+
+
+
+
+<h4><a name="xtocid897513">Full step drive </a></h4>
+
+<p>
+<i>Full step</i> drive provides more torque than wave drive because both coils are energized at the same time. This attracts the rotor poles midway between the two field poles. (Figure <a href="#02450.png">  below</a>)
+</p>
+
+
+ 
+<a name="02450.png"></a> 
+<p> <img src="02450.png"> </p> 
+<p><i>Full step, bipolar drive.</i></p> 
+
+
+<p>
+Full step bipolar drive as shown in Figure <a href="#02450.png">  above</a> has the same step angle as wave drive. Unipolar drive (not shown) would require a pair of unipolar waveforms for each of the above bipolar waveforms applied to the ends of a center tapped winding. Unipolar drive uses a less complex, less expensive driver circuit. The additional cost of bipolar drive is justified when more torque is required.
+</p>
+
+
+
+
+
+<h4><a name="xtocid897514">Half step drive</a></h4>
+
+<p>
+The step angle for a given stepper motor geometry is cut in half with <i>half step</i> drive. This corresponds to twice as many step pulses per revolution. (Figure <a href="#02451.png">  below</a>) Half stepping provides greater resolution in  positioning of the motor shaft. For example, half stepping the motor moving the print head across the paper of an inkjet printer would double the dot density.
+</p>
+
+
+ 
+<a name="02451.png"></a> 
+<p> <img src="02451.png"> </p> 
+<p><i>Half step, bipolar drive.</i></p> 
+
+
+<p>
+Half step drive is a combination of wave drive and full step drive with one winding energized, followed by both windings energized, yielding twice as many steps. The unipolar waveforms for half step drive are shown above. The rotor aligns with the field poles as for wave drive and between the poles as for full step drive. 
+</p>
+
+
+<p>
+Microstepping is possible with specialized controllers. By varying the currents to the windings sinusoidally many microsteps can be interpolated between the normal  positions.
+</p>
+
+
+
+
+
+
+<h4><a name="xtocid897515">Construction </a></h4>
+
+<p>
+The contruction of a permanent magnet stepper motor is considerably different from the drawings above. It is desirable to increase the number of poles beyond that illustrated to produce a smaller step angle. It is also desirable to reduce the number of windings, or at least not increase the number of windings for ease of manufacture.
+</p>
+
+<a name="Stepper motor, can stack"></a>
+<a name="Can stack, stepper motor"></a>
+
+ 
+<a name="02452.png"></a> 
+<p> <img src="02452.png"> </p> 
+<p><i>Permanent magnet stepper motor, 24-pole  can-stack construction.</i></p> 
+
+
+<p>
+The permanent magnet stepper (Figure <a href="#02452.png">  above</a>) only has two windings, yet has 24-poles in each of two phases. This style of construction is known as <i>can stack</i>. A phase winding is  wrapped with a mild steel shell, with fingers brought to the center. One phase, on a transient basis,  will have a north side and a south side. Each side wraps around to the center of the doughnut with twelve interdigitated fingers for a total of 24 poles. These alternating north-south fingers will attract the permanent magnet rotor. If the polarity of the phase were reversed, the rotor would jump 360<sup>o</sup>/24 = 15<sup>o</sup>. We do not know which direction, which is not useful. However, if we energize &#966;-1 followed by &#966;-2, the rotor will move 7.5<sup>o</sup> because the &#966;-2 is offset (rotated) by 7.5<sup>o</sup> from &#966;-1. See below for offset. And, it will rotate in a reproducible direction if the phases are alternated. Application of any of the above waveforms will rotate the permanent magnet rotor.
+</p>
+
+<p>
+Note that the rotor is a gray ferrite ceramic cylinder magnetized in the 24-pole pattern shown. This can be viewed with magnet viewer film or iron filings applied to a paper wrapping. Though, the colors will be green for both north and south poles with the film. 
+</p>
+
+ 
+<a name="02453.png"></a> 
+<p> <img src="02453.png"> </p> 
+<p><i>(a) External view of can stack, &nbsp;&nbsp;(b) field offset detail.</i></p> 
+
+
+<p>
+Can-stack style construction of a PM stepper is distinctive and easy to identify by the stacked &ldquo;cans&rdquo;. (Figure <a href="#02453.png">  above</a>) Note the rotational offset between the two phase sections. This is key to making the rotor follow the switching of the fields between the two phases.
+</p>
+
+
+
+
+
+
+<br> </br>
+<b>Summary: permanent magnet stepper motor</b>
+
+<ul>
+<li>The rotor is a permanent magnet, often a ferrite sleeve magnetized with numerous poles.</li>
+<li>Can-stack construction provides numerous poles from a single coil with interleaved fingers of soft iron.</li>
+<li>Large to moderate step angle.</li>
+<li>Often used in computer printers to advance paper.</li>
+</ul>
+
+
+<h3><u><a name="xtocid897516">Hybrid stepper motor</a></u></h3>
+
+<a name="Hybrid stepper motor"></a>
+
+<a name="Stepper motor, hybrid"></a>
+<a name="Bifilar winding, stepper motor"></a>
+<a name="Stepper motor, bifilar winding"></a>
+<a name="Motor, stepper, hybrid"></a>
+
+<p>
+The <i>hybrid stepper motor</i> combines features of both the variable reluctance stepper and the permanent magnet stepper to produce a smaller step angle. The rotor is a cylindrical permanent magnet, magnetized along the axis with radial soft iron teeth (Figure <a href="#02454.png">  below</a>). The stator coils are wound on alternating poles with corresponding teeth. There are typically two winding phases distributed between pole pairs. This winding may be center  tapped  for unipolar drive. The center tap is achieved by a <i>bifilar winding</i>, a pair of wires wound physically in parallel, but wired in series. The north-south poles of a phase swap polarity when the phase drive current is reversed. Bipolar drive is required for un-tapped windings.
+</p>
+
+
+
+ 
+<a name="02454.png"></a> 
+<p> <img src="02454.png"> </p> 
+<p><i>Hybrid stepper motor.</i></p> 
+
+
+<p>
+Note that the 48-teeth on one rotor section are offset by half a pitch from the other. See rotor pole detail above. This rotor tooth offset is also shown below. Due to this offset, the rotor effectively has 96 interleaved poles of opposite polarity. This offset allows for rotation in 1/96 th of a revolution steps by reversing the field polarity of one phase. Two phase windings are common as shown above and below. Though, there could be as many as five phases.
+</p>
+
+<p>
+The stator teeth on the 8-poles correspond to the 48-rotor teeth, except for missing teeth in the space between the poles. Thus, one pole of the rotor, say the south pole, may align with the stator in 48 distinct positions. However, the teeth of the south pole are offset from the north teeth by half a tooth. Therefore, the rotor may align with the stator in 96 distinct positions. This half tooth offset shows in the rotor pole detail above, or Figure <a href="#02445.png">  below</a>.
+</p>
+
+<p>
+As if this were not complicated enough, the stator main poles are divided into two phases (&#966;-1, &#966;-2). These stator phases are offset from one another by one-quarter of a tooth. This detail is only discernable on the  schematic diagrams below. The result is that the rotor moves in steps of a quarter of a tooth when the phases are alternately energized. In other words, the rotor moves in 2&#215;96=192 steps per revolution for the above stepper. 
+</p>
+
+<p>
+The above drawing is representative of an actual hybrid stepper motor. However, we provide a simplified pictorial and schematic representation  (Figure <a href="#02455.png">  below</a>) to illustrate details not obvious above. Note the reduced number of coils and teeth in rotor and stator for simplicity. In the next two figures, we attempt to illustrate the quarter tooth rotation produced by the two stator phases offset by a quarter tooth, and the rotor half tooth offset. The quarter tooth stator offset in conjunction with drive current timing  also defines direction of rotation.
+</p>
+
+
+ 
+<a name="02455.png"></a> 
+<p> <img src="02455.png"> </p> 
+<p><i>Hybrid stepper motor schematic diagram.</i></p> 
+
+
+<b>Features of hybrid stepper schematic</b> (Figure <a href="#02455.png">  above</a>)
+
+<ul>
+<li>The top of the permanent magnet rotor is the south pole, the bottom north.</li>
+<li>The rotor north-south teeth are offset by half a tooth.</li>
+
+<li>If the &#966;-1 stator is temporarily energized north top, south bottom.</li>
+<li>The top &#966;-1 stator teeth align north to rotor top south teeth.</li>
+<li>The bottom &#966;-1' stator teeth align south to rotor bottom north teeth.</li>
+
+<li>Enough torque applied to the shaft to overcome the hold-in torque would move the rotor by one tooth.</li>
+<li>If the polarity of &#966;-1 were reversed, the rotor would move by one-half tooth, direction unknown. The alignment would be south stator top to north rotor bottom, north stator bottom to south rotor.</li>
+<li>The &#966;-2 stator teeth are not aligned with the rotor teeth when &#966;-1 is energized. In fact, the &#966;-2 stator teeth are offset by one-quarter tooth. This will allow for rotation by that amount if &#966;-1 is de-energized and &#966;-2 energized. Polarity of &#966;-1 and &#966;-2 drive determines direction of rotation.</li>
+</ul>
+
+
+
+ 
+<a name="02456.png"></a> 
+<p> <img src="02456.png"> </p> 
+<p><i>Hybrid stepper motor rotation sequence.</i></p> 
+
+
+
+<b>Hybrid stepper motor rotation</b> (Figure <a href="#02456.png">  above</a>)
+
+<ul>
+<li>Rotor top is permanent magnet south, bottom north. Fields &#966;-1, &#966;-2 are switchable: on, off, reverse.</li>
+
+<li><b>(a)</b> &#966;-1=on=north-top, &#966;-2=off. <b>Align (top to bottom):</b> &#966;-1 stator-N:rotor-top-S, &#966;-1' stator-S: rotor-bottom-N. Start position, rotation=0.</li>
+
+<li><b>(b)</b> &#966;-1=off, &#966;-2=on. <b>Align (right to left):</b> &#966;-2 stator-N-right:rotor-top-S, &#966;-2' stator-S: rotor-bottom-N. Rotate 1/4 tooth, total rotation=1/4 tooth.</li>
+
+<li><b>(c)</b> &#966;-1=reverse(on), &#966;-2=off. <b>Align (bottom to top):</b> &#966;-1 stator-S:rotor-bottom-N, &#966;-1' stator-N:rotor-top-S. Rotate 1/4 tooth from last position. Total rotation from start: 1/2 tooth.</li>
+
+<li>Not shown: &#966;-1=off, &#966;-2=reverse(on). <b>Align (left to right):</b> Total rotation: 3/4 tooth.</li>
+<li>Not shown: &#966;-1=on, &#966;-2=off (same as (a)). <b>Align (top to bottom): </b>Total rotation 1-tooth.</li>
+
+</ul>
+
+
+<p>
+An un-powered stepper motor with detent torque is either a permanent magnet stepper or a hybrid stepper. The hybrid stepper will have a small step angle, much less than the 7.5<sup>o</sup> of permanent magnet steppers.  The step angle could be a fraction of a degree, corresponding to a few hundred steps per revolution.
+</p>
+
+
+<br> </br>
+<b>Summary: hybrid stepper motor</b>
+
+
+<ul>
+<li>The step angle is smaller than variable reluctance or permanent magnet steppers.</li>
+<li>The rotor is a permanent magnet with fine teeth. North and south teeth are offset by half a tooth for a smaller step angle.</li>
+<li>The stator poles have matching fine teeth of the same pitch as the rotor.</li>
+<li>The stator windings are divided into no less than two phases.</li>
+<li>The poles of one stator windings are offset by a quarter tooth for an even smaller step angle.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid897517">Brushless DC motor</a></u></h2>
+
+<a name="Brushless DC motor"></a>
+<a name="Motor, DC, brushless"></a> 
+
+<p>Brushless DC motors were developed from conventional brushed DC motors with the availability of solid state power semiconductors. So, why do we discuss brushless DC motors in a chapter on AC motors? Brushless DC motors are similar to AC synchronous motors. The major difference is that synchronous motors develop a sinusoidal back EMF, as compared to a rectangular, or trapezoidal, back EMF for brushless DC motors.  Both have stator created rotating magnetic fields producing torque in a magnetic rotor. 
+</p>
+
+<p>
+
+Synchronous motors are usually large multi-kilowatt size, often with electromagnet rotors. True synchronous motors are considered to be single speed, a submultiple of the powerline frequency. Brushless DC motors tend to be small&ndash; a few watts to tens of watts, with permanent magnet rotors. The speed of a brushless DC motor is not fixed unless driven by a phased locked loop slaved to a reference frequency. The style of construction is either cylindrical or pancake. (Figures <a href="#02457.png">  </a>
+<!--split-->
+and  <a href="#02458.png">  below</a>)
+
+</p>
+
+ 
+<a name="02457.png"></a> 
+<p> <img src="02457.png"> </p> 
+<p><i>Cylindrical construction: (a) outside rotor,  (b) inside rotor.</i></p> 
+
+
+<p>
+The most usual construction, cylindrical,  can take on two forms (Figure <a href="#02457.png">  above</a>).  The most common cylindrical style is with the rotor on the inside, above right. This style motor is used in hard disk drives. It is also possible to put the rotor on the outside surrounding the stator. Such is the case with brushless DC fan motors, sans the shaft. This style of construction may be short and fat. However, the direction of the magnetic flux is radial with respect to the rotational axis.
+</p>
+
+ 
+<a name="02458.png"></a> 
+<p> <img src="02458.png"> </p> 
+<p><i>Pancake motor construction: (a) single stator, (b) double stator.</i></p> 
+
+
+<p>High torque pancake motors may have stator coils on both sides of the rotor (Figure <a href="#02458.png">  above</a>-b).
+
+<!--We have split the paragraph because we have two ref-tags. Can only handle one per line in sml2latx.sed. It still looks like one P in output-->
+
+Lower torque applications like floppy disk drive motors suffice with a stator coil on one side of the rotor, (Figure <a href="#02458.png">  above</a>-a). The direction of the magnetic flux is axial, that is, parallel to the axis of rotation.
+</p>
+
+<p>The commutation function may be performed by various shaft  position sensors: optical encoder, magnetic encoder (resolver, synchro, etc), or Hall effect magnetic sensors. Small inexpensive motors use Hall effect sensors. (Figure <a href="#02459.png">  below</a>) A Hall effect sensor is a semiconductor device where the electron flow is affected by a  magnetic field perpendicular to the direction of current flow.. It looks like a four terminal variable resistor network. The voltages at the two outputs are complementary. Application of a magnetic field to the sensor causes a small voltage change at the output. The Hall output may drive a comparator to provide for more stable drive to the power device. Or, it may drive a compound transistor stage if properly biased. More modern Hall effect sensors may contain an integrated  amplifier, and digital circuitry. This 3-lead device may directly drive the power transistor feeding a phase winding.  The sensor must be mounted close to the permanent magnet rotor to sense its position.
+</p>
+
+ 
+<a name="02459.png"></a> 
+<p> <img src="02459.png"> </p> 
+<p><i>Hall effect sensors commutate 3-&#966; brushless DC motor.</i></p> 
+
+
+<p>The simple cylindrical 3-&#966; motor Figure <a href="#02459.png">  above</a> is commutated by a Hall effect device for each of the three stator phases. The changing position of the permanent magnet rotor is sensed by the Hall device as the polarity of the passing rotor pole changes. This Hall signal is amplified so that the stator coils are driven with the proper current.  Not shown here, the Hall signals may be processed by combinatorial logic for more efficient drive waveforms. 
+</p>
+
+
+
+<p>
+The above cylindrical motor could drive a harddrive if it were equipped with a phased locked loop (PLL) to maintain constant speed. Similar circuitry could drive the pancake floppy disk drive motor (Figure <a href="#02460.png">  below</a>). Again, it would need a PLL to maintain constant speed.
+</p>
+
+
+ 
+<a name="02460.png"></a> 
+<p> <img src="02460.png"> </p> 
+<p><i>Brushless pancake motor</i></p> 
+
+
+<p>
+The 3-&#966; pancake motor (Figure <a href="#02460.png">  above</a>)  has 6-stator poles and 8-rotor poles. The rotor is a flat ferrite ring magnetized with eight axially magnetized alternating poles. We do not show that the rotor is capped by a mild steel plate for mounting to the bearing in the middle of the stator. The steel plate also helps complete the magnetic circuit. The stator poles are also mounted atop a steel plate, helping to close the magnetic circuit. The flat stator coils are trapezoidal to more closely fit the coils, and approximate the rotor poles.  The 6-stator coils comprise three winding phases. 
+</p>
+
+<p>
+If the three stator phases were successively energized, a rotating magnetic field would be generated. The permanent magnet rotor would follow as in the case of a synchronous motor.  A two pole rotor would follow this field at the same rotation rate as the rotating field.  However, our 8-pole rotor will rotate at a  submultiple of this rate due the the extra poles in the rotor.
+</p>
+
+<p>
+The brushless DC fan motor (Figure <a href="#02461.png">  below</a>) has these feature:
+</p>
+
+
+
+ 
+<a name="02461.png"></a> 
+<p> <img src="02461.png"> </p> 
+<p><i>Brushless fan motor, 2-&#966;.</i></p> 
+
+<ul>
+<li>The stator has 2-phases distributed between 4-poles</li>
+<li>There are 4-salient poles with no windings to eliminate zero torque points.</li>
+<li>The rotor has four main drive poles.</li>
+
+<li>The rotor has 8-poles superimposed to help eliminate zero torque points.</li>
+<li>The Hall effect sensors are spaced at 45<sup>o</sup> physical.</li>
+<li>The fan housing is placed atop the rotor, which is placed over the stator.</li>
+</ul>
+
+
+
+<p>
+The goal of a brushless fan motor is to minimize the cost of manufacture. This is an incentive to move lower performance products from a 3-&#966; to a 2-&#966; configuration. Depending on how it is driven, it may be called a 4-&#966; motor. 
+</p>
+
+<p>
+You may recall that conventional DC motors cannot have an even number of armature poles (2,4, etc) if they are to be self-starting, 3,5,7 being common. Thus, it is possible for a hypothetical 4-pole motor to come to rest at a torque minima, where it cannot be started from rest. The addition of the four small salient poles with no windings superimposes a ripple torque upon the torque vs position curve. When this ripple torque is added to normal energized-torque curve, the result is that torque minima are partially removed. This makes it possible to start the motor for all possible stopping positions. The addition of eight permanant magnet poles to the normal 4-pole permanent magnet rotor superimposes a small second harmonic ripple torque upon the normal 4-pole ripple torque. This further removes the torque minima. As long as the torque minima does not drop to zero, we should be able to start the motor. The more successful we are in removing the torque minima, the easier the motor starting. 
+</p>
+
+
+<p>
+The 2-&#966; stator requires that the Hall sensors be spaced apart by 90<sup>o</sup> electrical. If the rotor was a 2-pole rotor, the Hall sensors would be placed 90<sup>o</sup> physical. Since we have a 4-pole permanent magnet rotor, the sensors must be placed 45<sup>o</sup> physical to achieve the 90<sup>o</sup> electrical spacing. Note Hall spacing above. The majority of the torque is due to the interaction of the inside stator 2-&#966; coils with the 4-pole section of the rotor. Moreover, the 4-pole section of the rotor must be on the bottom so that the Hall sensors will sense the proper commutation signals. The 8-poles rotor section is only for improving motor starting.
+</p>
+
+
+ 
+<a name="02462.png"></a> 
+<p> <img src="02462.png"> </p> 
+<p><i>Brushless DC motor 2-&#966; push-pull drive.</i></p> 
+
+
+
+<p>
+In Figure <a href="#02462.png">  above</a>, the 2-&#966; push-pull drive (also known as 4-&#966; drive) uses two Hall effect sensors to drive four windings. The sensors are spaced 90<sup>o</sup> electrical apart, which is 90<sup>o</sup> physical for a single pole rotor. Since the Hall sensor has two complementary outputs, one sensor provides commutation for two opposing windings.
+</p>
+
+
+
+
+
+
+
+
+ 
+
+<h2><u><a name="xtocid897518">Tesla polyphase induction motors </a></u></h2>
+
+<a name="Poly-phase induction motor"></a>
+<a name="Induction motor, poly-phase"></a>
+
+<p>
+Most AC motors are induction motors. Induction motors are favored due to their ruggedness and simplicity.  In fact, 90% of industrial motors are induction motors.
+</p>
+
+
+<a name="Tesla, Nikola"></a>
+<a name="Induction motor, 2-phase"></a>
+
+<p>
+Nikola Tesla conceived the basic principals of the polyphase induction motor in 1883, and had a half horsepower (400 watt) model by 1888. Tesla sold the manufacturing rights to George Westinghouse for $65,000.
+</p>
+
+
+<p>
+Most large ( &#62; 1 hp or 1 kW) industrial motors are <i>poly-phase induction motors</i>. By poly-phase, we mean that the stator contains multiple distinct windings per motor pole, driven by corresponding time shifted sine waves. In practice, this is two or three phases. Large industrial motors are 3-phase. While we include numerous illustrations of two-phase motors for simplicity, we must emphasize that nearly all poly-phase motors are three-phase.   By <i>induction motor</i>, we mean that the stator windings induce a current flow in the rotor conductors, like a transformer, unlike a brushed DC commutator motor.
+</p>
+
+
+
+<h3><u><a name="xtocid897519">Construction</a></u></h3>
+
+<p>
+An induction motor is composed of a rotor, known as an armature, and a stator containing windings connected to a poly-phase energy source as shown in Figure <a href="#02463.png">  below</a>. The simple 2-phase induction motor below is similar to the 1/2 horsepower motor which Nikola Tesla introduced in 1888.
+</p>
+
+<p>
+ 
+<a name="02463.png"></a> 
+<p> <img src="02463.png"> </p> 
+<p><i>Tesla polyphase induction motor.</i></p> 
+
+</p>
+
+<p>
+The stator in Figure <a href="#02463.png">  above</a> is wound with pairs of coils corresponding to the phases of electrical energy available. The 2-phase induction motor stator above has 2-pairs of coils, one pair for each of the two phases of AC. The individual coils of a pair are connected in series and correspond to the opposite poles of an electromagnet. That is, one coil corresponds to a N-pole, the other to a S-pole until the phase of AC changes polarity. The other pair of coils is oriented 90<sup>o</sup> in space to the first pair.  This  pair of coils is connected to AC shifted in time by 90<sup>o</sup> in the case of a 2-phase motor. In Tesla's time, the source of the two phases of AC was a 2-phase alternator.
+</p>
+
+<p>
+The stator in Figure <a href="#02463.png">  above</a> has <i>salient</i>, obvious protruding poles, as used on Tesla's early induction motor. This design is used to this day for sub-fractional horsepower motors (&#60;50 watts).
+<!--split for two ref-tags-->
+However, for larger motors less torque pulsation and higher efficiency results if the coils are embedded into slots cut into the stator laminations. (Figure <a href="#02464.png">  below</a>)
+</p>
+
+<p>
+ 
+<a name="02464.png"></a> 
+<p> <img src="02464.png"> </p> 
+<p><i>Stator frame showing slots for windings.</i></p> 
+
+</p>
+
+<p>
+ The stator laminations are thin insulated rings with slots punched from sheets of  electrical grade  steel. A stack of these is secured by end screws, which may also hold the end housings. </p>
+
+
+<p>
+ 
+<a name="02465.png"></a> 
+<p> <img src="02465.png"> </p> 
+<p><i>Stator with (a) 2-&#966; and (b) 3-&#966; windings.</i></p> 
+
+</p>
+
+<p>
+In  Figure <a href="#02465.png">  above</a>, the windings for both a two-phase motor and a three-phase motor have been installed in the stator slots.  The coils are wound on an external fixture, then worked into the slots. Insulation wedged between the coil periphery and the slot protects against abrasion.
+</p>
+
+<p>
+Actual stator windings are more complex than the  single windings per pole in  Figure <a href="#02465.png">  above</a>. Comparing the 2-&#966; motor to Tesla's 2-&#966; motor with salient poles, the number of coils is the same.   In actual large motors, a pole winding,  is divided into identical coils inserted into many smaller slots than above. 
+<!--split for two ref-tags-->
+This group is called a <i>phase belt</i>. See Figure <a href="#02432.png">  below</a>.  The distributed coils of the phase belt cancel some of the odd harmonics, producing a more sinusoidal magnetic field distribution across the pole. This is shown in the synchronous motor section. The slots at the edge of the pole may have fewer turns than the other slots. Edge slots may contain windings from two phases. That is, the phase belts overlap. 
+</p>
+
+
+<!--html only, repeated in synchronous motors section. not in latex-->
+ 
+<a name="02432.png"></a> 
+<p> <img src="02432.png"> </p> 
+<p><i></i></p> 
+
+
+
+
+
+<p>
+The key to the popularity of the AC induction motor is simplicity as evidenced by the simple rotor (Figure <a href="#02466.png">  below</a>). The rotor consists of a shaft, a steel laminated rotor, and an embedded copper or aluminum <i>squirrel cage</i>, shown at (b) removed from the rotor. As compared to a DC motor armature, there is no commutator. This eliminates the brushes, arcing, sparking, graphite dust, brush adjustment and replacement, and re-machining of the commutator.
+</p>
+
+ 
+<a name="02466.png"></a> 
+<p> <img src="02466.png"> </p> 
+<p><i>Laminated rotor with (a) embedded squirrel cage, (b) conductive cage removed from rotor.</i></p> 
+
+
+<a name="Eddy current"></a>
+
+<p>
+The squirrel cage conductors may be skewed, twisted, with respsect to the shaft. The misalignment with the stator slots reduces torque pulsations.
+</p>
+
+<p>
+Both rotor and stator cores are composed of a stack of insulated laminations. The laminations are coated with insulating oxide or varnish to minimize eddy current losses. The alloy used in the laminations is selected for low hysteresis losses.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897520">Theory of operation </a></u></h3>
+
+<a name="Lenz's Law"></a>
+
+<p>
+A short explanation of operation is that the stator creates a rotating magnetic field which drags the rotor around.
+</p>
+
+<p>
+The theory of operation of induction motors is based on a rotating magnetic field. One means of creating a rotating magnetic field is to rotate a permanent magnet as shown in Figure <a href="#02467.png">  below</a>. If the moving magnetic lines of flux cut a conductive disk, it will follow the motion of the magnet. The lines of flux cutting the conductor will induce a voltage, and consequent current flow, in the conductive disk. This current flow creates an electromagnet whose polarity opposes the motion of the permanent magnet&ndash; <i>Lenz's Law</i>. The polarity of the electromagnet is such that it pulls against the permanent magnet. The disk follows with a little less speed than the permanent magnet.
+</p>
+
+ 
+<a name="02467.png"></a> 
+<p> <img src="02467.png"> </p> 
+<p><i>Rotating magnetic field produces torque in conductive disk.</i></p> 
+
+
+<a name="Speedometer, eddy current"></a>
+<a name="Eddy current speedometer"></a>
+
+<p>
+The torque developed by the disk is proportional to the number of flux lines cutting the disk and the rate at which it cuts the disk. If the disk were to spin at the same rate as the permanent magnet, there would be no flux cutting the disk, no induced current flow, no electromagnet field, no torque. Thus, the disk speed will always fall behind that of the rotating permanent magnet, so that lines of flux cut the disk induce a current, create an electromagnetic field in the disk, which follows the permanent magnet. If a load is applied to the disk, slowing it,  more torque will be developed as more lines of flux cut the disk. Torque is proportional to <i>slip</i>, the degree to which the disk falls behind the rotating magnet. More slip corresponds to more flux cutting the conductive disk, developing more torque. 
+</p>
+
+<p>
+An analog automotive eddy current speedometer is based on the principle illustrated above. With the disk restrained by a spring, disk and needle deflection is proportional to magnet rotation rate.
+</p>
+
+<p>
+A rotating magnetic field is created by two coils placed at right angles to each other, driven by currents which are 90<sup>o</sup> out of phase. This should not be surprising if you are familiar with oscilloscope Lissajous patterns.
+</p>
+
+ 
+<a name="02468.png"></a> 
+<p> <img src="02468.png"> </p> 
+<p><i>Out of phase (90<sup>o</sup>) sine waves produce circular Lissajous pattern.</i></p> 
+
+
+
+<p>
+In Figure <a href="#02468.png">  above</a>,  a circular Lissajous is produced by driving the horizontal and vertical oscilloscope inputs with 90<sup>o</sup> out of phase sine waves. Starting at (a) with maximum &ldquo;X&rdquo; and minimum &ldquo;Y&rdquo; deflection, the trace moves up  and left toward (b). Between (a) and (b) the two waveforms are equal to 0.707 V<sub>pk</sub> at 45<sup>o</sup>. This point (0.707, 0.707) falls on the radius of the circle between (a) and (b)  The trace moves to  (b) with minimum &ldquo;X&rdquo; and maximum &ldquo;Y&rdquo; deflection.  With maximum negative &ldquo;X&rdquo; and minimum &ldquo;Y&rdquo; deflection, the trace moves to (c). Then with minimum &ldquo;X&rdquo; and  maximum negative &ldquo;Y&rdquo;, it moves to (d), and on back to (a), completing one cycle.  
+</p>
+
+
+ 
+<a name="02469.png"></a> 
+<p> <img src="02469.png"> </p> 
+<p><i>X-axis sine and Y-axis cosine  trace circle.</i></p> 
+
+
+<p>
+Figure <a href="#02469.png">  above</a> shows the two 90<sup>o</sup> phase shifted sine waves applied to oscilloscope deflection  plates which are at right angles in space. If this were not the case, a one dimensional line would display. The combination of  90<sup>o</sup> phased sine waves and right angle deflection, results in a two dimensional pattern&ndash; a circle. This circle is traced out by a counterclockwise rotating electron beam.
+</p>
+
+
+<p>
+For reference, Figure <a href="#02470.png">  below</a>shows why in-phase sine waves will not produce a circular pattern. Equal &ldquo;X&rdquo; and &ldquo;Y&rdquo; deflection moves the illuminated spot from the origin at (a) up to right (1,1) at (b), back down left to origin at (c),down left  to (-1.-1) at (d), and back up right to origin. The line is produced by equal deflections along both axes; y=x is a straight line.
+</p>
+
+ 
+<a name="02470.png"></a> 
+<p> <img src="02470.png"> </p> 
+<p><i>No circular motion from in-phase waveforms.</i></p> 
+
+
+<p>
+If a pair of 90<sup>o</sup> out of phase sine waves produces a circular Lissajous, a similar pair of currents should be able to produce a circular rotating magnetic field. Such is the case for a 2-phase motor. By analogy three windings placed 120<sup>o</sup> apart in space, and fed with corresponding 120<sup>o</sup> phased currents will also produce a rotating magnetic field.
+</p>
+
+ 
+<a name="02471.png"></a> 
+<p> <img src="02471.png"> </p> 
+<p><i>Rotating magnetic field from 90<sup>o</sup> phased sinewaves.</i></p> 
+
+
+<p>
+As the 90<sup>o</sup> phased sinewaves, Figure <a href="#02471.png">  above</a>, progress from points (a) through (d), the magnetic field rotates counterclockwise  (figures a-d) as follows:
+</p>
+
+<ul>
+<li>(a) &#966;-1 maximum, &#966;-2 zero </li>
+<li>(a') &#966;-1 70%, &#966;-2 70% </li>
+<li>(b) &#966;-1 zero, &#966;-2 maximum</li>
+<li>(c) &#966;-1 maximum negative, &#966;-2 zero</li>
+<li>(d) &#966;-1 zero, &#966;-2 maximum negative </li>
+</ul>
+
+
+<h4><a name="xtocid897521">Motor speed </a></h4>
+
+<a name="Synchronous speed, induction motor"></a>
+<a name="Motor, induction, speed"></a>
+<a name="Induction motor speed"></a>
+<a name="Motor, induction, synchronous speed"></a>
+<a name="Induction motor synchronous speed"></a>
+
+<p>
+The rotation rate of a stator rotating magnetic field is related to the number of pole pairs per stator phase. The &ldquo;full speed&rdquo; Figure <a href="#02472.png">  below</a>  has a total of six poles or three pole-pairs and three phases. However,there is but one pole pair per phase&ndash; the number we need. The magnetic field will rotate once per sine wave cycle. In the case of 60 Hz power, the field rotates at 60 times per second or 3600 revolutions per minute (rpm). For 50 Hz power, it rotates at 50 rotations per second, or 3000 rpm.  The 3600 and 3000 rpm, are the <i>synchronous speed</i> of the motor. Though the rotor of an induction motor never achieves this speed, it certainly is an upper limit. If we double the number of motor poles, the synchronous speed is cut in half because the magnetic field rotates 180<sup>o</sup> in space for 360<sup>o</sup> of electrical sine wave.
+</p>
+
+ 
+<a name="02472.png"></a> 
+<p> <img src="02472.png"> </p> 
+<p><i>Doubling the stator poles halves the synchronous speed.</i></p> 
+
+
+<p>
+The synchronous speed is given by:
+</p>
+
+<blockquote>N<sub>s</sub> = 120&#183;f/P</blockquote>
+<blockquote>N<sub>s</sub> = synchronous speed in rpm</blockquote>
+<blockquote>f = frequency of applied power, Hz</blockquote>
+<blockquote>P = total number of poles per phase, a multiple of 2</blockquote>
+
+<pre>
+<b>Example:</b>
+</pre>
+
+<p>
+The &ldquo;half speed&rdquo; Figure <a href="#02472.png">  above</a>  has four poles per phase (3-phase). The synchronous speed for 50 Hz power is:
+</p>
+
+<blockquote>
+S = 120&#183;50/4 = 1500 rpm
+</blockquote>
+
+<p>
+The short explanation of the induction motor is that the rotating magnetic field produced by the stator drags the rotor around with it.
+</p>
+
+<a name="Induction motor slip"></a>
+<a name="Motor, induction, slip"></a>
+
+<p>
+The  longer more correct explanation is that the stator's magnetic field induces an alternating current into the rotor squirrel cage conductors which constitutes a transformer secondary. This induced rotor current in turn creates a magnetic field. The rotating stator magnetic field interacts with this rotor field. The rotor field attempts to align with the rotating stator field. The result is rotation of the squirrel cage rotor. If there were no mechanical motor torque load, no bearing, windage, or other losses, the rotor would rotate at the synchronous speed. However, the <i>slip</i> between the rotor and the synchronous speed stator field develops torque. It is the magnetic flux cutting the rotor conductors as it slips which develops torque. Thus, a loaded motor will slip in proportion to the mechanical load. If the rotor were to run at synchronous speed, there would be no stator flux cutting the rotor, no current induced in the rotor, no torque.
+</p>
+
+
+
+
+<h4><a name="xtocid897522">Torque </a></h4>
+<a name="Motor, induction, torque"></a>
+<a name="Induction motor torque"></a>
+
+<p>
+When power is first applied to the motor, the rotor is at rest, while the stator magnetic field rotates at the synchronous speed N<sub>s</sub>. The stator field is cutting the rotor at the synchronous speed N<sub>s</sub>. The current induced in the rotor shorted turns is maximum, as is the frequency of the current, the line frequency. As the rotor speeds up, the rate at which stator flux cuts the rotor is the difference between synchronous speed N<sub>s</sub> and actual rotor speed N, or (N<sub>s</sub> - N). The ratio of actual flux cutting the rotor to synchronous speed is defined as <i>slip</i>:
+</p>
+
+<blockquote>
+s = (N<sub>s</sub> - N)/N<sub>s</sub>
+</blockquote>
+
+<blockquote>
+where: N<sub>s</sub> = synchronous speed,&nbsp;&nbsp; N = rotor speed
+</blockquote>
+
+<p>
+The frequency of the current induced into the rotor conductors is only as high as the line frequency at motor start, decreasing as the rotor approaches synchronous speed. <i>Rotor frequency</i> is given by:
+</p>
+
+<blockquote>
+f<sub>r</sub> = s&#183;f
+</blockquote>
+
+<blockquote>
+where: s = slip,&nbsp;&nbsp;  f = stator power line frequency
+</blockquote>
+
+<p>
+Slip at 100% torque is typically 5% or less in induction motors. Thus for f = 50 Hz line frequency, the frequency of the induced current in the rotor f<sub>r</sub> = 0.05&#183;50 = 2.5 Hz. Why is it so low? The stator magnetic field rotates at 50 Hz. The rotor speed is 5% less. The rotating magnetic field is only cutting the rotor at 2.5 Hz. The 2.5 Hz is the difference between the synchronous speed and the actual rotor speed. If the rotor spins a little faster, at the synchronous speed, no flux will cut the rotor at all, f<sub>r</sub> = 0.
+</p>
+
+ 
+<a name="02473.png"></a> 
+<p> <img src="02473.png"> </p> 
+<p><i>Torque and speed vs %Slip. %N<sub>s</sub>=%Synchronous Speed.</i></p> 
+
+
+<p>
+The Figure <a href="#02473.png">  above</a> graph shows that starting torque known as <i>locked rotor torque</i> (LRT) is higher than 100% of the <i>full load torque</i> (FLT), the safe continuous torque rating. The locked rotor torque is about 175% of FLT for the example motor graphed above.  Starting current known as <i>locked rotor current</i> (LRC) is 500% of <i>full load current</i> (FLC), the safe  running current. The current is high because this is analogous to a shorted secondary on a transformer. As the rotor starts to rotate the torque may decrease a bit for certain classes of motors to a value known as the <i>pull up torque</i>. This is the lowest value of torque ever encountered by the starting motor. As the rotor  gains 80% of synchronous speed, torque increases from 175% up to 300% of the full load torque. This <i>breakdown torque</i> is due to the larger than normal  20% slip. The current has decreased only slightly at this point, but will decrease rapidly beyond this point. As the rotor accelerates to within a few percent of synchronous speed, both torque and current will decrease substantially. Slip will be only a few percent during normal operation. For a running motor, any portion of the torque curve below 100% rated torque is normal. The motor load determines the operating point on the torque curve. While the motor torque and current may exceed 100% for a few seconds during starting, continuous operation above 100% can damage the motor.  Any motor torque load above the breakdown torque will stall the motor. The torque, slip, and current will approach zero for a &ldquo;no mechanical torque&rdquo; load condition. This condition is analogous to an open secondary transformer.
+</p>
+
+<p>
+There are several basic induction motor designs (Figure <a href="#02474.png">  below</a>)  showing consideable variation from the torque curve above. The different designs are optimized for starting and running different types of loads.  The locked rotor torque (LRT) for various motor designs and sizes ranges from 60% to 350% of full load torque (FLT).  Starting current or locked rotor current (LRC) can range from 500% to 1400% of full load current (FLC). This current draw can present a starting problem for large induction motors.
+</p>
+
+
+
+
+<h4><a name="xtocid897523">NEMA design classes</a></h4>
+
+<a name="Motor, induction, NEMA designs"></a>
+<a name="NEMA induction motor designs"></a>
+<a name="Induction motor, NEMA designs"></a>
+
+<p>
+Various standard  classes (or designs) for motors, corresponding to the torque curves (Figure <a href="#02474.png">  below</a>)  have been developed to better drive various type loads. The National Electrical Manufacturers Association (NEMA) has specified motor classes A, B, C, and D to meet these drive requirements. Similar International Electrotechnical Commission (IEC) classes N and H correspond to NEMA B and C designs respectively.
+</p>
+
+ 
+<a name="02474.png"></a> 
+<p> <img src="02474.png"> </p> 
+<p><i>Characteristics for NEMA designs.</i></p> 
+
+
+<p>
+All motors, except class D, operate at %5 slip or less at full load.
+</p>
+
+<ul>
+<li><b>Class B (IEC Class N)</b> motors are the default motor to use in most applications. With a starting torque of LRT = 150% to 170% of FLT, it can start most loads, without excessive starting current (LRT). Efficiency and power factor are high. It typically drives pumps, fans, and machine tools.</li>
+<li><b>Class A</b> starting torque is the same as class B. Drop out torque and starting current (LRT)are higher. This motor handles transient overloads as encountered in injection molding machines.</li>
+<li><b>Class C (IEC Class H)</b> has higher starting torque than class A and B at LRT = 200% of FLT. This motor is applied to hard-starting loads which need to be driven at constant speed like conveyors, crushers, and reciprocating pumps and compressors. </li>
+<li><b>Class D</b> motors have the highest starting torque (LRT) coupled with low starting current due to high slip ( 5% to 13% at FLT). The high slip results in lower speed. Speed regulation is poor. However, the motor excels at driving highly variable speed loads like those requiring an energy storage flywheel. Applications include punch presses, shears, and elevators.</li>
+<li><b>Class E</b> motors are a higher efficiency version of class B.</li>
+<li><b>Class F</b> motors have much lower LRC, LRT, and break down torque than class B. They drive constant easily started loads.</li>
+</ul>
+
+
+
+
+
+<h4><a name="xtocid897524">Power factor </a></h4>
+
+<a name="Power factor, induction motor"></a>
+<a name="Motor, induction, power factor"></a>
+<a name="Induction motor, power factor"></a>
+
+
+<p>
+Induction motors present a lagging (inductive) power factor to the power line.The power factor in large fully loaded high speed  motors can be as favorable as 90% for large high speed motors. At 3/4 full load the largest high speed motor power factor can be 92%. The power factor for small low speed motors can be as low as 50%.  At starting, the power factor can be in the range of 10% to 25%, rising as the rotor achieves speed.
+</p>
+
+<p>
+Power factor (PF) varies considerably with the motor mechanical load (Figure <a href="#02475.png">  below</a>). An unloaded motor is analogous to a transformer with no resistive load on the secondary. Little resistance is reflected from the secondary (rotor) to the primary (stator). Thus the power line sees a reactive load, as low as 10% PF.  As the rotor is loaded an increasing resistive component is reflected from rotor to stator, increasing the power factor.
+</p>
+
+ 
+<a name="02475.png"></a> 
+<p> <img src="02475.png"> </p> 
+<p><i>Induction motor power factor and efficiency.</i></p> 
+
+
+
+
+
+<h4><a name="xtocid897525">Efficiency</a></h4>
+<a name="Motor, induction, efficiency"></a>
+<a name="Induction motor efficiency"></a>
+
+<p>
+Large three phase motors are more efficient than smaller 3-phase motors, and most all single phase motors. Large induction motor efficiency can be as high as 95% at full load, though 90% is more common. Efficiency for a lightly loaded or no-load induction motor is poor because most of the current is involved with maintaining magnetizing flux. As the torque load is increased, more current is consumed in generating torque, while current associated with magnetizing remains fixed. Efficiency at 75% FLT can be slightly higher than that at 100% FLT. Efficiency is decreased a few percent at 50% FLT, and decreased a few more percent at 25% FLT. Efficiency only becomes poor below 25% FLT. The variation of efficiency with loading is shown in Figure <a href="#02475.png">  above</a>  
+</p>
+
+<p>
+Induction motors are typically oversized to guarantee that their mechanical load can be started and driven under all operating conditions. If a polyphase motor is loaded at less than 75% of rated torque where efficiency peaks, efficiency suffers only slightly down to 25% FLT. 
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid897526">Nola power factor corrector</a></u></h3>
+<a name="Nola power factor corrector"></a>
+<a name="Motor, power factor corrector"></a>
+
+<p>
+Frank Nola of NASA proposed a power factor corrector (PFC) as an energy saving device for single phase induction motors in the late 1970's. It is based on the premise that a less than fully loaded induction motor is less efficient and has a lower power factor than a fully loaded motor. Thus, there is energy to be saved in partially loaded motors, 1-&#966; motors in particular. The energy consumed in maintaining the stator magnetic field is relatively fixed with respect to load changes. While there is nothing to be saved in a fully loaded motor, the voltage to a partially loaded motor may be reduced to decrease the energy required to maintain the magnetic field. This will increase power factor and efficiency. This was a good concept for the notoriously inefficient  single phase motors for which it was intended.
+</p>
+
+<p>
+This concept is not very applicable to large 3-phase motors. Because of their high efficiency (90%+), there is not much energy to be saved. Moreover, a 95% efficient motor is still 94% efficient at 50% full load torque (FLT) and 90% efficient at 25% FLT. The potential energy savings in going from 100% FLT to 25% FLT is the difference in efficiency 95% - 90% = 5%. This is not 5% of the full load wattage but 5% of the wattage at the reduced load. The Nola power factor corrector might be applicable to a 3-phase motor which idles most of the time (below 25% FLT), like a punch press. The pay-back period for the expensive electronic controller has been estimated to be unattractive for most applications. Though, it might be economical as part of an electronic motor starter or speed Control. <a href="#7.bibitem">[7]</a>
+</p>
+
+
+
+ 
+<a name="sfig"></a>
+
+<h3><u><a name="xtocid897527">Induction motor alternator</a></u></h3>
+
+
+<a name="Alternator, induction"></a>
+<a name="Induction alternator"></a>
+<a name="Generator, induction"></a>
+<a name="Induction generator"></a>
+
+<p>
+An induction motor may function as an alternator if it is driven by a torque at greater than 100% of the synchronous speed. (Figure <a href="#02476.png">  below</a>) This corresponds to a few % of &ldquo;negative&rdquo; slip, say -1% slip. This means that as we are rotating the motor faster than the synchronous speed, the rotor is advancing 1% faster than the stator rotating magnetic field. It normally lags by 1% in a motor. Since the rotor is cutting the stator magnetic field in the opposite direction (leading), the rotor induces a voltage into the stator feeding electrical energy back into the power line. 
+</p>
+
+ 
+<a name="02476.png"></a> 
+<p> <img src="02476.png"> </p> 
+<p><i>Negative torque makes induction motor into generator.</i></p> 
+
+
+<p>
+Such an <i>induction generator</i> must be excited by a &ldquo;live&rdquo; source of 50 or 60 Hz power. No power can be generated in the event of a power company  power failure. This type of alternator appears to be unsuited as a standby power source. As an auxiliary power wind turbine generator, it has the advantage of not requiring an automatic power failure disconnect switch to protect repair crews. It is fail-safe.
+</p>
+
+<p>
+Small remote (from the power grid) installations may be made self-exciting by placing capacitors in parallel with the stator phases. If the load is removed residual magnetism may generate a small amount of current flow. This current is allowed to flow by the capacitors without dissipating power. As the generator is brought up to full speed, the current flow increases to supply a magnetizing current to the stator. The load may be applied at this point. Voltage regulation is poor. An induction motor may be converted to a self-excited generator by the addition of capacitors.<a href="#6.bibitem">[6]</a>
+</p>
+
+<p>
+Start up procedure is to bring the  wind turbine up to speed in motor mode by application of normal power line voltage to the stator. Any wind induced turbine speed in excess of synchronous speed will develop negative torque, feeding power back into the power line, reversing the normal direction of the electric kilowatt-hour meter. Whereas an induction motor presents a lagging power factor to the power line, an induction alternator presents a leading power factor. Induction generators are not widely used in conventional power plants. The speed of the steam turbine drive is steady and controllable as required by synchronous alternators.  Synchronous alternators are also more efficient.
+<p>
+
+</p>
+The speed of a wind turbine is difficult to control, and subject to wind speed variation by gusts. An induction alternator is better able to cope with these  variations due to the inherent slip. This stresses the gear train and mechanical components less than a synchronous genertor.  However, this allowable speed variation only amounts to about 1%. Thus, a direct line connected induction generator is considered to be fixed-speed in a wind turbine. See <a href="#dfig">Doubly-fed induction generator</a> for a true variable speed alternator.  Multiple generators or multiple windings on a common shaft may be switched to provide a high and low speed to accomodate variable wind conditions.
+</p>
+
+ 
+
+
+
+<h3><u><a name="xtocid897528">Motor starting and speed control</a></u></h3>
+<a name="Motor, induction, starting"></a>
+<a name="Induction motor starting"></a>
+
+<p>
+Some induction motors can draw over 1000% of full load current during starting; though, a few hundred percent is more common. Small motors of a few kilowatts or smaller can be started by direct connection to the power line. Starting larger motors can cause line voltage sag, affecting other loads.  Motor-start rated circuit breakers (analogous to slow blow fuses) should replace standard circuit breakers for starting  motors of a few kilowatts. This breaker accepts  high over-current for the duration of starting. 
+</p>
+
+ 
+<a name="02477.png"></a> 
+<p> <img src="02477.png"> </p> 
+<p><i>Autotransformer induction motor starter.</i></p> 
+
+
+<p>
+Motors over 50 kW use motor starters to reduce line current from several hundred to a few hundred percent of full load current.  An intermittent duty autotransformer may  reduce the stator voltage for a fraction of a minute during the start interval, followed by application of full line voltage as in Figure <a href="#02477.png">  above</a>. Closure of the S contacts applies reduced voltage during the start interval. The S contacts open and the R contacts close after starting. This reduces starting current to, say, 200% of full load current. Since the autotransformer is only used for the short start interval, it may be sized considerably smaller than a continuous duty unit. 
+</p>
+
+
+
+<h4><a name="xtocid897529">Running 3-phase motors on 1-phase</a></h4>
+<a name="add-a-phase, AC motor"></a>
+
+<p>
+Three-phase motors will run on single phase as readily as single phase motors. The only problem for either motor is starting. Sometimes 3-phase motors are purchased for use on single phase if three-phase provisioning is anticipated. The power rating needs to be 50% larger than for a comparable single phase motor to make up for one unused winding. Single phase is applied to a pair of windings simultanous with a start capacitor in series with the third winding. The start switch is opened in Figure <a href="#02519.png">  below</a> upon motor start. Sometimes a smaller capacitor than the start capacitor is retained while running.
+</p>
+
+ 
+<a name="02519.png"></a> 
+<p> <img src="02519.png"> </p> 
+<p><i>Starting a three-phase motor on single phase.</i></p> 
+
+
+<a name="static phase converter"></a>
+
+<p>
+The circuit in Figure <a href="#02519.png">  above</a>  for running a three-phase motor on single phase is known as a <i>static phase converter</i> if the motor shaft is not loaded. Moreover, the motor acts as a 3-phase generator. Three phase power may be tapped off from the three stator windings for powering other 3-phase equipment. The capacitor supplies a <i>synthetic</i> phase approximately midway &#8736;90<sup>o</sup> between the  &#8736;180<sup>o</sup> single phase power source terminals for starting. While running, the motor generates  approximately standard 3-&#966;, as shown in Figure <a href="#02519.png">  above</a>.  Matt Isserstedt shows a complete design for powering a home machine shop. <a href="#8.bibitem">[8]</a>
+</p>
+
+
+
+ 
+<a name="02520.png"></a> 
+<p> <img src="02520.png"> </p> 
+<p><i>Self-starting static phase converter. Run capacitor = 25-30&#181;F per HP. Adapted from Figure 7, Hanrahan <a href="#9.bibitem">[9]</a></i></p> 
+
+
+<p>
+Since a static phase converter has no torque load, it may be started with a capacitor considerably smaller than a normal start capacitor. If it is small enough, it may be left in circuit as a run-capacitor. See Figure <a href="#02520.png">  above</a>. However, smaller run-capacitors result in better 3-phase power output as in Figure <a href="#02521.png">  below</a>. Moreover, adjustment of these capacitors to equalize the currents as measured in the three phases results in the most efficient machine.<a href="#9.bibitem">[9]</a>  However, a large start capacitor is required for about a second to quickly start the converter. Hanrahan provides construction details.<a href="#9.bibitem">[9]</a>
+</p>
+
+ 
+<a name="02521.png"></a> 
+<p> <img src="02521.png"> </p> 
+<p><i>More efficient static phase converter. Start capacitor = 50-100&#181;F/HP. Run capacitors = 12-16&#181;F/HP. Adapted from Figure 1, Hanrahan <a href="#9.bibitem">[9]</a></i></p> 
+
+
+
+
+
+
+
+<h4><a name="xtocid897530">Multiple fields </a></h4>
+
+<a name="Motor, induction, speed"></a>
+<a name="Induction motor speed"></a>
+
+<p>
+Induction motors may contain multiple field windings, for example a 4-pole and an 8-pole winding corresponding to 1800 and 900 rpm synchronous speeds. Energizing one field or the other is less complex than rewiring the stator coils in Figure <a href="#02478.png">  below</a>.
+</p>
+
+ 
+<a name="02478.png"></a> 
+<p> <img src="02478.png"> </p> 
+<p><i>Multiple fields allow speed change.</i></p> 
+
+
+<p>
+If the field is segmented with leads brought out, it may be rewired (or switched) from 4-pole to 2-pole as shown above for a 2-phase motor. The  22.5<sup>o</sup> segments are switchable to 45<sup>o</sup> segments. Only the wiring for one phase is shown above for clarity. Thus, our induction motor may run at multiple speeds. When switching the above  60 Hz motor from 4 poles to 2 poles the synchronous speed increases from 1800 rpm to 3600 rpm.  If the motor is driven by 50 Hz, what would be the corresponding 4-pole and 2-pole synchronous speeds? 
+</p>
+
+<blockquote>N<sub>s</sub> = 120f/P = 120*50/4 = 1500 rpm (4-pole)</blockquote>
+<blockquote>N<sub>s</sub> = 3000 rpm (2-pole)</blockquote>
+
+
+
+
+<h4><a name="xtocid897531">Variable voltage</a></h4>
+
+<p>
+The speed of small squirrel cage induction motors for applications such as driving fans, may be changed by reducing the line voltage. This reduces the torque available to the load which reduces the speed. (Figure <a href="#02479.png">  below</a>)
+</p>
+
+ 
+<a name="02479.png"></a> 
+<p> <img src="02479.png"> </p> 
+<p><i>Variable voltage controls induction motor speed.</i></p> 
+
+
+
+
+
+
+
+
+<h4><a name="xtocid897532">Electronic speed control </a></h4>
+
+<a name="Induction motor, speed control"></a>
+<a name="Motor, induction, speed control"></a>
+<a name="Speed control, induction motor"></a>
+
+<p>
+Modern solid state electronics increase the options for speed control. By changing the 50 or 60 Hz line frequency to higher or lower values, the synchronous speed of the motor may be changed. However, decreasing the frequency of the current fed to the motor also decreases reactance X<sub>L</sub> which increases the stator current. This may cause the stator magnetic circuit to saturate with disastrous results. In practice, the voltage to the motor needs to be decreased when frequency is decreased.
+</p>
+
+ 
+<a name="02480.png"></a> 
+<p> <img src="02480.png"> </p> 
+<p><i> Electronic variable speed drive.</i></p> 
+
+
+<p>
+Conversely, the drive frequency may be increased to increase the synchronous speed of the motor. However, the voltage needs to be increased to overcome increasing reactance to keep current up to a normal value and maintain torque.
+The inverter (Figure <a href="#02480.png">  above</a>)  approximates sinewaves to the motor with pulse width modulation outputs. This is a chopped waveform which is either on or off, high or low, the percentage of &ldquo;on&rdquo; time corresponds to the instantaneous sine wave voltage.
+</p>
+
+<p>
+Once electronics is  applied to induction  motor control, many control methods are available, varying from the simple to complex:
+</p>
+
+
+
+<br> </br>
+<b>Summary: Speed control</b>
+<ul>
+<li><i>Scaler Control</i> Low cost method described above to control only voltage and frequency, without feedback.</li>
+<li><i>Vector Control</i> Also known as vector phase control. The flux  and torque producing components of stator current are measured or estimated on a real-time basis to enhance the motor torque-speed curve. This is computation intensive.</li>
+<li><i>Direct Torque Control</i> An elaborate adaptive motor model allows more direct control of flux and torque without feedback. This method quickly responds to load changes. </li>
+</ul>
+
+
+
+<br> </br>
+<b>Summary: Tesla polyphase induction motors</b>
+
+<ul>
+<li>A <i>polyphase induction motor</i> consists of a polyphase winding embedded in a laminated  stator and a conductive squirrel cage embedded in a laminated rotor.</li>
+<li>Three phase currents flowing within the stator create a rotating magnetic field which induces a current, and consequent magnetic field in the rotor. Rotor torque is developed as the rotor slips a little behind the rotating stator field.</li>
+<li>Unlike single phase motors, polyphase induction motors are <i>self-starting.</i></li>
+<li><i>Motor starters</i> minimize loading of the power line while providing a larger starting torque than required during running. Line current reducing <i>starters</i> are only required for large motors.</li>
+<li>Three phase motors will run on single phase, if started.</li>
+<li>A <i>static phase converter</i> is a three phase motor running on single phase having no shaft load, generating a 3-phase output.</li>
+<li><i>Multiple field windings</i> can be rewired for multiple discrete motor speeds by changing the number of poles.</li>
+</ul>
+
+
+
+
+
+
+<h3><u><a name="xtocid897533">Linear induction motor</a></u></h3>
+
+<a name="Linear induction motor"></a>
+<a name="Induction motor, linear"></a>
+
+<p>
+The wound stator and the squirrel cage rotor of an induction motor may be cut at the circumference and unrolled into a linear induction motor. The direction of linear travel is controlled by the sequence of the drive to the stator phases. 
+</p>
+
+<p>
+The linear induction motor has been proposed as a drive for high speed passenger trains. Up to this time, the linear induction motor with the accompanying magnetic repulsion levitation system required for a smooth ride has been too costly for all but experimental installations.  However, the linear induction motor is scheduled to replace steam driven  catapult aircraft launch systems on the next generation of naval aircraft carrier, CVNX-1, in 2013. This will increase efficiency and reduce maintenance.<a href="#4.bibitem">[4]</a>
+<a href="#5.bibitem">[5]</a>
+</p>
+
+
+
+
+
+
+<h2><u><a name="xtocid897534">Wound rotor induction motors </a></u></h2>
+<a name="Wound rotor induction motor"></a>
+<a name="Motor, induction, wound rotor"></a>
+<a name="Induction motor, wound rotor"></a>
+
+<p>
+A <i>wound rotor</i> induction motor has a stator like the squirrel cage induction motor, but a rotor with insulated windings brought out via slip rings and brushes. However, no power is applied to the slip rings. Their sole purpose is to allow resistance to be placed in series with the rotor windings while starting. (Figure <a href="#02481.png">  below</a>) This resistance is shorted out once the motor is started to make the rotor look electrically like the squirrel cage counterpart.
+</p>
+
+ 
+<a name="02481.png"></a> 
+<p> <img src="02481.png"> </p> 
+<p><i>Wound rotor induction motor.</i></p> 
+
+
+<p>
+Why put resistance in series with the rotor?  Squirrel cage induction motors draw 500% to over 1000% of full load current (FLC) during starting. 
+While this is not a severe problem for small motors, it is for large (10's of kW) motors. Placing resistance in series with the rotor windings not only decreases start current, locked rotor current (LRC), but also increases the starting torque, locked rotor torque (LRT). Figure <a href="#02482.png">  below</a>  shows that by increasing the rotor resistance from R<sub>0</sub> to R<sub>1</sub> to  R<sub>2</sub>, the breakdown torque peak is shifted left to zero speed.Note that this torque peak is much higher than the starting torque available with no rotor resistance (R<sub>0</sub>).  Slip is proportional to rotor resistance, and pullout torque is proportional to slip. Thus, high torque is produced while starting.
+</p>
+
+ 
+<a name="02482.png"></a> 
+<p> <img src="02482.png"> </p> 
+<p><i>Breakdown torque peak is shifted to zero speed by increasing rotor resistance.</i></p> 
+
+
+<p>
+The resistance decreases the torque available at full running speed. But that resistance is shorted out by the time the rotor is started. A shorted rotor operates like a squirrel cage rotor. Heat generated during starting is mostly dissipated external to the motor in the starting resistance. The complication and maintenance associated with brushes and slip rings is a disadvantage of the wound rotor as compared to the simple squirrel cage rotor.
+</p>
+
+<p>
+This motor is suited for starting high inertial loads. A high starting resistance makes the high pull out torque available at zero speed. For comparison, a squirrel cage rotor only exhibits pull out (peak) torque at 80% of its synchronous speed.
+</p>
+
+
+<h3><u><a name="xtocid897535">Speed control</a></u></h3>
+
+<a name="Induction motor, speed control"></a>
+<a name="Motor, induction, speed control"></a>
+<a name="Speed control,induction motor"></a>
+
+<p>
+Motor speed may be varied  by putting variable resistance back into the rotor circuit. This reduces rotor current and speed. The high starting torque available at zero speed, the down shifted break down torque, is not available at high speed. See R<sub>2</sub> curve at 90% Ns, Figure <a href="#02483.png">  below</a>. Resistors R<sub>0</sub>R<sub>1</sub>R<sub>2</sub>R<sub>3</sub> increase in value from zero. A higher resistance at R<sub>3</sub> reduces the speed further. Speed regulation is poor with respect to changing torque loads. This speed control technique is only useful over a range of 50% to 100% of full speed. Speed control works well with variable speed loads like elevators and printing presses.
+</p>
+
+ 
+<a name="02483.png"></a> 
+<p> <img src="02483.png"> </p> 
+<p><i>Rotor resistance controls speed of wound rotor induction motor.</i></p> 
+
+
+
+
+
+
+ 
+<a name="dfig"></a>
+<h3><u><a name="xtocid897536">Doubly-fed induction generator</a></u></h3>
+
+<a name="Doubly fed induction generator"></a>
+<a name="Alternator, induction"></a>
+<a name="Induction alternator"></a>
+<a name="Generator, induction"></a>
+<a name="Induction generator"></a>
+
+
+<p>
+We previously described a squirrel cage induction motor acting like a generator if driven faster than the synchronous speed. (See <a href="#sfig">Induction motor alternator</a>) This is a <i>singly-fed induction generator</i>, having electrical connections only to the stator windings. A wound rotor induction motor may also act as a generator when driven above the synchronous speed. Since there are connections to both the stator and rotor, such a machine is known as a <i>doubly-fed induction generator</i> (DFIG).
+</p>
+
+ 
+<a name="02512.png"></a> 
+<p> <img src="02512.png"> </p> 
+<p><i>Rotor resistance allows over-speed of doubly-fed induction generator.</i></p> 
+
+
+<p>
+The singly-fed induction generator only had a usable slip range of 1% when driven by troublesome wind torque. Since the speed of a wound rotor induction motor may be controlled over a range of 50-100% by inserting resistance in the rotor, we may expect the same  of the doubly-fed induction generator. Not only can we slow the rotor by 50%, we can also overspeed it by 50%. That is, we can vary the speed of a doubly fed induction generator by &#177;50% from the synchronous speed. In actual practice, &#177;30% is more practical.
+</p>
+
+
+<p>
+If the generator over-speeds, resistance placed in the rotor circuit will absorb excess energy while the stator feeds constant 60 Hz to the power line. (Figure <a href="#02512.png">  above</a>) In the case of under-speed, negative resistance inserted into the rotor circuit can make up the energy deficit, still allowing the stator to feed the power line with 60 Hz power. 
+</p>
+
+ 
+<a name="02513.png"></a> 
+<p> <img src="02513.png"> </p> 
+<p><i>Converter recovers energy from rotor of doubly-fed induction generator.</i></p> 
+
+
+<p>
+In actual practice, the rotor resistance may be replaced by a converter (Figure <a href="#02513.png">  above</a>) absorbing power from the rotor, and feeding power into the power line instead of dissipating it. This improves the efficiency of the generator.
+</p> 
+
+
+ 
+<a name="02514.png"></a> 
+<p> <img src="02514.png"> </p> 
+<p><i>Converter borrows energy from power line for rotor of doubly fed induction generator, allowing it to function well under synchronous speed.</i></p> 
+
+
+
+<p>
+The converter may &ldquo;borrow&rdquo; power from the line for the under-speed rotor, which passes it on to the stator. (Figure <a href="#02514.png">  above</a>) The borrowed power, along with the larger shaft energy,  passes  to the stator which is connected to the power line. The stator appears to be supplying 130% of power to the line.  Keep in mind that the rotor &ldquo;borrows&rdquo; 30%, leaving, leaving the line with 100% for the theoretical lossless DFIG. 
+
+</p>
+
+
+
+
+
+
+<br> </br>
+<b>Wound rotor induction motor qualities.</b>
+<ul>
+<li>Excellent starting torque for high inertia loads.</li>
+<li>Low starting current compared to squirrel cage induction motor.</li>
+<li>Speed is resistance variable over 50% to 100% full speed.</li>
+<li>Higher maintenance of brushes and slip rings compared to squirrel cage motor.</li>
+<li>The generator version of the wound rotor machine is known as a <i>doubly-fed induction generator</i>, a variable speed machine.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid897537">Single-phase induction motors</a></u></h2>
+
+<a name="Induction motor, single phase"></a>
+
+<p>
+A three phase motor may be run from a single phase power source. (Figure <a href="#02484.png">  below</a>) However, it will not self-start.  It may be hand started in either direction, coming up to speed in a few seconds. It will only develop 2/3 of the 3-&#966; power rating because one winding is not used.  
+</p>
+
+
+ 
+<a name="02484.png"></a> 
+<p> <img src="02484.png"> </p> 
+<p><i>3-&#966;motor runs from 1-&#966; power,  but does not start.</i></p> 
+
+
+<p>
+The single coil of a single phase induction motor does not produce a rotating magnetic field, but a pulsating field reaching maximum intensity at 0<sup>o</sup> and 180<sup>o</sup> electrical. (Figure <a href="#02485.png">  below</a>)
+</p>
+
+ 
+<a name="02485.png"></a> 
+<p> <img src="02485.png"> </p> 
+<p><i>Single phase stator produces a nonrotating, pulsating magnetic field.</i></p> 
+
+
+<p>
+Another view is that the single coil excited by a single phase current produces two counter rotating magnetic field phasors, coinciding twice per revolution at 0<sup>o</sup> (Figure <a href="#02485.png">  above</a>-a) and 180<sup>o</sup> (figure e). When the phasors rotate to  90<sup>o</sup> and -90<sup>o</sup> they cancel in figure b. At 45<sup>o</sup> and -45<sup>o</sup> (figure c) they are partially additive along the +x axis and cancel along the y axis. An analogous situation exists in figure d.  The sum of these two phasors is a phasor stationary in space, but alternating polarity in time. Thus, no starting torque is developed.
+</p>
+
+<p>
+However, if the rotor is rotated forward at a bit less than the synchronous speed, it will develop maximum torque at 10% slip with respect to the forward rotating phasor. Less torque will be developed above or below 10% slip. The rotor will see 200% - 10% slip with respect to the counter rotating magnetic field phasor. Little torque (see torque vs slip curve) other than a double frequency ripple is developed from the counter rotating phasor. Thus, the single phase coil will develop torque, once the rotor is started. If the rotor is started in the reverse direction, it will develop a similar large torque as it nears the speed of the backward rotating phasor. 
+</p>
+
+
+<p>
+Single phase induction motors have a copper or aluminum squirrel cage embedded in a cylinder of steel laminations, typical of poly-phase induction motors.
+</p>
+
+
+<h3><u><a name="xtocid897538">Permanent-split capacitor motor </a></u></h3>
+
+<a name="Motor, permanent-split capacitor"></a>
+
+<p>
+One way to solve the single phase problem is to build a 2-phase motor, deriving 2-phase power from single phase. This requires a motor with two windings spaced apart 90<sup>o</sup> electrical, fed with two phases of current displaced 90<sup>o</sup> in time. This is called a permanent-split capacitor motor in Figure <a href="#02486.png">  below</a>.  
+</p>
+
+ 
+<a name="02486.png"></a> 
+<p> <img src="02486.png"> </p> 
+<p><i>Permanent-split capacitor induction motor.</i></p> 
+
+
+<p>
+This type of motor suffers increased current magnitude and backward time shift as the motor comes up to speed, with torque pulsations at full speed. The solution is to keep the capacitor (impedance) small to minimize losses.  The losses are less than for a shaded pole motor. This motor configuration works well up to 1/4 horsepower (200watt), though, usually applied to smaller motors. The direction of the motor is easily reversed by switching the capacitor in series with the  other winding. This type of motor can be adapted for use as a servo motor, described elsewhere is this chapter.
+</p>
+
+
+ 
+<a name="02487.png"></a> 
+<p> <img src="02487.png"> </p> 
+<p><i>Single phase induction motor with embedded stator coils.</i></p> 
+
+
+<p>
+Single phase induction motors may have coils embedded into the stator as shown in Figure <a href="#02487.png">  above</a>  for larger size motors. Though, the smaller sizes use less complex to build concentrated windings with salient poles.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897539">Capacitor-start induction motor </a></u></h3>
+
+<a name="Motor, capacitor-start"></a>
+
+
+<p>
+In Figure <a href="#02488.png">  below</a> a larger capacitor may be used to start a single phase induction motor via the auxiliary winding if it is switched out by a centrifugal switch once the motor is up to speed. Moreover, the auxiliary winding may be many more turns of  heavier wire than used in a resistance split-phase motor to mitigate excessive temperature rise. The result is that more starting torque is available for heavy loads like air conditioning compressors. This motor configuration works so well that it is available in multi-horsepower (multi-kilowatt) sizes.
+</p>
+
+ 
+<a name="02488.png"></a> 
+<p> <img src="02488.png"> </p> 
+<p><i>Capacitor-start induction motor.</i></p> 
+
+<p>
+
+</p>
+
+
+
+
+<h3><u><a name="xtocid897540">Capacitor-run motor induction motor </a></u></h3>
+
+<a name="Motor, capacitor-run"></a>
+
+<p>
+A variation of the capacitor-start motor (Figure <a href="#02489.png">  below</a>) is to start the motor with a relatively large capacitor for high starting torque, but leave a smaller value capacitor in place after starting to improve running characteristics while not drawing excessive current. The additional complexity of the capacitor-run motor is justified for larger size motors.
+</p>
+
+ 
+<a name="02489.png"></a> 
+<p> <img src="02489.png"> </p> 
+<p><i>Capacitor-run motor induction motor.</i></p> 
+
+
+<p>
+A motor starting capacitor may be a double-anode non-polar electrolytic capacitor which could be two + to + (or - to -) series connected polarized  electrolytic capacitors.  Such AC rated electrolytic capacitors have such high losses that they can only be used for intermittent duty (1 second on, 60 seconds off) like motor starting. A capacitor for motor running must not be of electrolytic construction, but a lower loss polymer type.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897541">Resistance split-phase induction motor</a></u></h3>
+
+<a name="Motor, split-phase"></a>
+
+<p>
+If an auxiliary winding of much fewer turns of  smaller wire is placed at 90<sup>o</sup> electrical to the main winding, it can start a single phase induction motor. (Figure <a href="#02490.png">  below</a>) With lower inductance and higher resistance, the current will experience less phase shift than the main winding. About 30<sup>o</sup> of phase difference may be obtained. This coil produces a moderate starting torque, which is disconnected by a centrifugal switch at 3/4 of synchronous speed. This simple (no capacitor) arrangement serves well for motors up to 1/3 horsepower (250 watts) driving easily started loads. 
+</p>
+
+ 
+<a name="02490.png"></a> 
+<p> <img src="02490.png"> </p> 
+<p><i>Resistance split-phase induction motor.</i></p> 
+
+
+<p>
+This motor has more starting torque than a shaded pole motor (next section), but not as much as a two phase motor built from the same parts. The current density in the auxiliary winding is so high during starting that the consequent rapid temperature rise precludes frequent restarting or slow starting loads.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897542">Nola power factor corrector</a></u></h3>
+<a name="Nola power factor corrector"></a>
+<a name="Motor, power factor corrector"></a>
+<a name="Induction motor power factor corrector"></a>
+
+
+<p>
+Frank Nola of NASA proposed a power factor corrector for improving the efficiency of AC induction motors in the mid 1970's. It is based on the premise that induction motors are inefficient at less than full load. This inefficiency correlates with a low power factor. The less than unity power factor is due to magnetizing current required by the stator. This fixed current is a larger proportion of total motor current as motor load is decreased. At light load, the full magnetizing current is not required. It could be reduced by decreasing the applied voltage, improving the power factor and efficiency. The power factor corrector senses power factor, and decreases motor voltage, thus restoring a higher power factor and decreasing losses.
+</p>
+
+<p>
+Since single-phase motors are about 2 to 4 times as inefficient as three-phase motors, there is potential energy savings for 1-&#966; motors. There is no savings for a fully loaded motor since all the stator magnetizing current is required.  The voltage cannot be reduced. But there is potential savings from a less than fully loaded motor. A nominal 117 VAC motor is designed to work at as high  as 127 VAC, as low as 104 VAC. That means that it is not fully loaded when operated at greater than 104 VAC, for example, a 117 VAC refrigerator. It is safe for the power factor controller to lower the line voltage to 104-110 VAC. The higher the initial line voltage, the greater the potential savings. Of course, if the power company delivers closer to 110 VAC, the motor will  operate more efficiently without any add-on device.
+</p>
+
+<p>
+Any substantially idle, 25% FLC or less,  single phase induction motor is a candidate for a PFC. Though, it needs to operate a large number of hours per year. And the more time it idles, as in a lumber saw, punch press, or conveyor, the greater the possibility of paying for the controller in a few years operation. It should be easier to pay for it by a factor of three as compared to the more efficient 3-&#966;-motor. The cost of a PFC cannot be recovered for a motor operating only a few hours per day. <a href="#7.bibitem">[7]</a>
+</p>
+
+
+
+
+<br> </br>
+<b>Summary: Single-phase induction motors</b>
+
+<ul>
+<li> <i>Single-phase induction motors</i> are not self-starting without an auxiliary stator winding driven by an out of phase current of near 90<sup>o</sup>. Once started the auxiliary winding is optional.</li>
+<li>The auxiliary winding of a <i>permanent-split capacitor motor</i> has a capacitor in series with it during starting and running. </li>
+<li>A <i>capacitor-start induction motor</i> only has a capacitor in series with the auxiliary winding during starting. </li>
+<li>A <i>capacitor-run motor</i> typically has a large non-polarized electrolytic capacitor in series with the auxiliary winding for starting, then a smaller non-electrolytic capacitor during running. </li>
+<li>The auxiliary winding of a <i>resistance split-phase motor</i> develops a phase difference versus the main winding during starting by virtue of the difference in resistance. </li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid897543">&nbsp;Other specialized motors</a></u></h2>
+
+
+
+<h3><u><a name="xtocid897544">&nbsp;Shaded pole induction motor </a></u></h3>
+
+<a name="Motor, shaded pole"></a>
+
+<p>
+An easy way to provide starting torque to a single phase motor is to embed a shorted turn in each pole at 30<sup>o</sup> to 60<sup>o</sup> to the main winding. (Figure <a href="#02491.png">  below</a>) Typically 1/3 of the pole is enclosed by a bare copper strap. These shading coils produce a time lagging damped flux spaced 30<sup>o</sup> to 60<sup>o</sup> from the main field. This lagging flux with the undamped main component, produces a rotating field with a small torque to start the rotor. 
+</p>
+
+
+ 
+<a name="02491.png"></a> 
+<p> <img src="02491.png"> </p> 
+<p><i>Shaded pole induction motor, (a) dual coil design, (b) smaller single coil version.</i></p> 
+
+
+<p>
+Starting torque is so low that shaded pole motors are only manufactured in smaller sizes, below 50 watts. Low cost and simplicity suit this motor to small fans, air circulators, and other low torque applications. Motor speed can be lowered by switching reactance in series to limit current and torque, or by switching motor coil taps as in Figure <a href="#02492.png">  below</a>.
+</p>
+
+ 
+<a name="02492.png"></a> 
+<p> <img src="02492.png"> </p> 
+<p><i>Speed control of shaded pole motor.</i></p> 
+
+
+
+
+
+<h3><u><a name="xtocid897545">&nbsp;2-phase  servo motor</a></u></h3>
+
+<a name="Motor, AC servo"></a>
+
+<p>
+A <i>servo motor</i> is typically part of a feedback loop containing electronic, mechanical, and electrical components. The servo loop is a means of controlling the motion of an object via the motor.  A requirement of many such systems is fast response. To reduce acceleration robbing inertia, the iron core is removed from the rotor leaving only a shaft mounted aluminum cup to rotate. (Figure <a href="#02493.png">  below</a>) The iron core is reinserted within the cup as a static (non-rotating) component to complete the magnetic circuit. Otherwise, the construction is typical of a two phase motor. The low mass rotor can accelerate more rapidly than a squirrel cage rotor.
+</p>
+
+ 
+<a name="02493.png"></a> 
+<p> <img src="02493.png"> </p> 
+<p><i>High acceleration 2-&#966; AC servo motor.</i></p> 
+
+
+<p>
+One phase is connected to the single phase line; the other is driven by an amplifier. One of the windings is driven by a 90<sup>o</sup> phase shifted waveform. In the above figure, this is accomplished by a series capacitor in the power line winding. The other winding is driven by a variable amplitude sine wave to control motor speed. The phase of the waveform may invert (180<sup>o</sup> phase shift) to reverse the direction of the motor. This variable sine wave is the output of an error amplifier. See synchro CT  section for example. Aircraft control surfaces may be positioned by 400 Hz 2-&#966; servo motors.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897546">&nbsp;Hysteresis motor</a></u></h3>
+
+<a name="Motor, hysteresis"></a>
+
+<p>
+If the low hysteresis Si-steel laminated rotor of an induction motor is replaced by a slotless windingless cylinder of hardened magnet steel, hysteresis, or lagging behind of rotor magnetization, is greatly accentuated. The resulting low torque synchronous motor develops constant torque from stall to synchronous speed. Because of the low torque, the hysteresis motor is only available in very small sizes, and is only used for constant speed applications like clock drives, and formerly, phonograph turntables.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897547">&nbsp;Eddy current clutch </a></u></h3>
+
+
+<a name="Eddy current clutch"></a>
+<p>
+If the stator of an induction motor or a synchronous motor is mounted to rotate independently of the rotor, an eddy current clutch results. The coils are excited with DC and attached to the mechanical load. The squirrel cage rotor is attached to the driving motor. The drive motor is started with no DC excitation to the clutch. The DC excitation is adjusted from zero to the desired final value providing a continuously and smoothly variable  torque. The operation of the eddy current clutch is similar to an analog eddy current automotive speedometer.
+</p>
+
+
+
+<br> </br>
+<b>Summary: Other specialized motors</b>
+
+<ul>
+<li>The <i>shaded pole induction motor</i>, used in under 50 watt low torque applications, develops a second phase from shorted turns in the stator.</li>
+<li><i> Hysteresis motors</i> are a small low torque synchronous motor once used in clocks and phonographs.</li>
+<li>The <i>eddy current clutch</i> provides an adjustable torque. </li>
+</ul>
+
+
+
+
+
+<h2><u><a name="xtocid897548">&nbsp;Selsyn (synchro) motors </a></u></h2>
+<a name="Selsyn"></a>
+<a name="Synchro (selsyn)"></a>
+
+<!--synchros USN http://www.tpub.com/content/neets/14187/index.htm-->
+<!--synchros British  www.atra.mod.uk/atra/rsabst/pdf/Z/Ctrl-Synchros.pdf-->
+
+<p>
+Normally, the rotor windings of a wound rotor induction motor are shorted out after starting. During starting, resistance may be placed in series with the rotor windings to limit starting current.  If these windings are connected to a common starting resistance, the two rotors will remain synchronized during starting. (Figure <a href="#02494.png">  below</a>)  This is useful for printing presses and draw bridges, where two motors need to be synchronized during starting.  Once started, and the rotors are shorted, the synchronizing torque is absent.  The higher the resistance during starting, the higher the synchronizing torque for a pair of motors. If the starting resistors are removed, but the rotors still paralleled, there is no starting torque. However there is a substantial synchronizing torque.  This is a <i>selsyn</i>, which is an abbreviation for &ldquo;self synchronous&rdquo;.
+</p>
+
+ 
+<a name="02494.png"></a> 
+<p> <img src="02494.png"> </p> 
+<p><i>Starting wound rotor induction motors from common resistors.</i></p> 
+
+
+<p>
+The rotors may be  stationary. If one rotor is moved through an angle &#952;, the other selsyn shaft will move through an angle &#952;. If drag is applied to one selsyn, this will be felt when attempting to rotate the other shaft. While multi-horsepower (multi-kilowatt) selsyns exist, the main appplication is small units of a few watts for instrumentation applications&ndash; remote position indication.
+</p>
+
+ 
+<a name="02495.png"></a> 
+<p> <img src="02495.png"> </p> 
+<p><i>Selsyns without starting resistance.</i></p> 
+
+
+<p>
+Instrumentation selsyns have no use for starting resistors. (Figure <a href="#02495.png">  above</a>) They are not intended to be self rotating. Since the rotors are not shorted out nor resistor loaded, no starting torque is developed. However, manual rotation of one shaft will produce an unbalance in the rotor currents until the parallel unit's shaft follows. Note that a common source of three phase power is applied to both stators. 
+<!--Split for 2-ref tags-->
+Though we show three phase rotors above, a single phase powered  rotor is sufficient as shown in Figure <a href="#02496.png">  below</a>.
+</p>
+
+
+<h3><u><a name="xtocid897549">Transmitter - receiver</a></u></h3>
+<a name="Selsyn, transmitter"></a>
+<a name="Selsyn, receiver"></a>
+<a name="Synchro, transmitter"></a>
+<a name="Synchro, receiver"></a>
+
+<p>
+Small instrumentation selsyns, also known as <i>synchros</i>, use single phase paralleled, AC energized rotors, retaining the 3-phase paralleled stators, which are not externally energized. (Figure <a href="#02496.png">  below</a>)  Synchros function as rotary transformers. If the rotors of both the <i>torque transmitter</i> (TX) and <i>torque receiver</i> (RX) are at the same angle, the phases of the induced stator voltages will be identical for both, and no current will flow. Should one rotor be displaced from the other, the stator phase voltages will differ between transmitter and receiver. Stator current will flow developing torque. The receiver shaft is electrically slaved to the transmitter shaft. Either the transmitter or receiver shaft may be rotated to turn the opposite unit.
+</p>
+
+ 
+<a name="02496.png"></a> 
+<p> <img src="02496.png"> </p> 
+<p><i>Synchros have single phase powered rotors.</i></p> 
+
+
+<p>
+Synchro stators are wound with 3-phase windings brought out to external terminals. The single rotor winding of a torque transmitter or receiver is brought out by brushed slip rings. Synchro transmitters and receivers are electrically identical. However, a synchro receiver has inertial damping built in. A synchro torque transmitter may be substituted for a torque receiver.
+</p>
+
+<p>
+Remote position sensing is the main synchro application. (Figure <a href="#02497.png">  below</a>) For example, a synchro transmitter coupled to a radar antenna indicates antenna position on an indicator in a control room. A synchro transmitter coupled to a weather vane indicates wind direction at a remote console.  Synchros are available for use with 240 Vac 50 Hz, 115 Vac 60 Hz, 115 Vac 400 Hz, and  26 Vac 400 Hz power.
+</p>
+
+ 
+<a name="02497.png"></a> 
+<p> <img src="02497.png"> </p> 
+<p><i>Synchro application: remote position indication.</i></p> 
+
+
+
+
+
+<h3><u><a name="xtocid897550">&nbsp;Differential transmitter - receiver </a></u></h3>
+<a name="Selsyn, differential transmitter"></a>
+<a name="Synchro, differential transmitter"></a>
+
+<p>
+<i></i>
+A <i>synchro differential transmitter</i> (TDX) has both a three phase rotor and stator. (Figure <a href="#02498.png">  below</a>) A synchro differential transmitter adds a shaft angle input to an electrical angle input on the rotor inputs, outputting the sum on the stator outputs. This stator electrical angle may be displayed by sending it to an RX.  For example, a synchro receiver displays the position of a radar antenna relative to a ship's bow. The addition of a ship's compass heading by a synchro differential transmitter, displays antenna postion on an RX relative to true north, regardless of ship's heading. Reversing the S1-S3 pair of stator leads between a TX and TDX subtracts angular positions.
+</p>
+
+ 
+<a name="02498.png"></a> 
+<p> <img src="02498.png"> </p> 
+<p><i>Torque differential transmitter (TDX).</i></p> 
+
+
+<p>
+A shipboard radar antenna coupled to a synchro transmitter encodes the antenna angle with respect to ship's bow. (Figure <a href="#02499.png">  below</a>) It is desired to display the antenna position with respect to true north.  We need to add the ships heading from a gyrocompass to the bow-relative antenna position to display antenna angle with respect to true north. &#8736;antenna + &#8736;gyro
+</p>
+
+ 
+<a name="02499.png"></a> 
+<p> <img src="02499.png"> </p> 
+<p><i>Torque differential transmitter application: angular addition. </i></p> 
+
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8736;antenna-N =  &#8736;antenna + &#8736;gyro
+</p>
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8736;rx = &#8736;tx + &#8736;gy
+</p>
+
+<p>
+For example, ship's heading is &#8736;30<sup>o</sup>, antenna position relative to ship's bow is &#8736;0<sup>o</sup>, &#8736;antenna-N is:
+</p>
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8736;rx = &#8736;tx + &#8736;gy
+</p>
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8736;30<sup>o</sup> = &#8736;30<sup>o</sup> + &#8736;0<sup>o</sup>
+</p>
+
+<p>
+Example, ship's heading is &#8736;30<sup>o</sup>, antenna position relative to ship's bow is &#8736;15<sup>o</sup>, &#8736;antenna-N  is: 
+</p>
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8736;45<sup>o</sup> = &#8736;30<sup>o</sup> + &#8736;15<sup>o</sup>
+</p>
+
+
+
+<h4><a name="xtocid897551">&nbsp;Addition vs subtraction </a></h4>
+
+<p>
+For reference we show the wiring diagrams for subtraction and addition of shaft angles using both TDX's (Torque Differential Transmitter) and TDR's (Torque Differential Receiver). The TDX has a torque angle input on the shaft, an electrical angle input on the three stator connections, and an electrical angle output on the three rotor connections. The TDR has electrical angle inputs on both the stator and rotor. The angle output is a torque on the TDR shaft. The difference between a TDX and a TDR is that the TDX is a torque transmitter and the TDR a torque receiver.
+</p>
+
+ 
+<a name="02500.png"></a> 
+<p> <img src="02500.png"> </p> 
+<p><i>TDX subtraction.</i></p> 
+
+<p>
+
+The torque inputs in Figure <a href="#02500.png">  above</a>  are TX and TDX. The torque output angular difference is TR.
+</p>
+
+ 
+<a name="02501.png"></a> 
+<p> <img src="02501.png"> </p> 
+<p><i>TDX Addition.</i></p> 
+
+<p>
+The torque inputs in Figure <a href="#02501.png">  above</a>   are TX and TDX. The torque output angular sum is TR.
+</p>
+ 
+<a name="02502.png"></a> 
+<p> <img src="02502.png"> </p> 
+<p><i>TDR subtraction.</i></p> 
+
+<p>
+The torque inputs in Figure <a href="#02502.png">  above</a> are TX<sub>1</sub> and TX<sub>2</sub>. The torque output angular difference is TDR.
+</p>
+ 
+<a name="02503.png"></a> 
+<p> <img src="02503.png"> </p> 
+<p><i>TDR addition.</i></p> 
+
+<p>
+The torque inputs in Figure <a href="#02503.png">  above</a>   are TX<sub>1</sub> and TX<sub>2</sub>. The torque output angular sum is TDR.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<h3><u><a name="xtocid897552">&nbsp;Control transformer </a></u></h3>
+<a name="Control transformer, synchro"></a>
+<a name="CT, control transformer, synchro"></a>
+<a name="Synchro, control transformer"></a>
+
+
+<p>
+A variation of the  synchro transmitter is the <i>control transformer</i>. It has three equally spaced stator windings like a TX.  Its rotor is wound with more turns than a transmitter or receiver to make it more sensitive at detecting a  null as it is rotated, typically, by a <i>servo</i> system.  The CT (Control Transformer) rotor output is zero when it is oriented at a angle right angle to the stator magnetic field vector. Unlike a TX or RX, the CT neither transmits nor receives torque. It is simply a sensitive angular position detector.
+</p>
+
+ 
+<a name="02504.png"></a> 
+<p> <img src="02504.png"> </p> 
+<p><i>Control transformer (CT) detects servo null.</i></p> 
+
+
+<a name="Servo motor, AC"></a>
+<a name="Motor, AC, servo"></a>
+
+
+<p>
+In Figure <a href="#02504.png">  above</a>, the  shaft of the TX is set to the desired position of the radar antenna. The servo system will cause the servo motor to drive the antenna to the commanded position. The CT compares the commanded to actual position and signals the servo amplifier to drive the motor until that commanded angle is achieved.
+</p>
+
+ 
+<a name="02505.png"></a> 
+<p> <img src="02505.png"> </p> 
+<p><i>Servo uses CT to sense antenna position null</i></p> 
+
+
+<p>
+When the control transformer rotor detects a null at 90<sup>o</sup> to the axis of the stator field, there is no rotor output. Any rotor displacement produces an AC error voltage proportional to displacement.  A <i>servo</i> (Figure <a href="#02505.png">  above</a>) seeks to minimize the error between a commanded and measured variable due to negative feedback. The control transformer compares the shaft angle to the stator magnetic field angle, sent by the TX stator.  When it measures a minimum, or null, the servo has driven the antenna and control transformer rotor to the commanded position. There is no error between measured and commanded position, no CT, control transformer, output to be amplified. The <i>servo motor</i>, a 2-phase motor, stops rotating. However, any CT detected error drives the amplifier which drives the motor until the error is minimized. This corresponds to the servo system having driven the antenna coupled CT to match the angle commanded by the TX.
+</p>
+
+
+
+<p>
+The servo motor may drive a reduction gear train and be large compared to the TX and CT synchros. However, the poor efficiency of AC servo motors limits them to smaller loads. They are also difficult to control since they are constant speed devices. However, they can be controlled to some extent by varying the voltage to one phase with  line voltage on the other phase. Heavy loads are more efficiently driven by large DC servo motors.
+</p>
+
+<p>
+Airborne applications use 400Hz components&ndash; TX, CT, and servo motor. Size and weight of the AC magnetic components is inversely proportional to frequency. Therefore, use of 400 Hz components for aircraft applications, like moving control surfaces, saves size and weight.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid897553">&nbsp;Resolver</a></u></h3>
+<a name="Synchro, resolver"></a>
+<a name="Resolver, synchro"></a>
+ 
+<a name="resolver"></a>
+
+<p>
+A <i>resolver</i> (Figure <a href="#02506.png">  below</a>) has two stator windings placed at 90<sup>o</sup> to each other, and a single rotor winding driven by alternating current. A resolver is used for polar to rectangular conversion. An angle input at the rotor shaft produces rectangular co-ordinates sin&#952; and cos&#952; proportional voltages on the stator windings.
+</p>
+
+ 
+<a name="02506.png"></a> 
+<p> <img src="02506.png"> </p> 
+<p><i>Resolver converts shaft angle to sine and cosine of angle.</i></p> 
+
+
+<p>
+For example, a black-box within a radar encodes the distance to a target as a sine wave proportional voltage V, with the bearing angle as a shaft angle. Convert to X and Y co-ordinates. The sine wave is fed to the rotor of a resolver. The bearing angle shaft is coupled to the resolver shaft. The coordinates (X, Y) are available on the resolver stator coils:
+<blockquote>
+X=V(cos(&#8736;bearing)) 
+</blockquote>
+
+<blockquote>
+Y=V(sin(&#8736;bearing)) 
+</blockquote>
+
+The Cartesian coordinates (X, Y) may be plotted on a map display.
+
+</p>
+
+<p>
+A TX (torque transmitter) may be adapted for service as a resolver. (Figure <a href="#02507.png">  below</a>)
+</p>
+
+ 
+<a name="02507.png"></a> 
+<p> <img src="02507.png"> </p> 
+<p><i>Scott-T converts 3-&#966; to 2-&#966; enabling TX to perform resolver function.</i></p> 
+
+
+<a name="Scott-T transformer"></a>
+<a name="Transformer, Scott-T"></a>
+
+<p>
+It is possible to derive resolver-like quadrature angular components from a synchro transmitter by using a <i>Scott-T</i> transformer. The three TX outputs, 3-phases, are processed by a <i> Scott-T</i> transformer into a pair of quadrature components. See <a href="AC_9.html#scott">Scott-T</a>  chapter 9 for details.
+</p>
+
+<p>
+There is also a linear version of the resolver known as an  <a href="AC_12.html#inductosyn">inductosyn</a>. The rotary version of the <i>inductosyn</i> has a finer resolution than a resolver.
+</p>
+
+
+
+<br> </br>
+<b>Summary:  Selsyn (synchro) motors</b>
+<ul>
+
+<li>A <i>synchro</i>, also known as a <i>selsyn</i>, is a rotary transformer used to transmit shaft torque.</li>
+<li>A TX, <i>torque transmitter</i>, accepts a torque input at its shaft for transmission on three-phase electrical outputs.</li>
+<li>An RX, <i>torque receiver</i>, accepts a three-phase electrical representation of an angular input for conversion to a torque output at its shaft. Thus, TX transmits a torque from an input shaft to a remote RX output shaft.</li>
+<li>A TDX, <i>torque differential transmitter</i>, sums an electrical angle input with a shaft angle input producing an electrical angle output</li>
+<li>A TDR, <i>torque differential receiver, </i> sums two electrical angle inputs producing a shaft angle output</li>
+<li>A CT, <i>control transformer</i>, detects a null when the rotor is positioned at a right angle to the stator angle input. A CT is typically a component of a servo&ndash; feedback system.</li>
+<li>A <i>Resolver</i> outputs a quadrature  sin(&#952;) and cos(&#952;) representation of the shaft angle input instead of a three-phase output. </li>
+<li>The three-phase output of a TX is converted to a resolver style output by a <i>Scott-T transformer</i>.</li>
+</ul>
+
+
+
+
+
+
+<h2><u><a name="xtocid897554">&nbsp;AC commutator motors </a></u></h2>
+<a name="Motor, AC commutator"></a>
+
+
+<p>
+Charles Proteus Steinmetz's first job after arriving in America was to investigate problems encountered in the design of the alternating current version of the brushed commutator motor. The situation was so bad that motors could not be designed ahead of the actual construction. The success or failure of a motor design was not known until after it was actually built at great expense and tested.  He formulated the laws of magnetic <i>hysteresis</i> in finding a solution.  Hysteresis is a lagging behind of the magnetic field strength as compared to the magnetizing force. This produces a loss not present in DC magnetics. Low hysteresis alloys and breaking the alloy into thin insulated <i>laminations</i> made it possible to accurately design AC commutator motors before building.
+
+</p>
+
+<p>
+AC commutator motors, like comparable DC motors, have higher starting torque and higher speed than AC induction motors. The series motor operates well above the synchronous speed of a conventional AC motor. AC commutator motors may be either single-phase or poly-phase. The single-phase AC version suffers a double line frequency torque pulsation, not present in poly-phase motor. Since a commutator motor can operate at much higher speed than an induction motor, it can output more power than a similar size induction motor. However commutator motors are not as maintenance free as induction motors, due to brush and commutator wear.
+</p>
+
+
+
+<h3><u><a name="xtocid897555">&nbsp;Single phase series motor </a></u></h3>
+
+<a name="Motor, AC series"></a>
+
+<p>
+If a DC series motor equipped with a laminated field is connected to AC, the lagging reactance of the field coil will considerably reduce the field current. While such a motor will rotate, operation is marginal.  While starting, armature windings connected to commutator segments shorted by the brushes look like shorted transformer turns to the field. This results in considerable arcing and sparking at the brushes as the armature begins to turn. This is less of a problem as speed increases, which shares the arcing and sparking between commutator segments.  The lagging reactance and arcing brushes are only tolerable in very small uncompensated series AC motors operated at high speed. Series AC motors smaller than hand drills and kitchen mixers may be uncompensated. (Figure <a href="#02508.png">  below</a>)
+</p>
+
+
+ 
+<a name="02508.png"></a> 
+<p> <img src="02508.png"> </p> 
+<p><i>Uncompensated series AC motor.</i></p> 
+
+
+
+
+<!--<a name="Compensated series AC motor"></a>-->
+<a name="Motor, AC, compensated series motor"></a>
+
+
+<h3><u><a name="xtocid897556">&nbsp;Compensated series motor </a></u></h3>
+
+<p>
+
+The arcing and sparking is mitigated by placing a <i>compensating winding</i> in the stator in series with the armature positioned so that its magnetomotive force (mmf)  cancels out the armature AC mmf. (Figure <a href="#02509.png">  below</a>)  A smaller motor air gap and fewer field turns reduces lagging reactance in series with the armature improving the power factor. All but very small AC commutator motors employ compensating windings. Motors as large as those employed in a kitchen mixer, or larger,  use compensated stator windings.
+</p>
+
+ 
+<a name="02509.png"></a> 
+<p> <img src="02509.png"> </p> 
+<p><i>Compensated series AC motor.</i></p> 
+
+
+
+
+
+<h3><u><a name="xtocid897557">&nbsp;Universal motor </a></u></h3>
+
+<a name="Universal AC motor"></a> 
+<a name="Motor, AC, universal"></a>
+
+
+<p>
+It is possible to design small (under 300 watts) <i>universal motors</i> which run from either DC or AC.  Very small universal motors may be uncompensated. Larger higher speed universal motors use a compensating winding. A motor will run slower on AC than DC due to the reactance encountered with AC. However, the peaks of the sine waves saturate the magnetic path reducing total flux below the DC value, increasing the speed of the &ldquo;series&rdquo; motor. Thus, the offsetting effects result in a nearly constant speed from DC to 60 Hz. Small line operated appliances, such as drills, vacuum cleaners, and mixers, requiring  3000 to 10,000 rpm use universal motors. Though, the development of solid state rectifiers and inexpensive permanent magnets is making the DC permanent magnet motor a viable alternative.
+</p>
+
+
+
+
+<h3><u><a name="xtocid897558">&nbsp;Repulsion motor </a></u></h3>
+<a name="Repulsion motor"></a>
+<a name="Motor, repulsion"></a>
+
+<p>
+A repulsion motor (Figure <a href="#02510.png">  below</a>) consists of a field directly connected to the AC line voltage and a pair of shorted brushes offset by 15<sup>o</sup>to 25<sup>o</sup> from the field axis. The field induces a current flow into the shorted armature whose magnetic field opposes that of the field coils. Speed can be conrolled by rotating the brushes with respect to the field axis. This motor has superior commutation below synchronous speed, inferior commutation above synchronous speed. Low starting current produces high starting torque.
+</p>
+
+ 
+<a name="02510.png"></a> 
+<p> <img src="02510.png"> </p> 
+<p><i>Repulsion AC motor.</i></p> 
+
+
+
+
+
+<h3><u><a name="xtocid897559">&nbsp;Repulsion start induction motor </a></u></h3>
+
+<a name="Repulsion start induction motor"></a>
+<a name="Motor, repulsion start induction"></a>
+<a name="Induction motor, repulsion start"></a>
+
+
+<p>
+When an induction motor drives a hard starting load like a compressor, the high starting torque of the repulsion motor may be put to use. The induction motor rotor windings are brought out to commutator segments for starting by a pair of shorted brushes. At near running  speed, a centrifugal switch shorts out all commutator segments, giving the effect of a squirrel cage rotor .  The brushes may also be lifted to prolong bush life. Starting torque is 300% to 600% of the full speed value as compared to under 200% for a pure induction motor.
+</p>
+
+
+
+<br> </br>
+<b>Summary: AC commutator motors</b>
+<ul>
+<li>The <i>single phase series motor</i> is an attempt to build a motor like a DC commutator motor. The resulting motor is only practical in the smallest sizes.</li>
+<li>The addition of a compensating winding yields the <i>compensated series motor</i>, overcoming excessive commutator sparking. Most AC commutator motors are this type. At high speed this motor provides more power than a same-size induction motor, but is not maintenance free.</li>
+<li>It is possible to produce small appliance motors powered by either AC or DC. This is known as a <i>universal motor</i>.</li>
+<li>The AC line is directly connected to the stator of a <i>repulsion motor </i> with the commutator shorted by the brushes.</li>
+<li>Retractable shorted brushes may start a wound rotor induction motor. This is known as a <i>repulsion start induction motor</i>.</li>
+</ul>
+
+
+
+
+
+ 
+<h2><a name="xtocid897560">Bibliography</a></h2><br> 
+<ol>
+
+
+<li><a name="1.bibitem">[1]&ldquo;American Superconductor achieves full power of 5MW Ship motor&rdquo;, at <a href="http://www.spacedaily.com/news/energy-tech-04zzn.html">www.spacedaily.com/news/energy-tech-04zzn.html</a></a> </li>
+
+<li><a name="2.bibitem">[2]&ldquo;Linear motor applications guide&rdquo;, (Aerotech, Inc., Pittsburg, PA)  <a href="http://www.aerotech.com/products/PDF/LMAppGuide.pdf ">www.aerotech.com/products/PDF/LMAppGuide.pdf</a>opt_txt</a></li>
+
+<li><a name="3.bibitem">[3]&ldquo;Linear motor outperforms steam-piston catapults&rdquo;, Design News, <a href="http://www.designnews.com/index.asp?layout=article&amp;articleid=CA151563&amp;cfd=1">www.designnews.com/index.asp?layout=article&amp;articleid=CA151563&amp;cfd=1</a></a> </li>
+
+<li><a name="4.bibitem">[4]&ldquo;Future Aircraft Carrier - CVF, Navy Matters&rdquo;, <a href="http://navy-matters.beedall.com/cvf3-2.htm ">http://navy-matters.beedall.com/cvf3-2.htm</a></a></li>
+
+<li><a name="5.bibitem">[5]Bill Schweber, &ldquo;Electronics poised to replace steam-powered aircraft launch system&rdquo;,  EDN, (4/11/2002). <a href="http://www.edn.com/article/CA207108.html?pubdate=04%2F11%2F2002">www.edn.com/article/CA207108.html?pubdate=04%2F11%2F2002</a></a></li>
+
+<li><a name="6.bibitem">[6]&ldquo;Operating 60 cycle motors as generators&rdquo;, Red Rock Energy <a href="http://www.redrok.com/cimtext.pdf">www.redrok.com/cimtext.pdf</a></a></li>
+
+<li><a name="7.bibitem">[7]&ldquo;Energy Saver systems for Induction motors&rdquo;,  M Photonics Ltd, P.O. Box 13 076, Christchurch, New Zealand at</li>
+<a href="http://www.lmphotonics.com/energy.htm">http://www.lmphotonics.com/energy.htm</a></a>
+
+<li><a name="8.bibitem">[8] Matt Isserstedt&ldquo;Building an Auto-Start Rotary Three Phase Converter&rdquo;, May 2008, at <a href="http://www.metalwebnews.com/howto/phase-converter/phase-converter.html">http://www.metalwebnews.com/howto/phase-converter/phase-converter.html</a></a></li>
+
+<li><a name="9.bibitem">[9]Jim Hanrahan&ldquo;Building a Phase Converter&rdquo;, December 1995, at <a href="http://www.metalwebnews.com/howto/ph-conv/ph-conv.html">http://www.metalwebnews.com/howto/ph-conv/ph-conv.html</a></a></li>
+
+
+</ol>
+
+
+
+
+
+<br> </br>
+
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2023 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">CC BY License</a>.
+</p>
+
+<a href="AC_12.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_14.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+{
+  "id": 50,
+  "name": "TI Battery Management TIDA-00792",
+  "type": "Reference design",
+  "url": "https://www.ti.com/tool/TIDA-00792",
+  "folder": "50_TI_Battery_Management_TIDA-00792",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.ti.com/tool/TIDA-00792",
+      "final_url": "https://www.ti.com/tool/TIDA-00792",
+      "kind": "html",
+      "bytes": 103358,
+      "sha256": "0656d2c493f5281869f2d01f9a17db7aa34b004498ec6e159c5377a33818bb16"
+    },
+    {
+      "file": "tiducn1.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDUCN1",
+      "final_url": "https://www.ti.com/lit/ug/tiducn1/tiducn1.pdf?ts=1791222530832",
+      "kind": "pdf",
+      "bytes": 3340641,
+      "sha256": "3cc08a48560a6f5a518da7702e69fd21c363f5aaf9e7a8cfa3929d6a12265a9b",
+      "pdf_pages": 37
+    },
+    {
+      "file": "tidrqy9.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRQY9",
+      "final_url": "https://www.ti.com/lit/df/tidrqy9/tidrqy9.pdf?ts=1791222531856",
+      "kind": "pdf",
+      "bytes": 452263,
+      "sha256": "7db62f770bb8cc60d1c19c31fa7d3cb019be4b95f350620856a736b21b5c113d",
+      "pdf_pages": 3
+    },
+    {
+      "file": "tidrqy8.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRQY8",
+      "final_url": "https://www.ti.com/lit/df/tidrqy8/tidrqy8.pdf?ts=1791222532845",
+      "kind": "pdf",
+      "bytes": 71878,
+      "sha256": "6629b82d9beb5686ded338c65db57ef24fd2c3de72336e090b45edc3f3db0785",
+      "pdf_pages": 2
+    },
+    {
+      "file": "tidrqz0.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRQZ0",
+      "final_url": "https://www.ti.com/lit/df/tidrqz0/tidrqz0.pdf?ts=1791187041371&ref_url=https%253A%252F%252Fwww.ti.com%252F",
+      "kind": "pdf",
+      "bytes": 2250621,
+      "sha256": "176d88a4284874701e03f2e7653b228edd75e92e3ffcdcb84c863b033ba4f0eb",
+      "pdf_pages": 9
+    },
+    {
+      "file": "tidrqy7.pdf",
+      "url": "https://www.ti.com/lit/pdf/TIDRQY7",
+      "final_url": "https://www.ti.com/lit/df/tidrqy7/tidrqy7.pdf?ts=1791203416988",
+      "kind": "pdf",
+      "bytes": 481309,
+      "sha256": "22cd4f937fefe746f3bb21c420a825024b8de6d4bb73c504c0907d13993c325a",
+      "pdf_pages": 5
+    },
+    {
+      "file": "slvu925c.pdf",
+      "url": "https://www.ti.com/lit/pdf/SLVU925",
+      "final_url": "https://www.ti.com/lit/ug/slvu925c/slvu925c.pdf?ts=1791201037740&ref_url=https%253A%252F%252Fwww.ti.com%252Ftool%252Fde-de%252FBQ76940EVM",
+      "kind": "pdf",
+      "bytes": 6286054,
+      "sha256": "3fd1da76f5c485b19d5158bf49af70123fc34a8bf2fb2edd661454ea05f84e8a",
+      "pdf_pages": 66
+    },
+    {
+      "file": "sluucm2a.pdf",
+      "url": "https://www.ti.com/lit/pdf/SLUUCM2",
+      "final_url": "https://www.ti.com/lit/ug/sluucm2a/sluucm2a.pdf?ts=1791198719165&ref_url=https%253A%252F%252Fwww.ti.com%252Ftool%252FBQ78350-DEVICE-FW",
+      "kind": "pdf",
+      "bytes": 284652,
+      "sha256": "8e08b2057db96751fcad4ef3fd1e6fe48379bc040f210f3affcd2007b10044b0",
+      "pdf_pages": 5
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:49+0300",
+  "pdf_count": 7,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

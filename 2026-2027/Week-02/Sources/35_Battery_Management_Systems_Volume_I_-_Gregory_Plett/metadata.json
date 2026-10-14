@@ -1,0 +1,26 @@
+{
+  "id": 35,
+  "name": "Battery Management Systems Volume I - Gregory Plett",
+  "type": "Ticari teknik kitap",
+  "url": "https://us.artechhouse.com/Battery-Management-Systems-Volume-1-Battery-Modeling-P1753.aspx",
+  "folder": "35_Battery_Management_Systems_Volume_I_-_Gregory_Plett",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://us.artechhouse.com/Battery-Management-Systems-Volume-1-Battery-Modeling-P1753.aspx",
+      "final_url": "https://us.artechhouse.com/Battery-Management-Systems-Volume-1-Battery-Modeling-P1753.aspx",
+      "kind": "html",
+      "bytes": 42221,
+      "sha256": "9545f1a8371fa961f76f03143c756e1754be4a7681f2faaab4bd1cba5f9fb4b4"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:53+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

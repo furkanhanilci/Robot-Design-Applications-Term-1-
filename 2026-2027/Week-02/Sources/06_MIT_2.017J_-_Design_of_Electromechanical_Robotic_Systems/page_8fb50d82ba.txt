@@ -1,0 +1,255 @@
+Open Textbook | Design of Electromechanical Robotic Systems | Mechanical Engineering | MIT OpenCourseWare
+Browse Course Material
+Syllabus
+Calendar
+Lecture Notes
+Open Textbook
+Assignments
+Labs
+Projects
+Course Info
+Instructors
+Prof. Franz Hover
+Harrison (Hsinyung) Chin
+Departments
+Mechanical Engineering
+Civil and Environmental Engineering
+As Taught In
+Fall
+            
+              2009
+Level
+Undergraduate
+Topics
+Engineering
+Electrical Engineering
+Electronics
+Robotics and Control Systems
+Mechanical Engineering
+Mechanical Design
+Systems Engineering
+Systems Design
+Mathematics
+Applied Mathematics
+Learning Resource Types
+menu_book
+Open Textbooks
+assignment
+Problem Sets
+grading
+Projects with Examples
+Download Course
+menu
+search
+Give Now
+About OCW
+Help & Faqs
+Contact Us
+search
+GIVE NOW
+about ocw
+help & faqs
+contact us
+2.017J | Fall 2009 | Undergraduate
+Design of Electromechanical Robotic Systems
+Menu
+More Info
+Syllabus
+Calendar
+Lecture Notes
+Open Textbook
+Assignments
+Labs
+Projects
+Open Textbook
+Complete open textbook for this course:
+Hover, Franz S., and Michael S. Triantafyllou.
+System Design for Uncertainty
+. Cambridge, MA: MIT Center for Ocean Engineering, 2010. (Courtesy of Michael S. Triantafyllou. Used with permission.) Individual chapters can be downloaded below.
+The key ingredient in this course - and what differentiates it from many other related courses - is the uncertainty that is encountered whenever a built system is actually installed in the field. We may find uncertainty in the operating environment, whether it is a windy airspace, a bumpy road, or an obstacle-strewn factory floor. We also find uncertainty in the parameters that define a system, for example, masses and stiffnesses and dampings, torque constants, and physical size. Finally, since complex electromechanical systems involve sensors and actuators, we have to acknowledge uncertainty in measurement and feedback control. Ultimately, such systems are meant to accomplish specific objectives, and the designer’s task is to achieve robustness, performance, and cost-effectiveness in the presence of uncertainty.
+The notes given here are terse but intended to be self-contained. The goal is to provide fundamental relations useful for modeling and creating systems that have to operate with uncertainty. As a motivation, we focus a lot of attention on ocean waves as a prototypical random environment, and carry out simplified, linear motion and force analysis for marine structures and vehicles. Individual chapters are listed in the table below, or the entire text may be downloaded as one file. A separate compilation of solved homework problems is also available on the
+assignments
+page.
+TOPICS
+FILES
+Chapter 1: Introduction
+(
+PDF
+)
+Chapter 2: Linear Systems
+2.1 Definition of a system
+2.2 Time-invariant systems
+2.3 Linear systems
+2.4 The impulse response and convolution
+2.5 Causal systems
+2.6 An example of finding the impulse response
+2.7 Complex numbers
+2.8 Fourier transform
+2.9 The angle of a transfer function
+2.10 The Laplace transform
+(
+PDF
+)
+Chapter 3: Probability Events
+3.1 Events
+3.2 Conditional probability
+3.3 Bayes’ rule
+3.4 Random variables
+3.5 Continuous random variables and the probability density function
+3.6 The Gaussian PDF
+3.7 The cumulative probability function
+3.8 Central limit theorem
+(
+PDF
+)
+Chapter 4: Random Processes
+4.1 Time averages
+4.2 Ensemble averages
+4.3 Stationarity
+4.4 The spectrum: definition
+4.5 Wiener-Khinchine Relation
+4.6 Spectrum interpretation
+(
+PDF
+)
+Chapter 5: Short Term Statistics
+5.1 Central role of the Gaussian and Rayleigh distributions
+5.2 Frequency of upcrossings
+5.3 Maxima at and above a given level
+5.4 1/N’th highest maxima
+5.5 1/N’th average value
+5.6 The 100-year wave: estimate from short-term statistics
+(
+PDF
+)
+Chapter 6: Water Waves
+6.1 Constitutive and governing relations
+6.2 Rotation and viscous effects
+6.3 Velocity potential
+6.4 Linear waves
+6.5 Deepwater waves
+6.6 Wave loading of stationary and moving bodies
+6.7 Limits of the linear theory
+6.8 Characteristics of real ocean waves
+(
+PDF
+)
+Chapter 7: Optimization
+7.1 Single-dimension continuous optimization
+7.2 Multi-dimensional continuous optimization
+7.3 Linear programming
+7.4 Integer linear programming
+7.5 Min-max optimization for discrete choices
+7.6 Dynamic programming
+7.7 Solving dynamic programming on a computer
+(
+PDF
+)
+Chapter 8: Stochastic Simulation
+8.1 Monte Carlo simulation
+8.2 Making random numbers
+8.3 Grid-based techniques
+8.4 Issues of cost and accuracy
+(
+PDF
+)
+Chapter 9: Kinematics of Moving Frames
+9.1 Rotation of reference frames
+9.2 Differential rotations
+9.3 Rate of change of Euler angles
+9.4 A practical example: dead reckoning
+(
+PDF
+)
+Chapter 10: Vehicle Internal Dynamics
+10.1 Momentum of a particle
+10.2 Linear momentum in a moving frame
+10.3 Example: mass on a string
+10.4 Angular momentum
+10.5 Example: spinning book
+10.6 Parallel axis theorem
+10.7 Basis for simulation
+10.8 What does an inertial measurement unit measure?
+(
+PDF
+)
+Chapter 11: Control Fundamentals
+11.1 Introduction
+11.2 Partial fractions
+11.3 Stability in linear systems
+11.4 Stability ↔ Poles in LHP
+11.5 General stability
+11.6 Representing linear systems
+11.7 Block diagrams and transfer functions of feedback systems
+11.8 PID controllers
+11.9 Example: PID control
+11.10 Heuristic tuning
+(
+PDF
+)
+Chapter 12: Control Systems — Loop Shaping
+12.1 Introduction
+12.2 Roots of stability — Nyquist criterion
+12.3 Design for nominal performance
+12.4 Design for robustness
+12.5 Robust performance
+12.6 Implications of Bode’s integral
+12.7 The recipe for loopshaping
+(
+PDF
+)
+Chapter 13: Math Facts
+13.1 Vectors
+13.2 Matrices
+(
+PDF
+)
+Course Info
+Instructors
+Prof. Franz Hover
+Harrison (Hsinyung) Chin
+Departments
+Mechanical Engineering
+Civil and Environmental Engineering
+As Taught In
+Fall
+            
+              2009
+Level
+Undergraduate
+Topics
+Engineering
+Electrical Engineering
+Electronics
+Robotics and Control Systems
+Mechanical Engineering
+Mechanical Design
+Systems Engineering
+Systems Design
+Mathematics
+Applied Mathematics
+Learning Resource Types
+menu_book
+Open Textbooks
+assignment
+Problem Sets
+grading
+Projects with Examples
+Download Course
+Over 2,500 courses & materials
+Freely sharing knowledge with learners and educators around the world.
+Learn more
+© 2001–2026 Massachusetts Institute of Technology
+Accessibility
+Creative Commons License
+Terms and Conditions
+Proud member of:
+© 2001–2026 Massachusetts Institute of Technology
+You are leaving MIT OpenCourseWare
+close
+Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+Stay Here
+Continue

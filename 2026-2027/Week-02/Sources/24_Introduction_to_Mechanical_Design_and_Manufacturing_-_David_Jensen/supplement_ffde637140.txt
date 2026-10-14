@@ -1,0 +1,218 @@
+Mechanism Force, Velocity and Acceleration Analysis – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Mechanism Force, Velocity and Acceleration Analysis
+Force Analysis
+There are two main objectives when considering how forces act on and through a planar mechanism. First, mechanical advantage is figure of merit for a mechanism that represents the effectiveness of turning input torque or force into output torque or forces. Secondly, static and dynamic force analysis is used to understand how forces act on each link in the mechanisms and are transferred to components such as bearings and pins. Both graphical and computational techniques are commonly used for force analysis.
+Mechanical Advantage
+In general, mechanical advantage related input and output torques. For a gearing system, this is the gear ratio which is constant as long as the diameter of the gears is constant. However, for a linkage mechanism, the mechanical advantage ratio changes as the mechanism moves.
+Consider the 4-bar linkage below as an example. Mechanical advantage is determined as the ratio of the driver length times the sine of the integral angle and the length of the follower times the sine of its internal angle. As a formula:
+[latex]MA = \frac{L_4*sin{\lambda}}{L_2*sin{\beta}}[/latex]
+Mechanical advantage of a 4-bar linkage
+By inspection of this equation, you can see that mechanical advantage changes as the internal angles change (mechanism movement). Further, as the angle
+[latex]\beta[/latex]
+goes towards zero, the mechanical advantage increase towards infinity (not possible with real materials but an artifact of mathematic kinematics). An angle of zero occurs when link 2 is in line with the ground link L1. This is the same position as when determining the minimum transmission angle. This is the reason that the minimum transmission angle is a good figure of merit for a mechanism. The ratio can be used to compute the ratio of input and output torque. For example, if a motor provides a known torque at a given rpm, the output or follower torque can also be determined.
+Static Force Analysis
+Static analysis is used by machine designers for mechanisms analysis in two general cases. First, to determine what is the required force needed to initiate the movement of a mechanisms that is intended to continuously move. Secondly, for some mechanisms the main objective of the mechanisms is to be stationary and apply some output force. Force analysis on the linkage mechanisms is based on the underlying assumption that each link is a rigid body. Force analysis requires a kinetic (relating to energy) instead of a kinematic approach. For position, velocity and acceleration, the linkage is described by link lengths, angles and time. For force analysis, we must include forces and mass. For static analysis, the governing equations for the linkage mechanism as a whole and each link is that the sum of all forces and the sum of moments are equal to zero, this is application of Newton's second law. Further, the forces one link puts on another or equal in magnitude, colinear, and opposite in directions on each other; Newton's third law.
+Dynamic Force Analysis
+Dynamic force analysis involves determining the centroid and mass moment of inertia of the linkage mechanism. These topics are covered extensively in dynamics textbooks in the area of rigid body kinetics. For simple problems, hand-based computation for single positions are reasonable. However, most machine design contexts, the designer is interested in the forces throughout the full range of mechanism motion. Most modern CAD software has built in motion dynamics analysis both from a kinetic and kinematic.
+Velocity and Acceleration Analysis
+Velocity and acceleration analysis for planar kinematic linkages is a method to determine the motion characteristics of the links and joints in a mechanism. The reasons to perform this analysis are to evaluate the performance, efficiency, and safety of the mechanism, as well as to design or optimize its parameters. For example, a
+t what input rpm will the motor need to run to move the end of the mechanism a precise speed? Or what is the maximum acceleration of the link or a point on the link as it travels?
+Both graphical and analytical solutions can be used for kinematic velocity and acceleration analysis. Graphical techniques are useful for determining velocity and acceleration at critical points, while analytical techniques are useful for solving for the whole range of motion.
+Vector Loop Velocity and Acceleration Analysis
+Recall that we can represent the position of each link as a vector and each vector can be described equivalently with Euler's number or sines and cosines. The value of using the Euler approach is that it is fairly trivial to take derivative of all the power of e, namely [latex]\frac{d}{du} e^u = e^u[/latex]. Thus, a time derivative (rate of change of the angles) can be used to determine angular velocity of any in the mechanism. As with vector loop solutions for position analysis, the link lengths and at least one angular position must be known to solve for the others positions at any given time. Additionally, for velocity analysis, one angular velocity must be known. In the machine design context, this is often the known motor powering the mechanism or the desired velocity of the mechanism to find a suitable actuator. For acceleration analysis, all of the above constraints hold plus one angular acceleration must be known. However, a very common design mechanism design problem is to evaluate the acceleration of when the actuating motor is at a constant velocity (and thus angular acceleration is zero). In this situation, while the input angular acceleration is constant the other link angular accelerations are not necessarily zero.
+Velocity Centers
+The velocity center of a planar linkage mechanism is a point on the mechanism that has zero velocity at a given instant in time. It is also known as the instantaneous center of rotation (ICR). The velocity center can be used to analyze the motion of the mechanism and to design mechanisms for specific applications. ICR is a point at which it appears at that instant a linkage is rotating about. For a four-bar linkage, all of the revolute joints will be ICR. However, the number of instant centers in a linkage mechanism depends on the number of links in the mechanism. A linkage mechanism with
+n
+links will have
+n
+(
+n
+−
+1
+)
+/2
+instant centers. For a four-bar linkage that means equals 6. So where are the other 2 centers? They can be found graphically by extending lines from the links and finding their intersection points of those lines. These points act like pivots at that point. Machine designers use the path that the instant centers travels through to evaluate the efficiency of the planar mechanism. At an critical points, the velocity centers are also useful for determining the velocity of any point on a linkage. If one velocity is known (for example the linear velocity of point A in the picture below based on known an input angular velocity and link length), then the magnitude of the velocity of point B can be readily determined by measure the distance between the ICR point and the point of interest.
+By equation, that is:
+[latex]V_A = \omega_{ICR1} * Length_{ICR1 to A}[/latex]
+and
+[latex]V_B=\omega_{ICR1} * Length_{ICR2 to B}[/latex]
+A 4-bar mechanisms has 6 instant centers.
+Depending on how you prefer to learn material, you can follow along with a printed reading of analytical velocity and acceleration analysis
+here
+. Or...
+Velocity Analysis
+*Watch this
+video
+to learn more about Mechanical Design.
+Velocity Ratios
+Follow along as Professor Cummins explains how to do velocity and acceleration analysis on several examples in the following
+video
+.
+Acceleration and Velocity Analysis
+*Watch this
+video
+to learn more about Mechanical Design.
+Previous/next navigation
+Previous: Mechanism Posture and Position Analysis
+Next: Cam Systems and Cam Design
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

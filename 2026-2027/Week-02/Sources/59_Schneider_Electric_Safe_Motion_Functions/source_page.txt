@@ -1,0 +1,76 @@
+﻿
+Introduction
+Introduction
+Overview
+The safety module
+eSM
+is an optional module which allows you to implement additional safety-related functions with
+LXM32S
+drives.
+The safety module
+eSM
+offers the following safety-related functions:
+Safety-related sub-functions as per IEC 61800-5-2:
+STO
+S
+afe
+T
+orque
+O
+ff
+No power that can cause torque or force is supplied to the motor.
+SS1
+S
+afe
+S
+top
+1
+, type
+SS1-r
+(ramp-monitored)
+SS1
+consists of:
+Monitored deceleration of the movement according a specified deceleration ramp.
+STO
+(triggered after standstill has been reached).
+SS2
+S
+afe
+S
+top
+2
+, type
+SS2-r
+(ramp-monitored)
+SS2
+consists of:
+Monitored deceleration of the movement according a specified deceleration ramp.
+SOS
+(triggered after standstill has been reached).
+SOS
+S
+afe
+O
+perating
+S
+top
+SOS
+monitors the standstill position. The power stage is enabled.
+SLS
+S
+afely
+L
+imited
+S
+peed
+SLS
+monitors speed limits.
+The safety-related functions listed above correspond to the safety-related sub-functions as defined by
+IEC 61800-5-2
+. The term “safety-related function” in the present document corresponds to the term “safety-related sub-function” as defined by
+IEC 61800-5-2
+for the above functions.
+EIO0000004594.00
+© 2021
+Schneider Electric.
+All rights reserved.

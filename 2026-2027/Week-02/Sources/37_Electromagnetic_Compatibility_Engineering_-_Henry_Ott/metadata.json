@@ -1,0 +1,58 @@
+{
+  "id": 37,
+  "name": "Electromagnetic Compatibility Engineering - Henry Ott",
+  "type": "Ticari teknik kitap",
+  "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9780470508510",
+  "folder": "37_Electromagnetic_Compatibility_Engineering_-_Henry_Ott",
+  "files": [
+    {
+      "file": "supplement_279769c51b.html",
+      "url": "https://www.wiley.com/en-us/Electromagnetic+Compatibility+Engineering-p-9780470189306",
+      "final_url": "https://www.wiley.com/en-us/Electromagnetic+Compatibility+Engineering-p-9780470189306",
+      "kind": "html",
+      "bytes": 298198,
+      "sha256": "04e5b03108ab640b1db6c39e0635c56ca7deaec83a0e638a0a7cb17ba692ffe0"
+    },
+    {
+      "file": "0470189304.pdf",
+      "url": "https://media.wiley.com/product_data/excerpt/04/04701893/0470189304.pdf",
+      "final_url": "https://media.wiley.com/product_data/excerpt/04/04701893/0470189304.pdf",
+      "kind": "pdf",
+      "bytes": 483170,
+      "sha256": "f4bdd6bfe726df42ac83402642f1d486fdce73266d52b4ead79e8788ecc8afe6",
+      "pdf_pages": 43
+    },
+    {
+      "file": "0470189304-1.pdf",
+      "url": "https://media.wiley.com/product_data/excerpt/04/04701893/0470189304-1.pdf",
+      "final_url": "https://media.wiley.com/product_data/excerpt/04/04701893/0470189304-1.pdf",
+      "kind": "pdf",
+      "bytes": 77586,
+      "sha256": "2912ef5c938d315d4c9fc5f631bacdefbb8e4b2d572d96cc608df15bf3501910",
+      "pdf_pages": 16
+    },
+    {
+      "file": "0470189304-2.pdf",
+      "url": "https://media.wiley.com/product_data/excerpt/04/04701893/0470189304-2.pdf",
+      "final_url": "https://media.wiley.com/product_data/excerpt/04/04701893/0470189304-2.pdf",
+      "kind": "pdf",
+      "bytes": 114104,
+      "sha256": "b7c55ced9d8efe590ba2e5553e293758f27586bbc09b733d005df49ff55ff19c",
+      "pdf_pages": 30
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9780470508510",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:55+0300",
+  "pdf_count": 3,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

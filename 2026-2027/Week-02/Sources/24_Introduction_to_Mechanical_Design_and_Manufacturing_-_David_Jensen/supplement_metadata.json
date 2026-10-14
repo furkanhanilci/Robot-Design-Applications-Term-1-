@@ -1,0 +1,823 @@
+{
+  "id": 24,
+  "files": [
+    {
+      "file": "supplement_c7c3ea5add.html",
+      "url": "https://open.umn.edu/opentextbooks/formats/4217",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/",
+      "kind": "html",
+      "bytes": 99835,
+      "sha256": "da6dd309e4ec73c37abd03da06fac2f645b9d170687f0315bff9c64a7df0a6f0"
+    },
+    {
+      "file": "supplement_4637bcb8b7.html",
+      "url": "https://open.umn.edu/opentextbooks/formats/4218",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/",
+      "kind": "html",
+      "bytes": 99440,
+      "sha256": "7e736d15d29f76e80087a7da81c5aa9a04a9a157fd04d2b3c87673d1fcde3162"
+    },
+    {
+      "file": "supplement_800d204a4f.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/",
+      "kind": "html",
+      "bytes": 99440,
+      "sha256": "5fd595f85f08e53183d20272c668689685849b04e4c06e198f98a2d7653abff1"
+    },
+    {
+      "file": "supplement_ec43d3baa9.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/front-matter/introduction/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/front-matter/introduction/",
+      "kind": "html",
+      "bytes": 87233,
+      "sha256": "b1de4d29e8bc4d6d470053e45cbb1f4f6804770a24e09c8a69105203bf750c1f"
+    },
+    {
+      "file": "supplement_2f73bdbc05.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-2-design-primitives-and-fundamentals/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-2-design-primitives-and-fundamentals/",
+      "kind": "html",
+      "bytes": 93752,
+      "sha256": "a37633b776215b65dacddca09a2d1c97379804955551b278be7a099fa6e3e948"
+    },
+    {
+      "file": "supplement_700526b6a7.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-3-design-teams-and-design-management/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-3-design-teams-and-design-management/",
+      "kind": "html",
+      "bytes": 91144,
+      "sha256": "3decf0b3fef4e5e975077136a606bb3af0aec4bfdbc3094eb9a8e3734337ebfd"
+    },
+    {
+      "file": "supplement_1c3ef89eac.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-4-design-requirements/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-4-design-requirements/",
+      "kind": "html",
+      "bytes": 94146,
+      "sha256": "9857ffe4ee9c9107d069cf5ed829616377505b06105525b9e24ff6fb67b83ad6"
+    },
+    {
+      "file": "supplement_35f55a54fa.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-5-conceptual-design-process-and-tools/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/chapter-5-conceptual-design-process-and-tools/",
+      "kind": "html",
+      "bytes": 98765,
+      "sha256": "edb6d6ff737a7b5c2a48089a84bc22a3b647d6ce0c15f0c28974c2c4a1fe0f89"
+    },
+    {
+      "file": "supplement_f67d706811.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/why-integrate-design-and-manufacturing/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/why-integrate-design-and-manufacturing/",
+      "kind": "html",
+      "bytes": 87885,
+      "sha256": "0848a0c8c24ced8a35f03acbfc90fc0f9a049be9b00f5fcca21af9769d7e712b"
+    },
+    {
+      "file": "supplement_a7e10fe00d.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-part-1/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-part-1/",
+      "kind": "html",
+      "bytes": 114613,
+      "sha256": "3878b886913737c5c0126874db4124317e9380f245d192097b0a804b9e1918ed"
+    },
+    {
+      "file": "supplement_2a41f888d5.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-drivers-what-is-a-good-solution-in-the-product-design-context/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-drivers-what-is-a-good-solution-in-the-product-design-context/",
+      "kind": "html",
+      "bytes": 99040,
+      "sha256": "65fe86fd8415778e5f85ab09e3ed86fb60225bb7122c075a2c1b33670166bf45"
+    },
+    {
+      "file": "supplement_883f71ed6c.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/tangible-and-intangible-properties-of-product-design/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/tangible-and-intangible-properties-of-product-design/",
+      "kind": "html",
+      "bytes": 97984,
+      "sha256": "05537a1e4d6afe11c04b29caa4191fb4468c849f3e28e917b2ecbbb483bb9801"
+    },
+    {
+      "file": "supplement_db7d888815.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/case-study-design-vision/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/case-study-design-vision/",
+      "kind": "html",
+      "bytes": 95420,
+      "sha256": "e4e61c4fd2ff01a8962f834043126cb452c9bbc3e776efc5bdb75ec707c9922a"
+    },
+    {
+      "file": "supplement_4838b90267.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/models-the-language-of-design/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/models-the-language-of-design/",
+      "kind": "html",
+      "bytes": 100673,
+      "sha256": "bb241da746fd7f73e6f794faaf7d7c3e61da1ed6ca1dd87014c192e96beea299"
+    },
+    {
+      "file": "supplement_d1dbb280e7.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-part-2/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-part-2/",
+      "kind": "html",
+      "bytes": 131974,
+      "sha256": "f1dc0e827aa553ff4c87ac58d5ee5e4d0c42c23d2bdb3ef6ecaf0d3ed30e442d"
+    },
+    {
+      "file": "supplement_877f899228.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/identify-and-define-a-product-design-opportunity/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/identify-and-define-a-product-design-opportunity/",
+      "kind": "html",
+      "bytes": 93972,
+      "sha256": "d2a3796f956c35c768813d18672fb56e68edf15e681f2b8f66588b093a40da48"
+    },
+    {
+      "file": "supplement_fbea687d89.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/team-based-design-decision-making/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/team-based-design-decision-making/",
+      "kind": "html",
+      "bytes": 91547,
+      "sha256": "6b5805a79f5debc06dd1609aebb32c04fc6cb5d42e20b43529b88e68fe7bc9ed"
+    },
+    {
+      "file": "supplement_adfd5db359.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/individual-design-decision-making/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/individual-design-decision-making/",
+      "kind": "html",
+      "bytes": 90755,
+      "sha256": "08e66a63390465c5e1a33e272d1c0a6b19f6ebb0626b3c293a9650e7fafa8300"
+    },
+    {
+      "file": "supplement_f0c5accd23.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/project-timeline-management/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/project-timeline-management/",
+      "kind": "html",
+      "bytes": 93898,
+      "sha256": "197ce1977f3772f260992de216b25052d9da508ece66236b1066babbf435b001"
+    },
+    {
+      "file": "supplement_802b45a435.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/project-team-managment/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/project-team-managment/",
+      "kind": "html",
+      "bytes": 94477,
+      "sha256": "1f8629f3add6c8d4101ecef7005e62e184e0510a264127ae8a79bf65dc5619f1"
+    },
+    {
+      "file": "supplement_dffe648377.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-part-3/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-part-3/",
+      "kind": "html",
+      "bytes": 124509,
+      "sha256": "5bcfccb467d4c7097d3408d56c8abf0788ecd2f975578772e0703e634654e72b"
+    },
+    {
+      "file": "supplement_84fc67ae02.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/who-are-the-stakeholders-and-what-do-they-want/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/who-are-the-stakeholders-and-what-do-they-want/",
+      "kind": "html",
+      "bytes": 91171,
+      "sha256": "4c44c235b419501d655dfe78ec4f8603c4a6eccb2214c659b4b561989520f8ec"
+    },
+    {
+      "file": "supplement_87e5154ca0.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/methods-to-gather-stakeholder-needs/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/methods-to-gather-stakeholder-needs/",
+      "kind": "html",
+      "bytes": 89327,
+      "sha256": "fc6eeaa3492e730ca4b3bfc6b0e582db4f1948e7cdc96e9dfedbbf3fffc5dae0"
+    },
+    {
+      "file": "supplement_22527d193e.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/checklist-for-generating-requirements/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/checklist-for-generating-requirements/",
+      "kind": "html",
+      "bytes": 99298,
+      "sha256": "f94d8e2bf04d5b9b86c4bd99afc4705dec14bf7452f893bc3b3c34c80724bf28"
+    },
+    {
+      "file": "supplement_0ecc9c5730.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-specification-and-engineering-requirements/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-specification-and-engineering-requirements/",
+      "kind": "html",
+      "bytes": 93749,
+      "sha256": "6a5029991191fdd437daeb15290f604a809cfc2c75e6ddce2430738453f072c3"
+    },
+    {
+      "file": "supplement_8874b6daf8.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/house-of-quality-tool-for-needs-and-specification-managment/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/house-of-quality-tool-for-needs-and-specification-managment/",
+      "kind": "html",
+      "bytes": 93260,
+      "sha256": "67e67816be72f70b9c68f19daf6590762b00a3797805443e1c6e625a4b97bbdd"
+    },
+    {
+      "file": "supplement_857404210f.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-defining-and-managing-design-requirements/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-defining-and-managing-design-requirements/",
+      "kind": "html",
+      "bytes": 125778,
+      "sha256": "68ce27002d8a57f768d99b09ae06e0b16b8d00caff682989ca10a7606c8502d0"
+    },
+    {
+      "file": "supplement_3f16363070.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/creativity-techniques/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/creativity-techniques/",
+      "kind": "html",
+      "bytes": 94633,
+      "sha256": "5fc2990f06608fb9565840b9d36e1299beb666da4a3e04d141cf3057b5566475"
+    },
+    {
+      "file": "supplement_892e38557a.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/tools-for-supporting-creative-design-solutioning/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/tools-for-supporting-creative-design-solutioning/",
+      "kind": "html",
+      "bytes": 100862,
+      "sha256": "7c784d696164ac15bd2a21d3fad26eb1b2a5ab9c24bcedc23759569446dcd982"
+    },
+    {
+      "file": "supplement_bd608a8b1d.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/functional-analysis/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/functional-analysis/",
+      "kind": "html",
+      "bytes": 96369,
+      "sha256": "624d6cb0fd7c8d23872941f7ec42304031858c462449082e8efadd89681dedee"
+    },
+    {
+      "file": "supplement_51075ad3e8.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/morphological-chart/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/morphological-chart/",
+      "kind": "html",
+      "bytes": 100469,
+      "sha256": "9873256420524e61c53e2eb6c2e76381be900408e74e15813d2e5d89d1ac8307"
+    },
+    {
+      "file": "supplement_c85792a4b1.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/decision-and-selection/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/decision-and-selection/",
+      "kind": "html",
+      "bytes": 99855,
+      "sha256": "5257d7b246d0968e154db8eb1a6cf3a551e63d89732ed47a7658c753c4abf14e"
+    },
+    {
+      "file": "supplement_e3d1607c5f.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/develop-prototypes-to-further-define-concepts/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/develop-prototypes-to-further-define-concepts/",
+      "kind": "html",
+      "bytes": 104716,
+      "sha256": "5a1d7dee9e4aa5eb85d167f1e465b41f49be7f6f30703620ee87f22e0421889d"
+    },
+    {
+      "file": "supplement_ab02f62eab.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-conceptual-design-and-tools/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-conceptual-design-and-tools/",
+      "kind": "html",
+      "bytes": 131709,
+      "sha256": "c7a22896d6fb2608b1b4e64242ba0f458e962737b3a3e6c0eaaaa4dcb6e3a9f1"
+    },
+    {
+      "file": "supplement_1b4d0478bb.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/overview-of-the-design-embodiment-process/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/overview-of-the-design-embodiment-process/",
+      "kind": "html",
+      "bytes": 89357,
+      "sha256": "b8b4bb12154942249594bab92bae39be8b2f67f2c562e5ee9946fb2c29db0ab3"
+    },
+    {
+      "file": "supplement_705b8f5a8d.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/constraints/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/constraints/",
+      "kind": "html",
+      "bytes": 88574,
+      "sha256": "7f2d8d6bd044a98b12174fd22e74a4e8e30bf7edf51ff41911fee88a1c185353"
+    },
+    {
+      "file": "supplement_6cb240bed8.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/configuration-and-architecture/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/configuration-and-architecture/",
+      "kind": "html",
+      "bytes": 91282,
+      "sha256": "a944d690a66a14dfdf348e1d2738a4ea407f9391ae66c422c788887d27d1e7bc"
+    },
+    {
+      "file": "supplement_5e55e5390d.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/connections-and-interfaces/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/connections-and-interfaces/",
+      "kind": "html",
+      "bytes": 93326,
+      "sha256": "1482dd7101c9f05eece3d19a7c3f22c71e81794abf3ae4c5f222ded7cfc2934a"
+    },
+    {
+      "file": "supplement_12bd7ceeac.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/define-components/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/define-components/",
+      "kind": "html",
+      "bytes": 91371,
+      "sha256": "670f44fe0ec8200ad94b57114a3de7a8420de5e92363eec3d160fed31c0c8789"
+    },
+    {
+      "file": "supplement_7c5ee5ae2d.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/iterate-and-refine/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/iterate-and-refine/",
+      "kind": "html",
+      "bytes": 88840,
+      "sha256": "d423fcabcabb01a87e9f7dc1d4c73e739b526c88cbd5d66a5a9d09148585f34f"
+    },
+    {
+      "file": "supplement_9d7110ebbc.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-detailed-design/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-detailed-design/",
+      "kind": "html",
+      "bytes": 125874,
+      "sha256": "3c5d2733d89cbd6a84ab959c949c78f3fe77886bb19fe729b56bae41a54a81b4"
+    },
+    {
+      "file": "supplement_5beeb25b8e.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/generalized-process-for-standard-specifications/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/generalized-process-for-standard-specifications/",
+      "kind": "html",
+      "bytes": 97333,
+      "sha256": "8d947c39f7e9e12b6ac625bbef9a08b36484522ba0b32b6169a0b6d8542c8fa1"
+    },
+    {
+      "file": "supplement_196420deb8.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/fasteners/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/fasteners/",
+      "kind": "html",
+      "bytes": 91991,
+      "sha256": "882f1173cd5f1dda3d9c96baecf2b649049e88510235f82a116cebbde4a2fdb9"
+    },
+    {
+      "file": "supplement_c774a0b4ee.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/pins-and-joints/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/pins-and-joints/",
+      "kind": "html",
+      "bytes": 93059,
+      "sha256": "9b9d41131207bcf7acbc16e12f6b3d263c2f40c9f3f4a49b4be71184b307bce3"
+    },
+    {
+      "file": "supplement_3c5d028b02.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/bearings/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/bearings/",
+      "kind": "html",
+      "bytes": 90334,
+      "sha256": "b1e73241d4609d1f572b03c100ad8784b8c77dd285a442b0308fccdb8dbb262b"
+    },
+    {
+      "file": "supplement_063e9fe01f.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanical-springs/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanical-springs/",
+      "kind": "html",
+      "bytes": 98825,
+      "sha256": "5d95553733b684150483d030ba8a1284a9f811600dffa66249495ff1e49aaefa"
+    },
+    {
+      "file": "supplement_4b1dcde4de.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/motors-and-controllers/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/motors-and-controllers/",
+      "kind": "html",
+      "bytes": 102528,
+      "sha256": "8a4129d9ea710893d9be2339a377b0a1822483ff7202c38f2ae5982be1450495"
+    },
+    {
+      "file": "supplement_9760695640.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/warp-up-component-specification/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/warp-up-component-specification/",
+      "kind": "html",
+      "bytes": 131534,
+      "sha256": "b465a88a7f01a3274c4bb2831aded125b86ee510e081fa4762d36407842a1a4a"
+    },
+    {
+      "file": "supplement_c573df3b74.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/machines-and-the-control-of-work/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/machines-and-the-control-of-work/",
+      "kind": "html",
+      "bytes": 91759,
+      "sha256": "57f64866fe45c56cb4d21515e3fa5456e12449bd47e7433794dc8d545d728bd3"
+    },
+    {
+      "file": "supplement_2942c46edd.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/linkages-and-mechanisms/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/linkages-and-mechanisms/",
+      "kind": "html",
+      "bytes": 109343,
+      "sha256": "0f1cc6d2616966c877f33273e5e949aa2226c5cb2699662de2534fd85826c0e5"
+    },
+    {
+      "file": "supplement_74425ac1dd.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/motion-and-control-of-mechanisms/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/motion-and-control-of-mechanisms/",
+      "kind": "html",
+      "bytes": 109358,
+      "sha256": "d2ccf2c733f4d66737868bab775e5bf41d8598852cf618d65a29a5a08a2c7c35"
+    },
+    {
+      "file": "supplement_25345fb354.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanism-synthesis-and-analysis/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanism-synthesis-and-analysis/",
+      "kind": "html",
+      "bytes": 92303,
+      "sha256": "df3c2b2bc718ec045e2cc382a640fd1d1c10c6bdde0c5290c1551de77d422e62"
+    },
+    {
+      "file": "supplement_78ab9ad8d2.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanism-analysis/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanism-analysis/",
+      "kind": "html",
+      "bytes": 107901,
+      "sha256": "2f90b48c1c5191f803ab8b8f40f2758274e356d0e4343a84638c4e5848c5de78"
+    },
+    {
+      "file": "supplement_ffde637140.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanism-force-velocity-and-acceleration-analysis/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/mechanism-force-velocity-and-acceleration-analysis/",
+      "kind": "html",
+      "bytes": 101427,
+      "sha256": "6a0831e11db4701f4a9148cae2d50b06340da22df83d1da19b8694083cb1a215"
+    },
+    {
+      "file": "supplement_70439e078b.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/cam-systems-and-cam-design/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/cam-systems-and-cam-design/",
+      "kind": "html",
+      "bytes": 95373,
+      "sha256": "3e352a9e652d37fd8a6ac4a70cdcd66304589306232c8e0eda61f9ed86786272"
+    },
+    {
+      "file": "supplement_9f36e72cc5.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/gearing-systems/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/gearing-systems/",
+      "kind": "html",
+      "bytes": 98191,
+      "sha256": "ca59ea38ff36f4ef0dcc668d27cbbc5d6b4870e6179dc98d6dd5f155db05484a"
+    },
+    {
+      "file": "supplement_7f3fa59c1b.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/pulleys-belts-and-chain-systems/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/pulleys-belts-and-chain-systems/",
+      "kind": "html",
+      "bytes": 93164,
+      "sha256": "a6ed23c8254f0a587d83f3cf35edc7fa5f89a2e623f7c0d99f656f8aafae1f00"
+    },
+    {
+      "file": "supplement_9ed7b3af1f.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-assemblies-for-motion-and-power/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-assemblies-for-motion-and-power/",
+      "kind": "html",
+      "bytes": 145814,
+      "sha256": "f4d9980d7cfc4257f71de22ffee9f537cd8e1fb7d9d2f29f6d11d001c9b7e557"
+    },
+    {
+      "file": "supplement_047b738b90.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/prototyping-strategy/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/prototyping-strategy/",
+      "kind": "html",
+      "bytes": 95699,
+      "sha256": "7fa27d272814466645b6dd100c71eb550bc30c3aeb56d7d893ab79225721d415"
+    },
+    {
+      "file": "supplement_4ccd488972.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/additive-manufacturing/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/additive-manufacturing/",
+      "kind": "html",
+      "bytes": 94969,
+      "sha256": "84bb0fe2256329e2bad248a17bdb79e568bae16ee94e2ed6ebfd8431c0119fa1"
+    },
+    {
+      "file": "supplement_132276eef5.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/building-and-testing/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/building-and-testing/",
+      "kind": "html",
+      "bytes": 91632,
+      "sha256": "e197efe9001b2701f696748daacb8a5143b5c82904ef4a8f84b02738576a93a8"
+    },
+    {
+      "file": "supplement_1654c770d0.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-prototyping-product-concepts/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-prototyping-product-concepts/",
+      "kind": "html",
+      "bytes": 115491,
+      "sha256": "d9801b44d75b845e511eb0c84d06455e43189cdd5de8b7e40ade0f7a772212ef"
+    },
+    {
+      "file": "supplement_f4b8f58c73.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-manufacturing-principles/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-manufacturing-principles/",
+      "kind": "html",
+      "bytes": 90280,
+      "sha256": "8dc01369aebdb115d51905ba486a94bbe9e5df653f447324b5d0b7fba85ddf45"
+    },
+    {
+      "file": "supplement_a04639d24c.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-assembly-principles/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-assembly-principles/",
+      "kind": "html",
+      "bytes": 93796,
+      "sha256": "864c64a05117c9a95045eccd579c679829785dcd453c556574ed4f1e1f4bad37"
+    },
+    {
+      "file": "supplement_0eb7a66250.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/introduction-to-geometric-dimensions-and-tolerances/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/introduction-to-geometric-dimensions-and-tolerances/",
+      "kind": "html",
+      "bytes": 98739,
+      "sha256": "6e783184a2d22727681efc2d7c367e5090272440fcffc96d91fb4fb9cdbd7be7"
+    },
+    {
+      "file": "supplement_744432c780.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/fits-and-tolerances/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/fits-and-tolerances/",
+      "kind": "html",
+      "bytes": 100288,
+      "sha256": "454a5120a22e55fa6340c78759fd89c0ca6ac3807df6353eeb4d341e0e85f3ec"
+    },
+    {
+      "file": "supplement_6c5a06233b.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-design-for-manufacturing-and-assembly/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/wrap-up-design-for-manufacturing-and-assembly/",
+      "kind": "html",
+      "bytes": 130448,
+      "sha256": "e1821f16631a8baaae2b6a04e272ec55885a83b23587926d949eb30eec19e2c8"
+    },
+    {
+      "file": "supplement_f24f02b330.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/metal-casting-fundamentals-and-terms/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/metal-casting-fundamentals-and-terms/",
+      "kind": "html",
+      "bytes": 90561,
+      "sha256": "976857c5db3df4353a20d23f81f9ceceb9df39cb9291bb6d939d996ae81adedf"
+    },
+    {
+      "file": "supplement_b8705209bd.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/types-of-casting-process-and-excepted-tolerances/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/types-of-casting-process-and-excepted-tolerances/",
+      "kind": "html",
+      "bytes": 99031,
+      "sha256": "893461a6f7cff96a6a448ace9e7045dda29e1953b08d696c99269c72659a957a"
+    },
+    {
+      "file": "supplement_a45f338f89.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/multiple-use-casting-and-molds/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/multiple-use-casting-and-molds/",
+      "kind": "html",
+      "bytes": 91260,
+      "sha256": "d56917c04df4253499bb35b134e8edac1831a9ccb1eb9ea8d02ce28967bf8281"
+    },
+    {
+      "file": "supplement_e7975a0720.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/single-use-casting-and-molds/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/single-use-casting-and-molds/",
+      "kind": "html",
+      "bytes": 92200,
+      "sha256": "2d607b8d33df478ec58b388ecf5508ece5b60e0b46815b8c2629a6ea04e165cd"
+    },
+    {
+      "file": "supplement_6261fbcfa3.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/powder-metal-processes/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/powder-metal-processes/",
+      "kind": "html",
+      "bytes": 90981,
+      "sha256": "c1b7f967e0fa2c00af96bb9f34a3084a69fe9927f99681d54c3ae83a4cb05aa3"
+    },
+    {
+      "file": "supplement_1ccf6b4569.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-casting-and-molding-principles-and-best-practices/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-casting-and-molding-principles-and-best-practices/",
+      "kind": "html",
+      "bytes": 125773,
+      "sha256": "3d50cd15855c55467bd427b1abb53323a9e6cb99175d89af8c18206664a9039d"
+    },
+    {
+      "file": "supplement_9a965130b5.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/metal-forming-process-types-and-tolerances/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/metal-forming-process-types-and-tolerances/",
+      "kind": "html",
+      "bytes": 91278,
+      "sha256": "d71142709674d3b3ea054d48d29bb239076e68f869403961a7b52bf258199458"
+    },
+    {
+      "file": "supplement_c8f5e89060.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/rolling/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/rolling/",
+      "kind": "html",
+      "bytes": 89929,
+      "sha256": "f5a23d0b4e62e0e1d63593f1070b2813169b04ccecdba3c4bcfa115fd8ceb264"
+    },
+    {
+      "file": "supplement_caf8a15e3f.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/drawing/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/drawing/",
+      "kind": "html",
+      "bytes": 87369,
+      "sha256": "419b87623f6e85b6340fb08ee9d4ad398842af94a76197161211c1e41942daf8"
+    },
+    {
+      "file": "supplement_eafffcce26.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/forging/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/forging/",
+      "kind": "html",
+      "bytes": 90252,
+      "sha256": "50319801483b8f8382e7b04ec51c1080701c4dd418cbb1784b64bac96e846135"
+    },
+    {
+      "file": "supplement_677b670801.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/extrusion/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/extrusion/",
+      "kind": "html",
+      "bytes": 90770,
+      "sha256": "8ea80be2993b29c6418a0db31cba8ed736000ff2d7dfb311bdf54ae8fb36fe7f"
+    },
+    {
+      "file": "supplement_cd7f3558cd.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/sheet-metal-work/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/sheet-metal-work/",
+      "kind": "html",
+      "bytes": 96720,
+      "sha256": "37bba7598d690c3bd5171728d2140304e0744552b48a18f12a1887e8f7ec4559"
+    },
+    {
+      "file": "supplement_563414c392.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-forming-principles-and-practices/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-forming-principles-and-practices/",
+      "kind": "html",
+      "bytes": 119685,
+      "sha256": "73a2f5cc9be231b7d55e6b1cb6eb53d240201935f58359d381d29044bfc54a75"
+    },
+    {
+      "file": "supplement_c1fe183550.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/types-of-cutting-and-machining-pocess-and-tolerances/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/types-of-cutting-and-machining-pocess-and-tolerances/",
+      "kind": "html",
+      "bytes": 97904,
+      "sha256": "2a7818894899cf887248ea504dfb7bede3dd908056dbdefb4e3833a3b5b2f885"
+    },
+    {
+      "file": "supplement_94fed629bf.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/milling/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/milling/",
+      "kind": "html",
+      "bytes": 91412,
+      "sha256": "6b725f060be48881eb518f9ddd3739f088b0a1fda21fc4f9efd67b34145212a4"
+    },
+    {
+      "file": "supplement_f57e229ac6.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/boring-tapping-and-broaching/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/boring-tapping-and-broaching/",
+      "kind": "html",
+      "bytes": 94108,
+      "sha256": "69be4cc947c20997aa2aca258e4dbfe0cc97cbab28ef6cd840a82e4f2fd376a6"
+    },
+    {
+      "file": "supplement_2edc16e0d4.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/turning/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/turning/",
+      "kind": "html",
+      "bytes": 88329,
+      "sha256": "359a907458045092223e3ca5747bc7353ff18205ba88c8ea7706432b2e9d27f7"
+    },
+    {
+      "file": "supplement_3eec90b247.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/grinding-and-polish/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/grinding-and-polish/",
+      "kind": "html",
+      "bytes": 89938,
+      "sha256": "62be768b8d72c2e84d31d8e6096c2a3e45c21181d2f8e8707a55cbf5eae2c53b"
+    },
+    {
+      "file": "supplement_18e43aa64b.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/finishing-treatment-processes/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/finishing-treatment-processes/",
+      "kind": "html",
+      "bytes": 99118,
+      "sha256": "c95ce3016488e96d4598f455597dfd10bb8093c96d08cd3e39fa5e79d4a73cb8"
+    },
+    {
+      "file": "supplement_9cd7476ef2.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-machining-processes/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-machining-processes/",
+      "kind": "html",
+      "bytes": 126965,
+      "sha256": "2c75bbfe464ce8d313d82420445581f14a14cf423597c139575f50621ec8aaf2"
+    },
+    {
+      "file": "supplement_193f3bd9b9.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/welding-methods/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/welding-methods/",
+      "kind": "html",
+      "bytes": 93042,
+      "sha256": "a75c203a338923a5ab235dc9515f1f494a77e43b901248602d2315e9a9e45046"
+    },
+    {
+      "file": "supplement_cdcf8aab78.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/brazing-and-soldering/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/brazing-and-soldering/",
+      "kind": "html",
+      "bytes": 90267,
+      "sha256": "950b687e430b42c2e624fabe39276396b71e9d0a14fbb2f992662dd735aa44d3"
+    },
+    {
+      "file": "supplement_cebd770f1a.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/plastic-materials/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/plastic-materials/",
+      "kind": "html",
+      "bytes": 91695,
+      "sha256": "399ddb3e4e3469dc40b6497c0515d269ce15b6704b5e46d76b594f6eb7157826"
+    },
+    {
+      "file": "supplement_08ca4fd9e3.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/molding/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/molding/",
+      "kind": "html",
+      "bytes": 95971,
+      "sha256": "54ef30426f9882d1384216b0f64fba535084440526fed9e4eb9da6ab90303848"
+    },
+    {
+      "file": "supplement_c6a880d72d.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/extrusion-2/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/extrusion-2/",
+      "kind": "html",
+      "bytes": 88156,
+      "sha256": "e25a7304e73e79be63f65e8cad43b5e3c76bd65fe3bc90fae5324b8342138d17"
+    },
+    {
+      "file": "supplement_ec71a75dd0.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/forming/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/forming/",
+      "kind": "html",
+      "bytes": 88149,
+      "sha256": "ade6bf28a238dc9ff957d7fe57cbad09acf3841238d3baed801105902f282805"
+    },
+    {
+      "file": "supplement_7c66283d34.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/machining/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/machining/",
+      "kind": "html",
+      "bytes": 88732,
+      "sha256": "e364ead04cdc3c555b08562e782ddfe244708d3e94b88d4386656926cab39add"
+    },
+    {
+      "file": "supplement_39d4d2a2d6.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-plastic-manufacturing/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/design-for-plastic-manufacturing/",
+      "kind": "html",
+      "bytes": 118534,
+      "sha256": "59b7c22d2e69231b8026aaeb256f673d7d602d3d84057edea8b21244a968f14d"
+    },
+    {
+      "file": "supplement_e6b1c6e1aa.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/preliminary-patent-applications/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/preliminary-patent-applications/",
+      "kind": "html",
+      "bytes": 90066,
+      "sha256": "68a30d99c35136823d81a1c1be123239f3d23693328f6e2ee34fff5cab65116c"
+    },
+    {
+      "file": "supplement_d16f5c0a08.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/professional-licensure-and-consulting/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/professional-licensure-and-consulting/",
+      "kind": "html",
+      "bytes": 89279,
+      "sha256": "56819ec17e3c3f0ad6915ac879cfdb0764f58c3da082159291944ea805c90bed"
+    },
+    {
+      "file": "supplement_c8ef9ba474.html",
+      "url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/final-thoughts/",
+      "final_url": "https://uark.pressbooks.pub/mechanicaldesign/chapter/final-thoughts/",
+      "kind": "html",
+      "bytes": 107967,
+      "sha256": "81f653c9361931566600941a0b86e9018d556abb74abec8c43f986614e37bb1a"
+    },
+    {
+      "file": "open_material_24.pdf",
+      "url": "http://pergatory.mit.edu/resources/FUNdaMENTALs%20Book%20pdf/FUNdaMENTALs%20Topic%204.PDF",
+      "final_url": "http://pergatory.mit.edu/resources/FUNdaMENTALs%20Book%20pdf/FUNdaMENTALs%20Topic%204.PDF",
+      "kind": "pdf",
+      "bytes": 3412583,
+      "sha256": "0414f7f95d6fa9f000b8b2b7dc58257660fec3c3f67ca3c67b2972b7b7e43d78"
+    },
+    {
+      "file": "sprocket-engineering-data.pdf",
+      "url": "https://www.martinsprocket.com/docs/catalogs/engineering/engineering%20catalog/sprocket-engineering-data.pdf",
+      "final_url": "https://www.martinsprocket.com/docs/catalogs/engineering/engineering%20catalog/sprocket-engineering-data.pdf",
+      "kind": "pdf",
+      "bytes": 2418530,
+      "sha256": "54c46722e3db647a936c45ee7184d8aea3875701b566589b32a330994d005174"
+    },
+    {
+      "file": "EML2322L-Tolerances.pdf",
+      "url": "https://mae.ufl.edu/designlab/Lab%20Assignments/EML2322L-Tolerances.pdf",
+      "final_url": "https://web.mae.ufl.edu/designlab/Lab%20Assignments/EML2322L-Tolerances.pdf",
+      "kind": "pdf",
+      "bytes": 1360645,
+      "sha256": "1fbb9f1bdb836e20cf4b444de312cbb089067a5ef0d63e8227e0ed32dc52733d"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://www.u.arizona.edu/~pen/ame352/Notes%20PDF/3%20Analytical%20kinematics.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sfsa.org/wordpress/wp-content/uploads/2021/10/s3_old.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

@@ -1,0 +1,731 @@
+{
+  "id": 2,
+  "name": "Underactuated Robotics - Russ Tedrake",
+  "type": "Açık çevrimiçi ders kitabı",
+  "url": "https://underactuated.mit.edu/",
+  "folder": "02_Underactuated_Robotics_-_Russ_Tedrake",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://underactuated.mit.edu/",
+      "final_url": "https://underactuated.mit.edu/",
+      "kind": "html",
+      "bytes": 40336,
+      "sha256": "225dcf4dd274c4a277e1fe6417c5ffd8e529f8ff76e07dab67def84ec6194bcd"
+    },
+    {
+      "file": "page_2d5e44f5a5.html",
+      "url": "https://underactuated.mit.edu/index.html",
+      "final_url": "https://underactuated.mit.edu/index.html",
+      "kind": "html",
+      "bytes": 40336,
+      "sha256": "225dcf4dd274c4a277e1fe6417c5ffd8e529f8ff76e07dab67def84ec6194bcd"
+    },
+    {
+      "file": "page_2735aa5363.html",
+      "url": "https://underactuated.mit.edu/misc.html",
+      "final_url": "https://underactuated.mit.edu/misc.html",
+      "kind": "html",
+      "bytes": 11849,
+      "sha256": "d3dc01eae8ffaafbc9d7d7caf0fed6b5774752d670dac6084a4025175c1b207d"
+    },
+    {
+      "file": "page_1892d73161.html",
+      "url": "https://underactuated.mit.edu/intro.html",
+      "final_url": "https://underactuated.mit.edu/intro.html",
+      "kind": "html",
+      "bytes": 52787,
+      "sha256": "d3ea7af17d484692c4c1b32f5578c04827cd84c287e622cde57f39e32eb50016"
+    },
+    {
+      "file": "page_b501016317.html",
+      "url": "https://underactuated.mit.edu/pend.html",
+      "final_url": "https://underactuated.mit.edu/pend.html",
+      "kind": "html",
+      "bytes": 43790,
+      "sha256": "aa66b5fe126416252bac748d798e6574d26070f1c41c57771816bc964c025e84"
+    },
+    {
+      "file": "page_eeae9cf283.html",
+      "url": "https://underactuated.mit.edu/acrobot.html",
+      "final_url": "https://underactuated.mit.edu/acrobot.html",
+      "kind": "html",
+      "bytes": 73504,
+      "sha256": "d34c69fac2f2e1b3ab3473dd3993908b52cb6cc845ccc77ca37a0fa4027ebc5d"
+    },
+    {
+      "file": "page_7f208583a1.html",
+      "url": "https://underactuated.mit.edu/simple_legs.html",
+      "final_url": "https://underactuated.mit.edu/simple_legs.html",
+      "kind": "html",
+      "bytes": 72753,
+      "sha256": "852954f8cbeb95ea2dee674b308f843adf64aabaffc0c614ddfb72761ba3f2e4"
+    },
+    {
+      "file": "page_b852f7b99a.html",
+      "url": "https://underactuated.mit.edu/humanoids.html",
+      "final_url": "https://underactuated.mit.edu/humanoids.html",
+      "kind": "html",
+      "bytes": 38858,
+      "sha256": "dbe31779b870bbac362555c4ffc47be6c8efe6303996e585daa752aaab16f54b"
+    },
+    {
+      "file": "page_c0f4152121.html",
+      "url": "https://underactuated.mit.edu/stochastic.html",
+      "final_url": "https://underactuated.mit.edu/stochastic.html",
+      "kind": "html",
+      "bytes": 34981,
+      "sha256": "41907de6c7b59924e2f831c63ab7f302dd63a6e218aa3092817c39a229534b9d"
+    },
+    {
+      "file": "page_37c23a4985.html",
+      "url": "https://underactuated.mit.edu/dp.html",
+      "final_url": "https://underactuated.mit.edu/dp.html",
+      "kind": "html",
+      "bytes": 82948,
+      "sha256": "314f6e3bc611c3e777f4286ab02ceda77964bddc71fe2f520cd3ee9d6ecda012"
+    },
+    {
+      "file": "page_48509b7bba.html",
+      "url": "https://underactuated.mit.edu/lqr.html",
+      "final_url": "https://underactuated.mit.edu/lqr.html",
+      "kind": "html",
+      "bytes": 59412,
+      "sha256": "45c7aa6f602f3440878e7b1db30f5a2ebfec0c80df77bf8e1282af8757d34dbc"
+    },
+    {
+      "file": "page_800210db1d.html",
+      "url": "https://underactuated.mit.edu/lyapunov.html",
+      "final_url": "https://underactuated.mit.edu/lyapunov.html",
+      "kind": "html",
+      "bytes": 146886,
+      "sha256": "bbf6e377222889c9714ccb2efed25b7de39ad3d69c7b77e11914fb1b4bac09bd"
+    },
+    {
+      "file": "page_630a609ed2.html",
+      "url": "https://underactuated.mit.edu/trajopt.html",
+      "final_url": "https://underactuated.mit.edu/trajopt.html",
+      "kind": "html",
+      "bytes": 116984,
+      "sha256": "2fd4a10ead3b3e82beb652072bf939df8fbaad50dc18cb53d18b9ea0956eacce"
+    },
+    {
+      "file": "page_43bd05bcef.html",
+      "url": "https://underactuated.mit.edu/policy_search.html",
+      "final_url": "https://underactuated.mit.edu/policy_search.html",
+      "kind": "html",
+      "bytes": 29140,
+      "sha256": "b42810494739a9e4c77d73f8acd3b29cd7433c5aa8b0d7e0e26e7512528871df"
+    },
+    {
+      "file": "page_6b24e6a93f.html",
+      "url": "https://underactuated.mit.edu/planning.html",
+      "final_url": "https://underactuated.mit.edu/planning.html",
+      "kind": "html",
+      "bytes": 24379,
+      "sha256": "7144b651ad41f9844e4fff298ff4d842b60af9c8cfbd70dee21299a67a1e456e"
+    },
+    {
+      "file": "page_b49a1e74d4.html",
+      "url": "https://underactuated.mit.edu/robust.html",
+      "final_url": "https://underactuated.mit.edu/robust.html",
+      "kind": "html",
+      "bytes": 53999,
+      "sha256": "95a8761c8e12ee640bcd4146e6b4f6caf42fcbbd491479ff5e2fd62f6dbaea4d"
+    },
+    {
+      "file": "page_3c7b0de386.html",
+      "url": "https://underactuated.mit.edu/feedback_motion_planning.html",
+      "final_url": "https://underactuated.mit.edu/feedback_motion_planning.html",
+      "kind": "html",
+      "bytes": 13974,
+      "sha256": "d125a1bdf3b89a1f1936fc6807fa5df8e3f3f81f6ccb111d15fc769c2ac215e2"
+    },
+    {
+      "file": "page_03cd7ffd9b.html",
+      "url": "https://underactuated.mit.edu/output_feedback.html",
+      "final_url": "https://underactuated.mit.edu/output_feedback.html",
+      "kind": "html",
+      "bytes": 31933,
+      "sha256": "bfd617538523d728a2a44f1fafee4cbe2d255642c09dd0f0d6a4f40b69314cca"
+    },
+    {
+      "file": "page_98a70768dc.html",
+      "url": "https://underactuated.mit.edu/limit_cycles.html",
+      "final_url": "https://underactuated.mit.edu/limit_cycles.html",
+      "kind": "html",
+      "bytes": 29876,
+      "sha256": "b546a013be306aa0e050f2762bb6dc0e20823282f874487b43ad7f46eea7eb43"
+    },
+    {
+      "file": "page_568100351e.html",
+      "url": "https://underactuated.mit.edu/contact.html",
+      "final_url": "https://underactuated.mit.edu/contact.html",
+      "kind": "html",
+      "bytes": 30927,
+      "sha256": "04b54cf8218479c9f39aee20f11aa52fa310f8db605c6d8eb900f2b0f816c9eb"
+    },
+    {
+      "file": "page_df8bed9308.html",
+      "url": "https://underactuated.mit.edu/sysid.html",
+      "final_url": "https://underactuated.mit.edu/sysid.html",
+      "kind": "html",
+      "bytes": 100110,
+      "sha256": "36a4c2ac35a248ef1f16805b9b5f251ee2ffdb8accaad8df4c0520a3d9bc8e56"
+    },
+    {
+      "file": "page_55da5d335c.html",
+      "url": "https://underactuated.mit.edu/state_estimation.html",
+      "final_url": "https://underactuated.mit.edu/state_estimation.html",
+      "kind": "html",
+      "bytes": 3756,
+      "sha256": "183654ff81435dd48732654fe79a5f6fd1d218520598ba1485be3f0da18371e1"
+    },
+    {
+      "file": "page_31de0f4f4c.html",
+      "url": "https://underactuated.mit.edu/rl_policy_search.html",
+      "final_url": "https://underactuated.mit.edu/rl_policy_search.html",
+      "kind": "html",
+      "bytes": 34998,
+      "sha256": "8bac880b8c0a93324650a58f72453139b1f30c6b900e69e1f77033ed89c040f0"
+    },
+    {
+      "file": "page_16792024e6.html",
+      "url": "https://underactuated.mit.edu/imitation.html",
+      "final_url": "https://underactuated.mit.edu/imitation.html",
+      "kind": "html",
+      "bytes": 59214,
+      "sha256": "ab2f693a27843e0a5b5a4c161f12acde4506f3ddbd5d7c29c965f22d056f6ad9"
+    },
+    {
+      "file": "page_9d35043773.html",
+      "url": "https://underactuated.mit.edu/drake.html",
+      "final_url": "https://underactuated.mit.edu/drake.html",
+      "kind": "html",
+      "bytes": 9602,
+      "sha256": "8c6b2e843ede43839469241045e8554f9cb273eb66c7f49e3793fff6324971bb"
+    },
+    {
+      "file": "page_3373816e9b.html",
+      "url": "https://underactuated.mit.edu/multibody.html",
+      "final_url": "https://underactuated.mit.edu/multibody.html",
+      "kind": "html",
+      "bytes": 80276,
+      "sha256": "6cf9be3259d65ff8e909dbdc0ae7e18e1a55565ba56ce81d85ee5e593217b11b"
+    },
+    {
+      "file": "page_121734d1a8.html",
+      "url": "https://underactuated.mit.edu/optimization.html",
+      "final_url": "https://underactuated.mit.edu/optimization.html",
+      "kind": "html",
+      "bytes": 42581,
+      "sha256": "dae90f3974bfe0d82a0d49114c4303baa7e165942a126cec703c2de12fef67f7"
+    },
+    {
+      "file": "page_99a2a5ead6.html",
+      "url": "https://underactuated.mit.edu/playbook.html",
+      "final_url": "https://underactuated.mit.edu/playbook.html",
+      "kind": "html",
+      "bytes": 5597,
+      "sha256": "51690a886fb30c096d42ff2f091ac773610f7dde1b184ec6e32efa367d3b1cdc"
+    },
+    {
+      "file": "page_7b791dc46b.html",
+      "url": "https://underactuated.mit.edu/python/index.html",
+      "final_url": "https://underactuated.mit.edu/python/index.html",
+      "kind": "html",
+      "bytes": 10901,
+      "sha256": "9d8d9714ee115a420b8fe5357fd44925ce03585caed5a3d0c99fcfbaed8fb86e"
+    },
+    {
+      "file": "Collins05.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Collins05.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Collins05.pdf",
+      "kind": "pdf",
+      "bytes": 363377,
+      "sha256": "e754fa3922dddba77e107c8c5f9bb2167812841e536f9b32b48b43f82c8a7cb5",
+      "pdf_pages": 4
+    },
+    {
+      "file": "Hsu07.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Hsu07.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Hsu07.pdf",
+      "kind": "pdf",
+      "bytes": 1799198,
+      "sha256": "702aa3ef363664d6044a8417973715bfd269b70b828020b79a9d60b1e8da78b9",
+      "pdf_pages": 59
+    },
+    {
+      "file": "Deits14a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Deits14a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Deits14a.pdf",
+      "kind": "pdf",
+      "bytes": 3671348,
+      "sha256": "d8347bf0d9056dc603383b5fbdfde0e2e784df9f1a1c63aaa9eceef93de293e0",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Kuindersma14.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Kuindersma14.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Kuindersma14.pdf",
+      "kind": "pdf",
+      "bytes": 32131918,
+      "sha256": "97006de32081002d13c188121e521b70edc51da592b7c00be2517d65dd501b30",
+      "pdf_pages": 46
+    },
+    {
+      "file": "Tedrake15.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Tedrake15.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Tedrake15.pdf",
+      "kind": "pdf",
+      "bytes": 1895577,
+      "sha256": "aedeaa1accf7d5264011d21a8f53ccc8c0b67f1df9ab7c4fd0a4149080ab7d34",
+      "pdf_pages": 5
+    },
+    {
+      "file": "Kuindersma13.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Kuindersma13.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Kuindersma13.pdf",
+      "kind": "pdf",
+      "bytes": 628593,
+      "sha256": "68ffc3cdb96f154e32a7f494bc4195a1ec4750ca4a882c3a6596c76184d5025f",
+      "pdf_pages": 6
+    },
+    {
+      "file": "Dai14.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Dai14.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Dai14.pdf",
+      "kind": "pdf",
+      "bytes": 2762222,
+      "sha256": "cb3cb2acffa9e9fb302ab72267a55c5f8a991a446f96c704e8653983eb69d7bd",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Marcucci21.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci21.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Marcucci21.pdf",
+      "kind": "pdf",
+      "bytes": 605419,
+      "sha256": "e6c5f8d9663a1328ba91ab96e1b3299f4fa96a252b56aa7395b8b242105d51cc",
+      "pdf_pages": 25
+    },
+    {
+      "file": "Suh22a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Suh22a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Suh22a.pdf",
+      "kind": "pdf",
+      "bytes": 4605194,
+      "sha256": "a82d7d709edde61cbc7e72dcf82e0102b34ab941e646da4940d6bebb66956f77",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Pang22.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Pang22.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Pang22.pdf",
+      "kind": "pdf",
+      "bytes": 8509210,
+      "sha256": "01bc984169c687f78ea38e78427213ed1f6070663cf5fb2a45437c9de5c4b54a",
+      "pdf_pages": 20
+    },
+    {
+      "file": "Pang20b.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Pang20b.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Pang20b.pdf",
+      "kind": "pdf",
+      "bytes": 2150032,
+      "sha256": "b993b903b08c935a1d7b8a472744f9a56a2689092613300d5cc584430b8284b0",
+      "pdf_pages": 7
+    },
+    {
+      "file": "Suh22b.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Suh22b.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Suh22b.pdf",
+      "kind": "pdf",
+      "bytes": 3396914,
+      "sha256": "a97f82c225d9a329653285ea3d433856fc5eaea139348597c30c2830f2174499",
+      "pdf_pages": 28
+    },
+    {
+      "file": "Posa15.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Posa15.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Posa15.pdf",
+      "kind": "pdf",
+      "bytes": 1353309,
+      "sha256": "42128a19684e09db80614fe9b6759064df0a772ef80a9e24b76b46f67b950b2b",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Sadraddini20.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini20.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini20.pdf",
+      "kind": "pdf",
+      "bytes": 765022,
+      "sha256": "0e20d3f68c891f91c615c3578b3a37583f7582cf3ce25fdfd2d19943bb02f831",
+      "pdf_pages": 11
+    },
+    {
+      "file": "Glassman10.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Glassman10.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Glassman10.pdf",
+      "kind": "pdf",
+      "bytes": 528552,
+      "sha256": "54653483d80b58daebedcf38d7b385e1e470d32e34af559f5abc8fbe26be7376",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Majumdar12.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Majumdar12.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Majumdar12.pdf",
+      "kind": "pdf",
+      "bytes": 897430,
+      "sha256": "30c780955c4e76739b78c60a51359219cb2fa8eaa8f59ac9ac7e4678faa7df83",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Shen20.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Shen20.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Shen20.pdf",
+      "kind": "pdf",
+      "bytes": 1587847,
+      "sha256": "bc019307b09d39834c0676ce7182bacd5a178b504131f9acd7795975d8a8b8de",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Majumdar16a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Majumdar16a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Majumdar16a.pdf",
+      "kind": "pdf",
+      "bytes": 16576273,
+      "sha256": "b0820f7a2b3a0cef93be0188976b7c5c8dba024b492b2a4389c2b20def0596ba",
+      "pdf_pages": 136
+    },
+    {
+      "file": "Posa17a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Posa17a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Posa17a.pdf",
+      "kind": "pdf",
+      "bytes": 6181899,
+      "sha256": "4bebad8a2ba6f1e712467e296d53850448aff32a82be2c3e2fecd7401b43a877",
+      "pdf_pages": 141
+    },
+    {
+      "file": "Posa17.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Posa17.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Posa17.pdf",
+      "kind": "pdf",
+      "bytes": 770904,
+      "sha256": "8789c2032cd26b384e21d5780d69e52ad74eef14508a7e07b96a1374dbf6a4d0",
+      "pdf_pages": 10
+    },
+    {
+      "file": "majumdar13.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/majumdar13.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/majumdar13.pdf",
+      "kind": "pdf",
+      "bytes": 2028120,
+      "sha256": "8f192cb902acaadf759befb265d558d053d67ded257f2ce5c4364dc95751a2be",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Majumdar13b.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Majumdar13b.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Majumdar13b.pdf",
+      "kind": "pdf",
+      "bytes": 934500,
+      "sha256": "550eaa876e515afd4dc650010a85c947df20cca538eb36d658c2d3298552637d",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Dai21.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Dai21.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Dai21.pdf",
+      "kind": "pdf",
+      "bytes": 3378382,
+      "sha256": "38fe56fb8dbf54a734b81d644a166d6033c39ba7213a1fe38ad3844efa00201e",
+      "pdf_pages": 12
+    },
+    {
+      "file": "StateSpaceResponse.pdf",
+      "url": "https://web.mit.edu/2.14/www/Handouts/StateSpaceResponse.pdf",
+      "final_url": "https://web.mit.edu/2.14/www/Handouts/StateSpaceResponse.pdf",
+      "kind": "pdf",
+      "bytes": 211676,
+      "sha256": "65226e344923190f1a981f62e911a8bb60e21f1b54686535947140fb405a2584",
+      "pdf_pages": 32
+    },
+    {
+      "file": "Li18.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Li18.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Li18.pdf",
+      "kind": "pdf",
+      "bytes": 1338326,
+      "sha256": "55185fba6b2880785e2d7b098f3167a7a8f037c2907d2c21a24429ad1b751ecd",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Li18a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Li18a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Li18a.pdf",
+      "kind": "pdf",
+      "bytes": 2521525,
+      "sha256": "f4a6afc712dbf47732528844709465948c04678a12cdf6c090e288275a8a64ab",
+      "pdf_pages": 15
+    },
+    {
+      "file": "Cory08.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Cory08.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Cory08.pdf",
+      "kind": "pdf",
+      "bytes": 2478142,
+      "sha256": "c879e0f5babd11134bf192feebcf6e34b4a717c0e9091836e0417dec0ce398b1",
+      "pdf_pages": 12
+    },
+    {
+      "file": "Roberts09.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Roberts09.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Roberts09.pdf",
+      "kind": "pdf",
+      "bytes": 1211056,
+      "sha256": "554e949faf056fcd4616f30f743feb5dc2e3d4cfc64d1f1fe9291cf670e9e1dc",
+      "pdf_pages": 6
+    },
+    {
+      "file": "Cory10a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Cory10a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Cory10a.pdf",
+      "kind": "pdf",
+      "bytes": 13075695,
+      "sha256": "4ea3c2a18b0c21fc8f8157dd83f2a4dbf0fa0fc3a94b8a7e7779f88e020b995a",
+      "pdf_pages": 88
+    },
+    {
+      "file": "Moore11a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Moore11a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Moore11a.pdf",
+      "kind": "pdf",
+      "bytes": 12668195,
+      "sha256": "e2c37daa0540a69ebcdca0b2864c9fff22616d18640d48047f25c4784baff55d",
+      "pdf_pages": 113
+    },
+    {
+      "file": "Moore12.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Moore12.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Moore12.pdf",
+      "kind": "pdf",
+      "bytes": 1355564,
+      "sha256": "68b8bb307e459da99009ac63e6f0c20a1237c5c4e1a656c129df293db6dc2874",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Deits15.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Deits15.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Deits15.pdf",
+      "kind": "pdf",
+      "bytes": 839789,
+      "sha256": "59336a0aa44609879c42e1e304726fe63d7801e6076fcffc442ca89c5ff54697",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Landry15b.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Landry15b.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Landry15b.pdf",
+      "kind": "pdf",
+      "bytes": 1124950,
+      "sha256": "5e19338c8401a64175463874225b6a6950b1d42f3634118fc286de8066a85c3b",
+      "pdf_pages": 7
+    },
+    {
+      "file": "Wrangel24.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Wrangel24.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Wrangel24.pdf",
+      "kind": "pdf",
+      "bytes": 1591573,
+      "sha256": "a1ebd252582ef418767d4a99508b95ace21f6ecbf2b7cca50cb72f0e7fa56b96",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Marcucci17.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci17.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Marcucci17.pdf",
+      "kind": "pdf",
+      "bytes": 1083640,
+      "sha256": "1397548e13b58028ad7350fcb017bf9567b81421334f500a7817ea56346f4bb2",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Roberts11.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Roberts11.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Roberts11.pdf",
+      "kind": "pdf",
+      "bytes": 231473,
+      "sha256": "dd5fbfcf82243e072e5072ba690da279d1040a95e64f8b720ca99797bcdba4c6",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Amice23.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Amice23.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Amice23.pdf",
+      "kind": "pdf",
+      "bytes": 2696712,
+      "sha256": "65eb1366a693bc44ec44733d1b85cb6f18aef0b8a2cd04bc8abfc8bd5cd056b4",
+      "pdf_pages": 7
+    },
+    {
+      "file": "Scher22.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Scher22.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Scher22.pdf",
+      "kind": "pdf",
+      "bytes": 1396974,
+      "sha256": "ada8a280619906a4debf7db7cbe7483f6d2bf257e9fa2fee4ad42f87c966d279",
+      "pdf_pages": 11
+    },
+    {
+      "file": "Sadraddini19a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini19a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini19a.pdf",
+      "kind": "pdf",
+      "bytes": 714501,
+      "sha256": "d9bc3b80c9f751a625e5c7b3072afaa55e2f6714436fdc1e756bc0f4d4d5bbb3",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Chou23.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Chou23.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Chou23.pdf",
+      "kind": "pdf",
+      "bytes": 6082869,
+      "sha256": "04145baa4d33b82f0147f229656bbe8bed0fddb2545c58ef56a14d66dc3a5e19",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Manchester10.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Manchester10.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Manchester10.pdf",
+      "kind": "pdf",
+      "bytes": 1375577,
+      "sha256": "3793d63ca273dba5a2f45db820f07bf82c788156b79df8c5934e1c13f1493519",
+      "pdf_pages": 15
+    },
+    {
+      "file": "Posa13.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Posa13.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Posa13.pdf",
+      "kind": "pdf",
+      "bytes": 2254833,
+      "sha256": "54f2681061664fdf9938dd53ebfc31eb75d5dce9f2d54c0b0ceff99575c09754",
+      "pdf_pages": 22
+    },
+    {
+      "file": "Hoburg09a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Hoburg09a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Hoburg09a.pdf",
+      "kind": "pdf",
+      "bytes": 1210371,
+      "sha256": "cae8ceb6d1c7ecd2dc4d1ea2c4b5e59fcdccff62129719c57ffbb0e7b7a25797",
+      "pdf_pages": 9
+    },
+    {
+      "file": "Moore14.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Moore14.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Moore14.pdf",
+      "kind": "pdf",
+      "bytes": 497899,
+      "sha256": "84700a9a028578bbe23bb48f0b6ec820474b61299623da1a862dcaec359e9042",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Fazeli17a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Fazeli17a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Fazeli17a.pdf",
+      "kind": "pdf",
+      "bytes": 894668,
+      "sha256": "6b597d52703af53722b8ebc099ef77f26bd96c8952367a5a8809544f1fdca3c5",
+      "pdf_pages": 18
+    },
+    {
+      "file": "Roberts12.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Roberts12.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Roberts12.pdf",
+      "kind": "pdf",
+      "bytes": 16561869,
+      "sha256": "e04140713a04ea1bc52288a13b879f1874a55dd33ed729ce0d75df76ef762690",
+      "pdf_pages": 153
+    },
+    {
+      "file": "Florence18a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Florence18a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Florence18a.pdf",
+      "kind": "pdf",
+      "bytes": 8372511,
+      "sha256": "353b4ffa85a814045c747dbd18d9cfdbb385df2503fcccf337ebbfe30d6f95e2",
+      "pdf_pages": 12
+    },
+    {
+      "file": "Florence20.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Florence20.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Florence20.pdf",
+      "kind": "pdf",
+      "bytes": 8266880,
+      "sha256": "e55887486970cd9ee06661a423715be5e93f25d9b7c0d26800a458fe26f82c30",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Manuelli20a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Manuelli20a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Manuelli20a.pdf",
+      "kind": "pdf",
+      "bytes": 16969173,
+      "sha256": "75d1e4b155861c946cc755fbdf849999289884a23a03c0d3a694df2990834180",
+      "pdf_pages": 18
+    },
+    {
+      "file": "Yang22.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Yang22.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Yang22.pdf",
+      "kind": "pdf",
+      "bytes": 2157858,
+      "sha256": "c5b76c055ad4f7c48f78fcb7a87e6f7804b740d3bc42401af81f2aa9e1c8080d",
+      "pdf_pages": 8
+    },
+    {
+      "file": "Roberts09a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Roberts09a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Roberts09a.pdf",
+      "kind": "pdf",
+      "bytes": 2499369,
+      "sha256": "70360b15924397d209215a2050880b5ba8743821ca441c64be5b4c40fba9b59e",
+      "pdf_pages": 75
+    },
+    {
+      "file": "Permenter17.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Permenter17.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Permenter17.pdf",
+      "kind": "pdf",
+      "bytes": 1516886,
+      "sha256": "7dc9ebae3d4d425e5c2515dca46c066b4670df70d9a5aea62524520987bbeaba",
+      "pdf_pages": 266
+    },
+    {
+      "file": "Marcucci24a.pdf",
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci24a.pdf",
+      "final_url": "https://groups.csail.mit.edu/robotics-center/public_papers/Marcucci24a.pdf",
+      "kind": "pdf",
+      "bytes": 4093455,
+      "sha256": "a4d818c3871017f593788b2ea6da428e65945eb8e28870a831d8cd64b0c3ae5a",
+      "pdf_pages": 188
+    }
+  ],
+  "errors": [
+    {
+      "url": "http://groups.csail.mit.edu/robotics-center/public_papers/Moore14b.pdf",
+      "error": "64 MB boyut sınırı"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 53,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

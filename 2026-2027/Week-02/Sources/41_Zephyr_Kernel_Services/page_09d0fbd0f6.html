@@ -1,0 +1,752 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assertions &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/other/assert.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Fatal Errors" href="fatal.html" />
+    <link rel="prev" title="Version" href="version.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#other">Other</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="atomic.html">Atomic Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="float.html">Floating Point Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="version.html">Version</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Assertions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#runtime-assertions">Runtime Assertions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#zassert">ZASSERT()</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#build-assertions">Build Assertions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#build-assert">BUILD_ASSERT()</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#legacy-assert">Legacy __ASSERT()</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fatal.html">Fatal Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_local_storage.html">Thread Local Storage (TLS)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Assertions</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/other/assert.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fother%2Fassert%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fother%2Fassert%0A-+Version%3A+main%0A-+SHA-1%3A+c6b3c3c6af7173752ebba39a583a5fa66ba6de1e&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="assertions">
+<span id="assert"></span><h1>Assertions<a class="headerlink" href="#assertions" title="Link to this heading"></a></h1>
+<p>Zephyr provides several assertion facilities for catching programming errors:</p>
+<ul class="simple">
+<li><p><strong>Runtime assertions</strong> check a condition while the code is running and, if it
+fails, induce a <a class="reference internal" href="fatal.html#fatal"><span class="std std-ref">fatal error</span></a>. The recommended API is the
+module-aware <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> macro; the older <code class="docutils literal notranslate"><span class="pre">__ASSERT()</span></code> macro is now a thin
+compatibility layer on top of it and is deprecated.</p></li>
+<li><p><strong>Build assertions</strong> (<code class="docutils literal notranslate"><span class="pre">BUILD_ASSERT()</span></code>) are evaluated entirely at
+compile-time and always checked.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The runtime <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> macro documented here is unrelated to the lowercase <code class="docutils literal notranslate"><span class="pre">zassert_*</span></code>
+macros (<code class="docutils literal notranslate"><span class="pre">zassert_true()</span></code>, <code class="docutils literal notranslate"><span class="pre">zassert_equal()</span></code>, …) provided by the
+<a class="reference internal" href="../../../develop/test/ztest.html#test-framework"><span class="std std-ref">Ztest</span></a> framework.
+The <code class="docutils literal notranslate"><span class="pre">zassert_*</span></code> macros report test failures, the <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code>
+macro raises a fatal error when a programming error is detected.</p>
+</div>
+<section id="runtime-assertions">
+<h2>Runtime Assertions<a class="headerlink" href="#runtime-assertions" title="Link to this heading"></a></h2>
+<section id="zassert">
+<h3>ZASSERT()<a class="headerlink" href="#zassert" title="Link to this heading"></a></h3>
+<p>The module-aware assertion API is declared in <a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/blob/main/include/zephyr/sys/zassert.h">include/zephyr/sys/zassert.h</a>.
+Each source file opts into an assertion <em>module</em> whose level is a compile-time constant. Because the
+level is known at compile time, the compiler can optimize the footprint of the assertion code based
+on the associated assertion level of the module the assert belongs to.</p>
+<section id="assertion-levels">
+<h4>Assertion Levels<a class="headerlink" href="#assertion-levels" title="Link to this heading"></a></h4>
+<p>Every module resolves to one of four levels:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_OFF</span></code> – assertions are compiled out entirely.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_TERSE</span></code> – assertions are checked; on failure only a fixed
+<code class="docutils literal notranslate"><span class="pre">ASSERTION</span> <span class="pre">FAIL</span></code> banner is reported. The location, condition, message and
+arguments are not compiled in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_NORMAL</span></code> – assertions are checked; on failure only the location
+is reported (<code class="docutils literal notranslate"><span class="pre">ASSERTION</span> <span class="pre">FAIL</span> <span class="pre">&#64;</span> <span class="pre">file:line</span></code>). The condition, message and
+arguments are not compiled in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_VERBOSE</span></code> – assertions are checked; on failure the stringified
+condition, location and optional message are reported.</p></li>
+</ul>
+<p><a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT" title="CONFIG_ASSERT"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT</span></code></a> is the master switch.
+When it is disabled, every module is forced to <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_OFF</span></code> and all <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> /
+<code class="docutils literal notranslate"><span class="pre">ZASSERT_MODULE()</span></code> usage compiles to nothing, regardless of any module’s configured level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">note<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">ZASSERTS</span></code> footprint reduction relies on compiler optimizations to prune unused conditions,
+arguments, and string literals at compile time. Lower optimization levels may prevent dead-code
+elimination, leaving assertion artifacts in the binary despite a low module assertion setting.</p>
+</dd>
+</dl>
+</section>
+<section id="selecting-a-module">
+<h4>Selecting a Module<a class="headerlink" href="#selecting-a-module" title="Link to this heading"></a></h4>
+<p>Place <a class="reference internal" href="../../../doxygen/html/group__zassert.html#gaf33d60719a2317efdd756a2df385343e" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT_MODULE</span></code></a> once at file scope, before any use of
+<a class="reference internal" href="../../../doxygen/html/group__zassert.html#gacb48ee150ebe9d7b2a415ec8bee79cb7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT</span></code></a> in the translation unit:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/sys/zassert.h&gt;</span>
+
+<span class="n">ZASSERT_MODULE</span><span class="p">(</span><span class="n">MYMODULE</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The module name is an UPPERCASE identifier. Its default level is taken from the
+Kconfig symbol <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_&lt;module&gt;_LEVEL</span></code> (here <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_MYMODULE_LEVEL</span></code>).
+A file may override the module default by passing an explicit level as a second argument, for example
+<code class="docutils literal notranslate"><span class="pre">ZASSERT_MODULE(MYMODULE,</span> <span class="pre">ZASSERT_LEVEL_VERBOSE)</span></code>.</p>
+<p>Once a module is selected, use <a class="reference internal" href="../../../doxygen/html/group__zassert.html#gacb48ee150ebe9d7b2a415ec8bee79cb7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT</span></code></a> like a conditional check with an optional
+<a class="reference internal" href="../../../doxygen/html/stdio_8h.html#a6c67912b5a18e7d7ac03ca4e77425715" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">printf()</span></code></a>-like message:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ZASSERT</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"x was %d, expected 3"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the condition is false and the module’s level is at least <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_TERSE</span></code>, a fatal error
+is raised. The location is only compiled in and printed at <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_NORMAL</span></code> or above, and
+the condition, message and its arguments are only compiled in and printed at
+<code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_VERBOSE</span></code>.</p>
+<p>For headers and inline functions, avoid <code class="docutils literal notranslate"><span class="pre">ZASSERT_MODULE()</span></code> at file scope, as the
+selection would leak into every file that includes the header. Use one of the
+following instead.</p>
+<p>Place <a class="reference internal" href="../../../doxygen/html/group__zassert.html#gaf33d60719a2317efdd756a2df385343e" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT_MODULE</span></code></a> inside the function body. The selection is then
+block-scoped and does not escape to the includer, and plain <a class="reference internal" href="../../../doxygen/html/group__zassert.html#gacb48ee150ebe9d7b2a415ec8bee79cb7" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT</span></code></a>
+works within that function:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">        </span><span class="n">ZASSERT_MODULE</span><span class="p">(</span><span class="n">MYMODULE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">ZASSERT</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="s">"ptr must not be NULL"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For an assertion with a fixed level, use <a class="reference internal" href="../../../doxygen/html/group__zassert.html#gacb3b895fe52481a4165e79a3c51438c0" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT_TERSE</span></code></a>,
+<a class="reference internal" href="../../../doxygen/html/group__zassert.html#gabb28809d1f97cc6d9d4434a2cd91b760" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT_NORMAL</span></code></a> or <a class="reference internal" href="../../../doxygen/html/group__zassert.html#ga32f08bc980eb63596e963d66c246d0bd" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">ZASSERT_VERBOSE</span></code></a>. These forms select the
+level at the call site and declare nothing in scope:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ZASSERT_TERSE</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="n">ZASSERT_NORMAL</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="n">ZASSERT_VERBOSE</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="s">"ptr must not be NULL"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_TERSE</span></code>, <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_NORMAL</span></code> and <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_VERBOSE</span></code>
+defines configure module assertion levels, while
+<code class="docutils literal notranslate"><span class="pre">ZASSERT_TERSE()</span></code>, <code class="docutils literal notranslate"><span class="pre">ZASSERT_NORMAL()</span></code> and <code class="docutils literal notranslate"><span class="pre">ZASSERT_VERBOSE()</span></code> perform
+fixed-level assertions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A few rules apply to <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> and its file-scope module:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ZASSERT_MODULE()</span></code> must appear before the first <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> in the
+translation unit, and only one module may be selected per file.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> with no module in scope is a compile error. Select a
+module first, or use the fixed-level <code class="docutils literal notranslate"><span class="pre">ZASSERT_TERSE()</span></code>, <code class="docutils literal notranslate"><span class="pre">ZASSERT_NORMAL()</span></code>
+or <code class="docutils literal notranslate"><span class="pre">ZASSERT_VERBOSE()</span></code> form.</p></li>
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT" title="CONFIG_ASSERT"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT</span></code></a> remains the master switch: when it is
+disabled the module level is forced to <code class="docutils literal notranslate"><span class="pre">ZASSERT_LEVEL_OFF</span></code> regardless of the
+configured level.</p></li>
+</ul>
+</div>
+</section>
+<section id="defining-a-module-s-kconfig-level">
+<h4>Defining a Module’s Kconfig Level<a class="headerlink" href="#defining-a-module-s-kconfig-level" title="Link to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_&lt;module&gt;_LEVEL</span></code> symbol is generated from the template
+<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/blob/main/subsys/debug/zassert/Kconfig.template.assert">subsys/debug/zassert/Kconfig.template.assert</a>. Source it from a Kconfig
+file, setting the module name and a human-readable description first:</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span><span class="o">=</span><span class="w"> </span>MYMODULE
+module-str<span class="w"> </span><span class="o">=</span><span class="w"> </span>the<span class="w"> </span>MYMODULE<span class="w"> </span>assert<span class="w"> </span>module
+<span class="k">source</span><span class="w"> </span><span class="s2">"subsys/debug/zassert/Kconfig.template.assert"</span>
+</pre></div>
+</div>
+<p>This produces a user-facing <code class="docutils literal notranslate"><span class="pre">Off</span></code> / <code class="docutils literal notranslate"><span class="pre">Terse</span></code> / <code class="docutils literal notranslate"><span class="pre">Normal</span></code> / <code class="docutils literal notranslate"><span class="pre">Verbose</span></code> choice and the derived,
+non-assignable integer symbol <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_MYMODULE_LEVEL</span></code> consumed by
+<code class="docutils literal notranslate"><span class="pre">ZASSERT_MODULE(MYMODULE)</span></code>.
+The choice defaults to <code class="docutils literal notranslate"><span class="pre">Verbose</span></code> and stays overridable from <code class="file docutils literal notranslate"><span class="pre">prj.conf</span></code>.</p>
+</section>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
+<p>The <a class="reference internal" href="../../../samples/subsys/debug/asserts/README.html#assert" title="Enable verbose assertions for a single source file via an assert module while the master assertion switch is enabled.">Assertions</a> sample demonstrates enabling
+verbose assertions for a single file while the master assertion switch is enabled.
+A condensed version:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/kernel.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/sys/zassert.h&gt;</span>
+
+<span class="n">ZASSERT_MODULE</span><span class="p">(</span><span class="n">MYMODULE</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">ZASSERT</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"x was %d, expected 3"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_MYMODULE_LEVEL_VERBOSE=y</span></code> the failing check produces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASSERTION FAIL [x == 3] @ .../src/main.c:...
+x was 2, expected 3
+</pre></div>
+</div>
+</section>
+<section id="customizing-the-failure-behavior">
+<h4>Customizing the Failure Behavior<a class="headerlink" href="#customizing-the-failure-behavior" title="Link to this heading"></a></h4>
+<p>The entire assertion cold path is consolidated into a small set of weak,
+overridable functions declared in <a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/blob/main/include/zephyr/sys/zassert.h">include/zephyr/sys/zassert.h</a>
+and implemented in <a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/blob/main/subsys/debug/zassert/zassert.c">subsys/debug/zassert/zassert.c</a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../doxygen/html/group__zassert.html#ga72d07b4b0fb4190dc675813c0d9215b1" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">zassert_fail()</span></code></a> reports a failed assertion (location, and when a
+message is present the message and its arguments) and then invokes
+<a class="reference internal" href="../../../doxygen/html/group__zassert.html#ga98d7d44bfde093e6abe6cf51566c77d5" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">zassert_post_action()</span></code></a>. Overriding it is the single surface for
+capturing or redirecting the whole assertion output.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__zassert.html#ga98d7d44bfde093e6abe6cf51566c77d5" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">zassert_post_action()</span></code></a> takes the terminal action. The default
+implementation invokes <a class="reference internal" href="../../../doxygen/html/kernel_8h.html#abde5aa8ca5e64a045b25b88f91370dcd" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_oops()</span></code></a> if the failing thread was running in
+user mode, and <a class="reference internal" href="../../../doxygen/html/kernel_8h.html#aedd541f707b1463aaac15c7798340329" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_panic()</span></code></a> otherwise.</p></li>
+<li><p><a class="reference internal" href="../../../doxygen/html/group__zassert.html#gadf431a5e2a87111d50cd268d309f3eea" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">zassert_vprint()</span></code></a> is the single primitive through which all assertion
+text flows. Override it to capture or redirect every assertion message from
+one place. <a class="reference internal" href="../../../doxygen/html/group__zassert.html#gaf1c13156eb4331a95f2e396afb7736ba" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">zassert_print()</span></code></a> is a variadic convenience wrapper around
+it, used by the legacy <code class="docutils literal notranslate"><span class="pre">__ASSERT_PRINT()</span></code> compatibility shims.</p></li>
+</ul>
+<p>When <a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_TEST" title="CONFIG_ASSERT_TEST"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_TEST</span></code></a> is enabled, the post action handler is
+allowed to return (rather than abort) so that tests can validate assertion
+behavior by installing a custom hook.</p>
+</section>
+</section>
+</section>
+<section id="build-assertions">
+<h2>Build Assertions<a class="headerlink" href="#build-assertions" title="Link to this heading"></a></h2>
+<p>Zephyr provides a macro for performing build-time assertion checks.
+It is evaluated completely at compile-time and always checked.</p>
+<section id="build-assert">
+<h3>BUILD_ASSERT()<a class="headerlink" href="#build-assert" title="Link to this heading"></a></h3>
+<p>This has the same semantics as C’s <code class="docutils literal notranslate"><span class="pre">_Static_assert</span></code> or C++’s
+<code class="docutils literal notranslate"><span class="pre">static_assert</span></code>. If the evaluation fails, a build error will be generated by
+the compiler. If the compiler supports it, the provided message will be printed
+to provide further context.</p>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">__ASSERT()</span></code>, the message must be a static string or string concatenation of static
+strings. The macro does not support formatting or variable arguments.</p>
+<p>For example, suppose this check fails:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_ASSERT</span><span class="p">(</span><span class="n">FOO</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w"> </span><span class="s">"Invalid value of FOO, expected 2000, got "</span><span class="w"> </span><span class="n">STRINGIFY</span><span class="p">(</span><span class="n">FOO</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>With GCC, the output resembles:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>     tests/kernel/fatal/src/main.c: In function 'test_main':
+     include/zephyr/toolchain/gcc.h:28:37: error: static assertion failed:
+"Invalid value of FOO, expected 2000, got 1000"
+      #define BUILD_ASSERT(EXPR, MSG) _Static_assert(EXPR, "" MSG)
+                                      ^~~~~~~~~~~~~~
+     tests/kernel/fatal/src/main.c:370:2: note: in expansion of macro 'BUILD_ASSERT'
+       BUILD_ASSERT(FOO == 2000,
+       ^~~~~~~~~~~~~~~~
+</pre></div>
+</div>
+</section>
+<section id="legacy-assert">
+<h3>Legacy __ASSERT()<a class="headerlink" href="#legacy-assert" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">__ASSERT()</span></code> family, declared in
+<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/blob/main/include/zephyr/sys/__assert.h">include/zephyr/sys/__assert.h</a>, predates <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> and is now
+a compatibility shim using the built-in <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> assertion module. New code
+should prefer <code class="docutils literal notranslate"><span class="pre">ZASSERT()</span></code> with a dedicated module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">__ASSERT()</span></code> and the <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT*</span></code> Kconfig options are deprecated.
+They continue to work through the <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> module, but the underlying
+assert API may change in future releases.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> module is enabled by <a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT" title="CONFIG_ASSERT"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT</span></code></a>.
+Its level is controlled by <code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_DEFAULT_LEVEL</span></code>, configured through
+the <code class="docutils literal notranslate"><span class="pre">Off</span></code> / <code class="docutils literal notranslate"><span class="pre">Terse</span></code> / <code class="docutils literal notranslate"><span class="pre">Normal</span></code> / <code class="docutils literal notranslate"><span class="pre">Verbose</span></code> choice
+(<a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_OFF" title="CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_OFF"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_OFF</span></code></a> /
+<code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_TERSE</span></code> /
+<code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_NORMAL</span></code> /
+<a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_VERBOSE" title="CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_VERBOSE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_VERBOSE</span></code></a>). Assertions are enabled
+by default when running Zephyr test cases, as configured by the
+<a class="reference internal" href="../../../kconfig.html#CONFIG_TEST" title="CONFIG_TEST"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_TEST</span></code></a> option.</p>
+<p>The deprecated legacy symbols are still honored and derive the <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> module
+level: <a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_VERBOSE" title="CONFIG_ASSERT_VERBOSE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_VERBOSE</span></code></a> maps to <code class="docutils literal notranslate"><span class="pre">Verbose</span></code>,
+<a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_NO_COND_INFO" title="CONFIG_ASSERT_NO_COND_INFO"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_NO_COND_INFO</span></code></a>,
+<a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_NO_MSG_INFO" title="CONFIG_ASSERT_NO_MSG_INFO"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_NO_MSG_INFO</span></code></a> and
+<a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_NO_FILE_INFO" title="CONFIG_ASSERT_NO_FILE_INFO"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_NO_FILE_INFO</span></code></a> map to <code class="docutils literal notranslate"><span class="pre">Terse</span></code>,
+and a <a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_LEVEL" title="CONFIG_ASSERT_LEVEL"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_LEVEL</span></code></a> <code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">0</span></code> leaves it <code class="docutils literal notranslate"><span class="pre">Off</span></code>.
+When none of these are set, the <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> module choice falls through to its own
+<a class="reference internal" href="../../../kconfig.html#CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_VERBOSE" title="CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_VERBOSE"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_ASSERT_MODULE_DEFAULT_LEVEL_VERBOSE</span></code></a> default, preserving
+the legacy behavior of verbose assertions as the default.
+To disable all assertions regardless of how the level was configured, set <code class="docutils literal notranslate"><span class="pre">CONFIG_ASSERT=n</span></code>.</p>
+</section>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__zassert.html" title=""><span class="pre">Module</span> <span class="pre">based</span> <span class="pre">assert</span> <span class="pre">handling</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Aug 07, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

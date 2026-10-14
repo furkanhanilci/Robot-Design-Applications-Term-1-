@@ -1,0 +1,249 @@
+{
+  "id": 39,
+  "name": "Lessons in Electric Circuits - Tony Kuphaldt",
+  "type": "Açık ders kitabı serisi",
+  "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/",
+  "folder": "39_Lessons_in_Electric_Circuits_-_Tony_Kuphaldt",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/",
+      "kind": "html",
+      "bytes": 18012,
+      "sha256": "7860d211d5e2aac8e6f8bd41d905fd312c57031c54809bb382c63042c4016976"
+    },
+    {
+      "file": "page_a7a2da2ae0.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Semi/index.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Semi/index.html",
+      "kind": "html",
+      "bytes": 6308,
+      "sha256": "a4aa082eba1476b5079e7fa3e0ced6e4044ac353a1d40a14f8a502c084831653"
+    },
+    {
+      "file": "page_849dbb9de3.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/index.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/index.html",
+      "kind": "html",
+      "bytes": 6455,
+      "sha256": "2468b3457b24305e804171597c08839b95fc909c766484ca8ba321cbbc88143f"
+    },
+    {
+      "file": "page_ad11d56d13.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/index.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/index.html",
+      "kind": "html",
+      "bytes": 6234,
+      "sha256": "9e5a1f3458911015fa4f9ec7584849441788697be56e592bf89e1b5d67a0b660"
+    },
+    {
+      "file": "page_032ec634ca.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/index.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/index.html",
+      "kind": "html",
+      "bytes": 4987,
+      "sha256": "c73d6a4d370bad3b31d0a4e87c4872276ec0158c5492591f8487d9ac05729e9a"
+    },
+    {
+      "file": "page_62ec8450a3.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html",
+      "kind": "html",
+      "bytes": 6266,
+      "sha256": "80b337fd205f05dc0e51523e3ca9dd18e5465d47f836eaaef043a088bc70686b"
+    },
+    {
+      "file": "page_8dcd660564.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Ref/index.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Ref/index.html",
+      "kind": "html",
+      "bytes": 5670,
+      "sha256": "3e327ae16132b343c964b94773c7d56a13b50e3bcd45570b23a8ee7076840e21"
+    },
+    {
+      "file": "page_419b8a9eb7.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/EXP_8.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/EXP_8.html",
+      "kind": "html",
+      "bytes": 48860,
+      "sha256": "ba4692f156b712033eeef2c3c567451707d6a5c4d0b62f52382b3690f0fe7792"
+    },
+    {
+      "file": "page_136196d516.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_9.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_9.html",
+      "kind": "html",
+      "bytes": 21880,
+      "sha256": "b6a645a3a4834d14349b782fcfddf8fe3a35e6e9dcb4c27ab6e77a20b33892ec"
+    },
+    {
+      "file": "page_8fb3a23786.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/AC_13.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/AC_13.html",
+      "kind": "html",
+      "bytes": 166118,
+      "sha256": "f539ae8f0e01c3aa3ad20604c0de6480bf668217f549952ea4b90410da47553b"
+    },
+    {
+      "file": "page_4e0c49db38.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_12.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_12.html",
+      "kind": "html",
+      "bytes": 97387,
+      "sha256": "695d1bc86a70a513a0a053b4e2d48f818d56592dbee79af33cba95101ea0ecaa"
+    },
+    {
+      "file": "page_4dc3d2aafc.html",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_8.html",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_8.html",
+      "kind": "html",
+      "bytes": 82526,
+      "sha256": "5b1bf94699893aa2d896ef24d1050d3c19678e29fddcf186a4b5e4664f9d929c"
+    },
+    {
+      "file": "SEMI.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Semi/SEMI.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Semi/SEMI.pdf",
+      "kind": "pdf",
+      "bytes": 4189478,
+      "sha256": "6734b64b5eb916da5641218dbd2fac32f233b9714a11e3c1485f779782b537f1",
+      "pdf_pages": 535
+    },
+    {
+      "file": "DC.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC.pdf",
+      "kind": "pdf",
+      "bytes": 4504703,
+      "sha256": "b49dc6038ef2e2988c30e8920451b076602f54c959c5f56949d7fad6f08bf3f0",
+      "pdf_pages": 557
+    },
+    {
+      "file": "AC.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/AC.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/AC/AC.pdf",
+      "kind": "pdf",
+      "bytes": 4554561,
+      "sha256": "8db75ca8236796eeb329b12fb531b71c807bbdcb2435a8199a149f611c814437",
+      "pdf_pages": 574
+    },
+    {
+      "file": "EXP.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/EXP.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/EXP.pdf",
+      "kind": "pdf",
+      "bytes": 4024856,
+      "sha256": "c1ff11ddeed336cad5c842b572cab638943b4fa26af4933682373feb01dfd7bc",
+      "pdf_pages": 425
+    },
+    {
+      "file": "DIGI.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI.pdf",
+      "kind": "pdf",
+      "bytes": 3664633,
+      "sha256": "4a75a1f85a2d1396e8ad0cb806474435661c7c01457f9852cb75df92412fd247",
+      "pdf_pages": 516
+    },
+    {
+      "file": "REF.pdf",
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Ref/REF.pdf",
+      "final_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Ref/REF.pdf",
+      "kind": "pdf",
+      "bytes": 1056675,
+      "sha256": "60e749c4f3e53ad066e69aca3ffdc77f50640d5e730f3547e60167edd4d0b1ed",
+      "pdf_pages": 172
+    },
+    {
+      "file": "cimtext.pdf",
+      "url": "http://www.redrok.com/cimtext.pdf",
+      "final_url": "http://www.redrok.com/cimtext.pdf",
+      "kind": "pdf",
+      "bytes": 124036,
+      "sha256": "de8905debf15036b646cadc1443b9352c2af96f210d0b697def0e330c6906c75",
+      "pdf_pages": 4
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/SEMI_8.html#xtocid2234718",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74als166.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74als165.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/cd4014b.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74ls674.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74als164a.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74ahct594.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74ahct595.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/cd4094b.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www.st.com/stonline/books/pdf/docs/2069.pdf",
+      "error": "timed out"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74ls395a.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/sn74als299.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/cd4017b.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "http://www-s.ti.com/sc/ds/cd74hc4017.pdf",
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Semi/Semi.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/Digital.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Ref/Ref.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Exper/Exper.pdf",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:56+0300",
+  "pdf_count": 7,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

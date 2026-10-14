@@ -1,0 +1,22 @@
+{
+  "id": 57,
+  "files": [
+    {
+      "file": "supplement_0961ed83db.html",
+      "url": "https://docs.odriverobotics.com/v/latest/getting-started.html",
+      "final_url": "https://docs.odriverobotics.com/v/latest/getting-started.html",
+      "kind": "html",
+      "bytes": 304,
+      "sha256": "8640e7f6be1e8f08d4739c2755e318af4f7847ac079dca77c1aae49973d2ccc3"
+    },
+    {
+      "file": "ODrive-master.zip",
+      "url": "https://codeload.github.com/odriverobotics/ODrive/zip/refs/heads/master",
+      "final_url": "https://codeload.github.com/odriverobotics/ODrive/zip/refs/heads/master",
+      "kind": "zip",
+      "bytes": 12331258,
+      "sha256": "a5de55a4b24b231357a8b1ccb117542299ad14896a6b1e11d4b9cced2fd15e82"
+    }
+  ],
+  "errors": []
+}

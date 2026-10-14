@@ -1,0 +1,245 @@
+{
+  "id": 5,
+  "name": "MIT 2.737 - Mechatronics",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/",
+  "folder": "05_MIT_2.737_-_Mechatronics",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/",
+      "kind": "html",
+      "bytes": 41121,
+      "sha256": "1b2ae60e7be02dc5efc413eb86d8fbb4cd8cef63b44a314e304eb99cb0b870ff"
+    },
+    {
+      "file": "page_415d92ad07.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/pages/syllabus/",
+      "kind": "html",
+      "bytes": 49578,
+      "sha256": "9a11ae642f75fc5c5c9f7fbebb7aa20fc4c030e7851d4f5cef55f512d3e64077"
+    },
+    {
+      "file": "page_cdaed86566.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/pages/labs/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/pages/labs/",
+      "kind": "html",
+      "bytes": 48220,
+      "sha256": "3c197f878a0017ce1503f49297f52c2632cbbb8c0da86dab387ab2ad54d1d8c0"
+    },
+    {
+      "file": "page_fe65229468.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_14s14_prob_archive_pdf/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_14s14_prob_archive_pdf/",
+      "kind": "html",
+      "bytes": 45122,
+      "sha256": "d3ec3962c0a108dd1b13d9645a9b3f82313941de71ef9697ef863c46cf2895d6"
+    },
+    {
+      "file": "page_2f1d54d332.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab_0-pre/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab_0-pre/",
+      "kind": "html",
+      "bytes": 45152,
+      "sha256": "a958b4628a6e0f074ed0a909de84b7c1fd28a6d120cabb7a93b7953bb5073201"
+    },
+    {
+      "file": "page_86018366b6.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab_0/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab_0/",
+      "kind": "html",
+      "bytes": 45083,
+      "sha256": "390212ac4d713d3b6740b4f9034642b0e05ece234f013645896a22812fdc86bf"
+    },
+    {
+      "file": "page_7faa0fb375.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/lab0/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/lab0/",
+      "kind": "html",
+      "bytes": 44435,
+      "sha256": "ef095a67d82406abb4f8fd827335767420c801f8c64e50c0949a8e0c0caf8004"
+    },
+    {
+      "file": "page_6f446c940b.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab1/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab1/",
+      "kind": "html",
+      "bytes": 45076,
+      "sha256": "e777c1fbc77afc772edbc09b2f6325a2a1e7417567dbca249449bedea4e30a3b"
+    },
+    {
+      "file": "page_c03d384ed0.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab1_addendum/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab1_addendum/",
+      "kind": "html",
+      "bytes": 45228,
+      "sha256": "b4fb697287152ced62016f3d264f3d189ee8f977ffd22c225d372389f95acef3"
+    },
+    {
+      "file": "page_892a3427be.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/lab1_dsa/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/lab1_dsa/",
+      "kind": "html",
+      "bytes": 44499,
+      "sha256": "945fbaa7731cf6df54694f7fa8a73c22dbcead4859afa8858afafa64bbd40f24"
+    },
+    {
+      "file": "page_716d996ed0.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab2/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab2/",
+      "kind": "html",
+      "bytes": 45076,
+      "sha256": "45c06af383d6c88cb027adab1a3c69bb2086592f889f758ca41a2875eae11127"
+    },
+    {
+      "file": "page_9561996268.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_circuit/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_circuit/",
+      "kind": "html",
+      "bytes": 45190,
+      "sha256": "80fb16b09c5fb62567fb17509f0827ad4bc04d9b04d7bb227f7d8444c41f2367"
+    },
+    {
+      "file": "page_4e9783d662.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab3/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab3/",
+      "kind": "html",
+      "bytes": 45076,
+      "sha256": "93f32666db1ef465604e5ecae5917a96d9146708c6fcdc5060946b03e90b974f"
+    },
+    {
+      "file": "page_c0e1cd84dc.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab4/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab4/",
+      "kind": "html",
+      "bytes": 45076,
+      "sha256": "0d5a19c8054132908f4f32916c026e52a63e7c2163334c6d0182865d7623d362"
+    },
+    {
+      "file": "page_630107697c.html",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab5/",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/resources/mit2_737f14_lab5/",
+      "kind": "html",
+      "bytes": 45076,
+      "sha256": "8e875104594dc9f459c875342f16eaf5e680b8dc1a94e2dbfa46e39fa15cd1be"
+    },
+    {
+      "file": "mit2_14s14_prob_archive.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/mit2_14s14_prob_archive.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/mit2_14s14_prob_archive.pdf",
+      "kind": "pdf",
+      "bytes": 10540016,
+      "sha256": "1cbf223a6f41d4da0f078621c99a43dda125537a5983558dee1df0ebff7d835f",
+      "pdf_pages": 674
+    },
+    {
+      "file": "f088611fd39a0bfaed89fee9e07d4db7_MIT2_737F14_Lab_0-Pre.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/f088611fd39a0bfaed89fee9e07d4db7_MIT2_737F14_Lab_0-Pre.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/f088611fd39a0bfaed89fee9e07d4db7_MIT2_737F14_Lab_0-Pre.pdf",
+      "kind": "pdf",
+      "bytes": 299487,
+      "sha256": "1162217d29a0ef2de962daa47328e37f5c4a34a1cd37365a7f321ee751303493",
+      "pdf_pages": 7
+    },
+    {
+      "file": "ec25f1465471d73a688de2c4fae0d254_MIT2_737F14_Lab_0.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/ec25f1465471d73a688de2c4fae0d254_MIT2_737F14_Lab_0.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/ec25f1465471d73a688de2c4fae0d254_MIT2_737F14_Lab_0.pdf",
+      "kind": "pdf",
+      "bytes": 95889,
+      "sha256": "fa4c2ca044d0e17f7795cfe8d7140cd83564a8db8ef88b1a2b7b2c422c7c779c",
+      "pdf_pages": 2
+    },
+    {
+      "file": "9b6dd9e7fb36a4f7ea0dcf143a56dc48_MIT2_737F14_Lab1.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/9b6dd9e7fb36a4f7ea0dcf143a56dc48_MIT2_737F14_Lab1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/9b6dd9e7fb36a4f7ea0dcf143a56dc48_MIT2_737F14_Lab1.pdf",
+      "kind": "pdf",
+      "bytes": 187654,
+      "sha256": "3baabec57a9dca2b8cb0056c99e3f89aaac5291a763bdf0daa5d3d7315b0cbec",
+      "pdf_pages": 6
+    },
+    {
+      "file": "fd6ed29a34b398fab44ce00caac528ef_MIT2_737F14_Lab1_Addendum.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/fd6ed29a34b398fab44ce00caac528ef_MIT2_737F14_Lab1_Addendum.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/fd6ed29a34b398fab44ce00caac528ef_MIT2_737F14_Lab1_Addendum.pdf",
+      "kind": "pdf",
+      "bytes": 92671,
+      "sha256": "ceda72f9bf546c3e3dd0b14271478cf23a63778752c68d80d22d4923a5244e45",
+      "pdf_pages": 2
+    },
+    {
+      "file": "da5535c248f23e81c969c9883c0d1198_MIT2_737F14_Lab2.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/da5535c248f23e81c969c9883c0d1198_MIT2_737F14_Lab2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/da5535c248f23e81c969c9883c0d1198_MIT2_737F14_Lab2.pdf",
+      "kind": "pdf",
+      "bytes": 273868,
+      "sha256": "2cdb99316f7b9b410cec1dd362b2cf45e86713cd69ff81d0b738276af7c60314",
+      "pdf_pages": 8
+    },
+    {
+      "file": "eae529082deee2134d6f3c7c83b537d8_MIT2_737F14_Circuit.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/eae529082deee2134d6f3c7c83b537d8_MIT2_737F14_Circuit.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/eae529082deee2134d6f3c7c83b537d8_MIT2_737F14_Circuit.pdf",
+      "kind": "pdf",
+      "bytes": 181387,
+      "sha256": "b63b3e882a64b5d21be110dee3382466f34c8a6aa7ed723a4de8faaada5036d1",
+      "pdf_pages": 2
+    },
+    {
+      "file": "lm741.pdf",
+      "url": "http://www.ti.com/lit/ds/symlink/lm741.pdf",
+      "final_url": "https://www.ti.com/lit/ds/symlink/lm741.pdf",
+      "kind": "pdf",
+      "bytes": 819277,
+      "sha256": "6f3bf3cbce352c73a8f3e7506023ab1f5d12549834840e0227d6bb37de6c48db",
+      "pdf_pages": 17
+    },
+    {
+      "file": "3e1dc30b6b816a62252496d42fe29e84_MIT2_737F14_Lab3.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/3e1dc30b6b816a62252496d42fe29e84_MIT2_737F14_Lab3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/3e1dc30b6b816a62252496d42fe29e84_MIT2_737F14_Lab3.pdf",
+      "kind": "pdf",
+      "bytes": 209111,
+      "sha256": "5d0665e8a34fc69f3bca40071b3cda3228510e18ac20c01a300ee70537c73ffb",
+      "pdf_pages": 6
+    },
+    {
+      "file": "30c33b4c225ef504e4ef4d56fca50f9e_MIT2_737F14_Lab4.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/30c33b4c225ef504e4ef4d56fca50f9e_MIT2_737F14_Lab4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/30c33b4c225ef504e4ef4d56fca50f9e_MIT2_737F14_Lab4.pdf",
+      "kind": "pdf",
+      "bytes": 262243,
+      "sha256": "76b0a4ade023f715c5afa4294efa0c8b38830bb1f1a5bee504ffa9582c416fe5",
+      "pdf_pages": 4
+    },
+    {
+      "file": "bf08200e8344f69f5b8a4ac923ea6d53_MIT2_737F14_Lab5.pdf",
+      "url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/bf08200e8344f69f5b8a4ac923ea6d53_MIT2_737F14_Lab5.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-737-mechatronics-fall-2014/bf08200e8344f69f5b8a4ac923ea6d53_MIT2_737F14_Lab5.pdf",
+      "kind": "pdf",
+      "bytes": 150152,
+      "sha256": "f59a789b60a37d5c13d978a415a466a2eaf15e98c0ad57e59bef556926995be8",
+      "pdf_pages": 10
+    }
+  ],
+  "errors": [
+    {
+      "url": "http://cds.linear.com/docs/en/datasheet/1167fc.pdf",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "http://cds.linear.com/docs/en/datasheet/1021fc.pdf",
+      "error": "The read operation timed out"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 11,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

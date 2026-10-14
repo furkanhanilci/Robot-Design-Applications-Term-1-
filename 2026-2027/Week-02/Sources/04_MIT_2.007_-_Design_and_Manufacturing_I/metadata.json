@@ -1,0 +1,618 @@
+{
+  "id": 4,
+  "name": "MIT 2.007 - Design and Manufacturing I",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/",
+  "folder": "04_MIT_2.007_-_Design_and_Manufacturing_I",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/",
+      "kind": "html",
+      "bytes": 52411,
+      "sha256": "9d24617010ca6adeca9f0a7721dd2cd219c160ef940ad7fffb675572c9b1a715"
+    },
+    {
+      "file": "page_407c5cd5bb.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/syllabus/",
+      "kind": "html",
+      "bytes": 66323,
+      "sha256": "b32975e2274f86b8c687a314b3c65c7ecb9195c0de2531b6f8155253474e121a"
+    },
+    {
+      "file": "page_84199b52b8.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 58496,
+      "sha256": "e0b0fbf3252969296ed1e01b6ddcc993124e93017a38616d8f633001963755d3"
+    },
+    {
+      "file": "page_d0a7348817.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec01/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec01/",
+      "kind": "html",
+      "bytes": 55854,
+      "sha256": "d3f8efb4971e274ef6ba65a9c50dd5ffb512ba4fabdce2606f3c607c2d66c839"
+    },
+    {
+      "file": "page_ccfd621a46.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec01_evt/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec01_evt/",
+      "kind": "html",
+      "bytes": 56040,
+      "sha256": "59b55f578f02740417ed0effcacec7999b232fe844aacb9caee860978a121500"
+    },
+    {
+      "file": "page_0dc6a16eff.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec01_fsae/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec01_fsae/",
+      "kind": "html",
+      "bytes": 55985,
+      "sha256": "f9ba56b4800519c1afad700f85d98f478ba924da6340e16d4bb3cd7ba3c1e31e"
+    },
+    {
+      "file": "page_0f5c076a00.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec02/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec02/",
+      "kind": "html",
+      "bytes": 56046,
+      "sha256": "8fb9aa6e6eff10f922dcd8e0a7b09d7da49db51110c5198054db4ec8af70c7ff"
+    },
+    {
+      "file": "page_594f2d5eaf.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec03/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec03/",
+      "kind": "html",
+      "bytes": 55772,
+      "sha256": "853594b74776e6100aa08a7bc2a6235e2e0d88c7c408118080a8fbea22ce7158"
+    },
+    {
+      "file": "page_aaa1340089.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec04/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec04/",
+      "kind": "html",
+      "bytes": 55836,
+      "sha256": "b71a96e7f92d06f183da515a33d8322b72b4e4164fe4ee9966a02bcc46cfc4c6"
+    },
+    {
+      "file": "page_86b5edf85a.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec05/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec05/",
+      "kind": "html",
+      "bytes": 55840,
+      "sha256": "398d8831873863bf4ae06b73fc9b33e5ee96af71b6fff0fd3a1f3c5f36434a1c"
+    },
+    {
+      "file": "page_d54d52eab6.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec06/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec06/",
+      "kind": "html",
+      "bytes": 55722,
+      "sha256": "82f0e7a7647bccabcd0e35218957d2a0838b86b5ded99359de168e679535fd33"
+    },
+    {
+      "file": "page_35c8e0f1fe.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec07/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec07/",
+      "kind": "html",
+      "bytes": 55806,
+      "sha256": "4312d8897e69974c48a2b7e2012ec832d40107ea0dc95c3d84516d4822da6452"
+    },
+    {
+      "file": "page_9abdd7d0ac.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec08/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec08/",
+      "kind": "html",
+      "bytes": 55754,
+      "sha256": "4fd751336bb40bfa4170006d2cdb3c7d46bbb03edc35a67991feb51ae7fa2bea"
+    },
+    {
+      "file": "page_9c08af17e4.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/lec09_parts/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/lec09_parts/",
+      "kind": "html",
+      "bytes": 55074,
+      "sha256": "8618b8c648c816efe95fbf41d2040c2c93dc313a65ecd271b35a188f1386730b"
+    },
+    {
+      "file": "page_9819a683ff.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/lec09_parts07/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/lec09_parts07/",
+      "kind": "html",
+      "bytes": 55419,
+      "sha256": "db8d54b5823469b3f69bfdabd401f95c3b6b557f5b67192b57dd11dd8a7e9045"
+    },
+    {
+      "file": "page_34aa8873ca.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/servomount/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/servomount/",
+      "kind": "html",
+      "bytes": 55131,
+      "sha256": "9a76cd9d1028e8bb1cff1c2efee5cb84a5b8bbb50810af6e8e1ee7a998af377b"
+    },
+    {
+      "file": "page_0a1a43d3e4.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec12/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec12/",
+      "kind": "html",
+      "bytes": 55758,
+      "sha256": "560a0aed71e555d8869f167dc189b7aac8875818a87d3ed62b5a08478eea87ed"
+    },
+    {
+      "file": "page_5db3f23d24.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec12_note/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec12_note/",
+      "kind": "html",
+      "bytes": 55823,
+      "sha256": "90f241bc9e7477dfc9ec33b4357208fe3c2e61ccbf65178f801f95afb7fe6e50"
+    },
+    {
+      "file": "page_74c4f4e4c3.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec13/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec13/",
+      "kind": "html",
+      "bytes": 55710,
+      "sha256": "80b8b660d2316f8310aa017464b4897c66ce5c245718dff5be972d9c41e1a0a5"
+    },
+    {
+      "file": "page_17cb03e872.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec13_note/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec13_note/",
+      "kind": "html",
+      "bytes": 55775,
+      "sha256": "0eba68f1c1b445dc010abb3bf8d3f3c213d5422acfdb878a4fdc0d1bf6852b36"
+    },
+    {
+      "file": "page_b149fcc7e8.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec14/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec14/",
+      "kind": "html",
+      "bytes": 55952,
+      "sha256": "fb3d3a1e5c4f9b2a06ce9ce8c82f40df38f2ac3ff16d2bb4e79f15c14c0b70d9"
+    },
+    {
+      "file": "page_67b23b08e7.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec14_note/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec14_note/",
+      "kind": "html",
+      "bytes": 56017,
+      "sha256": "f39480bc3afa364a6d22c9fce02979e14656f586cf07dfa6d93ae6556b132d15"
+    },
+    {
+      "file": "page_3182c4d507.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec16/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec16/",
+      "kind": "html",
+      "bytes": 55852,
+      "sha256": "7c0d10f3cbde90c292e2722146be553e29d486a137abbc2b05141ab8fb46fbbd"
+    },
+    {
+      "file": "page_3b1c16ac2c.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec16_note/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec16_note/",
+      "kind": "html",
+      "bytes": 55917,
+      "sha256": "2b4f2e52557427d6c3dd2ad63f174ec54c35a13ad3bf7f304bce44769a58ed77"
+    },
+    {
+      "file": "page_4dcf1527d4.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec18/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec18/",
+      "kind": "html",
+      "bytes": 55674,
+      "sha256": "c3d74227d402fa1cb4256ae389d8c7bb759e5f0846ae6a62184b98cf0a438a65"
+    },
+    {
+      "file": "page_5afe5c7c4c.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec21/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec21/",
+      "kind": "html",
+      "bytes": 55832,
+      "sha256": "03c1d50a4a153aec3fbc8ca8d03b976ee7a746eed3d70398778468f1f5534143"
+    },
+    {
+      "file": "page_2cfdc13423.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec22/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_lec22/",
+      "kind": "html",
+      "bytes": 55900,
+      "sha256": "edcebfb5db70fde5eace3285684ec08ab6a78be9bfbb42f6d71d11daa38f8567"
+    },
+    {
+      "file": "page_0b142462bf.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/assignments/",
+      "kind": "html",
+      "bytes": 54970,
+      "sha256": "36b91ec5c95a37a461e7aa4b3816652e8e33d8c47f54f8a9580f29acb69a0739"
+    },
+    {
+      "file": "page_6b935f001f.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw01/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw01/",
+      "kind": "html",
+      "bytes": 55572,
+      "sha256": "ca2e0251c6bf3062ce69cd89558b800d42e734093b2e61c3ffdc5afe3a0d43bc"
+    },
+    {
+      "file": "page_ba8d273ed5.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_sol_hw01/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_sol_hw01/",
+      "kind": "html",
+      "bytes": 55673,
+      "sha256": "61d2121293ea916e4c8f89a66e97e80a63f3adcd47d819081941ad2bb4c45865"
+    },
+    {
+      "file": "page_776c4bd5aa.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw02/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw02/",
+      "kind": "html",
+      "bytes": 55697,
+      "sha256": "20ebad7ced6081fb2b5116a0b79a35dad059b3f4297947dc14eaabb9a48c13f2"
+    },
+    {
+      "file": "page_12bf067137.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_sol_hw02/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_sol_hw02/",
+      "kind": "html",
+      "bytes": 55669,
+      "sha256": "cad153804386d534b7e9fafa26932199d95f1c3b5d100fb31dbc33142d836fad"
+    },
+    {
+      "file": "page_bdea49538c.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/window08/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/window08/",
+      "kind": "html",
+      "bytes": 55071,
+      "sha256": "9b359d8ec60c0d5861685933156a2ec0b6e71925cda4d346bfb84bba1ed511bc"
+    },
+    {
+      "file": "page_eacde3278a.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/window07/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/window07/",
+      "kind": "html",
+      "bytes": 55072,
+      "sha256": "bb7d4e80ea25cf10ce67452c2d2c6a43ae9f5f789e2bb3530d42fe7360c67670"
+    },
+    {
+      "file": "page_ce23309a98.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw03/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw03/",
+      "kind": "html",
+      "bytes": 55673,
+      "sha256": "51198dec6a8a1df6eb6fc9fc9d4112b38099818d2c86fc95465ca54376205951"
+    },
+    {
+      "file": "page_1a23bd4c8d.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_sol_hw03/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_sol_hw03/",
+      "kind": "html",
+      "bytes": 55657,
+      "sha256": "f798627ab9ae959613c0d79d5f9e2b6a9c0b039f101fcd6ed936c6494a58c6c4"
+    },
+    {
+      "file": "page_3e04f1a35e.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/chamber08/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/chamber08/",
+      "kind": "html",
+      "bytes": 55012,
+      "sha256": "07bb2dc040ea01431f03628fefdab81d0d0f9ec986d1da8bfdfe006aa7a76d98"
+    },
+    {
+      "file": "page_adbdd44dc4.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/chamber07/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/chamber07/",
+      "kind": "html",
+      "bytes": 55004,
+      "sha256": "661e7fafc7b0148c084c156658924f9c78cfcb5a22fc34fd213fb8e11adc328c"
+    },
+    {
+      "file": "page_e91af2c13d.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/12tooth/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/12tooth/",
+      "kind": "html",
+      "bytes": 55151,
+      "sha256": "4127a3d51870a6d67de8c150982391742b457ddc248f8ed2a20b76fa27cd389e"
+    },
+    {
+      "file": "page_806cae6a05.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/24tooth/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/24tooth/",
+      "kind": "html",
+      "bytes": 55151,
+      "sha256": "77af725e01c826709512efb06578fd9d5aeb27ae2dd45b67dedd38f9408402d3"
+    },
+    {
+      "file": "page_145b5c882c.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/48tooth/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/48tooth/",
+      "kind": "html",
+      "bytes": 55151,
+      "sha256": "fcd3a3fe8de00ed5c37d8f338028df9d304c3c6fe39c6bcd39424e8894e1e6a9"
+    },
+    {
+      "file": "page_92bdbb4d56.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw04/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/resources/mit2_007s09_hw04/",
+      "kind": "html",
+      "bytes": 55651,
+      "sha256": "3fcd7dca93a53593b0f8dbee2698728bf68e9389bf46eb8fc4fba0d48e2e7b04"
+    },
+    {
+      "file": "page_90687f9d9b.html",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/related-resources/",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/related-resources/",
+      "kind": "html",
+      "bytes": 54162,
+      "sha256": "b601ee70a1f9a249242ee280f374558c8e0d113afd547b6f8142d8436f70dd08"
+    },
+    {
+      "file": "29b95c6d8570f9aeb140c151747c96e3_MIT2_007s09_lec01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/29b95c6d8570f9aeb140c151747c96e3_MIT2_007s09_lec01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/29b95c6d8570f9aeb140c151747c96e3_MIT2_007s09_lec01.pdf",
+      "kind": "pdf",
+      "bytes": 1413613,
+      "sha256": "a5bdc5454268de09e2e2fc318e32aa41bbf9895e13a7152d9343b5185acf4bbe",
+      "pdf_pages": 34
+    },
+    {
+      "file": "d28a5f0aa61c74a01e83861fc2d618ea_MIT2_007s09_lec01_EVT.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/d28a5f0aa61c74a01e83861fc2d618ea_MIT2_007s09_lec01_EVT.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/d28a5f0aa61c74a01e83861fc2d618ea_MIT2_007s09_lec01_EVT.pdf",
+      "kind": "pdf",
+      "bytes": 298027,
+      "sha256": "4726c193973c61fe1387d436e850c59c06be1d5bd3f242766a4af703df18d99d",
+      "pdf_pages": 10
+    },
+    {
+      "file": "95532fc1350920a78ff28af515ad4d1d_MIT2_007s09_lec01_FSAE.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/95532fc1350920a78ff28af515ad4d1d_MIT2_007s09_lec01_FSAE.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/95532fc1350920a78ff28af515ad4d1d_MIT2_007s09_lec01_FSAE.pdf",
+      "kind": "pdf",
+      "bytes": 285375,
+      "sha256": "75e9ea9c511cfbb89ce4ac5eaabd070cc40cdd5f2cd47ba4de972920689a19c2",
+      "pdf_pages": 8
+    },
+    {
+      "file": "c6d6a35a25a46a42735735e67b7d4002_MIT2_007s09_lec02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/c6d6a35a25a46a42735735e67b7d4002_MIT2_007s09_lec02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/c6d6a35a25a46a42735735e67b7d4002_MIT2_007s09_lec02.pdf",
+      "kind": "pdf",
+      "bytes": 4823094,
+      "sha256": "0ecce6a885d365b27683c4704da99fe488e4d3c9f9f1227ff6a9ea682a18b7e0",
+      "pdf_pages": 47
+    },
+    {
+      "file": "a0a96c0ea55c931debec52394d914008_MIT2_007s09_lec03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/a0a96c0ea55c931debec52394d914008_MIT2_007s09_lec03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/a0a96c0ea55c931debec52394d914008_MIT2_007s09_lec03.pdf",
+      "kind": "pdf",
+      "bytes": 722000,
+      "sha256": "9b80575111be2c89f6c631800c2edc56e8c2f3a2660d1da8dcba184280a49ea8",
+      "pdf_pages": 28
+    },
+    {
+      "file": "b5493baa7030edac414ada2a407ae307_MIT2_007s09_lec04.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/b5493baa7030edac414ada2a407ae307_MIT2_007s09_lec04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/b5493baa7030edac414ada2a407ae307_MIT2_007s09_lec04.pdf",
+      "kind": "pdf",
+      "bytes": 979043,
+      "sha256": "3d77b3d9caf2decf4723be26c68b27ec0ba7230addb0b354a7927974248f4935",
+      "pdf_pages": 28
+    },
+    {
+      "file": "ff23a9ac1c23c8f9df53525c4c8e22a8_MIT2_007s09_lec05.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/ff23a9ac1c23c8f9df53525c4c8e22a8_MIT2_007s09_lec05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/ff23a9ac1c23c8f9df53525c4c8e22a8_MIT2_007s09_lec05.pdf",
+      "kind": "pdf",
+      "bytes": 430790,
+      "sha256": "8453cc65f71b7cc59698f4008302f531fd30fabb404ae90372c3f7baf8f9a3f4",
+      "pdf_pages": 21
+    },
+    {
+      "file": "3ad37424e0a9ae4ef3350892aa492ebe_MIT2_007s09_lec06.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/3ad37424e0a9ae4ef3350892aa492ebe_MIT2_007s09_lec06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/3ad37424e0a9ae4ef3350892aa492ebe_MIT2_007s09_lec06.pdf",
+      "kind": "pdf",
+      "bytes": 2072155,
+      "sha256": "4e768baca407947fbddf58bdc3ce3f9432b545903e5ec5e58c5522653abdde0c",
+      "pdf_pages": 38
+    },
+    {
+      "file": "0fe84bb65000f7a167a3e4b862805b12_MIT2_007s09_lec07.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/0fe84bb65000f7a167a3e4b862805b12_MIT2_007s09_lec07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/0fe84bb65000f7a167a3e4b862805b12_MIT2_007s09_lec07.pdf",
+      "kind": "pdf",
+      "bytes": 1354720,
+      "sha256": "7390e3bc7d9c16d5a129804874332930996e289f7df93d47cf3c273791f90b07",
+      "pdf_pages": 14
+    },
+    {
+      "file": "bd4ae730bb6e35b131a89fcb3ba935a6_MIT2_007s09_lec08.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/bd4ae730bb6e35b131a89fcb3ba935a6_MIT2_007s09_lec08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/bd4ae730bb6e35b131a89fcb3ba935a6_MIT2_007s09_lec08.pdf",
+      "kind": "pdf",
+      "bytes": 1109889,
+      "sha256": "5a107658fec7963142d1c801c817f9066af7314c0e15b685881d9e9ba25c90f3",
+      "pdf_pages": 29
+    },
+    {
+      "file": "70bbaae86e99ba362eda5ab415f32ad8_MIT2_007s09_lec12.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/70bbaae86e99ba362eda5ab415f32ad8_MIT2_007s09_lec12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/70bbaae86e99ba362eda5ab415f32ad8_MIT2_007s09_lec12.pdf",
+      "kind": "pdf",
+      "bytes": 1269803,
+      "sha256": "a84458a19dff307db2a05febbe0883dac6bd92cca9f822536b09663d71d6b269",
+      "pdf_pages": 47
+    },
+    {
+      "file": "c72e70d7d9ad5e2d5a23bd4fe57734ae_MIT2_007s09_lec12_note.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/c72e70d7d9ad5e2d5a23bd4fe57734ae_MIT2_007s09_lec12_note.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/c72e70d7d9ad5e2d5a23bd4fe57734ae_MIT2_007s09_lec12_note.pdf",
+      "kind": "pdf",
+      "bytes": 1276561,
+      "sha256": "e64920a0ed79994e6c5427f4f8f8c3091140089930aa09ef5a043cd733a34fb6",
+      "pdf_pages": 47
+    },
+    {
+      "file": "9cb36ff5ff2844014e98d907d020aea8_MIT2_007s09_lec13.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/9cb36ff5ff2844014e98d907d020aea8_MIT2_007s09_lec13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/9cb36ff5ff2844014e98d907d020aea8_MIT2_007s09_lec13.pdf",
+      "kind": "pdf",
+      "bytes": 1347996,
+      "sha256": "0b017c316c0551e3c81589067f00c76584a2555b69c1fd1d8d4bce3e2506f4a5",
+      "pdf_pages": 37
+    },
+    {
+      "file": "84595ef8ed7ce3595826ed18e8207d7f_MIT2_007s09_lec13_note.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/84595ef8ed7ce3595826ed18e8207d7f_MIT2_007s09_lec13_note.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/84595ef8ed7ce3595826ed18e8207d7f_MIT2_007s09_lec13_note.pdf",
+      "kind": "pdf",
+      "bytes": 1356390,
+      "sha256": "7a507a42cd8f44d17cfd19a0135b10f8c023d30bcdff02e53c929750cf8b0f10",
+      "pdf_pages": 39
+    },
+    {
+      "file": "6131fbc5b63bdbae1e1180dd9940147a_MIT2_007s09_lec14.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/6131fbc5b63bdbae1e1180dd9940147a_MIT2_007s09_lec14.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/6131fbc5b63bdbae1e1180dd9940147a_MIT2_007s09_lec14.pdf",
+      "kind": "pdf",
+      "bytes": 981699,
+      "sha256": "f612f4a9132f7af17729b18e6d76a68f68b49385e237a9b3d90b41ff2448e89a",
+      "pdf_pages": 35
+    },
+    {
+      "file": "bd54e0cfe824aa4415c58a9df27d121b_MIT2_007s09_lec14_note.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/bd54e0cfe824aa4415c58a9df27d121b_MIT2_007s09_lec14_note.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/bd54e0cfe824aa4415c58a9df27d121b_MIT2_007s09_lec14_note.pdf",
+      "kind": "pdf",
+      "bytes": 999901,
+      "sha256": "0912bd903da7f5331d468ebe858c02d03ebe938338bb2540ebbec5e6d8ba04a3",
+      "pdf_pages": 39
+    },
+    {
+      "file": "533fc3963f8014bec362eb34c77b57be_MIT2_007s09_lec16.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/533fc3963f8014bec362eb34c77b57be_MIT2_007s09_lec16.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/533fc3963f8014bec362eb34c77b57be_MIT2_007s09_lec16.pdf",
+      "kind": "pdf",
+      "bytes": 513388,
+      "sha256": "2abd04ce649905fcae039157114d54d43c2700e022b7609968b9210447d99468",
+      "pdf_pages": 37
+    },
+    {
+      "file": "97ff543da0c010a44bd1a9fc521b5e8d_MIT2_007s09_lec16_note.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/97ff543da0c010a44bd1a9fc521b5e8d_MIT2_007s09_lec16_note.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/97ff543da0c010a44bd1a9fc521b5e8d_MIT2_007s09_lec16_note.pdf",
+      "kind": "pdf",
+      "bytes": 512960,
+      "sha256": "8d5ef2ddfda696bd79000669a1389bfd4e1da1cee4e4df5169eb71f4a13e1ee7",
+      "pdf_pages": 37
+    },
+    {
+      "file": "ecfd249c704b44d30b7d2bb3714a7756_MIT2_007s09_lec18.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/ecfd249c704b44d30b7d2bb3714a7756_MIT2_007s09_lec18.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/ecfd249c704b44d30b7d2bb3714a7756_MIT2_007s09_lec18.pdf",
+      "kind": "pdf",
+      "bytes": 765278,
+      "sha256": "1dc7607a87f6d962b8ab832eaf257074e1159f441b71c7cf63060fbdf6648036",
+      "pdf_pages": 43
+    },
+    {
+      "file": "600a242aff347c755535b3c19fa76d78_MIT2_007s09_lec21.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/600a242aff347c755535b3c19fa76d78_MIT2_007s09_lec21.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/600a242aff347c755535b3c19fa76d78_MIT2_007s09_lec21.pdf",
+      "kind": "pdf",
+      "bytes": 525627,
+      "sha256": "1e124b1fe504f9f2fb7f3d8997c34af841636ffbc0c0389aaa118ffe3aeff38d",
+      "pdf_pages": 46
+    },
+    {
+      "file": "2dbe43551874626b2310937cacb0ff9f_MIT2_007s09_lec22.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/2dbe43551874626b2310937cacb0ff9f_MIT2_007s09_lec22.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/2dbe43551874626b2310937cacb0ff9f_MIT2_007s09_lec22.pdf",
+      "kind": "pdf",
+      "bytes": 1352205,
+      "sha256": "4f6043ce4d6a235034ee2f2f3fa313bfd5fb727af9f64b5e57ce9ecbdc6ab4a2",
+      "pdf_pages": 22
+    },
+    {
+      "file": "de6b768b017e2f83e47e38d56bbf3a93_MIT2_007s09_hw01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/de6b768b017e2f83e47e38d56bbf3a93_MIT2_007s09_hw01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/de6b768b017e2f83e47e38d56bbf3a93_MIT2_007s09_hw01.pdf",
+      "kind": "pdf",
+      "bytes": 350325,
+      "sha256": "b6c69d70b94732526f8cbacf3fab00fc39ec57a043e066a3549c9b755a5287ce",
+      "pdf_pages": 3
+    },
+    {
+      "file": "1b8c2966e380f73d43017e43db2f5d58_MIT2_007s09_sol_hw01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/1b8c2966e380f73d43017e43db2f5d58_MIT2_007s09_sol_hw01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/1b8c2966e380f73d43017e43db2f5d58_MIT2_007s09_sol_hw01.pdf",
+      "kind": "pdf",
+      "bytes": 418583,
+      "sha256": "7e5ff49efabd20e4b843ac76e69cadf1e5d71c42839f53beadc05e87cf0eb6f3",
+      "pdf_pages": 7
+    },
+    {
+      "file": "0b846039032ecacfc4d1ac92f040cbd9_MIT2_007s09_hw02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/0b846039032ecacfc4d1ac92f040cbd9_MIT2_007s09_hw02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/0b846039032ecacfc4d1ac92f040cbd9_MIT2_007s09_hw02.pdf",
+      "kind": "pdf",
+      "bytes": 432565,
+      "sha256": "472a80e0cd6887a62f6ada925f81e7ede3c4646a689d44d48f6f890d9ae35cf2",
+      "pdf_pages": 5
+    },
+    {
+      "file": "a4014b6019c2c4067870fa2d12e463d9_MIT2_007s09_sol_hw02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/a4014b6019c2c4067870fa2d12e463d9_MIT2_007s09_sol_hw02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/a4014b6019c2c4067870fa2d12e463d9_MIT2_007s09_sol_hw02.pdf",
+      "kind": "pdf",
+      "bytes": 533577,
+      "sha256": "fd0bcd4e9e043edc4aa05989b32d2e8cee2d1d9b23a7029aa684c5ec0486e6f4",
+      "pdf_pages": 9
+    },
+    {
+      "file": "a1cbfc08452c2b96406f56a1ce952194_MIT2_007s09_hw03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/a1cbfc08452c2b96406f56a1ce952194_MIT2_007s09_hw03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/a1cbfc08452c2b96406f56a1ce952194_MIT2_007s09_hw03.pdf",
+      "kind": "pdf",
+      "bytes": 311195,
+      "sha256": "a43bebd854ff5f36bc7e9faec86472d4f82f5afbb318d6eb5bb3c4e95d91b018",
+      "pdf_pages": 3
+    },
+    {
+      "file": "bd44476b9123456c5a282ec5f46fc969_MIT2_007s09_sol_hw03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/bd44476b9123456c5a282ec5f46fc969_MIT2_007s09_sol_hw03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/bd44476b9123456c5a282ec5f46fc969_MIT2_007s09_sol_hw03.pdf",
+      "kind": "pdf",
+      "bytes": 529666,
+      "sha256": "3175d22b680b05657ed30f2f453722a266451e4777eccc6fabb6eac275b0f637",
+      "pdf_pages": 12
+    },
+    {
+      "file": "57e4a84cbe1fa2b4f89cdf92e91fa099_MIT2_007s09_hw04.pdf",
+      "url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/57e4a84cbe1fa2b4f89cdf92e91fa099_MIT2_007s09_hw04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/57e4a84cbe1fa2b4f89cdf92e91fa099_MIT2_007s09_hw04.pdf",
+      "kind": "pdf",
+      "bytes": 29490,
+      "sha256": "9770ff2d248b4aad08414a1553f4e92889c1d6a098d55efc073e927068fcb917",
+      "pdf_pages": 2
+    }
+  ],
+  "errors": [
+    {
+      "url": "http://www.towerhobbies.com/products/pdf/towj41.pdf",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 28,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

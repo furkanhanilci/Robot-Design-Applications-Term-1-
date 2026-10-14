@@ -1,0 +1,188 @@
+Fasteners – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Fasteners
+Introductory Video
+*Watch this
+video
+to learn more about Fasteners & Bolted Connections.
+Mechanical Fasteners
+Mechanical fasteners are devices that use force and deflection to implement locating functions, which means they align and secure the parts of a mechanical system. Mechanical fasteners can be classified into two categories: integral fasteners and discrete fasteners.
+Integral fasteners
+are formed as part of the components they join, such as tabs, slots, and snap-fits.
+Discrete fasteners
+are separate pieces that are added to the components, such as threaded fasteners, rivets, and pins.
+Threaded fasteners are discrete fasteners that achieve locating by joining two parts together with a helical ridge called a thread. Threaded fasteners enable assembly and disassembly of the parts without damaging them. A common type of threaded fastener is a bolt, which is a cylindrical rod with a head at one end and a thread at the other end. Bolts are used with nuts, which are also threaded devices that fit onto the bolts and tighten them. Bolts and nuts have different grades, which indicate their strength and resistance to various loads and environments. The grades are defined by standards organizations such as the Society of Automotive Engineers (SAE), the Society for Testing and Materials (ASTM), and the International Organization for Standardization (ISO). A great comparison of Grades and their specification can be found
+here
+. Some examples of bolt types are round head bolts, which have a dome-shaped head, and studs, which have threads on both ends. Some examples of nut types are square nuts, which have four flat sides, and hex nuts, which have six flat sides. Nuts can also be single-threaded or double-threaded, depending on whether they have one or two threads per inch.
+Another type of threaded fastener is a screw, which is similar to a bolt but has a pointed tip and is usually driven into a pre-drilled hole in the component. Screws can also be used with nuts or washers to increase their clamping force or prevent loosening. Screws have various types, depending on their function and design. Some examples are machine screws are: cap screws, which have a cylindrical head with a hexagonal or socket shape; set screws, which have no head and are used to secure a shaft or collar; Sems screws, which have a washer attached to the head; and tapping screws, which create their own threads in the component as they are driven in. Screws also have various heads and tip end conditions, depending on how they are driven and what kind of hole they fit into. Some examples of screw heads are slotted, Phillips, hexagonal, and Torx. Some examples of tip end conditions are blunt, pointed, self-drilling, and self-tapping.
+Terminology
+The
+pitch
+of a thread is the distance between two adjacent threads measured along the axis of the fastener. The
+lead
+of a thread is the distance that the fastener advances along its axis in one turn. The diameter of a thread is the distance between the crests or roots of two opposite threads measured perpendicular to the axis of the fastener. For example, a 1/4-20 UNC bolt has a nominal diameter of 1/4 inch, a pitch of 1/20 inch, and a lead of 1/20 inch. UNC stands for Unified National Coarse, which is one of the standards for imperial units of measurement. Another standard is UNF, which stands for Unified National Fine, which has smaller pitches than UNC. For metric units of measurement, there are different standards such as ISO metric screw threads, which use millimeters as the unit of length. For example, an M6x1 bolt has a nominal diameter of 6 mm, a pitch of 1 mm, and a lead of 1 mm.
+Rivets
+A rivet is another type of discrete fastener that consists of a cylindrical shaft with a head at one end and a tail at the other end. Rivets are used to join two or more components together by inserting them through holes in the components and deforming the tail to form another head on the opposite side. Rivets can be made of various materials such as steel, aluminum, copper, or plastic. Rivets have some advantages over threaded fasteners such as being cheaper, lighter, more resistant to vibration and corrosion, and more aesthetically pleasing. However, rivets also have some limitations such as being permanent (cannot be disassembled without damaging them), requiring access to both sides of the components (cannot be used in blind holes), requiring special tools for installation and removal (such as hammers or rivet guns), and having lower strength than some threaded fasteners.
+Previous/next navigation
+Previous: Generalized Process for Standard Specifications
+Next: Pins and Joints
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

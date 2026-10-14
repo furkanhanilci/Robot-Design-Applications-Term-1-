@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ECDSA signature format | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="ECDSA signature format" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/ecdsa.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/ecdsa.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ECDSA signature format" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"ECDSA signature format","url":"https://docs.mcuboot.com/ecdsa.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">ECDSA signature format</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="ecdsa-signature-format">ECDSA signature format</h1>
+
+<p>When the ECDSA SECP256R1 (EC256) signature support was added to MCUboot, a
+shortcut was taken, and these signatures were padded to make them
+always a fixed length. Unfortunately, this padding was done in a way
+that is not easily reversible. Some crypto libraries (specifically, Mbed
+TLS) are fairly strict about the formatting of the ECDSA signature.</p>
+
+<p>There are two ways to fix this:</p>
+
+<ul>
+  <li>
+    <p>Use a reversible padding scheme. This solution requires
+at least one pad byte to always be added (to set the length). This
+padding would be somewhat incompatible across versions (older
+EC256 would work, while newer MCUboot code would reject old
+signatures. The EC code would work reliably only in the new
+combination).</p>
+  </li>
+  <li>
+    <p>Remove the padding entirely. Depending on the tool used, this solution
+requires some rethinking of how TLV generation is implemented so
+that the length does not need to be known until the signature is
+generated. These tools are usually written in higher-level
+languages, so this change should not be difficult.</p>
+
+    <p>However, this will also break compatibility with older versions,
+because images generated with newer tools will not
+work with older versions of MCUboot.</p>
+  </li>
+</ul>
+
+<p>This document proposes a multi-stage approach to give a transition
+period:</p>
+
+<ol>
+  <li>
+    <p>Add a <code class="language-plaintext highlighter-rouge">--no-pad-sig</code> argument to the sign command in
+<code class="language-plaintext highlighter-rouge">imgtool.py</code>.</p>
+
+    <p>Without this argument, the images are padded with the
+existing scheme. With this argument, the ECDSA is encoded
+without any padding. The <code class="language-plaintext highlighter-rouge">--pad-sig</code> argument is also
+accepted, but it is already the default.</p>
+  </li>
+  <li>
+    <p>MCUboot will be modified to allow unpadded signatures right away.
+The existing EC256 implementations will still work (with or
+without padding), and the existing EC implementation will be able
+to accept padded and unpadded signatures.</p>
+  </li>
+  <li>
+    <p>An Mbed TLS implementation of EC256 can be added, but it will require
+the <code class="language-plaintext highlighter-rouge">--no-pad-sig</code> signature to be able to boot all generated
+images. Without the argument, 3 out of 4 images generated will have
+padding and will be considered invalid.</p>
+  </li>
+</ol>
+
+<p>After one or more MCUboot release cycles and announcements in the
+relevant channels, the arguments to <code class="language-plaintext highlighter-rouge">imgtool.py</code> will change:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">--no-pad-sig</code> will still be accepted but will have no effect.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">--pad-sig</code> will now bring back the old padding behavior.</p>
+  </li>
+</ul>
+
+<p>This will require an update to any scripts that will rely on the default
+behavior, but will not specify a specific version of imgtool.</p>
+
+<p>The signature generation in the simulator can be changed at the same
+time the boot code begins to accept unpadded signatures. The simulator is
+always run out of the same tree as the MCUboot code, so there should
+not be any compatibility issues.</p>
+
+<h2 id="background">Background</h2>
+
+<p>ECDSA signatures are encoded as ASN.1, notably with the signature
+itself encoded as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ECDSA-Sig-Value ::= SEQUENCE {
+      r  INTEGER,
+      s  INTEGER
+    }
+</code></pre></div></div>
+
+<p>Both <code class="language-plaintext highlighter-rouge">r</code> and <code class="language-plaintext highlighter-rouge">s</code> are 256-bit numbers. Because these are
+unsigned numbers that are being encoded in ASN.1 as signed values, if
+the high bit of the number is set, the DER-encoded representation will
+require 33 bytes instead of 32. This means that the length of the
+signature will vary by a couple of bytes, depending on whether one or
+both of these numbers have the high bit set.</p>
+
+<p>Originally, MCUboot added padding to the entire signature and just
+removed any trailing 0 bytes from the data block. This turned out to be fine 255 out of 256
+times, each time the last byte of the signature was non-zero, but if the
+signature ended in a zero, MCUboot would remove too many bytes and render the
+signature invalid.</p>
+
+<p>The correct approach here is to accept that ECDSA signatures are of
+variable length, and to make sure that we can handle them as such.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

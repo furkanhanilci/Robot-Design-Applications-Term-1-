@@ -1,0 +1,814 @@
+Chapter8: Switches and LEDs
+Chapter
+8: Switch and LED Interfacing
+Embedded
+Systems - Shape
+The World
+Jonathan
+Valvano
+and Ramesh Yerraballi
+We couldn’t wait to show
+you how much fun
+it is to make
+the microcontroller interact with real physical devices. So in this
+section we
+will take a short side step from the business of concepts and theories
+to teach
+you how to connect switches and LEDs to the microcontroller. We will
+use
+switches to input data and use LEDs to output results. In this chapter,
+we will
+illustrate the design, construction and testing of an embedded system.
+The
+switch LED and LaunchPad will then be combined to create a system. You
+will need a solid understanding of Ohm's Law, so you may need to review
+current, voltage, power, and resistance from Chapter 3.
+Learning Objectives:
+Understanding basic circuit
+elements like
+source, ground, and resistors.
+Understanding how switches
+and LEDs
+work.
+Application of
+Ohm’s Law
+Analog circuit design and
+construction on
+a
+solderless breadboard
+Interfacing switches and
+LEDs to a
+microcontroller
+Programming simple logic.
+Video
+8.0
+. Circuit
+elements and Interfacing them to a Microcontroller
+8.1. Breadboard
+To build circuits, we’ll
+use a solderless
+breadboard, also
+referred to as a protoboard. The holes in the protoboard are internally
+connected in a systematic manner, as shown in Figure 8.1. The long rows
+of
+holes along the outer sides of the protoboard are electrically
+connected. Some
+protoboards like the one in Figure 8.1 have four long rows (two on each
+side),
+while others have just two long rows (one on each side). We refer to
+the long
+rows as power buses. If your protoboard has only two long rows (one on
+each
+side, we will connect one row to +3.3V and another row to ground. If
+your
+protoboard has two long rows on each side, then two rows will be
+ground, one
+row will be +3.3V. Use a black marker and
+label
+the voltage on each row. In the middle of the protoboard,
+you’ll
+find two
+groups of holes placed in a 0.1 inch grid. Each adjacent row of five
+pins is
+electrically connected. We usually insert components into these holes.
+If
+integrated circuits (IC) are to be placed on the protoboard, it is done
+such
+that the two rows of pins straddle the center valley.
+Figure
+8.1. The pins
+on each of the four long rows are connected. The 5 pins in each short
+row are
+connected. Place a +3.3V wire to one long row. Place a ground wire from
+the LaunchPad
+to another long row.
+To build a circuit we will use
+22-gauge or
+24-gauge solid wire. We strip off about 1/4 to 1/2 inch of insulation
+so the bare wire can be pushed straight into a hole. We only push one
+wire into a hole and remember which rows are internally connected as
+described in Figure 8.1.
+8.2. Switch Interfaces
+Input/output devices are critical
+components of
+an embedded
+system. The first input device we will study is the
+switch
+.
+It allows the human to input binary information into the computer.
+Typically we
+define the asserted state, or logic true, when the switch is pressed.
+Contact
+switches can also be used in machines to detect mechanical contact
+(e.g., two
+parts touching, paper present in the printer, or wheels on the ground
+etc.) A
+single pole single throw (SPST) switch has two
+connections.
+The switches are
+shown as little open circles in Figure 8.2. In a normally open switch
+(NO), the
+resistance between the connections is infinite (over 100 MΩ on the B3F
+tactile switch) if the switch is not pressed and zero (under 0.1 Ω on
+the
+B3F tactile switch) if the switch is pressed.
+<
+Video
+8.1
+. B3F Switch Datasheet
+Video
+8.2
+.
+Circuit for Switch
+Interface
+To convert the
+infinite/zero
+resistance into a digital signal, we can use a pull-down resistor to
+ground or
+a pull-up resistor to +3.3V as shown in Figure 8.2. Notice that 10 kΩ
+is
+100,000 times larger than the on-resistance of the switch and 10,000
+times
+smaller than its off-resistance. Another way to choose the pull-down or
+pull-up
+resistor is to consider the input current of the microcontroller input
+pin. The
+current into the microcontroller will be less than 2µA (shown
+as
+I
+IL
+and
+I
+IH
+in the data sheet).
+So, if the current into
+microcontroller is 2µA, then the voltage drop across the 10
+kΩ
+resistor
+will be 0.02 V, which is negligibly small. With a pull-down resistor,
+the
+digital signal will be low if the switch is not pressed and high if the
+switch
+is pressed (right Figure 8.2). This is defined as
+positive
+logic
+because
+the asserted state is a logic high. Conversely, with a pull-up
+resistor, the
+digital signal will be high if the switch is not pressed and low if the
+switch
+is pressed (middle of Figure 8.2). This is defined as
+negative
+logic
+because the asserted state is a logic low.
+Figure
+8.2. Single
+Pole Single Throw (SPST) Switch interface.
+One of the complicating issues with
+mechanical
+switches is
+they can bounce (oscillate on and off) when touched and when
+released. The
+contact bounce varies from switch to switch and from time to
+time,
+but usually
+bouncing is a transient event lasting less than 5 ms. We can eliminate
+the
+effect of bounce if we design software that waits at least 10 ms
+between times
+we read the switch values.
+To interface a switch we
+connect it to a
+pin (e.g., Figure 8.3) and initialize the pin as an input. The
+initialization function
+will
+enable the clock, set the direction register to input, turn off the
+alternative
+function, and enable the pin. Notice the software is friendly because
+it just
+affects PA5 without affecting the other bits in Port A. The input
+function
+reads Port A and returns a true (0x20) if the switch is pressed and
+returns a
+false (0) if the switch is not pressed. Figure 8.4 shows how we could
+build this circuit with a protoboard and a LaunchPad.
+Figure
+8.3.
+Interface of a switch to a microcomputer input.
+Figure
+8.4.
+Construction of the interface of a switch to a microcomputer input. The
+brown-black-orange resistor is 10k. The switches in the lab-kit should
+plug into the protoboard. The switch is across the two pins that are
+closer to each other. It doesn't matter what color the wires are, but
+in this figure the wires are black, red and green. The two black wires
+are ground, the red wire is +3.3V, and the green wire is the signal
+in
+, which connects
+the switch to PA5
+of the microcontroller.
+The software in Program 8.1 is called a driver, and it includes an
+initialization, which is called once, and a second function that can be
+called to read the current position of the switch. Writing software
+this way is called an abstraction, because it separates what the switch
+does (Init, On, Off) from how it works (PortA, bit 5, TM4C123).
+The first input function uses the bit-
+specific
+address to get just PA5, while
+the second
+reads the entire port and selects bit 5 using a logical AND.
+#define
+PA5   (*((volatile
+unsigned long *)0x40004080))
+void
+Switch_Init(void){
+volatile unsigned long delay;
+SYSCTL_RCGCGPIO_R |=
+0x00000001;     // 1) activate
+clock for Port A
+delay =
+SYSCTL_RCGCGPIO_R;          
+// allow time for clock to start
+// 2) no need to unlock GPIO Port A
+GPIO_PORTA_AMSEL_R &=
+~0x20;      // 3) disable
+analog on PA5
+GPIO_PORTA_PCTL_R &=
+~0x00F00000; // 4) PCTL GPIO on PA5
+GPIO_PORTA_DIR_R &=
+~0x20;       
+// 5) direction PA5
+input
+GPIO_PORTA_AFSEL_R
+&= ~0x20;      //
+6) PA5 regular port
+function
+GPIO_PORTA_DEN_R |= 0x20;    
+    // 7) enable PA5 digital port
+}
+unsigned
+long
+Switch_Input(void){
+return
+PA5; // return
+0x20(pressed) or 0(not pressed)
+}
+unsigned
+long
+Switch_Input2(void){
+return
+(GPIO_PORTA_DATA_R&0x20);
+// 0x20(pressed) or 0(not pressed)
+}
+Program
+8.1.
+Software interface
+for a switch on PA5 (C8_Switch).
+Maintenance Tip:
+When interacting with
+just some of
+the bits of an I/O register it is better to modify just the bits of
+interest,
+leaving the other bits unchanged. In this way, the action of one piece
+of software
+does not undo the action of another piece.
+8.3. LED Interfaces
+A
+light emitting diode
+(LED)
+emits
+light when an electric current passes through it. LEDs have polarity,
+meaning current must pass from anode to cathode to activate. The
+anode is labelled
+a
+or
++
+, and cathode is
+labelled
+k
+or
+-
+. The
+cathode is the short lead and there may be a slight flat spot on the
+body of
+round LEDs. Thus, the anode is the longer lead. The brightness of an
+LED
+depends on the applied electrical power (
+P
+=
+I
+*
+V
+).
+Since the
+LED voltage is approximately constant in the active region (see left
+side of
+Figure 8.5), we can establish the desired brightness by setting the
+current.
+Figure
+8.5. Positive
+logic LED interface (Lite-On LTL-10223W).
+Video
+8.3
+. LED Datasheet
+Video
+8.4
+.
+Circuit for LED
+Interface
+Checkpoint 8.1
+:
+What resistor value in
+Figure 8.5 is needed if the desired LED operating point is 1.7V and 11
+mA?
+If the LED current is above 8 mA,
+we cannot
+connect it
+directly to the microcontroller because the high currents may damage
+the chip.
+Figure 8.5 shows two possible interface circuits we could use. In both
+circuits
+if the software makes its output high the LED will be on. If the
+software makes
+its output low the LED will be off (shown in Figure 8.5 with
+italics
+).
+When the software writes a logic 1 to the output port, the input to the
+7405/PN2222 becomes high, output from the 7405/PN2222 becomes low, 10
+mA
+travels through the LED, and the LED is on. When the software writes a
+logic 0
+to the output port, the input to the 7405/PN2222 becomes low, output
+from the
+7405/PN2222 floats (neither high nor low), no current travels through
+the LED,
+and the LED is dark.
+The value
+of the
+resistor is
+selected to establish the proper LED current. When active, the LED
+voltage will
+be about 2 V, and the power delivered to the LED will be controlled by
+its
+current. If the desired brightness requires an operating point of 1.9 V
+at 10
+mA, then the resistor value should be
+where
+V
+d
+,
+I
+d
+is the desired LED operating point, and
+V
+OL
+is the
+output low
+voltage of the LED driver. If we use a standard resistor value of 100
+Ω
+in place of the 90
+Ω
+,
+then the current will be (3.3-1.9-0.5V)/100
+Ω
+, which is about 9 mA. This slightly
+lower
+current is
+usually acceptable.
+Figure
+8.6. Low
+current LED interface (Agilent HLMP-D150).
+When the LED current is less than 8
+mA, we can
+interface
+it directly to an output pin without using a driver. The LED shown in
+Figure 8.6a has an operating point of 1.7 V and 1 mA.
+For
+the positive logic interface (Figure 8.6b) we calculate the resistor
+value
+based on the desired LED voltage and current
+where
+V
+OH
+is
+the output high voltage of the
+microcontroller
+output
+pin. Since
+V
+OH
+can vary from
+2.4 to 3.3 V, it makes
+sense to
+choose a resistor from a measured value of
+V
+OH
+,
+rather than
+the minimum value of 2.4 V. Negative logic means the LED is activated
+when the
+software outputs a zero. For the negative logic
+interface (Figure 8.6c) we
+use a similar
+equation to determine the
+resistor value
+where
+V
+OL
+is
+the output low voltage of the microcontroller output pin.
+If we use a 1.2 kΩ in place of the
+1.3 kΩ,
+then the current will be (3.3-1.6-0.4V)/1.2kΩ, which is about 1.08 mA.
+This slightly higher current is usually acceptable. If we use a
+standard
+resistor value of 1.5 kΩ in place of the 1.3 kΩ, then the current
+will be (3.3-1.6-0.4V)/1.5kΩ, which is about 0.87 mA. This slightly
+lower
+current is usually acceptable.
+The software in Program 8.2 is called a driver, and it
+includes an initialization, which is called once, and two functions
+that can be called to turn on and off the LED. Writing software this
+way is called an abstraction, because it separates what the LED does
+(Init, On, Off) from how it works (PortA, TM4C123).
+Checkpoint 8.2
+:
+What resistor value in of Figure
+8.6 is needed if the desired LED operating point is 1.7V and 2 mA? Use
+the
+negative logic interface and, V
+OL
+of 0.4V.
+void LED_Init(void){ volatile
+unsigned long
+delay;
+SYSCTL_RCGCGPIO_R |=
+0x01;          
+// 1)
+activate clock for Port A
+delay =
+SYSCTL_RCGCGPIO_R;          
+// allow time for clock to start
+// 2) no need to unlock PA2
+GPIO_PORTA_PCTL_R &= ~0x00000F00; // 3) regular GPIO
+GPIO_PORTA_AMSEL_R &=
+~0x04;     
+// 4) disable analog function on PA2
+GPIO_PORTA_DIR_R |=
+0x04;        
+// 5) set
+direction to output
+GPIO_PORTA_AFSEL_R &=
+~0x04;     
+// 6) regular port function
+GPIO_PORTA_DEN_R |=
+0x04;        
+// 7) enable
+digital port
+}
+// Make PA2 high
+void LED_On(void){
+GPIO_PORTA_DATA_R |= 0x04;
+}
+// Make PA2 low
+void LED_Off(void){
+GPIO_PORTA_DATA_R &= ~0x04;
+}
+Program
+8.2.
+Software interface
+for an LED on PF2
+Figure
+8.7.
+Construction of the interface of an LED to a microcomputer output
+(Figure 8.6b). The yellow-purple-brown resistor is 470ohm. It doesn't
+matter what color the wires are, but
+in this figure the wires are black, red and green. The two black wires
+are ground, the red wire is +3.3V, and the green wire is the signal
+Out
+, which connects
+PA2 of the
+microcontroller to the positive side of the LED.
+8.4. Design Example
+Some problems are so unique that
+they require
+the engineer
+to invent completely original solutions. Most of the time, however, the
+engineer can solve even complex problems by building the system from
+components
+that already exist. Creativity will still be required in selecting the
+proper
+components, making small changes in their behavior (tweaking),
+arranging them
+in an effective and efficient manner, and then verifying the system
+satisfies
+both the requirements and constraints. When young engineers begin their
+first
+job, they are sometimes surprised to see that education does not stop
+with
+college graduation, but rather is a life-long activity. In fact, it is
+the
+educational goal of all engineers to continue to learn both processes
+(rules
+about how to solve problems) and products (hardware and software
+components).
+As the engineer becomes more experienced, he or she has a larger
+toolbox from
+which processes and components can be selected.
+The hardest step for most new
+engineers is the
+first one:
+where to begin
+?
+We begin by
+analyzing the problem to create a set of
+specifications
+and constraints in the form of a requirements document. Next, we look
+for
+components, in the form of previously debugged solutions, which are
+similar to
+our needs. Often during the design process, additional questions or
+concerns
+arise. We at that point consult with our clients to clarify the
+problem. Next
+we rewrite the requirements document and get it reapproved by the
+clients.
+It is often difficult to
+distinguish whether a
+parameter
+is a specification or a constraint. In actuality, when designing a
+system it
+often doesn’t matter into which category a parameter falls,
+because the system
+must satisfy all specifications and constraints. Nevertheless, when
+documenting
+the device it is better to categorize parameters properly.
+Specifications
+generally define in a quantitative manner the overall system objectives
+as
+given to us by our customers.
+Constraints
+,
+on the other hand, generally define
+the
+boundary space within which we must search for a solution to the
+problem. If we
+must use a particular component, it is often considered a constraint.
+In this
+class, we constrain most designs to include a Tiva LaunchPad.
+Constraints
+also are often defined as an inequality, such as the cost must be less
+than
+$50, or the battery must last for at least one week. Specifications on
+the
+other hand are often defined as a quantitative number, and the system
+satisfies
+the requirement if the system operates within a specified tolerance of
+that
+parameter. Tolerance can be defined as a percentage error or as a range
+with minimum
+and maximum values.
+In engineering everything is either
+a system or
+an
+interface between systems. For example a switch can be considered a
+system.
+When we interface it to the LaunchPad the switch-LaunchPad combination
+is a new
+system. Therefore, we begin by collecting the components required to
+build the
+system. We then combine the components and debug the system. As the
+components are
+combined we create new more powerful components. When writing software,
+we can
+use flowcharts to develop new algorithms. The more we can simulate the
+system,
+the more design possibilities we can evaluate, and the quicker we can
+make
+changes. Debugging involves both making sure it works, together with
+satisfying
+all requirements and constraints.
+8.4.1 Requirements
+First, lets develop a requirements document. The main purpose of a requirements 
+document is to serve as an agreement between you and your clients describing what 
+the system will do. This agreement can become a legally binding contract. Write the 
+document so that it is easy to read and understand by others. 
+It should be
+unambiguous
+,
+complete
+,
+verifiable
+, and
+modifiable
+.
+The requirements document should not include how the system will be designed. 
+This allows the engineer to make choices during the design to minimize cost and 
+maximize performance. Rather it should describe the problem being solved and what 
+the system actually does. It can include some constraints placed on the development process. 
+Ideally, it is co-written by both the engineers and the non-technical clients. 
+However, it is imperative that both the engineers and the clients understand and 
+agree on the specifics in the document.
+Video
+8.5
+.
+Requirments Document
+Requirements document for the security system
+Overview
+Objectives
+: Design a security system
+with two sensors and one alarm. Contact switches will be used for the
+sensors. If the window is secure the switch will be pressed, and if the
+window is open, the switch will be released. The alarm condition will
+be a flashing LED. The system can be activated/deactivated with a
+toggle switch.
+Process
+: We will first prototype it on a
+breadboard using a LaunchPad, two momentary switches, a toggle switch,
+and an LED. Hardware and software designs will be developed and tested.
+Once the prototype is tested, the momentary switches can be replaced
+with switches that fit into the windows and doors, and the flashing LED
+can be replaced with an audio alarm. The number of sensors will need to
+be increased to allow one sensor to be placed in each window and door
+of the house.
+Roles and Responsibilities
+: Dr. Yerraballi will develop the hardware and Dr. Valvano will develop the software, both will test.
+Interactions with Existing Systems
+: We will
+use a LaunchPad. It will be powered through the USB cable either with
+AC outlet or stand-alone battery. The components of the prototype will
+be selected, if possible, from the parts in the lab kit.
+Terminology
+: A momentary switch has a
+spring, such that if no force is applied the contact will be open.
+Applying force continuously will close the contact on the momentary
+switch. A toggle switch can be placed in either the open or closed
+state, and force is required to change from open to closed or from
+closed to open. See Figure 8.8.
+Security
+: The wires between the sensors and
+the microcontroller will need to be hidden. However, cutting the wires
+should constitute a breach, setting off the alarm.
+Function Description
+Functionality
+: There are two
+contact switches that measure the status of your home. Each contact
+switch is positioned in the frame of a window or a door. If the switch
+is closed or pressed the window is secure, but if either switch is open
+it means the window is open and the home is unsecure.
+Scope
+: The scope of this design will
+involve hardware/software prototype design, but will not include legal,
+marketing, or financial aspects.
+Prototypes
+: We will use a breadboard and LaunchPad.
+Performance
+: If either sensor shows the
+window is insecure and the system is activated the alarm should occur.
+The performance is defined as functionally correct. There is no
+particular specification for the minimum response time between the
+arrival of an insecure state and the alarm signal.
+Usability
+: There is also a toggle switch
+with which the user can use to activate or deactivate the alarm. If the
+alarm is activated, the LED will flash at 5 Hz if either switch is not
+pressed.
+Safety
+: No concerns
+Deliverables
+Reports
+: Videos will be recorded and converted to a design chapter in the MOOC Embedded Systems – Shape the World.
+Audits
+: None
+Outcomes
+: We will create a prototype system
+8.4.2 Components
+Before we get into the actual design of the
+Security system, lets take stock of the componenents we will use in
+building the protoype.
+Video
+8.6
+.
+Data Flow Graph
+8.4.3 Hardware Design
+A
+data flow graph
+is a block diagram of the system, showing the flow of information.
+Arrows point from source to destination. Notice that a data flow graph
+looks like a block diagram of the system. In fact we draw a data flow
+graph by showing how the components are connected together. By
+visualizing the flow of data we are able to identify the components of
+the system and the nature of the data they work with.
+Figure
+8.8
+. Data Flow Graph for Security System
+Video
+8.7
+.
+Data Flow Graph
+The data-flow diagram gives us a blueprint for both the hardware circuit 
+we are going to build and the software we are going to write. Lets first build the circuit:
+Figure
+8.9
+. Hardware circuit
+Video
+8.8
+.
+Building the circuit
+8.4.4 Software Design
+Programs themselves are written in a linear or one-dimensional fashion. 
+In other words, we type one line of software after another in a sequential fashion. 
+Writing programs this way is a natural process, because the computer itself usually 
+executes the program in a top-to-bottom sequential fashion. This 
+one-dimensional format is fine for simple programs, but conditional 
+branching and function calls may create complex behaviors that are not easily 
+observed in a linear fashion. Even the simple systems have multiple software tasks. 
+Furthermore, a complex application will require multiple microcontrollers. 
+Therefore, we need a multi-dimensional way to visualize software behavior. 
+Flowcharts are one way to describe software in a two-dimensional format, 
+specifically providing convenient mechanisms to visualize multi-tasking, 
+branching, and function calls. Flowcharts are very useful in the initial 
+design stage of a software system to define complex algorithms. 
+As an added benefit, flowcharts can be used in the final documentation stage of a 
+project in order to assist in its use or modification.
+Figure
+8.10
+. Flowchart for the Software
+Video
+8.9
+.
+Flowchart design
+The code that implements the flowchart design
+described above is given below. This solution uses a friendly approach
+to accessing Port E. Which implies that we could use the other pins in
+Port E without changing this code.
+unsigned long arm,sensor;
+void delayms(unsigned long ms);
+void EnableInterrupts(void);
+int main(void){ unsigned long volatile delay;
+TExaS_Init();  // activate multimeter, 80 MHz
+SYSCTL_RCGCGPIO_R |= 0x10;           // Port E clock
+delay = SYSCTL_RCGCGPIO_R;           // wait 3-5 bus cycles
+GPIO_PORTE_DIR_R |= 0x10;         // PE4 output
+GPIO_PORTE_DIR_R &= ~0x07;        // PE2,1,0 input
+GPIO_PORTE_AFSEL_R &= ~0x17;      // not alternative
+GPIO_PORTE_AMSEL_R &= ~0x17;      // no analog
+GPIO_PORTE_PCTL_R &= ~0x000F0FFF; // bits for PE4,PE2,PE1,PE0
+GPIO_PORTE_DEN_R |= 0x17;         // enable PE4,PE2,PE1,PE0
+EnableInterrupts();
+while(1){
+arm = GPIO_PORTE_DATA_R&0x04;    // arm 0 if deactivated, 1 if activated
+sensor = GPIO_PORTE_DATA_R&0x03; // 1 means ok, 0 means break in
+if((arm==0x04)&&(sensor != 0x03)){
+GPIO_PORTE_DATA_R ^= 0x10;   // toggle output for alarm
+delayms(100);  // 100ms delay makes a 5Hz period
+}else{
+GPIO_PORTE_DATA_R &= ~0x10;   // LED off if deactivated
+}
+}
+}
+Program 8.3. Software system that flashes the LED if it is armed and if there is an intruder.
+8.4.5 Testing
+As a general practice embedded systems developers start with first testing their solutions in a 
+simulated environment (if possible) before running it on the real board with real bardware. 
+Note that, just because your testing proves successful in simulation it does not mean it will 
+succeed on the real board. However, failure to run in simulation almost always guarantees 
+that it will fail on the real board.
+Video
+8.10
+. Testing in Simulation
+Video
+8.11
+.
+Testing the Prototype
+8.4.6 Conclusion
+We have successfully designed, built and tested
+a Security system. As a last step, we'll look back at the requirements
+and see if we met the timing specifications. In particular, we will
+check to see if our calculations used for sizing the resistors in the
+switch and LED interfaces match actual observations.
+Video
+8.12
+.
+Conclusion
+Reprinted
+with approval from
+Embedded Systems: Introduction to ARM Cortex-M Microcontrollers
+, 2014,
+ISBN:
+978-1477508992,
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+Embedded
+Systems - Shape the World
+by
+Jonathan
+Valvano
+and Ramesh Yerraballi
+is licensed under a
+Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

@@ -1,0 +1,181 @@
+Define Components – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Define Components
+After defining the interfaces between components, the next step is to define the components themselves. This involves the following major steps:
+Define the major function of each component. This is the primary purpose or role of the component in the product, such as providing support, transmitting power, or controlling motion.
+Determine if your company will make or buy the component. This depends on factors such as availability, quality, cost, and lead time of existing components in the market, as well as your company’s core competencies and strategic goals.
+If buying, source the component based on its properties and cost. You should consider the technical specifications, performance, reliability, and compatibility of the component with your product and other components. You should also compare the prices and delivery times of different suppliers.
+If making parts in-house, perform engineering analysis to design the component. You should use the interfaces with other components to help define the shape of the part that can achieve its major function. You should also perform stress and other failure analysis to determine the optimal geometry, material, and manufacturing method for the component. You should consider the trade-offs between performance, durability, weight, and cost of the component.
+The Make/Buy Decision
+One of the key challenges in this stage is choosing between custom-made and commercial off-the-shelf (COTS) components. Custom components can offer more flexibility, functionality, and differentiation, but they also entail higher costs, risks, and lead times. Off-the-shelf components can reduce complexity, expenses, and time to market, but they may limit the product’s performance, features, and uniqueness.
+Mechanical springs are a great example. Spring manufacturers can provide custom springs for nearly any application. They also produce a very large catalog of standard springs. Consider what factors justify the time needed to design, test, and validate a custom spring versus choosing a standard spring that is close, but not exactly the performance level desired.
+To make an informed decision, product designers should follow some best practices:
+Define the product’s value proposition and target market. What are the main benefits and problems that the product solves for the customers? Who are the ideal customers and what are their needs, preferences, and expectations? How does the product compare to the existing alternatives and competitors? If your main proposition is that the current products on the market cannot achieve a level of performance, this is an indication that a more unique approach is needed and may justify pursing custom part manufacturing.
+Identify the critical components and functions of the product. What are the essential parts and features that enable the product to deliver its value proposition? What are the technical specifications and quality standards that these components and functions must meet? How do they interact with each other and with the external environment?
+Evaluate the feasibility and availability of custom and standard components. What are the technical, financial, and operational requirements and constraints for developing or sourcing custom or standard components? How easy or difficult is it to find, test, integrate, and maintain them? How reliable and scalable are they? How do they affect the product’s cost structure and profitability?
+Assess the trade-offs and risks of custom and standard components. What are the advantages and disadvantages of each option in terms of performance, functionality, differentiation, cost, time, risk, and customer satisfaction? How do they align with the product’s value proposition and target market? What are the potential pitfalls and challenges that could arise from choosing one option over the other?
+Make a data-driven decision based on multiple criteria and scenarios. Use a decision matrix or a similar tool to compare and rank custom and standard components based on multiple factors and weights. Consider different scenarios and assumptions that could affect the outcome of the decision. Seek feedback from stakeholders, experts, and customers to validate and refine the decision.
+Many products use a combination of both custom and off the shelf components. In the following chapters, we will discuss the approach to specifying common mechanical components (off the shelf or minimal customization). Unfortunately, for designing novel custom parts, the guidelines are less clear. Instead, designers use best practices like “universal design” principles and best practices for “design for manufacturing and assembly”.
+Previous/next navigation
+Previous: Connections and Interfaces
+Next: Iterate and Refine
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

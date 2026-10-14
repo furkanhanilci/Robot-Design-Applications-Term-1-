@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MCUboot | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="MCUboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/" />
+<meta property="og:url" content="https://docs.mcuboot.com/" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MCUboot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Secure boot for 32-bit Microcontrollers!","headline":"MCUboot","name":"mcuboot","url":"https://docs.mcuboot.com/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">MCUboot</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="mcuboot">MCUboot</h1>
+
+<p>MCUboot is a secure bootloader for 32-bits microcontrollers.  This document is
+for release v2.4.0.</p>
+
+<p>Please see <a href="/contributing.md">Contributing</a> on how you can contribute to MCUboot.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>MCUboot defines a common infrastructure for the bootloader and the system flash
+layout on microcontroller systems, and provides a secure bootloader that
+enables easy software upgrade.</p>
+
+<p>MCUboot is not dependent on any specific operating system and hardware and
+relies on hardware porting layers from the operating system it works with.
+Currently MCUboot works with the following operating systems and SoCs:</p>
+<ul>
+  <li><a href="https://www.zephyrproject.org/">Zephyr</a></li>
+  <li><a href="https://mynewt.apache.org/">Apache Mynewt</a></li>
+  <li><a href="https://nuttx.apache.org/">Apache NuttX</a></li>
+  <li><a href="https://www.riot-os.org/">RIOT</a></li>
+  <li><a href="https://os.mbed.com/">Mbed OS</a></li>
+  <li><a href="https://www.espressif.com/">Espressif</a></li>
+  <li><a href="https://www.cypress.com/">Cypress/Infineon</a></li>
+</ul>
+
+<p>RIOT is supported only as a boot target. We will accept any new port
+contributed by the community once it is good enough.</p>
+
+<p>MCUboot is an open governance project. See the <a href="https://github.com/mcu-tools/mcuboot/wiki/Members">membership
+list</a> for current
+members, and the
+<a href="https://github.com/mcu-tools/mcuboot/wiki/MCUboot-Project-Charter">project charter</a>
+for more details.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>The MCUboot documentation is composed of the following pages:</p>
+
+<ul>
+  <li>General - this document</li>
+  <li><a href="/release-notes.html">Release notes</a></li>
+  <li><a href="/design.html">Bootloader design</a></li>
+  <li><a href="/encrypted_images.html">Encrypted images</a></li>
+  <li><a href="/imgtool.html">imgtool</a> - image signing and key management</li>
+  <li><a href="/ecdsa.html">ECDSA</a> - information about ECDSA signature formats</li>
+  <li><a href="/custom_crypto.html">Custom crypto backend</a> - plugging in a custom crypto library</li>
+  <li><a href="/serial_recovery.html">Serial Recovery</a> - MCUmgr as the serial recovery protocol</li>
+  <li>Usage instructions:
+    <ul>
+      <li><a href="/readme-zephyr.html">Zephyr</a></li>
+      <li><a href="/readme-mynewt.html">Apache Mynewt</a></li>
+      <li><a href="/readme-nuttx.html">Apache NuttX</a></li>
+      <li><a href="/readme-riot.html">RIOT</a></li>
+      <li><a href="/readme-mbed.html">Mbed OS</a></li>
+      <li><a href="/readme-espressif.html">Espressif</a></li>
+      <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/cypress/README.md">Cypress/Infineon</a></li>
+      <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/sim/README.rst">Simulator</a></li>
+    </ul>
+  </li>
+  <li>Testing
+    <ul>
+      <li><a href="/testplan-zephyr.html">Zephyr</a> - Zephyr test plan</li>
+      <li><a href="/testplan-mynewt.html">Apache Mynewt</a> - Apache Mynewt test plan</li>
+    </ul>
+  </li>
+  <li><a href="/release.html">Release process</a></li>
+  <li><a href="/SECURITY.html">Project security policy</a></li>
+  <li><a href="/SubmittingPatches.html">Patch submission</a> - information
+on how to contribute to MCUboot</li>
+</ul>
+
+<p>The documentation page about <a href="/signed_images.html">signed images</a> is currently
+outdated. Follow the instructions in <a href="/imgtool.html">imgtool</a> instead.</p>
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>The issues being planned and worked on are tracked using GitHub issues. To
+give your input, visit <a href="https://github.com/mcu-tools/mcuboot/issues">MCUboot GitHub
+Issues</a>.</p>
+
+<h2 id="source-files">Source files</h2>
+
+<p>You can find additional documentation on the bootloader in the source files.
+For more information, use the following links:</p>
+<ul>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/bootutil">boot/bootutil</a> - The core of the bootloader itself.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/boot_serial">boot/boot_serial</a> - Support for serial upgrade within the bootloader itself.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/zephyr">boot/zephyr</a> - Port of the bootloader to Zephyr.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/mynewt">boot/mynewt</a> - Bootloader application for Apache Mynewt.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/nuttx">boot/nuttx</a> - Bootloader application and port of MCUboot interfaces for Apache NuttX.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/mbed">boot/mbed</a> - Port of the bootloader to Mbed OS.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/espressif">boot/espressif</a> - Bootloader application and MCUboot port for Espressif SoCs.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/boot/cypress">boot/cypress</a> - Bootloader application and MCUboot port for Cypress/Infineon SoCs.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/scripts/imgtool.py">imgtool</a> - A tool to securely sign firmware images for booting by MCUboot.</li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/tree/main/sim">sim</a> - A bootloader simulator for testing and regression.</li>
+</ul>
+
+<h2 id="joining-the-project">Joining the project</h2>
+
+<p>Developers are welcome!</p>
+
+<p>Use the following links to join or see more about the project:</p>
+
+<ul>
+  <li><a href="https://groups.io/g/MCUBoot">Our developer mailing list</a></li>
+  <li><a href="https://discord.com/channels/1106321706588577904/1106322802308550716">Our Discord channel</a> <br />
+Get <a href="https://discord.com/invite/5PpXhvda5p">your invite</a></li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/wiki/Members">Current members</a></li>
+  <li><a href="https://github.com/mcu-tools/mcuboot/wiki/MCUboot-Project-Charter">Project charter</a></li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

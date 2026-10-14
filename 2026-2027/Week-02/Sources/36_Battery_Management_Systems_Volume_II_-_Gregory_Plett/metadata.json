@@ -1,0 +1,26 @@
+{
+  "id": 36,
+  "name": "Battery Management Systems Volume II - Gregory Plett",
+  "type": "Ticari teknik kitap",
+  "url": "https://us.artechhouse.com/Battery-Management-Systems-Volume-II-Equivalent-Circuit-Methods-P1775.aspx",
+  "folder": "36_Battery_Management_Systems_Volume_II_-_Gregory_Plett",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://us.artechhouse.com/Battery-Management-Systems-Volume-II-Equivalent-Circuit-Methods-P1775.aspx",
+      "final_url": "https://us.artechhouse.com/Battery-Management-Systems-Volume-II-Equivalent-Circuit-Methods-P1775.aspx",
+      "kind": "html",
+      "bytes": 40777,
+      "sha256": "9d62601208656e05d83de0efc0d73a74474a4bb9dae2cc0d3ec4edb13878d713"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:54+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

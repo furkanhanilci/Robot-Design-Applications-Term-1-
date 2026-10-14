@@ -1,0 +1,197 @@
+A Case Study – A Ball Point Pen – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+A Case Study – A Ball Point Pen
+Products are designed and made because of their functions. To design a product is to conceive of the use of the product and to find a suitable geometrical and physio-chemical form for the product and its parts, so that the intended function, or functions, can be fulfilled. Seen this way, the kernel of designing a product is reasoning from function to form and use. In order to understand the nature of product design one must understand the nature of that reasoning process. Therefore, by means of an example, we shall take a look at the relationships between the function, the properties, the form and the use of products.
+The following motivating example is from the
+Delft Design Guide
+.
+A ballpoint pen.
+Form
+A ballpoint pen can be seen as an assembly of different parts. Each part is defined by its form. By the form of a part, we mean the geometrical form (geometry or shape including size) as well as the physio-chemical form (the material).
+Properties
+Due to their form, the parts have particular properties. Some of these properties depend on the physicochemical form only. These are called the
+intensive properties
+. Examples are the hardness of the writing ball, the density of the body and the viscosity of the ink. Other properties, the thing properties, are a result of the intensive properties plus the geometrical form. For example, the weight of the body of the pen depends on the density and its volume. Rigidity of the body parts and ink flow smoothness are other examples. These properties are called t
+he extensive properties.
+Designers are particularly focused on the extensive properties, as they most directly determine the functioning of a product. By choosing for a material, a designer sets many intensive properties all at once so to say, both good and less desirable ones (steel is stiff, but it is heavy and rusts; aluminum is light and does not corrode but is less stiff). The art of designing is to give the product such a geometrical form that it has the desired extensive properties, given the intensive ones.
+Function:
+Due to its properties a product can perform functions. In our example: the function of a ballpoint pen is ‘writing’. A function is the intended ability of a product to change something in the environment (including ourselves) of that product. Some process should run differently than it would without the product, e.g. a coffee mill changes beans into ground coffee, a chair prevents one from becoming tired, and a poster provides information (decreases uncertainty). Properties and functions have in common that they both say something about the behavior of things; they differ in that products have particular properties irrespective of the purposes of people. So, statements on properties are objectively true (or false). This is not so for functions. Functions express what a product is for, its purpose, and this depends on intentions, preference, objectives, goals and the like, of human beings. So different persons might see different things as the function of a product.
+Needs and Values
+By fulfilling functions products may satisfy needs and realize values. For instance, ‘writing’ may provide for a need to express oneself and thereby realize aesthetical or economical values. In figure of a ballpoint pen, developing a product proceeds from right to left. The more to the right one starts the more open-ended the design process will be (ballpoints are by far not the only things that can help realizing aesthetical values). But often designers start from an initial idea about function(s) for a new product and for the remainder of this section we shall assume that this is the case.
+The kernel of the design problem
+Now one can think up all sorts of functions and try to design a product for them, but will that product really behave as intended? Of course, the functioning of a product depends on its properties and hence on its geometrical and physio-chemical form. But there is more to it. For instance, a ballpoint will write only if being used as anticipated by its designers: one must hold the pen in a certain way, one can write only on a more or less horizontal surface (on vertical surfaces ballpoints do not work) and the air pressure in the environment should neither be too low nor to high (in space capsules, normal ballpoints do not work). So not only the form but also the mode and conditions of use determine how a product will actually function. Said differently:
+the context
+of use counts as much as the product itself and therefore designers should equally pay attention to both of them. In many cases, especially for innovative products, the mode and conditions of use are not given facts for the designer but are thought up – together with the form of the product – and hence form an essential part of the design. So, designing a product involves more than designing the material thing; it also includes the design of its use. The Figure above shows how the functioning of a product depends on its form and its use. The arrows indicate causal relations. This means that if you know the geometrical and physio-chemical form of a product (i.e. the design of the ballpoint) you can in principle predict its properties. And if you also know in which environment and how the product will be used you can predict whether it will work or not. This kind of reasoning is often called
+analysis
+. For designers, analysis is an important form of reasoning, because it is the basis for all sorts of simulation. But for designers the essential mode of reasoning is to reason from function to form. Before something can be analyzed, designers should first think up the form and its use as a possibility, and this in such a way that, if users act in accordance with the usage instructions, the intended function is realized. This is the kernel of the design activity. Reasoning from function to form is usually called
+synthesis
+. The descriptions represented in whatever manner of the form and the use of the product make up the design. Now there is an important difference between these two modes of reasoning. The reasoning from form and use to functioning – ‘analysis’ – is based on deduction. Deduction is a conclusive form of reasoning, because in principle there is only one answer: the product has or has not the required properties and will or will not function as intended. But we cannot infer conclusively the geometrical and physio-chemical form from the function, even if we would know everything about the laws of nature that govern the required behavior of the product. And in principle there are always different possibilities.
+Here lies the challenge for designers, for in designing the most decisive step is not to predict the properties of a product already thought up, but the preceding step of conceiving of the form and use of that product. In a rather poignant contrast to this stands the fact that for the transition from form and use to function much scientific knowledge and methods are available, while the transition of function to form depends largely on the creative abilities and insight of the designer. This does not mean that scientific and technical knowledge does not play a part. Causal models indicate the direction in which main choices can be made (choice of material, choice of shapes, choice of one or more key dimensions). Yet these models never lead to an unambiguous answer. The number of possible solutions to a design problem is in principle even innumerable. The foregoing explains why in product design intuition and creativity have an indispensable role to play. Notwithstanding the importance of scientific knowledge, systematic approaches and modern possibilities for simulation, without intuition and creativity design processes would come to a standstill. A design cannot be deducted from a description of a problem, nor from a function or a performance specification. A design must be created in the true sense of the word. Knowledge only is not sufficient to design a product. Producing new ideas for products requires intuition and creativity, not only in the domain of product design but also in all design domains.
+A Multidisciplinary Approach
+In the preceding analysis much has been left out in order to highlight the kernel of designing. In reality product designers have to deal with a variety of interests and stakeholders in the design process. Therefore, in addition to the function(s) many other factors must be considered when designing a product. Consumers look upon a product as something to be bought and used. To the design engineer it is a technical-physical system that has to function efficiently and reliably. Production engineers have to manufacture it, often in large numbers, preferably fast, cheaply, accurately and with the lowest possible number of faults. A marketer considers it a commodity with added value, something that people are prepared to buy. Entrepreneurs invest in new products and count on an attractive return. People that are not directly involved may see above all the reverse side of the coin: the undesirable and often even harmful side effects of production and use. To every point of view, there are corresponding requirements that must be taken into account. Product design, therefore, demands a multidisciplinary approach. Which disciplines have to contribute largely depends on the characteristics of the product to be developed, but engineering design, industrial design, ergonomics, marketing and innovation management are nearly always involved.
+Reference
+Daalhuizen, Jaap. 2018. Delft Design Approach, Delft University of Technology.
+Roozenburg, N. and Eekels, J. (1995) Product Design: Fundamentals and Methods, Chichester: Wiley, 1995, pp. 53-81
+Previous/next navigation
+Previous: Design Process Overview
+Next: Why Integrate Design and Manufacturing?
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

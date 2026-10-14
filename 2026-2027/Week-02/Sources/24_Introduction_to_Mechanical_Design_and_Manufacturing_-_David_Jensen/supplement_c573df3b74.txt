@@ -1,0 +1,175 @@
+Machines and the Control of Work – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Machines and the Control of Work
+Franz Reuleaux (1829-1905) was a German mechanical engineer and kinematician. He is considered to be one of the founders of modern kinematics, the study of the motion of mechanisms. Reuleaux made significant contributions to the design and analysis of machines, including the development of new theories and methods for kinematic synthesis. He also wrote extensively on kinematics and machine design, and his books are still considered to be classics in the field. Much of the terms for machines come from Reuleaux work. Reuleaux define a machine as a “combination of resistant bodies so arranged that by their means the mechanical forces of nature can be compelled to do work accompanied by certain determinate motions.”
+Franz Reuleaux.
+Source
+Intro to Machine/ Mechanism Design
+Machine design is the process of creating systems that can convert energy into useful work. Engineers design both simple and complex machines for various purposes. A simple machine is a device that changes the direction or magnitude of a force, such as a ramp or a lever. A complex machine is a device that uses movement to perform work, such as a car or a robot. In this chapter, we will explore some principles and methods of machine design, using examples from different fields of engineering.
+One of the main tasks of machine design is to synthesize a machine that can perform a specific function under certain constraints. Synthesis means finding the best possible form and arrangement of the machine elements, such as linkages, gears, springs, etc., to achieve the desired output. For example, if we want to design a machine that can lift a heavy load, we need to consider what type of mechanism can provide enough force and displacement, and how to connect the components to form a stable structure.
+Another important task of machine design is to analyze the behavior and performance of the machine under various conditions. Analysis means finding the optimal way to control the machine, such as input power and speed, to achieve the required functionality without violating any other constraints, such as safety, reliability, efficiency, etc. For example, if we want to design a machine that can move parts in a manufacturing process from one area to another, we need to consider how to regulate the motion and speed of the machine, and how to avoid collisions and failures.
+To illustrate the process of machine design, let us consider a motivating example: We need to design a machine that can move parts in a manufacturing process from one area to another. The first step is to identify the functions and constraints of the problem. For instance, we may need to specify the size and weight of the parts, the distance and direction of the movement, the time and accuracy required, the available space and resources, etc. The second step is to generate multiple possible solutions that can satisfy the functions and constraints. For instance, we may consider different types of mechanisms, such as linkages, gears, belts, chains, etc., that can provide the necessary movement and force. The third step is to evaluate and compare the solutions based on some criteria, such as cost, feasibility, simplicity, etc., and select the best one. The fourth step is to refine and optimize the solution by applying the techniques of synthesis and analysis. For instance, we may need to determine the optimal dimensions and shapes of the machine elements, and the optimal parameters and settings of the control system.
+The final outcome of machine design is a detailed specification of a machine that can perform the desired work in an efficient and reliable manner. Machine design is an iterative and creative process that requires both theoretical knowledge and practical skills. In this chapter, we will introduce some fundamental concepts and methods of machine design that can help engineers solve various engineering problems.
+Previous/next navigation
+Previous: Assemblies for Motion and Power Delivery
+Next: Linkages and Mechanisms
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

@@ -1,0 +1,31 @@
+Ch. 19 - State Estimation
+Underactuated Robotics
+Algorithms for Walking, Running, Swimming, Flying, and Manipulation
+Russ Tedrake
+© Russ Tedrake, 2024
+Last modified
+.
+How to cite these notes, use annotations, and give feedback.
+Note:
+These are working notes used for
+a course being taught
+at MIT
+. They will be updated throughout the Spring 2024 semester.
+Lecture videos are available on YouTube
+.
+Previous Chapter
+Table of contents
+Next Chapter
+State Estimation
+Observers and the Kalman Filter
+Recursive Bayesian Filters
+Unscented Kalman, Particle Filters.  Largely defer to other texts, like probabilistic robotics.
+DART?  Other point-cloud-based algorithms?
+Smoothing
+ISAM, ...
+Previous Chapter
+Table of contents
+Next Chapter
+Accessibility
+© Russ
+      Tedrake, 2024

@@ -1,0 +1,158 @@
+Syllabus | Electric Machines | Electrical Engineering and Computer Science | MIT OpenCourseWare
+Browse Course Material
+Syllabus
+Calendar
+Instructor Insights
+Course Notes
+Assignments
+Exams
+Course Info
+Instructor
+Prof. James L. Kirtley Jr.
+Departments
+Electrical Engineering and Computer Science
+As Taught In
+Fall
+            
+              2013
+Level
+Graduate
+Topics
+Energy
+Electricity
+Technology
+Engineering
+Electrical Engineering
+Electronics
+Learning Resource Types
+grading
+Exam Solutions
+grading
+Exams
+co_present
+Instructor Insights
+notes
+Lecture Notes
+assignment_turned_in
+Problem Set Solutions
+assignment
+Problem Sets
+Download Course
+menu
+search
+Give Now
+About OCW
+Help & Faqs
+Contact Us
+search
+GIVE NOW
+about ocw
+help & faqs
+contact us
+6.685 | Fall 2013 | Graduate
+Electric Machines
+Menu
+More Info
+Syllabus
+Calendar
+Instructor Insights
+Course Notes
+Assignments
+Exams
+Syllabus
+Course Meeting Times
+Lectures: 2 sessions / week, 1.5 hours / session
+Course Overview
+This course is about electromechanics and uses electric machinery as examples. It teaches, at the level of MIT graduate students, an understanding of principles and analysis of electromechanical systems. At the end of the subject the students will have the capability of doing electromechanical design of the major classes of rotating and linear electric machines, and will have an understanding of the principles of the energy conversion parts of mechatronics. The approach taken is “relentlessly classical” in the sense that it attempts to develop an understanding of the phenomena that are important. Use of numerical methods is made only as a last resort when other methods will not do, as emphasis is placed on understanding phenomena and interactions. In addition to design, students will also learn how to estimate the dynamic parameters of electric machines and understand what the implications of those parameters are on performance of systems incorporating those machines.
+Examples taken from current research include some set of:
+Doubly-fed induction motors such as the machines that are used for wind turbine generators. Since we are attempting to use such machines in our research into microgrids and in ship propulsion, we will spend a little effort at trying to figure out how to control them.
+Improvements in induction motors, such as might be used in traction drives.
+If time permits, we might consider some other types of wacky, non-conventional motors for prosaic uses such as “white goods.”
+Topics covered include:
+Treatment of transformers, electromechanical transducers, rotating and linear electric machines
+Lumped parameter electromechanics of interaction
+Consideration of the basic machine types: DC, induction, synchronous
+Development of device characteristics: energy conversion density, efficiency
+Development of system interaction characteristics, regulation, stability, controllability, and response
+Prerequisites
+6.061/6.690 Introduction to Electric Power Systems
+; or permission of the instructor
+Teaching Philosophy
+The subject audience is graduate students at MIT. We assume that the students are smart and self-motivated, require little hand-holding and know when to seek help. The three hours of lecture per week move relatively fast. Heavy emphasis is placed on the assignments, with a mix of problems from textbooks and others suggested by current research. There are also two quizzes and a three-hour final exam.
+Completing the problem sets is the most important way of learning the material. The problem sets will require some heavy lifting and you may want to have a program to help out.
+MATLAB®
+is recommended, and is used in the solution sets.
+Freemat
+, a public domain program, is another possibility, as are
+Maple™
+,
+PTC Mathcad®
+, etc.
+Textbook
+Course Notes
+have been provided as the primary reference. There are also additional texts that might be of interest and used for future reference:
+Fitzgerald, A. E., Charles Kingsley, Jr., and Stephen D. Umans.
+Electric Machinery
+. 6th ed. McGraw-Hill, 2007. ISBN: 9780071230100.
+This book is useful for background, has some good explanations and pictures of machines. It is, however not very analytical. You probably will not need it, but you might want to own it if you anticipate working in the field.
+Kirtley Jr., James L.
+Electric Power Principles: Sources, Conversion, Distribution and Use
+. Wiley, 2010. ISBN: 9780470686362. [Preview with
+Google Books
+]
+This is the textbook for
+6.061/6.690 Introduction to Electric Power Systems
+. It covers three-wire power and has a relatively gentle introduction to electric machines.
+Beaty, H. Wayne, and James L. Kirtley, Jr.
+Electric Motor Handbook
+. McGraw-Hill, 1998. ISBN: 9780070359710.
+Not really a handbook but not yet a textbook, this shows some of the analytical techniques we will be using. It is a bit more finished than the course notes but does not go beyond them.
+Course Info
+Instructor
+Prof. James L. Kirtley Jr.
+Departments
+Electrical Engineering and Computer Science
+As Taught In
+Fall
+            
+              2013
+Level
+Graduate
+Topics
+Energy
+Electricity
+Technology
+Engineering
+Electrical Engineering
+Electronics
+Learning Resource Types
+grading
+Exam Solutions
+grading
+Exams
+co_present
+Instructor Insights
+notes
+Lecture Notes
+assignment_turned_in
+Problem Set Solutions
+assignment
+Problem Sets
+Download Course
+Over 2,500 courses & materials
+Freely sharing knowledge with learners and educators around the world.
+Learn more
+© 2001–2026 Massachusetts Institute of Technology
+Accessibility
+Creative Commons License
+Terms and Conditions
+Proud member of:
+© 2001–2026 Massachusetts Institute of Technology
+You are leaving MIT OpenCourseWare
+close
+Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+Stay Here
+Continue

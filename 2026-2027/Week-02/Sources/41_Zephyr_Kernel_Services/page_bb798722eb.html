@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operation without Threads &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/threads/nothread.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Interrupts" href="../interrupts.html" />
+    <link rel="prev" title="Workqueue Threads" href="workqueue.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html">Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html">Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html#cpu-idling">CPU Idling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="system_threads.html">System Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workqueue.html">Workqueue Threads</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Operation without Threads</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#what-can-be-expected-to-work">What Can be Expected to Work</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#what-cannot-be-expected-to-work">What Cannot be Expected to Work</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#subsystem-behavior-without-thread-support">Subsystem Behavior Without Thread Support</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#flash">Flash</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#gpio">GPIO</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#uart">UART</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../interrupts.html">Interrupts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../polling.html">Polling API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/semaphores.html">Semaphores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/mutexes.html">Mutexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/condvar.html">Condition Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/events.html">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../synchronization/spinlocks.html">Spinlocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../smp/smp.html">Symmetric Multiprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Operation without Threads</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/threads/nothread.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fthreads%2Fnothread%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fthreads%2Fnothread%0A-+Version%3A+main%0A-+SHA-1%3A+1c7ce910a82010f035c86b3f4e450ddb2003a671&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="operation-without-threads">
+<span id="nothread"></span><h1>Operation without Threads<a class="headerlink" href="#operation-without-threads" title="Link to this heading"></a></h1>
+<p>Thread support is not necessary in some applications:</p>
+<ul class="simple">
+<li><p>Bootloaders</p></li>
+<li><p>Simple event-driven applications</p></li>
+<li><p>Examples intended to demonstrate core functionality</p></li>
+</ul>
+<p>Thread support can be disabled by setting
+<a class="reference internal" href="../../../kconfig.html#CONFIG_MULTITHREADING" title="CONFIG_MULTITHREADING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MULTITHREADING</span></code></a> to <code class="docutils literal notranslate"><span class="pre">n</span></code>.  Since this configuration has
+a significant impact on Zephyr’s functionality and testing of it has
+been limited, there are conditions on what can be expected to work in
+this configuration.</p>
+<section id="what-can-be-expected-to-work">
+<h2>What Can be Expected to Work<a class="headerlink" href="#what-can-be-expected-to-work" title="Link to this heading"></a></h2>
+<p>These core capabilities shall function correctly when
+<a class="reference internal" href="../../../kconfig.html#CONFIG_MULTITHREADING" title="CONFIG_MULTITHREADING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MULTITHREADING</span></code></a> is disabled:</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="../../../develop/application/index.html#application"><span class="std std-ref">build system</span></a></p></li>
+<li><p>The ability to boot the application to <code class="docutils literal notranslate"><span class="pre">main()</span></code></p></li>
+<li><p><a class="reference internal" href="../interrupts.html#interrupts-v2"><span class="std std-ref">Interrupt management</span></a></p></li>
+<li><p>The system clock including <a class="reference internal" href="../../../doxygen/html/group__clock__apis.html#gae3e992cd3257c23d5b26d765fcbb2b69" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_uptime_get()</span></code></a></p></li>
+<li><p>Timers, i.e. <code class="xref c c-func docutils literal notranslate"><span class="pre">k_timer()</span></code></p></li>
+<li><p>Non-sleeping delays e.g. <a class="reference internal" href="../../../doxygen/html/group__thread__apis.html#ga550b642e071480323e589866abb99c22" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_busy_wait()</span></code></a>.</p></li>
+<li><p>Sleeping <a class="reference internal" href="../../../doxygen/html/group__cpu__idle__apis.html#ga7b25e1bed511a813b32fbd0f91b09356" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_cpu_idle()</span></code></a>.</p></li>
+<li><p>Pre <code class="docutils literal notranslate"><span class="pre">main()</span></code> drivers and subsystems initialization e.g. <a class="reference internal" href="../../../doxygen/html/group__sys__init.html#gaf507cc0613add8113c41896bd631254f" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">SYS_INIT</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="../index.html#kernel-memory-management-api"><span class="std std-ref">Memory Management</span></a></p></li>
+<li><p>Specifically identified drivers in certain subsystems, listed below.</p></li>
+</ul>
+<p>The expectations above affect selection of other features; for example
+<a class="reference internal" href="../../../kconfig.html#CONFIG_SYS_CLOCK_EXISTS" title="CONFIG_SYS_CLOCK_EXISTS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_SYS_CLOCK_EXISTS</span></code></a> cannot be set to <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+</section>
+<section id="what-cannot-be-expected-to-work">
+<h2>What Cannot be Expected to Work<a class="headerlink" href="#what-cannot-be-expected-to-work" title="Link to this heading"></a></h2>
+<p>Functionality that will not work when <a class="reference internal" href="../../../kconfig.html#CONFIG_MULTITHREADING" title="CONFIG_MULTITHREADING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MULTITHREADING</span></code></a>
+is disabled includes majority of the kernel API:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="index.html#threads-v2"><span class="std std-ref">Threads</span></a></p></li>
+<li><p><a class="reference internal" href="../scheduling/index.html#scheduling-v2"><span class="std std-ref">Scheduling</span></a></p></li>
+<li><p><a class="reference internal" href="workqueue.html#workqueues-v2"><span class="std std-ref">Workqueue Threads</span></a></p></li>
+<li><p><a class="reference internal" href="../polling.html#polling-v2"><span class="std std-ref">Polling API</span></a></p></li>
+<li><p><a class="reference internal" href="../synchronization/semaphores.html#semaphores-v2"><span class="std std-ref">Semaphores</span></a></p></li>
+<li><p><a class="reference internal" href="../synchronization/mutexes.html#mutexes-v2"><span class="std std-ref">Mutexes</span></a></p></li>
+<li><p><a class="reference internal" href="../synchronization/condvar.html#condvar"><span class="std std-ref">Condition Variables</span></a></p></li>
+<li><p><a class="reference internal" href="../index.html#kernel-data-passing-api"><span class="std std-ref">Data Passing</span></a></p></li>
+</ul>
+</section>
+<section id="subsystem-behavior-without-thread-support">
+<h2>Subsystem Behavior Without Thread Support<a class="headerlink" href="#subsystem-behavior-without-thread-support" title="Link to this heading"></a></h2>
+<p>The sections below list driver and functional subsystems that are
+expected to work to some degree when <a class="reference internal" href="../../../kconfig.html#CONFIG_MULTITHREADING" title="CONFIG_MULTITHREADING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_MULTITHREADING</span></code></a> is
+disabled.  Subsystems that are not listed here should not be expected to
+work.</p>
+<p>Some existing drivers within the listed subsystems do not work when
+threading is disabled, but are within scope based on their subsystem, or
+may be sufficiently isolated that supporting them on a particular
+platform is low-impact.  Enhancements to add support to existing
+capabilities that were not originally implemented to work with threads
+disabled will be considered.</p>
+<section id="flash">
+<h3>Flash<a class="headerlink" href="#flash" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="../../../hardware/peripherals/flash.html#flash-api"><span class="std std-ref">Flash</span></a> is expected to work for all SoC flash peripheral
+drivers.  Bus-accessed devices like serial memories may not be
+supported.</p>
+<p><em>List/table of supported drivers to go here</em></p>
+</section>
+<section id="gpio">
+<h3>GPIO<a class="headerlink" href="#gpio" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="../../../hardware/peripherals/gpio.html#gpio-api"><span class="std std-ref">General-Purpose Input/Output (GPIO)</span></a> is expected to work for all SoC GPIO peripheral
+drivers.  Bus-accessed devices like GPIO extenders may not be supported.</p>
+<p><em>List/table of supported drivers to go here</em></p>
+</section>
+<section id="uart">
+<h3>UART<a class="headerlink" href="#uart" title="Link to this heading"></a></h3>
+<p>A subset of the <a class="reference internal" href="../../../hardware/peripherals/uart.html#uart-api"><span class="std std-ref">Universal Asynchronous Receiver-Transmitter (UART)</span></a> is expected to work for all SoC UART
+peripheral drivers.</p>
+<ul class="simple">
+<li><p>Applications that select <a class="reference internal" href="../../../kconfig.html#CONFIG_UART_INTERRUPT_DRIVEN" title="CONFIG_UART_INTERRUPT_DRIVEN"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_UART_INTERRUPT_DRIVEN</span></code></a> may
+work, depending on driver implementation.</p></li>
+<li><p>Applications that select <a class="reference internal" href="../../../kconfig.html#CONFIG_UART_ASYNC_API" title="CONFIG_UART_ASYNC_API"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_UART_ASYNC_API</span></code></a> may
+work, depending on driver implementation.</p></li>
+<li><p>Applications that do not select either <a class="reference internal" href="../../../kconfig.html#CONFIG_UART_ASYNC_API" title="CONFIG_UART_ASYNC_API"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_UART_ASYNC_API</span></code></a>
+or <a class="reference internal" href="../../../kconfig.html#CONFIG_UART_INTERRUPT_DRIVEN" title="CONFIG_UART_INTERRUPT_DRIVEN"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_UART_INTERRUPT_DRIVEN</span></code></a> are expected to work.</p></li>
+</ul>
+<p><em>List/table of supported drivers to go here, including which API options
+are supported</em></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Jan 06, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

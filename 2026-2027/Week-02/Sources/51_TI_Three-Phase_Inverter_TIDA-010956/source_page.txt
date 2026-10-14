@@ -1,0 +1,224 @@
+TIDA-010956 reference design | TI.com
+Home
+Design & development
+Reference designs
+TIDA-010956
+48V, 85A small form-factor three-phase inverter reference design for integrated motor drives
+Design files
+TIDA-010956
+Design files
+Overview
+This reference design demonstrates a 48V DC input, 85A
+RMS
+output, three-phase motor drive inverter. The 100V intelligent half-bridge gate driver DRV8162L enables a small size, robust, and high-efficiency power stage. Multichannel shutdown paths are proposed, utilizing the split power supply architecture of DRV8162L, for the Safe Torque Off (STO) function. Internal V
+DS
+monitor and protection features of the DRV8162L protect against overcurrent failures. Precision motor current sensing is achieved in phases A and B using INA241A, and in phase C using the AMC0106M05 functional isolated delta-sigma modulator. A 3.3V I/O interface to connect a host controller, like a C2000™ MCU, is provided for quick and easy evaluation.
+Features
+Three-phase inverter with 24V to 60V DC input and 85A
+RMS
+continuous output current
+Smart half-bridge gate driver DRV8162L with on-chip hardware protection
+Fully protected against: shoot-through, overcurrent, short circuit, under voltage, overtemperature
+Programmable gate driver source, sink currents from 16mA, 32mA to 1A, 2A eases optimization of efficiency and EMI performance
+Configurable dead-time insertion to avoid shoot through
+In-phase shunt-based current sensing with INA241A high-common mode rejection, zero-drift current-sense amplifier and AMC0106M05 function isolated modulator
+Multichannel shutdown paths to enable flexible design of STO function
+Industrial
+48-V servo drive
+DC-fed servo power stage
+Humanoid robot joint motor control
+Humanoid robot joint motor control
+Humanoid robot joint motor control
+Mobile robot motor control
+Mobile robot motor control
+Multi-axis servo drive
+Download
+View video with transcript
+Video
+Design files & products
+Design files
+Download ready-to-use system files to speed your design process.
+download
+Design guide — TIDA-010956
+PDF
+|
+HTML
+TIDUF82B.PDF (2763 KB)
+Reference design overview and verified performance test data
+download
+Assembly drawing — TIDA-010956
+TIDMD39A.PDF (560 KB)
+Detailed overview of design layout for component placement
+download
+Bill of materials (BOM) — TIDA-010956
+TIDMD41A.PDF (164 KB)
+Complete listing of design components, reference designators, and manufacturers/part numbers
+download
+CAD/CAE symbol — TIDA-010956
+TIDMD40A.ZIP (6889 KB)
+Files used for 3D models or 2D drawings of IC components
+download
+Gerber file — TIDA-010956
+TIDCGQ2A.ZIP (1062 KB)
+Design file that contains information on physical board layer of design PCB
+download
+PCB layout — TIDA-010956
+TIDMD38A.PDF (4670 KB)
+PCB layer plot file used for generating PCB design layout
+download
+Schematic — TIDA-010956
+TIDMD37A.PDF (849 KB)
+Detailed schematic diagram for design layout and components
+Products
+Includes TI products in the design and potential alternatives.
+Analog current-sense amplifiers
+INA241A
+—
+-5-V to 110-V bidirectional ultraprecise current sense amplifier with enhanced PWM rejection
+Data sheet:
+PDF
+|
+HTML
+BLDC drivers
+DRV8162
+—
+105V max single half-bridge smart gate driver with STO functionality
+Data sheet:
+PDF
+|
+HTML
+DC/DC converters
+LMR38010
+—
+SIMPLE SWITCHER® 80-V, 1.0-A, 2.2-MHz step-down converter with 40-µA IQ
+Data sheet:
+PDF
+|
+HTML
+Isolated ADCs
+AMC0106M05
+—
+±50mV input functionally isolated delta-sigma modulator for current sensing
+Data sheet:
+PDF
+|
+HTML
+Isolated ADCs
+AMC0106M25
+—
+±250mV input functionally isolated delta-sigma modulator for current sensing
+Data sheet:
+PDF
+|
+HTML
+Opto-emulators
+ISOM8710
+—
+DC input, logic output, single-channel high-speed opto-emulator
+Data sheet:
+PDF
+|
+HTML
+Power modules (integrated inductor)
+TPSM861253
+—
+3V to 17V input voltage, 3.3V, 1A output synchronous buck module in QFN package
+Data sheet:
+PDF
+|
+HTML
+Thermistors
+TMP61
+—
+1%, 10-kΩ linear thermistor in 0402, 0603/0805 and through hole packages
+Data sheet:
+PDF
+|
+HTML
+Start development
+Hardware development
+Development kit
+LAUNCHXL-F280039C
+— TMS320F280039C LaunchPad™ development kit for C2000™ real-time MCU
+This reference design demonstrates a 48V DC input, 85A
+RMS
+output, three-phase motor drive inverter. The 100V intelligent half-bridge gate driver DRV8162L enables a small size, robust, and high-efficiency power stage. Multichannel shutdown paths are proposed, utilizing the split power supply (...)
+Supported products & hardware
+Supported products & hardware
+Hardware development
+Reference design
+TIDA-010956
+—
+48V, 85A small form-factor three-phase inverter reference design for integrated motor drives
+TIDM-02006
+—
+Distributed multi-axis servo drive over fast serial interface (FSI) reference design
+TIDM-02011
+—
+Live firmware update reference design with  C2000™ real-time MCUs
+In stock
+Limit:
+Log in to order
+lock
+Log in to view inventory
+Out of stock on TI.com
+Not available on TI.com
+LAUNCHXL-F280039C
+—
+TMS320F280039C LaunchPad™ development kit for C2000™ real-time MCU
+close
+Latest version
+Version: null
+Release date:
+open-in-new
+View all versions
+Hardware development
+Reference design
+TIDA-010956
+—
+48V, 85A small form-factor three-phase inverter reference design for integrated motor drives
+TIDM-02006
+—
+Distributed multi-axis servo drive over fast serial interface (FSI) reference design
+TIDM-02011
+—
+Live firmware update reference design with  C2000™ real-time MCUs
+TI’s Standard Terms and Conditions for Evaluation Items apply.
+Technical documentation
+star
+=
+Top documentation selected by TI
+No results found. Please clear your search and try again.
+View all 1
+Top documentation
+Type
+Title
+Format options
+Date
+*
+Design guide
+48V, 85A Small Form-Factor Three-Phase Inverter Reference Design for Integrated Motor Drives (Rev. B)
+PDF
+|
+HTML
+May 28, 2025
+Related design resources
+Software development
+SOFTWARE DEVELOPMENT KIT (SDK)
+C2000WARE-MOTORCONTROL-SDK
+—
+MotorControl software development kit (SDK) for C2000™ MCUs
+Support & training
+TI E2E™ forums with technical support from TI engineers
+View all forum topics
+Content is provided "as is" by TI and community contributors and does not constitute TI specifications. See
+terms of use
+.
+If you have questions about quality, packaging or ordering TI products, see
+TI support
+.
+Video series
+View all videos
+Videos
+Disclaimer
+See the important notice and disclaimer covering reference designs and other TI resources.

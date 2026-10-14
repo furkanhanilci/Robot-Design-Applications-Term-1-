@@ -1,0 +1,224 @@
+Mechanical Springs – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Mechanical Springs
+As Many Different Types of Springs as any Designer Could Want!
+Mechanical springs are devices that store and release energy by undergoing elastic deformation when subjected to external forces. They are widely used in machines and mechanisms for various purposes, such as cushioning, damping, controlling, supporting, lifting, or protecting. Depending on the direction and magnitude of the force and deflection, springs can be classified into four main types: compressive springs, tensile springs, radial springs, and torque springs.
+Spring Type – Based on Force or Displacement Direction
+Compressive springs are designed to resist axial compressive forces and shorten when loaded. They are commonly used in shock absorbers, valves, switches, and clutches.
+Tensile springs are designed to resist axial tensile forces and elongate when loaded. They are commonly used in door handles, locks, scales, and toys.
+Radial springs are designed to resist radial forces and expand or contract radially when loaded. They are commonly used in seals, bearings, and brakes.
+Torque springs are designed to resist rotational or twisting forces and produce angular displacement when loaded. They are commonly used in clocks, watches, hinges, and wind-up toys.
+Spring Types by Shape
+Springs can also be classified based on their shape and geometry.
+Helical extensions spring with mass.
+Helical springs are the most common type of springs and consist of a wire coiled into a helix shape. They can be further divided into compression springs, extension springs, drawbar springs, and torsion springs based on their function. Compression springs are helical springs that resist compressive forces and have a gap between the coils when unloaded. Extension springs are helical springs that resist tensile forces and have hooks or loops at the ends to attach to other components.
+Drawbar springs are a special type of extension springs that have a rigid rod running through the center of the coils and limit the maximum extension. These can help ensure safety by limiting over extension. For
+example
+.
+Torsion springs are helical springs that resist twisting forces and have two arms or legs at the ends to apply torque.
+Leaf springs are flat strips of metal stacked together and clamped at the center. They are used to support heavy loads and absorb shocks in vehicles.
+Belleville springs are conical washers that can be stacked together to create different load-deflection characteristics. They are used to maintain a constant force or preload in bolts, valves, clutches, etc .
+Torsion springs resists torques and generates angular displacement.
+Leaf springs are often used in automotive applications to support the wheel axles.
+A Belleville washer or spring adds force to a bolt to help keep the nut from loosening.
+Spring Selection from a Supplier
+When designing a spring for a specific application, it is essential to select the appropriate spring parameters that match the design requirements and constraints. These parameters include the material, wire diameter, spring index, spring rate, free length, number of coils, maximum force or deflection.
+The material affects the strength and durability of the spring, as well as its resistance to corrosion and fatigue.
+Commons spring material.
+The wire diameter determines the cross-sectional area of the spring wire, which influences the stiffness and weight of the spring.
+The spring index is the ratio of the mean coil diameter to the wire diameter. It affects the stability and manufacturability of the spring.
+The spring rate is the stiffness of the spring, which determines how much force is needed to deform the spring by a certain amount.
+The free length is the length of the spring when it is not under any load. It affects the initial position and preload of the spring.
+The number of coils is the number of turns in the spring coil. It affects the length and weight of the spring.
+The maximum force or deflection is the limit of the load or displacement that the spring can withstand without permanent deformation or failure.
+Springs can be purchased from a supplier either as standard parts from a catalog or as special ordered parts for unique applications. Standard springs are mass-produced springs that have standard dimensions and specifications. They are usually cheaper and readily available than custom-made springs. However, they may not meet all the design requirements or fit well in some situations. Special ordered springs are custom-made springs that have specific dimensions and specifications according to the customer’s request. They are usually more expensive and take longer to produce than standard springs. However, they can offer better performance and compatibility for some applications.
+Questions:
+What are the parameters that you would need to know to find a set of suitable springs?
+What is the relationship between the material you select and force limits for springs made of that material?
+Many
+spring manufacturer produce catalogs of products that also include helpful information on how to select the right spring for your application.
+Look at the catalog here:
+Compression Spring Stock Catalog – Over 40,000 Springs in Stock
+Process for Spring Selection
+The process for selecting a spring depends first on the type of force and motion. Selecting between compression, tensile or torque springs depends on the desired force and deflection direction. Then a designer needs to find the spring or springs that will satisfy the constraints of their design situation. Hopefully this results in multiple possible solutions and the designer selects the best cost for performance spring. However, sometimes a custom spring needs to be ordered to meet very tight design constraints.
+Let’s looks at specifying a helical compression spring as an example. To find a compression spring from a catalog based on the maximum force (or deflection) and largest coil size allowable (housing size):
+Determine the maximum force that the spring will be subjected to in your application. This is the load that the spring must support without exceeding its elastic limit or buckling. The maximum deflection and maximum load should not be the absolute maximum of the spring. Rather, you will also need to include a small allowance to ensure that under extreme or unexpected situations the spring does not go solid (all coils in contact).
+Determine the largest coil size that can fit in your design space. This is the outer diameter of the spring plus the clearance needed for installation and operation.
+Look for springs in the catalog that have a load rating equal to or greater than the maximum force and an outer diameter equal to or smaller than the largest coil size.
+Compare the other specifications of the springs, such as free length, solid length, spring rate, material, finish, etc., and choose the one that best suits your needs and preferences.
+For example, suppose you need a compression spring that can support a maximum force of 100 N and fit in a space with a diameter of 20 mm. You can look for springs in the catalog that have a load rating of 100 N or more and an outer diameter of 20 mm or less. You may find several options, such as:
+A spring with a load rating of 105 N, an outer diameter of 18 mm, a free length of 50 mm, a solid length of 25 mm, a spring rate of 7 N/mm, made of stainless steel and coated with zinc.
+A spring with a load rating of 110 N, an outer diameter of 19 mm, a free length of 40 mm, a solid length of 20 mm, a spring rate of 9 N/mm, made of carbon steel and painted black.
+A spring with a load rating of 120 N, an outer diameter of 20 mm, a free length of 60 mm, a solid length of 30 mm, a spring rate of 6 N/mm, made of alloy steel and plated with nickel.
+Depending on your application requirements and preferences, you can choose one of these springs or look for other alternatives in the catalog.
+Some of the other choices include the coatings on the exterior or treatments that help increase the fatigue life of the spring and how the ends are shaped to ensure consistent contact and force distribution between surfaces. For example, compression springs with ground and flat ends have two parallel planes at the consequence of losing some of the spring capacity. Additionally, there can be some limits on the material choice based on application that need corrosion resistance or other properties.
+Wrapping Up Spring Selection:
+What are spring coatings and treatments and what do they do? –
+Read On
+How does the application context influence spring material choice? –
+Read On
+Can you differentiate between: coil diameter and mean diameter? How about length, coils, and end treatments? –
+Read On
+Previous/next navigation
+Previous: Bearings
+Next: Motors and Controllers
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

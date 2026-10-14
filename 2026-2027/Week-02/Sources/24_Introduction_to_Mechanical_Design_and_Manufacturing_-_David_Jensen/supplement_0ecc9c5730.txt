@@ -1,0 +1,205 @@
+Engineering Requirements – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Engineering Requirements
+Requirements versus Specifications
+Design specifications and engineering requirements are two types of documents that describe the desired features and characteristics of a product or system. However, they differ in their level of detail, scope and purpose.
+Design specifications are usually broader and more general than engineering requirements. They address the “how” of the design, such as the materials, dimensions, functions and performance of the product or system. Design specifications may also include some non-technical aspects, such as aesthetics, ergonomics and usability. Design specifications are often used as a basis for developing engineering requirements.
+Engineering requirements
+are more specific and precise than design specifications. They address the “what” of the design, such as the minimum and maximum values, tolerances, constraints and criteria that the product or system must meet. Engineering requirements are often derived from design specifications, customer needs, standards and regulations. Engineering requirements are usually written in a formal and standardized language, such as natural language with mathematical expressions or a modeling language.
+The most important characteristic of an engineering requirement is that they must be
+testable
+(or falsifiable). If a requirement cannot objectively be determined to be satisfied or not, it is not properly written. The main task of the verification is developing and testing prototypes to understand if they satisfy requirements. In other words, engineering requirements are means by which we know if we have designed what we set out to design.
+A properly formatted engineering requirement should have the following elements:
+A unique identifier, such as a number or a code. These are often hierarchical to indicate what aspect of the product the requirement relates.
+A subject, such as the name of the product or system component
+A predicate, such as a verb or an adjective that describes the desired state or behavior of the subject
+An object, such as a value, a unit, a condition or a reference that quantifies or qualifies the predicate
+A rationale, such as a reason or a justification for why the requirement is needed
+A verification method, such as a test, an analysis or an inspection that can be used to check if the requirement is met
+For example, a properly formatted engineering requirement for a chair could be:
+REQ-001: The chair shall support a static load of 150 kg without permanent deformation. Rationale: To ensure safety and durability of the chair. Verification: Load test.
+An improperly formatted engineering requirement for the chair could be:
+The chair should be comfortable and sturdy.
+This requirement is vague, subjective and unverifiable. It does not specify what constitutes comfort and sturdiness, how to measure them or what values are acceptable.
+It is very common that a stakeholder need or design specification becomes multiple engineering requirements due to the need for the requirement to be clear, concise and specifically testable.
+Example – Mechanical Pencil Requirement
+Here is an example of an improperly worded engineering requirement for a mechanical pencil:
+The mechanical pencil should be comfortable to use and should write smoothly for at least 100 pages before needing a new lead.
+This requirement is improperly worded because:
+It uses the word “should” instead of “shall”. “Should” is subjective and indicates that the requirement is not mandatory, while “shall” is objective and indicates that the requirement is mandatory.
+The phrase “comfortable to use” is vague and difficult to test. There is no objective way to measure comfort, so it is not possible to determine whether or not the pencil meets this requirement.
+The phrase “write smoothly” is also vague and difficult to test. There is no objective way to measure smoothness, so it is not possible to determine whether or not the pencil meets this requirement.
+The requirement specifies that the pencil must write for at least 100 pages before needing a new lead. However, this requirement does not specify what type of paper the pencil will be used on or what type of lead will be used. The performance of the pencil may vary depending on these factors, so it is not possible to guarantee that the pencil will meet this requirement in all cases.
+Here is an example of a properly worded engineering requirement for a mechanical pencil:
+REQ-001: The mechanical pencil shall have a grip diameter of 10 mm and shall be able to write at least 100 pages of single-spaced text on standard 8.5″ x 11″ paper using a 0.5 mm HB lead without skipping or jamming.
+This requirement is properly worded because:
+It uses the word “shall” to indicate that the requirement is mandatory.
+It is specific and precise, defining the grip diameter of the pencil, the type of paper that will be used, the type of lead that will be used, and the expected performance of the pencil.
+It is testable, as it is possible to measure the grip diameter of the pencil and to test the pencil’s performance on standard 8.5″ x 11″ paper using a 0.5 mm HB lead.
+Try it yourself:
+Write an intentionally poorly written requirement. Be sure to include words like “should” or “designed to”, vague untestable parameters and multiple dependencies.
+Consider the most humorous way the requirement could be satisfied without actually satisfying the underlying customer need. For example: A car can meet a poorly written requirement for minimum acceleration by being dropped from a crane.
+Rewrite your requirement to make it “fool proof”.
+Previous/next navigation
+Previous: Checklist for Generating Requirements
+Next: House of Quality Tool for Needs and Specification Managment
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+<head>   
+<title>ECE445M: EMBEDDED AND REAL-TIME OPERATING SYSTEMS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+body { font-family:arial, helvetica, sans-serif; font-size:small }
+h1 { font-size: x-large }
+h2 { font-size: medium }
+h4 { font-size: small }
+
+#menu {
+  width: 100%;
+  height: 20px;
+  text-align: center
+  background-color: #cccccc;
+}
+
+#menu ul {
+  padding: 0px;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap;
+  list-style-type: none;
+  text-decoration:none; 
+  font-weight:bold; 
+  font-size: small; 
+  color:#000000;
+  background-color: #cccccc;
+  line-height: 20px;
+
+  width: 100%;
+  display: inline;
+  float: left;
+}
+
+#menu ul li { 
+  display: block; 
+  float: left;
+  width: 100px;
+  border-right: 1px solid #666666;
+  background-color: #cccccc;
+}
+
+#menu ul li a {
+  display: block; 
+  float: left;
+  width: 100px;
+  text-decoration:none; 
+  color:#CC5500;
+  background-color: #cccccc;
+}
+
+#menu ul li a:hover {
+  background-color: #eeeeee;
+  text-decoration: underline;
+  color: #CC5500;
+}
+
+</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" vlink="#663399" link="#333399" alink="#990033">
+
+<p>
+<h1>Embedded and Real-Time Systems / Real-Time Operating Systems</h1>
+<h4>ECE445M, Unique: 18305, 18310, 18320, 18325<br>
+ <br>
+Semester: Spring 2026</h4>
+</p>
+
+<hr noshade>
+
+<div id="menu">
+<ul>
+<li><a href="index.html">Home</a>
+<li><a href="syllabus.html">Syllabus</a>
+<li><a href="lectures.html">Lectures</a>
+<li>Labs
+<li><a href="resources.html">Resources</a>
+<li><a target="blank" href="https://utexas.instructure.com/courses/1435536" target="_top">Canvas</a>
+</ul>
+</div>
+
+<hr noshade>
+
+<p>
+<h2>Laboratories</h2>
+
+<p>
+Lab policies: <a target="_blank"  href="https://docs.google.com/document/d/1S96KkVagpBtMMMsnujZguQQSIoXDu2xAyFkueMorAsw/edit?usp=sharing">ECE445M Laboratory Policies</a>, 
+including <a target="_blank"  href="https://docs.google.com/document/d/19BUinMDV9a-bTlEzqv3paTDlT6GZZ1alOCzvARIi7YI/edit?usp=sharing">Grading policy about coding style</a>
+
+<p>
+
+<p>
+<table border="1" cellpadding="4" cellspacing="0" style="font-size:small">
+<tbody><tr>
+<th bgcolor="#c0c0c0">Instructions</th>
+<th bgcolor="#c0c0c0">Report</th>
+<th bgcolor="#c0c0c0">Task</th>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1JLWdP4Xakkw-IgqEu-p1eBg4sqXseRzrAMv8-Au21ao/edit?usp=sharing">Lab 1</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1NLkweqI0l0wrL8mB13Drr3R4PORxR40G/edit?usp=sharing">Lab 1 report</a></td>
+<td>Real-time clock, Sitronix ST7735R Display, ADC and interpreter for the MSPM0G3507 board running on an ARM Cortex-M0 (review of ECE319K and ECE312)</td>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/190wpqOyhxHXKdAqkjaeUytWLLIJx_m0i5tlHe4ugjiU/edit?usp=sharing">Lab 2</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1KPyPVAPnf5v9IcWe99WFd4fGQwZv4qZZ/edit?usp=sharing">Lab 2 report</a></td><td>Real-time operating system kernel (thread switching and synchronization)
+    <ol style="margin:0px">
+    <li>Cooperative and preemptive schedule
+    <li>Periodic and switch interrupts, and spin-lock semaphores
+    </ol>
+</td>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1FjOTLwe5j44K58y2TLrhXIK2O-3GX7Oin9rWaA505nQ/edit?usp=sharing">Lab 3</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1kXkTn11bwon34E25cpaPWJf12fNiDWe7/edit?usp=sharing">Lab 3 report</a></td>
+<td>Blocking semaphores, priority scheduling, performance measures, dumping RTOS profile data to the PC</td>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1CLUXcQv1S_O6KCRv7VBNqM1GKi8Pu5eqpdh8y9a5_rY/edit?usp=sharing">Lab 4</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1mbsTHSL0aieqCyIwxf10Z2u_tIpBvTgU/edit?usp=sharing">Lab 4 report</a></td>
+<td>Solid state disk, SSI, address translation, layered software, file system</td>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1gq7JDeQUcN71n1qQt_fxHDDOF1pjmgjzrblQUIkfXNI/edit?usp=sharing">Lab 5</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/176-HP9i6ewNj18AGuHzmK3NCK7YjXCfo/edit?usp=sharing">Lab 5 report</a></td>
+<td>Memory management, process loader, process creation and linking</td>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1pyBFyqlVwCb2Q2yv0Kcdvt0qxp9Qp0UOJmjO8liC6AQ/edit?usp=sharing">Lab 6</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1guyFdR_7MYajIb9u1wwdPRGARnKvpF-t/edit?usp=sharing">Lab 6 report</a></td>
+<td>Robot interfaces, networking, distributed sensor data acquisition, motor PWM (teams of 3, 4 or 5)</td>
+</tr>
+
+<tr>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1XzzxcwNQyCQ987g06Ti8w595LRJEcbVPQ1o6s3QP20w/edit?usp=sharing">Lab 7</a></td>
+<td align="center"><a target="_blank" href="https://docs.google.com/document/d/1brGMKn2fFp6ohhHmcSRI__35ZqNEz4oB/edit?usp=sharing">Lab 7 report</a></td>
+<td>Formula 0001 Racing Robot (teams of 3, 4 or 5)
+    <ol style="margin:0px" type="A">
+      <li>Moving and turning, control algorithm
+      <li>Autonomous operation, system performance analysis (pre-qualification)
+      <li>Race competition (qualifying &amp; finals)
+    </ol>
+</td>
+</tr>
+
+</table>
+
+<br>&nbsp;
+
+</p>
+
+<hr noshade>
+
+<p>
+<h2>Lab Schedule</h2>
+
+<p>
+<table border="1" cellpadding="4" cellspacing="0" style="font-size:small">
+<tbody><tr>
+<th bgcolor="#c0c0c0">Week</th>
+<th bgcolor="#c0c0c0">First Session</th>
+<th bgcolor="#c0c0c0">Second Session</th>
+<th bgcolor="#c0c0c0">Friday 5pm</th>
+<th bgcolor="#c0c0c0">Comments</th>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">1/12</th>
+<td align="center">No activities</th>
+<td align="center">Meet the TA</td>
+<td align="center">&nbsp;</td>
+<td>Install CCS20.4, sensor board demonstration, and lab partner selection.</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">1/19</th>
+<td align="center">-</td>
+<td align="center">Lab 1 Prep</td>
+<td align="center">&nbsp;</td>
+<td>Finalize partners, get sensor board parts</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">1/26</th>
+<td align="center">Lab 1 Demo</td>
+<td align="center">Lab 2.1 Prep</td>
+<td align="center">Lab 1 Report</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">2/2</th>
+<td align="center">Lab 2.1 Demo</td>
+<td align="center">Lab 2.2 Prep</td>
+<td align="center"></td>
+<td>Lab 2.1 has no report</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">2/9</th>
+<td align="center">&nbsp;</td>
+<td align="center">Lab 2.2 Demo</td>
+<td align="center">Lab 2.2 Report</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">2/16</th>
+<td align="center">Lab 3 Prep</a></th>
+<td align="center"></td>
+<td align="center"></td>
+<td><b>Exam 1 is 2/19</b>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">2/23</th>
+<td align="center">Lab 3 Demo</td>
+<td align="center"></td>
+<td align="center">Lab 3 Report</td>
+<td>Hard deadline on Lab 3. If Lab 3 is not demonstrated, revert and complete rest with Lab 2 OS.</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">3/2</th>
+<td align="center">Lab 4 Prep</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td>Demonstrate robot</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">3/9</th>
+<td align="center">Lab 4 Demo</td>
+<td align="center">Lab 5 Prep</td>
+<td align="center">Lab 4 Report</td>
+<td>Form robot teams, get motor board parts</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">3/16</th>
+<td align="center" colspan=3><em>Spring Break</em></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">3/23</th>
+<td align="center">Lab 5 Demo</th>
+<td align="center">Lab 6 Prep</td>
+<td align="center">Lab 5 Report</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">3/30</th>
+<td align="center">Lab 6 Demo</th>
+<td align="center">Lab 7.A Prep</td>
+<td align="center">Lab 6 Report</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">4/6</th>
+<td align="center">&nbsp;</th>
+<td align="center">Lab 7.A Demo</td>
+<td align="center">&nbsp;</td>
+<td><b>Exam 2 is 4/9</b></td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">4/13</th>
+<td align="center">&nbsp;</th>
+<td align="center">Lab 7.B Demo</td>
+<td align="center">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">4/20</th>
+<td align="center">Lab 7.C Demo</th>
+<td align="center">Lab 7.C Demo</td>
+<td align="center">Lab 7.C Report</td>
+<td>Turn in all reports and equipment by 4/27</td>
+</tr>
+
+</table>
+
+<p>
+<b>Prep</b>: Turn in your lab preparation<br>
+<b>Demo</b>: Demonstrate your lab to the TA<br>
+<b>Report</b>: Turn in your complete lab report (online on Canvas) and
+               submit all your files (online Github repository)
+
+<br>&nbsp;
+
+</p>
+
+<hr noshade>
+
+<table width="100%" border="0" summary="Footer information">
+<tr>
+<td align="left"> <font
+ face="arial, geneva, helvetica, sans-serif" size="-2">Contents
+&copy; Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano </font> </td>
+      <td align="right"> <font
+ face="arial, geneva, helvetica, sans-serif" size="-2"> <em>http://www.ece.utexas.edu/~valvano/EE445M/
+&nbsp;&nbsp;</em></font><font
+ face="arial, geneva, helvetica, sans-serif" size="-2"><em></em></font><font
+ face="arial, geneva, helvetica, sans-serif" size="-2"><em>http://www.ece.utexas.edu/~gerstl/ee445m_s25</em>
+      </font></t
+</tr>
+</table>
+
+
+</body>
+</html>

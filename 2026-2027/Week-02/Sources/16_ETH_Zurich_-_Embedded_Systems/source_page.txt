@@ -1,0 +1,136 @@
+Embedded Systems – Center for Project-Based Learning D-ITET | ETH Zurich
+Homepage
+Navigation
+Search
+Content
+Footer
+Contact
+Sitemap
+Center for Project-Based Learning D-ITET
+Services
+Student portal
+Alumni association
+Staffnet
+Login
+Search
+Search
+EN
+Departments
+ETH Zurich
+D-ITET
+Language Selection
+English
+You are here
+Homepage
+Education
+Embedded Systems
+Embedded Systems
+Autumn Semester 2026
+Course Description
+Contents
+In this course, students will learn what an embedded system is, how they are designed and what their limits are. Students get familiar with theoretical aspects and paradigms of the design of embedded systems by using formal models and methods as well as computer-based synthesis methods.
+Besides the theoretical lecture, the course is complemented by practical exercise sessions where students learn to program and communicate with sensors using C, to base their design on the embedded operating system ThreadX, and to edit/debug via an integrated development environment.
+Learning Goals
+Gain an in-depth understanding of the unique requirements and challenges encountered in embedded system applications.
+Explore the intricacies of embedded system architectures and components, with a special focus on the processing unit. This includes studying hardware-software interfaces, memory architecture, and inter-component communication.
+Examine key concepts related to embedded operating systems, delve into real-time scheduling theory, learn effective shared resource management, and discover strategies for low-power and low-energy design.
+Master the art of hardware architecture synthesis to optimize embedded system designs for efficiency and performance.
+Apply formal models and methods effectively in the design of embedded systems, and gain practical hands-on experience using the C programming language.
+Familiarize yourself with the operation of the ThreadX operating system, a widely used commercial embedded system platform in the industry.
+Utilize a comprehensive design environment to implement embedded system solutions, bridging the gap between theory and practical applications.
+Open ETH-PBL Educational Platform for Project-based Learning
+The embedded systems exercise sessions add to the general understanding of the material covered in the lecture and allow the student to gain experience with the development environment and tools for modern embedded systems.
+Based on the ARM-based NUCLEO-L476RG development board, a custom learning platform has been designed to maximize the learning experience.
+Different sensors, such as microphones, an IMU, a temperature sensor, shift registers, as well as buttons, and a potentiometer are used to practice hardware-related programming. On top, two microbus ports allow the integration of further sensors, actuators or custom hardware.
+Left: The ARM-based NUCELO-L476RG development board which hosts the STM32L476RG microcontroller used in the exercises. Right: Custom designed learning platform with several sensors and actuators that can be stacked on top of the NUCELO-L476RG.
+Lecturer
+Prof. Dr.  Michele Magno
+Privatdozent/in at the Department of Information Technology and Electrical Engineering
+Location
+ETF F 109
+Phone
++41 44 632 66 86
+Zentr. f. projektbasiertes Lernen
+Sternwartstrasse 7
+8092 
+                Zürich
+Switzerland
+Show more
+Show less
+Course Coordinator
+Julian Moosmann
+Location
+ETZ K 78.3
+Zentr. f. projektbasiertes Lernen
+Gloriastrasse 35
+8092 
+                Zürich
+Switzerland
+Show more
+Show less
+Footer
+Search
+Keyword or person
+Follow us
+Services
+Student portal
+Alumni association
+Staffnet
+Login
+Contact
+Prof. Dr.  Michele Magno
+Privatdozent/in at the Department of Information Technology and Electrical Engineering
+Location
+ETF F 109
+Phone
++41 44 632 66 86
+Zentr. f. projektbasiertes Lernen
+Sternwartstrasse 7
+8092 
+                Zürich
+Switzerland
+Show more
+Show less
+Departments
+D-ARCH
+Architecture
+D-BAUG
+Civil, Environmental and Geomatic Engineering
+D-BIOL
+Biology
+D-BSSE
+Biosystems Science and Engineering
+D-CHAB
+Chemistry and Applied Biosciences
+D-EAPS
+Earth and Planetary Sciences
+D-GESS
+Humanities, Social and Political Sciences
+D-HEST
+Health Sciences and Technology
+D-INFK
+Computer Science
+D-ITET
+Information Technology and Electrical Engineering
+D-MATH
+Mathematics
+D-MATL
+Department of Materials
+D-MAVT
+Mechanical and Process Engineering
+D-MTEC
+Management, Technology and Economics
+D-PHYS
+Physics
+D-USYS
+Environmental Systems Science
+Table of contents and legal
+Sitemap
+Imprint
+Accessibility Statement
+Disclaimer & Copyright
+Privacy Policy
+© 2026
+Eidgenössische
+                    Technische Hochschule Zürich
+JavaScript has been disabled in your browser

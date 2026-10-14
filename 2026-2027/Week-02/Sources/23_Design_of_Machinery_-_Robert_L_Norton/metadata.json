@@ -1,0 +1,26 @@
+{
+  "id": 23,
+  "name": "Design of Machinery - Robert L Norton",
+  "type": "Ticari ders kitabı",
+  "url": "https://www.mheducation.com/highered/product/design-of-machinery-norton.html",
+  "folder": "23_Design_of_Machinery_-_Robert_L_Norton",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.mheducation.com/highered/product/design-of-machinery-norton.html",
+      "final_url": "https://www.mheducation.com/highered/product/design-of-machinery-norton.html",
+      "kind": "html",
+      "bytes": 367986,
+      "sha256": "046da5952faa96079b68c74434a6198ad477b4bfbf217735e12f57b6e924ca75"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:22+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

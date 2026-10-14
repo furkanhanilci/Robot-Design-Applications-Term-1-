@@ -1,0 +1,26 @@
+{
+  "id": 22,
+  "name": "Shigleys Mechanical Engineering Design - Budynas and Nisbett",
+  "type": "Ticari ders kitabı",
+  "url": "https://glencoe.mheducation.com/sites/0073398209/information_center_view0/table_of_contents.html",
+  "folder": "22_Shigleys_Mechanical_Engineering_Design_-_Budynas_and_Nisbett",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://glencoe.mheducation.com/sites/0073398209/information_center_view0/table_of_contents.html",
+      "final_url": "https://glencoe.mheducation.com/sites/0073398209/information_center_view0/table_of_contents.html",
+      "kind": "html",
+      "bytes": 10540,
+      "sha256": "7731be8ac8700d3a4eb2b7a2d2ff8c8a3005797f2ccade0725d1ed5e62b59431"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:21+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

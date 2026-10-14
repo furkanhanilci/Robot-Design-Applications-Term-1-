@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Embedded Systems</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Arvo:400,700|Source+Sans+Pro:400,400italic,600" rel="stylesheet" type="text/css" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery.dropotron-1.3.js"></script>
+		<script src="js/jquery.selectorr-0.1.js"></script>
+		<script src="js/jquery.poptrox-2.2.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-ui.min.js"></script>
+<!-- 		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script> -->
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript-4.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--GoogleAnalytics -->
+		<!--<script>-->
+<!--  		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+		
+  		<!--ga('create', 'UA-46249973-1', 'utexas.edu');-->
+		<!--ga('create', 'UA-46249973-2', 'edx-org-utaustinx.s3.amazonaws.com');-->
+  		<!--ga('send', 'pageview');-->
+
+		<!--</script>
+		<!--/Google Analytics -->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<!-- FaceBook Button -->
+    	<!-- <div id="fb-root"></div>
+    	<script>(function(d, s, id) {
+    	  var js, fjs = d.getElementsByTagName(s)[0];
+    	  if (d.getElementById(id)) return;
+    	  js = d.createElement(s); js.id = id;
+    	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    	  fjs.parentNode.insertBefore(js, fjs);
+    	}(document, 'script', 'facebook-jssdk'));</script> -->
+    	<!-- FaceBook Button -->
+		<!-- Google Tag Manager -->
+	<!-- 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PBRFNC"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PBRFNC');</script>
+		<!-- End Google Tag Manager -->
+
+		<div class="container">
+
+			<!-- Header Wrapper -->
+				<div id="header-wrapper" class="wrapper">
+							
+					<!-- Header -->
+						<div id="header">
+
+							<!-- Logo -->
+								<div id="logo">
+									<h1>Embedded Systems:  Introduction to ARM Cortex-M Microcontrollers</h1>
+						<!-- 			<div id="socialmedia">
+									<!-- Google+-->
+						<!-- 	            <div class="g-follow" data-href="https://plus.google.com/{118066825067796426836}" data-rel="{publisher}"></div>
+							            <!-- Place this tag where you want the widget to render. -->
+						<!-- 	            <div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/118066825067796426836" data-rel="publisher"></div>
+							            
+							            <!-- Place this tag after the last widget tag. -->
+						<!-- 	            <script type="text/javascript">
+							              (function() {
+							                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+							                po.src = 'https://apis.google.com/js/platform.js';
+							                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+							              })();
+							            </script>
+							          <!-- /Google+-->
+							          
+							          <!-- Twitter-->
+						<!-- 	          <a href="https://twitter.com/UTEmbeddedSys" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @UTEmbeddedSys</a>
+							          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+							          <!-- /Twitter-->
+							          
+							          <!-- Facebook-->
+						<!-- 	          <div class="fb-follow" data-href="http://facebook.com/profile.php?id=189482187906969" data-width="20" data-height="15" data-colorscheme="light" data-layout="button" data-show-faces="false"></div>
+							          <!-- /Facebook-->
+
+						<!-- 			</div> -->
+								</div>
+							<!-- /Logo -->
+							
+							<!-- Nav -->
+								<nav id="nav">
+									<ul>
+										<li class="current_page_item"><a href="outline1.htm">Home</a></li>
+										<li><a href="objectives.html">Objectives</a></li>
+										<li><a href="lectures.html">Lectures</a></li>
+										<li>
+											<span>Kit</span>
+											<ul>
+												<li><a href="kit.html">Kit overview</a></li>
+												<li><a href="worldwide.html">Buying instructions</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<span>Software</span>
+											<ul>
+												<li><a href="software.html">Software Overview</a></li>
+												<li><a href="download.html">Software Downloads</a></li>
+												<li><a href="macintosh.html">Macintosh</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+						<div class="row">
+							<article class="4u"><a href="http://www.amazon.com/Embedded-Systems-Introduction-Arm%EF%BF%BD-Cortex/dp/1477508996" target="_blank"><img src="portfolio/thumbs/BookCoverPreviewMay2014.jpg" alt=""></a><br>
+							<b>ISBN: 978-1477508992</b>, also on <a href="https://www.createspace.com/3884775" target="_blank">CreateSpace</a></article>
+						</div>
+						</div>
+					<!-- /Header -->
+
+				</div>
+			<!-- /Header Wrapper -->
+
+			<!-- Banner Wrapper -->
+				<div id="banner-wrapper" class="wrapper">
+	
+					<!-- Banner -->
+						<div id="banner">
+							<h2>This course is a hands-on lab, building real-world embedded solutions using a bottom-up approach from simple to complex. 
+								There are five components of the course: book, lab kit, videos, interactive learning modules, and lab software.</h2>
+							<p>The course is the first in a series of three courses that teach the fundamentals of <b>embedded systems</b> as applied to the ARM Cortex-M family of microcontrollers.
+							This first course is an introduction to computers and interfacing focusing on assembly language and C programming and 		 
+							could be delivered at the college level with little or no prerequisites. 
+							This is a hand-on, learn-by-doing course that shows students how to build solutions to real-world problems using embedded systems. 
+							Each student will purchase a Texas Instruments TM4C123 microcontroller kit and a few electronic components. 
+							This microcontroller has a state of the art ARM Cortex M4 processor. 
+							The course uses a bottom-up approach to problem-solving building gradually from simple interfacing of switches and LEDs 
+							to complex concepts like display drivers, digital to analog conversion, generation of sound, analog to 
+							digital conversion, graphics, interrupts, and communication. 
+							We will present both general principles and practical tips for building circuits and programming the microcontroller in the C programming language. 
+							Students will develop debugging skills using oscilloscopes, logic analyzers and software instrumentation. 
+							Laboratory assignments are first performed in simulation, and then students will build and debug your labs on the real microcontroller. 
+							At the conclusion of this course students will be able to build your own arcade-style game.
+							</p>
+<!--							<a href="kit.html" class="image image-full"><img src="images/pic07.jpg" alt=""></a>  -->
+
+						</div>
+	
+				</div>
+			<!-- /Banner Wrapper -->
+			
+			<!-- Portfolio Wrapper -->
+				<div class="wrapper">
+					<div id="portfolio-preview">
+						<div class="row">
+							<section>
+								<header>
+									<h2><a href="TOC1.pdf" target="_blank">Detailed Table of Contents</a></h2>
+									<span class="byline">There is a low-cost textbook for this course.</span>
+								</header>
+							</section>
+<table><tr>
+<tr><td align="left">1. Introduction to Computers and Electronics</td></tr>
+<tr><td align="left">2. Introduction to Embedded Systems</td></tr>
+<tr><td align="left">3. Introduction to the ARM Cortex-M</td></tr>
+<tr><td align="left">4. Introduction to Input/Output</td></tr>
+<tr><td align="left">5. Modular Programming</td></tr>
+<tr><td align="left">6. Pointers and Data Structures</td></tr>
+<tr><td align="left">7. Variables, Numbers, and Parameter Passing</td></tr>
+<tr><td align="left">8. Serial and Parallel Port Interfacing</td></tr>
+<tr><td align="left">9. Interrupt Programming and Real-time Systems</td></tr>
+<tr><td align="left">10. Analog I/O Interfacing</td></tr>
+<tr><td align="left">11. Communication Systems</td></tr>
+<tr><td align="left">Appendix 1. Glossary</td></tr>
+<tr><td align="left">Appendix 2. Solutions to Checkpoints</td></tr>
+<tr><td align="left">Appendix 3. How to Convert Projects from Keil to CCS</td></tr>
+<tr><td align="left">Appendix 4. Assembly Reference</td></tr>
+<tr><td align="left">Index</td></tr>
+<tr><td align="left">Reference Material</td></tr></table>
+						</div>
+
+						<a href="http://www.amazon.com/Embedded-Systems-Introduction-Arm%EF%BF%BD-Cortex/dp/1477508996" class="button button-alt" target="_blank">Buy the book</a>
+					</div>
+				</div>
+			<!-- /Portfolio Wrapper -->
+			<!-- Portfolio Wrapper -->
+				<div class="wrapper">
+					<div id="portfolio-preview">
+						<div class="row">
+							<section>
+								<header>
+									<h2>Lab kit</h2>
+									<span class="byline">Students will need to purchase a lab kit.</span>
+								</header>
+							</section>
+						</div>
+						<div class="row">
+							<article class="4u"><a href="portfolio/fulls/pic01.jpg" class="image image-full"><img src="portfolio/thumbs/pic01.jpg" alt=""></a></article>
+							<article class="4u"><a href="portfolio/fulls/pic02.jpg" class="image image-full"><img src="portfolio/thumbs/pic02.jpg" alt=""></a></article>
+							<article class="4u"><a href="portfolio/fulls/pic03.jpg" class="image image-full"><img src="portfolio/thumbs/pic03.jpg" alt=""></a></article>
+						</div>
+						<a href="kit.html" class="button button-alt">Kit details</a>
+					</div>
+				</div>
+			<!-- /Portfolio Wrapper -->
+			<!-- Wide Content Wrapper -->
+				<div class="wrapper">
+
+					<!-- Wide Content -->
+						<article id="content">
+								<header>
+									<h2>Advantages of using this book as the textbook</h2>
+									</header><p>
+									<ul><li>1) State of the art architecture<p></p></li>
+									<li>2) Book is filled with both fundamental theories and practical examples<p></p></li>
+									<li>3) Two web sites with working examples</li>
+									<ol>
+									  <li>&nbsp;&nbsp;&nbsp;-&nbsp;<a href="http://users.ece.utexas.edu/~valvano/arm/index.htm" target="_blank"><b>Valvano code</b></a>
+									  shows the software connection to the physical layer</li>
+									  <li>&nbsp;&nbsp;&nbsp;-&nbsp;<a href="http://www.ti.com/tool/sw-tm4c" target="_blank"><b>Texas Instruments TivaWare</b></a> solves many problems with hardware abstraction<p></p></li>
+									</ol>
+									<li>4) There is a low-cost board available on the Texas Instruments eStore<p></p></li>
+									<li>5) The student cost for this book is low. The list price is $43.95<p></p></li>
+									<li>6) Extensive labs and homework questions<p></p></li>
+									<li>7) Lecture slides available</li></ul></p>
+
+						</article>
+					<!-- /Wide Content -->
+
+				</div>
+			<!-- /Wide Content Wrapper -->
+
+
+
+			<!-- Highlights Wrapper -->
+				<div class="wrapper">
+					<div id="highlights">
+						<div class="row">
+						
+							<section class="6u">
+								<header>
+									<h2>Dr. Jonathan W. Valvano</h2>
+									<span class="byline">Professor</span>
+								</header>
+								<p>Dr. Jon Valvano is a professor in the Department of Electrical and Computer Engineering at The University of Texas at Austin 
+								and holds the Engineering Foundation Centennial Teaching Fellowship in Electrical Engineering. 
+								He received his S.B. and S.M. in Electrical and Computer Engineering from MIT in 1977 
+								and his Ph.D. in 1981 from the joint Harvard-MIT program in Medical Engineering and Medical Physics. 
+								He joined the faculty at The University of Texas at Austin in 1981 and has 32 years of experience in teaching and research. 
+								He has received numerous teaching awards and authored five widely-used textbooks on embedded microcomputer systems. 
+								He has co-founded a successful medical device company called Admittance Technologies. 
+								His research involves integrated analog/digital processing, low-power design, medical instrumentation, and real-time systems.</p>
+							</section>
+							<section class="6u">
+								<a href="http://users.ece.utexas.edu/~valvano/" target="_blank" class="image image-full"><img src="images/valvano547_547.jpg" alt=""></a>
+								<a href="http://users.ece.utexas.edu/~valvano/" target="_blank" class="button">Valvano's Home Page</a>
+							</section>
+		
+<!--							<section class="6u">
+								<header>
+									<h2>Dr. Ramesh Yerraballi</h2>
+									<span class="byline">Senior Lecturer</span>
+								</header>
+								<p>Dr. Ramesh Yerraballi is a Senior Lecturer in the Departments of  Electrical and Computer Engineering and Biomedical Engineering at The University of Texas at Austin. He received his Bachelors degree in Computer Science and Engineering from Osmania University, India and his PhD degree in Computer Science from Old Dominion University, Virginia. Dr. Yerraballi worked at Midwestern State University and The University of Texas at Arlington prior to joining UT Austin in 2008. His research interests are Real-Time Systems, Multimedia and Systems Security. He has taught a broad range of computing classes but currently focusses on Embedded Systems, Circuit Theory, Computer Architecture, Programming, and Statistics. He has taught at both the undergraduate and graduate levels and particularly enjoys teaching at the undergraduate level.</p>
+								<a href="http://users.ece.utexas.edu/~ryerraballi/" class="image image-full"><img src="images/ramesh150_150.jpg" alt=""></a>
+								<a href="http://users.ece.utexas.edu/~ryerraballi/" class="button">Web site</a>
+							</section>  -->
+						
+						</div>
+					</div>
+				</div>
+			<!-- /Highlights Wrapper -->
+
+			<!-- Footer Wrapper -->
+				<div id="footer-wrapper" class="wrapper">
+
+					<!-- Footer -->
+						<div id="footer">
+							<header>
+								<h2>Other books in the series</h2>
+							</header>
+							<p>The second book <a href="http://users.ece.utexas.edu/~valvano/arm/outline.htm" target="_blank"><b>Embedded Systems: Real-Time Interfacing to ARM Cortex-M Microcontrollers</b></a>
+							focuses on hardware/software interfacing and the design of embedded systems.  
+							The third book <a href="http://users.ece.utexas.edu/~valvano/arm/outline3.htm" target="_blank"><b>Embedded Systems: Real-Time Operating Systems for ARM Cortex-M Microcontrollers</b></a>
+							is an advanced book 
+							focusing on operating systems, high-speed interfacing, control systems, and robotics. 
+							The third volume could also be used for professionals wishing to design or deploy a real-time operating system onto an ARM platform.
+							</p>
+
+						
+
+						</div>
+					<!-- /Footer -->
+
+					<!-- Copyright -->
+						<div id="copyright">
+							Feel free to use information on this site for education purposes.
+						</div>
+					<!-- /Copyright -->
+
+				</div>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,924 @@
+{
+  "id": 11,
+  "name": "MIT 10.626 - Electrochemical Energy Systems",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/",
+  "folder": "11_MIT_10.626_-_Electrochemical_Energy_Systems",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/",
+      "kind": "html",
+      "bytes": 51371,
+      "sha256": "e8137418a92f2c86ed00d8725dfb9b6eadf3c83a6b60da765989f5efb6f525ec"
+    },
+    {
+      "file": "page_f7ef447d9c.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/syllabus/",
+      "kind": "html",
+      "bytes": 55440,
+      "sha256": "03aa05899b8e92396bba1931dd0fe5d3aca7426b0ab148222cec466f1221751e"
+    },
+    {
+      "file": "page_fc5a80a827.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 71411,
+      "sha256": "35a4af657a267871f8936e3580b16d5597ff7214987cf26d9e6cbb7f6fa9b194"
+    },
+    {
+      "file": "page_f3cf30df60.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec2/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec2/",
+      "kind": "html",
+      "bytes": 56436,
+      "sha256": "e5d626797775d724d73c866a5a4828c448801e1d6426ac0c4c651775991b5bcf"
+    },
+    {
+      "file": "page_91af5d7b9a.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec01/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec01/",
+      "kind": "html",
+      "bytes": 56063,
+      "sha256": "35d0eba54f196ebc02d6210d1ff22e38e5f9aa9c894a7bd9d2ec5c0229f1fbb1"
+    },
+    {
+      "file": "page_82da8ed406.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec02/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec02/",
+      "kind": "html",
+      "bytes": 56075,
+      "sha256": "afc2553cb5fb337dd1794cc61ae7d4903270170980da2c3250ddd065860ccd79"
+    },
+    {
+      "file": "page_4552f231b1.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec3/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec3/",
+      "kind": "html",
+      "bytes": 56057,
+      "sha256": "bf7c49c7cc95edef629b13d278b1ccd4298fd0b9ae7646c0bce141f38c79b8eb"
+    },
+    {
+      "file": "page_563cebbadd.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec03/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec03/",
+      "kind": "html",
+      "bytes": 56064,
+      "sha256": "e92064a910f740aefdfd597558509523b5c1aca2033d0c2d1e9bbb13ba959e04"
+    },
+    {
+      "file": "page_a2249e1498.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec04/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec04/",
+      "kind": "html",
+      "bytes": 56069,
+      "sha256": "22e63e3e931b58e157feaa1bb28547781126389ddddc2898e4b27c980c6eca76"
+    },
+    {
+      "file": "page_127a87b67d.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec05/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec05/",
+      "kind": "html",
+      "bytes": 56022,
+      "sha256": "8e674b4ca07438dac26139798c76546fbd2b8fc206470606dbe85fa860ea1109"
+    },
+    {
+      "file": "page_63e0949564.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec06/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec06/",
+      "kind": "html",
+      "bytes": 56023,
+      "sha256": "1bc2bc682facd75dfa06417785ea65eac7ecd188cb9baf20415f611a3e553c81"
+    },
+    {
+      "file": "page_9478472873.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec07/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec07/",
+      "kind": "html",
+      "bytes": 56040,
+      "sha256": "4d3122beb4a4cf5726615ddb6f203d309ea9f427769e604841209299c7f3b775"
+    },
+    {
+      "file": "page_15ac6750a7.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec08/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec08/",
+      "kind": "html",
+      "bytes": 55989,
+      "sha256": "85f9665d81cf3582ad8bb56c6fc26a00bdf8d94e9be7b94eb9008e6d5cebbcc0"
+    },
+    {
+      "file": "page_7309673f17.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec09/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec09/",
+      "kind": "html",
+      "bytes": 56080,
+      "sha256": "61dcd7e97049c088951696ecc1c81ab2190f9ff69ef1b077fc1c0dc8f4bb97ad"
+    },
+    {
+      "file": "page_a5e740fe22.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec11/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec11/",
+      "kind": "html",
+      "bytes": 55956,
+      "sha256": "e422154da4e436a19ea555f8a8f1da95a1dfbd882feaac1aae9bff8e18036eb1"
+    },
+    {
+      "file": "page_eaa5e31f60.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec12_conno/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec12_conno/",
+      "kind": "html",
+      "bytes": 56028,
+      "sha256": "f989d50215f923d2eda78627bd5f0c9c140f3946dc4c516155886e166ef1afed"
+    },
+    {
+      "file": "page_eef842c60d.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec13_lithi/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec13_lithi/",
+      "kind": "html",
+      "bytes": 56035,
+      "sha256": "b4b3e03ff07c6a3e8a8181ab3ac38b7f87c6c469f557a6516107b33c7191686d"
+    },
+    {
+      "file": "page_f7c6427745.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec10/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec10/",
+      "kind": "html",
+      "bytes": 55994,
+      "sha256": "764af5d05ee8f03416912195b6aa7306aeb5ee757924800f2c7a9237039a031a"
+    },
+    {
+      "file": "page_16edbfe5df.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec37/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec37/",
+      "kind": "html",
+      "bytes": 56062,
+      "sha256": "3b8dae6572635018ab2e1ab973937fdb275ea93614b3dbb514fcdd22875b5e0d"
+    },
+    {
+      "file": "page_f4af07a62d.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626_s14_lec14_hw6/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626_s14_lec14_hw6/",
+      "kind": "html",
+      "bytes": 56056,
+      "sha256": "63bc5fcb97f485293b65e124d4be875ba5ce20dfeac83786bc7dc298b4d69822"
+    },
+    {
+      "file": "page_f82d364c20.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec11/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec11/",
+      "kind": "html",
+      "bytes": 56039,
+      "sha256": "60500be30e18959ea3288754191e10d3b763a7b45b492d7eb8d4bc08ed53bfd9"
+    },
+    {
+      "file": "page_1bd9c49a69.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec14/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec14/",
+      "kind": "html",
+      "bytes": 56089,
+      "sha256": "571c084f72c01c484ac30596b685dac117b48c9670900c73e29dd4d977714c61"
+    },
+    {
+      "file": "page_9d86048975.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec12/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec12/",
+      "kind": "html",
+      "bytes": 56104,
+      "sha256": "2b7452ab4fa2c7d05413bfd46f9a1b2d5668884bc24ce7164c3813c2d81724e2"
+    },
+    {
+      "file": "page_0a0619dab1.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec13/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec13/",
+      "kind": "html",
+      "bytes": 56024,
+      "sha256": "8e3279bc3a319e20a8e3189080b3d292914d0e01dc7815bc264f02f017f435ec"
+    },
+    {
+      "file": "page_3018b8cd02.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec19_elect/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec19_elect/",
+      "kind": "html",
+      "bytes": 55992,
+      "sha256": "ad1beaf479e369137b1f0b27f4ccddc27f282335d481554bf406e6ea4fc6aec0"
+    },
+    {
+      "file": "page_1093b38fb5.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec15/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec15/",
+      "kind": "html",
+      "bytes": 56072,
+      "sha256": "8726a7431f4115c31794606023c89b2178b09fea5678379337e505f88a1319ac"
+    },
+    {
+      "file": "page_c504b04f6a.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626_s14_lec20-21_ept/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626_s14_lec20-21_ept/",
+      "kind": "html",
+      "bytes": 56210,
+      "sha256": "28fb5ab3d4df947b1e2ca18a0218acdbfd600675b160ff2674860b827048987d"
+    },
+    {
+      "file": "page_c9224f1e2b.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec22_homg/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec22_homg/",
+      "kind": "html",
+      "bytes": 56164,
+      "sha256": "40a6f2489b01a8859ffad82215243301e1e61161fd4e4136dc74249a9c87e8ef"
+    },
+    {
+      "file": "page_cb20129e25.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec23/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec23/",
+      "kind": "html",
+      "bytes": 56073,
+      "sha256": "2f7697916bb0ee370dbd6e725738ecc2f151526937a301f50154f91bfcfc4082"
+    },
+    {
+      "file": "page_337fb69a7e.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec24/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec24/",
+      "kind": "html",
+      "bytes": 56177,
+      "sha256": "46bdc0253dfdfebe7bd89bf63c67ebfe3481a9b3a2f7b2058338b664606fa29a"
+    },
+    {
+      "file": "page_db94cbfb26.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec16/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec16/",
+      "kind": "html",
+      "bytes": 56044,
+      "sha256": "f4c53a20a224433b5c4ed1ebcb5fb30c796d69e67873c36085c63ba4b3be88ce"
+    },
+    {
+      "file": "page_da8e59c1af.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec19/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec19/",
+      "kind": "html",
+      "bytes": 56009,
+      "sha256": "727978f6b482d48bd3318fb43c3dcdbca7b9b48b908ab3eea0f6f171cf98321d"
+    },
+    {
+      "file": "page_b37b955cb4.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec20/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec20/",
+      "kind": "html",
+      "bytes": 56009,
+      "sha256": "7dea46002872d27610bdfb5fd9120dc851e97419be75a592c9f35f980f1c53b3"
+    },
+    {
+      "file": "page_d7dee386e3.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec28_forcon/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec28_forcon/",
+      "kind": "html",
+      "bytes": 56045,
+      "sha256": "daa7788d78c6ed8db4dc67b69446d939eaee396455a7ba4de8a82e7c6fbee05c"
+    },
+    {
+      "file": "page_292d31d7bc.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec17/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec17/",
+      "kind": "html",
+      "bytes": 56079,
+      "sha256": "8bb34e6c6c9f066350d26d2640a773aed53407f06b88e5fb5c2be63fbcba9c3d"
+    },
+    {
+      "file": "page_349e9d7564.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec29/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec29/",
+      "kind": "html",
+      "bytes": 55992,
+      "sha256": "e36d559cc1a8593492b2a02e2d656447c4053c4863167539c5fa49da71dfd35f"
+    },
+    {
+      "file": "page_52217c692d.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec18/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec18/",
+      "kind": "html",
+      "bytes": 56082,
+      "sha256": "ae307349f075289d8c00de405db00b9a9709f29e5546ca39605ef28a11405a6e"
+    },
+    {
+      "file": "page_2a30362618.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec21/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec21/",
+      "kind": "html",
+      "bytes": 56089,
+      "sha256": "11f2f1708b9a70a92e9a5d7398ed7c00489fea82994fe2d4ed7fe3f0032caec4"
+    },
+    {
+      "file": "page_3b7b610a3a.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec22/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec22/",
+      "kind": "html",
+      "bytes": 56117,
+      "sha256": "581092a67f8ccc046ea35e97df6edc1782f7120c57bd8c2a9695c992bda981e2"
+    },
+    {
+      "file": "page_ef8f5971c8.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec33_elec/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec33_elec/",
+      "kind": "html",
+      "bytes": 56110,
+      "sha256": "e122347364e067c424b1ce445c3acd06f01f7dbf436572faa57a5fff550e61be"
+    },
+    {
+      "file": "page_7bae84f3f6.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec23/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec23/",
+      "kind": "html",
+      "bytes": 56064,
+      "sha256": "6c6e3d24a30365309503d8d0f9b73979da4cd586803a0da9b0756c31c8ae877b"
+    },
+    {
+      "file": "page_6fb81df541.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec24/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec24/",
+      "kind": "html",
+      "bytes": 56064,
+      "sha256": "56358ca27ee3291c9880e6cade9a6769f483ebc0b9a87a3075e48143400b8f48"
+    },
+    {
+      "file": "page_a6b4fd9503.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec25/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec25/",
+      "kind": "html",
+      "bytes": 56024,
+      "sha256": "4e281394c9ee03744249aa03f08325a4975d2ee0c232fb1cc36e7d952e08916f"
+    },
+    {
+      "file": "page_2a36eba21c.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec32/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec32/",
+      "kind": "html",
+      "bytes": 56006,
+      "sha256": "bf297bd7c2a009aa634d03e8529cae4a6c349c2b709c8a468df220ec25f3630b"
+    },
+    {
+      "file": "page_caaff9618b.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec33/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec33/",
+      "kind": "html",
+      "bytes": 56042,
+      "sha256": "d14642ecce0259c6bb691325b1e3fe0dde9b95943212f8348c7a968b3ab14262"
+    },
+    {
+      "file": "page_167c0e2a40.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec34/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec34/",
+      "kind": "html",
+      "bytes": 56037,
+      "sha256": "cca78eee8ccdd1b699355516c31a1b8385c97860b187c63b75e4e3cb4086b556"
+    },
+    {
+      "file": "page_0ae2965c2b.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec36-37/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_lec36-37/",
+      "kind": "html",
+      "bytes": 56176,
+      "sha256": "3628509701deb90fa709bc5b4561852e20eef067e6a4b34563a2732eb51a20f0"
+    },
+    {
+      "file": "page_b7ee380289.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec35/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec35/",
+      "kind": "html",
+      "bytes": 55997,
+      "sha256": "14feba7512bffb83604587b81abf64453c7430d65f718615af548d100471302f"
+    },
+    {
+      "file": "page_93f99b694f.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec36/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_s11lec36/",
+      "kind": "html",
+      "bytes": 55987,
+      "sha256": "194f278e1ebd0ae733253a01c95ca32e4b5490cfe0f14cf01ef94e1652cedc7e"
+    },
+    {
+      "file": "page_0b0d6bba9f.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/assignments/",
+      "kind": "html",
+      "bytes": 53946,
+      "sha256": "6001ec14257d8190438f1ea5db5ee94039cd17fb42dcbdb60904a8fd1267d8f3"
+    },
+    {
+      "file": "page_43d6ad39c4.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_1_2014/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_1_2014/",
+      "kind": "html",
+      "bytes": 56167,
+      "sha256": "7ac3801e3665eae89b693b93058e4486bd6ba37921a114a26602794dca66abdf"
+    },
+    {
+      "file": "page_10999afbba.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_2_2014/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_2_2014/",
+      "kind": "html",
+      "bytes": 56382,
+      "sha256": "ba0cf338ea922bd01f63431685f9c0d18893826defa88a6c08739ecd3ee356d1"
+    },
+    {
+      "file": "page_c45cb319a9.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_3_2014/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_3_2014/",
+      "kind": "html",
+      "bytes": 56085,
+      "sha256": "e98b0bed82f391a94a5fd91791da941827b82af8d2baed5c79c58c249a7718a9"
+    },
+    {
+      "file": "page_a9dfb08570.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_4_2014/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_4_2014/",
+      "kind": "html",
+      "bytes": 56148,
+      "sha256": "b4b99713ac9052b0ef5da1177a1c6d277ba04579554b97c809c1c37a243209b2"
+    },
+    {
+      "file": "page_a51d1976e6.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_5_revis/",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/resources/mit10_626s14_pset_5_revis/",
+      "kind": "html",
+      "bytes": 56021,
+      "sha256": "b2d000a46fa983e9bc9d03ea6985f049502d20d9302caeae0750212f84b10e25"
+    },
+    {
+      "file": "page_d2564db64d.html",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/lecture-notes",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 71411,
+      "sha256": "35a4af657a267871f8936e3580b16d5597ff7214987cf26d9e6cbb7f6fa9b194"
+    },
+    {
+      "file": "ca1416c480deca1321a5edd1aa971557_MIT10_626S14_Lec2.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/ca1416c480deca1321a5edd1aa971557_MIT10_626S14_Lec2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/ca1416c480deca1321a5edd1aa971557_MIT10_626S14_Lec2.pdf",
+      "kind": "pdf",
+      "bytes": 808057,
+      "sha256": "2c6a0cc385b93419ab19542a87912128f494b995e1b8cb8114defc53a0204e75",
+      "pdf_pages": 11
+    },
+    {
+      "file": "c301d93e495876a46ea8840b02adfcd1_MIT10_626S14_S11lec01.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c301d93e495876a46ea8840b02adfcd1_MIT10_626S14_S11lec01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c301d93e495876a46ea8840b02adfcd1_MIT10_626S14_S11lec01.pdf",
+      "kind": "pdf",
+      "bytes": 1031792,
+      "sha256": "f286e85c413e9c25338a6a647a237e8f751c08ae55af6ea7ae4e575dfd596f09",
+      "pdf_pages": 7
+    },
+    {
+      "file": "216cf98c12dc8a2cb36a84ea0eea2f4c_MIT10_626S14_S11lec02.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/216cf98c12dc8a2cb36a84ea0eea2f4c_MIT10_626S14_S11lec02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/216cf98c12dc8a2cb36a84ea0eea2f4c_MIT10_626S14_S11lec02.pdf",
+      "kind": "pdf",
+      "bytes": 279771,
+      "sha256": "17b51ce031748faec4ccb0d446051de3819cf49131c8e5a67e741605bada8e1b",
+      "pdf_pages": 10
+    },
+    {
+      "file": "a92649689a63cbda3675655ea1ea088f_MIT10_626S14_Lec3.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/a92649689a63cbda3675655ea1ea088f_MIT10_626S14_Lec3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/a92649689a63cbda3675655ea1ea088f_MIT10_626S14_Lec3.pdf",
+      "kind": "pdf",
+      "bytes": 1011232,
+      "sha256": "e6324fee8ed36f35c9beec8412bec95ed2d0adc2ca2a64e4d4b4e6fa9f1d53bc",
+      "pdf_pages": 9
+    },
+    {
+      "file": "61e55be147e5180b68eaa6b258403322_MIT10_626S14_S11lec03.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/61e55be147e5180b68eaa6b258403322_MIT10_626S14_S11lec03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/61e55be147e5180b68eaa6b258403322_MIT10_626S14_S11lec03.pdf",
+      "kind": "pdf",
+      "bytes": 316592,
+      "sha256": "620f9b61ef3a604c19b52020bc09a1767ebd5cf80b98df87b80a842170f37826",
+      "pdf_pages": 8
+    },
+    {
+      "file": "69e3e6e3329d67ea3ab057ea1eadfc87_MIT10_626S14_S11lec04.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/69e3e6e3329d67ea3ab057ea1eadfc87_MIT10_626S14_S11lec04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/69e3e6e3329d67ea3ab057ea1eadfc87_MIT10_626S14_S11lec04.pdf",
+      "kind": "pdf",
+      "bytes": 662202,
+      "sha256": "d88aa56be8f303a39c1663ea63ee3699f351eee42a10ab7f293e6bb56bed7a19",
+      "pdf_pages": 7
+    },
+    {
+      "file": "d5e1b842d6daa3d9dc1991b916639b09_MIT10_626S14_S11lec05.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/d5e1b842d6daa3d9dc1991b916639b09_MIT10_626S14_S11lec05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/d5e1b842d6daa3d9dc1991b916639b09_MIT10_626S14_S11lec05.pdf",
+      "kind": "pdf",
+      "bytes": 1687867,
+      "sha256": "449405c27ae9ba4efdf9ce694eb1e8982edfb92727f023a8df9781f2c796fae8",
+      "pdf_pages": 8
+    },
+    {
+      "file": "6aacd39911619ff5b669d80a0a0c7bbf_MIT10_626S14_S11lec06.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6aacd39911619ff5b669d80a0a0c7bbf_MIT10_626S14_S11lec06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6aacd39911619ff5b669d80a0a0c7bbf_MIT10_626S14_S11lec06.pdf",
+      "kind": "pdf",
+      "bytes": 1119986,
+      "sha256": "95ffeb61dbcf3cef6dadaddb8afc1edd28d09e34cc976a659c0370455c9b9822",
+      "pdf_pages": 13
+    },
+    {
+      "file": "2de90bc49fe24eecc03095a4f0cb0177_MIT10_626S14_S11lec07.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/2de90bc49fe24eecc03095a4f0cb0177_MIT10_626S14_S11lec07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/2de90bc49fe24eecc03095a4f0cb0177_MIT10_626S14_S11lec07.pdf",
+      "kind": "pdf",
+      "bytes": 936088,
+      "sha256": "0b8424718ed5ef6d9575c30c66f2cf3d20d34a10fef0adf3570b5e6c2622a51d",
+      "pdf_pages": 7
+    },
+    {
+      "file": "548952ce8b570fbbde640f2e561c4f96_MIT10_626S14_S11lec08.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/548952ce8b570fbbde640f2e561c4f96_MIT10_626S14_S11lec08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/548952ce8b570fbbde640f2e561c4f96_MIT10_626S14_S11lec08.pdf",
+      "kind": "pdf",
+      "bytes": 432101,
+      "sha256": "36113979f239d2d817f9d25bf12dab09d9cd2a97e170ddf6dfa00be151dfb376",
+      "pdf_pages": 11
+    },
+    {
+      "file": "e87232109522238685488ab736f21e4d_MIT10_626S14_S11lec09.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/e87232109522238685488ab736f21e4d_MIT10_626S14_S11lec09.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/e87232109522238685488ab736f21e4d_MIT10_626S14_S11lec09.pdf",
+      "kind": "pdf",
+      "bytes": 306133,
+      "sha256": "92a6fe679671e4d75659b8993c20521d12eb69c73a16e61272a983f4afee314d",
+      "pdf_pages": 9
+    },
+    {
+      "file": "3810acd9feaaf35e0f5e0c4f64f8cf84_MIT10_626S14_Lec11.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/3810acd9feaaf35e0f5e0c4f64f8cf84_MIT10_626S14_Lec11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/3810acd9feaaf35e0f5e0c4f64f8cf84_MIT10_626S14_Lec11.pdf",
+      "kind": "pdf",
+      "bytes": 309835,
+      "sha256": "d17c05a11ef950cec38f995c48ad47a285dbfd494e91dbaeb9a65061550cc82e",
+      "pdf_pages": 7
+    },
+    {
+      "file": "385a5dad5f19aeb1c6f46bab2b3877d4_MIT10_626S14_Lec12_ConNo.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/385a5dad5f19aeb1c6f46bab2b3877d4_MIT10_626S14_Lec12_ConNo.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/385a5dad5f19aeb1c6f46bab2b3877d4_MIT10_626S14_Lec12_ConNo.pdf",
+      "kind": "pdf",
+      "bytes": 669660,
+      "sha256": "f1849d9ee92ad0ef3947d6e008b9baa164609764d0534f5dc35314740c7450e2",
+      "pdf_pages": 5
+    },
+    {
+      "file": "e87e16b891cb649be6032e375c30e322_MIT10_626S14_Lec13_Lithi.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/e87e16b891cb649be6032e375c30e322_MIT10_626S14_Lec13_Lithi.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/e87e16b891cb649be6032e375c30e322_MIT10_626S14_Lec13_Lithi.pdf",
+      "kind": "pdf",
+      "bytes": 1296781,
+      "sha256": "1fdf5c8cf064e655298e3c5d7966ae3e712481e08b7a0ac19300652a964acf94",
+      "pdf_pages": 10
+    },
+    {
+      "file": "80b52ce12b4eae99b33b388103a4e784_MIT10_626S14_S11lec10.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/80b52ce12b4eae99b33b388103a4e784_MIT10_626S14_S11lec10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/80b52ce12b4eae99b33b388103a4e784_MIT10_626S14_S11lec10.pdf",
+      "kind": "pdf",
+      "bytes": 496799,
+      "sha256": "481468092ee1489cb886422bc6677be3611cf1ec6036a7e1aa4c8158114e217d",
+      "pdf_pages": 6
+    },
+    {
+      "file": "99c106537bd38864d4d4efa00c809420_MIT10_626S14_S11lec37.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/99c106537bd38864d4d4efa00c809420_MIT10_626S14_S11lec37.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/99c106537bd38864d4d4efa00c809420_MIT10_626S14_S11lec37.pdf",
+      "kind": "pdf",
+      "bytes": 2221955,
+      "sha256": "1faaf065d0342cdff925e9ef6312f38e693824e55aac94e5a67550453fc8f0bf",
+      "pdf_pages": 12
+    },
+    {
+      "file": "984202229edbf449848905003e62262a_MIT10_626_S14_Lec14_HW6.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/984202229edbf449848905003e62262a_MIT10_626_S14_Lec14_HW6.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/984202229edbf449848905003e62262a_MIT10_626_S14_Lec14_HW6.pdf",
+      "kind": "pdf",
+      "bytes": 239749,
+      "sha256": "f7177950f51a25504647ce8ede88c4d11f004c6710b83a31fe02971337d16936",
+      "pdf_pages": 9
+    },
+    {
+      "file": "3e5dcb3a7d3ad313952caf92c0828482_MIT10_626S14_S11lec11.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/3e5dcb3a7d3ad313952caf92c0828482_MIT10_626S14_S11lec11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/3e5dcb3a7d3ad313952caf92c0828482_MIT10_626S14_S11lec11.pdf",
+      "kind": "pdf",
+      "bytes": 342176,
+      "sha256": "0cc3363504bce536b99d0db808a393de297e70791fb49640c7abc3b01ba70aab",
+      "pdf_pages": 8
+    },
+    {
+      "file": "ee95cc27e2ce1d5eeef21cebdbf7a393_MIT10_626S14_S11lec14.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/ee95cc27e2ce1d5eeef21cebdbf7a393_MIT10_626S14_S11lec14.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/ee95cc27e2ce1d5eeef21cebdbf7a393_MIT10_626S14_S11lec14.pdf",
+      "kind": "pdf",
+      "bytes": 272845,
+      "sha256": "810fed66ec9211a4a2b308084394360cedaf68c047c92ac2438bead176b3ea65",
+      "pdf_pages": 7
+    },
+    {
+      "file": "c4b64ab4d5bb9fd4d37209cff799bc78_MIT10_626S14_S11lec12.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c4b64ab4d5bb9fd4d37209cff799bc78_MIT10_626S14_S11lec12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c4b64ab4d5bb9fd4d37209cff799bc78_MIT10_626S14_S11lec12.pdf",
+      "kind": "pdf",
+      "bytes": 385380,
+      "sha256": "ccbceb25680b549ce7f22fa70c8ed4961a7dc6af0f7dffaa7a5112cc8e611eb2",
+      "pdf_pages": 6
+    },
+    {
+      "file": "56cfa6e0f28bc8fc1a647cbe679384d1_MIT10_626S14_S11lec13.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/56cfa6e0f28bc8fc1a647cbe679384d1_MIT10_626S14_S11lec13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/56cfa6e0f28bc8fc1a647cbe679384d1_MIT10_626S14_S11lec13.pdf",
+      "kind": "pdf",
+      "bytes": 908245,
+      "sha256": "8b26f488f236c95739fc112523bdca37ba84a81e7e95e06a145c0fd7948a9a5c",
+      "pdf_pages": 6
+    },
+    {
+      "file": "6c628dd1022b311872b2ec116c3e8726_MIT10_626S14_Lec19_Elect.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6c628dd1022b311872b2ec116c3e8726_MIT10_626S14_Lec19_Elect.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6c628dd1022b311872b2ec116c3e8726_MIT10_626S14_Lec19_Elect.pdf",
+      "kind": "pdf",
+      "bytes": 720146,
+      "sha256": "29e43f9d5cfdbfefdcd4febfe66d438c8edea64a6c44deac735ddb9ad3183606",
+      "pdf_pages": 5
+    },
+    {
+      "file": "3094956ac103de11c8fa438bca9595ea_MIT10_626S14_S11lec15.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/3094956ac103de11c8fa438bca9595ea_MIT10_626S14_S11lec15.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/3094956ac103de11c8fa438bca9595ea_MIT10_626S14_S11lec15.pdf",
+      "kind": "pdf",
+      "bytes": 1074059,
+      "sha256": "1d5ceee8f10ed0aa9c8a9aac072058c9c69dc5d9826fa268458e98385cecd5eb",
+      "pdf_pages": 6
+    },
+    {
+      "file": "08779cb004de2029844084c21eb603a0_MIT10_626_S14_Lec20-21_EPT.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/08779cb004de2029844084c21eb603a0_MIT10_626_S14_Lec20-21_EPT.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/08779cb004de2029844084c21eb603a0_MIT10_626_S14_Lec20-21_EPT.pdf",
+      "kind": "pdf",
+      "bytes": 1599875,
+      "sha256": "3472a80e09fc20c7b4b4ab64e9b021b0013abdc2f60ac53a6955df007d50d024",
+      "pdf_pages": 21
+    },
+    {
+      "file": "383ef68c31f77eefcefaf4737392f4f4_MIT10_626S14_Lec22_Homg.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/383ef68c31f77eefcefaf4737392f4f4_MIT10_626S14_Lec22_Homg.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/383ef68c31f77eefcefaf4737392f4f4_MIT10_626S14_Lec22_Homg.pdf",
+      "kind": "pdf",
+      "bytes": 283621,
+      "sha256": "2e514939ea5b001e56a253727f91946c477ec9c7754a82a0166a325268799596",
+      "pdf_pages": 6
+    },
+    {
+      "file": "83fd595de35b5c7dfe6fd2cf563cb5a5_MIT10_626S14_Lec23.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/83fd595de35b5c7dfe6fd2cf563cb5a5_MIT10_626S14_Lec23.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/83fd595de35b5c7dfe6fd2cf563cb5a5_MIT10_626S14_Lec23.pdf",
+      "kind": "pdf",
+      "bytes": 463580,
+      "sha256": "26283d2574bbb087e9b28e9b655bc5934ca1c49c690ad60f5ed09dfcaf351141",
+      "pdf_pages": 7
+    },
+    {
+      "file": "6dc46d953a14a4027a52d5f784f89738_MIT10_626S14_Lec24.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6dc46d953a14a4027a52d5f784f89738_MIT10_626S14_Lec24.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6dc46d953a14a4027a52d5f784f89738_MIT10_626S14_Lec24.pdf",
+      "kind": "pdf",
+      "bytes": 802516,
+      "sha256": "7a4560bd52278a2f3687459ca71b1351d0fcdaf79e691cf92e7116fdd8ba7f21",
+      "pdf_pages": 8
+    },
+    {
+      "file": "4fc4a8de47107536179698a3b77a77b6_MIT10_626S14_S11lec16.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4fc4a8de47107536179698a3b77a77b6_MIT10_626S14_S11lec16.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4fc4a8de47107536179698a3b77a77b6_MIT10_626S14_S11lec16.pdf",
+      "kind": "pdf",
+      "bytes": 896641,
+      "sha256": "f251db65bda9ae6c0ce94127b7248a661f0b5bfd7d14246cd247b661227bbe58",
+      "pdf_pages": 9
+    },
+    {
+      "file": "4ef6b6701f0fa23dc8e24881fe075abc_MIT10_626S14_S11lec19.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4ef6b6701f0fa23dc8e24881fe075abc_MIT10_626S14_S11lec19.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4ef6b6701f0fa23dc8e24881fe075abc_MIT10_626S14_S11lec19.pdf",
+      "kind": "pdf",
+      "bytes": 178858,
+      "sha256": "282856d7ea1b42de06ae90a3dcd154714a761b0f9589d900f7de5e37a1ebb6f7",
+      "pdf_pages": 8
+    },
+    {
+      "file": "97b6cc88c7020b91df93d8bf2161e61c_MIT10_626S14_S11lec20.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/97b6cc88c7020b91df93d8bf2161e61c_MIT10_626S14_S11lec20.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/97b6cc88c7020b91df93d8bf2161e61c_MIT10_626S14_S11lec20.pdf",
+      "kind": "pdf",
+      "bytes": 816835,
+      "sha256": "1d7d29e5f0f362ce0d5973fe0c57a6ddbcabe40970ea51fab4cd34240da2d77f",
+      "pdf_pages": 7
+    },
+    {
+      "file": "d0c51eb3e2b4620509bc57a228dee0c8_MIT10_626S14_Lec28_ForCon.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/d0c51eb3e2b4620509bc57a228dee0c8_MIT10_626S14_Lec28_ForCon.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/d0c51eb3e2b4620509bc57a228dee0c8_MIT10_626S14_Lec28_ForCon.pdf",
+      "kind": "pdf",
+      "bytes": 284098,
+      "sha256": "bd19818b0825eec82cb2699deb1a188e814d7ebcebe19911f15284990348cbe0",
+      "pdf_pages": 11
+    },
+    {
+      "file": "b4ac2821b3a64bdc62cf6c4bf67038c7_MIT10_626S14_S11lec17.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/b4ac2821b3a64bdc62cf6c4bf67038c7_MIT10_626S14_S11lec17.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/b4ac2821b3a64bdc62cf6c4bf67038c7_MIT10_626S14_S11lec17.pdf",
+      "kind": "pdf",
+      "bytes": 187275,
+      "sha256": "84b0232b5b6dfe93c9408361eb0dac257f3bca6722dc207fcaf0355f3bdae753",
+      "pdf_pages": 9
+    },
+    {
+      "file": "e787aa8b689ba9134ab36af3e1d03456_MIT10_626S14_Lec29.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/e787aa8b689ba9134ab36af3e1d03456_MIT10_626S14_Lec29.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/e787aa8b689ba9134ab36af3e1d03456_MIT10_626S14_Lec29.pdf",
+      "kind": "pdf",
+      "bytes": 938424,
+      "sha256": "ee069343c546eacfa06bfecde35aba0bbd036192b3dbe1bd4abb629f307a09c1",
+      "pdf_pages": 9
+    },
+    {
+      "file": "4ef93014584532e7e5bffff649e3a1c6_MIT10_626S14_S11lec18.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4ef93014584532e7e5bffff649e3a1c6_MIT10_626S14_S11lec18.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4ef93014584532e7e5bffff649e3a1c6_MIT10_626S14_S11lec18.pdf",
+      "kind": "pdf",
+      "bytes": 1383838,
+      "sha256": "721a71d35208b8cec9e5aca056bae14f3294b86eb1dd620fcc1c31adefb6c9e0",
+      "pdf_pages": 10
+    },
+    {
+      "file": "37f511c8f39e16f5df5a3c547201d253_MIT10_626S14_S11lec21.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/37f511c8f39e16f5df5a3c547201d253_MIT10_626S14_S11lec21.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/37f511c8f39e16f5df5a3c547201d253_MIT10_626S14_S11lec21.pdf",
+      "kind": "pdf",
+      "bytes": 321975,
+      "sha256": "f7433ff620cc85c81986a9363715a06e1bc54df49b3f4b3cd0ec8b818571d5cb",
+      "pdf_pages": 9
+    },
+    {
+      "file": "6da79a1d800758dc711655b543c75391_MIT10_626S14_S11lec22.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6da79a1d800758dc711655b543c75391_MIT10_626S14_S11lec22.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/6da79a1d800758dc711655b543c75391_MIT10_626S14_S11lec22.pdf",
+      "kind": "pdf",
+      "bytes": 283649,
+      "sha256": "faa40c63003a1d4ce6bc04cdb3bb06c5855eed9cab67f092f51340786417e2f1",
+      "pdf_pages": 6
+    },
+    {
+      "file": "c6e8efc707921e1bca82e104183e9928_MIT10_626S14_Lec33_elec.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c6e8efc707921e1bca82e104183e9928_MIT10_626S14_Lec33_elec.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c6e8efc707921e1bca82e104183e9928_MIT10_626S14_Lec33_elec.pdf",
+      "kind": "pdf",
+      "bytes": 323901,
+      "sha256": "664dcf0cb7e13e15baf5a985a409c9d96fe31197d49f5d3786fa4c1706d8da0a",
+      "pdf_pages": 8
+    },
+    {
+      "file": "94d59af721c346ed05c99f6359bf05fb_MIT10_626S14_S11lec23.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/94d59af721c346ed05c99f6359bf05fb_MIT10_626S14_S11lec23.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/94d59af721c346ed05c99f6359bf05fb_MIT10_626S14_S11lec23.pdf",
+      "kind": "pdf",
+      "bytes": 898823,
+      "sha256": "a4a1947886df0223be7a09ed09092f17475c7e437cc3c499c8b3e6cf33cdbd65",
+      "pdf_pages": 9
+    },
+    {
+      "file": "34aaca3a97887695dd295db7cc0fa3c0_MIT10_626S14_S11lec24.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/34aaca3a97887695dd295db7cc0fa3c0_MIT10_626S14_S11lec24.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/34aaca3a97887695dd295db7cc0fa3c0_MIT10_626S14_S11lec24.pdf",
+      "kind": "pdf",
+      "bytes": 883276,
+      "sha256": "4d9f5acdb75e8f10aa6cd6a1e5b8befe36f50e0dd92cfcd82a98e5ba50e5780c",
+      "pdf_pages": 9
+    },
+    {
+      "file": "b74a3f2744e2c150142cc1eab0d25fdc_MIT10_626S14_S11lec25.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/b74a3f2744e2c150142cc1eab0d25fdc_MIT10_626S14_S11lec25.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/b74a3f2744e2c150142cc1eab0d25fdc_MIT10_626S14_S11lec25.pdf",
+      "kind": "pdf",
+      "bytes": 257151,
+      "sha256": "aa596bf2aa66a99ab74da4102e659a0d8ba74a89c06ee00a6d971511d0c4f722",
+      "pdf_pages": 6
+    },
+    {
+      "file": "4de0d8a281b0e24b8da33f99eba89f9d_MIT10_626S14_S11lec32.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4de0d8a281b0e24b8da33f99eba89f9d_MIT10_626S14_S11lec32.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/4de0d8a281b0e24b8da33f99eba89f9d_MIT10_626S14_S11lec32.pdf",
+      "kind": "pdf",
+      "bytes": 682029,
+      "sha256": "294f1a080f92d2bc936dcb2f2cb84f2b9927c26953bf91dfb284d400f3412ca7",
+      "pdf_pages": 8
+    },
+    {
+      "file": "f30a160dab55806b8b37be1a33af1ab0_MIT10_626S14_S11lec33.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/f30a160dab55806b8b37be1a33af1ab0_MIT10_626S14_S11lec33.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/f30a160dab55806b8b37be1a33af1ab0_MIT10_626S14_S11lec33.pdf",
+      "kind": "pdf",
+      "bytes": 1545606,
+      "sha256": "0fa670cb3d288efe5d4a3064c5c0d58582be46ae88db8b00cd69a34d52e697b8",
+      "pdf_pages": 9
+    },
+    {
+      "file": "2d1b194970593ddf49ff0a211d669d03_MIT10_626S14_S11lec34.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/2d1b194970593ddf49ff0a211d669d03_MIT10_626S14_S11lec34.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/2d1b194970593ddf49ff0a211d669d03_MIT10_626S14_S11lec34.pdf",
+      "kind": "pdf",
+      "bytes": 1549578,
+      "sha256": "889286c69785c3e1e9c8c3d2f16f302e74e9e04ffd88dbcb66cefb2cf4d2e62b",
+      "pdf_pages": 7
+    },
+    {
+      "file": "2ab6b6a564a2a0f10c552dd386915b94_MIT10_626S14_Lec36-37.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/2ab6b6a564a2a0f10c552dd386915b94_MIT10_626S14_Lec36-37.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/2ab6b6a564a2a0f10c552dd386915b94_MIT10_626S14_Lec36-37.pdf",
+      "kind": "pdf",
+      "bytes": 869120,
+      "sha256": "8d667f4558953ae19890952e36e212230d325253f6577fda145dbc24895a2f47",
+      "pdf_pages": 15
+    },
+    {
+      "file": "5f6795a0415b647ec8f683a8ed4e4ccf_MIT10_626S14_S11lec35.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/5f6795a0415b647ec8f683a8ed4e4ccf_MIT10_626S14_S11lec35.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/5f6795a0415b647ec8f683a8ed4e4ccf_MIT10_626S14_S11lec35.pdf",
+      "kind": "pdf",
+      "bytes": 1042098,
+      "sha256": "d09602a488e766624e359407d50606b61da64425924bad3aca6c8d2cfdcdbae3",
+      "pdf_pages": 10
+    },
+    {
+      "file": "19b1662149bf8728ce9d826aec9e3b5b_MIT10_626S14_S11lec36.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/19b1662149bf8728ce9d826aec9e3b5b_MIT10_626S14_S11lec36.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/19b1662149bf8728ce9d826aec9e3b5b_MIT10_626S14_S11lec36.pdf",
+      "kind": "pdf",
+      "bytes": 1369015,
+      "sha256": "42d5459a1c4768eeb4be1fa2dd08f53462fed28543496ce031f3e268b481bce3",
+      "pdf_pages": 10
+    },
+    {
+      "file": "0e17345f816aeeb0f085feef2879ba42_MIT10_626S14_PSet_1_2014.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/0e17345f816aeeb0f085feef2879ba42_MIT10_626S14_PSet_1_2014.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/0e17345f816aeeb0f085feef2879ba42_MIT10_626S14_PSet_1_2014.pdf",
+      "kind": "pdf",
+      "bytes": 288379,
+      "sha256": "cd82815c1ddd2b9f69800e3e4d2d0e6ecd6e38e4f5cbc6e00ce9445815987de2",
+      "pdf_pages": 4
+    },
+    {
+      "file": "f0051870d26fda1e16e6f09091416553_MIT10_626S14_PSet_2_2014.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/f0051870d26fda1e16e6f09091416553_MIT10_626S14_PSet_2_2014.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/f0051870d26fda1e16e6f09091416553_MIT10_626S14_PSet_2_2014.pdf",
+      "kind": "pdf",
+      "bytes": 219288,
+      "sha256": "9c416e4c53a940f75ac27879b561608ce3ce5f15b845edd7cc7564dc839e5cd1",
+      "pdf_pages": 3
+    },
+    {
+      "file": "16491a15ec347fbb4e8e160eec462f71_MIT10_626S14_PSet_3_2014.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/16491a15ec347fbb4e8e160eec462f71_MIT10_626S14_PSet_3_2014.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/16491a15ec347fbb4e8e160eec462f71_MIT10_626S14_PSet_3_2014.pdf",
+      "kind": "pdf",
+      "bytes": 766087,
+      "sha256": "52475033c3936f7acc4ac3a795c2a6e03a868aa6edab5afeae129f4d11c249ef",
+      "pdf_pages": 4
+    },
+    {
+      "file": "c1859817ae0ef286a055be4b00b2076e_MIT10_626S14_PSet_4_2014.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c1859817ae0ef286a055be4b00b2076e_MIT10_626S14_PSet_4_2014.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/c1859817ae0ef286a055be4b00b2076e_MIT10_626S14_PSet_4_2014.pdf",
+      "kind": "pdf",
+      "bytes": 836611,
+      "sha256": "5caf548874a02f9ba984d1d96399335bbb23db1f30d04b622d392cfa63f06bc6",
+      "pdf_pages": 3
+    },
+    {
+      "file": "8e20d279f9b25f8a050d78041a426470_MIT10_626S14_PSet_5_revis.pdf",
+      "url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/8e20d279f9b25f8a050d78041a426470_MIT10_626S14_PSet_5_revis.pdf",
+      "final_url": "https://ocw.mit.edu/courses/10-626-electrochemical-energy-systems-spring-2014/8e20d279f9b25f8a050d78041a426470_MIT10_626S14_PSet_5_revis.pdf",
+      "kind": "pdf",
+      "bytes": 393546,
+      "sha256": "f350a052ab1b44ff3abb31ec538a22e0fc9235b76755037c7473c275d8671799",
+      "pdf_pages": 4
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:02+0300",
+  "pdf_count": 51,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

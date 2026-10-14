@@ -1,0 +1,287 @@
+{
+  "id": 45,
+  "name": "EtherCAT Technology Group - EtherCAT Technology",
+  "type": "Resmi teknik dokümantasyon",
+  "url": "https://www.ethercat.org/en/technology.html",
+  "folder": "45_EtherCAT_Technology_Group_-_EtherCAT_Technology",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.ethercat.org/en/technology.html",
+      "final_url": "https://www.ethercat.org/en/technology.html",
+      "kind": "html",
+      "bytes": 64187,
+      "sha256": "c0594831ad5d5cc0afed99d9baad473f138dffcf676a57e206428fc7816b831a"
+    },
+    {
+      "file": "ETG_Brochure_EN.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_EN.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_EN.pdf",
+      "kind": "pdf",
+      "bytes": 6247119,
+      "sha256": "d7e48ae1068180b2b172a94b01748f51943861389790f9a0932d9c4858eda662",
+      "pdf_pages": 25
+    },
+    {
+      "file": "ETG_Brochure_DE.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_DE.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_DE.pdf",
+      "kind": "pdf",
+      "bytes": 9145389,
+      "sha256": "35aca2738150798493b3f1da52281267b672629810365ab21c9cb7233ec1f51d",
+      "pdf_pages": 25
+    },
+    {
+      "file": "ETG_Brochure_ES.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_ES.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_ES.pdf",
+      "kind": "pdf",
+      "bytes": 6122424,
+      "sha256": "51d61540e0990cafed1cd707bba0bb7fefa108a256a44dc3ac7ebcbb9954fad3",
+      "pdf_pages": 25
+    },
+    {
+      "file": "ETG_Brochure_IT.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_IT.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_IT.pdf",
+      "kind": "pdf",
+      "bytes": 6242956,
+      "sha256": "a887bb059dc558f5f228b5b9bb97ba71c30957f3e16c1be99fe77113b89baabe",
+      "pdf_pages": 25
+    },
+    {
+      "file": "ETG_Brochure_FR.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_FR.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_FR.pdf",
+      "kind": "pdf",
+      "bytes": 6222069,
+      "sha256": "5e670d8610bc7a634b8f60ba2fe54a481ac9d1c086d0ea80e176248a8417470e",
+      "pdf_pages": 25
+    },
+    {
+      "file": "ETG_Brochure_CN.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_CN.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_CN.pdf",
+      "kind": "pdf",
+      "bytes": 11018528,
+      "sha256": "88e5e8d0b7a4333bd17e0a20973d9ed459b505af0e3b8f9563b9b02c0b474f88",
+      "pdf_pages": 48
+    },
+    {
+      "file": "ETG_Brochure_JP.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_JP.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_JP.pdf",
+      "kind": "pdf",
+      "bytes": 10499670,
+      "sha256": "e70fb0138564c44869647e72a98c5ce0a588975fdf0df21e41e821f5b9575a44",
+      "pdf_pages": 44
+    },
+    {
+      "file": "ETG_Brochure_KOR.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_KOR.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_KOR.pdf",
+      "kind": "pdf",
+      "bytes": 6410832,
+      "sha256": "584106d56bce0fed68f12e45c1700137904539e6af18f6bed1c05b10c5557268",
+      "pdf_pages": 25
+    },
+    {
+      "file": "page_2a0aea3331.html",
+      "url": "https://www.ethercat.org/en/downloads.html",
+      "final_url": "https://www.ethercat.org/en/downloads.html",
+      "kind": "html",
+      "bytes": 363420,
+      "sha256": "69f11167f19e0abfc8723e338e655a9d37c11c598e10e56a9664003f113ab01a"
+    },
+    {
+      "file": "page_58f54e4629.html",
+      "url": "https://www.ethercat.org/en/downloads/downloads_07CC7DD0539B4C0EB526ADD5D4BC25CD.htm",
+      "final_url": "https://www.ethercat.org/en/downloads/downloads_07CC7DD0539B4C0EB526ADD5D4BC25CD.htm",
+      "kind": "html",
+      "bytes": 16820,
+      "sha256": "6edeb84658adfc37c2263de4c464e80895cc656629bdfde031061f74ca3312c6"
+    },
+    {
+      "file": "page_cf81d19983.html",
+      "url": "https://www.ethercat.org/en/downloads/downloads_60F2A51B4B114D8D81C2668AF90B2312.htm",
+      "final_url": "https://www.ethercat.org/en/downloads/downloads_60F2A51B4B114D8D81C2668AF90B2312.htm",
+      "kind": "html",
+      "bytes": 14885,
+      "sha256": "a724824f17982b85f2562eea37f20c4b3b6ca9a557b481411f174a802fb0bdd8"
+    },
+    {
+      "file": "page_522eaa0a8f.html",
+      "url": "https://www.ethercat.org/en/downloads/downloads_C530D44B66104E778FB47A6A0A4FFF68.htm",
+      "final_url": "https://www.ethercat.org/en/downloads/downloads_C530D44B66104E778FB47A6A0A4FFF68.htm",
+      "kind": "html",
+      "bytes": 14516,
+      "sha256": "7861a7db78e70a45c53bf8d31d53c03e39cfa7f33e180ec5290925cee2b45e8c"
+    },
+    {
+      "file": "page_49521a9b26.html",
+      "url": "https://www.ethercat.org/en/downloads/downloads_7BA2567EB9F443219AD0014448F674F2.htm",
+      "final_url": "https://www.ethercat.org/en/downloads/downloads_7BA2567EB9F443219AD0014448F674F2.htm",
+      "kind": "html",
+      "bytes": 15989,
+      "sha256": "9e4a69ec9784238b940881e0c84208d2d682b7783398bfca1218e9acceb9ade3"
+    },
+    {
+      "file": "Layering_with_TSN_and_EtherCAT.pdf",
+      "url": "https://www.ethercat.org/download/documents/Layering_with_TSN_and_EtherCAT.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/Layering_with_TSN_and_EtherCAT.pdf",
+      "kind": "pdf",
+      "bytes": 2135179,
+      "sha256": "04325b67c08fa7ec297c06cf257aec64adb3fa844c5c5ee37af5d6b4f4729a17",
+      "pdf_pages": 20
+    },
+    {
+      "file": "Interview_Karl_Weber_Time-Sensitive-Networking_in_der_Automatisierung.pdf",
+      "url": "https://www.ethercat.org/download/documents/Interview_Karl_Weber_Time-Sensitive-Networking_in_der_Automatisierung.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/Interview_Karl_Weber_Time-Sensitive-Networking_in_der_Automatisierung.pdf",
+      "kind": "pdf",
+      "bytes": 98343,
+      "sha256": "ca5e7538ce79926b3551c5dd105b83b425e38b338d4b4f7c6540cfb641d65ea7",
+      "pdf_pages": 3
+    },
+    {
+      "file": "sps-magazin_ethercat_2012_11.pdf",
+      "url": "https://www.ethercat.org/download/documents/sps-magazin_ethercat_2012_11.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/sps-magazin_ethercat_2012_11.pdf",
+      "kind": "pdf",
+      "bytes": 210863,
+      "sha256": "c4f9688c1f00125c022b3126691e1fee9cb9475afd4b1eda795c807c928e5981",
+      "pdf_pages": 3
+    },
+    {
+      "file": "ETG_Brochure_PT.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG_Brochure_PT.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG_Brochure_PT.pdf",
+      "kind": "pdf",
+      "bytes": 6184718,
+      "sha256": "8b32830f1b3bdae490986c8ac63b19941de386c4a57262dba8b7acab2d6ca8b7",
+      "pdf_pages": 25
+    },
+    {
+      "file": "EtherCAT_Diagnosis_For_Users.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users.pdf",
+      "kind": "pdf",
+      "bytes": 1679480,
+      "sha256": "2f37c0a41f0dfbf83085f067f3be70342411559b2dccd014d7c419c7e4d4cdb3",
+      "pdf_pages": 38
+    },
+    {
+      "file": "EtherCAT_Diagnosis_For_Users_DE.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_DE.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_DE.pdf",
+      "kind": "pdf",
+      "bytes": 1671380,
+      "sha256": "6c0d444b3a0cc17b6b3c274f5ba0a7da9e9ecb29ee667ccf7cc8f1f0dd79dfe6",
+      "pdf_pages": 38
+    },
+    {
+      "file": "EtherCAT_Diagnosis_For_Users_ES.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_ES.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_ES.pdf",
+      "kind": "pdf",
+      "bytes": 1670745,
+      "sha256": "5a2d6e6e9715087c0be77a850edbfd0aa8ef3e171dee3ca39fc405269db66ae1",
+      "pdf_pages": 38
+    },
+    {
+      "file": "EtherCAT_Diagnosis_For_Users_IT.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_IT.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_IT.pdf",
+      "kind": "pdf",
+      "bytes": 1690958,
+      "sha256": "8890cb0b3f8e0370a7a84e9d55385b0249fff2d500e81e2a5cbfb4f7da2ef6f8",
+      "pdf_pages": 38
+    },
+    {
+      "file": "EtherCAT_Diagnosis_For_Users_CN.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_CN.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_CN.pdf",
+      "kind": "pdf",
+      "bytes": 1950321,
+      "sha256": "2f477f0b0938b0fd1724fb03802f25d86ea38bd503357eb4cb7d6fe54f9c830d",
+      "pdf_pages": 37
+    },
+    {
+      "file": "EtherCAT_Diagnosis_For_Users_JP.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_JP.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Diagnosis_For_Users_JP.pdf",
+      "kind": "pdf",
+      "bytes": 1601966,
+      "sha256": "d5a3572360192ea2f5f56c9453a51655a8e56783a3216f642f5c0a2fa0a6de37",
+      "pdf_pages": 38
+    },
+    {
+      "file": "page_59528b12d8.html",
+      "url": "https://www.ethercat.org/memberarea/download/EtherCAT_Diagnosis_For_Developers.pdf",
+      "final_url": "https://www.ethercat.org/login.aspx?ReturnUrl=%2fmemberarea%2fdownload%2fEtherCAT_Diagnosis_For_Developers.pdf",
+      "kind": "html",
+      "bytes": 13556,
+      "sha256": "0c31cf6a91cce46783aab1bf591b714e094996e034bd77e12fa72bcd77737c31"
+    },
+    {
+      "file": "page_c2d1b0f0d0.html",
+      "url": "https://www.ethercat.org/memberarea/download/EtherCAT_Diagnosis_For_Developers_CN.pdf",
+      "final_url": "https://www.ethercat.org/login.aspx?ReturnUrl=%2fmemberarea%2fdownload%2fEtherCAT_Diagnosis_For_Developers_CN.pdf",
+      "kind": "html",
+      "bytes": 13559,
+      "sha256": "df5fd647070486e7429bb19cf3773d87f016177955b850c6e38d14f05c37902f"
+    },
+    {
+      "file": "page_0ef93b65a2.html",
+      "url": "https://www.ethercat.org/memberarea/download/EtherCAT_Diagnosis_For_Developers_JPN.pdf",
+      "final_url": "https://www.ethercat.org/login.aspx?ReturnUrl=%2fmemberarea%2fdownload%2fEtherCAT_Diagnosis_For_Developers_JPN.pdf",
+      "kind": "html",
+      "bytes": 13560,
+      "sha256": "e7fa9fa549977540a9667e03f4319197ab2c5c50c682c312d14b10cb7022e5e8"
+    },
+    {
+      "file": "ETG2200_V3i2i3_G_R_EtherCATImplementationGuide.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG2200_V3i2i3_G_R_EtherCATImplementationGuide.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG2200_V3i2i3_G_R_EtherCATImplementationGuide.pdf",
+      "kind": "pdf",
+      "bytes": 5016489,
+      "sha256": "4b8d78dcdfd3505721e7d39d805484054e175fc5765239c61d8a7e12a0aa2ed2",
+      "pdf_pages": 99
+    },
+    {
+      "file": "ETG2200_G_R_V3i1i0_ImplGuide_Slave_J04.pdf",
+      "url": "https://www.ethercat.org/download/documents/ETG2200_G_R_V3i1i0_ImplGuide_Slave_J04.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ETG2200_G_R_V3i1i0_ImplGuide_Slave_J04.pdf",
+      "kind": "pdf",
+      "bytes": 5349514,
+      "sha256": "7e5129ad0fefa43e53580cebfd14197bef8d6d6e8c6a8f034b27ee3d628da7a2",
+      "pdf_pages": 82
+    },
+    {
+      "file": "ESC_Overview.pdf",
+      "url": "https://www.ethercat.org/download/documents/ESC_Overview.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/ESC_Overview.pdf",
+      "kind": "pdf",
+      "bytes": 805146,
+      "sha256": "6a78101730e12a643fb0ba2b72ebca6220c54d3ec5f4f58e0d2fe81145e7ab1c",
+      "pdf_pages": 6
+    },
+    {
+      "file": "EtherCAT_Device_Protocol_Poster.pdf",
+      "url": "https://www.ethercat.org/download/documents/EtherCAT_Device_Protocol_Poster.pdf",
+      "final_url": "https://www.ethercat.org/download/documents/EtherCAT_Device_Protocol_Poster.pdf",
+      "kind": "pdf",
+      "bytes": 96771,
+      "sha256": "dc1be3f0a4cbc56506a68e4e4b36c230331b3c2d349419b1e16bf943bd459876",
+      "pdf_pages": 2
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:13+0300",
+  "pdf_count": 22,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

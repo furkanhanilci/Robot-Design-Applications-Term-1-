@@ -1,0 +1,25 @@
+{
+  "id": 48,
+  "name": "ST STM32 System Peripherals Tutorials",
+  "type": "Resmi MCU teknik dokümantasyonu",
+  "url": "https://wiki.st.com/stm32mcu/wiki/Getting_started_with_STM32_system_peripherals",
+  "folder": "48_ST_STM32_System_Peripherals_Tutorials",
+  "files": [],
+  "errors": [
+    {
+      "url": "https://wiki.st.com/stm32mcu/wiki/Getting_started_with_STM32_system_peripherals",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://wiki.st.com/stm32mcu/index.php?title=Getting_started_with_STM32_system_peripherals&action=raw",
+      "error": "The read operation timed out"
+    }
+  ],
+  "status": "unavailable",
+  "retrieved_at": "2026-10-05T20:48:33+0300",
+  "pdf_count": 0,
+  "status_tr": "Dosya erişimi sağlanamadı",
+  "notes": [
+    "İndirme istekleri zaman aşımı veya HTTP erişim engeli ile sonuçlandı. Bu kaynak için indirilmiş içerik varmış gibi gösterilmemiştir."
+  ]
+}

@@ -1,0 +1,176 @@
+ECE 477 - Engineering Electromagnetic Compatibility
+ECE477
+General Information
+Calendar
+Supplementals
+Exams
+Canvas
+Gradescope
+Statements
+ECE 477 - Engineering Electromagnetic Compatibility
+Fall 2026
+Announcements
+Welcome to ECE 477 Fall 2026!
+Instructor
+Instructor
+Prof. Victoria Shao
+NetID
+yangshao
+Lecture
+MWF, 11:00 - 11:50 AM, ECEB 3015
+Office Hours
+Thursday, 10 AM - 11 AM;
+3034 ECEB
+Teaching Assistant
+TA
+Ge Cao
+NetID
+gecao2
+Office Hours
+Thursday, 12 PM - 4 PM; 3003 ECEB
+Contact
+Please use the course communication channels listed on Canvas for course-related questions. Additional contact information will be posted before the semester begins.
+Course Description
+Electromagnetic compatibility (EMC) is the discipline of designing electronic systems that operate as intended in their electromagnetic environment without causing unacceptable electromagnetic interference (EMI) or being unduly susceptible to interference from other sources. This course develops a practical understanding of electromagnetic noise sources, coupling mechanisms, emissions and susceptibility, and design methods for reducing EMI. Topics include conducted and radiated interference, crosstalk, grounding, shielding, filtering, electrostatic discharge (ESD), EMC standards, and EMC-conscious system design.
+Prerequisites
+ECE 329: Fields and Waves I.
+Students should be comfortable with basic electromagnetic field concepts, circuits, phasors, and transmission-line ideas used in ECE 329 and related prerequisite courses.
+Course Learning Objectives
+After completing this course, students should be able to:
+Identify major sources of electromagnetic interference in electronic systems.
+Analyze and model common electromagnetic coupling mechanisms, including conducted, capacitive, inductive, and radiated coupling.
+Evaluate how non-ideal components, interconnects, cables, and layouts contribute to EMC problems.
+Apply grounding, shielding, filtering, and layout techniques to reduce electromagnetic interference.
+Analyze crosstalk and other coupling paths between circuits and subsystems.
+Apply strategies for electrostatic discharge (ESD) and transient immunity.
+Interpret and apply relevant EMC standards and test concepts.
+Develop and justify engineering design choices that improve the electromagnetic compatibility of an electronic system.
+Course Topics
+Topics may include:
+Introduction to EMC and EMI
+EMC requirements, standards, and regulations
+Electromagnetic noise sources and non-ideal components
+Conducted and radiated emissions
+Conducted and radiated susceptibility
+Common-impedance, capacitive, and inductive coupling
+Crosstalk
+Grounding and bonding
+Shielding
+Filtering and ferrites
+Cables, connectors, and interconnects
+PCB layout for EMC
+Electrostatic discharge (ESD) and transient immunity
+EMC measurements, troubleshooting, and system-level design
+Course Materials
+Course notes and lecture slides will be provided here to supplement the in-class presentations.
+Lecture Notes
+Annotated Notes
+Other
+Lecture 1 - EMC Introduction
+Lecture 1 - Annotated
+Lecture 2 - Spectrum of Digital Waveform
+Lecture 2 - Annotated
+Lecture 3 - Transmission Line Basics
+Lecture 3 - Annotated
+Lecture 4 - Transient Response of TLs
+Lecture 4 - Annotated
+LTspice - examples
+Lecture 5 - Non-ideal Behavior of Components
+Lecture 5 - Up to Date
+Textbook
+Clayton R. Paul, Robert C. Scully, and Mark A. Steffka,
+Introduction to Electromagnetic Compatibility
+, 3rd Ed., Wiley, 2022.
+References
+Henry W. Ott,
+Electromagnetic Compatibility Engineering
+, John Wiley & Sons, 2009.
+D. L. Sengupta and V. V. Liepa,
+Applied Electromagnetics and Electromagnetic Compatibility
+, John Wiley & Sons, 2006.
+Grading Policy
+Undergraduate Students
+Homework
+15%
+Exam 1
+25%
+Exam 2
+25%
+Final Exam
+30%
+In-Class Participation
+5%
+Graduate Students
+Homework
+15%
+Exam 1
+20%
+Exam 2
+20%
+Final Exam
+25%
+Final Project
+15%
+In-Class Participation
+5%
+Letter Grade Percentage Score
+A+
+> 97
+A
+93 - 97
+A-
+89 - 93
+B+
+87 - 89
+B
+83 - 87
+B-
+79 - 83
+C+
+77 - 79
+C
+73 - 77
+C-
+69 - 73
+D+
+67 - 69
+D
+63 - 67
+D-
+59 - 63
+F
+< 59
+Homework and Assessments
+Homework will generally be due on Thursdays at 11:59 PM and submitted through
+Gradescope
+, unless otherwise announced.
+No late homework will be accepted.
+If your total homework score is at least 85% of the total possible homework points, you will receive full credit for the homework portion of the course grade.
+Do not wait until the last minute to submit assignments. Students are responsible for confirming that the correct pages and files have been uploaded before the deadline.
+Course Communication
+Course announcements and updates will be posted on Canvas. Students are responsible for checking Canvas regularly. Course-specific discussion and help resources will be announced at the beginning of the semester.
+Artificial Intelligence (AI) Use
+Generative AI tools may be used in this course as learning aids when permitted. Some assignments will include structured AI critical-thinking activities in which students are expected to evaluate, verify, critique, or reflect on AI-generated responses. Follow the instructions provided with each assignment.
+Appropriate uses may include explaining concepts, identifying learning gaps, comparing approaches, troubleshooting reasoning, and checking or verifying your own work. AI should support your learning, not replace your own engineering analysis, judgment, or problem solving.
+You are responsible for the correctness, integrity, and understanding of all work you submit.
+You should be able to explain and defend any analysis, calculation, simulation, design decision, or written response that you submit.
+Do not submit AI-generated solutions or responses as your own work.
+When AI contributes substantively to submitted work, acknowledge its use and retain the relevant prompts and responses in case the course staff requests them.
+Verify AI output using course principles, calculations, simulations, measurements, or other appropriate engineering methods.
+AI use is not permitted during exams unless explicitly authorized.
+Individual assignments may require, permit, limit, or prohibit AI use. Follow the instructions for each assignment. When in doubt, ask the course staff before using AI.
+Failure to follow these guidelines may constitute a violation of academic integrity.
+Academic Integrity
+Students are expected to abide by the
+University of Illinois Student Code
+and should pay particular attention to Article 1, Part 4:
+Academic Integrity
+. Students are responsible for understanding what constitutes plagiarism, cheating, unauthorized collaboration, and other forms of academic misconduct. If you are uncertain whether a particular type of collaboration or tool use is permitted, ask the instructor before submitting the work.
+Course Statements
+University and course statements regarding accommodations, religious observances, student support, safety, and other policies are provided on the
+Course Statements
+page.
+© Victoria Shao. 2026. All rights reserved.
+Page generated 2026-10-02 17:48:10 CDT, by
+jemdoc+MathJax
+.

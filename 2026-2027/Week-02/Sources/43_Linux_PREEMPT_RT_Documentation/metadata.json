@@ -1,0 +1,249 @@
+{
+  "id": 43,
+  "name": "Linux PREEMPT_RT Documentation",
+  "type": "Resmi kernel dokümantasyonu",
+  "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/index.html",
+  "folder": "43_Linux_PREEMPT_RT_Documentation",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/index.html",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/index.html",
+      "kind": "html",
+      "bytes": 13641,
+      "sha256": "66bb34093ed254ad0189644c94d9b6d18779cefad63ac227dd08fe0564b61a30"
+    },
+    {
+      "file": "page_238349fd16.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_8087834c3f.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#preface",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#preface",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_3aa28a3722.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#scheduling",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#scheduling",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_5bfb9f0a6b.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#sleeping-spin-locks",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#sleeping-spin-locks",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_14c9b03e97.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#priority-inheritance",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#priority-inheritance",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_7538f6f75e.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#threaded-interrupts",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#threaded-interrupts",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_4cca272a02.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#summary",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/theory.html#summary",
+      "kind": "html",
+      "bytes": 16977,
+      "sha256": "1df759f8701d489922e48f224c70f792fc0543a5919c31c9150bda795c0484a5"
+    },
+    {
+      "file": "page_d77ffde7c0.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html",
+      "kind": "html",
+      "bytes": 25611,
+      "sha256": "e36dc36c819658983f71bf6af36d355b23743de5ec6a5d183290e7a737f51255"
+    },
+    {
+      "file": "page_9d48470973.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#preface",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#preface",
+      "kind": "html",
+      "bytes": 25611,
+      "sha256": "e36dc36c819658983f71bf6af36d355b23743de5ec6a5d183290e7a737f51255"
+    },
+    {
+      "file": "page_ef1b8dd189.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#locking",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#locking",
+      "kind": "html",
+      "bytes": 25611,
+      "sha256": "e36dc36c819658983f71bf6af36d355b23743de5ec6a5d183290e7a737f51255"
+    },
+    {
+      "file": "page_2e31e137fd.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#execution-context",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#execution-context",
+      "kind": "html",
+      "bytes": 25611,
+      "sha256": "e36dc36c819658983f71bf6af36d355b23743de5ec6a5d183290e7a737f51255"
+    },
+    {
+      "file": "page_239cede5c1.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#spin-until-ready",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/differences.html#spin-until-ready",
+      "kind": "html",
+      "bytes": 25611,
+      "sha256": "e36dc36c819658983f71bf6af36d355b23743de5ec6a5d183290e7a737f51255"
+    },
+    {
+      "file": "page_3579240277.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html",
+      "kind": "html",
+      "bytes": 24718,
+      "sha256": "289b34cbb041502ffee735e34df152a799ef2d2fe9c8bcc46284e454988abc3a"
+    },
+    {
+      "file": "page_14afc78aae.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#system-memory-and-cache",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#system-memory-and-cache",
+      "kind": "html",
+      "bytes": 24718,
+      "sha256": "289b34cbb041502ffee735e34df152a799ef2d2fe9c8bcc46284e454988abc3a"
+    },
+    {
+      "file": "page_e4131cfc51.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#hardware-buses",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#hardware-buses",
+      "kind": "html",
+      "bytes": 24718,
+      "sha256": "289b34cbb041502ffee735e34df152a799ef2d2fe9c8bcc46284e454988abc3a"
+    },
+    {
+      "file": "page_a15fb6c861.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#virtualization",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#virtualization",
+      "kind": "html",
+      "bytes": 24718,
+      "sha256": "289b34cbb041502ffee735e34df152a799ef2d2fe9c8bcc46284e454988abc3a"
+    },
+    {
+      "file": "page_184687144b.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#networking",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#networking",
+      "kind": "html",
+      "bytes": 24718,
+      "sha256": "289b34cbb041502ffee735e34df152a799ef2d2fe9c8bcc46284e454988abc3a"
+    },
+    {
+      "file": "page_40fe502638.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#firmware",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/hardware.html#firmware",
+      "kind": "html",
+      "bytes": 24718,
+      "sha256": "289b34cbb041502ffee735e34df152a799ef2d2fe9c8bcc46284e454988abc3a"
+    },
+    {
+      "file": "page_a533a35c52.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/architecture-porting.html",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/architecture-porting.html",
+      "kind": "html",
+      "bytes": 18364,
+      "sha256": "0f96b6af30a5b75922c2daaa23a6f8e582fa7f39873b3f51bf10a7988299664a"
+    },
+    {
+      "file": "page_1ff8fb78a6.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/architecture-porting.html#requirements",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/architecture-porting.html#requirements",
+      "kind": "html",
+      "bytes": 18364,
+      "sha256": "0f96b6af30a5b75922c2daaa23a6f8e582fa7f39873b3f51bf10a7988299664a"
+    },
+    {
+      "file": "page_e2f5a841b5.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/architecture-porting.html#optional-features",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/architecture-porting.html#optional-features",
+      "kind": "html",
+      "bytes": 18364,
+      "sha256": "0f96b6af30a5b75922c2daaa23a6f8e582fa7f39873b3f51bf10a7988299664a"
+    },
+    {
+      "file": "page_61f8be5c1c.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html",
+      "kind": "html",
+      "bytes": 36163,
+      "sha256": "a9424e699855d8d6d53e7818f3ea4d8b6da76e3cf600653e4aa292306994ebe9"
+    },
+    {
+      "file": "page_c052f1f36a.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#introduction",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#introduction",
+      "kind": "html",
+      "bytes": 36163,
+      "sha256": "a9424e699855d8d6d53e7818f3ea4d8b6da76e3cf600653e4aa292306994ebe9"
+    },
+    {
+      "file": "page_69a0ad0610.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#configuration-options",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#configuration-options",
+      "kind": "html",
+      "bytes": 36163,
+      "sha256": "a9424e699855d8d6d53e7818f3ea4d8b6da76e3cf600653e4aa292306994ebe9"
+    },
+    {
+      "file": "page_97bbac4dcb.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#kernel-debug-options",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#kernel-debug-options",
+      "kind": "html",
+      "bytes": 36163,
+      "sha256": "a9424e699855d8d6d53e7818f3ea4d8b6da76e3cf600653e4aa292306994ebe9"
+    },
+    {
+      "file": "page_35851f4530.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#summary",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#summary",
+      "kind": "html",
+      "bytes": 36163,
+      "sha256": "a9424e699855d8d6d53e7818f3ea4d8b6da76e3cf600653e4aa292306994ebe9"
+    },
+    {
+      "file": "page_50437d017b.html",
+      "url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#references",
+      "final_url": "https://www.kernel.org/doc/html/latest/core-api/real-time/kernel-configuration.html#references",
+      "kind": "html",
+      "bytes": 36163,
+      "sha256": "a9424e699855d8d6d53e7818f3ea4d8b6da76e3cf600653e4aa292306994ebe9"
+    },
+    {
+      "file": "page_cabf732f84.html",
+      "url": "https://web.archive.org/web/20221025085614/https://linutronix.de/PDF/Realtime_and_graphics-acontradiction2021.pdf",
+      "final_url": "https://web.archive.org/web/20221025085614/https://linutronix.de/PDF/Realtime_and_graphics-acontradiction2021.pdf",
+      "kind": "html",
+      "bytes": 9178,
+      "sha256": "bfd36bf45393c9d8fa6989888203fe984295d9f74f6079e32dfe4597dabc0eb1"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:48:06+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

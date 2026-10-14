@@ -1,0 +1,94 @@
+{
+  "id": 1,
+  "files": [
+    {
+      "file": "supplement_0234a475bc.html",
+      "url": "https://hades.mech.northwestern.edu/index.php/Modern_Robotics",
+      "final_url": "https://hades.mech.northwestern.edu/index.php/Modern_Robotics",
+      "kind": "html",
+      "bytes": 43007,
+      "sha256": "0c43901cee2eca47cdd6a935dd9ac94fa0099ddd45d36cc20508d8f102a6f2cd"
+    },
+    {
+      "file": "MR-v2.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/2/25/MR-v2.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/2/25/MR-v2.pdf",
+      "kind": "pdf",
+      "bytes": 7322483,
+      "sha256": "47f446567bb4ba500fced69890c4c039f8180c2a3dfd0ffdd679d9ac0a421368"
+    },
+    {
+      "file": "MR-tablet-v2.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/0/0c/MR-tablet-v2.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/0/0c/MR-tablet-v2.pdf",
+      "kind": "pdf",
+      "bytes": 7330664,
+      "sha256": "f44cde1b1b8ee614c4ad8141e29d306fa0eabce6d85000fde0d69d9dd2aad588"
+    },
+    {
+      "file": "MR-largefont-v2.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/2/2e/MR-largefont-v2.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/2/2e/MR-largefont-v2.pdf",
+      "kind": "pdf",
+      "bytes": 7945339,
+      "sha256": "edd31a7cbb8e01dd829bae1c82fc46fb6602c4a669cffac660b4d031d0c3006c"
+    },
+    {
+      "file": "MR-2up-v2.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/7/7e/MR-2up-v2.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/7/7e/MR-2up-v2.pdf",
+      "kind": "pdf",
+      "bytes": 7445977,
+      "sha256": "9ec223d96fa2217dd96d2d5a62d6a8f1e8b3868c87ae72ac09a5e6a63769efc4"
+    },
+    {
+      "file": "MR_practice_exercises.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/e/ef/MR_practice_exercises.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/e/ef/MR_practice_exercises.pdf",
+      "kind": "pdf",
+      "bytes": 2482091,
+      "sha256": "db7ec7df986fd2ba3a0b46da7d651f83ef0bf5805350168209018695f3a815ce"
+    },
+    {
+      "file": "SNU-2017-exams.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/2/28/SNU-2017-exams.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/2/28/SNU-2017-exams.pdf",
+      "kind": "pdf",
+      "bytes": 19613933,
+      "sha256": "84af3cbb6013e7a5e2b7681c19f16ebaa987d4549577e2d71d6f84e3b7c597aa"
+    },
+    {
+      "file": "SNU-2018-exams.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/5/56/SNU-2018-exams.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/5/56/SNU-2018-exams.pdf",
+      "kind": "pdf",
+      "bytes": 21086810,
+      "sha256": "29c723c8d8dab369a8bc131697ffb2fb53efe397ca7e727a5e868b49fcca2c7b"
+    },
+    {
+      "file": "SNU-2019-exams.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/0/0d/SNU-2019-exams.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/0/0d/SNU-2019-exams.pdf",
+      "kind": "pdf",
+      "bytes": 7007909,
+      "sha256": "d61ed40f9566d153322620ebd0b3e0cd2bb895f437bf91b8f9cd4f34c774ef1a"
+    },
+    {
+      "file": "SNU-2020-exams.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/2/23/SNU-2020-exams.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/2/23/SNU-2020-exams.pdf",
+      "kind": "pdf",
+      "bytes": 5851194,
+      "sha256": "15b3de9fa8ed5d32b468287d47ca5de113ab0b9775ef6092a4635cac78650cb6"
+    },
+    {
+      "file": "UR5-URDF.pdf",
+      "url": "https://hades.mech.northwestern.edu/images/4/49/UR5-URDF.pdf",
+      "final_url": "https://hades.mech.northwestern.edu/images/4/49/UR5-URDF.pdf",
+      "kind": "pdf",
+      "bytes": 28131,
+      "sha256": "387926cadbec598b8976c875fd0d02789399bbb9b1771a0fad2dfce146fdad20"
+    }
+  ],
+  "errors": []
+}

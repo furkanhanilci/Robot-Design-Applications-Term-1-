@@ -1,0 +1,194 @@
+Project Timeline Management – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Project Timeline Management
+Timelines and Deliverables
+A timeline management solution is essential for a product design project, as it helps to plan, monitor and control the various tasks and deliverables involved. A timeline management solution can help to define the scope, objectives and milestones of the project, as well as assign roles and responsibilities to the team members. It can also help to track the progress and status of the project, identify potential risks and issues, and communicate effectively with the stakeholders. A timeline management solution can improve the efficiency, quality and success of the product design project.
+Gantt Charts
+A Gantt chart is a graphical tool that helps product design development teams to plan, coordinate, and track their tasks and progress over time. A Gantt chart shows the start and end dates of each task, the dependencies between tasks, the milestones and deliverables, and the allocation of resources. A Gantt chart can provide several benefits for product design development projects, such as:
+It can help to define the scope and objectives of the project and break them down into manageable tasks.
+It can help to estimate the duration and cost of each task and the overall project.
+It can help to identify and mitigate potential risks and issues that may arise during the project.
+It can help to communicate and collaborate with stakeholders and team members on the project status and expectations.
+It can help to monitor and control the project performance and quality and make adjustments as needed.
+Therefore, a Gantt chart is a valuable tool for product design development teams to plan, execute, and evaluate their projects effectively and efficiently.
+Here are some detailed steps for creating a Gantt chart for a mechanical product design project:
+Define the scope and objectives of the project. What are you trying to achieve with your product design? What are the main features and functions of the product? What are the deliverables and deadlines of the project?
+Break down the project into phases and tasks. Identify the major phases of the product design process, such as research, ideation, prototyping, testing, and manufacturing. Then, divide each phase into smaller and more manageable tasks that can be assigned to different team members or groups.
+Estimate the duration and effort of each task. How long will each task take to complete? How much time and resources will each task require? Use historical data, expert opinions, or estimation techniques to determine realistic durations and efforts for each task.
+Identify the dependencies and constraints of each task. How do the tasks relate to each other? Which tasks need to be completed before others can start? Which tasks can be done in parallel or overlap? What are the external factors that may affect the completion of the tasks, such as availability of materials, equipment, or personnel?
+Create a Gantt chart using a software tool or a spreadsheet. Enter the tasks, durations, dependencies, and milestones into a Gantt chart tool or a spreadsheet program that can generate a Gantt chart. Adjust the start and end dates of each task according to their dependencies and constraints. Use different colors or symbols to indicate different phases, groups, or priorities of the tasks.
+Review and refine the Gantt chart with your team and stakeholders. Share the Gantt chart with your team members and stakeholders and get their feedback and approval. Make sure everyone understands their roles and responsibilities and agrees on the timeline and scope of the project. Update the Gantt chart as needed to reflect any changes or revisions.
+Monitor and control the progress of the project using the Gantt chart. Use the Gantt chart as a communication and tracking tool throughout the project lifecycle. Compare the actual progress of each task with the planned progress on the Gantt chart. Identify any issues or risks that may cause delays or deviations from the plan. Take corrective actions or preventive measures to keep the project on track and on budget.
+*Watch this
+video
+to learn more about Gantt Chart.
+Other Common Design Project Management Tools
+There are some other common software tools used for project management. Regardless of your technical expertise, you will likely still need to interact with some sort of project management. It is highly advisable for students who want to demonstrate that they are ready for an internship or initial job to demonstrate competency with these common tools. Before your next internship or job interview, review the following tools and be ready to be conversant on them to demonstrate your readiness to be productive in their software ecosystem.
+Microsoft Project: This is a popular and widely used tool that allows users to create and manage project plans, assign tasks and resources, track progress and costs, generate reports and charts, and integrate with other Microsoft applications.
+Jira: This is a tool that focuses on agile project management methodologies, such as Scrum and Kanban. It enables users to create and prioritize user stories, manage sprints and backlogs, track issues and bugs, collaborate with team members, and visualize workflows and metrics.
+Trello: This is a tool that uses a simple and intuitive interface based on boards, lists, and cards. It allows users to organize and manage projects of any size and complexity, assign tasks and deadlines, add comments and attachments, create checklists and labels, and integrate with various apps and services.
+Asana: This is a tool that helps users to manage projects and workflows from start to finish. It allows users to create and share goals and milestones, assign tasks and subtasks, set due dates and dependencies, track progress and status updates, communicate with team members, and automate repetitive tasks.
+Basecamp: This is a tool that provides a centralized platform for project management and team collaboration. It allows users to create and join projects, add tasks and events, upload files and documents, chat with team members, send messages and announcements, and monitor activity and feedback.
+Previous/next navigation
+Previous: Individual Design Decision Making
+Next: Project Team Managment
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

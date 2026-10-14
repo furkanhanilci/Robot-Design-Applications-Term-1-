@@ -1,0 +1,281 @@
+Linguistics Textbooks - Open Textbook Library
+Skip to content
+Search the Library
+Textbook Search
+Browse Subjects
+Business
++
+Accounting
+Finance
+Human Resources
+Management
+Marketing
+Computer Science
++
+Databases
+Information Systems
+Programming Languages
+Education
++
+Curriculum & Instruction
+Distance Education
+Early Childhood
+Elementary Education
+Higher Education
+Secondary Education
+Engineering & Technology
++
+Civil Engineering
+Electrical Engineering
+Mechanical Engineering
+Humanities
++
+Arts
+History
+Languages
+Linguistics
+Literature, Rhetoric, and Poetry
+Music
+Philosophy
+Religion
+Journalism, Media Studies & Communications
++
+New Media Journalism
+Law
++
+Administrative Law
+Civil Law
+Constitutional Law
+Contract Law
+Criminal Law
+Procedural Law
+Property Law
+Mathematics
++
+Algebra
+Analysis
+Applied
+Calculus
+Geometry and Trigonometry
+Pure
+Statistics
+Medicine
++
+Nursing
+Nutrition
+Natural Sciences
++
+Biology
+Chemistry
+Earth Sciences
+Physics
+Social Sciences
++
+Anthropology
+Cultural & Ethnic Studies
+Economics
+Gender & Sexuality Studies
+Geography
+Library Science and Museum Studies
+Political Science
+Psychology
+Sociology
+Student Success
+About Open Textbooks
+FAQ
+Friends
+Submit
+Discovery
+Open Education Network
+You are offline and only viewing locally cached content.
+Linguistics Textbooks
+Filters
++
+Language
+All languages
+Arabic
+Azerbaijani
+Bulgarian
+Chinese
+Dutch; Flemish
+English
+French
+German
+Greek, Modern (1453-)
+Italian
+Japanese
+Korean
+Polish
+Portuguese
+Russian
+Slovenian
+Spanish; Castilian
+Swahili
+Ukrainian
+License
+Attribution
+(CC BY)
+Attribution-ShareAlike
+(CC BY-SA)
+Attribution-NonCommercial
+(CC BY-NC)
+Attribution-NonCommercial-ShareAlike
+(CC BY-NC-SA)
+No Rights Reserved
+(CC0)
+Free Documentation License (GNU)
+Formats
+Hardcopy
+eBook
+Online
+PDF
+Google Doc
+MS Word
+LaTeX
+XML
+ODF
+Audiobook
+Order by
+Date added to library
+Faculty rating
+Publication date
+The Unicode cookbook for linguists: Managing writing systems using orthography profiles
+Copyright Year:
+2018
+Authors:
+Moran and Cysouw
+Publisher:
+Language Science Press
+License:
+CC BY
+This text is a practical guide for linguists, and programmers, who work with data in multilingual computational environments. We introduce the basic concepts needed to understand how writing systems and character encodings function, and how they work together at the intersection between the Unicode Standard and the International Phonetic Alphabet. Although these standards are often met with frustration by users, they nevertheless provide language researchers and programmers with a consistent computational architecture needed to process, publish and analyze lexical data from the world's languages. Thus we bring to light common, but not always transparent, pitfalls which researchers face when working with Unicode and IPA. Having identified and overcome these pitfalls involved in making writing systems and character encodings syntactically and semantically interoperable (to the extent that they can be), we created a suite of open-source Python and R tools to work with languages using orthography profiles that describe author- or document-specific orthographic conventions. In this cookbook we describe a formal specification of orthography profiles and provide recipes using open source tools to show how users can segment text, analyze it, identify errors, and to transform it into different written forms for comparative linguistics research.
+(1 review)
+READ MORE
+Grammatical theory: From transformational grammar to constraint-based approaches
+Copyright Year:
+2019
+Author:
+Müller
+Publisher:
+Language Science Press
+License:
+CC BY
+This book introduces formal grammar theories that play a role in current linguistic theorizing (Phrase Structure Grammar, Transformational Grammar/Government & Binding, Generalized Phrase Structure Grammar, Lexical Functional Grammar, Categorial Grammar, Head-​Driven Phrase Structure Grammar, Construction Grammar, Tree Adjoining Grammar). The key assumptions are explained and it is shown how the respective theory treats arguments and adjuncts, the active/passive alternation, local reorderings, verb placement, and fronting of constituents over long distances. The analyses are explained with German as the object language.
+No ratings
+(0 reviews)
+READ MORE
+Linguistics for Teachers of English
+Copyright Year:
+2018
+Author:
+Russell
+Publisher:
+New Prairie Press
+License:
+CC BY-NC-SA
+The primary goals of this text are to acquaint prospective teachers of English with certain aspects of the history, structure, and use of the English Language. Through considering the nature of the English language; how language and culture are interconnected as well as how it is acquired and how and why it changes, readers will come to a fuller understanding of sociolinguistics. This text discusses the nature of language, as well as how it is acquired; how and why languages change, and how the English language in particular has changed (and continues to change); why different varieties of English have developed, and why they continue to be used; how linguists have attempted to account for the (ir)regularities of English; how language and culture are related; and how linguistics can be used as a tool in the classroom. This text presents important topics for English teachers to know: the relationship between “standard” and “nonstandard” dialects, how and why language varies, how we can make informed decisions about what is “right” and “wrong” in language use, and generally how a sound knowledge of how language works can inform and benefit the pedagogical strategies needed to develop as a teacher. Ultimately, I want readers to think about language in ways not thought of before: objectively, passionately, critically, analytically, and logically. This allows readers to move beyond memorization of facts to original thought (which is sort of like the difference between knowing how to add and subtract, and being able to balance a checkbook).
+(9 reviews)
+READ MORE
+La lingüística hispánica: Una introducción
+Copyright Year:
+2019
+Author:
+Ganeshan
+Editors:
+Wison and Saine
+Publisher:
+Ashwini Ganeshan
+License:
+CC BY-NC-SA
+Editoras: Paige Wilson, Margaret Saine, y Anna Traini
+(3 reviews)
+READ MORE
+Bate-Papo
+Copyright Year:
+2019
+Author:
+Viana da Silva
+Publisher:
+University of Washington
+License:
+CC BY
+An Introduction to Portuguese
+No ratings
+(0 reviews)
+READ MORE
+Reading With My Eyes Open: Embracing the critical and the personal in language pedagogy
+Copyright Year:
+2013
+Author:
+Quist
+Publisher:
+Ubiquity Press
+License:
+CC BY
+Untangling the various approaches to language teaching and their history, Gerdi Quist maps recent thinking in language studies at university. Using an interdisciplinary theoretical framework, drawn from educational philosophy, cultural studies, intercultural studies and language pedagogy, the author discusses the many tensions and currents in contemporary language teaching. The author puts forward an alternative pedagogy, that of a cultuurtekst-perspective, which engages learners at complex linguistic and cultural levels. In discussing the case study in which this approach is tested, the author develops her argument for embracing various critical perspectives through the personal engagement of students. From the start the author acknowledges her own engaged position as a language teacher in a liberal humanistic educational environment. She adopts a self-critical perspective through which her engagement with adverse student reaction leads to deepening insights both for the author and her students as part of the non-linear process of learning. Gerdi Quist teaches Dutch language and lectures on multiculturalism and intercultural communication. Recent publications included a book chapter and journal articles on language pedagogy and intercultural communication.
+(6 reviews)
+READ MORE
+Conventions 101: A Functional Approach to Teaching (And Assessing!) Grammar and Punctuation
+Copyright Year:
+2016
+Author:
+Ramsey
+Publisher:
+Open Oregon Educational Resources
+License:
+CC BY-NC
+This is a collection of cumulative units of study for conventional errors common in student writing. It's flexible, functional, and zeroes in problems typically seen in writing of all types, from the eternal “there/they're/their” struggle to correct colon use. Units are organized from most simple to most challenging.
+(27 reviews)
+READ MORE
+WAC and Second-Language Writers: Research Towards Linguistically and Culturally Inclusive Programs and Practices
+Copyright Year:
+2014
+Editors:
+Zawacki and Cox
+Publisher:
+WAC Clearinghouse
+License:
+CC BY-NC-ND
+In WAC and Second-Language Writers, the editors and contributors pursue the ambitious goal of including within WAC theory, research, and practice the differing perspectives, educational experiences, and voices of second-language writers. The chapters within this collection not only report new research but also share a wealth of pedagogical, curricular, and programmatic practices relevant to second-language writers. Representing a range of institutional perspectives—including those of students and faculty at public universities, community colleges, liberal arts colleges, and English-language schools—and a diverse set of geographical and cultural contexts, the editors and contributors report on work taking place in the United States, Asia, Europe, and the Middle East.
+(6 reviews)
+READ MORE
+Languages and Worldview
+Copyright Year:
+2020
+Author:
+Allard-Kropp
+Publisher:
+University of Missouri - St. Louis
+License:
+CC BY-NC-SA
+Asking and answering questions about what culture entails and examines the fundamental properties and intertwining nature of language and culture. This text explores linguistic relativity, lexical differences among languages and intercultural communication, including high and low contexts.
+(3 reviews)
+READ MORE
+Oral Communication for Non-Native Speakers of English - 2nd Edition
+Copyright Year:
+2025
+Authors:
+Guskaroska, Goodale, Kochem, Ghosh, Compton, and Cotos
+Publisher:
+Iowa State University
+License:
+CC BY-NC-SA
+This book is an essential instructional tool for developing oral communication skills in academic settings, specifically designed for international graduate students, teaching assistants, postdoctoral researchers, and those preparing to enter academia. The second edition introduces dedicated chapters on developing listening, speaking, and pronunciation. Through its wide array of interactive online activities, suitable for both classroom teaching and individual practice, learners can actively develop the skills needed for success in English-speaking academic environments.
+(4 reviews)
+READ MORE
+1
+2
+3
+Next
+Last
+Stay Updated
+Bluesky
+Mastodon
+LinkedIn
+YouTube
+Join Our Newsletter
+Email Address
+CENTER FOR OPEN EDUCATION | The Open Education Network is based in the Center for Open Education in the University of Minnesota’s College of Education and Human Development.
+University of Minnesota, 330 Wulling Hall, 86 Pleasant Street S.E., Minneapolis, MN 55455
+Except where otherwise noted, content on this site is licensed under a
+Creative Commons Attribution 4.0 License

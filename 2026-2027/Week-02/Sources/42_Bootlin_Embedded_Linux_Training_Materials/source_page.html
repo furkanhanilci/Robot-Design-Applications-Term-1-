@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<script>
+(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+//# sourceURL=twentysixteen_javascript_detection
+</script>
+<title>Docs &#8211; Bootlin</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" type="application/rss+xml" title="Bootlin &raquo; Feed" href="https://bootlin.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bootlin &raquo; Comments Feed" href="https://bootlin.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://bootlin.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbootlin.com%2Fdocs%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://bootlin.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbootlin.com%2Fdocs%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #1a1a1a;--wp--preset--color--medium-gray: #686868;--wp--preset--color--light-gray: #e5e5e5;--wp--preset--color--blue-gray: #4d545c;--wp--preset--color--bright-blue: #007acc;--wp--preset--color--light-blue: #9adffd;--wp--preset--color--dark-brown: #402b30;--wp--preset--color--medium-brown: #774e24;--wp--preset--color--dark-red: #640c1f;--wp--preset--color--bright-red: #ff675f;--wp--preset--color--yellow: #ffef8e;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-color{color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-color{color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-color{color: var(--wp--preset--color--light-gray) !important;}.has-blue-gray-color{color: var(--wp--preset--color--blue-gray) !important;}.has-bright-blue-color{color: var(--wp--preset--color--bright-blue) !important;}.has-light-blue-color{color: var(--wp--preset--color--light-blue) !important;}.has-dark-brown-color{color: var(--wp--preset--color--dark-brown) !important;}.has-medium-brown-color{color: var(--wp--preset--color--medium-brown) !important;}.has-dark-red-color{color: var(--wp--preset--color--dark-red) !important;}.has-bright-red-color{color: var(--wp--preset--color--bright-red) !important;}.has-yellow-color{color: var(--wp--preset--color--yellow) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-background-color{background-color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-background-color{background-color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-background-color{background-color: var(--wp--preset--color--light-gray) !important;}.has-blue-gray-background-color{background-color: var(--wp--preset--color--blue-gray) !important;}.has-bright-blue-background-color{background-color: var(--wp--preset--color--bright-blue) !important;}.has-light-blue-background-color{background-color: var(--wp--preset--color--light-blue) !important;}.has-dark-brown-background-color{background-color: var(--wp--preset--color--dark-brown) !important;}.has-medium-brown-background-color{background-color: var(--wp--preset--color--medium-brown) !important;}.has-dark-red-background-color{background-color: var(--wp--preset--color--dark-red) !important;}.has-bright-red-background-color{background-color: var(--wp--preset--color--bright-red) !important;}.has-yellow-background-color{background-color: var(--wp--preset--color--yellow) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-border-color{border-color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-border-color{border-color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-border-color{border-color: var(--wp--preset--color--light-gray) !important;}.has-blue-gray-border-color{border-color: var(--wp--preset--color--blue-gray) !important;}.has-bright-blue-border-color{border-color: var(--wp--preset--color--bright-blue) !important;}.has-light-blue-border-color{border-color: var(--wp--preset--color--light-blue) !important;}.has-dark-brown-border-color{border-color: var(--wp--preset--color--dark-brown) !important;}.has-medium-brown-border-color{border-color: var(--wp--preset--color--medium-brown) !important;}.has-dark-red-border-color{border-color: var(--wp--preset--color--dark-red) !important;}.has-bright-red-border-color{border-color: var(--wp--preset--color--bright-red) !important;}.has-yellow-border-color{border-color: var(--wp--preset--color--yellow) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='menu-image-css' href='https://bootlin.com/wp-content/plugins/menu-image/includes/css/menu-image.css?ver=3.13' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://bootlin.com/wp-includes/css/dashicons.min.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='twentysixteen-fonts-css' href='https://bootlin.com/wp-content/themes/twentysixteen/fonts/merriweather-plus-montserrat-plus-inconsolata.css?ver=20230328' media='all' />
+<link rel='stylesheet' id='genericons-css' href='https://bootlin.com/wp-content/themes/twentysixteen/genericons/genericons.css?ver=20251101' media='all' />
+<link rel='stylesheet' id='twentysixteen-style-css' href='https://bootlin.com/wp-content/themes/bootlin/style.css?ver=20260819' media='all' />
+<link rel='stylesheet' id='twentysixteen-block-style-css' href='https://bootlin.com/wp-content/themes/twentysixteen/css/blocks.css?ver=20260105' media='all' />
+<script id="jquery-core-js" src="https://bootlin.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://bootlin.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="twentysixteen-script-js-extra">
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+//# sourceURL=twentysixteen-script-js-extra
+</script>
+<script data-wp-strategy="defer" defer id="twentysixteen-script-js" src="https://bootlin.com/wp-content/themes/twentysixteen/js/functions.js?ver=20230629"></script>
+<link rel="https://api.w.org/" href="https://bootlin.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://bootlin.com/wp-json/wp/v2/pages/49" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bootlin.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.2" />
+<link rel="canonical" href="https://bootlin.com/docs/" />
+<link rel='shortlink' href='https://bootlin.com/?p=49' />
+		<style id="twentysixteen-header-css">
+		.site-branding {
+			margin: 0 auto 0 0;
+		}
+
+		.site-branding .site-title,
+		.site-description {
+			clip-path: inset(50%);
+			position: absolute;
+		}
+		</style>
+		<link rel="icon" href="https://bootlin.com/wp-content/uploads/2018/01/cropped-beak-favicon-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://bootlin.com/wp-content/uploads/2018/01/cropped-beak-favicon-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://bootlin.com/wp-content/uploads/2018/01/cropped-beak-favicon-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://bootlin.com/wp-content/uploads/2018/01/cropped-beak-favicon-1-270x270.png" />
+<style id="wp-custom-css">
+ul {
+	padding-left: 20px;
+}
+
+ol {
+	padding-left: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.grid > div {
+  background: #eeeeee;
+  padding: 1rem;
+	text-align: center;
+}
+
+.grid > div::before {
+  content: "";
+  padding: 1em;
+  display: block;
+}
+</style>
+</head>
+
+<body class="wp-singular page-template-default page page-id-49 wp-custom-logo wp-embed-responsive wp-theme-twentysixteen wp-child-theme-bootlin group-blog">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-header-main">
+				<div class="site-branding">
+					<a href="https://bootlin.com/" class="custom-logo-link" rel="home"><img width="240" height="70" src="https://bootlin.com/wp-content/uploads/2018/01/bootlin-logo-240.png" class="custom-logo" alt="Bootlin" decoding="async" /></a>
+											<p class="site-title"><a href="https://bootlin.com/" rel="home">Bootlin</a></p>
+												<p class="site-description">Embedded Linux and kernel engineering</p>
+									</div><!-- .site-branding -->
+
+									<button id="menu-toggle" class="menu-toggle">Menu</button>
+
+					<div id="site-header-menu" class="site-header-menu">
+													<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
+								<div class="menu-menu-container"><ul id="menu-menu" class="primary-menu"><li id="menu-item-10633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-10633"><a href="https://bootlin.com">Home</a></li>
+<li id="menu-item-5818" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5818"><a href="https://bootlin.com/engineering/">Engineering</a></li>
+<li id="menu-item-5823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5823"><a href="https://bootlin.com/training/">Training</a></li>
+<li id="menu-item-5824" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-49 current_page_item menu-item-5824"><a href="https://bootlin.com/docs/" aria-current="page">Docs</a></li>
+<li id="menu-item-5825" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5825"><a href="https://bootlin.com/community/">Community</a></li>
+<li id="menu-item-5826" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5826"><a href="https://bootlin.com/company/">Company</a></li>
+<li id="menu-item-14829" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14829"><a href="https://www.youtube.com/Bootlin" class="menu-image-title-hide menu-image-not-hovered"><span class="menu-image-title-hide menu-image-title">Youtube</span><img width="24" height="24" src="https://bootlin.com/wp-content/uploads/2025/06/youtube-24x24.png" class="menu-image menu-image-title-hide" alt="Youtube" decoding="async" /></a></li>
+<li id="menu-item-14831" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14831"><a href="https://www.linkedin.com/company/bootlin" class="menu-image-title-hide menu-image-not-hovered"><span class="menu-image-title-hide menu-image-title">LinkedIn</span><img width="24" height="24" src="https://bootlin.com/wp-content/uploads/2021/03/linkedin-icon-rounded-24x24.png" class="menu-image menu-image-title-hide" alt="LinkedIn" decoding="async" /></a></li>
+</ul></div>							</nav><!-- .main-navigation -->
+						
+											</div><!-- .site-header-menu -->
+							</div><!-- .site-header-main -->
+
+					</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
+		
+<article id="post-49" class="post-49 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">Docs</h1>	</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p id="summary">Free training materials and conference presentations from Bootlin, covering kernel, real-time, Android, embedded Linux system and device driver development.</p>
+<h3>License</h3>
+<p><img decoding="async" src="/graphics/cc.png" alt="Creative commons" align="left" /><b>All</b> our documents are available under the terms of the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 license</a>. This essentially means that you are free to download, distribute and even modify them, provided you mention us as the original authors and that you share these documents under the same conditions.</p>
+<h3>Complete training materials</h3>
+<ul>
+<li><a href="/doc/training/embedded-linux/">Embedded Linux system development course</a></li>
+<li><a href="/doc/training/linux-kernel/">Linux kernel and driver development course</a></li>
+<li><a href="/doc/training/yocto/">Yocto Project and OpenEmbedded development course</a></li>
+<li><a href="/doc/training/buildroot/">Buildroot development course</a></li>
+<li><a href="/doc/training/boot-time/">Embedded Linux boot time reduction course</a></li>
+<li><a href="/doc/training/graphics/">Understanding the Linux graphics stack</a></li>
+<li><a href="/doc/training/preempt-rt/">Real-time Linux with PREEMPT_RT</a></li>
+<li><a href="/doc/training/debugging/">Linux debugging, profiling, tracing and performance analysis</a></li>
+<li><a href="/doc/training/audio/">Embedded Linux audio</a></li>
+</ul>
+<h3>Presentations at technical conferences</h3>
+<p>Here are the most recent versions of presentations we made at technical conferences.</p>
+<h4>LSFMMBPF 2026 (Zagreb)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Adding KASAN support for JITed programs, Alexis Lothoré (<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2026/lsfmmbpf/lothore-kasan-ebpf.pdf">slides</a>)</li>
+</ul>
+</li>
+</ul>
+<h4>FOSDEM 2026 (Brussels)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="https://www.youtube.com/watch?v=J6IrIZyG-NY">From C to Rust on the ESP32: A Developer&#8217;s Journey into no_std, Alexis Lothoré</a> (<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2026/fosdem/lothore-rust-no-std.pdf">slides</a>)</li>
+<li><a href="https://www.youtube.com/watch?v=jjVkAbLaeyw">Snagboot: vendor-agnostic, open-source and developer-friendly recovery and reflashing tool, Thomas Petazzoni</a> (<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2026/fosdem/petazzoni-snagboot.pdf">slides</a>)</li>
+<li><a href="https://www.youtube.com/watch?v=9mhAg8BbABU">sbom-cve-check: Lightweight Python tooling for out-of-build CVE analysis of SPDX3 SBOMs, Benjamin Robin</a>(<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2026/fosdem/sbom-cve-check.pdf">slides</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Yocto Project Summit 2025 (virtual)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Lji-g_iItpU">sbom-cve-check: Lightweight Python tooling for out-of-build CVE analysis of SPFX3 SBOMs, Olivier Benjamin &amp; Benjamin Robin</a> (<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2025/yocto-virtual-summit/sbom-cve-check.pdf">slides</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Capitole du libre 2025 (Toulouse)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="https://www.youtube.com/watch?v=w8PqNR0eVak">What&#8217;s new in the Linux kernel ? A year in review, Thomas Petazzoni</a> (<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2025/cdl/kernel-review.pdf">slides</a>)</li>
+<li><a href="https://www.youtube.com/watch?v=Lv1RMVATgCs">A Free Blind Test game from A to Z: when FOSS animate your parties ! Alexis Lothoré</a> (<img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2025/cdl/neon-beat-cdl-en.pdf">slides</a>)</li>
+<li>Mastering eBPF: creating a high performance ad-blocker, Maxime Chevallier, Alexis Lothoré
+<ul>
+<li><img decoding="async" src="/graphics/pdf.png" width="30" /><a href="https://bootlin.com/pub/conferences/2025/cdl/ebpf-workshop.pdf">slides</a></li>
+<li><img decoding="async" src="/graphics/github-icon-rounded.png" width="30" /> <a href="https://github.com/bootlin/ebpf-workshop-cdl">workshop instructions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Embedded Linux Conference 2025 (Amsterdam)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="https://www.youtube.com/watch?v=G0Ji-XKRzUg">Linux Power Management Features and Their Interactions, Part 2, Théo Lebrun</a> (<a href="/pub/conferences/2025/elce/tleb-pm2.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=Mn05vmmwM2M">Graphic Testing Without Hardware: Discovering the Power of VKMS! Louis Chauvet</a> (<a href="/pub/conferences/2025/elce/chauvet-vkms.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=_lJWdjaN0mw">Snag It, Flash It, Ship It: Rethinking Factory Flashing, Romain Gantois, Paresh Bhagat</a> (<a href="/pub/conferences/2025/elce/gantois-snagfactory.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=xxZSIWazd9g">Navigating Security Tradeoffs in Embedded Linux Systems, Olivier Benjamin</a> (<a href="/pub/conferences/2025/elce/benjamin-security.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=lyg9LkA4eLk">Bridging Worlds: Using Device Tree Overlays to Support Complex PCI Devices in Linux, Hervé Codina</a> (<a href="/pub/conferences/2025/elce/codina-pcie-dt-overlay.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=YjIRt6pGd_U">From Raw to Refined: The Evolution of Raw Flash Support in Linux, Miquèl Raynal</a> (<a href="/pub/conferences/2025/elce/raynal-mtd-updates.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=C8dEQ4OzMnc">Hotplug of Non-Discoverable Hardware: Status And Future Directions, Luca Ceresoli</a> (<a href="/pub/conferences/2025/elce/ceresoli-hotplug-status.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+<li><a href="https://www.youtube.com/watch?v=8j25k4iH0oM">Unpacking the Linux WiFi stack: Writing and Integrating Wireless Drivers, Alexis Lothoré</a> (<a href="/pub/conferences/2025/elce/lothore-80211.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Display Next Hackfest 2025 (Toronto)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>VKMS: the new ConfigFS interface (<a href="/pub/conferences/2025/display-next-hackfest/vkms.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Embedded Linux Meetup 2025 (Toulouse)</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Driver development for Zephyr, Miguel Gazquez (<a href="/pub/conferences/2025/meetup/gazquez-driver-development-for-zephyr/gazquez-driver-development-for-zephyr.pdf">slides</a> <img decoding="async" src="/graphics/pdf.png" width="30" />)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Keynotes</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/pub/conferences/2015/elce/petazzoni-keynote/">Linux kernel SoC mainlining: Some success factors</a> (2015)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Linux kernel, bootloaders and hardware support</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/pub/conferences/2024/lpc/ceresoli-codina-hotplug-overlays/ceresoli-codina-hotplug-overlays.pdf">Runtime hotplug on non-discoverable busses with device tree overlays</a> (2024)</li>
+<li><a href="/pub/conferences/2024/lpc/ceresoli-drm-hotplug/ceresoli-drm-hotplug.pdf">Hotplug DRM pipeline components on non-discoverable video busses</a> (2024)</li>
+<li><a href="/pub/conferences/2024/lpc/chevallier-phy-port/chevallier-phy-port.pdf">Representing the front-facing ports of Ethernet interfaces</a> (2024)</li>
+<li><a href="/pub/conferences/2024/eosseu/lebrun-pm/lebrun-pm.pdf">Linux Power Management Features, Their Relationships and Interactions</a> (2024)</li>
+<li><a href="/pub/conferences/2024/eosseu/costa-optimizing-memory/costa-optimizing-memory.pdf">Inspecting and Optimizing Memory Usage in Linux</a> (2024)</li>
+<li><a href="/pub/conferences/2024/eoss/maincent-adding-support-for-poe/maincent-adding-support-for-poe.pdf">Adding Support for Power Over Ethernet (PoE or IEEE Clause 33) to Linux Network Stack</a> (2024)</li>
+<li><a href="/pub/conferences/2024/eoss/clement-s2r-dra821/clement-s2r-dra821.pdf">Unlocking the Potential of Suspend to RAM Using Linux in a Multi-Core, Multi-Firmware Automotive SoC</a> (2024)</li>
+<li><a href="/pub/conferences/2024/eoss/chevallier-anatomy-ethernet-driver/chevallier-anatomy-net-driver.pdf">In the Kernel Trenches: Mastering Ethernet Drivers on Linux</a> (2024)</li>
+<li><a href="/pub/conferences/2024/eoss/ceresoli-dapm/ceresoli-dapm.pdf">Introduction to DAPM, Linux Power Management for Embedded Audio Devices</a> (2024)</li>
+<li><a href="/pub/conferences/2024/cdl/lothore-ebpf-howto/lothore-ebpf-howto.pdf">Modifier le noyau Linux en live avec eBPF !</a> (2024)</li>
+<li><a href="/pub/conferences/2024/cdl/raynal-being-kernel-maintainer/raynal-being-kernel-maintainer.pdf">Etre mainteneur dans le noyau Linux</a> (2024)</li>
+<li><a href="/pub/conferences/2023/netdev/multi-port-multi-phy-interfaces.pdf">Multi-port and Multi-PHY Ethernet interfaces</a> (2023)</li>
+<li><a href="/pub/conferences/2023/eoss/codina-a-tour-of-usb-device-controller/codina-a-tour-of-usb-device-controller.pdf">A tour of USB Device Controller (UDC) in Linux</a> (<a href="https://youtu.be/LJuE2RhfgnA">video</a>, 2023)</li>
+<li><a href="/pub/conferences/2023/eoss/kocialkowski-current-overview-drm-kms-driver-side-apis/kocialkowski-current-overview-drm-kms-driver-side-apis.pdf">A Current Overview of the DRM KMS Driver-Side APIs</a> (<a href="https://youtu.be/nNY7NjUIJRA">video</a>, 2023)</li>
+<li><a href="/pub/conferences/2022/elce/raynal-ieee802154/raynal-ieee802154.pdf">Improving IEEE 802.15.4 MAC management support in the Linux kernel</a> (2022)</li>
+<li><a href="/pub/conferences/2022/elce/ceresoli-basics-of-i2c-on-linux/ceresoli-basics-of-i2c-on-linux.pdf">Basics of I2C on Linux</a> (<a href="https://youtu.be/g9-wgdesvwA">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/elce/kocialkowski-walking-through-the-linux-based-graphics-stack/kocialkowski-walking-through-the-linux-based-graphics-stack.pdf">Walking Through the Linux-Based Graphics Stack</a> (<a href="https://youtu.be/lEUCgGLZYo8">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/embedded-recipes/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux.pdf">Advanced camera support on Allwinner SoCs with mainline Linux</a> (<a href="https://youtu.be/91tlq9AAT0I">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/lee/perrot-optee-pkcs11/perrot-optee-pkcs11.pdf">PKCS#11 with OP-TEE</a> (<a href="https://www.youtube.com/watch?v=gPXF4VYBLDU">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/lee/clement-AMP-on-Cortex-A9/clement-AMP-on-Cortex-A9.pdf">AMP on Cortex A9 with Linux and OpenAMP</a> (2022)</li>
+<li><a href="/pub/conferences/2022/lee/opdenacker-llvm-tools-for-linux-kernel/opdenacker-llvm-tools-for-linux-kernel.pdf">LLVM tools for the Linux kernel</a> (<a href="https://www.youtube.com/watch?v=W4zdEDpvR5c">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2021/elc/leger-optee-linux-interaction/leger-optee-linux-interaction.pdf">OP-Tee: when Linux loses control</a> (<a href="https://youtu.be/XIqJMzPEbso">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/elc/raynal-i3c/raynal-i3c.pdf">I3C in tomorrow&#8217;s designs</a> (<a href="https://youtu.be/lMncnFsTJhA">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/webinar/petazzoni-device-tree-101/petazzoni-device-tree-101.pdf">Device Tree 101</a> (<a href="https://www.youtube.com/watch?v=fD7a6WsyJgo">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/fosdem/chevallier-network-performance-in-the-linux-kernel/">Network Performance in the Linux Kernel, Getting the most out of the Hardware</a> (<a href="https://video.fosdem.org/2021/D.embedded/network_performance_in_kernel.webm">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2020/lee/kocialkowski-overview-linux-userspace-graphics-stack/">An overview of the Linux kernel and user-space graphics stack</a> (<a href="https://youtu.be/wjAJmqwg47k">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2020/lee/belloni-alsa-asoc/">ASoC: Supporting Audio on an Embedded Board</a> (<a href="https://youtu.be/_tYnqIwWsBo">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2020/elce/chevallier-from-a-video-sensor-to-your-display/">From the camera sensor to the user: the journey of a video frame</a> (<a href="https://youtu.be/d73ZzNOSegc">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2020/elce/kocialkowski-supporting-hw-accelerated-video-encoding-with-mainline/">Supporting hardware-accelerated video encoding with mainline Linux</a> (<a href="https://youtu.be/S5wCdZfGFew">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2020/elce/raynal-ecc-engines/">Understand ECC support for NAND flash devices in Linux</a> (<a href="https://youtu.be/kLzDbNUHPWg">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2020/elce/tenart-timestamping-and-ptp-in-linux/">Precision Time Protocol (PTP) and packet timestamping in Linux</a> (<a href="https://youtu.be/sCOKYkoBups">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2019/elce/kocialkowski-integrating-hardware-accelerated-video-decoding-display-stack/">Integrating HW-Accelerated Video Decoding with the Display Stack</a> (<a href="https://youtu.be/dQg1Yibl4Ic">video</a>, 2019)</li>
+<li><a href="/pub/conferences/2019/elce/raynal-weinberger-mtd-whats-new/">Memory Technology Devices: what’s new?</a> (2019)</li>
+<li><a href="/pub/conferences/2019/elce/belloni-rtc/">RTC subsystem, recent changes and where it is heading</a> (<a href="https://youtu.be/TAKiZ-3KrlI">video</a>, 2019)</li>
+<li><a href="/pub/conferences/2019/elce/chevallier-network-classification-offload/">Offloading Network Traffic Classification</a> (<a href="https://youtu.be/dANekxZZems">video</a>, 2019)</li>
+<li><a href="/pub/conferences/2019/elce/opdenacker-kernel-programming-device-model/">Introduction to Linux kernel driver programming: device model</a> (2019)</li>
+<li><a href="/pub/conferences/2018/fosdem/raynal-exec-op/">Understand your NAND and drive it within Linux</a> (<a href="https://www.youtube.com/watch?v=jIG4yiK3dRQ">video</a>, 2018)</li>
+<li><a href="/pub/conferences/2017/kr/ripard-drm/">Introduction to the DRM subsystem</a> (<a href="https://youtu.be/LbDOCJcDRoo">video</a>, 2017)</li>
+<li><a href="/pub/conferences/2017/elc/schulz-pmics-keep-power-in-your-hands/">Power Management Integrated Circuits: Keep the Power in Your Hands</a> (<a href="https://www.youtube.com/watch?v=GsDWgm0YiaU">video</a>, 2017)</li>
+<li><a href="/pub/conferences/2017/lca/petazzoni-arm-introduction/">A tour of the ARM architecture and its Linux support</a> (<a href="https://www.youtube.com/watch?v=NNol7fRGo2E">video</a>, 2017)</li>
+<li><a href="/pub/conferences/2016/collab-summit/petazzoni-upstreaming-hw-support-in-linux-kernel-why-how.pdf">Upstreaming hardware support in the Linux kernel: why and how?</a> (2016)</li>
+<li><a href="/pub/conferences/2016/elce/ripard-v4l/">Supporting the Camera Interface on the C.H.I.P</a> (<a href="https://www.youtube.com/watch?v=8UFPpCqALDM">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elc/ripard-drm/ripard-drm.pdf">Bringing display and 3D to the C.H.I.P computer</a> (<a href="https://www.youtube.com/watch?v=fw07BsW34Ho">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elce/clement-arm64-soc-checklist/">Your newer ARM64 SoC Linux check list!</a> (<a href="https://www.youtube.com/watch?v=LPG4EkXK9Us">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elc/tenart-chip-overlays/">Using DT overlays to support the C.H.I.P.’s capes</a> (<a href="https://www.youtube.com/watch?v=R5Gh53yN7wg">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2015/captronic/">Porting Linux on an ARM board</a> (2015)</li>
+<li><a href="/pub/conferences/2015/elce/belloni-mfd-regmap-syscon/">Supporting multi-function devices in the Linux kernel</a> (<a href="https://www.youtube.com/watch?v=V2WrpX4Clc4">video</a>, 2015)</li>
+<li><a href="/pub/conferences/2015/elce/clement-kernel-maintainership-oral-tradition/">Kernel maintainership: an oral tradition</a> (<a href="https://www.youtube.com/watch?v=af9qqVn_Q9w">video</a>, 2015)</li>
+<li><a href="/pub/conferences/2015/elc/ripard-dmaengine/">An overview of the DMAEngine subsystem</a> (<a href="https://www.youtube.com/watch?v=6DCgMYhCulc">video</a>, 2015)</li>
+<li><a href="/pub/conferences/2015/elc/petazzoni-dt-as-stable-abi-fairy-tale/">Device Tree as a stable ABI: a fairy tale?</a> (<a href="https://www.youtube.com/watch?v=rPRqIS9q6CY">video</a>, 2015)</li>
+<li><a href="/pub/conferences/2014/elce/petazzoni-soc-mainlining-lessons-learned/">Two years of ARM SoC support mainlining: lessons learned</a> (2014)</li>
+<li><a href="/pub/conferences/2014/elce/ripard-mainlining-of-out-of-tree-socs/">Supporting a new ARM platform: the Allwinner example</a> (<a href="https://www.youtube.com/watch?v=yJmZkzq651Q">video</a>, 2014)</li>
+<li><a href="/pub/conferences/2014/elce/brezillon-drm-kms/">The DRM/KMS subsystem from a newbie&#8217;s point of view</a> (2014)</li>
+<li><a href="/pub/conferences/2014/elc/clement-smp-bring-up-on-arm-soc/">SMP bring up on ARM SoCs</a> (2014)</li>
+<li><a href="/pub/conferences/2013/elce/common-clock-framework-how-to-use-it/">Common clock framework: how to use it</a> (<a href="https://www.youtube.com/watch?v=Mwr7eZUm1Nw">video</a>, 2013)</li>
+<li><a href="/pub/conferences/2013/fosdem/arm-support-kernel/">ARM support in the Linux kernel</a> (<a href="https://www.youtube.com/watch?v=1n5Y3IbH9dM">video</a>, 2013)</li>
+<li><a href="/pub/conferences/2013/elc/arm-soc-checklist/">Your new ARM SoC Linux support check-list</a> (<a href="https://www.youtube.com/watch?v=adrOmUvMs3Q">video from earlier session</a>, 2013)</li>
+<li><a href="/pub/conferences/2012/fosdem/iio-a-new-subsystem/">IIO, a new subsystem</a> (2012)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Embedded Linux</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/pub/conferences/2024/risc-v/embedded-linux-from-scratch-riscv.pdf">Embedded Linux from scratch in 50 minutes (on RISC-V)</a> (2024)</li>
+<li><a href="/pub/conferences/2024/meetup/dautheribes-yocto-best-practices/dautheribes-yocto-best-practices.pdf">10 best practices for Yocto</a> (2024)</li>
+<li><a href="/pub/conferences/2023/yp-summit/ceresoli-simple-layer/ceresoli-simple-layer.pdf">Keep your layer simple – and here’s how</a> (<a href="https://www.youtu.be/G0o8f0sXXmU">video</a>, 2023)</li>
+<li><a href="/pub/conferences/2023/yp-summit/opdenacker-how-to-contribute.pdf">How to Contribute to OpenEmbedded, Yocto, and Many Other Open Source Projects</a> (<a href="https://youtu.be/G0o8f0sXXmU">video</a>, 2023)</li>
+<li><a href="/pub/conferences/2023/cdl/petazzoni-discover-understand-embedded-linux/petazzoni-discover-understand-embedded-linux.pdf">Discover and understand Embedded Linux</a> (2023)</li>
+<li><a href="/pub/conferences/2023/cdl/opdenacker-reduce-power-consumption-with-gnu-linux/keep-your-penguin-cool.sozi.html">How to reduce power consumption with GNU/Linux</a> (2023)</li>
+<li><a href="/pub/conferences/2023/linuxday/ceresoli-gdb-and-remote-gdb/ceresoli-gdb-and-remote-gdb.pdf">Debugging with GDB and remote GDB</a> (2023)</li>
+<li><a href="/pub/conferences/2023/eoss/opdenacker-finding-best-block-filesystem/opdenacker-finding-best-block-filesystem.pdf">Finding the Best Block Filesystem</a> (<a href="https://youtu.be/kLxM4FyiVpQ">video</a>, 2023)</li>
+<li><a href="/pub/conferences/2022/yp-summit/opdenacker-bitbaking-spdx-sbom/opdenacker-bitbaking-spdx-sbom.pdf">Bitbaking SPDX SBoM</a> (<a href="https://youtu.be/1DEQtrdS090">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/elce/opdenacker-implementing-A-B-system-updates-with-u-boot/opdenacker-implementing-A-B-system-updates-with-u-boot.pdf">Implementing A/B System Updates with U-Boot</a> (<a href="https://youtu.be/TldwB9p1KeQ">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/elc/belloni-yocto-autobuilders-swat/belloni-yocto-autobuilders-swat.pdf">Yocto Project Autobuilders and the SWAT team</a> (<a href="https://youtu.be/SLHV9HbxKcM">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/elc/petazzoni-buildroot-whats-new/petazzoni-buildroot-whats-new.pdf">Buildroot &#8211; What&#8217;s new?</a> (<a href="https://youtu.be/QxhgLk9k2n0">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2022/yp-summit/opdenacker-how-to-contribute-to-the-yocto-project/michael-opdenacker-contributing-to-yocto-project-yps2022.05.pdf">How do I start contributing to Yocto Project?</a> (<a href="https://youtu.be/IqC_GN7HBoM">video</a>, 2022)</li>
+<li><a href="/pub/conferences/2021/elc/opdenacker-buildroot-nuggets/opdenacker-buildroot-nuggets.pdf">Embedded Linux nuggets found in Buildroot package eldorado</a> (<a href="https://youtu.be/dy-lbEUsZd4">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/lee/petazzoni-buildroot-vulnerability-tracking/petazzoni-buildroot-vulnerability-tracking.pdf">Security vulnerability tracking tools in Buildroot</a> (<a href="https://youtu.be/L90rs-GipNQ">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/lee/perrot-secure-boot/perrot-secure-boot.pdf">Secure boot in embedded Linux systems</a> (<a href="https://youtu.be/fBDNqvNLxMk">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/lee/maincent-devicetree-overlay-and-uboot-extension-board-management/maincent-devicetree-overlay-and-uboot-extension-board-management.pdf">Device tree overlays and U-Boot extension board management</a> (<a href="https://youtu.be/mxWiK2v-KZc">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/lee/bouhara-rauc/bouhara-rauc.pdf">Getting started with RAUC</a> (<a href="https://youtu.be/iZhKTCjM0oM">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/lee/opdenacker-understanding-u-boot-falcon-mode/opdenacker-understanding-u-boot-falcon-mode.pdf">Understanding U-Boot Falcon mode</a> (<a href="https://youtu.be/okY9fBEuaoM">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2021/fosdem/opdenacker-embedded-linux-45minutes-riscv/">Embedded Linux from Scratch in 45 minutes, on RISC-V</a> (<a href="https://video.fosdem.org/2021/D.embedded/linux_from_scratch_on_risc_v.webm">video</a>, 2021)</li>
+<li><a href="/pub/conferences/2020/elce/belloni-yocto-best-practices/">OpenEmbedded and Yocto Project best practices</a> (<a href="https://youtu.be/XmDtz6n2I5A">video</a>, 2020)</li>
+<li><a>Building embedded Debian/Ubuntu systems with ELBE</a> (<a href="https://youtu.be/NO36dmzqlW8">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2020/elce/opdenacker-using-vs-code-for-embedded-development/">Using Visual Studio Code for Embedded Linux Development</a> (<a href="https://youtu.be/YGOZIIOWujc">video</a>, 2020)</li>
+<li><a href="/pub/conferences/2019/elce/petazzoni-buildroot-tutorial/">Getting started with Buildroot</a> (2019)</li>
+<li><a href="https://bootlin.com/pub/conferences/2019/elce/opdenacker-timing-boot-time-reduction-techniques/">Timing boot time reduction techniques</a> (2019)</li>
+<li><a href="/pub/conferences/2017/embedded-recipes/josserand-introduction-to-yocto-project/">Introduction to Yocto Project and OpenEmbedded</a> (2017)</li>
+<li><a href="/pub/conferences/2016/meetup/dbus/">Understanding D-Bus</a> (2016)</li>
+<li><a href="/pub/conferences/2016/elce/schulz-tenart-building-boards-farm/">Embedded Building a board farm: Continuous Integration and remote control</a> (<a href="https://youtu.be/sJvusc6jz4w">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elce/petazzoni-toolchain-anatomy/">Anatomy of cross-compilation toolchains</a> (<a href="https://www.youtube.com/watch?v=Pbt330zuNPc">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elce/brezillon-ubi-mlc">Running UBI/UBIFS on MLC NAND</a> (<a href="https://www.youtube.com/watch?v=9j2pOIiJqYw">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elc/belloni-petazzoni-buildroot-oe/">Buildroot vs. OpenEmbedded/Yocto Project: A Four Hands Discussion</a> (<a href="https://www.youtube.com/watch?v=13LZ0szWSVg">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2016/elc/petazzoni-autotools-tutorial/">GNU Autotools: a tutorial</a> (<a href="https://youtu.be/a1NRxIA9ahA">video</a>, 2016)</li>
+<li><a href="/pub/conferences/2014/elc/belloni-yocto-for-manufacturers/">Using Yocto Project for module manufacturers</a> (2014)</li>
+<li><a href="/pub/conferences/2014/elce/petazzoni-dive-into-buildroot-core/">Buildroot: a deep dive into the core</a> (2014)</li>
+<li><a href="/pub/conferences/2013/elc/buildroot-showcase/">Introduction to Buildroot</a> (2013)</li>
+<li><a href="/pub/conferences/2012/lsm/buildroot/">Buildroot: a nice, simple and efficient embedded Linux build system</a> (2012)</li>
+<li><a href="/pub/conferences/2012/fosdem/qt-for-non-graphical-apps/">Qt for non-graphical applications</a> (2012)</li>
+<li><a href="/pub/conferences/2011/elce/using-buildroot-real-project/">Using Buildroot for real projects</a> (<a href="https://www.youtube.com/watch?v=tkK3oqdi45Q">video</a>, 2011)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Android</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/pub/conferences/2012/captronic/android/">Introduction to Android and system bring-up</a> (2012)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Legacy documents</h3>
+<p>These documents are not actively maintained any more. Therefore, they are likely to contain obsolete parts.</p>
+<h4>Android</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/doc/legacy/android/">Android system development course</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Kernel</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/doc/legacy/serial-drivers/">Linux serial drivers</a></li>
+<li><a href="/doc/legacy/linux26-features">New features in Linux 2.6</a> (since 2.6.10)</li>
+<li><a href="/doc/legacy/pci-drivers">Linux PCI drivers</a></li>
+<li><a href="/doc/legacy/block-drivers">Block device drivers</a></li>
+<li><a href="/doc/legacy/network-drivers/">Network device drivers</a></li>
+<li><a href="/doc/legacy/linux-usb/">USB drivers</a></li>
+<li><a href="/doc/legacy/linux26">What&#8217;s new in Linux 2.6?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Architecture specific documents</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/doc/legacy/arm-linux">ARM Linux specifics</a></li>
+<li><a href="/doc/legacy/omap">Linux on TI OMAP processors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Embedded Linux system development</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/doc/legacy/accessing-hardware/">Accessing hardware from user-space</a></li>
+<li><a href="/doc/legacy/posix/">Using the POSIX API &#8211; Threads, real­time and IPC</a></li>
+<li><a href="/blog/optimizations">Embedded Linux optimizations</a></li>
+<li><a href="/doc/legacy/porting-u-boot">Porting U-boot to new hardware</a></li>
+<li><a href="/doc/legacy/udev/">The udev device manager</a></li>
+<li><a href="/doc/legacy/grub/">The GRUB bootloader</a></li>
+<li><a href="/doc/legacy/blob/">The blob bootloader</a></li>
+<li><a href="/doc/legacy/uclinux/">Introduction to uClinux</a></li>
+<li><a href="/doc/legacy/java/">Java in embedded Linux</a></li>
+<li><a href="/doc/legacy/audio/">Audio in embedded Linux systems</a></li>
+<li><a href="/doc/legacy/multimedia/">Multimedia in embedded Linux systems</a></li>
+<li><a href="/doc/legacy/scratchbox">The Scratchbox development environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Miscellaneous</h4>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><a href="/doc/legacy/command-line">Introduction to the Unix command line</a></li>
+<li><a href="/doc/legacy/ssh">SSH</a></li>
+<li><a href="/doc/legacy/virtualization/">Linux virtualization solutions</a> (with an embedded perspective)</li>
+<li><a href="/doc/legacy/reasons">Advantages of Free Software and Open Source in embedded systems</a></li>
+<li><a href="/doc/legacy/freesw">Introduction to GNU/Linux and Free Software</a></li>
+<li><a href="/doc/legacy/linux-ecology">Linux and ecology</a></li>
+<li><a href="/doc/legacy/pda-porting">Porting to a new PDA</a></li>
+</ul>
+</li>
+</ul>
+	</div><!-- .entry-content -->
+
+	
+</article><!-- #post-49 -->
+
+	</main><!-- .site-main -->
+
+	
+</div><!-- .content-area -->
+
+
+	<aside id="secondary" class="sidebar widget-area">
+		<section id="search-3" class="widget widget_search">
+<form role="search" method="get" class="search-form" action="https://bootlin.com/">
+	<label>
+		<span class="screen-reader-text">
+			Search for:		</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">
+		Search	</span></button>
+</form>
+</section><section id="text-4" class="widget widget_text"><h2 class="widget-title">Next training sessions dates</h2>			<div class="textwidget"><img src="/graphics/2penguins-students.png" alt="Student penguins"/ class="alignright">
+
+<a href="/training/embedded-linux/">Embedded Linux</a><br/><a href="/training/kernel/">Linux kernel</a><br/><a href="/training/buildroot/">Buildroot</a><br/><a href="/training/yocto/">Yocto / OpenEmbedded</a><br/><a href="/training/audio/">Embedded Linux audio</a><br/><a href="/training/preempt-rt">Real-time Linux with PREEMPT_RT</a><br/><a href="/training/debugging">Debugging, profiling, tracing in Linux</a><br/><a href="/training/security">Embedded Linux Security</a><br/><a href="/training/networking">Embedded Linux Networking</a><br/><a href="/training/graphics/">Linux graphics</a></div>
+		</section><section id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">Useful links</h2><div class="textwidget custom-html-widget"><img src="/graphics/flag-fr.gif" width="15" height="12" alt="French flag"/> <a href="/fr/">Version française</a>
+<br/><img src="/graphics/youtube.png" width="16"  alt="Youtube"/> <a href="https://www.youtube.com/@Bootlin" rel="me">Youtube</a>
+<br/><img src="/graphics/linkedin-icon-rounded.png" width="15" height="15" alt="LinkedIn"> <a href="https://www.linkedin.com/company/bootlin">LinkedIn</a>
+<br/><img src="/graphics/rss.png" width="16" height="16" alt="RSS icon"> <a href="/feed/rss/"> Follow new articles</a>
+</div></section>
+		<section id="recent-posts-4" class="widget widget_recent_entries">
+		<h2 class="widget-title">Recent articles</h2><nav aria-label="Recent articles">
+		<ul>
+											<li>
+					<a href="https://bootlin.com/blog/device-tree-addons-describing-non-discoverable-addon-boards-and-connectors/">Device tree addons: describing non-discoverable addon boards and connectors</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/welcome-to-thomas-paita-and-paul-cercueil/">Welcome to Thomas Païta and Paul Cercueil</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/audio-iio-aux-when-iio-meets-audio/">audio-iio-aux: when IIO meets audio</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/bootlin-toolchains-2026-08-released/">Bootlin toolchains 2026.08 released</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/bootlins-yocto-training-course-updated-to-wrynose/">Bootlin&#8217;s Yocto training course updated to Wrynose</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/sbom-cve-check-1-3-2-and-1-3-3-improved-sbom-handling-and-more-robust-cve-analysis/">sbom-cve-check 1.3.2 and 1.3.3: improved SBOM handling and more robust CVE analysis</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/yocto-kiss-updated-to-the-wrynose-yocto-lts-release/">yocto-kiss: updated to the Wrynose Yocto LTS release</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/snagboot-v3-0-is-released/">Snagboot v3.0 is released!</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/linux-7-2-released-bootlin-contributions-inside/">Linux 7.2 released, Bootlin contributions inside</a>
+									</li>
+											<li>
+					<a href="https://bootlin.com/blog/understanding-the-linux-graphics-stack-is-now-available-as-a-self-paced-video-course/">Understanding the Linux Graphics Stack is now available as a self-paced video course</a>
+									</li>
+					</ul>
+
+		</nav></section>	</aside><!-- .sidebar .widget-area -->
+
+		</div><!-- .site-content -->
+
+		<footer id="colophon" class="site-footer">
+							<nav class="main-navigation" aria-label="Footer Primary Menu">
+					<div class="menu-menu-container"><ul id="menu-menu-1" class="primary-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-10633"><a href="https://bootlin.com">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5818"><a href="https://bootlin.com/engineering/">Engineering</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5823"><a href="https://bootlin.com/training/">Training</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-49 current_page_item menu-item-5824"><a href="https://bootlin.com/docs/" aria-current="page">Docs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5825"><a href="https://bootlin.com/community/">Community</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5826"><a href="https://bootlin.com/company/">Company</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14829"><a href="https://www.youtube.com/Bootlin" class="menu-image-title-hide menu-image-not-hovered"><span class="menu-image-title-hide menu-image-title">Youtube</span><img width="24" height="24" src="https://bootlin.com/wp-content/uploads/2025/06/youtube-24x24.png" class="menu-image menu-image-title-hide" alt="Youtube" decoding="async" loading="lazy" /></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14831"><a href="https://www.linkedin.com/company/bootlin" class="menu-image-title-hide menu-image-not-hovered"><span class="menu-image-title-hide menu-image-title">LinkedIn</span><img width="24" height="24" src="https://bootlin.com/wp-content/uploads/2021/03/linkedin-icon-rounded-24x24.png" class="menu-image menu-image-title-hide" alt="LinkedIn" decoding="async" loading="lazy" /></a></li>
+</ul></div>				</nav><!-- .main-navigation -->
+			
+			
+			<div class="site-info">
+								<span class="site-title"><a href="https://bootlin.com/" rel="home">Bootlin</a></span>
+				<a class="privacy-policy-link" href="https://bootlin.com/company/privacy-policy/" rel="privacy-policy">Privacy Policy</a><span role="separator" aria-hidden="true"></span>				<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div><!-- .site-info -->
+		</footer><!-- .site-footer -->
+	</div><!-- .site-inner -->
+</div><!-- .site -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/bootlin/*","/wp-content/themes/twentysixteen/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://bootlin.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1.2"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://bootlin.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>

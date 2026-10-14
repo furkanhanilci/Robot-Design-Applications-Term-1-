@@ -1,0 +1,617 @@
+{
+  "id": 7,
+  "name": "MIT 2.092 - Finite Element Analysis of Solids and Fluids I",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/",
+  "folder": "07_MIT_2.092_-_Finite_Element_Analysis_of_Solids_and_Fluids_I",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/",
+      "kind": "html",
+      "bytes": 52983,
+      "sha256": "4b834ad60fd66127c5435fdc99dab6d278d1c8c359ca6eda9ab0533f75c46350"
+    },
+    {
+      "file": "page_81f88aaa35.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/syllabus/",
+      "kind": "html",
+      "bytes": 60122,
+      "sha256": "46ea92b2deb780458da6f1f72643c16929583e376cde15ecc525432e7739b43d"
+    },
+    {
+      "file": "page_41bee478ad.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/readings/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/readings/",
+      "kind": "html",
+      "bytes": 57787,
+      "sha256": "d6a2c410170e9a3847214d57765d8ac421adff131bb05095a93d8dc89dae9673"
+    },
+    {
+      "file": "page_f29ba0bd85.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 59184,
+      "sha256": "3064dcfc4c5e38f3879c3f64ef9cf5981e822ce5eb81d72acc91d93b63bdfbca"
+    },
+    {
+      "file": "page_e389ba915d.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec01/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec01/",
+      "kind": "html",
+      "bytes": 56587,
+      "sha256": "1f2a86c96ca987f44ed3703ddd4a3cbc2079723ae5376d5a85dbf9cb1207cb0e"
+    },
+    {
+      "file": "page_68d10cbf93.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec02/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec02/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "1a54db00ff0dc2abe5ea20506239283a29ab08d1fefd49db2aa3a5bd5db3729d"
+    },
+    {
+      "file": "page_5fb156bf1a.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec03/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec03/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "c32a4c468b8c1043c230e036d295f7eae59f612ed2551b050e96b61b40341335"
+    },
+    {
+      "file": "page_816340abab.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec04/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec04/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "cadd3c7be220a7307ab27d964a5f0d157a4c495a732f65de22de0d4f9f881b70"
+    },
+    {
+      "file": "page_d8895300c8.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec05/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec05/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "b2f51396e754f909999b0dfaa5db201d9ba1cdd45c74dcdc75b128dc93dd24ac"
+    },
+    {
+      "file": "page_07e029ac99.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec06/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec06/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "f4da170d2ea636fc15593ccf816848bf21fc7dce4525cf3410c3888d8adcaca0"
+    },
+    {
+      "file": "page_59c4709eb1.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec07/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec07/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "fa53255b3a7ffbbc3462ea88ebb00d736333f54509c7eb1b6eb6975eeec59646"
+    },
+    {
+      "file": "page_70595a25e2.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec10/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec10/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "2abe3e1493142d3a271145021f082d7612773e08a42efe96f0046bec0e50a736"
+    },
+    {
+      "file": "page_7d16797ff9.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec11/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec11/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "45e90645f9e1a180d83f81a0ecab2bb54c5a09c6e7a6b05e764af341ffba30d2"
+    },
+    {
+      "file": "page_9adbc5df20.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec12/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec12/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "cdf38a33f2c23bd1f18105a17eff5a8ef2638693e8970b8cbc19bc16b0b8718e"
+    },
+    {
+      "file": "page_e399cc3aff.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec13/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec13/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "a68bb2f2a000257e527d7f93a77b42498a1e7ecca0ef7f2bc4a585baa05d291c"
+    },
+    {
+      "file": "page_ab47215e57.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec15/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec15/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "84717021257405b955e043d1bdcd2bffa375cc30c2e1feb6cc2573b44bf51285"
+    },
+    {
+      "file": "page_188c2436db.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec16/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec16/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "a053e00744446b5707e4abf295bb49c6b76eb67375d2e4dfa4a63bcc00693965"
+    },
+    {
+      "file": "page_ed4b9d6b43.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec18/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec18/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "932fae9d628147cceb3349aceebe8ef02ca498e98b167d70d57963c64587aadd"
+    },
+    {
+      "file": "page_390ca6f1c7.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec19/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec19/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "01f70c370052cac5b8a98d648040935e9f54524734b64b87fe4c57536b67e317"
+    },
+    {
+      "file": "page_17c9f282a9.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec20/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec20/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "a1bc6f70dda105a87df9d655fc052307defcfa1ad8c7949418f5b96fd14cdf06"
+    },
+    {
+      "file": "page_ac59d1e9e9.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec21/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec21/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "8f87fc92494985c04f50677df21c9db102610c51621b4d2b7cf64e4d552f860d"
+    },
+    {
+      "file": "page_dcfdd56c1a.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec23/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_lec23/",
+      "kind": "html",
+      "bytes": 56589,
+      "sha256": "e05530b2950f1d44cf5338a415999b726ae1eddbde38f29963a7541fd0dde7a1"
+    },
+    {
+      "file": "page_d14cd328e8.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/assignments/",
+      "kind": "html",
+      "bytes": 57030,
+      "sha256": "dd6d4f5c09a420db7d744d60777df577c7b5e2388173f58f5e49422c757baaff"
+    },
+    {
+      "file": "page_e16e337933.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/hw5_ldc/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/hw5_ldc/",
+      "kind": "html",
+      "bytes": 56109,
+      "sha256": "c4ff8d19a8ce2e01fca28ad459895201b6a62b9fedabfd90ff51828aa78f6092"
+    },
+    {
+      "file": "page_119cdd8043.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/hw5_spring/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/hw5_spring/",
+      "kind": "html",
+      "bytes": 56154,
+      "sha256": "6b4eeecd4339f4013e4a7d1cf9f3e3e7666f2e89fc5d757afe3cbb8e48131896"
+    },
+    {
+      "file": "page_561f9d3e35.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw1/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw1/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "8c9aceb38d6cb8e7fe67971f28e8ff64fa6d33328a52438e687dbcd05f6019ee"
+    },
+    {
+      "file": "page_12ceefd703.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol1/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol1/",
+      "kind": "html",
+      "bytes": 56581,
+      "sha256": "ed1f0e1b95f98ecbc9265416622670ca7493ad5e0b52f62e457c6e8ee22ae6aa"
+    },
+    {
+      "file": "page_8758d09143.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw2/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw2/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "08ae520aa973ba08c3eb605f1efb5164a842c286c9196b62789e27175524a2cc"
+    },
+    {
+      "file": "page_06cf1411a2.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol2/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol2/",
+      "kind": "html",
+      "bytes": 56582,
+      "sha256": "29744f4edbce93af9e0fc2a50e126a659ab046220372e50b1e4af2e6b645bf58"
+    },
+    {
+      "file": "page_3dd5f897a5.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw3/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw3/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "370de04e27b6c431d7942d3a55c317304e010416d6972efa417e060dea2b03da"
+    },
+    {
+      "file": "page_53c554b418.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol3/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol3/",
+      "kind": "html",
+      "bytes": 56582,
+      "sha256": "b8a7adc10705e27a194978272f1106dc86cd7a4c6463610bb6847a64eaac0b56"
+    },
+    {
+      "file": "page_3469edb0d7.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw4/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw4/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "90cf98e8bdab3d2b1bb1cb0a1edf2784098114254195235ea29414b304f9b108"
+    },
+    {
+      "file": "page_e2664490ac.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw5/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw5/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "d111abe01c791b18473ecd9bbae154d45b407580e2db144f3b66f419954e33c3"
+    },
+    {
+      "file": "page_9195a7f78a.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol5/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol5/",
+      "kind": "html",
+      "bytes": 56582,
+      "sha256": "940c8f4ed389f3b95255b3d404f0dfd4f06f1873e770989d3dd3b9985326f514"
+    },
+    {
+      "file": "page_1864275270.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw6/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw6/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "707ec13b959511398ee5f3d503f54b029f04ebc9d41e99fc7a756af7eb6005fd"
+    },
+    {
+      "file": "page_2c255129bf.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw7/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw7/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "f476093fdcea113f34c2db774e82461c8fa6a61c73fd7df070a23dd72a54f315"
+    },
+    {
+      "file": "page_f63dc93fc6.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol7/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol7/",
+      "kind": "html",
+      "bytes": 56581,
+      "sha256": "d7073262bbf8e5d6a73dc3bcd6ce1d61e9b75aad2e172b2a85310a232a4d46a8"
+    },
+    {
+      "file": "page_1aba77aafd.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw8/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_hw8/",
+      "kind": "html",
+      "bytes": 56559,
+      "sha256": "cf78865d79b248a38dbee41eefbd28591430aaf0ae20ae90eac55341e983419c"
+    },
+    {
+      "file": "page_bd2c9a2f7f.html",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol8/",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/resources/mit2_092f09_sol8/",
+      "kind": "html",
+      "bytes": 56582,
+      "sha256": "cf200a287b125275e674f15c8586ca9a76703d69ae3df9412d1f276a23473fba"
+    },
+    {
+      "file": "2ba586c8a074124bc6bd80ec6c93882e_MIT2_092F09_lec01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/2ba586c8a074124bc6bd80ec6c93882e_MIT2_092F09_lec01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/2ba586c8a074124bc6bd80ec6c93882e_MIT2_092F09_lec01.pdf",
+      "kind": "pdf",
+      "bytes": 7697759,
+      "sha256": "ed7f7ef731e6bae6c92fdf51dfa2e34c86b0e8cf8021a7594fdffcc7017672b1",
+      "pdf_pages": 86
+    },
+    {
+      "file": "d0761b3b6630ed6970c6aef356554dad_MIT2_092F09_lec02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/d0761b3b6630ed6970c6aef356554dad_MIT2_092F09_lec02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/d0761b3b6630ed6970c6aef356554dad_MIT2_092F09_lec02.pdf",
+      "kind": "pdf",
+      "bytes": 346475,
+      "sha256": "d2ba44866de024abcf080892877f6bc6b81e323278a87af8349c8bae90a4de6b",
+      "pdf_pages": 5
+    },
+    {
+      "file": "d44c7a907a0577610667821c3f6f98fb_MIT2_092F09_lec03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/d44c7a907a0577610667821c3f6f98fb_MIT2_092F09_lec03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/d44c7a907a0577610667821c3f6f98fb_MIT2_092F09_lec03.pdf",
+      "kind": "pdf",
+      "bytes": 241397,
+      "sha256": "b6a0fa4ea7405b32bc4410a242d645a187cd8da24a3d8f0fdb57a739e1119f30",
+      "pdf_pages": 4
+    },
+    {
+      "file": "3bfd1ab31d0d622c3d6f151fd0776ab0_MIT2_092F09_lec04.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/3bfd1ab31d0d622c3d6f151fd0776ab0_MIT2_092F09_lec04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/3bfd1ab31d0d622c3d6f151fd0776ab0_MIT2_092F09_lec04.pdf",
+      "kind": "pdf",
+      "bytes": 357837,
+      "sha256": "49c6c035c5535205c21992efbc30d95162e86da5337da6387fb1da0a0bb9eba0",
+      "pdf_pages": 6
+    },
+    {
+      "file": "0252bdf2e6c34bca6819c5be82f3bcb0_MIT2_092F09_lec05.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/0252bdf2e6c34bca6819c5be82f3bcb0_MIT2_092F09_lec05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/0252bdf2e6c34bca6819c5be82f3bcb0_MIT2_092F09_lec05.pdf",
+      "kind": "pdf",
+      "bytes": 174299,
+      "sha256": "35255b314c0c07b8b5ddba5b5166ef62673e791c0dc32cd75a79dc71d4cdb445",
+      "pdf_pages": 4
+    },
+    {
+      "file": "117f4cc28ac685fc73a87c6f9dc44378_MIT2_092F09_lec06.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/117f4cc28ac685fc73a87c6f9dc44378_MIT2_092F09_lec06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/117f4cc28ac685fc73a87c6f9dc44378_MIT2_092F09_lec06.pdf",
+      "kind": "pdf",
+      "bytes": 243347,
+      "sha256": "d526adb2bc82b9f0dcb38306b26d7a291fe3873014ea43bb168060438eaf33e5",
+      "pdf_pages": 5
+    },
+    {
+      "file": "c2c7178a0c309877a8da446288ae799c_MIT2_092F09_lec07.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/c2c7178a0c309877a8da446288ae799c_MIT2_092F09_lec07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/c2c7178a0c309877a8da446288ae799c_MIT2_092F09_lec07.pdf",
+      "kind": "pdf",
+      "bytes": 312131,
+      "sha256": "0744780c18cff9a93aac61b9714b7d49a7709371489b0b3666f33d8e87338310",
+      "pdf_pages": 6
+    },
+    {
+      "file": "a1d9c261f547d1fd7e0ebc0fbbe64eb5_MIT2_092F09_lec10.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/a1d9c261f547d1fd7e0ebc0fbbe64eb5_MIT2_092F09_lec10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/a1d9c261f547d1fd7e0ebc0fbbe64eb5_MIT2_092F09_lec10.pdf",
+      "kind": "pdf",
+      "bytes": 337132,
+      "sha256": "97e0bd747ee65ddd1e70a3c871ca286f5574e9e120cfbbb1df5783f828bdfd74",
+      "pdf_pages": 5
+    },
+    {
+      "file": "af12e474276813bbcd3a2a832c24d53e_MIT2_092F09_lec11.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/af12e474276813bbcd3a2a832c24d53e_MIT2_092F09_lec11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/af12e474276813bbcd3a2a832c24d53e_MIT2_092F09_lec11.pdf",
+      "kind": "pdf",
+      "bytes": 234365,
+      "sha256": "8aad62057ae83a803cfca2f1ce3aa1279dd11edb0ed08688e744d11271f2b71d",
+      "pdf_pages": 5
+    },
+    {
+      "file": "b0da5ea63ada722a88cadbdb13df2fe5_MIT2_092F09_lec12.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/b0da5ea63ada722a88cadbdb13df2fe5_MIT2_092F09_lec12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/b0da5ea63ada722a88cadbdb13df2fe5_MIT2_092F09_lec12.pdf",
+      "kind": "pdf",
+      "bytes": 227083,
+      "sha256": "0a2f5e8a0398d86158a83955790c30f12b559c97f3bc72002549c3b6e68c3463",
+      "pdf_pages": 5
+    },
+    {
+      "file": "33a32e69a1ae3686864def4c023e455a_MIT2_092F09_lec13.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/33a32e69a1ae3686864def4c023e455a_MIT2_092F09_lec13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/33a32e69a1ae3686864def4c023e455a_MIT2_092F09_lec13.pdf",
+      "kind": "pdf",
+      "bytes": 221683,
+      "sha256": "e848236c9faf225056d7e40771628ed2cc263144e3f1da15d7abae1a09e3d273",
+      "pdf_pages": 5
+    },
+    {
+      "file": "9e6d4eb32acf145eba6ad47a42555b10_MIT2_092F09_lec15.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/9e6d4eb32acf145eba6ad47a42555b10_MIT2_092F09_lec15.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/9e6d4eb32acf145eba6ad47a42555b10_MIT2_092F09_lec15.pdf",
+      "kind": "pdf",
+      "bytes": 194787,
+      "sha256": "a50b2b8dc7bcaeb59083566bca9fd59bd53743c0b94dd44257d18e6d1917cc8f",
+      "pdf_pages": 5
+    },
+    {
+      "file": "6965d37c42e2f3be7c9f433a7c7d5351_MIT2_092F09_lec16.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/6965d37c42e2f3be7c9f433a7c7d5351_MIT2_092F09_lec16.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/6965d37c42e2f3be7c9f433a7c7d5351_MIT2_092F09_lec16.pdf",
+      "kind": "pdf",
+      "bytes": 240927,
+      "sha256": "1275a9873ceecf21c62cbb43469d7ba1aee13af227f2739810591104a9716583",
+      "pdf_pages": 5
+    },
+    {
+      "file": "4ac7bc87c5f192b25242c7f498b760f8_MIT2_092F09_lec18.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/4ac7bc87c5f192b25242c7f498b760f8_MIT2_092F09_lec18.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/4ac7bc87c5f192b25242c7f498b760f8_MIT2_092F09_lec18.pdf",
+      "kind": "pdf",
+      "bytes": 183025,
+      "sha256": "5846493a8cb6a6f400294cab088448cdbe8cfd0220eaa667568361edfd48e4f7",
+      "pdf_pages": 4
+    },
+    {
+      "file": "bbd2a44be3a8e399aaf8fdb75ad8ae5f_MIT2_092F09_lec19.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/bbd2a44be3a8e399aaf8fdb75ad8ae5f_MIT2_092F09_lec19.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/bbd2a44be3a8e399aaf8fdb75ad8ae5f_MIT2_092F09_lec19.pdf",
+      "kind": "pdf",
+      "bytes": 143286,
+      "sha256": "7e47b462be1e9e4ac71d57367f64bde8f536bd64dd7294809f73c70933112d85",
+      "pdf_pages": 4
+    },
+    {
+      "file": "de3fe8a64f95eb82acd0cd3a279972a4_MIT2_092F09_lec20.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/de3fe8a64f95eb82acd0cd3a279972a4_MIT2_092F09_lec20.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/de3fe8a64f95eb82acd0cd3a279972a4_MIT2_092F09_lec20.pdf",
+      "kind": "pdf",
+      "bytes": 201294,
+      "sha256": "b668437524ef70e2870d7d2608f133b03d4a1ca174b674e529fc664db3cc1637",
+      "pdf_pages": 5
+    },
+    {
+      "file": "e120f9512886519dee344f91edf60ac2_MIT2_092F09_lec21.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/e120f9512886519dee344f91edf60ac2_MIT2_092F09_lec21.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/e120f9512886519dee344f91edf60ac2_MIT2_092F09_lec21.pdf",
+      "kind": "pdf",
+      "bytes": 120911,
+      "sha256": "ca70e23ccae7aaec551f93ded7fb800bf7e7930dc093c0f401ec6a13620e654b",
+      "pdf_pages": 4
+    },
+    {
+      "file": "7d9ce6ca8a029d7806751504aa5d04d4_MIT2_092F09_lec23.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/7d9ce6ca8a029d7806751504aa5d04d4_MIT2_092F09_lec23.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/7d9ce6ca8a029d7806751504aa5d04d4_MIT2_092F09_lec23.pdf",
+      "kind": "pdf",
+      "bytes": 148406,
+      "sha256": "e587a5dc2a4216b22e1d25e0476b24068aecfb5ea66165d2084e3d80db9b50df",
+      "pdf_pages": 4
+    },
+    {
+      "file": "b292b2f04851a42ac390d834efeba9d6_MIT2_092F09_hw1.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/b292b2f04851a42ac390d834efeba9d6_MIT2_092F09_hw1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/b292b2f04851a42ac390d834efeba9d6_MIT2_092F09_hw1.pdf",
+      "kind": "pdf",
+      "bytes": 50720,
+      "sha256": "9ed3bd9e3276051880ee018f09a4d623d7b7301e492f6fc348f3503be1795dbb",
+      "pdf_pages": 3
+    },
+    {
+      "file": "7952b6d140c4744fa5f4cbbf94316ac8_MIT2_092F09_sol1.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/7952b6d140c4744fa5f4cbbf94316ac8_MIT2_092F09_sol1.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/7952b6d140c4744fa5f4cbbf94316ac8_MIT2_092F09_sol1.pdf",
+      "kind": "pdf",
+      "bytes": 97430,
+      "sha256": "14bd78748b8f2b029c871a7954780ce347a1506b491592e284c7bb97e9387703",
+      "pdf_pages": 7
+    },
+    {
+      "file": "1d5c0794670e3c44e26b5563daba5035_MIT2_092F09_hw2.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/1d5c0794670e3c44e26b5563daba5035_MIT2_092F09_hw2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/1d5c0794670e3c44e26b5563daba5035_MIT2_092F09_hw2.pdf",
+      "kind": "pdf",
+      "bytes": 31005,
+      "sha256": "4d5fca5af449ac2bc503e4400e9efc161493a4be9a4fa62f03b65adce05dafcf",
+      "pdf_pages": 2
+    },
+    {
+      "file": "9e579a33fc0b9550354fec352fbf0f0c_MIT2_092F09_sol2.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/9e579a33fc0b9550354fec352fbf0f0c_MIT2_092F09_sol2.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/9e579a33fc0b9550354fec352fbf0f0c_MIT2_092F09_sol2.pdf",
+      "kind": "pdf",
+      "bytes": 313969,
+      "sha256": "69d3bbe9d8e9aeb6fe70ec9ce673b6cecb1f0466c57f93d3fbd1e24a0d8e4681",
+      "pdf_pages": 5
+    },
+    {
+      "file": "6a6350bb7b1bb3cc03b8ba91f074b2f3_MIT2_092F09_hw3.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/6a6350bb7b1bb3cc03b8ba91f074b2f3_MIT2_092F09_hw3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/6a6350bb7b1bb3cc03b8ba91f074b2f3_MIT2_092F09_hw3.pdf",
+      "kind": "pdf",
+      "bytes": 32015,
+      "sha256": "d2541ec2025ace9badad6b800cc12edb1dc2d819f8cfc4e7d6ff505f566c6cec",
+      "pdf_pages": 2
+    },
+    {
+      "file": "b1bca3bb8d94a627ec9af841f3241e00_MIT2_092F09_sol3.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/b1bca3bb8d94a627ec9af841f3241e00_MIT2_092F09_sol3.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/b1bca3bb8d94a627ec9af841f3241e00_MIT2_092F09_sol3.pdf",
+      "kind": "pdf",
+      "bytes": 488433,
+      "sha256": "52ad95cf77a0e981937788b188d62605a10c35636bd8a1b60297d00aa5214016",
+      "pdf_pages": 8
+    },
+    {
+      "file": "f47bd518fdc55aaa0530647cf88ef3c2_MIT2_092F09_hw4.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/f47bd518fdc55aaa0530647cf88ef3c2_MIT2_092F09_hw4.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/f47bd518fdc55aaa0530647cf88ef3c2_MIT2_092F09_hw4.pdf",
+      "kind": "pdf",
+      "bytes": 45946,
+      "sha256": "5ba078b13997ebb414484a45269184dd5da542ed4ca541f814872be034a0bb38",
+      "pdf_pages": 3
+    },
+    {
+      "file": "8ef710355d45197d3ca089c6a2164504_MIT2_092F09_hw5.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/8ef710355d45197d3ca089c6a2164504_MIT2_092F09_hw5.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/8ef710355d45197d3ca089c6a2164504_MIT2_092F09_hw5.pdf",
+      "kind": "pdf",
+      "bytes": 42298,
+      "sha256": "4a5496e765fb3f2999bce68d60801fc83f85ab5c6f2622644d40bdef1ab1ea58",
+      "pdf_pages": 2
+    },
+    {
+      "file": "643f8f1bbc0ed5f37463b73995990af3_MIT2_092F09_sol5.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/643f8f1bbc0ed5f37463b73995990af3_MIT2_092F09_sol5.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/643f8f1bbc0ed5f37463b73995990af3_MIT2_092F09_sol5.pdf",
+      "kind": "pdf",
+      "bytes": 215031,
+      "sha256": "840b383bf746273d2762109d6a3b8d7125be520e6ce811c6d8a653084bf21092",
+      "pdf_pages": 5
+    },
+    {
+      "file": "0a1abbd18aa70cfb85fa6e86ad56f7ec_MIT2_092F09_hw6.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/0a1abbd18aa70cfb85fa6e86ad56f7ec_MIT2_092F09_hw6.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/0a1abbd18aa70cfb85fa6e86ad56f7ec_MIT2_092F09_hw6.pdf",
+      "kind": "pdf",
+      "bytes": 60836,
+      "sha256": "e4f6c3a898f927ec5ca2cd4119d880f0456428f83117103bb72cb37b03e068fb",
+      "pdf_pages": 3
+    },
+    {
+      "file": "929da16bff2f34d4e371fecb6a0493e9_MIT2_092F09_hw7.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/929da16bff2f34d4e371fecb6a0493e9_MIT2_092F09_hw7.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/929da16bff2f34d4e371fecb6a0493e9_MIT2_092F09_hw7.pdf",
+      "kind": "pdf",
+      "bytes": 58341,
+      "sha256": "4ccbbfb5d9bea61b375a94ec9da87f5b95f810d22e6c5e9ad34d1aae9c8db147",
+      "pdf_pages": 3
+    },
+    {
+      "file": "f1d4dd4191a89694e6896cea637c8fa0_MIT2_092F09_sol7.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/f1d4dd4191a89694e6896cea637c8fa0_MIT2_092F09_sol7.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/f1d4dd4191a89694e6896cea637c8fa0_MIT2_092F09_sol7.pdf",
+      "kind": "pdf",
+      "bytes": 84189,
+      "sha256": "b98e994f10e720991595829e9196c3a5ac5f9cfd8c82446328fdb53c56596531",
+      "pdf_pages": 6
+    },
+    {
+      "file": "de012d2cd76228480ab6a188543c0acf_MIT2_092F09_hw8.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/de012d2cd76228480ab6a188543c0acf_MIT2_092F09_hw8.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/de012d2cd76228480ab6a188543c0acf_MIT2_092F09_hw8.pdf",
+      "kind": "pdf",
+      "bytes": 52338,
+      "sha256": "3fbb1c797cc4e9ad95cfa312a3548a729485daacb1a4867ddeaf6ed7e26bbd23",
+      "pdf_pages": 3
+    },
+    {
+      "file": "e34b1f748a10e6c567e54d1a01c0fda7_MIT2_092F09_sol8.pdf",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/e34b1f748a10e6c567e54d1a01c0fda7_MIT2_092F09_sol8.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/e34b1f748a10e6c567e54d1a01c0fda7_MIT2_092F09_sol8.pdf",
+      "kind": "pdf",
+      "bytes": 265293,
+      "sha256": "1eeb46caebe44fb4f7e8baf0f5b16a6929fc4d118d2a7ab9b9b3d012e3f30cbf",
+      "pdf_pages": 8
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 32,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

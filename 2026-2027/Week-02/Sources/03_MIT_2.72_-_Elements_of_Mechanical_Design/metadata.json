@@ -1,0 +1,388 @@
+{
+  "id": 3,
+  "name": "MIT 2.72 - Elements of Mechanical Design",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/",
+  "folder": "03_MIT_2.72_-_Elements_of_Mechanical_Design",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/",
+      "kind": "html",
+      "bytes": 48429,
+      "sha256": "86d0d390c058df3224723d02d61020df96da713dd80d5933ae17a270dd1090c3"
+    },
+    {
+      "file": "page_049a955eb9.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/syllabus/",
+      "kind": "html",
+      "bytes": 54385,
+      "sha256": "b0d2a282c420b0ab50b9d9a64fe9441020860ffb88a088789238695b62d08bb2"
+    },
+    {
+      "file": "page_9f145fa3a4.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/readings/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/readings/",
+      "kind": "html",
+      "bytes": 52028,
+      "sha256": "41a25e2812dee6d96424628f7b241ce0068247c95bca11f058969fc0ccb4e493"
+    },
+    {
+      "file": "page_ac2f5af5fe.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/lecture-notes/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/lecture-notes/",
+      "kind": "html",
+      "bytes": 52195,
+      "sha256": "dc2f5e2d88dbd4b82d37dc6e6083f9b01c828a77a6a2c52f75d976af832eee4a"
+    },
+    {
+      "file": "page_ae30f8ec19.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec01/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec01/",
+      "kind": "html",
+      "bytes": 50942,
+      "sha256": "6d89ab977f31c04237dc83aa00439f244bfe8e07b547fe11bb4c3765ea9856fe"
+    },
+    {
+      "file": "page_7ec79a300c.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec02/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec02/",
+      "kind": "html",
+      "bytes": 50936,
+      "sha256": "43102b60422f6ec7150c1683d0c1b4deae593d73ec0be02ef15a17e2a07f3cd3"
+    },
+    {
+      "file": "page_6c81345583.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec02_shaft/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec02_shaft/",
+      "kind": "html",
+      "bytes": 51499,
+      "sha256": "0dedebfd572ae0fa861f51033d7ac894e9e238d447d58f8b0403f3add660cfa7"
+    },
+    {
+      "file": "page_8c48e428e0.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec03/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec03/",
+      "kind": "html",
+      "bytes": 50778,
+      "sha256": "14aa8b65562852b41507e53ec5d4b7defb004fe8d5e9d6ef9c82e25e274e9318"
+    },
+    {
+      "file": "page_102d54d269.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec04/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec04/",
+      "kind": "html",
+      "bytes": 50731,
+      "sha256": "9da7b57ff004659b4f257f8575b63576d907053d4a60f7875a1b7ae56eecaff4"
+    },
+    {
+      "file": "page_dddf485157.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec05/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec05/",
+      "kind": "html",
+      "bytes": 50962,
+      "sha256": "3ce670b9ece5207d0a6496db7f30f25a95e3f5c0fa4c207e51bafb4de6eb1323"
+    },
+    {
+      "file": "page_74aadc4d4c.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec06/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec06/",
+      "kind": "html",
+      "bytes": 50832,
+      "sha256": "76beb3af93dc7592c80f18c61353be12697b158e04dbc05056d5f395ebb77eba"
+    },
+    {
+      "file": "page_53b57f4062.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec07/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec07/",
+      "kind": "html",
+      "bytes": 50912,
+      "sha256": "3a2772ab6f3e3279f5d72fd18ae814dfa015681a5f4a995f48efce9f1b0001f5"
+    },
+    {
+      "file": "page_f729cb9ff3.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec08/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec08/",
+      "kind": "html",
+      "bytes": 50846,
+      "sha256": "98cd7028e43957e495201aa403072d6899ae08b1769c27e0cc4fa6c9c2061c84"
+    },
+    {
+      "file": "page_888b5b4437.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec09/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec09/",
+      "kind": "html",
+      "bytes": 50769,
+      "sha256": "6b5ba8855836420980d02129b0cb776948d4c3e9ee1a2eb1d1c1ac87676ae730"
+    },
+    {
+      "file": "page_17cef78f31.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec10/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec10/",
+      "kind": "html",
+      "bytes": 50849,
+      "sha256": "f53c91c09d093a6c7f657b6f2fd6867fe58c987bfa9ee66a65cf173bb34c8f75"
+    },
+    {
+      "file": "page_64baed6d80.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec11/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec11/",
+      "kind": "html",
+      "bytes": 50640,
+      "sha256": "1f61557e713fc63ec596e7a313fb85e360801270d225c7d463331e043c6827b9"
+    },
+    {
+      "file": "page_a7eec31737.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec12/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec12/",
+      "kind": "html",
+      "bytes": 50891,
+      "sha256": "1f14922e3ff8d1f84381fc609beb3470226f1f15721ee4b674431367b85feda5"
+    },
+    {
+      "file": "page_7b72123207.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec13/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec13/",
+      "kind": "html",
+      "bytes": 50735,
+      "sha256": "b7435023976db11b081fa7eaac27a74dabeb03b3bef62833d5df05a0301d8b91"
+    },
+    {
+      "file": "page_08f64e4a78.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec14/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec14/",
+      "kind": "html",
+      "bytes": 50801,
+      "sha256": "606a534ddde245db1a1ec981a371d382e12ff88745aa2f19ef92262d0567bfdd"
+    },
+    {
+      "file": "page_9aefd657a4.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec16/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec16/",
+      "kind": "html",
+      "bytes": 50788,
+      "sha256": "0f9a00dee759dd3f8e595cc4fbc63f03d2d7b8235684eadcdd3b6541e127fcc3"
+    },
+    {
+      "file": "page_1930e3c2d7.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/vibration/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/vibration/",
+      "kind": "html",
+      "bytes": 50172,
+      "sha256": "c0468e5045b932c51251c43c0c71132cf9f5b0450defc288c099649f3e660f80"
+    },
+    {
+      "file": "page_3858862176.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec18/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_lec18/",
+      "kind": "html",
+      "bytes": 50819,
+      "sha256": "777c02818b554469fd60a854e2d725e6271367f1f7f79dab750f6fc2c816b1b9"
+    },
+    {
+      "file": "page_1cea56619b.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/labs/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/labs/",
+      "kind": "html",
+      "bytes": 51263,
+      "sha256": "4a078f56a8fe6f90e9391fb1a3d229575178abdc7d2b2c7c420f1dbbd73bac87"
+    },
+    {
+      "file": "page_88f1bb5416.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/pages/assignments/",
+      "kind": "html",
+      "bytes": 55501,
+      "sha256": "a8dc0e6e073589ede71623d35a797d4b81e7db8b1b1d10a4fb458247d2e0d76c"
+    },
+    {
+      "file": "page_ba912afd7f.html",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_res02/",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/resources/mit2_72s09_res02/",
+      "kind": "html",
+      "bytes": 50779,
+      "sha256": "b21dc94fd78e281297947ff412b5d933f0f2e03fe5ba29c53212b87ca4619b62"
+    },
+    {
+      "file": "Bearing-Basics.pdf",
+      "url": "https://3d-mds-academy.com/wp-content/uploads/2019/01/Bearing-Basics.pdf",
+      "final_url": "https://3d-mds-academy.com/wp-content/uploads/2019/01/Bearing-Basics.pdf",
+      "kind": "pdf",
+      "bytes": 848896,
+      "sha256": "1d3b955e03c0cd0d2187036e9fd82ad76a21038909d0f2abc2d0308d1b7988ad",
+      "pdf_pages": 24
+    },
+    {
+      "file": "7ec8054b49c3fbbd93458a397723c7fa_MIT2_72s09_lec01.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/7ec8054b49c3fbbd93458a397723c7fa_MIT2_72s09_lec01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/7ec8054b49c3fbbd93458a397723c7fa_MIT2_72s09_lec01.pdf",
+      "kind": "pdf",
+      "bytes": 255863,
+      "sha256": "5b4deb347f355841a9958b6bdd0f8b9a573b4842c771377c7e5e1191cc761fa6",
+      "pdf_pages": 9
+    },
+    {
+      "file": "9f3d33643809dee01f065ad6d04cd357_MIT2_72s09_lec02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/9f3d33643809dee01f065ad6d04cd357_MIT2_72s09_lec02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/9f3d33643809dee01f065ad6d04cd357_MIT2_72s09_lec02.pdf",
+      "kind": "pdf",
+      "bytes": 1311987,
+      "sha256": "f900013cb6aada36d4dd4b02c0390e3028e29a5a9bb8a2b22b2fc759e004028b",
+      "pdf_pages": 41
+    },
+    {
+      "file": "130ca461b0fdb9b90a8818fe97d022f9_MIT2_72s09_lec02_shaft.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/130ca461b0fdb9b90a8818fe97d022f9_MIT2_72s09_lec02_shaft.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/130ca461b0fdb9b90a8818fe97d022f9_MIT2_72s09_lec02_shaft.pdf",
+      "kind": "pdf",
+      "bytes": 75769,
+      "sha256": "ec01c0da9e5392ba1276ca3a9100ae59a3d27598a31169fef20199892c8e7c9a",
+      "pdf_pages": 3
+    },
+    {
+      "file": "36eed65f96add829d317d8d83b80bf30_MIT2_72s09_lec03.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/36eed65f96add829d317d8d83b80bf30_MIT2_72s09_lec03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/36eed65f96add829d317d8d83b80bf30_MIT2_72s09_lec03.pdf",
+      "kind": "pdf",
+      "bytes": 489846,
+      "sha256": "16938c3aa2974f68f4f58f34757f75b34e0b27c333ff2960ca3c19da4defdd95",
+      "pdf_pages": 27
+    },
+    {
+      "file": "567ab24526459b9ff0901d7f2fc13f2c_MIT2_72s09_lec04.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/567ab24526459b9ff0901d7f2fc13f2c_MIT2_72s09_lec04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/567ab24526459b9ff0901d7f2fc13f2c_MIT2_72s09_lec04.pdf",
+      "kind": "pdf",
+      "bytes": 827455,
+      "sha256": "9b523d7f24a092379c3c17fae7a6e93a530c8fdc3fa66d83bf3740a849edd969",
+      "pdf_pages": 58
+    },
+    {
+      "file": "5d64d0616b9fecebbd60f01066008f6a_MIT2_72s09_lec05.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/5d64d0616b9fecebbd60f01066008f6a_MIT2_72s09_lec05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/5d64d0616b9fecebbd60f01066008f6a_MIT2_72s09_lec05.pdf",
+      "kind": "pdf",
+      "bytes": 456507,
+      "sha256": "7a1932ad0c2eecf130c666082a6588d024c1a0b994126daae0045545ba41deab",
+      "pdf_pages": 44
+    },
+    {
+      "file": "22c0cb8444c787d92b49afe5ed97ff7b_MIT2_72s09_lec06.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/22c0cb8444c787d92b49afe5ed97ff7b_MIT2_72s09_lec06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/22c0cb8444c787d92b49afe5ed97ff7b_MIT2_72s09_lec06.pdf",
+      "kind": "pdf",
+      "bytes": 489180,
+      "sha256": "2a016af21772630bd73093444dfc2af7a6b29f1b59a599236f7bc47ad39c36cd",
+      "pdf_pages": 36
+    },
+    {
+      "file": "c34ca2c6fd03a3e45fc9b699c2dbc808_MIT2_72s09_lec07.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/c34ca2c6fd03a3e45fc9b699c2dbc808_MIT2_72s09_lec07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/c34ca2c6fd03a3e45fc9b699c2dbc808_MIT2_72s09_lec07.pdf",
+      "kind": "pdf",
+      "bytes": 309274,
+      "sha256": "801c700aa7756259f6511d1356bff2ae7fabfeccf63bed49baefa6b849ba3fb5",
+      "pdf_pages": 28
+    },
+    {
+      "file": "1f5a093dbcb1a8189d6aca0b380b4925_MIT2_72s09_lec08.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/1f5a093dbcb1a8189d6aca0b380b4925_MIT2_72s09_lec08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/1f5a093dbcb1a8189d6aca0b380b4925_MIT2_72s09_lec08.pdf",
+      "kind": "pdf",
+      "bytes": 4721325,
+      "sha256": "14ce0cf5e0cbb24710b032012d3fc4dc207925b05184a36695bffed41e8310ce",
+      "pdf_pages": 42
+    },
+    {
+      "file": "6e4d8a1450451730ac5a92ad3b2f1cb8_MIT2_72s09_lec09.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/6e4d8a1450451730ac5a92ad3b2f1cb8_MIT2_72s09_lec09.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/6e4d8a1450451730ac5a92ad3b2f1cb8_MIT2_72s09_lec09.pdf",
+      "kind": "pdf",
+      "bytes": 714986,
+      "sha256": "5428720605fb586487c6e102f214c8cd2d7d2981c511421e520d7bfe947b9a0f",
+      "pdf_pages": 14
+    },
+    {
+      "file": "2862ad7e68d45da095524330b10ba4a4_MIT2_72s09_lec10.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/2862ad7e68d45da095524330b10ba4a4_MIT2_72s09_lec10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/2862ad7e68d45da095524330b10ba4a4_MIT2_72s09_lec10.pdf",
+      "kind": "pdf",
+      "bytes": 208241,
+      "sha256": "0a24f916b0af1682d4f5342137d77c94ca644493db9a6fce01b4306556587071",
+      "pdf_pages": 31
+    },
+    {
+      "file": "d6f35af9874ea263ddf172691926ee5f_MIT2_72s09_lec11.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/d6f35af9874ea263ddf172691926ee5f_MIT2_72s09_lec11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/d6f35af9874ea263ddf172691926ee5f_MIT2_72s09_lec11.pdf",
+      "kind": "pdf",
+      "bytes": 86033,
+      "sha256": "4e4cfc5119f41c9397e5590c88619550e0f97f3bc14c157057011db84111abf2",
+      "pdf_pages": 8
+    },
+    {
+      "file": "83d81a6f63d1c6f0fb775c08b207bc51_MIT2_72s09_lec12.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/83d81a6f63d1c6f0fb775c08b207bc51_MIT2_72s09_lec12.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/83d81a6f63d1c6f0fb775c08b207bc51_MIT2_72s09_lec12.pdf",
+      "kind": "pdf",
+      "bytes": 835739,
+      "sha256": "94dadc9fe5814b7c0b8102952c411832d4d314328cfe7b1d12aa751a705b8250",
+      "pdf_pages": 45
+    },
+    {
+      "file": "b13178aaf27855ba0c63caa5740ed53b_MIT2_72s09_lec13.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/b13178aaf27855ba0c63caa5740ed53b_MIT2_72s09_lec13.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/b13178aaf27855ba0c63caa5740ed53b_MIT2_72s09_lec13.pdf",
+      "kind": "pdf",
+      "bytes": 475027,
+      "sha256": "0538708cf2172180d1b95001535d78636421b9a2bb5f12603b532136fae463d6",
+      "pdf_pages": 30
+    },
+    {
+      "file": "c4b5aff9cdb21f722034907ac7d071da_MIT2_72s09_lec14.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/c4b5aff9cdb21f722034907ac7d071da_MIT2_72s09_lec14.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/c4b5aff9cdb21f722034907ac7d071da_MIT2_72s09_lec14.pdf",
+      "kind": "pdf",
+      "bytes": 955078,
+      "sha256": "4a58304b70f2b79cff0ff72705e6a2935a2e097af9165cd6d97e2ed737749486",
+      "pdf_pages": 60
+    },
+    {
+      "file": "eda60f1dbd47e4c1b1786f5c02cf9ee8_MIT2_72s09_lec16.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/eda60f1dbd47e4c1b1786f5c02cf9ee8_MIT2_72s09_lec16.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/eda60f1dbd47e4c1b1786f5c02cf9ee8_MIT2_72s09_lec16.pdf",
+      "kind": "pdf",
+      "bytes": 589758,
+      "sha256": "ad492a321a8474dd046d35f0f80571036bbe068106557608a64207ed33fa19e6",
+      "pdf_pages": 21
+    },
+    {
+      "file": "ec9f1a573e6595f9b532756f2d8ded44_MIT2_72s09_lec18.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/ec9f1a573e6595f9b532756f2d8ded44_MIT2_72s09_lec18.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/ec9f1a573e6595f9b532756f2d8ded44_MIT2_72s09_lec18.pdf",
+      "kind": "pdf",
+      "bytes": 374680,
+      "sha256": "6772e26450d6d21129fcab3fe44834af22d2a340c6db1a8955a385ad9e1114c8",
+      "pdf_pages": 33
+    },
+    {
+      "file": "89ba2d05253861cfa410b13369466119_MIT2_72s09_res02.pdf",
+      "url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/89ba2d05253861cfa410b13369466119_MIT2_72s09_res02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/2-72-elements-of-mechanical-design-spring-2009/89ba2d05253861cfa410b13369466119_MIT2_72s09_res02.pdf",
+      "kind": "pdf",
+      "bytes": 65096,
+      "sha256": "dc476d83c2775158ab9da467b27fe3c4c7e9fef2b0987f46235d68d3b0e4aa17",
+      "pdf_pages": 2
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:39+0300",
+  "pdf_count": 19,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

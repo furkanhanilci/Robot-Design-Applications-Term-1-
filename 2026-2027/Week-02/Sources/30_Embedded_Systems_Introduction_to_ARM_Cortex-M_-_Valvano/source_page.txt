@@ -1,0 +1,75 @@
+Introduction to Embedded Systems
+Introduction
+          to Embedded Systems
+Jonathan Valvano and Ramesh
+            Yerraballi
+Search
+Table of
+         Contents
+Chapter 1:
+Introduction
+            to Embedded Systems
+Chapter 2:
+Programming
+            in C
+Chapter 3:
+Interfacing
+            to Switches and LEDs
+Chapter 4:
+Arrays,
+            Time, and Functional Debugging
+Chapter 5:
+Finite
+            State Machines
+Chapter 6:
+Interrupts,
+            Digital to Analog Conversion (DAC), and Sound Generation
+Chapter 7:
+Local
+            variables and LCD output
+Chapter 8:
+Analog to Digital
+            Conversion (ADC), Data Acquisition, and Control
+Chapter 9:
+Serial
+            Communication
+Chapter 10:
+Embedded Systems
+        Design
+Appendix:
+Electronics
+Appendix:
+Digital logic
+Appendix:
+Assembly
+            reference
+Appendix:
+TM4C123 Hardware
+            Reference Material
+Embedded
+            Software in C for an ARM Cortex M
+TM4C123 LaunchPad Users Manual
+Video links:
+Web links to
+            videos (All chapters 1 to 16)
+Index:
+Index of terms and
+            concepts
+This material was created to teach
+EE319K at the University of Texas at Austin
+Reprinted with approval from
+Introduction
+          to Embedded Systems, 2022, ISBN: 978-1537105727
+Embedded
+        Systems - Shape the World
+by
+Jonathan Valvano and Ramesh Yerraballi
+is
+      licensed under a
+Creative
+Commons
+        Attribution-NonCommercial-NoDerivatives 4.0 International License
+.
+Based on a work at
+http://users.ece.utexas.edu/~valvano/arm/outline1.htm
+.

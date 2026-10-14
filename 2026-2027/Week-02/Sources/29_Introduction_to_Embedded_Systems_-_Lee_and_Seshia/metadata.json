@@ -1,0 +1,40 @@
+{
+  "id": 29,
+  "name": "Introduction to Embedded Systems - Lee and Seshia",
+  "type": "Açık erişim kitap",
+  "url": "https://mitpress.mit.edu/9780262533812/introduction-to-embedded-systems/",
+  "folder": "29_Introduction_to_Embedded_Systems_-_Lee_and_Seshia",
+  "files": [
+    {
+      "file": "supplement_4646b163b1.html",
+      "url": "https://ptolemy.org/books/leeseshia/download.html",
+      "final_url": "https://ptolemy.org/books/leeseshia/download.html",
+      "kind": "html",
+      "bytes": 7268,
+      "sha256": "da9195959821434e25f45a7da06ba8648f9e8d9e508e4f86cac1b7ba45150bda"
+    },
+    {
+      "file": "LeeSeshia_DigitalV2_2.pdf",
+      "url": "https://ptolemy.org/books/leeseshia/releases/LeeSeshia_DigitalV2_2.pdf",
+      "final_url": "https://ptolemy.org/books/leeseshia/releases/LeeSeshia_DigitalV2_2.pdf",
+      "kind": "pdf",
+      "bytes": 27517484,
+      "sha256": "900384867d4d3eda846c0dcf285ec2a8479654bccfc839bbb63a51623378aa0c",
+      "pdf_pages": 585
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://mitpress.mit.edu/9780262533812/introduction-to-embedded-systems/",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:30+0300",
+  "pdf_count": 1,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "Yayıncı sayfasına erişim sağlanamadı; yazarların resmî Berkeley/Ptolemy alanından açık ikinci baskı PDF’i indirildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

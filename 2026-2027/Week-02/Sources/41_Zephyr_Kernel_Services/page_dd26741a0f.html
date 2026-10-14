@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mailboxes &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/data_passing/mailboxes.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Pipes" href="pipes.html" />
+    <link rel="prev" title="Message Queues" href="message_queues.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#data-passing">Data Passing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="queues.html">Queues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fifos.html">FIFOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifos.html">LIFOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacks.html">Stacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="message_queues.html">Message Queues</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Mailboxes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#message-format">Message Format</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#message-lifecycle">Message Lifecycle</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#thread-compatibility">Thread Compatibility</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#message-flow-control">Message Flow Control</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#defining-a-mailbox">Defining a Mailbox</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#message-descriptors">Message Descriptors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#sending-a-message">Sending a Message</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#receiving-a-message">Receiving a Message</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pipes.html">Pipes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Mailboxes</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/data_passing/mailboxes.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fdata_passing%2Fmailboxes%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fdata_passing%2Fmailboxes%0A-+Version%3A+main%0A-+SHA-1%3A+650a59479c40bd2f2e07b6576a1dcdef77637ad6&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="mailboxes">
+<span id="mailboxes-v2"></span><h1>Mailboxes<a class="headerlink" href="#mailboxes" title="Link to this heading"></a></h1>
+<p>A <em class="dfn">mailbox</em> is a kernel object that provides enhanced message queue
+capabilities that go beyond the capabilities of a message queue object.
+A mailbox allows threads to send and receive messages of any size
+synchronously or asynchronously.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#concepts" id="id1">Concepts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#message-format" id="id2">Message Format</a></p></li>
+<li><p><a class="reference internal" href="#message-lifecycle" id="id3">Message Lifecycle</a></p></li>
+<li><p><a class="reference internal" href="#thread-compatibility" id="id4">Thread Compatibility</a></p></li>
+<li><p><a class="reference internal" href="#message-flow-control" id="id5">Message Flow Control</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implementation" id="id6">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#defining-a-mailbox" id="id7">Defining a Mailbox</a></p></li>
+<li><p><a class="reference internal" href="#message-descriptors" id="id8">Message Descriptors</a></p></li>
+<li><p><a class="reference internal" href="#sending-a-message" id="id9">Sending a Message</a></p></li>
+<li><p><a class="reference internal" href="#receiving-a-message" id="id10">Receiving a Message</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id11">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id12">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id13">API Reference</a></p></li>
+</ul>
+</nav>
+<section id="concepts">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<p>Any number of mailboxes can be defined (limited only by available RAM). Each
+mailbox is referenced by its memory address.</p>
+<p>A mailbox has the following key properties:</p>
+<ul class="simple">
+<li><p>A <strong>send queue</strong> of messages that have been sent but not yet received.</p></li>
+<li><p>A <strong>receive queue</strong> of threads that are waiting to receive a message.</p></li>
+</ul>
+<p>A mailbox must be initialized before it can be used. This sets both of its
+queues to empty.</p>
+<p>A mailbox allows threads, but not ISRs, to exchange messages.
+A thread that sends a message is known as the <strong>sending thread</strong>,
+while a thread that receives the message is known as the <strong>receiving thread</strong>.
+Each message may be received by only one thread (i.e. point-to-multipoint and
+broadcast messaging is not supported).</p>
+<p>Messages exchanged using a mailbox are handled non-anonymously,
+allowing both threads participating in an exchange to know
+(and even specify) the identity of the other thread.</p>
+<section id="message-format">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Message Format</a><a class="headerlink" href="#message-format" title="Link to this heading"></a></h3>
+<p>A <strong>message descriptor</strong> is a data structure that specifies where a message’s
+data is located, and how the message is to be handled by the mailbox.
+Both the sending thread and the receiving thread supply a message descriptor
+when accessing a mailbox. The mailbox uses the message descriptors to perform
+a message exchange between compatible sending and receiving threads.
+The mailbox also updates certain message descriptor fields during the exchange,
+allowing both threads to know what has occurred.</p>
+<p>A mailbox message contains zero or more bytes of <strong>message data</strong>.
+The size and format of the message data is application-defined, and can vary
+from one message to the next.</p>
+<p>A <strong>message buffer</strong> is an area of memory provided by the thread that sends or
+receives the message data. An array or structure variable can often be used for
+this purpose.</p>
+<p>A message that has neither form of message data is called an <strong>empty message</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A message whose message buffer exists, but contains zero bytes of actual
+data, is <em>not</em> an empty message.</p>
+</div>
+</section>
+<section id="message-lifecycle">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Message Lifecycle</a><a class="headerlink" href="#message-lifecycle" title="Link to this heading"></a></h3>
+<p>The life cycle of a message is straightforward. A message is created when
+it is given to a mailbox by the sending thread. The message is then owned
+by the mailbox until it is given to a receiving thread. The receiving thread
+may retrieve the message data when it receives the message from the mailbox,
+or it may perform data retrieval during a second, subsequent mailbox operation.
+Only when data retrieval has occurred is the message deleted by the mailbox.</p>
+</section>
+<section id="thread-compatibility">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Thread Compatibility</a><a class="headerlink" href="#thread-compatibility" title="Link to this heading"></a></h3>
+<p>A sending thread can specify the address of the thread to which the message
+is sent, or send it to any thread by specifying <a class="reference internal" href="../../../doxygen/html/group__kernel__apis.html#gac627cc4c3da16be4b74f0a4ab036a603" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_ANY</span></code></a>.
+Likewise, a receiving thread can specify the address of the thread from which
+it wishes to receive a message, or it can receive a message from any thread
+by specifying <a class="reference internal" href="../../../doxygen/html/group__kernel__apis.html#gac627cc4c3da16be4b74f0a4ab036a603" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_ANY</span></code></a>.
+A message is exchanged only when the requirements of both the sending thread
+and receiving thread are satisfied; such threads are said to be <strong>compatible</strong>.</p>
+<p>For example, if thread A sends a message to thread B (and only thread B)
+it will be received by thread B if thread B tries to receive a message
+from thread A or if thread B tries to receive from any thread.
+The exchange will not occur if thread B tries to receive a message
+from thread C. The message can never be received by thread C,
+even if it tries to receive a message from thread A (or from any thread).</p>
+</section>
+<section id="message-flow-control">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Message Flow Control</a><a class="headerlink" href="#message-flow-control" title="Link to this heading"></a></h3>
+<p>Mailbox messages can be exchanged <strong>synchronously</strong> or <strong>asynchronously</strong>.
+In a synchronous exchange, the sending thread blocks until the message
+has been fully processed by the receiving thread. In an asynchronous exchange,
+the sending thread does not wait until the message has been received
+by another thread before continuing; this allows the sending thread to do
+other work (such as gather data that will be used in the next message)
+<em>before</em> the message is given to a receiving thread and fully processed.
+The technique used for a given message exchange is determined
+by the sending thread.</p>
+<p>The synchronous exchange technique provides an implicit form of flow control,
+preventing a sending thread from generating messages faster than they can be
+consumed by receiving threads. The asynchronous exchange technique provides an
+explicit form of flow control, which allows a sending thread to determine
+if a previously sent message still exists before sending a subsequent message.</p>
+</section>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="defining-a-mailbox">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Defining a Mailbox</a><a class="headerlink" href="#defining-a-mailbox" title="Link to this heading"></a></h3>
+<p>A mailbox is defined using a variable of type <a class="reference internal" href="../../../doxygen/html/structk__mbox.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_mbox</span></code></a>.
+It must then be initialized by calling <a class="reference internal" href="../../../doxygen/html/group__mailbox__apis.html#ga686f20c199a9e971822d8279d175d8c2" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_mbox_init()</span></code></a>.</p>
+<p>The following code defines and initializes an empty mailbox.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">k_mbox</span><span class="w"> </span><span class="n">my_mailbox</span><span class="p">;</span>
+
+<span class="n">k_mbox_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mailbox</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, a mailbox can be defined and initialized at compile time
+by calling <a class="reference internal" href="../../../doxygen/html/group__mailbox__apis.html#gab55cba898db47113a06641c01f3e3714" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_MBOX_DEFINE</span></code></a>.</p>
+<p>The following code has the same effect as the code segment above.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">K_MBOX_DEFINE</span><span class="p">(</span><span class="n">my_mailbox</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="message-descriptors">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Message Descriptors</a><a class="headerlink" href="#message-descriptors" title="Link to this heading"></a></h3>
+<p>A message descriptor is a structure of type <a class="reference internal" href="../../../doxygen/html/structk__mbox__msg.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_mbox_msg</span></code></a>.
+Only the fields listed below should be used; any other fields are for
+internal mailbox use only.</p>
+<dl class="simple">
+<dt><em>info</em></dt><dd><p>A 32-bit value that is exchanged by the message sender and receiver,
+and whose meaning is defined by the application. This exchange is
+bi-directional, allowing the sender to pass a value to the receiver
+during any message exchange, and allowing the receiver to pass a value
+to the sender during a synchronous message exchange.</p>
+</dd>
+<dt><em>size</em></dt><dd><p>The message data size, in bytes. Set it to zero when sending an empty
+message, or when sending a message buffer with no actual data. When
+receiving a message, set it to the maximum amount of data desired, or to
+zero if the message data is not wanted. The mailbox updates this field with
+the actual number of data bytes exchanged once the message is received.</p>
+</dd>
+<dt><em>tx_data</em></dt><dd><p>A pointer to the sending thread’s message buffer. Set it to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
+when sending an empty message. Leave this field uninitialized when
+receiving a message.</p>
+</dd>
+<dt><em>tx_target_thread</em></dt><dd><p>The address of the desired receiving thread. Set it to <a class="reference internal" href="../../../doxygen/html/group__kernel__apis.html#gac627cc4c3da16be4b74f0a4ab036a603" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_ANY</span></code></a>
+to allow any thread to receive the message. Leave this field uninitialized
+when receiving a message. The mailbox updates this field with
+the actual receiver’s address once the message is received.</p>
+</dd>
+<dt><em>rx_source_thread</em></dt><dd><p>The address of the desired sending thread. Set it to <a class="reference internal" href="../../../doxygen/html/group__kernel__apis.html#gac627cc4c3da16be4b74f0a4ab036a603" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_ANY</span></code></a>
+to receive a message sent by any thread. Leave this field uninitialized
+when sending a message. The mailbox updates this field
+with the actual sender’s address when the message is put into
+the mailbox.</p>
+</dd>
+</dl>
+</section>
+<section id="sending-a-message">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Sending a Message</a><a class="headerlink" href="#sending-a-message" title="Link to this heading"></a></h3>
+<p>A thread sends a message by first creating its message data, if any.</p>
+<p>Next, the sending thread creates a message descriptor that characterizes
+the message to be sent, as described in the previous section.</p>
+<p>Finally, the sending thread calls a mailbox send API to initiate the
+message exchange. The message is immediately given to a compatible receiving
+thread, if one is currently waiting. Otherwise, the message is added
+to the mailbox’s send queue.</p>
+<p>Any number of messages may exist simultaneously on a send queue.
+The messages in the send queue are sorted according to the priority
+of the sending thread. Messages of equal priority are sorted so that
+the oldest message can be received first.</p>
+<p>For a synchronous send operation, the operation normally completes when a
+receiving thread has both received the message and retrieved the message data.
+If the message is not received before the waiting period specified by the
+sending thread is reached, the message is removed from the mailbox’s send queue
+and the send operation fails. When a send operation completes successfully
+the sending thread can examine the message descriptor to determine
+which thread received the message, how much data was exchanged,
+and the application-defined info value supplied by the receiving thread.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A synchronous send operation may block the sending thread indefinitely,
+even when the thread specifies a maximum waiting period.
+The waiting period only limits how long the mailbox waits
+before the message is received by another thread. Once a message is received
+there is <em>no</em> limit to the time the receiving thread may take to retrieve
+the message data and unblock the sending thread.</p>
+</div>
+<p>For an asynchronous send operation, the operation always completes immediately.
+This allows the sending thread to continue processing regardless of whether the
+message is given to a receiving thread immediately or added to the send queue.
+The sending thread may optionally specify a semaphore that the mailbox gives
+when the message is deleted by the mailbox, for example, when the message
+has been received and its data retrieved by a receiving thread.
+The use of a semaphore allows the sending thread to easily implement
+a flow control mechanism that ensures that the mailbox holds no more than
+an application-specified number of messages from a sending thread
+(or set of sending threads) at any point in time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A thread that sends a message asynchronously has no way to determine
+which thread received the message, how much data was exchanged, or the
+application-defined info value supplied by the receiving thread.</p>
+</div>
+<section id="sending-an-empty-message">
+<h4>Sending an Empty Message<a class="headerlink" href="#sending-an-empty-message" title="Link to this heading"></a></h4>
+<p>This code uses a mailbox to synchronously pass 4 byte random values
+to any consuming thread that wants one. The message “info” field is
+large enough to carry the information being exchanged, so the data
+portion of the message isn’t used.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">producer_thread</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_mbox_msg</span><span class="w"> </span><span class="n">send_msg</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="cm">/* generate random value to send */</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">random_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys_rand32_get</span><span class="p">();</span>
+
+<span class="w">        </span><span class="cm">/* prepare to send empty message */</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_value</span><span class="p">;</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">tx_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">tx_target_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K_ANY</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cm">/* send message and wait until a consumer receives it */</span>
+<span class="w">        </span><span class="n">k_mbox_put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mailbox</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">send_msg</span><span class="p">,</span><span class="w"> </span><span class="n">K_FOREVER</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="sending-data-using-a-message-buffer">
+<h4>Sending Data Using a Message Buffer<a class="headerlink" href="#sending-data-using-a-message-buffer" title="Link to this heading"></a></h4>
+<p>This code uses a mailbox to synchronously pass variable-sized requests
+from a producing thread to any consuming thread that wants it.
+The message “info” field is used to exchange information about
+the maximum size message buffer that each thread can handle.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">producer_thread</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">buffer_bytes_used</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_mbox_msg</span><span class="w"> </span><span class="n">send_msg</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="cm">/* generate data to send */</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">        </span><span class="n">buffer_bytes_used</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">;</span>
+<span class="w">        </span><span class="n">memcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">buffer_bytes_used</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* prepare to send message */</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer_bytes_used</span><span class="p">;</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer_bytes_used</span><span class="p">;</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">tx_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+<span class="w">        </span><span class="n">send_msg</span><span class="p">.</span><span class="n">tx_target_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K_ANY</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cm">/* send message and wait until a consumer receives it */</span>
+<span class="w">        </span><span class="n">k_mbox_put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mailbox</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">send_msg</span><span class="p">,</span><span class="w"> </span><span class="n">K_FOREVER</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* info, size, and tx_target_thread fields have been updated */</span>
+
+<span class="w">        </span><span class="cm">/* verify that message data was fully received */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">send_msg</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">buffer_bytes_used</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"some message data dropped during transfer!"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"receiver only had room for %d bytes"</span><span class="p">,</span><span class="w"> </span><span class="n">send_msg</span><span class="p">.</span><span class="n">info</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="receiving-a-message">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Receiving a Message</a><a class="headerlink" href="#receiving-a-message" title="Link to this heading"></a></h3>
+<p>A thread receives a message by first creating a message descriptor that
+characterizes the message it wants to receive. It then calls one of the
+mailbox receive APIs. The mailbox searches its send queue and takes the message
+from the first compatible thread it finds. If no compatible thread exists,
+the receiving thread may choose to wait for one. If no compatible thread
+appears before the waiting period specified by the receiving thread is reached,
+the receive operation fails.
+Once a receive operation completes successfully the receiving thread
+can examine the message descriptor to determine which thread sent the message,
+how much data was exchanged,
+and the application-defined info value supplied by the sending thread.</p>
+<p>Any number of receiving threads may wait simultaneously on a mailboxes’
+receive queue. The threads are sorted according to their priority;
+threads of equal priority are sorted so that the one that started waiting
+first can receive a message first.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Receiving threads do not always receive messages in a first in, first out
+(FIFO) order, due to the thread compatibility constraints specified by the
+message descriptors. For example, if thread A waits to receive a message
+only from thread X and then thread B waits to receive a message from
+thread Y, an incoming message from thread Y to any thread will be given
+to thread B and thread A will continue to wait.</p>
+</div>
+<p>The receiving thread controls both the quantity of data it retrieves from an
+incoming message and where the data ends up. The thread may choose to take
+all of the data in the message, to take only the initial part of the data,
+or to take no data at all. Similarly, the thread may choose to have the data
+copied into a message buffer of its choice.</p>
+<p>The following sections outline various approaches a receiving thread may use
+when retrieving message data.</p>
+<section id="retrieving-data-at-receive-time">
+<h4>Retrieving Data at Receive Time<a class="headerlink" href="#retrieving-data-at-receive-time" title="Link to this heading"></a></h4>
+<p>The most straightforward way for a thread to retrieve message data is to
+specify a message buffer when the message is received. The thread indicates
+both the location of the message buffer (which must not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>)
+and its size.</p>
+<p>The mailbox copies the message’s data to the message buffer as part of the
+receive operation. If the message buffer is not big enough to contain all of the
+message’s data, any uncopied data is lost. If the message is not big enough
+to fill all of the buffer with data, the unused portion of the message buffer is
+left unchanged. In all cases the mailbox updates the receiving thread’s
+message descriptor to indicate how many data bytes were copied (if any).</p>
+<p>The immediate data retrieval technique is best suited for small messages
+where the maximum size of a message is known in advance.</p>
+<p>The following code uses a mailbox to process variable-sized requests from any
+producing thread, using the immediate data retrieval technique. The message
+“info” field is used to exchange information about the maximum size
+message buffer that each thread can handle.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">consumer_thread</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_mbox_msg</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* prepare to receive message */</span>
+<span class="w">        </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">        </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">        </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">rx_source_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K_ANY</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cm">/* get a data item, waiting as long as needed */</span>
+<span class="w">        </span><span class="n">k_mbox_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mailbox</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">recv_msg</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">K_FOREVER</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* info, size, and rx_source_thread fields have been updated */</span>
+
+<span class="w">        </span><span class="cm">/* verify that message data was fully received */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">recv_msg</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"some message data dropped during transfer!"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"sender tried to send %d bytes"</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">info</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* compute sum of all message bytes (from 0 to 100 of them) */</span>
+<span class="w">        </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="retrieving-data-later-using-a-message-buffer">
+<h4>Retrieving Data Later Using a Message Buffer<a class="headerlink" href="#retrieving-data-later-using-a-message-buffer" title="Link to this heading"></a></h4>
+<p>A receiving thread may choose to defer message data retrieval at the time
+the message is received, so that it can retrieve the data into a message buffer
+at a later time.
+The thread does this by specifying a message buffer location of <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
+and a size indicating the maximum amount of data it is willing to retrieve
+later.</p>
+<p>The mailbox does not copy any message data as part of the receive operation.
+However, the mailbox still updates the receiving thread’s message descriptor
+to indicate how many data bytes are available for retrieval.</p>
+<p>The receiving thread must then respond as follows:</p>
+<ul class="simple">
+<li><p>If the message descriptor size is zero, then either the sender’s message
+contained no data or the receiving thread did not want to receive any data.
+The receiving thread does not need to take any further action, since
+the mailbox has already completed data retrieval and deleted the message.</p></li>
+<li><p>If the message descriptor size is non-zero and the receiving thread still
+wants to retrieve the data, the thread must call <a class="reference internal" href="../../../doxygen/html/group__mailbox__apis.html#ga3d19e648e67f109609259543c9a01d6e" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_mbox_data_get()</span></code></a>
+and supply a message buffer large enough to hold the data. The mailbox copies
+the data into the message buffer and deletes the message.</p></li>
+<li><p>If the message descriptor size is non-zero and the receiving thread does <em>not</em>
+want to retrieve the data, the thread must call <a class="reference internal" href="../../../doxygen/html/group__mailbox__apis.html#ga3d19e648e67f109609259543c9a01d6e" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_mbox_data_get()</span></code></a>
+and specify a message buffer of <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. The mailbox deletes
+the message without copying the data.</p></li>
+</ul>
+<p>The subsequent data retrieval technique is suitable for applications where
+immediate retrieval of message data is undesirable. For example, it can be
+used when memory limitations make it impractical for the receiving thread to
+always supply a message buffer capable of holding the largest possible
+incoming message.</p>
+<p>The following code uses a mailbox’s deferred data retrieval mechanism
+to get message data from a producing thread only if the message meets
+certain criteria, thereby eliminating unneeded data copying. The message
+“info” field supplied by the sender is used to classify the message.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">consumer_thread</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">k_mbox_msg</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">10000</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* prepare to receive message */</span>
+<span class="w">        </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span>
+<span class="w">        </span><span class="n">recv_msg</span><span class="p">.</span><span class="n">rx_source_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K_ANY</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cm">/* get message, but not its data */</span>
+<span class="w">        </span><span class="n">k_mbox_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mailbox</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">recv_msg</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">K_FOREVER</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* get message data for only certain types of messages */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_message_type_ok</span><span class="p">(</span><span class="n">recv_msg</span><span class="p">.</span><span class="n">info</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/* retrieve message data and delete the message */</span>
+<span class="w">            </span><span class="n">k_mbox_data_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">recv_msg</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+
+<span class="w">            </span><span class="cm">/* process data in "buffer" */</span>
+<span class="w">            </span><span class="p">...</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/* ignore message data and delete the message */</span>
+<span class="w">            </span><span class="n">k_mbox_data_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">recv_msg</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use a mailbox to transfer data items between threads whenever the capabilities
+of a message queue are insufficient.</p>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>Related configuration options:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_NUM_MBOX_ASYNC_MSGS" title="CONFIG_NUM_MBOX_ASYNC_MSGS"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_NUM_MBOX_ASYNC_MSGS</span></code></a></p></li>
+</ul>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__mailbox__apis.html" title=""><span class="pre">Mailbox</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Dec 15, 2023.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

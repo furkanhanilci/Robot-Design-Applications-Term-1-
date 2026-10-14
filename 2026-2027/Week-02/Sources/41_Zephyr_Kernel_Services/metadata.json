@@ -1,0 +1,274 @@
+{
+  "id": 41,
+  "name": "Zephyr Kernel Services",
+  "type": "Resmi RTOS dokümantasyonu",
+  "url": "https://docs.zephyrproject.org/latest/kernel/services/index.html",
+  "folder": "41_Zephyr_Kernel_Services",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/index.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/index.html",
+      "kind": "html",
+      "bytes": 35630,
+      "sha256": "151543601cedac02d4b7c5a8f7ddbb5ebc912685d7c27b12cda393551c0f9874"
+    },
+    {
+      "file": "zephyr.pdf",
+      "url": "https://docs.zephyrproject.org/latest/zephyr.pdf",
+      "final_url": "https://docs.zephyrproject.org/latest/zephyr.pdf",
+      "kind": "pdf",
+      "bytes": 26278153,
+      "sha256": "d8c2b2cf45c415aa4643ffff65ec4d4bfe65273e36dfcef8b49afd711c157adb",
+      "pdf_pages": 2584
+    },
+    {
+      "file": "page_80aa2b59dc.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/threads/index.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/threads/index.html",
+      "kind": "html",
+      "bytes": 99949,
+      "sha256": "606bf16e76cc05fd7829fc0235c8061b841baf06c98aea2ff5db9588083a09c6"
+    },
+    {
+      "file": "page_a8ed189438.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/scheduling/index.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/scheduling/index.html",
+      "kind": "html",
+      "bytes": 59543,
+      "sha256": "bee3bc82564b4eef5b04610774d56cf2aee5f4dd2fb9ee02d362fa4c5cd89a9e"
+    },
+    {
+      "file": "page_4772787258.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/scheduling/index.html#cpu-idling",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/scheduling/index.html#cpu-idling",
+      "kind": "html",
+      "bytes": 59543,
+      "sha256": "bee3bc82564b4eef5b04610774d56cf2aee5f4dd2fb9ee02d362fa4c5cd89a9e"
+    },
+    {
+      "file": "page_c8e8112533.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/threads/system_threads.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/threads/system_threads.html",
+      "kind": "html",
+      "bytes": 27900,
+      "sha256": "c524f72ad13a408a36692212cd6752da01231b4519bcc809ce204545d3d2744d"
+    },
+    {
+      "file": "page_8de83b1427.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/threads/workqueue.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/threads/workqueue.html",
+      "kind": "html",
+      "bytes": 76423,
+      "sha256": "43d9e908c571f47dcd07abbba8ef089433bac1420d62da0e5c4d6a889159a2d2"
+    },
+    {
+      "file": "page_bb798722eb.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/threads/nothread.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/threads/nothread.html",
+      "kind": "html",
+      "bytes": 31960,
+      "sha256": "ddc3578460f31eb2b3b38c5477d7de6fd841b2ee53198ac2ae2476b62383a675"
+    },
+    {
+      "file": "page_08cea7caf1.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/interrupts.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/interrupts.html",
+      "kind": "html",
+      "bytes": 94582,
+      "sha256": "0f812379956b6436fd5de9e42fd1d969052eb37fb59a87d4e929531e38ca51f1"
+    },
+    {
+      "file": "page_833a955cd3.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/polling.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/polling.html",
+      "kind": "html",
+      "bytes": 66173,
+      "sha256": "cd70eaf110ba3e353fc9a3071aab0ce82a53eb31a291398d2d8d909b0954b626"
+    },
+    {
+      "file": "page_257d04eb18.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/semaphores.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/semaphores.html",
+      "kind": "html",
+      "bytes": 35462,
+      "sha256": "79aa44f04e37eeff5f07dd1e8fd8e72f49f5c1a099ab6c846a767878793297eb"
+    },
+    {
+      "file": "page_d8a353ec67.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/mutexes.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/mutexes.html",
+      "kind": "html",
+      "bytes": 39662,
+      "sha256": "c5555707b17652c493443fbd46cc32586f4b565a5a88e4071e1707453a7db4b7"
+    },
+    {
+      "file": "page_d83d473606.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/condvar.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/condvar.html",
+      "kind": "html",
+      "bytes": 35151,
+      "sha256": "c9a51f508a5d4f36ce9bf3f8a81e24fdb57c5ce6f09e6ffcf7c39d334a147933"
+    },
+    {
+      "file": "page_31af16a7c9.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/events.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/events.html",
+      "kind": "html",
+      "bytes": 42653,
+      "sha256": "6800455452fa7e7ccfa1e26be605fee9c31c41fc3556b7b9e90a87a529a4120e"
+    },
+    {
+      "file": "page_87eb94ae6d.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/spinlocks.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/synchronization/spinlocks.html",
+      "kind": "html",
+      "bytes": 38115,
+      "sha256": "1b8b337542bd01618153164ca1041e096048e318c7a0363e4bb2413898115fab"
+    },
+    {
+      "file": "page_35e0bc4e7f.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/smp/smp.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/smp/smp.html",
+      "kind": "html",
+      "bytes": 60856,
+      "sha256": "c780d09271ea6fca9cc46e94785a2e953c7458f3f69ef1600060ffa698de850d"
+    },
+    {
+      "file": "page_a830ec110a.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/queues.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/queues.html",
+      "kind": "html",
+      "bytes": 24570,
+      "sha256": "6519a17b68ee2043dacd0fb578b8b3008e68bf46f030b2533ce8b114f8af2c81"
+    },
+    {
+      "file": "page_d041c43bcd.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/fifos.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/fifos.html",
+      "kind": "html",
+      "bytes": 35864,
+      "sha256": "19f6932c19bb7b1507ab51ac76fb93da6585a1f212a494986243a2e2edd10c66"
+    },
+    {
+      "file": "page_c7c241dbd4.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/lifos.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/lifos.html",
+      "kind": "html",
+      "bytes": 34745,
+      "sha256": "f9e5a7338d2be814fa213c79cfc7181f7f0b8ae82d46a15091a650db2dadd01b"
+    },
+    {
+      "file": "page_160ec51184.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/stacks.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/stacks.html",
+      "kind": "html",
+      "bytes": 34221,
+      "sha256": "dbd4bd58674998fac5046caf57ab45e670334c45d8ed9149d653ed324e3923a6"
+    },
+    {
+      "file": "page_c57fd5344b.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/message_queues.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/message_queues.html",
+      "kind": "html",
+      "bytes": 42269,
+      "sha256": "5077cc814174c8bc938791d83d8302eeffb7b78d6fb76478506d375dccaa1b3d"
+    },
+    {
+      "file": "page_dd26741a0f.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/mailboxes.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/mailboxes.html",
+      "kind": "html",
+      "bytes": 62589,
+      "sha256": "1b0ed3e2e81683c58f42e48112f4dcbe308d7c9a07aed7f5c240d58edeeb6ee5"
+    },
+    {
+      "file": "page_a0eb8cbd33.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/pipes.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/data_passing/pipes.html",
+      "kind": "html",
+      "bytes": 43551,
+      "sha256": "97e374d6458ca8a86f92a8f3812f33365a2e73ab130e7d4bd8b6ce2364c09d59"
+    },
+    {
+      "file": "page_f470794ded.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/timing/clocks.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/timing/clocks.html",
+      "kind": "html",
+      "bytes": 56971,
+      "sha256": "d408960c3707cd9359f6db16200302f44e9726c447443b9a389b6011f2a40a21"
+    },
+    {
+      "file": "page_e2e3517684.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/timing/timers.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/timing/timers.html",
+      "kind": "html",
+      "bytes": 42767,
+      "sha256": "7c97be8919941987a37d6c8378df213f01fd0f48f1db35a77decd718ad7ec111"
+    },
+    {
+      "file": "page_27cc4e7472.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/timing/system_timer_drivers.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/timing/system_timer_drivers.html",
+      "kind": "html",
+      "bytes": 50439,
+      "sha256": "006133c44dce0ebd44a35fc7aa7e35e01c248e35e22c9fb53d7bbde121ee1d19"
+    },
+    {
+      "file": "page_82496ca3ab.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/other/atomic.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/other/atomic.html",
+      "kind": "html",
+      "bytes": 32305,
+      "sha256": "4a84873ce787287a47f200fd80e5f0ba2954133850213ccad4ba99e2c5ab4a6b"
+    },
+    {
+      "file": "page_c44253d5db.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/other/float.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/other/float.html",
+      "kind": "html",
+      "bytes": 53716,
+      "sha256": "5d958184ac58137e0b3ab1bbc3499e47e21f1bef32578c110552c673ccaddb6b"
+    },
+    {
+      "file": "page_b50073cc7f.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/other/version.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/other/version.html",
+      "kind": "html",
+      "bytes": 21732,
+      "sha256": "9c275cfc755c33df1bdfbac82af667c54df35543ad5869a3f5b2a5caacbc2cc6"
+    },
+    {
+      "file": "page_09d0fbd0f6.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/other/assert.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/other/assert.html",
+      "kind": "html",
+      "bytes": 51658,
+      "sha256": "595470a6e2a9c725f956279cbb08511da937a1dadf19feb9ff1e2776a6bb86a6"
+    },
+    {
+      "file": "page_684e5e1d0f.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/other/fatal.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/other/fatal.html",
+      "kind": "html",
+      "bytes": 33105,
+      "sha256": "900797bac964bd5429c972e5d2c4d0f5491ced3a87c21e6b0496697c6e6d0332"
+    },
+    {
+      "file": "page_e7d041d8b9.html",
+      "url": "https://docs.zephyrproject.org/latest/kernel/services/other/thread_local_storage.html",
+      "final_url": "https://docs.zephyrproject.org/latest/kernel/services/other/thread_local_storage.html",
+      "kind": "html",
+      "bytes": 25658,
+      "sha256": "afe454cc26d9a79ea01bc308ef7ac1f4185e480d52d8ca023885af87a385242d"
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:57+0300",
+  "pdf_count": 1,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

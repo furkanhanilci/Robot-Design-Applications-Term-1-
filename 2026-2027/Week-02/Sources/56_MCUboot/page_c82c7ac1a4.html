@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Image tool | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Image tool" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/imgtool.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/imgtool.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Image tool" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"Image tool","url":"https://docs.mcuboot.com/imgtool.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Image tool</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="image-tool">Image tool</h1>
+
+<p>The Python program <code class="language-plaintext highlighter-rouge">scripts/imgtool.py</code> can be used to perform the
+operations that are necessary to manage keys and sign images.  Using
+this script should be preferred to the manual steps described in
+<code class="language-plaintext highlighter-rouge">doc/signed_images.md</code>.</p>
+
+<p>This program is written for Python3, and has several dependencies on
+Python libraries.  These can be installed using ‘pip3’:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 install --user -r scripts/requirements.txt
+</code></pre></div></div>
+
+<h2 id="managing-keys"><a href="#managing-keys">Managing keys</a></h2>
+
+<p>This tool currently supports rsa-2048, rsa-3072, ecdsa-p256 and ed25519 keys.
+You can generate a keypair for one of these types using the ‘keygen’ command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./scripts/imgtool.py keygen -k filename.pem -t rsa-2048
+</code></pre></div></div>
+
+<p>or use rsa-3072, ecdsa-p256, or ed25519 for the type.  The key type used
+should match what MCUboot is configured to verify.</p>
+
+<p>This key file is what is used to sign images, this file should be
+protected, and not widely distributed.</p>
+
+<p>You can add the <code class="language-plaintext highlighter-rouge">-p</code> argument to <code class="language-plaintext highlighter-rouge">keygen</code>, which will cause it to
+prompt for a password.  You will need to enter this password in every
+time you use the private key.</p>
+
+<h2 id="incorporating-the-public-key-into-the-code"><a href="#incorporating-the-public-key-into-the-code">Incorporating the public key into the code</a></h2>
+
+<p>There is a development key distributed with MCUboot that can be used
+for testing.  Since this private key is widely distributed, it should
+never be used for production.  Once you have generated a production
+key, as described above, you should replace the public key in the
+bootloader with the generated one.</p>
+
+<p>For Zephyr, the keys live in the file <code class="language-plaintext highlighter-rouge">boot/zephyr/keys.c</code>.  For
+mynewt, follow the instructions in <code class="language-plaintext highlighter-rouge">doc/signed_images.md</code> to generate
+the key file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./scripts/imgtool.py getpub -k filename.pem
+</code></pre></div></div>
+
+<p>will extract the public key from the given key file, and output it as
+a C data structure.  The input may be a keypair PEM (containing both
+private and public material) or a public-key-only PEM: <code class="language-plaintext highlighter-rouge">getpub</code>
+dispatches on the key format and requires no private key material.
+This matters for production workflows where the signing private key
+is held only by a release team, and the bootloader build consumes an
+exported public-key PEM.  You can replace or insert the emitted code
+into the key file. However, when the <code class="language-plaintext highlighter-rouge">MCUBOOT_HW_KEY</code> config option
+is enabled, this last step is unnecessary and can be skipped.</p>
+
+<p>When embedding more than one signing-verification key in the same image
+(for example, a Zephyr build with a multi-key
+<code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code> list), pass <code class="language-plaintext highlighter-rouge">--name-suffix</code> to
+distinguish the emitted symbol names:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./scripts/imgtool.py getpub -k dev-key.pem --name-suffix _2
+</code></pre></div></div>
+
+<p>emits <code class="language-plaintext highlighter-rouge">&lt;shortname&gt;_pub_key_2[]</code> and <code class="language-plaintext highlighter-rouge">&lt;shortname&gt;_pub_key_2_len</code> (the
+same suffix is applied by <code class="language-plaintext highlighter-rouge">getpubhash</code> for the lang-c encoding). The
+option is accepted only for the <code class="language-plaintext highlighter-rouge">lang-c</code> / <code class="language-plaintext highlighter-rouge">lang-rust</code> encodings; using
+it with <code class="language-plaintext highlighter-rouge">--encoding pem</code> or <code class="language-plaintext highlighter-rouge">--encoding raw</code> is rejected.</p>
+
+<h2 id="inspecting-key-kind"><a href="#inspecting-key-kind">Inspecting key kind</a></h2>
+
+<p>For build-system use, <code class="language-plaintext highlighter-rouge">imgtool keyinfo</code> reports whether a PEM contains
+private material (<code class="language-plaintext highlighter-rouge">private</code>) or only public material (<code class="language-plaintext highlighter-rouge">public</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./scripts/imgtool.py keyinfo -k some-key.pem
+</code></pre></div></div>
+
+<p>Pair with <code class="language-plaintext highlighter-rouge">--require private</code> or <code class="language-plaintext highlighter-rouge">--require public</code> to exit non-zero
+when the kind does not match. The Zephyr port uses this to enforce that
+every verification-only key passed via <code class="language-plaintext highlighter-rouge">CONFIG_BOOT_SIGNATURE_KEY_FILE</code>
+past the first entry is a public-only PEM.</p>
+
+<h2 id="signing-images"><a href="#signing-images">Signing images</a></h2>
+
+<p>Image signing takes an image in binary or Intel Hex format intended for the
+primary slot and adds a header and trailer that the bootloader is expecting:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: imgtool sign [OPTIONS] INFILE OUTFILE
+
+  Create a signed or unsigned image
+
+  INFILE and OUTFILE are parsed as Intel HEX if the params have .hex
+  extension, otherwise binary format is used
+
+Options:
+  --vid TEXT                      Unique vendor identifier, format:
+                                  (&lt;raw_uuid&gt;|&lt;domain_name)&gt;
+  --cid TEXT                      Unique image class identifier, format:
+                                  (&lt;raw_uuid&gt;|&lt;image_class_name&gt;)
+  --vector-to-sign [payload|digest]
+                                  send to OUTFILE the payload or payloads
+                                  digest instead of complied image. These data
+                                  can be used for external image signing
+  --hmac-sha [auto|256|512]       sha algorithm used in HKDF/HMAC in ECIES key
+                                  exchange TLV
+  --sha [auto|256|384|512]        selected sha algorithm to use; defaults to
+                                  "auto" which is 256 if no cryptographic
+                                  signature is used, or default for signature
+                                  type
+  --sig-out filename              Path to the file to which signature will be
+                                  written. The image signature will be encoded
+                                  as base64 formatted string
+  --pure                          Expected Pure variant of signature; the Pure
+                                  variant is expected to be signature done
+                                  over an image rather than hash of that
+                                  image.
+  --fix-sig-pubkey filename       public key relevant to fixed signature
+  --fix-sig filename              fixed signature for the image. It will be
+                                  used instead of the signature calculated
+                                  using the public key
+  -k, --key filename
+  --public-key-format [hash|full]
+                                  In what format to add the public key to the
+                                  image manifest: full key or hash of the key.
+  --max-align [8|16|32]           Maximum flash alignment. Set if flash
+                                  alignment of the primary and secondary slot
+                                  differ and any of them is larger than 8.
+  --align [1|2|4|8|16|32]         Alignment used by swap update modes.
+  -v, --version TEXT              [required]
+  -s, --security-counter TEXT     Specify the value of security counter. Use
+                                  the `auto` keyword to automatically generate
+                                  it from the image version.
+  -d, --dependencies TEXT         Add dependence on another image, format:
+                                  "(&lt;image_ID&gt;,&lt;image_version&gt;), ... "
+  --pad-sig                       Add 0-2 bytes of padding to ECDSA signature
+                                  (for mcuboot &lt;1.5)
+  -H, --header-size INTEGER       [required]
+  --pad-header                    Add --header-size zeroed bytes at the
+                                  beginning of the image
+  -S, --slot-size INTEGER         Size of the slot. If the slots have
+                                  different sizes, use the size of the
+                                  secondary slot.  [required]
+  --pad                           Pad image to --slot-size bytes, adding
+                                  trailer magic
+  --test                          When padding the image, mark it for a test
+                                  swap (implies --pad)
+  --confirm                       When padding the image, mark it as confirmed
+                                  (implies --pad)
+  -M, --max-sectors INTEGER       When padding allow for this amount of
+                                  sectors (defaults to 128)
+  --boot-record sw_type           Create CBOR encoded boot record TLV. The
+                                  sw_type represents the role of the software
+                                  component (e.g. CoFM for coprocessor
+                                  firmware). [max. 12 characters]
+  --overwrite-only                Use overwrite-only instead of swap upgrades
+  -e, --endian [little|big]       Select little or big endian
+  -c, --clear                     Output a non-encrypted image with encryption
+                                  capabilities,so it can be installed in the
+                                  primary slot, and encrypted when swapped to
+                                  the secondary.
+  --compression [disabled|lzma2|lzma2armthumb]
+                                  Enable image compression using specified
+                                  type. Will fall back without image
+                                  compression automatically if the compression
+                                  increases the image size.
+  --encrypt-keylen [128|256]      When encrypting the image using AES, select
+                                  a 128 bit or 256 bit key len.
+  -E, --encrypt filename          Encrypt image using the provided public key.
+                                  (Not supported in direct-xip or ram-load
+                                  mode.)
+  --save-enctlv                   When upgrading, save encrypted key TLVs
+                                  instead of plain keys. Enable when
+                                  BOOT_SWAP_SAVE_ENCTLV config option was set.
+  -F, --rom-fixed INTEGER         Set flash address the image is built for.
+  -L, --load-addr INTEGER         Load address for image when it should run
+                                  from RAM.
+  -x, --hex-addr INTEGER          Adjust address in hex output file.
+  -R, --erased-val [0|0xff]       The value that is read back from erased
+                                  flash.
+  --custom-tlv [tag] [value]      Custom TLV that will be placed into
+                                  protected area. Add "0x" prefix if the value
+                                  should be interpreted as an integer,
+                                  otherwise it will be interpreted as a
+                                  string. Specify the option multiple times to
+                                  add multiple TLVs.
+  --non-bootable                  Mark the image as non-bootable.
+  -h, --help                      Show this message and exit.
+</code></pre></div></div>
+
+<p>The main arguments given are the key file generated above, a version
+field to place in the header (1.2.3 for example), the alignment of the
+flash device in question, and the header size.</p>
+
+<p>The header size depends on the operating system and the particular
+flash device.  For Zephyr, it will be configured as part of the build,
+and will be a small power of two.  By default, the Zephyr build system will
+already prepended a zeroed header to the image.  If another build system is
+in use that does not automatically add this zeroed header, <code class="language-plaintext highlighter-rouge">--pad-header</code> can
+be passed and the <code class="language-plaintext highlighter-rouge">--header-size</code> will be added by imgtool. If <code class="language-plaintext highlighter-rouge">--pad-header</code>
+is used with an Intel Hex file, <code class="language-plaintext highlighter-rouge">--header-size</code> bytes will be subtracted from
+the load address (in Intel Hex terms, the Extended Linear Address record) to
+adjust for the new bytes prepended to the file. The load address of all data
+existing in the file should not change.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--compression</code> option enables LZMA compression over payload. Details
+about internals of image generated with this option can be found here
+<a href="/compression_format.html">here</a>
+This isn’t fully supported on the embedded side but can be utilised when
+project is built on top of the mcuboot.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--slot-size</code> argument is required and used to check that the firmware
+does not overflow into the swap status area (metadata). If swap upgrades are
+not being used, <code class="language-plaintext highlighter-rouge">--overwrite-only</code> can be passed to avoid adding the swap
+status area size when calculating overflow.</p>
+
+<p>The optional <code class="language-plaintext highlighter-rouge">--pad</code> argument will place a trailer on the image that
+indicates that the image should be considered an upgrade.  Writing this image
+in the secondary slot will then cause the bootloader to upgrade to it.</p>
+
+<p>A dependency can be specified in the following way:
+<code class="language-plaintext highlighter-rouge">-d "(image_id, image_version)"</code>. The <code class="language-plaintext highlighter-rouge">image_id</code> is the number of the image
+which the current image depends on. The <code class="language-plaintext highlighter-rouge">image_version</code> is the minimum version
+of that image to satisfy compliance. For example <code class="language-plaintext highlighter-rouge">-d "(1, 1.2.3+0)"</code> means this
+image depends on Image 1 which version has to be at least 1.2.3+0.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--public-key-format</code> argument can be used to distinguish where the public
+key is stored for image authentication. The <code class="language-plaintext highlighter-rouge">hash</code> option is used by default, in
+which case only the hash of the public key is added to the TLV area (the full
+public key is incorporated into the bootloader). When the <code class="language-plaintext highlighter-rouge">full</code> option is used
+instead, the TLV area will contain the whole public key and thus the bootloader
+can be independent from the key(s). For more information on the additional
+requirements of this option, see the <a href="/design.html">design</a> document.</p>
+
+<h2 id="vidcid-calculation"><a href="#VID/CID-Calculation">VID/CID Calculation</a></h2>
+<p>VID and CID are generated using UUIDv5 (SHA-1). <br />
+VID: Generated using the standard DNS namespace: <br />
+<code class="language-plaintext highlighter-rouge">VID = UUIDv5(NAMESPACE_DNS, VID_String)</code></p>
+
+<p>where <code class="language-plaintext highlighter-rouge">NAMESPACE_DNS = 6ba7b810-9dad-11d1-80b4-00c04fd430c8</code>.</p>
+
+<p>CID: When VID is available, the generated 16-byte VID UUID is used as the namespace:   <br />
+<code class="language-plaintext highlighter-rouge">CID = UUIDv5(VID_UUID, CID_String)</code></p>
+
+<h3 id="uuidv5-calculation"><a href="#UUIDv5-calculation">UUIDv5 calculation</a>:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SHA1(Namespace_UUID || UTF-8(Name))
+        ↓
+Take first 16 bytes
+        ↓
+Set UUID version = 5 and RFC 4122 variant
+        ↓
+16-byte UUID
+</code></pre></div></div>
+<p>The resulting 16-byte VID and CID are stored directly as the payload of the UUID_VID and UUID_CID TLVs.
+If VID/CID is already provided in raw UUID or 32-character hexadecimal format, it is directly converted to 16 bytes without UUIDv5 calculation</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

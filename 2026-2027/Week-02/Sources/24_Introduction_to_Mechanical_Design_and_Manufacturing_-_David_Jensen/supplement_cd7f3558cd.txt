@@ -1,0 +1,234 @@
+Sheet Metal Work – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Sheet Metal Work
+Sheet Metal Basics
+Sheet metal is a common type of material that can be used for various applications. It is a flat and thin piece of metal that can be cut, stamped, and shaped into different forms and shapes. Some examples of products that use sheet metal are car bodies, airplane wings, kitchen utensils, and metal roofs.
+Sheet metal stock is specified by the dimensions of the sheet, the type of material, and the gauge. The
+gauge
+is a measure of the thickness of the sheet metal, and it varies depending on the material. For example, a 14-gauge steel sheet is 1.897 mm thick, while a 14-gauge aluminum sheet is 1.628 mm thick.
+Sheet Metal Gauge Size Chart
+– a table of common metal gauges and weights
+Working with sheet metal is not a simple task. It usually involves multiple steps and processes to achieve the desired part geometry. The main challenge of sheet metal design is to choose the right process and the right order for each step. The process and order depend on factors such as the material properties, the thickness, and the available machines.
+Sheet Metal Work Processes
+Sheet metal forming is a manufacturing process that uses various techniques to shape thin metal sheets into desired parts. There are a large variety of processes with subtle differences that can be used to achieve a desired shape from sheet metal. Some of the most common processes are:
+Shearing
+This is a process that cuts sheet metal by applying shear stress along a straight line. The sheet metal is placed between two blades, one fixed and one moving, that create a shearing force to separate the metal. There are different types of shearing methods, each using a different type of tool:
+Blanking
+: This is a method that cuts out a piece of sheet metal with a desired shape and size, leaving behind a scrap. The piece that is cut out is called a blank, and it can be used for further processing. The tool used for blanking is called a punch and die, which have matching shapes to create the blank.
+Fine Blanking
+: This is a method that produces blanks with smooth edges and high accuracy. It uses a higher pressure and a smaller clearance between the punch and die than regular blanking. It also uses a blank holder to prevent the sheet metal from bending or tearing during the cutting process.
+Dinking:
+This is a method that cuts out small and irregular shapes from sheet metal, such as washers, gaskets, or buttons. It uses a hand-operated tool called a dinking machine, which has a sharp steel punch and a rubber pad. The punch is pressed against the sheet metal on the pad, creating a hole or a cutout.
+Lancing
+: This is a method that cuts sheet metal partially, leaving one end attached to the original sheet. This creates a slit or a tab that can be bent or folded for various purposes, such as ventilation, fastening, or joining. The tool used for lancing is also a punch and die, but with a gap between them to allow the sheet metal to remain connected.
+Punching
+: This is a method that creates holes in sheet metal by removing circular pieces of metal. The tool used for punching is also a punch and die, but with circular shapes to create the holes. The pieces of metal that are removed are called slugs, and they are usually discarded as waste.
+Nibbling
+: This is a method that cuts sheet metal by making small and overlapping cuts along a contour. It can create complex shapes and curves from sheet metal without using a specific tool. The tool used for nibbling is called a nibbler, which has a reciprocating blade that moves up and down to cut the sheet metal.
+Notching
+: This is a method that removes material from the edge or corner of sheet metal by making V-shaped or U-shaped cuts. It can be used to create slots, grooves, or angles in sheet metal for various purposes, such as bending, joining, or strengthening. The tool used for notching is also a punch and die, but with V-shaped or U-shaped shapes to create the notches.
+Forming
+Forming is changing the sheet metal geometry to achieve shapes beyond the flat two-dimensions of the sheet. This process can require some initial stamping to support proper forming. Common types of forming include:
+Bending
+: This process involves bending the sheet along a straight line or a curved path, using a press brake or a bending machine. The tool used for bending is called a die, which has a matching shape to the bend angle and radius.
+Drawing
+: This process involves stretching the sheet into a cup or a box shape, using a punch and a die. The punch pushes the sheet into the die cavity, which has a larger diameter or depth than the sheet thickness.
+Stretch forming
+: This process involves stretching the sheet over a curved surface, using a clamp and a form block. The clamp holds the sheet at both ends, while the form block applies tension and pressure to the sheet, causing it to conform to the curved shape.
+Spinning
+: This process involves rotating the sheet at high speed around an axis, using a lathe or a spinning machine. The tool used for spinning is called a roller, which contacts the sheet and gradually shapes it into a cone or a cylinder.
+Flanging
+: This process involves bending the edge of the sheet at an angle, using a flanging machine or a hammer. The tool used for flanging is called a flange, which has a groove or a notch that fits the edge of the sheet.
+Hemming
+: This process involves folding the edge of the sheet over itself, using a hemming machine or a press. The tool used for hemming is called a hemmer, which has a flat surface that presses the folded edge.
+Roll bending
+: This process involves bending the sheet into a circular or elliptical shape, using a roll bending machine or a roller. The tool used for roll bending is called a roll, which has a cylindrical or conical shape that rotates and bends the sheet.
+When designing parts to be formed from sheet metal, you will need to consider the following:
+Spring back
+: This is the tendency of the sheet to return to its original shape after being bent or stretched. It is caused by the elastic recovery of the metal, which reduces the accuracy and consistency of the formed part. To compensate for spring back, the tooling must have an overbend or an overstretch angle that exceeds the desired angle by an amount equal to the spring back angle.
+Minimum bend radii:
+This is the smallest radius that can be achieved without causing cracks or tears in the sheet. It depends on the material properties, thickness, and grain direction of the sheet. To avoid cracking or tearing, the bend radius must be greater than or equal to the minimum bend radius for the given sheet material and thickness.
+Required Force
+(or pressure): This is the amount of force that must be applied to deform the sheet into the desired shape. It depends on the material properties, thickness, geometry, and friction of the sheet and the tooling. To reduce the force required, lubricants can be used to reduce friction, or thinner sheets can be used to reduce resistance.
+The order of steps is important for sheet metal shearing and forming to achieve the desired end part.
+Consider the process shown
+below
+:
+Progressive Work and Tool & Die Design
+Progressive stamping
+is a metal forming process that uses a series of dies to create complex parts from sheet metal. The sheet metal is fed into the press by a coil or strip, and each die station performs a different operation on the metal, such as cutting, bending, punching, or drawing. The final part is produced after the metal passes through all the die stations in one stroke of the press.
+Draw die design
+is a subset of
+tool and die design
+that focuses on creating dies for deep drawing operations. Deep drawing is a process that forms sheet metal into cylindrical or box-shaped parts by pulling the metal into a die cavity with a punch. Draw die design involves determining the optimal blank shape and size, draw reduction ratios, draw depth, blank holder pressure, lubrication, and material properties to achieve the desired part geometry and quality.
+*Watch this
+video
+to learn more about Progressive Die.
+CAD Part Design
+A sheet metal toolbox is a feature of many CAD software such as Solidworks that allows users to design and manipulate sheet metal parts. Sheet metal toolbox also helps users to flatten sheet metal parts, generate drawings, and export data for manufacturing.
+For a simple
+example
+, watch this:
+Previous/next navigation
+Previous: Extrusion
+Next: Design for Forming Principles and Practices
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

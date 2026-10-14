@@ -1,0 +1,39 @@
+{
+  "id": 21,
+  "name": "Algorithms for Battery Management Systems - Gregory Plett",
+  "type": "MOOC",
+  "url": "https://www.coursera.org/specializations/algorithms-for-battery-management-systems",
+  "folder": "21_Algorithms_for_Battery_Management_Systems_-_Gregory_Plett",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www.coursera.org/specializations/algorithms-for-battery-management-systems",
+      "final_url": "https://www.coursera.org/specializations/algorithms-for-battery-management-systems",
+      "kind": "html",
+      "bytes": 899341,
+      "sha256": "96ab15825205eaa48c55f32259c98d1d621838e40bddd080c5b784180aba680f"
+    },
+    {
+      "file": "supplement_044b87b022.html",
+      "url": "https://www.colorado.edu/ecee/algorithms-battery-management-systems",
+      "final_url": "https://www.colorado.edu/ecee/algorithms-battery-management-systems",
+      "kind": "html",
+      "bytes": 24349,
+      "sha256": "7e61dd16de7d0df20e269065bb0d927fd26de88b27dc8ab4d6b5b032a9c3e363"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://mocha-java.uccs.edu/ECE5720/",
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  ],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:20+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

@@ -1,0 +1,71 @@
+Ch. 25 - An Optimization
+  Playbook
+Underactuated Robotics
+Algorithms for Walking, Running, Swimming, Flying, and Manipulation
+Russ Tedrake
+© Russ Tedrake, 2024
+Last modified
+.
+How to cite these notes, use annotations, and give feedback.
+Note:
+These are working notes used for
+a course being taught
+at MIT
+. They will be updated throughout the Spring 2024 semester.
+Lecture videos are available on YouTube
+.
+Previous Chapter
+Table of contents
+Next Chapter
+An Optimization
+  Playbook
+This chapter is intended to provide a collection of tips and formulations
+  that can make seemingly non-smooth constraints smooth, seemingly non-convex
+  constraints convex, etc.  (It's very much a work in progress...)
+Matrices
+max eigenvalue.  min eigenvalue. rank (nuclear norm, ...)
+Ellipsoids
+Imagine an ellipsoid centered at the origin: $E = \{x | x^T S x \leq
+    1\}$ with $S=S^T\succ0$. The volume of this ellipse is proportional to
+    $\left(\det S^{-1} \right)^\frac{1}{2}$.  We know that $\log\det(S)$ is a
+    concave function in the elements of $S$
+Boyd04a
+.
+maximizing volume.
+minimizing volume.
+volume of a semi-algebraic set.  (via a contained ellipsoid)
+Polytopes
+Sadra's linear encodings of polytopic containment
+Perspective functions
+(Mixed-)Integer Programming
+Bilinear Matrix Inequalities (BMIs)
+PQ trick from LQR
+Rank minimization
+Geometry (SE(3), Penetration, and
+    Contact)
+Hongkai's smooth non-penetration constraints for polygons
+"Soft" absolute value: $|x|_epsilon \approx \sqrt{x^2 +
+    \epsilon}$.
+    import numpy as np
+    import matplotlib.pyplot as plt
+    x = np.linspace(-2.,2.,101)
+    plt.plot(x, np.sqrt(np.power(x,2) + 0.01))
+Barrier function for friction cones in Grandia 2019, Feedback MPC for
+  Torque-Controlled Legged Robots.
+Linearization of the rotation matrix in Real-time Model Predictive
+  Control for Versatile Dynamic Motions in Quadrupedal Robots
+Briat15 chapter 1 has some good modeling tricks for LPV systems
+References
+Stephen Boyd and Lieven Vandenberghe
+,
+"Convex Optimization"
+, Cambridge University Press
+,
+2004
+.
+Previous Chapter
+Table of contents
+Next Chapter
+Accessibility
+© Russ
+      Tedrake, 2024

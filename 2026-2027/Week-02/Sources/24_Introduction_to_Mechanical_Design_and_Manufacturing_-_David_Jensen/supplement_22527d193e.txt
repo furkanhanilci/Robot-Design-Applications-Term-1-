@@ -1,0 +1,231 @@
+Checklist for Generating Requirements – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Checklist for Generating Requirements
+What are Checklists for Generating Requirements?
+The following text is from the
+Delft Design Guide
+.
+Checklists for Generating Requirements are lists of questions that you can ask yourself when creating a design specification (list of requirements) (see also ‘Design Specification (Criteria)’ in this section). Checklists ensure that you adopt a systematic approach to the creation of the program of requirements. The most important thing is not to forget a particular requirement, meaning that we have to arrive at a complete collection of requirements. You can create a program of requirements by taking into account three points of view (see also ‘Design Specification (Criteria)’ in this section): (1) the stakeholders, (2) the aspects involved, and (3) the product life cycle. You can take these different points of view into account when generating requirements, and some provide explicit, clear-cut checklists (for example Pugh). Other points of view, for example the process tree, are not checklists by definition. However, they help the generation of requirements in the same way.
+The Stakeholders
+The aims and preferences of people set the requirements for a new product. Who are the people affected by the new product, what interests do they have, what do they decide on, and what information can they provide? Important stakeholders are the company, its (future) customers, suppliers, transport companies, wholesale and retail trade, consumer organizations, and legislators. An example of a checklist to distinguish relevant stakeholders can be found in Jones (1982).
+Aspects Involved in Product Design
+There are checklists of aspects which usually play a role in the assessment of a product. By aspects we mean such general issues as performance, environment, maintenance, aesthetics and appearance, materials, and packaging among others. Such checklists have been drafted by Hubka and Eder (1988), Pahl and Beitz (1984), and Pugh (1990) – see the example in figure 2.14.
+Example of checklist
+Product Process Tree
+The process tree of a product (see ‘Process Tree’ in this section) provides a third viewpoint to arrive at a complete specification. Between its origination and disposal, a product goes through several processes, such as manufacturing, assembly, distribution, installation, operation, maintenance, use, reuse and disposal. Each of these processes comes with certain requirements and wishes for the new product. You become aware of these requirements by making a process tree.
+Requirement Checklist
+Performance
+What functions does the product need to fulfill. What are the parameters by which that function will be assessed? Such as speed, power, strength, etc.
+Environment
+What environmental factors will influence the product and how might the product influence the environment? Temperature, exposure to sunlight, chemical or biological resistance.
+Life in Service
+How intensively will the product be used? How long does it have to last? Is maintenance necessary? Which parts need to be accessible?
+Target Production Cost
+How much should the product cost considering similar products? Is transportation of the product a significant portion of the cost?
+Packaging
+Is packaging required and are there any special packaging needs for protection, freshness, etc?
+Quantity
+What is the size of a production run? Will it be batch run or continuous manufacturing? Are current production facilities capable and will any production need to be contracted out?
+Size and Weight
+Between the product stages of production, transportation, storage, usage, and recycling; are there restriction on size and weight?
+Aesthetic, look and feel
+How should the consumer feel while using the product? What impressions are made through its use?
+Materials
+Are there special materials involved in production and use that will require consideration?
+Manufacturing and Assembly
+Are the desired methods of manufacturing and assembly currently within capability or is investment needed?
+Translating Needs into Testable Requirements
+What Is a
+Design Specification
+?
+The Design Specification consists of a number of requirements (see figure 2.15). The design of a product is ‘good’ in so far as it complies with the stated requirements. A requirement is an objective that any design alternative must meet. The program of requirements is thus a list of objectives, or goals. Goals are images of intended situations, and consequently requirements are statements about the intended situations of the design alternative. Design alternatives should comply optimally with the requirements; an alternative which does not comply with one or more of the requirements is a bad alternative and cannot be chosen. Many requirements are specific; they apply to a particular product, a specific use, and a specific group of users. There are also requirements with a wider scope, as they are the result of an agreement within a certain branch of industry or an area of activity. Such a requirement is called a standard. To some extent, a designer is free to choose requirements; standards, however, are imposed by an external authority.
+Example of design specification
+When Can You Make a Design Specification?
+Normally, a design specification is constructed during the problem analysis, the result being some finished list of requirements. However, a design specification is never really complete. During a design project, even during the conceptual designing stages, new requirements are frequently found because of some new perspective on the design problem. Therefore, a design specification should be constantly updated and changed.
+How to Make a Design Specification?
+Starting Point The starting point for making a design specification is formed by the analyses that take place during the stage of problem analysis. Expected Outcome The outcome is a structured list of requirements and standards. Programs consisting of 40 or 50 requirements are not uncommon.
+Possible Procedure
+List as many requirements as possible. Roozenburg and Eekels state that in order to arrive at a complete design specification, different points of view can be taken into account (see ‘Checklists for Generating Requirements’ in this section). Choose one, or several, of these points of views (stakeholders, aspects, or process tree) to help generate requirements. You can also use checklists, for example Pugh’s checklist (see figure 2.14).
+Make a distinction between hard and soft requirements (i.e. between quantifiable requirements and wishes).
+Eliminate requirements which are in fact similar or which do not discriminate between design alternatives.
+Identify whether there is a hierarchy in requirements. Distinguish between lower-level requirements and higher-level requirements.
+Put requirements into practice: determine the variables of requirements in terms of observable or quantifiable characteristics.
+Make sure that the program of requirements fulfils the following conditions:
+each requirement must be valid
+the set of requirements must be as complete as possible
+the requirements must be operational
+the set of requirements must be non-redundant
+the set of requirements must be concise
+The requirements must be practicable.
+Tips and Concerns
+Be careful: do not make the possibilities for your design too limited by defining too many requirements.
+Distinguish between measurable requirements and non-measurable requirements.
+Give your requirements numbers in order to be able to refer to them.
+References:
+Daalhuizen, Jaap. 2018. Delft Design Approach, Delft University of Technology.
+Roozenburg, N.F.M. and Eekels, J. (1995) Product Design: Fundamentals and Methods, Utrecht: Lemma.
+Roozenburg, N. and Eekels, J. (1998, 2nd ed.) Product Ontwerpen: Structuur en Methoden, Utrecht: Lemma.
+Cross, N. (1989) Engineering Design Methods, Chichester: Wiley
+Previous/next navigation
+Previous: Methods to Gather Stakeholder Needs
+Next: Engineering Requirements
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

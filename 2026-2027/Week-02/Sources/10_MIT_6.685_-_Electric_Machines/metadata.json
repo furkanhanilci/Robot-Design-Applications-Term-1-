@@ -1,0 +1,432 @@
+{
+  "id": 10,
+  "name": "MIT 6.685 - Electric Machines",
+  "type": "MIT OpenCourseWare",
+  "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/",
+  "folder": "10_MIT_6.685_-_Electric_Machines",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/",
+      "kind": "html",
+      "bytes": 47945,
+      "sha256": "4e8e39747fbb546b8e6cc1b229cb67b97514bc90b9516e6cd8938ce670085c9d"
+    },
+    {
+      "file": "page_19276807f3.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/pages/syllabus/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/pages/syllabus/",
+      "kind": "html",
+      "bytes": 55590,
+      "sha256": "7e60f6d8f1760c51ebeef61731b06060b0b0567b9e277bb6d81d00f0fba441d5"
+    },
+    {
+      "file": "page_165c7cf9d9.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/pages/assignments/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/pages/assignments/",
+      "kind": "html",
+      "bytes": 55022,
+      "sha256": "a4fbd76cf29ac86a354c204bb19dc9b4a85baf9d6d338bb888d18a2074b1654c"
+    },
+    {
+      "file": "page_6da4a236ab.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps01/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps01/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "756f3f7b96ce9067dbc81ff82a905eb2beb141636667b1ae611478fe0d24317e"
+    },
+    {
+      "file": "page_4a5196a163.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps01ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps01ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "03768a4b50ee17b93ae6ba89f21eaebbc24486ebee9208c7079da1f0e7f81f33"
+    },
+    {
+      "file": "page_a36208d8fa.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps02/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps02/",
+      "kind": "html",
+      "bytes": 52744,
+      "sha256": "8fe5c67af0193f76cc72835819a417eea480b87c9e092375b27203486a6207ed"
+    },
+    {
+      "file": "page_4e6628b816.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps02ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps02ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "2084cdf1e7880516307d422a9d3bbb6c0cde37d641191f6743a36ed8d3951dac"
+    },
+    {
+      "file": "page_beb2e12cec.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps03/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps03/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "531c2196f85a6e6b637f19e544cc53adb1d3e9f8912cff06aaf7c0fc337eaa25"
+    },
+    {
+      "file": "page_e1b7464014.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps03ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps03ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "137b73f10d6af497f315a167605e9ae3b50cd416461a8776dd7e17e7e557e250"
+    },
+    {
+      "file": "page_1484b554d3.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps04/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps04/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "013f9ae97406ad474ba3766575272a269c765fdb51788a540e567f407905cf29"
+    },
+    {
+      "file": "page_00db2508f8.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps04ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps04ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "715b2b20640698f9a3d0b03d7b0611a3b1213a00434c9ccd2e991ed058dda657"
+    },
+    {
+      "file": "page_f71b37a91e.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps05/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps05/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "8cdf05e90c4a215cb386520b3ef1562e7c1973b00aeb83dd05dedfbfe86f0400"
+    },
+    {
+      "file": "page_9b4ad33793.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps05ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps05ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "7c48ff7a6f1677f48f24016429e0f3ae24216750caa2c8d61bf5a3c7e7b0287d"
+    },
+    {
+      "file": "page_5ca4cdcd3a.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps06/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps06/",
+      "kind": "html",
+      "bytes": 52744,
+      "sha256": "ce1b3cb222fbf0f503dd3df0a43a60f547a02922a7668f359fc67607849876f8"
+    },
+    {
+      "file": "page_a4f28eb9b8.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps06ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps06ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "d2c6cd61ec8779a56a8bdd3d351358ef69b69b644f941202b79e77fb830a15be"
+    },
+    {
+      "file": "page_940dcf4203.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps07/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps07/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "58e13a6bc02e0c5fda1d8c122659ca51a5507e3a0ba03b63f7d5653b674af347"
+    },
+    {
+      "file": "page_9e208ba5d8.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps07ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps07ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "af320677194590e961d6e9b02cfa6157be0a57574a82ae77a74d1816d4481ad8"
+    },
+    {
+      "file": "page_676fb78d9a.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps08/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps08/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "f067a3d594f578bb25903f28544ecad72d83ba1262231c15c7089ebec226cfa6"
+    },
+    {
+      "file": "page_603e7ed0dc.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps08ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps08ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "aacaa30bb30e77bb91ac9cf3e0912a68f6d60052a3c30abf781a0cb9e546836a"
+    },
+    {
+      "file": "page_3b6848cec6.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps09/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps09/",
+      "kind": "html",
+      "bytes": 52743,
+      "sha256": "e28c038328b95908aa140a16b3518037b9c1f6585bfafdc0b720a3ba43065b66"
+    },
+    {
+      "file": "page_e430732b7d.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps09ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps09ans/",
+      "kind": "html",
+      "bytes": 52863,
+      "sha256": "afb1a7ac7a356288c84f2d5346c2944672bcbd29e08fa92a2fdda153d99b0369"
+    },
+    {
+      "file": "page_f5be777d25.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps10/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps10/",
+      "kind": "html",
+      "bytes": 52752,
+      "sha256": "e74b5b8be88841148a465820131d662263d0817acd67d81c97e2e2d0d7504308"
+    },
+    {
+      "file": "page_4aa6d84a8c.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps10ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps10ans/",
+      "kind": "html",
+      "bytes": 52872,
+      "sha256": "dd5764c669e8ffac29a99bae2617872ba339600d60ca9c695ce76381aadcd9b3"
+    },
+    {
+      "file": "page_d2f0a99731.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps11/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps11/",
+      "kind": "html",
+      "bytes": 52752,
+      "sha256": "ab6740c8f80124e29973a14b56810ab3e87afc2e9c3541b28001b0138ac5c189"
+    },
+    {
+      "file": "page_b17d1cecb5.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps11ans/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps11ans/",
+      "kind": "html",
+      "bytes": 52872,
+      "sha256": "e336739f5fc0b9c6230a831bccc3dcf10e05a56200a9713f344bfab5908e10f8"
+    },
+    {
+      "file": "page_dc3445185e.html",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps03data/",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/resources/mit6_685f13_ps03data/",
+      "kind": "html",
+      "bytes": 52871,
+      "sha256": "0dba7605430d7e2a89ae0ca101a45821cd4103e95397cf20024600ab5f3896e7"
+    },
+    {
+      "file": "84e2550f31ad2fe837a3a0657739e62b_MIT6_685F13_ps01.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/84e2550f31ad2fe837a3a0657739e62b_MIT6_685F13_ps01.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/84e2550f31ad2fe837a3a0657739e62b_MIT6_685F13_ps01.pdf",
+      "kind": "pdf",
+      "bytes": 86970,
+      "sha256": "9df09a351621772959b9d6604597a6d4fcea140749f3d0be2bc93d4dd1c5af46",
+      "pdf_pages": 4
+    },
+    {
+      "file": "7c2b5d15deca07ca729b6b30359ad665_MIT6_685F13_ps01ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/7c2b5d15deca07ca729b6b30359ad665_MIT6_685F13_ps01ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/7c2b5d15deca07ca729b6b30359ad665_MIT6_685F13_ps01ans.pdf",
+      "kind": "pdf",
+      "bytes": 154528,
+      "sha256": "154be7c95eacd893a1a1a0280bcdbb7d38fed7e18524779fe39a0657c8a8c6b1",
+      "pdf_pages": 10
+    },
+    {
+      "file": "9d5aaec44af1594652e0135475347803_MIT6_685F13_ps02.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/9d5aaec44af1594652e0135475347803_MIT6_685F13_ps02.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/9d5aaec44af1594652e0135475347803_MIT6_685F13_ps02.pdf",
+      "kind": "pdf",
+      "bytes": 115840,
+      "sha256": "4ab252b7e214da03f35ba24f7cadc1f3a5d85e441fefc941b3bf1903fcfefc77",
+      "pdf_pages": 4
+    },
+    {
+      "file": "4566242502579275cb62808cf570c7e4_MIT6_685F13_ps02ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/4566242502579275cb62808cf570c7e4_MIT6_685F13_ps02ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/4566242502579275cb62808cf570c7e4_MIT6_685F13_ps02ans.pdf",
+      "kind": "pdf",
+      "bytes": 161877,
+      "sha256": "4fb15e0cbcfd2d451ac0bcfc72a9cfb3f6e506985cc9882d2429b5d6f4f1f5b2",
+      "pdf_pages": 14
+    },
+    {
+      "file": "9f694568321d715674a4e1200370f38c_MIT6_685F13_ps03.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/9f694568321d715674a4e1200370f38c_MIT6_685F13_ps03.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/9f694568321d715674a4e1200370f38c_MIT6_685F13_ps03.pdf",
+      "kind": "pdf",
+      "bytes": 94570,
+      "sha256": "3c41380a9e8f03ce69104448c4aefa9e111eb145c4439e1c013322ab4fe9e05b",
+      "pdf_pages": 5
+    },
+    {
+      "file": "ea3f819d15ad9cf3dd35fa60f4bda00b_MIT6_685F13_ps03ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/ea3f819d15ad9cf3dd35fa60f4bda00b_MIT6_685F13_ps03ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/ea3f819d15ad9cf3dd35fa60f4bda00b_MIT6_685F13_ps03ans.pdf",
+      "kind": "pdf",
+      "bytes": 155873,
+      "sha256": "9a92d07d4f746b55ca7e76d950c7c3aeb58eaa83d70a9ddb10f1f0bf8d1b176b",
+      "pdf_pages": 11
+    },
+    {
+      "file": "0b0ba670dc56d31f49a6da63b9495c1c_MIT6_685F13_ps04.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/0b0ba670dc56d31f49a6da63b9495c1c_MIT6_685F13_ps04.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/0b0ba670dc56d31f49a6da63b9495c1c_MIT6_685F13_ps04.pdf",
+      "kind": "pdf",
+      "bytes": 80940,
+      "sha256": "10340f8cabf829a3c7782daceca5d9726fbde38600464088f31f0ecb6eb38606",
+      "pdf_pages": 3
+    },
+    {
+      "file": "554f990cde58a5ed659f8dd9afea6793_MIT6_685F13_ps04ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/554f990cde58a5ed659f8dd9afea6793_MIT6_685F13_ps04ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/554f990cde58a5ed659f8dd9afea6793_MIT6_685F13_ps04ans.pdf",
+      "kind": "pdf",
+      "bytes": 137622,
+      "sha256": "92e21fd84f294dc7f0172d2b2da89e7ffdab9078508e96e777500dcdb7f275cc",
+      "pdf_pages": 13
+    },
+    {
+      "file": "67ecdbef9c93c00816ea01a32f6425d8_MIT6_685F13_ps05.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/67ecdbef9c93c00816ea01a32f6425d8_MIT6_685F13_ps05.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/67ecdbef9c93c00816ea01a32f6425d8_MIT6_685F13_ps05.pdf",
+      "kind": "pdf",
+      "bytes": 75075,
+      "sha256": "8e1320a79885cbc69c75aec655bc1e787cf4a2b42859a665f62bc8d456402a7e",
+      "pdf_pages": 3
+    },
+    {
+      "file": "e8cfa53e3645c56ab79ab56ee1b1c67b_MIT6_685F13_ps05ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/e8cfa53e3645c56ab79ab56ee1b1c67b_MIT6_685F13_ps05ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/e8cfa53e3645c56ab79ab56ee1b1c67b_MIT6_685F13_ps05ans.pdf",
+      "kind": "pdf",
+      "bytes": 181751,
+      "sha256": "0ce7cfd6349212ff81f5671a4a38ae2c8e17c7a559255c421fc494a38ec46dcd",
+      "pdf_pages": 11
+    },
+    {
+      "file": "a0ad8391356431011b346a1fdd6581ea_MIT6_685F13_ps06.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/a0ad8391356431011b346a1fdd6581ea_MIT6_685F13_ps06.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/a0ad8391356431011b346a1fdd6581ea_MIT6_685F13_ps06.pdf",
+      "kind": "pdf",
+      "bytes": 104817,
+      "sha256": "c6d4725d8b104457b9eb3147d09fd6352e5c7c2c8d7fc75e3df4a4f826a7e1a3",
+      "pdf_pages": 4
+    },
+    {
+      "file": "aa446a1987ed9ac458eb3b8ef3178f77_MIT6_685F13_ps06ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/aa446a1987ed9ac458eb3b8ef3178f77_MIT6_685F13_ps06ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/aa446a1987ed9ac458eb3b8ef3178f77_MIT6_685F13_ps06ans.pdf",
+      "kind": "pdf",
+      "bytes": 140082,
+      "sha256": "694665e26528a9473e4b3a38b317edd5a86fa72b057f0799cd68ef2a4430c17e",
+      "pdf_pages": 8
+    },
+    {
+      "file": "079b5194f57f4a90f6aa027ea54c8925_MIT6_685F13_ps07.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/079b5194f57f4a90f6aa027ea54c8925_MIT6_685F13_ps07.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/079b5194f57f4a90f6aa027ea54c8925_MIT6_685F13_ps07.pdf",
+      "kind": "pdf",
+      "bytes": 90313,
+      "sha256": "fd6d8d2d664d43ab0af78b9dae6236b7f6083ad7f5b58d00fe9d53b307f42391",
+      "pdf_pages": 3
+    },
+    {
+      "file": "545fb7b3d497bf8d11c039d5e0f54b35_MIT6_685F13_ps07ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/545fb7b3d497bf8d11c039d5e0f54b35_MIT6_685F13_ps07ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/545fb7b3d497bf8d11c039d5e0f54b35_MIT6_685F13_ps07ans.pdf",
+      "kind": "pdf",
+      "bytes": 217912,
+      "sha256": "3d0ba4849ea0e295527955243b3928c870e91190376e4606c308291d7b4cc82b",
+      "pdf_pages": 17
+    },
+    {
+      "file": "c050bcf86815cbccb6f34d20139c285d_MIT6_685F13_ps08.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/c050bcf86815cbccb6f34d20139c285d_MIT6_685F13_ps08.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/c050bcf86815cbccb6f34d20139c285d_MIT6_685F13_ps08.pdf",
+      "kind": "pdf",
+      "bytes": 96447,
+      "sha256": "0ed527be8f1216166d82f7671ff2d670376b958ed70256fa133bcdd2a45741db",
+      "pdf_pages": 4
+    },
+    {
+      "file": "b37ca24c5573d1a3945497519b107eb3_MIT6_685F13_ps08ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/b37ca24c5573d1a3945497519b107eb3_MIT6_685F13_ps08ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/b37ca24c5573d1a3945497519b107eb3_MIT6_685F13_ps08ans.pdf",
+      "kind": "pdf",
+      "bytes": 209920,
+      "sha256": "170fb069adaf7200d9947545624c49b6a5d3a2ddc28f5d49122a54178ae185f7",
+      "pdf_pages": 18
+    },
+    {
+      "file": "4b16e7d39b4d903aed3c90a0c869ef22_MIT6_685F13_ps09.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/4b16e7d39b4d903aed3c90a0c869ef22_MIT6_685F13_ps09.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/4b16e7d39b4d903aed3c90a0c869ef22_MIT6_685F13_ps09.pdf",
+      "kind": "pdf",
+      "bytes": 85124,
+      "sha256": "9d629c93839f5ada2003bd1bdace077cda859db50bcc87703b307836cf75e1cb",
+      "pdf_pages": 3
+    },
+    {
+      "file": "ee954276168ad9682113ab26969c7743_MIT6_685F13_ps09ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/ee954276168ad9682113ab26969c7743_MIT6_685F13_ps09ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/ee954276168ad9682113ab26969c7743_MIT6_685F13_ps09ans.pdf",
+      "kind": "pdf",
+      "bytes": 312716,
+      "sha256": "a82146b4dc32a5d21350dbf8eb6822d694586c7de31507fe53d7b4f8126da411",
+      "pdf_pages": 23
+    },
+    {
+      "file": "a03f1e53b79ccf908a9c179df55896f5_MIT6_685F13_ps10.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/a03f1e53b79ccf908a9c179df55896f5_MIT6_685F13_ps10.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/a03f1e53b79ccf908a9c179df55896f5_MIT6_685F13_ps10.pdf",
+      "kind": "pdf",
+      "bytes": 100725,
+      "sha256": "aee949c7ff1c2009461dcd5c43d8a31289468954e36a3deddf6dd2e2faca6faa",
+      "pdf_pages": 5
+    },
+    {
+      "file": "42c995f723c364ee7092636cd1323c6f_MIT6_685F13_ps10ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/42c995f723c364ee7092636cd1323c6f_MIT6_685F13_ps10ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/42c995f723c364ee7092636cd1323c6f_MIT6_685F13_ps10ans.pdf",
+      "kind": "pdf",
+      "bytes": 348775,
+      "sha256": "9a82b239984117affd27a6c50875ac01db06d4cef62894138dac1d1e983c565b",
+      "pdf_pages": 22
+    },
+    {
+      "file": "cb98b77b7910f860dd3aba7dde0c8e28_MIT6_685F13_ps11.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/cb98b77b7910f860dd3aba7dde0c8e28_MIT6_685F13_ps11.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/cb98b77b7910f860dd3aba7dde0c8e28_MIT6_685F13_ps11.pdf",
+      "kind": "pdf",
+      "bytes": 95766,
+      "sha256": "848130ed4c61acf6ca9d7b2ab1e75be1676abcba004e30ed46836fd0525c96b8",
+      "pdf_pages": 5
+    },
+    {
+      "file": "75825e109686abbd75d3fd638114e7c8_MIT6_685F13_ps11ans.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/75825e109686abbd75d3fd638114e7c8_MIT6_685F13_ps11ans.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/75825e109686abbd75d3fd638114e7c8_MIT6_685F13_ps11ans.pdf",
+      "kind": "pdf",
+      "bytes": 293627,
+      "sha256": "e1735aff4f0e4a49c5e8f44c4d857041078aa9ee67a5aefbf015ae8ee0bf2241",
+      "pdf_pages": 16
+    },
+    {
+      "file": "64bf1faf0a973d9607334321dd252794_MIT6_685F13_ps03data.pdf",
+      "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/64bf1faf0a973d9607334321dd252794_MIT6_685F13_ps03data.pdf",
+      "final_url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/64bf1faf0a973d9607334321dd252794_MIT6_685F13_ps03data.pdf",
+      "kind": "pdf",
+      "bytes": 774095,
+      "sha256": "f2af0b4f14fc77efa23eec9663a5641a3de7f71aa19974ab3b82de810d73548a",
+      "pdf_pages": 7
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:46:45+0300",
+  "pdf_count": 23,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

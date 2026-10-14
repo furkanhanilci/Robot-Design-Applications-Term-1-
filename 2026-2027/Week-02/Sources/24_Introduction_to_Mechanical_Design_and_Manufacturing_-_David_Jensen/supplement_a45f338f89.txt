@@ -1,0 +1,179 @@
+Multiple Use Casting and Molds – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Multiple Use Casting and Molds
+Permanent Mold Casting
+Permanent mold casting is a method of producing metal parts with molten metal under the pressure of gravity or a pressure feed system poured into a static mold. This method is very common for non-ferrous metals, such as aluminum, copper, and magnesium alloys. The advantages of permanent mold casting are that it can achieve higher dimensional and surface quality tolerance comparable to sand casting without secondary work, and that it has a lower cost per part for large run production. The main disadvantage of permanent mold casting is that the molds have high initial cost. While called permanent, molds can wear or fail over time due to thermal stress.
+Molds for tin soldier toys from early 20th century. https://upload.wikimedia.org/wikipedia/commons/6/64/Castingtinsoldiers.jpg
+Die Casting
+Die casting is a method of producing metal parts by forcing molten metal into a mold or die under high pressure. This method is limited to low melting temperature metals, such as magnesium, aluminum, and zinc alloys. The advantages of die casting are that it can achieve complex feature geometry, hole tolerance comparable to drilling and boring machining process, and minimal secondary work to achieve desired surface tolerances. The main disadvantage of die casting is that the part geometry is limited in maximum thickness to allow the molten metal to fill the cavity without defects or voids.
+*Watch this
+video
+to learn more about Die Casting.
+There are two major types of die casting: hot chamber and cold chamber. The difference between them is the temperature and pressure involved in the process. In hot chamber die casting, the molten metal is kept in a furnace attached to the machine, and a plunger pushes the metal into the die cavity. This method is faster and more efficient, but it can only be used for metals with low melting points that do not damage the furnace or the plunger. In cold chamber die casting, the molten metal is ladled from a separate furnace into a chamber, and then a plunger pushes the metal into the die cavity. This method is slower and less efficient, but it can be used for metals with higher melting points that would damage the furnace or the plunger in hot chamber die casting.
+Hot Chamber Die Casting
+Schematic of a hot-chamber die casting machine. https://en.wikipedia.org/wiki/Die_casting#/media/File:Hot-chamber_die_casting_machine_schematic.svg
+Cold Chamber Die Casting
+A schematic of a cold-chamber die casting machine. https://en.wikipedia.org/wiki/Die_casting#/media/File:Cold-chamber_die_casting_machine_schematic.svg
+Previous/next navigation
+Previous: Types of Casting Process and Excepted Tolerances
+Next: Single Use Molds
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

@@ -1,0 +1,271 @@
+Modern Robotics - Northwestern Mechatronics Wiki
+Modern Robotics
+From Mech
+Jump to navigation
+Jump to search
+The Cambridge University Press cover.
+This is the home page of the textbook "Modern Robotics:  Mechanics, Planning, and Control," Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017, ISBN 9781107156302.  Purchase the hardback through
+Amazon
+or through
+Cambridge University Press
+, or check out the free preprint version below.
+The Chinese version from China Machine Press.
+Translations:
+You can also purchase the book in
+Chinese
+or
+Korean
+.
+The Korean translation by acorn Publishing Korea.
+Modern Robotics is available as online courses on Coursera.
+From the foreword:
+"Frank and Kevin have provided a wonderfully clear and patient explanation of their subject."
+Roger Brockett
+,
+Harvard University
+"
+Modern Robotics
+imparts the most important insights of robotics ... with a clarity that makes it accessible to undergraduate students."
+Matthew T. Mason
+,
+Carnegie Mellon University
+From the
+IEEE Control Systems Magazine book review
+:
+"It is the pedagogical strength of this book that concepts from Lie group theory (which form the building blocks of modern kinematics) are presented in a way that will appeal to undergraduate students as well as to researchers and roboticists in general.  ... For some time, this approach was deemed too complicated to be taught in undergraduate robotics classes. However, this book by Lynch and Park should change the conventional wisdom on this issue. ... With its consolidated modern approach,
+Modern Robotics
+is destined to become a classic in the field."
+Andreas Mueller
+,
+Johannes Kepler University, Austria
+Contents
+1
+Book
+2
+Practice Exercises and Linear Algebra Review
+3
+Videos
+4
+Slides for Classroom or Online Teaching
+5
+Solution Manual
+6
+Prerequisites
+7
+Errata
+8
+Software
+9
+Simulation
+10
+Online Courses
+11
+Using the Online Course Materials in a Traditional Classroom Course
+12
+Supplemental Information
+13
+About the Authors
+14
+Mechatronics
+Book
+Purchase the hardback through
+Amazon
+or through
+Cambridge University Press
+, or check out the free preprint version below.  You can also purchase the
+Chinese version
+or the
+Korean version
+.
+The current version of the book is the updated first edition (online preprint dated December 2019, printed published version from Cambridge marked "3rd printing 2019" or later).  The updated first edition (also referred to as "version 2") includes several corrections and minor additions to the original first edition (first published in May 2017).
+This book is the result of course notes developed over many years for the course M2794.0027 Introduction to Robotics at Seoul National University and ME 449 Robotic Manipulation at Northwestern University.  The evolving course notes have been posted on the internet for years to support these classes.
+The for-purchase version of the book from Cambridge University Press has improved layout and typesetting, updated figures, different pagination (and fewer pages), and more careful copyediting, and it is considered the "official" version of the book.  But the online preprint version of the book has the same chapters, sections, and exercises, and it is quite close in content to the Cambridge-published version.
+We are posting four versions of the book.  All versions have exactly the same contents and pagination.  They differ only in the sizes of the margins and the size of the print, as manipulated in Adobe Acrobat after latex'ing.  Two of the versions have working hyperlinks for navigating the book on your computer or tablet.
+With working hyperlinks.
+(To navigate the book using the hyperlinks, click on the hyperlink.  To go back where you came from, choose the button or keystroke appropriate to your pdf reader.  For example, on the Mac with Acrobat or Acrobat Reader, use cmd-left arrow.  With Preview on the Mac, use cmd-[.  Some readers on other operating systems use alt-left arrow.  You can google to see which solution works for your pdf reader.)
+Default 8.5x11 or A4 version
+.  Printable version with 10 pt font and large margins.
+Tablet version
+. Margins have been eliminated so that no space is wasted when viewing the document on a computer or tablet.
+Printable versions without working hyperlinks.
+Large font 8.5x11 or A4 version
+.  Printable version with 12 pt font equivalent and smaller margins than the 10 pt default version.
+2up version
+.  Printable version with 2 book pages per page, for saving paper if you have good eyes.  Approximately 8.5 pt font equivalent.
+These files have been compressed to about 7 MB.  Let us know if you have any problems reading them.  Please note that some versions of the default Mac OS X pdf reader, Preview, are known to have bugs displaying certain images in pdf files.  If a figure is not appearing properly, please try a better pdf viewer, like Acrobat Reader.
+Table of Contents:
+Preview
+Configuration Space
+Rigid-Body Motions
+Forward Kinematics
+Velocity Kinematics and Statics
+Inverse Kinematics
+Kinematics of Closed Chains
+Dynamics of Open Chains
+Trajectory Generation
+Motion Planning
+Robot Control
+Grasping and Manipulation
+Wheeled Mobile Robots
+Appendix A. Summary of Useful Formulas
+Appendix B. Other Representations of Rotations
+Appendix C. Denavit-Hartenberg Parameters
+Appendix D. Optimization and Lagrange Multipliers
+Practice Exercises and Linear Algebra Review
+Practice exercises
+Practice exercises to give you more experience with the material
+. These practice exercises come with solutions, since Cambridge makes the end-of-chapter solutions available to instructors only.
+2017 exams from Seoul National University, with solutions
+.
+2018 exams from Seoul National University, with solutions
+.
+2019 exams from Seoul National University, with solutions
+.
+2020 exams from Seoul National University, with solutions
+.
+A linear algebra refresher appendix to accompany the book.
+Videos
+Click here
+to watch the video lectures embedded in a convenient viewing environment.
+Click here
+if you prefer to watch the videos within the YouTube environment.
+Videos are made with
+Northwestern's Lightboard
+.  We have used this tool in the past to make the
+mechatronics videos at http://nu32.org
+.
+You can see an excellent collection of robotics videos at the
+Springer Handbook of Robotics Multimedia Extension
+.  Also check out the
+Robot Academy at Queensland University of Technology
+.
+Slides for Classroom or Online Teaching
+You can
+download summary slides for classroom teaching
+, covering much of the material in Chapters 2, 3, 4, 5, 6, 8, 9, 11, and 13.  (In my current class, I [Lynch] do not have time to cover any material from Chapters 7, 10, and 12, nor parts of the material from Chapters 8, 11, and 13.)  These slides are summaries only, leaving out full derivations, and they are used in class after students have watched the videos on their own time.  (In my class, students also complete lecture comprehension problems on Coursera before attending the live class.)
+I project the slides in powerpoint and write on them using powerpoint's "Draw" function and a Wacom One tablet during class.  (Or I print them out and use a doc cam to project as I write on the printouts.) Writing on the slides helps with pacing and makes the class more interactive.  In the first part of class I review the material from the videos and reading, perhaps asking questions of the whole class.  At the end of most slide decks, there are rather simple conceptual problems for small-group discussion.  No computers or difficult calculation needed.  These discussions, which may take place via breakout rooms on Zoom, are to encourage student engagement with the material.  After the small-group discussions, we reconvene to share our answers.
+Each slide deck is meant to roughly correspond to one 50-minute class, but some classes have more material than others.  In some classes, more discussion time would be helpful.  In others, class ends a bit early.
+The slides are available in two formats, pdf and powerpoint.  For each format, there are "original" slides and "edited" slides.  I distribute the "original" slides as pdfs to the students in advance of class, and I write on these slides (in powerpoint) during class to produce the "edited" slides.  If you decide to use the slides this way, you can look at the "edited" versions of the slides for ideas of what you could write on the "original" slides.
+Before class, I add translucent white boxes (95% opacity) to cover up some of the material on particularly busy slides.  Then, as I teach, I delete the white boxes when it is time to discuss that material.  Covering up material that we are not yet discussing helps students focus on the parts of the slide I am currently talking about.  I prefer this alternative to the option of turning a single busy slide into a several-slide sequence, giving the final file an artificially large number of pages.
+Solution Manual
+If you are an instructor, you can obtain a copy of the exercise solutions from Cambridge University Press.  Go to the "Resources" section of
+the Cambridge University Press webpage for the book
+.
+Prerequisites
+This book was written to be accessible to engineering students after taking typical first-year engineering courses.  The student should have an understanding of:
+freshman-level physics, including f = ma; free-body diagrams with masses, springs, and dampers; vector forces; and vector torques (or moments) as the cross product of a distance vector and a force;
+linear algebra, including matrix operations, positive definiteness of a matrix, determinants, complex numbers, eigenvalues, and eigenvectors;
+some calculus, derivatives, and partial derivatives; and
+basic linear ordinary differential equations.
+The student should also be prepared to program, but only basic programming skills are needed.  Code is provided in python (freely available), MATLAB (for purchase, or you could use the freely available GNU Octave clone), and Mathematica (for purchase), so those languages are preferred.
+Errata
+Errata for the book can be found here.  Please click here to report any corrections, typos, or comments.
+Software
+Download the book software from GitHub.
+The software accompanying the book is written in Mathematica, MATLAB, and Python.  It is written to be educational and to reinforce the concepts in the book, not to be as computationally efficient or robust as possible.
+The origin of the software is student solutions to homework exercises.  A major update was committed in January 2017, correcting some bugs in the earlier version.
+To report any issues with the software, please click the "Issues" tab in GitHub.
+Simulation
+We have found
+the CoppeliaSim robot simulation environment
+(formerly known as V-REP) to be a valuable learning tool accompanying the book.  It is free for educational use and cross platform.  In ME 449 at Northwestern, we use it to experiment with the kinematics of different robots and to animate solutions to inverse kinematics, dynamic simulations, and controllers.
+This page
+gets you started with CoppeliaSim quickly.
+This page
+provides "scenes" that allow you to interactively explore the kinematics of different robots (e.g., the Universal Robots UR5 6R robot arm and the KUKA youBot mobile manipulator) and to animate trajectories that are the results of exercises in chapters on kinematics, dynamics, and control.
+A video of a UR5 trajectory created by solving numerical inverse kinematics (Chapter 6, Inverse Kinematics)
+A video of the UR5 falling under gravity for 10 s, assuming no friction or gearing at the joints (Chapter 8, Dynamics of Open Chains)
+A video of the KUKA youBot mobile manipulator using Jacobian-pseudoinverse-based control of the end-effector's motion (Chapter 13, Wheeled Mobile Robots)
+Online Courses
+Modern Robotics is now available as a MOOC (massive open online course) Specialization on Coursera!
+This is a link to the Specialization home page.
+The Specialization consists of six short courses, each expected to take approximately four weeks of approximately five hours of effort per week:
+Course 1:  Foundations of Robot Motion (Chapters 2 and 3)
+Course 2:  Robot Kinematics (Chapters 4, 5, 6, and 7)
+Course 3:  Robot Dynamics (Chapters 8 and 9)
+Course 4:  Robot Motion Planning and Control (Chapters 10 and 11)
+Course 5:  Robot Manipulation and Wheeled Mobile Robots (Chapters 12 and 13)
+Course 6:  Capstone Project, Mobile Manipulation
+This page collects together some of the supplemental material used in the Coursera MOOCs
+.
+The material in Modern Robotics also forms the basis for two edX online courses.  These courses were created before the book was finished, so some of the notation used is a bit different from that used in the book.
+Robot Mechanics and Control, Part I
+Robot Mechanics and Control, Part II
+Using the Online Course Materials in a Traditional Classroom Course
+If you are using the book in a traditional university setting, you can ask your students to sign up for the relevant courses on Coursera (see above).  They can audit the courses, so they don't have to pay.  They will have access to the video lectures and to the video comprehension questions that follow each video lecture.  They will also have access to discussion forums.  (They won't have access to graded tests and peer-graded assignments, which require paying the Coursera fee.)  If students watch the videos and do the reading before class, you can spend class time working on example problems, homework problems, or discussing points where confusion arises, rather than delivering a traditional lecture.
+Supplemental Information
+UR5 parameters you can use for dynamic simulations (note:  the values are not exact, and do not account for the effect of gearing at the joints)
+UR5 parameters in a Mathematica notebook
+UR5 parameters in MATLAB
+UR5 parameters in Python
+The UR5 URDF file from Chapter 4 of the book (
+.pdf format
+or
+.txt format
+). For learning purposes only, not actual use; it contains only kinematic and inertial properties, and does not fully account for the effects of gearing.  This file is based on the
+UR5 URDF from the ROS-Industrial team
+.
+Peter Corke's excellent Robotics Toolbox for MATLAB
+and other robotics software linked to from his site.
+Open-source software for time-optimal time scaling (Chapter 9.4), courtesy of Quang-Cuong Pham
+.
+About the Authors
+Kevin M. Lynch
+is a professor and the director of the
+Center for Robotics and Biosystems
+and a member of the
+Northwestern Institute on Complex Systems
+at Northwestern University.  His research focuses on dynamics, motion planning, and control for robot manipulation and locomotion; self-organizing multi-agent systems; and physically interacting human-robot systems.
+He is Editor-in-Chief of the
+IEEE Transactions on Robotics
+, former Editor-in-Chief of the IEEE International Conference on Robotics and Automation Conference Editorial Board, and a former Editor of the IEEE Transactions on Robotics, the IEEE Robotics and Automation Letters, and the IEEE Transactions on Automation Science and Engineering.  He is a co-author of
+The Principles of Robot Motion
+(MIT Press, 2005) and
+Embedded Computing and Mechatronics with the PIC32 Microcontroller
+(Elsevier, 2015), an IEEE fellow, and the recipient of the IEEE Early Career Award in Robotics and Automation, Northwestern's Professorship of Teaching Excellence, and the Northwestern Teacher of the Year award in engineering.  He earned a BSE in Electrical Engineering from Princeton University and a PhD in Robotics from Carnegie Mellon University.
+Frank C. Park
+received his BS in electrical engineering from MIT and his PhD in applied mathematics from Harvard University.  From 1991 to 1995 he was assistant professor of mechanical and aerospace engineering at the University of California, Irvine. Since 1995 he has been professor of mechanical and aerospace engineering at Seoul National University, where he is currently chair of the department. His research interests are in robot mechanics, planning and control, vision and image processing, and related areas of applied mathematics. He has been an IEEE Robotics and Automation Society Distinguished Lecturer, and received best paper awards for his work on visual tracking and parallel robot design. He has served on the editorial boards of the Springer Handbook of Robotics, Springer Advanced Tracts in Robotics (STAR), Robotica, and the ASME Journal of Mechanisms and Robotics. He has held adjunct faculty positions at the HKUST Robotics Institute, NYU Courant Institute, and the Interactive Computing Department at Georgia Tech. In 2014 he received the Seoul National University Teaching Excellence Award.  He is a fellow of the IEEE, former Editor-in-Chief of the
+IEEE Transactions on Robotics
+, and developer of the edX courses Robot Mechanics and Control I, II.
+Mechatronics
+Modern Robotics
+is written at the system level:  you learn about the kinematics, dynamics, motion planning, and control of an entire robot system.  If you would like to learn more about the details of implementation, e.g., joint-level feedback control, driving motors (including brushed, brushless, steppers, and servos), gearing, sensors, signal processing, etc., check out
+Embedded Computing and Mechatronics
+by Lynch, Marchuk, and Elwin, Elsevier 2015.
+Retrieved from "
+https://hades.mech.northwestern.edu//index.php?title=Modern_Robotics&oldid=26778
+"
+Navigation menu
+Page actions
+Page
+Discussion
+Read
+View source
+History
+Page actions
+Page
+Discussion
+More
+Tools
+Personal tools
+Log in
+Navigation
+Main Page
+Recent changes
+Help
+Lab Inventory
+File List
+Most Popular Pages
+Search
+Tools
+What links here
+Related changes
+Special pages
+Printable version
+Permanent link
+Page information
+This page was last edited on 19 February 2024, at 16:15.
+This page has been accessed 3,366,483 times.
+Privacy policy
+About Mech
+Disclaimers

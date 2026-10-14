@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>mcuboot | Secure boot for 32-bit Microcontrollers!</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="mcuboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/encrypted_images.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/encrypted_images.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="mcuboot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"mcuboot","url":"https://docs.mcuboot.com/encrypted_images.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">mcuboot</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <!--
+    -
+    - Licensed to the Apache Software Foundation (ASF) under one
+    - or more contributor license agreements.  See the NOTICE file
+    - distributed with this work for additional information
+    - regarding copyright ownership.  The ASF licenses this file
+    - to you under the Apache License, Version 2.0 (the
+    - "License"); you may not use this file except in compliance
+    - with the License.  You may obtain a copy of the License at
+    -
+    -  http://www.apache.org/licenses/LICENSE-2.0
+    -
+    - Unless required by applicable law or agreed to in writing,
+    - software distributed under the License is distributed on an
+    - "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    - KIND, either express or implied.  See the License for the
+    - specific language governing permissions and limitations
+    - under the License.
+    -
+-->
+
+<h1 id="encrypted-images">Encrypted images</h1>
+
+<h2 id="rationale"><a href="#rationale">Rationale</a></h2>
+
+<p>To provide confidentiality of image data while in transport to the
+device or while residing on an external flash, <code class="language-plaintext highlighter-rouge">MCUboot</code> has support
+for encrypting/decrypting images on-the-fly while upgrading.</p>
+
+<p>The image header needs to flag this image as <code class="language-plaintext highlighter-rouge">ENCRYPTED</code> (0x04) and
+a TLV with the key must be present in the image. When upgrading the
+image from the <code class="language-plaintext highlighter-rouge">secondary slot</code> to the <code class="language-plaintext highlighter-rouge">primary slot</code> it is automatically
+decrypted (after validation). If swap upgrades are enabled, the image
+located in the <code class="language-plaintext highlighter-rouge">primary slot</code>, also having the <code class="language-plaintext highlighter-rouge">ENCRYPTED</code> flag set and the
+TLV present, is re-encrypted while swapping to the <code class="language-plaintext highlighter-rouge">secondary slot</code>.</p>
+
+<h2 id="threat-model"><a href="#threat-model">Threat model</a></h2>
+
+<p>The encrypted image support is supposed to allow for confidentiality
+if the image is not residing on the device or is written to external
+storage, eg a SPI flash being used for the secondary slot.</p>
+
+<p>It does not protect against the possibility of attaching a JTAG and
+reading the internal flash memory, or using some attack vector that
+enables dumping the internal flash in any way.</p>
+
+<p>Since decrypting requires a private key (or secret if using symmetric
+crypto) to reside inside the device, it is the responsibility of the
+device manufacturer to guarantee that this key is already in the device
+and not possible to extract.</p>
+
+<h2 id="design"><a href="#design">Design</a></h2>
+
+<p>When encrypting an image, only the payload (FW) is encrypted. The header,
+TLVs are still sent as plain data.</p>
+
+<p>Hashing and signing also remain functionally the same way as before,
+applied over the un-encrypted data. Validation on encrypted images, checks
+that the encrypted flag is set and TLV data is OK, then it decrypts each
+image block before sending the data to the hash routines.</p>
+
+<p>The image is encrypted using AES-CTR-128 or AES-CTR-256, with a counter
+that starts from zero (over the payload blocks) and increments by 1 for each
+16-byte block. AES-CTR was chosen for speed/simplicity and allowing for any
+block to be encrypted/decrypted without requiring knowledge of any other
+block (allowing for simple resume operations on swap interruptions).</p>
+
+<p>The key used is a randomized when creating a new image, by <code class="language-plaintext highlighter-rouge">imgtool</code> or
+<code class="language-plaintext highlighter-rouge">newt</code>. This key should never be reused and no checks are done for this,
+but randomizing a 16-byte block with a TRNG should make it highly
+improbable that duplicates ever happen.</p>
+
+<p>To distribute this AES-CTR key, new TLVs were defined. The key can be
+encrypted using either RSA-OAEP, AES-KW (128 or 256 bits depending on the
+AES-CTR key length), ECIES-P256 or ECIES-X25519.</p>
+
+<p>For RSA-OAEP a new TLV with value <code class="language-plaintext highlighter-rouge">0x30</code> is added to the image, for
+AES-KW a new TLV with value <code class="language-plaintext highlighter-rouge">0x31</code> is added to the image, for
+ECIES-P256 a new TLV with value <code class="language-plaintext highlighter-rouge">0x32</code> is added, and for ECIES-X25519 a
+newt TLV with value <code class="language-plaintext highlighter-rouge">0x33</code> is added. The contents of those TLVs
+are the results of applying the given operations over the AES-CTR key.</p>
+
+<h2 id="ecies-encryption"><a href="#ecies-encryption">ECIES encryption</a></h2>
+
+<p>ECIES follows a well defined protocol to generate an encryption key. There are
+multiple standards which differ only on which building blocks are used; for
+MCUboot we settled on some primitives that are easily found on our crypto
+libraries. The whole key encryption can be summarized as:</p>
+
+<ul>
+  <li>Generate a new private key and derive the public key; when using ECIES-P256
+this is a secp256r1 keypair, when using ECIES-X25519 this will be a x25519
+keypair. Those keys will be our ephemeral keys.</li>
+  <li>Generate a new secret (DH) using the ephemeral private key and the public key
+that corresponds to the private key embedded in the HW.</li>
+  <li>Derive the new keys from the secret using HKDF. We are not using a <code class="language-plaintext highlighter-rouge">salt</code>
+and using an <code class="language-plaintext highlighter-rouge">info</code> of <code class="language-plaintext highlighter-rouge">MCUBoot_ECIES_v1</code>, generating 48 bytes of key material.</li>
+  <li>A new random encryption key is generated (for AES). This is
+the AES key used to encrypt the images.</li>
+  <li>The key is encrypted with AES-128-CTR or AES-256-CTR and a <code class="language-plaintext highlighter-rouge">nonce</code> of 0 using
+the first 16 bytes of key material generated previously by the HKDF.</li>
+  <li>The encrypted key now goes through a HMAC using the remaining 32
+bytes of key material from the HKDF.</li>
+</ul>
+
+<p>There are different TLVs for ECIES-P256, ECIES-X25519 with SHA256 HKDF/HMAC
+and ECIES-X25519 with SHA512 HKDF/HMAC.
+The final TLV is built from the 65 bytes for ECIES-P256 or 32 bytes for
+ECIES-X25519, which correspond to the ephemeral public key, followed by the
+MAC tag and the 16 or 32 bytes of the encrypted key, resulting in final TLV
+length:</p>
+<ul>
+  <li>ECIES-P256 has TLV length 113 to 129 bytes, depending on AES key length.</li>
+  <li>ECIES-X25519 on SHA256 TLV length is 80 or 96 bytes, depending on AES key
+length.</li>
+  <li>ECIES-X25519 on SHA512 TLV length is 112 or 128, depending on AES key
+length.</li>
+</ul>
+
+<p>The implemenation of ECIES-P256 is named ENC_EC256 in the source code and
+artifacts while ECIES-X25519 is named ENC_X25519.</p>
+
+<p>Note that MCUboot is built to support only one ECIES and HMAC SHA at once,
+and truncated HMAC is not supported at this time</p>
+
+<h2 id="upgrade-process"><a href="#upgrade-process">Upgrade process</a></h2>
+
+<p>When starting a new upgrade process, <code class="language-plaintext highlighter-rouge">MCUboot</code> checks that the image in the
+<code class="language-plaintext highlighter-rouge">secondary slot</code> has the <code class="language-plaintext highlighter-rouge">ENCRYPTED</code> flag set and has the required TLV with the
+encrypted key. It then uses its internal private/secret key to decrypt
+the TLV containing the key. Given that no errors are found, it will then
+start the validation process, decrypting the blocks before check. A good
+image being determined, the upgrade consists in reading the blocks from
+the <code class="language-plaintext highlighter-rouge">secondary slot</code>, decrypting and writing to the <code class="language-plaintext highlighter-rouge">primary slot</code>.</p>
+
+<p>If swap using scratch is used for the upgrade process, the decryption happens
+when copying the content of the scratch area to the <code class="language-plaintext highlighter-rouge">primary slot</code>, which means
+the scratch area does not contain the image unencrypted. However, unless
+<code class="language-plaintext highlighter-rouge">MCUBOOT_SWAP_SAVE_ENCTLV</code> is enabled, the decryption keys are stored in
+plaintext in the scratch area. Therefore, <code class="language-plaintext highlighter-rouge">MCUBOOT_SWAP_SAVE_ENCTLV</code> must be
+enabled if the scratch area does not reside in the internal flash memory of the
+MCU, to avoid attacks that could interrupt the upgrade and read the plaintext
+decryption keys from external flash memory.</p>
+
+<p>Also when swap is used, the image in the <code class="language-plaintext highlighter-rouge">primary slot</code> is checked for
+presence of the <code class="language-plaintext highlighter-rouge">ENCRYPTED</code> flag and the key TLV. If those are present the
+sectors are re-encrypted when copying from the <code class="language-plaintext highlighter-rouge">primary slot</code> to
+the <code class="language-plaintext highlighter-rouge">secondary slot</code>.</p>
+
+<hr />
+<p><strong><em>Note</em></strong></p>
+
+<p><em>Each encrypted image must have its own key TLV that should be unique</em>
+<em>and used only for this particular image.</em></p>
+
+<hr />
+
+<p>Also when swap method is employed, the sizes of both images are saved to
+the status area just before starting the upgrade process, because it
+would be very hard to determine this information when an interruption
+occurs and the information is spread across multiple areas.</p>
+
+<h2 id="factory-programing-requirement"><a href="#factory-programing-requirement">Factory-programing requirement</a></h2>
+
+<p>It is important to have updates without any voids in encryption. 
+Therefore, from the very beginning, flags and TLV’s must be set accordingly.
+Perform the first flashing with an image signed by imgtool with encryption settings
+intended for DFU.
+Append it with the <code class="language-plaintext highlighter-rouge">--clear</code> flag to keep the image unencrypted and ready for use.</p>
+
+<h2 id="creating-your-keys-with-imgtool"><a href="#creating-your-keys-with-imgtool">Creating your keys with imgtool</a></h2>
+
+<p><code class="language-plaintext highlighter-rouge">imgtool</code> can generate keys by using <code class="language-plaintext highlighter-rouge">imgtool keygen -k &lt;output.pem&gt; -t &lt;type&gt;</code>,
+ where type can be one of <code class="language-plaintext highlighter-rouge">rsa-2048</code>, <code class="language-plaintext highlighter-rouge">rsa-3072</code>, <code class="language-plaintext highlighter-rouge">ecdsa-p256</code>
+or <code class="language-plaintext highlighter-rouge">ed25519</code>. This will generate a keypair or private key.</p>
+
+<p>To extract the public key in source file form, use
+<code class="language-plaintext highlighter-rouge">imgtool getpub -k &lt;input.pem&gt; -e &lt;encoding&gt;</code>, where <code class="language-plaintext highlighter-rouge">encoding</code> can be one of
+<code class="language-plaintext highlighter-rouge">lang-c</code> or <code class="language-plaintext highlighter-rouge">lang-rust</code> (defaults to <code class="language-plaintext highlighter-rouge">lang-c</code>). To extract a public key in PEM
+format, use <code class="language-plaintext highlighter-rouge">imgtool getpub -k &lt;input.pem&gt; -e pem</code>.</p>
+
+<p>If using AES-KW, follow the steps in the next section to generate the
+required keys.</p>
+
+<h2 id="creating-your-keys-with-unix-tooling"><a href="#creating-your-keys-with-unix-tooling">Creating your keys with Unix tooling</a></h2>
+
+<ul>
+  <li>If using RSA-OAEP, generate a keypair following steps similar to those
+described in <a href="/signed_images.html">signed_images</a> to create RSA keys.</li>
+  <li>If using ECIES-P256, generate a keypair following steps similar to those
+described in <a href="/signed_images.html">signed_images</a> to create ECDSA256 keys.</li>
+  <li>If using ECIES-X25519, generate a private key passing the option <code class="language-plaintext highlighter-rouge">-t x25519</code>
+to <code class="language-plaintext highlighter-rouge">imgtool keygen</code> command. To generate public key PEM file the following
+command can be used: <code class="language-plaintext highlighter-rouge">openssl pkey -in &lt;generated-private-key.pem&gt; -pubout</code></li>
+  <li>If using AES-KW (<code class="language-plaintext highlighter-rouge">newt</code> only), the <code class="language-plaintext highlighter-rouge">kek</code> can be generated with a
+command like (change count to 32 for a 256 bit key)
+<code class="language-plaintext highlighter-rouge">dd if=/dev/urandom bs=1 count=16 | base64 &gt; my_kek.b64</code></li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

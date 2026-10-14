@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ch. 17 - Planning and
+Control through Contact</title>
+    <meta name="Ch. 17 - Planning and
+Control through Contact" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/contact.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+    <script type="text/javascript" src="notebooks.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script src="htmlbook/mathjax-loader.js" defer></script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2024<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="https://underactuated.csail.mit.edu/Spring2024/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2024 semester.  <a
+href="https://www.youtube.com/playlist?list=PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=limit_cycles.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=sysid.html>Next Chapter</a></td>
+</tr></table>
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter style="counter-reset: chapter 16"><h1>Planning and
+Control through Contact</h1>
+
+  <p>So far we have developed a fairly strong toolbox for planning and control
+  with "smooth" systems -- systems where the equations of motion are described
+  by a function $\dot{\bx} = f(\bx,\bu)$ which is smooth everywhere.  But our
+  <a href="simple_legs.html">discussion of the simple
+  models of legged robots</a> illustrated that the dynamics of making and
+  breaking contact with the world are more complex -- these are often modeled
+  as hybrid dynamics with impact discontinuities at the collision event and
+  constrained dynamics during contact (with either soft or hard
+  constraints).</p>
+
+  <p>My goal for this chapter is to extend our computational tools into this
+  richer class of models.  Many of our core tools still work: trajectory
+  optimization, Lyapunov analysis (e.g. with sums-of-squares), and LQR all have
+  natural equivalents.</p>
+
+  <p>Let's start with a warm-up exercise: trajectory optimization for the rimless wheel.  We already have basically everything that we need for this, and it will form a nice basis for generalizing our approach throughout the chapter.</p>
+
+  <example id="rimless"><h1>Trajectory optmization for the rimless wheel</h1>
+
+    <figure>
+      <img width="40%" src="figures/rimlessWheel.svg"/>
+      <figcaption>The rimless wheel. The orientation of the stance leg,
+      $\theta$, is measured clockwise from the vertical axis. </figcaption>
+    </figure>
+
+    <p>The <a href="simple_legs.html#rimless_wheel">rimless wheel</a> was our
+    simplest example of a passive-dynamic walker; it has no control inputs but
+    exhibits a passively stable rolling fixed point.  We've also <a
+    href="limit_cycles.html">already seen</a> that trajectory optimization can
+    be used as a tool for finding limit cycles of a smooth passive system, e.g.
+    by formulating a direct collocation problem: \begin{align*}
+    \find_{\bx[\cdot],h} \quad \subjto \quad & \text{collocation
+    constraints}(\bx[n], \bx[n+1], h), \quad \forall n \in [0, N-1] \\ & \bx[0]
+    = \bx[N], \\ & h_{min} \le h \le h_{max},\end{align*} where $h$ was the
+    time step between the trajectory break points.</p>
+
+    <p>It turns out that applying this to the rimless wheel is quite straight
+    forward.  We still want to find a periodic trajectory, but now have to take
+    into account the collision event.  We can do this by modifying the
+    periodicity condition.  Let's force the initial state to be just after the
+    collision, and the final state to be just before the collision, and make
+    sure they are related to each other via the collision equation:
+    \begin{align*} \find_{\bx[\cdot],h} \quad \subjto \quad & \text{collocation
+    constraints}(\bx[n], \bx[n+1], h), \quad \forall n \in [0, N-1] \\ &
+    \theta[0] = \gamma - \alpha, \\ & \theta[N] = \gamma + \alpha, \\ &
+    \dot\theta[0] = \dot\theta[N] \cos(2\alpha)\\ & h_{min} \le h \le h_{max}.
+    \end{align*}  Although it is likely not needed for this simple example
+    (since the dynamics are sufficiently limited), for completeness one should
+    also add constraints to ensure that none of the intermediate points are in
+    contact, $$\gamma - \alpha \le \theta[n] < \gamma + \alpha, \quad \forall n
+    \in [1,N-1].$$</p>
+
+    <p>The result is a simple and clean numerical algorithm for finding the
+    rolling limit cycle solution of the rimless wheel.  Please take it for a
+    spin:</p>
+
+    <script>document.write(notebook_link('contact', 'rimless_wheel'))</script>
+
+  </example>
+
+  <p>The specific case of the rimless wheel is quite clean.  But before we apply
+  it to the compass gait, the kneed compass gait, the spring-loaded inverted
+  pendulum, etc, then we should stop and figure out a more general form.</p>
+
+  <section><h1>(Autonomous) Hybrid Systems</h1>
+  
+    <p>Recall how we modeled the dynamics of the simple legged robots. First, we
+    derived the equations of motion (independently) for each possible contact
+    configuration -- for example, in the spring-loaded inverted pendulum (SLIP)
+    model we had one set of equations governing the $(x,y)$ position of the mass
+    during the flight phase, and a completely separate set of equations written
+    in polar coordinates, $(r,\theta)$, describing the stance phase.  Then we
+    did a little additional work to describe the transitions between these
+    models -- e.g., in SLIP we transitioned from flight to stance when the foot
+    first touches the ground.  When simulating this model, it means that we have
+    a discrete "event" which occurs at the moment of foot collision, and an
+    immediate discontinuous change to the state of the robot (in this case we
+    even change out the state variables).</p>
+  
+    <p>The language of <i>hybrid systems</i> gives us a rich language for
+    describing systems of this form, and a suite of tools for analyzing and
+    controlling them.  The term "hybrid systems" is a bit overloaded, here we
+    use "hybrid" to mean both discrete- and continuous-time, and the particular
+    systems we consider here are sometimes called <i>autonomous</i>
+    hybrid systems because the internal dynamics can cause the discrete changes
+    without any exogeneous input<sup>&dagger;</sup><sidenote><sup>&dagger;</sup>This is in contrast
+    to, for instance, the model of a power-train where a change in gears comes
+    as an external input.</sidenote>.  In the hybrid systems formulation, we describe a system by a set of <i>modes</i> each described by (ideally
+    smooth) continuous dynamics, a set of <i>guards</i> which here are
+    continuous functions whose zero-level set describes the conditions which
+    trigger an event, and a set of <i>resets</i> which describe the discrete
+    update to the state that is triggered by the guard.  Each guard is
+    associated with a particular mode, and we can have multiple guards per mode.
+    Every guard has at most one reset.  You will occasionally hear guards
+    referred to as "witness functions", since they play that role in simulation,
+    and resets are sometimes referred to as "transition functions".</p>
+
+    <p>The imagery that I like to keep in my head for hybrid systems is
+    illustrated below for a simple example of a robot's heel striking the
+    ground.  A solution trajectory of the hybrid system has a continuous
+    trajectory inside each mode, punctuated by discrete updates when the
+    trajectory hits the zero-level set of the guard (here the distance between
+    the heel and the ground becomes zero), with the reset describing the
+    discrete change in the state variables.</p>
+  
+    <figure> <img width="90%" src="figures/hybrid.svg"/>
+    <figcaption>Modeling contact as a hybrid system.</figcaption>
+    </figure>
+
+    <p>For this robot foot, we can decompose the dynamics into distinct modes: (1) foot in the air, (2) only heel on the ground, (3) heel and toe on the ground, (4) only toe on the ground (push-off). More generally, we will write the dynamics of mode $i$ as ${\bf f}_i$, the guard which signals the transition mode $i$ to mode $j$ as ${\bf \phi}_{i,j}$ (where $\phi_{i,j}(\bx_i) > 0$ inside mode $i$), and the reset map from $i$ to $j$ as ${\bf \Delta}_{i,j}$, as illustrated in the following figure:</p>
+
+    <figure> <img width="100%" src="figures/hybrid_guard_reset.svg"/>
+      <figcaption>The language of hybrid systems: modes, guards, and reset maps.</figcaption>
+    </figure>
+  
+
+    <subsection><h1>Hybrid trajectory optimization</h1>
+    
+      <p>Using the more general language of modes, guards, and resets, we can
+      begin to formulate the "hybrid trajectory optimization" problem.  In
+      hybrid trajectory optimization, there is a major distinction between
+      trajectory optimization where <i>the mode sequence is known apriori</i>
+      and the optimization is just attempting to solve for the
+      continuous-time trajectories, vs one in which we must also discover the
+      mode sequence.</p>
+
+      <subsubsection><h1>Given a fixed mode sequence</h1>
+
+        <p>For the case when the mode sequence is fixed, then hybrid trajectory
+        optimization can be as simple as stitching together multiple individual
+        mathematical programs into a single mathematical program, with the
+        boundary conditions constrained to enforce the guard/reset constraints.
+        Using the shorthand $\bx_k$ for the state in the $k$th segment of the
+        sequence, and $m_k$ for the mode in segment $k$, we can write:
+        \begin{align*} \find_{\bx_k[\cdot],h_k} \quad \subjto \quad & \bx_0[0]
+        = \bx_0, \\ \forall k, \forall n_k \in [0, N_k-1], \quad &
+        \text{collocation constraints}_{m_k}(\bx_k[n_k], \bx_k[n_k+1],
+        h_k[n_k]), \\ & h_{min} \le h_k[n_k] \le h_{max}, \\ \forall
+        k\in[0,K-1] \quad & \phi_{m_k,m_{k+1}}(\bx_k[N_k]) = 0, \\ &
+        \bx_{k+1}[0] = {\bf \Delta}_{m_k,m_{k+1}}(\bx_k[N_k]), \\ \forall k,
+        n_k, m \in G \quad & \phi_{m_k,m}(\bx_k[n_k]) > 0. \end{align*} The
+        constraints in the last line ensure that no trajectories intersect an
+        <i>unscheduled</i> guard, and $G$ is taken to be the tuples of $k,n_k,
+        m$ which list all guards and times <i>except</i> the scheduled ones. It
+        is then natural to add control inputs (as additional decision
+        variables), and to add an objective and any more constraints.
+        </p>
+
+        <example><h1>A basketball trick shot.</h1>
+        
+          <p>As a simple example of this hybrid trajectory optimization, I
+          thought it would be fun to see if we can formulate the search for
+          initial conditions that optimizes a basketball "trick shot".  A quick
+          search turned up <a href="https://youtu.be/Mayx9OrXWIM">this
+          video</a> for inspiration.</p>
+
+          <p>Let's start simpler -- with just a "bounce pass".  We can capture
+          the dynamics of a bouncing ball (in the plane, ignoring spin) with
+          some very simple dynamics: $$\bq = \begin{bmatrix}x \\
+          z\end{bmatrix}, \qquad \ddot{\bq} = \begin{bmatrix} 0 \\ -g
+          \end{bmatrix}.$$  During any time interval without contact of
+          duration $h$, we can actually integrate these dynamics perfectly:
+          $$\bx(t+h) = \begin{bmatrix} x(t) + h\dot{x}(t) \\ z(t) + h
+          \dot{z}(t) - \frac{1}{2}gh^2 \\ \dot{x}(t) \\ \dot{z}(t) - hg
+          \end{bmatrix}.$$  With the bounce pass, we just consider collisions
+          with the ground, so we have a guard, ${\bf \phi}(\bx) = z,$ which
+          triggers when $z=0$, and a reset map which assumes an elastic
+          collision with <a
+          href="https://en.wikipedia.org/wiki/Coefficient_of_restitution">coefficient
+          of restitution</a> $e$: $$\bx^+ = {\bf \Delta(\bx^-)} =
+          \begin{bmatrix} x^- & z^- & \dot{x}^- & - e \dot{z}^-
+          \end{bmatrix}^T.$$</p>
+
+          <p>We'll formulate the problem as this:  given an initial ball
+          position $(x = 0, z = 1)$, a final ball position 4m away $(x=4,
+          z=1)$, find the initial velocity to achieve that goal in 5 seconds.
+          Clearly, this implies that $\dot{x}(0) = 4/5.$  The interesting
+          question is -- what should we do with $\dot{z}(0)$?  There are
+          multiple solutions -- which involve bouncing a different number of
+          times.  We can find them all with a simple hybrid trajectory
+          optimization, using the observation that there are two possible
+          solutions for each number of bounces -- one that starts with a
+          positive $\dot{z}(0)$ and one with a negative $\dot{z}(0)$.</p>
+
+          <script>document.write(notebook_link('contact', 'basketball'))</script>
+              
+          <figure>
+            <img width="100%" src="figures/bounce_pass.svg"/>
+            <figcaption>Trajectory optimization to find solutions for a "bounce
+            pass".  I've plotted all solutions that were found for 2, 3, or 4 bounces... but I think it's best to stick to a single bounce if you're using this on the court.</figcaption>
+          </figure>
+
+          <p>Now let's try our trick shot.  I'll move our goal to $x_f = -1m,
+          z_f = 3m,$ and introduce a vertical wall at $x=0$, and move our
+          initial conditions back to $x_0=-.25m.$  The collision dynamics,
+          which now must take into account the spin of the ball, are <a
+          href="multibody.html#spinning_ball_bouncing">in the appendix</a>.
+          The first bounce is against the wall, the second is against the
+          floor.  I'll also constrain the final velocity to be down (have to
+          approach the hoop from above).  Try it out.</p>
+
+          <script>document.write(notebook_link('contact', 'basketball'))</script>
+              
+          <figure>
+            <img width="100%" src="figures/trick_shot.svg"/>
+            <figcaption>Trajectory optimization for the "trick shot".  Nothing but
+            the bottom of the net!  The crowd is going wild!</figcaption>
+          </figure>
+          
+          <p>In this example, we could integrate the dynamics in each segment
+          analytically.  That is the exception, not the rule.  But you can take
+          the same steps with a little more code to use, e.g. direct
+          transcription or collocation with multiple break points in each
+          segment.</p>
+
+        </example>
+
+      </subsubsection>
+
+      <subsubsection><h1>Direct shooting</h1>
+
+        <p>It is also possible to optimize the trajectory in a single shot by
+        taking gradients through the guard/reset map. This method does not
+        require an explicit mode sequence, but is prone to having local minima
+        (since there is no gradient to "pull" the trajectory towards a guard
+        that is not visited along the nominal trajectory).</p>
+
+        <p>In order to achieve this, we need to take the gradient of the cost
+        with respect to the trajectory parameters. The methods we've developed
+        previously for calculating gradients using the adjoint method (e.g.
+        "backpropagation through time") in <a
+        href="trajopt.html#backprop_through_time">discrete</a>
+        and <a href="trajopt.html#pontryagin_ct">continuous</a> time can be
+        combined to handle the hybrid case. The derivation is <i>almost</i> as
+        simple as using the continuous adjoint equation to solve (from the
+        final time forward) for the continuous modes, and the discrete adjoint
+        equation to handle the jump discontinuity. The only detail is that we
+        also have to consider variations relative to the contact time; this
+        gradient is often referred to as the "Saltation matrix".</p>
+
+        <p>Consider the case of two modes and one transition in our canonical
+        hybrid system picture above.  Then one could write the total cost as
+        \begin{gather*} J_\balpha = \int_0^{t_c^-} \ell_1(\bx_1, \bu_\balpha)
+        dt + \int_{t_c^+}^{t_f} \ell_2(\bx_2, \bu_\balpha) dt,\\ \dot{\bx}_1 =
+        {\bf f}_1(\bx_1, \bu_\balpha), \quad \dot{\bx}_2 = {\bf f}_2(\bx_2,
+        \bu_\balpha), \quad \bx_2(t_c^+) = {\bf \Delta}_{1,2}(\bx_1(t_c^-)).
+        \end{gather*} We wish to take the gradient of $J$ with respect to the
+        trajectory parameters, $\alpha$.  The gradient of the first and second
+        integrals is exactly the familiar continuous-time case, but the second
+        integral must be initialized with $\pd{\bx_2(t_c^+)}{\alpha_i},$ which
+        should be related to $\pd{\bx_1(t_c^-)}{\alpha_i}$ via the discrete
+        transition. The important point is to capture the dependence of this
+        transition not only on $\bx$ but also on $t_c$, which both depend on
+        $\balpha.$  Writing it out we have...
+
+      </subsubsection>
+
+    </subsection>
+  
+    <subsection id="floating_base">
+      <h1>Deriving hybrid models: minimal vs floating-base
+    coordinates</h1>
+
+      <p>There is some work to do in order to derive the equations of motion in
+      this form.  Do you remember how we did it for the <a
+      href="simple_legs.html">rimless wheel and compass gait</a> examples?  In
+      both cases we assumed that exactly one foot was attached to the ground and
+      that it would not slip, this allowed us to write the Lagrangian as if
+      there was a pin joint attaching the foot to the ground to obtain the
+      equations of motion.  For the SLIP model, we derived the flight phase and
+      stance phase using separate Lagrangian equations each with different state
+      representations.  I would describe this as the <i>minimal coordinates</i>
+      modeling approach -- it is elegant and has some important computational
+      advantages that we will come to appreciate in the algorithms below. But
+      it's a lot of work!  For instance, if we also wanted to consider friction
+      in the foot contact of the rimless wheel, we would have to derive yet
+      another set of equations to describe the sliding mode (adding, for
+      instance, a prismatic joint that moved the foot along the ramp), plus the
+      guards which compute the contact force for a given state and the distance
+      from the boundary of the friction cone, and on and on.</p>
+    
+      <!-- But, actually, it could get more complicated still: in each of the contact modes the foot could be in the static friction regime or could be sliding.  And what if there is rough terrain, so we could make contact at more points.  And what if we -->
+
+      <p>Fortunately, there is an alternative modeling approach for deriving
+      the modes, guards, and resets for contact that is more general (though it
+      makes the dynamics of each mode a bit more complex).  We can instead
+      model the robot in the <i>floating-base coordinates</i> -- we add a
+      fictitious six degree-of-freedom "floating-base" joint connecting some
+      part of the robot to the world (in planar models, we use just three
+      degrees-of-freedom, e.g. $(x,z,\theta)$).  We can derive the equations of
+      motion for the floating-base robot once, without considering contact,
+      then add the additional constraints that come from being in contact as
+      contact forces which get applied to the bodies. The resulting manipulator
+      equations take the form \begin{equation}\bM({\bq})\ddot{\bq} +
+      \bC(\bq,\dot{\bq})\dot\bq = \btau_g(\bq) + \bB\bu + \sum_i \bJ_i^T(\bq)
+      \blambda_i,\end{equation} where $\blambda_i$ are the constraint forces
+      and $\bJ_i$ are the constraint Jacobians.  Conveniently, if the guard
+      function in our contact equations is the signed distance from contact,
+      $\phi_i(\bq)$, then this Jacobian is simply $\bJ_i(\bq) =
+      \pd{\phi_i}{\bq}$.  I've written the basic derivations for the common
+      cases (position constraints, velocity constraints, impact equations, etc)
+      in the
+      <a href="multibody.html">appendix</a>. What is important to understand
+      here is that this is an alternative formulation for the equations
+      governing the modes, guards, and resets, but that is it no longer a
+      minimal coordinate system -- the equations of motion are written in $2N$
+      state variables but the system might actually be constrained to evolve
+      only along a lower dimensional manifold (if we write the rimless wheel
+      equations with three configuration variables for the floating base, it
+      still only rotates around the toe when it is in stance and is inside the
+      friction cone). This will have implications for our algorithms.</p>
+
+      <p>Note that there are some subtleties about using direct collocation
+      methods with systems parameterized in the floating-base coordinates with
+      additional contact constraints -- the naive implementation of direct
+      collocation may not have enough degrees of freedom in the spline to
+      satisfy the dynamics constraints exactly at the knot points and the
+      collocation points. <elib>Posa15</elib> shows the natural extension of
+      direct collocation to constrained systems; and describes more completely
+      the advantages of parameterizing contact forces as decision
+      variables.</p>
+
+      <p>For completeness, you might also hear the term <i>maximal
+      coordinates</i>. This is the extreme case where every rigid body in the
+      robot is parameterized with its own floating-base, and even the robot
+      joints are implemented as constraints holding the links together. This
+      has been used by some notable simulation engines (e.g. the <a
+      href="https://www.ode.org/">Open Dynamics Engine</a>), and may have
+      advantages for some computational methods. But for our purposes, using
+      the dynamics in floating-base coordinates is typically much more
+      effective.</p>
+
+    </subsection>
+  
+    <todo>Grandia 2019 - Feedback MPC for Torque-controlled Legged Robots looks
+    at a relaxation of the friction cone via a barrier certificate for iLQR.
+    "In particular, the friction cone is implemented through a perturbed
+    second-order cone constraint. This formulation adds a convex penalty to
+    the cost function and avoids numerical ill-conditioning at the origin of the
+    cone."  Could go in the playbook, if not here.</todo>
+
+    <subsection id="discrete control"><h1>Discrete control (between events)</h1>
+    
+      <!-- e.g. the slip model. juggling. many quadrupeds. -->
+      <p>In our discussion of the <a href="simple_legs.html#slip">SLIP
+      model</a> of running robots, we introduced a surprisingly simple but
+      effective approach to achieving a <a
+      href="simple_legs.html#slip_control">"deadbeat" controller</a>, with
+      control decisions happening just once per cycle. There is a natural
+      generalization of this idea to more general hybrid systems...</p>
+    
+    </subsection>
+
+    <subsection id="hybrid_lqr"><h1>Hybrid LQR</h1>
+    
+      <p>Coming soon (see <elib>Manchester10</elib>).</p>
+
+    </subsection>
+
+    <subsection id="hybrid_lyapunov"><h1>Hybrid Lyapunov analysis</h1>
+    
+      <p>Coming soon (see <elib>Manchester10a+Manchester10b</elib>).</p>
+
+    </subsection>
+
+  </section>
+
+  <section id="contact_implicit">
+    <h1>Contact-implicit trajectory optimization</h1>
+  
+    <p>Coming soon.  (for starters, see <elib>Posa13</elib>, or <elib>Wensing22</elib> for a recent survey).</p>
+
+  </section>
+
+  <section id="gcs"><h1>Leveraging combinatorial optimization</h1>
+  
+    <example><h1>Basketball bounce passes (again)</h1>
+    
+    </example>
+
+    <example><h1>Juggling</h1>
+    
+    </example>
+
+    <p><elib>Graesdal24</elib> presents our best convex relaxations of the contact
+    dynamics when rotations are involved. The results presented there are for
+    quasi-dynamic systems, but the same relaxations can be applied for dynamic
+    constraints.</p>
+
+  </section>
+
+  <!--
+  <section><h1>Randomized Motion Planning</h1></section>
+
+  <section><h1>Stabilizing a Fixed-Point</h1>
+
+  </section>
+
+  <section><h1>Stabilizing a Trajectory or Limit Cycle</h1>
+
+    <p>Transverse stabilization (build off limit cycle chapter)</p>
+  </section>
+
+  <section><h1>Stability analysis</h1></section>
+-->
+
+  <section><h1>Exercises</h1>
+
+    <exercise><h1>Finding the compass gait limit cycle</h1>
+
+      <p>In this exercise we use trajectory optimization to identify a limit
+      cycle for the compass gait.  We use a rather general approach: the robot
+      dynamics is described in floating-base coordinates and frictional contacts
+      are accurately modeled.  <script>document.write(notebook_link('contact', 'exercises/compass_gait_limit_cycle', link_text='In this notebook'))</script>,
+      you are asked to code many of the constraints this optimization
+      problem requires:</p>
+
+      <ol type="a">
+
+        <li>Enforce the contact between the stance foot and the ground at all
+        the break points.</li>
+
+        <li>Enforce the contact between the swing foot and the ground at the
+        initial time.</li>
+
+        <li>Prevent the penetration of the swing foot in the ground at all
+        the break points. (In this analysis, we will neglect the scuffing
+        between the swing foot and the ground which arises when the swing leg
+        passes the stance leg.)</li>
+
+        <li>Ensure that the contact force at the stance foot lies in the 
+        friction cone at all the break points.</li>
+
+        <li>Ensure that the impulse generated by the collision of the swing foot
+        with the ground lies in the friction cone.</li>
+
+      </ol>
+
+    </exercise>
+
+</section>
+
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Posa15>
+<span class="author">Michael Posa and Scott Kuindersma and Russ Tedrake</span>, 
+<span class="title">"Optimization and stabilization of trajectories for constrained dynamical systems"</span>, 
+<span class="publisher">Proceedings of the International Conference on Robotics and Automation (ICRA)</span> , pp. 1366-1373, May, <span class="year">2016</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Posa15.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Manchester10>
+<span class="author">Ian R. Manchester and Uwe Mettin and Fumiya Iida and Russ Tedrake</span>, 
+<span class="title">"Stable Dynamic Walking Over Uneven Terrain"</span>, 
+<span class="publisher">The International Journal of Robotics Research (IJRR)</span>, vol. 30, no. 3, pp. 265-279, January 24, <span class="year">2011</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Manchester10.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Manchester10a>
+<span class="author">Ian R. Manchester</span>, 
+<span class="title">"Transverse Dynamics and Regions of Stability for Nonlinear Hybrid Limit Cycles"</span>, 
+<span class="publisher">Proceedings of the 18th IFAC World Congress, extended version available online: arXiv:1010.2241 [math.OC]</span>, Aug-Sep, <span class="year">2011</span>.
+
+</li><br>
+<li id=Manchester10b>
+<span class="author">Ian R. Manchester and Mark M. Tobenkin and Michael Levashov and Russ Tedrake</span>, 
+<span class="title">"Regions of Attraction for Hybrid Limit Cycles of Walking Robots"</span>, 
+<span class="publisher">Proceedings of the 18th IFAC World Congress, extended version available online: arXiv:1010.2247 [math.OC]</span>, <span class="year">2011</span>.
+
+</li><br>
+<li id=Posa13>
+<span class="author">Michael Posa and Cecilia Cantu and Russ Tedrake</span>, 
+<span class="title">"A Direct Method for Trajectory Optimization of Rigid Bodies Through Contact"</span>, 
+<span class="publisher">International Journal of Robotics Research</span>, vol. 33, no. 1, pp. 69-81, January, <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Posa13.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Wensing22>
+<span class="author">Patrick M Wensing and Micheal Posa and Yue Hu and Adriend Escande and Nicolas Mansard and Andrea Del Prete</span>, 
+<span class="title">"Optimization-based control for dynamic legged robots"</span>, 
+<span class="publisher">arXiv preprint arXiv:2211.11644</span>, <span class="year">2022</span>.
+
+</li><br>
+<li id=Graesdal24>
+<span class="author">Bernhard P Graesdal and Shao Yuan Chew Chia and Tobia Marcucci and Savva Morozov and Alexandre Amice and Pablo A Parrilo and Russ Tedrake</span>, 
+<span class="title">"Towards Tight Convex Relaxations for Contact-Rich Manipulation"</span>, 
+<span class="publisher">arXiv preprint arXiv:2402.10312</span>, <span class="year">2024</span>.
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=limit_cycles.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=sysid.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2024</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>

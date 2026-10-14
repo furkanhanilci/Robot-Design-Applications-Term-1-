@@ -1,0 +1,177 @@
+{
+  "id": 56,
+  "name": "MCUboot",
+  "type": "Resmi bootloader dokümantasyonu",
+  "url": "https://docs.mcuboot.com/",
+  "folder": "56_MCUboot",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://docs.mcuboot.com/",
+      "final_url": "https://docs.mcuboot.com/",
+      "kind": "html",
+      "bytes": 8706,
+      "sha256": "726e2260db16db44de1e2d67d35dfedeb686f8394a38e516bb1c58083a9f37e1"
+    },
+    {
+      "file": "page_4bb64c91b7.html",
+      "url": "https://docs.mcuboot.com/release-notes.html",
+      "final_url": "https://docs.mcuboot.com/release-notes.html",
+      "kind": "html",
+      "bytes": 84284,
+      "sha256": "7bd0897ab3df2b37eb4c6aaf77d5d837053d0b13a58649c6484e8831d5007e55"
+    },
+    {
+      "file": "page_2e2ffd42ca.html",
+      "url": "https://docs.mcuboot.com/design.html",
+      "final_url": "https://docs.mcuboot.com/design.html",
+      "kind": "html",
+      "bytes": 103372,
+      "sha256": "ec5a47fee04f1abce4364b8c811fa1b5e3fdf73edb854c5f13713e81b0ad7e9e"
+    },
+    {
+      "file": "page_9abf3268da.html",
+      "url": "https://docs.mcuboot.com/encrypted_images.html",
+      "final_url": "https://docs.mcuboot.com/encrypted_images.html",
+      "kind": "html",
+      "bytes": 15591,
+      "sha256": "b7b57e3249c772cb59b3700fc75d2857470df885991676c117fb80b21bdb985b"
+    },
+    {
+      "file": "page_c82c7ac1a4.html",
+      "url": "https://docs.mcuboot.com/imgtool.html",
+      "final_url": "https://docs.mcuboot.com/imgtool.html",
+      "kind": "html",
+      "bytes": 19728,
+      "sha256": "b76cf9741d7820690d3d196ceb6e85b943cf12aaa9aede19e415ae05fd08a893"
+    },
+    {
+      "file": "page_760ce87101.html",
+      "url": "https://docs.mcuboot.com/ecdsa.html",
+      "final_url": "https://docs.mcuboot.com/ecdsa.html",
+      "kind": "html",
+      "bytes": 7437,
+      "sha256": "a9d3bbd348b6825b0057ae88adfb39abebeb7b2bc1fc79badaef8862c9216bec"
+    },
+    {
+      "file": "page_d2ba3eece6.html",
+      "url": "https://docs.mcuboot.com/custom_crypto.html",
+      "final_url": "https://docs.mcuboot.com/custom_crypto.html",
+      "kind": "html",
+      "bytes": 27064,
+      "sha256": "27e8781ba7b1a40f04cbf145ecf90302abdfcaad29caecec9967ba9cb2177373"
+    },
+    {
+      "file": "page_8151f2b9a5.html",
+      "url": "https://docs.mcuboot.com/serial_recovery.html",
+      "final_url": "https://docs.mcuboot.com/serial_recovery.html",
+      "kind": "html",
+      "bytes": 11820,
+      "sha256": "6a789240dfe5883b7c90775dee6f265ceee07d8ca3c0bf896dc9d6ff7c7a9190"
+    },
+    {
+      "file": "page_adfd4dc224.html",
+      "url": "https://docs.mcuboot.com/readme-zephyr.html",
+      "final_url": "https://docs.mcuboot.com/readme-zephyr.html",
+      "kind": "html",
+      "bytes": 27369,
+      "sha256": "df46dab1d7dd304023689d5e930f4f987eb3c0ddc2b00ea64692c77c81f65e93"
+    },
+    {
+      "file": "page_903e412f73.html",
+      "url": "https://docs.mcuboot.com/readme-mynewt.html",
+      "final_url": "https://docs.mcuboot.com/readme-mynewt.html",
+      "kind": "html",
+      "bytes": 5902,
+      "sha256": "af10ce7ec99b888bbd0d1ae1177659698fb30b51f811759dfb7bc502f027da64"
+    },
+    {
+      "file": "page_d500fea931.html",
+      "url": "https://docs.mcuboot.com/readme-nuttx.html",
+      "final_url": "https://docs.mcuboot.com/readme-nuttx.html",
+      "kind": "html",
+      "bytes": 10810,
+      "sha256": "6fe578cffc5916f6b9b712f8147edd77846cb1d3829988e2fdbbea3fa0399a01"
+    },
+    {
+      "file": "page_224d62e3fc.html",
+      "url": "https://docs.mcuboot.com/readme-riot.html",
+      "final_url": "https://docs.mcuboot.com/readme-riot.html",
+      "kind": "html",
+      "bytes": 5506,
+      "sha256": "d4ec43a9dc03b7f799ea9184ee51cf23e2785101ae139b72f92bd6c99eb973ad"
+    },
+    {
+      "file": "page_92cbddae12.html",
+      "url": "https://docs.mcuboot.com/readme-mbed.html",
+      "final_url": "https://docs.mcuboot.com/readme-mbed.html",
+      "kind": "html",
+      "bytes": 7413,
+      "sha256": "cf36ea5eba201d58eec9135cb93f5bac56f4abc124376d547db87e2b9bf7080a"
+    },
+    {
+      "file": "page_d83a3deb19.html",
+      "url": "https://docs.mcuboot.com/readme-espressif.html",
+      "final_url": "https://docs.mcuboot.com/readme-espressif.html",
+      "kind": "html",
+      "bytes": 92942,
+      "sha256": "584d1142246a94c178184b2663d4a90f84c8631ca8b66e907314bb10987e8ff0"
+    },
+    {
+      "file": "page_2fbdd63ac0.html",
+      "url": "https://docs.mcuboot.com/testplan-zephyr.html",
+      "final_url": "https://docs.mcuboot.com/testplan-zephyr.html",
+      "kind": "html",
+      "bytes": 6224,
+      "sha256": "454be0db215a038a18a6432203f401723bd92ccab2d9f68643380a5fe56ac0b4"
+    },
+    {
+      "file": "page_57259a6910.html",
+      "url": "https://docs.mcuboot.com/testplan-mynewt.html",
+      "final_url": "https://docs.mcuboot.com/testplan-mynewt.html",
+      "kind": "html",
+      "bytes": 11027,
+      "sha256": "b8c96387fb14cbacd0aaeb5b4d34a6f9417fb9689ff4b79b216642dd2521cc9e"
+    },
+    {
+      "file": "page_5b2691c4c3.html",
+      "url": "https://docs.mcuboot.com/release.html",
+      "final_url": "https://docs.mcuboot.com/release.html",
+      "kind": "html",
+      "bytes": 9774,
+      "sha256": "cac37fa69a112d9752af7f20194ce4abd34b3fc94c43907dfe9626da59843e02"
+    },
+    {
+      "file": "page_260af77a06.html",
+      "url": "https://docs.mcuboot.com/SECURITY.html",
+      "final_url": "https://docs.mcuboot.com/SECURITY.html",
+      "kind": "html",
+      "bytes": 4180,
+      "sha256": "579a46aa81c6c03862676107d5bcea769f2b392857650ddc386f407d438923e0"
+    },
+    {
+      "file": "page_80b1d8cd46.html",
+      "url": "https://docs.mcuboot.com/SubmittingPatches.html",
+      "final_url": "https://docs.mcuboot.com/SubmittingPatches.html",
+      "kind": "html",
+      "bytes": 6709,
+      "sha256": "2403b56fcefc94980fbe01db192af41202644396c96bd71cf0342db5189484ae"
+    },
+    {
+      "file": "page_4f28ee23be.html",
+      "url": "https://docs.mcuboot.com/signed_images.html",
+      "final_url": "https://docs.mcuboot.com/signed_images.html",
+      "kind": "html",
+      "bytes": 8381,
+      "sha256": "93ddcd6a73bded74843925913a8dd92cdfcfec9627f81ca7dd13930fe36ea6b2"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:49:06+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

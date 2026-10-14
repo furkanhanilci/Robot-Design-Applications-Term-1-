@@ -1,0 +1,19 @@
+{
+  "id": 21,
+  "files": [
+    {
+      "file": "supplement_044b87b022.html",
+      "url": "https://www.colorado.edu/ecee/algorithms-battery-management-systems",
+      "final_url": "https://www.colorado.edu/ecee/algorithms-battery-management-systems",
+      "kind": "html",
+      "bytes": 24349,
+      "sha256": "7e61dd16de7d0df20e269065bb0d927fd26de88b27dc8ab4d6b5b032a9c3e363"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://mocha-java.uccs.edu/ECE5720/",
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  ]
+}

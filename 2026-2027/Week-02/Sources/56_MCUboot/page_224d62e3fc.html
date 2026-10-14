@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Building and using MCUboot with RIOT | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Building and using MCUboot with RIOT" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/readme-riot.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/readme-riot.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building and using MCUboot with RIOT" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"Building and using MCUboot with RIOT","url":"https://docs.mcuboot.com/readme-riot.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Building and using MCUboot with RIOT</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="building-and-using-mcuboot-with-riot">Building and using MCUboot with RIOT</h1>
+
+<p>MCUboot began its life as the bootloader for Mynewt.  It has since
+acquired the ability to be used as a bootloader for RIOT as well.
+Currently the support is limited to the nrf52dk platform.</p>
+
+<h2 id="building-the-bootloader-itself">Building the bootloader itself</h2>
+
+<p>In this first version, a prebuilt Mynewt binary is downloaded at
+compile time.  This binary was compiled to do an integrity check, but
+not a signature check. In order to configure the bootloader for
+signature check it is necessary to re-compile it either with Mynewt
+or Zephyr, following the provided instructions.</p>
+
+<p>In the next version, it is planned to compile MCUboot using RIOT,
+which should be able to boot any of the supported OS images.</p>
+
+<h2 id="building-applications-for-the-bootloader">Building applications for the bootloader</h2>
+
+<p>A compatible MCUboot image can be compiled by typing: <code class="language-plaintext highlighter-rouge">make mcuboot</code>.</p>
+
+<p>The only variable which needs to be set is <code class="language-plaintext highlighter-rouge">IMAGE_VERSION</code> loaded
+with a valid formatted value. The format is <code class="language-plaintext highlighter-rouge">major.minor.patch+other</code>
+(e.g. <code class="language-plaintext highlighter-rouge">export IMAGE_VERSION= 1.1.1+1</code>. This variable can be either
+exported in the Makefile or manually, prior to the compilation process.</p>
+
+<p>The goal is to produce an ELF file which is linked to be flashed at a
+<code class="language-plaintext highlighter-rouge">BOOTLOADER_OFFSET</code> offset rather than the beginning of ROM.  MCUboot
+also expects an image padded with some specific headers containing the
+version information, and trailer type-length-value records (TLVs) with
+hash and signing information. This is done through the imgtool.py
+application, which is executed automatically by the RIOT build system.</p>
+
+<h3 id="signing-the-application">Signing the application</h3>
+
+<p>The application will be automatically signed with the provided key.
+If no key is provided, a new key will be automatically generated. The
+default key type is RSA-2048.</p>
+
+<p>In order to use your provided key, you need to recompile the bootloader
+using you public key, either in Zephyr or Mynewt by following the
+provided procedure for the selected OS.</p>
+
+<h3 id="flashing-the-application">Flashing the application</h3>
+
+<p>The application can be flashed by typing: <code class="language-plaintext highlighter-rouge">make flash-mcuboot</code>.
+This will flash both the bootloader and the application.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

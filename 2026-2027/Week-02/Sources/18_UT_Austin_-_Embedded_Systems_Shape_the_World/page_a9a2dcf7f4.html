@@ -1,0 +1,1947 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=windows-1252"
+ http-equiv="content-type">
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+  <title>Chapter 17: Local variables and LCD output</title>
+  <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Garamond;
+	panose-1:2 2 4 4 3 3 1 1 8 3;}
+@font-face
+	{font-family:Geneva;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:"ClassGarmnd BT";}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:28.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:16.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+h6
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:8.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:10.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-variant:small-caps;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:49.6pt;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:22.0pt;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:40.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:80.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-link:"Caption Char1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:5.75pt;
+	text-indent:-5.75pt;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoPageNumber
+	{font-weight:bold;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{mso-style-link:"List Bullet Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:74.9pt;
+	text-align:justify;
+	text-indent:-.25in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:78.5pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:96.5pt;
+	text-align:justify;
+	text-indent:-.3in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:1.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:100.1pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:121.7pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:141.75pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	background:black;
+	font-size:36.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-name:"Body Text Indent\,Chapter overview";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:85.05pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:56.7pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:right;
+	font-size:22.0pt;
+	font-family:"Arial Narrow","sans-serif";}
+p.MsoBodyTextFirstIndent, li.MsoBodyTextFirstIndent, div.MsoBodyTextFirstIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:justify;
+	text-indent:10.5pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:200%;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:8.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:.25in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:.25in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+em
+	{text-transform:uppercase;
+	font-style:normal;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-top:5.0pt;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+tt
+	{font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman","serif";}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.ListBulletChar
+	{mso-style-name:"List Bullet Char";
+	mso-style-link:"List Bullet";
+	font-family:"Times New Roman","serif";}
+span.CaptionChar1
+	{mso-style-name:"Caption Char1";
+	mso-style-link:Caption;
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+p.PictureWide, li.PictureWide, div.PictureWide
+	{mso-style-name:"Picture Wide";
+	mso-style-link:"Picture Wide Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.PictureWideChar
+	{mso-style-name:"Picture Wide Char";
+	mso-style-link:"Picture Wide";
+	font-family:"Garamond","serif";}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{mso-style-name:"Table Heading";
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:.05in;
+	text-indent:0in;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+p.Checkpoint, li.Checkpoint, div.Checkpoint
+	{mso-style-name:Checkpoint;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:1.0in;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+p.BulletList, li.BulletList, div.BulletList
+	{mso-style-name:"Bullet List";
+	mso-style-link:"Bullet List Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";
+	font-family:"Book Antiqua","serif";}
+span.BulletListChar
+	{mso-style-name:"Bullet List Char";
+	mso-style-link:"Bullet List";
+	font-family:"Garamond","serif";}
+p.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, li.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, div.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth
+	{mso-style-name:"Style Justified Top\: \(Single solid line Auto  0\.75 pt Line width\)";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman","serif";}
+p.BodyText, li.BodyText, div.BodyText
+	{mso-style-name:BodyText;
+	mso-style-link:"BodyText Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+span.BodyTextChar0
+	{mso-style-name:"BodyText Char";
+	mso-style-link:BodyText;
+	font-family:"Times New Roman","serif";}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.5in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Book Antiqua","serif";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman","serif";}
+p.CoverSubHeads, li.CoverSubHeads, div.CoverSubHeads
+	{mso-style-name:"Cover SubHeads";
+	margin-top:28.35pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:16.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+p.Picture, li.Picture, div.Picture
+	{mso-style-name:Picture;
+	mso-style-link:"Picture Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:9.0in;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.PictureChar
+	{mso-style-name:"Picture Char";
+	mso-style-link:Picture;
+	font-family:"Garamond","serif";}
+p.TableBodyText, li.TableBodyText, div.TableBodyText
+	{mso-style-name:"Table Body Text";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.TableBullet, li.TableBullet, div.TableBullet
+	{mso-style-name:"Table Bullet";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:110.4pt;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"ClassGarmnd BT","serif";
+	color:black;}
+p.BlockQuotation, li.BlockQuotation, div.BlockQuotation
+	{mso-style-name:"Block Quotation";
+	margin-top:12.0pt;
+	margin-right:.5in;
+	margin-bottom:12.0pt;
+	margin-left:.5in;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Georgia","serif";
+	font-style:italic;}
+p.HeadingBase, li.HeadingBase, div.HeadingBase
+	{mso-style-name:"Heading Base";
+	mso-style-link:"Heading Base Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.HeadingBaseChar
+	{mso-style-name:"Heading Base Char";
+	mso-style-link:"Heading Base";
+	font-family:"Arial","sans-serif";}
+p.FootnoteBase, li.FootnoteBase, div.FootnoteBase
+	{mso-style-name:"Footnote Base";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.SubtitleCover, li.SubtitleCover, div.SubtitleCover
+	{mso-style-name:"Subtitle Cover";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:22.0pt;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Bookman Old Style","serif";
+	text-transform:uppercase;
+	letter-spacing:1.5pt;}
+p.TitleCover, li.TitleCover, div.TitleCover
+	{mso-style-name:"Title Cover";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:36.0pt;
+	page-break-after:avoid;
+	font-size:32.0pt;
+	font-family:"Bookman Old Style","serif";
+	text-transform:uppercase;
+	letter-spacing:3.25pt;}
+p.CaptionCenteredBefore12ptNounderl, li.CaptionCenteredBefore12ptNounderl, div.CaptionCenteredBefore12ptNounderl
+	{mso-style-name:"Caption + Centered Before\:  12 pt + No underl\.\.\.";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.Example, li.Example, div.Example
+	{mso-style-name:Example;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	background:#F3F3F3;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.DefinitionTerm, li.DefinitionTerm, div.DefinitionTerm
+	{mso-style-name:"Definition Term";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+p.DefinitionList, li.DefinitionList, div.DefinitionList
+	{mso-style-name:"Definition List";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+span.Definition
+	{mso-style-name:Definition;
+	font-style:italic;}
+p.Address, li.Address, div.Address
+	{mso-style-name:Address;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;
+	font-style:italic;}
+p.Blockquote, li.Blockquote, div.Blockquote
+	{mso-style-name:Blockquote;
+	margin-top:5.0pt;
+	margin-right:.25in;
+	margin-bottom:5.0pt;
+	margin-left:.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+span.CITE
+	{mso-style-name:CITE;
+	font-style:italic;}
+span.CODE0
+	{mso-style-name:CODE;
+	font-family:"Courier New";}
+span.Keyboard
+	{mso-style-name:Keyboard;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.Preformatted, li.Preformatted, div.Preformatted
+	{mso-style-name:Preformatted;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	layout-grid-mode:line;}
+span.Sample
+	{mso-style-name:Sample;
+	font-family:"Courier New";}
+span.Typewriter
+	{mso-style-name:Typewriter;
+	font-family:"Courier New";}
+span.Variable
+	{mso-style-name:Variable;
+	font-style:italic;}
+span.HTMLMarkup
+	{mso-style-name:"HTML Markup";
+	color:red;
+	display:none;}
+span.Comment
+	{mso-style-name:Comment;
+	display:none;}
+p.StyleCourierNew10ptBoldJustified, li.StyleCourierNew10ptBoldJustified, div.StyleCourierNew10ptBoldJustified
+	{mso-style-name:"Style Courier New 10 pt Bold Justified";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+span.texhtml
+	{mso-style-name:texhtml;
+	font-family:"Times New Roman","serif";}
+span.editsection
+	{mso-style-name:editsection;}
+span.CharChar6
+	{mso-style-name:"Char Char6";}
+span.CaptionChar
+	{mso-style-name:"Caption Char";
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+  </style>
+  <script src="ModuleCheckpoints.js"></script>
+  <script
+ src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body lang="EN-US" link="blue" vlink="purple">
+<div class="Section1">
+<p class="MsoNormal" style="text-align: center;" align="center"><font
+ size="4">Chapter 17: Device driver, Local variables, and LCD output</font><br>
+Modified to be compatible with EE319K Lab 7</p>
+<p class="MsoNormal" style="text-align: center; font-style: italic;"
+ align="center"><span style="font-weight: 700;"><font size="4">Embedded
+Systems - Shape The World</font></span><br>
+<font size="4">Jonathan Valvano and Ramesh Yerraballi</font></p>
+<p class="MsoNormal"><b><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;</span></b></p>
+
+
+      <p class="MsoNormal"><b><span style="font-size: 10pt;">Learning
+Objectives:</span></b><i><span style="font-size: 10pt;"> </span></i></p>
+      <ul style="margin-top: 0in;" type="disc">
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Variables</span>
+    <ul>
+    <li>Discuss scope and allocation </li>
+    <li>Present techniques to implement local variables on the stack</li>
+    <li>Stack frames</li>
+    <li>Linking C to assembly</li>
+    </ul></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">I/O Device driver</span>
+    <ul>
+    <li>Hardware interface to the ST7735R </li>
+    <li>A set of software functions</li>
+    <li>Synchronization</li>
+    </ul>
+</li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Define fixed-point numbers.</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Present methods to display numbers on the LCD</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Introduce recursion as a software design technique.</span></li>
+      </ul>
+
+</div>
+     <p></p> <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/rkIW5N3_w4A?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Introduction to Chapter 17, and EE319K Lab 7.</span></p>
+<a name="17_1"></a>
+<h2>17.1. Variables</h2>
+     <p></p> <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/ZVRgy1Y8wvM?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Local versus global variables.</span></p>
+<p class="MsoBodyText">Program 17.1 shows the main.c file used in the video. Program 17.2 shows the Logger.c file. <a href="ScopePersistence.zip">Click this link to download entire project</a>.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// main.c<br>
+#include "UART.h"<br>
+#include "random.h"<br>
+#include "Logger.h"<br>
+// Global Variables in RAM<br>
+char *progtitle="Histogram of Randoms"; // Global Scope and<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Permanent persistence (RAM)<br>
+// The entry point is a function with global scope<br>
+int main(){<br>
+&nbsp;&nbsp;uint32_t i; // Local scope (in main)  and persists <br>
+&nbsp;&nbsp;&nbsp;&nbsp;// as long as main does does not return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// allocated on the Stack<br>
+&nbsp;&nbsp;Output_Init();<br>
+&nbsp;&nbsp;Random_Init(1317);  // Initialize the Random Number Generator<br>
+&nbsp;&nbsp;for (i=0; i < 100; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uint32_t val; // Local scope (for loop), and persists <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// while the for loop runs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// allocated on the Stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val = Random();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Logger_track(val%MAXVAL);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;Logger_display();<br>
+&nbsp;&nbsp;while(1);<br>
+}
+</span></b>
+</p>
+<p class="MsoCaption">Program 17.1. The main.c file used in the above video.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// Logger.c<br>
+// Keeps track of the frequencies of values in a local array<br>
+// and displays them like a histogram when requested<br>
+#include <stdio.h><br>
+#include "Logger.h"<br>
+#define LineWidth 40<br>
+static uint8_t Frequency[MAXVAL]; // Local scope (to file Logger.c) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// permanent persistence (RAM)<br>
+extern char *progtitle;<br>
+static void pretty_print(uint8_t, uint8_t); //Prototype <br>
+static void LogInit(){<br>
+&nbsp;&nbsp;uint8_t i; // Local scope (in LogInit)  and persists <br>
+&nbsp;&nbsp;&nbsp;&nbsp;// as long as LogInit does does not return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// allocated on the Stack<br>
+&nbsp;&nbsp;for (i=0; i < MAXVAL; i++)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Frequency[i]=0;<br>
+}<br>
+// Keeps track of values on successive calls<br>
+// in the Log array<br>
+uint8_t Logger_track(uint32_t val){<br>
+&nbsp;&nbsp;static uint8_t first=0;   // Local (in Logger_track) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// permanent persistence (RAM)<br>
+&nbsp;&nbsp;if(first == 0){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LogInit();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;first=1;<br>
+&nbsp;&nbsp;}		 <br>
+&nbsp;&nbsp;if(val > MAXVAL) return(0); // Error check - fail<br>
+&nbsp;&nbsp;Frequency[val]++; //Increment frequency of the value<br>
+&nbsp;&nbsp;return(1); //success<br>
+}<br>
+void Logger_display(){<br>
+&nbsp;&nbsp;uint8_t index;<br>
+&nbsp;&nbsp;printf("%s\n",progtitle);<br>
+&nbsp;&nbsp;for (index=0; index< MAXVAL; index++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pretty_print(index,Frequency[index]);<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Local (to file) static function that can only be called from<br>
+// within this file<br>
+static void pretty_print(uint8_t val, uint8_t times){<br>
+&nbsp;&nbsp;uint8_t i;<br>
+&nbsp;&nbsp;printf("%d:",val);<br>
+&nbsp;&nbsp;for(i=0; i < times; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (i >= LineWidth) break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;printf("*");<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;printf("%d\n",times);<br>
+}
+</span></b>
+</p>
+<p class="MsoCaption">Program 17.2. The Logger.c file used in the above video.</p>
+<p class="MsoBodyText">
+Variables are an important component of software design, and there are many factors to consider when creating variables. Some of the obvious considerations are the <b>size and format</b> of the data. In this class we will consider integers, which can be 
+8-bit, 16-bit or 32 bits. Furthermore, integers can signed or unsigned. The following table shows the C99 type definitions,</p>
+<table style="text-align: left; " style="border: 2px solid rgb(170, 170, 170); background-color: rgb(249, 249, 249);" cellpadding="2"
+ cellspacing="2" align="center">
+  <tbody>
+<tr><th>Precision</th><th>Unsigned</th><th>Signed</th></tr>
+<tr><td>8 bits</td>
+<td><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">uint8_t</span></td>
+<td><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">int8_t</span></td></tr>
+<tr><td>16 bits</span></td>
+<td><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">uint16_t</span></td>
+<td><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">int16_t</span></td></tr>
+<tr><td>32 bits</td>
+<td><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">uint32_t</span></td>
+<td><span style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">int32_t</span></td>
+</tr>
+  </tbody>
+</table>
+<p class="MsoCaption">Table 17.1. C99 type definitions for integers.</p>
+
+<p class="MsoBodyText">
+
+Another factor is the scope of a variable. The <b>scope</b> of a variable defines which software modules can access the data. Variables with an access that is restricted to one software module are classified as private, and variables shared between multiple modules are public. In general, a system is easier to design (because the modules are smaller and simpler), easier to change (because code can be reused), and easier to verify (because interactions between modules are well-defined) when we limit the scope of our variables. However, since modules are not completely independent we need a mechanism to transfer information from one to another. The ARM Application Binary Interface (ABI) has detailed descriptions of how to develop software interfaces. However, in this chapter, we will discuss the fundamentals of software interfaces. </p>
+<p class="MsoBodyText">
+An addition consideration for variables is <b>allocation</b> or <b>persistance</b>. We could place variables in registers temporarily, on the stack in RAM temporarily, in RAM permanently, or in ROM permanently. We will use the terms allocated permanently and permanent persistence to mean the same thing, created at compile time and never destroyed.
+Because their contents are allowed to change, all variables must be allocated in registers or RAM and not ROM. Constants can be placed in ROM. A <b>local</b> variable has reduced scope and temporary allocation. We can allocate a local variable in a register or on the stack. One of the important objectives of this chapter is to present design steps for creating, using, and destroying local variables on the stack. In C, we create a local variable by defining it within the function. We will consider parameters passed into or out of a function as local variables, because they have reduced scope and temporary allocation. The scope of the variable <code><b>sum</b></code> is within the entire function, whereas the scope of <code><b>i</b></code> is within the for-loop. Local variables are not initialized. Therefore it is your responsibility to initialize your local varaibles.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+uint32_t MyFunction(void){uint32_t sum;<br>
+&nbsp;&nbsp;sum = 0;<br>
+&nbsp;&nbsp;for(uint32_t i=0; i < 10; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sum=sum+i;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return sum;<br>
+}</span></b>
+</p><p class="MsoBodyText">
+A <b>static</b> variable has reduced scope and permanent persistence. We allocate static variables in permanent RAM. The scope can be reduced to a single function or a single file. Static variables will be initialized to 0 on software reset, or we can explicitly initialize it. It is good programming practice to initialize all your varaibles, even if the compiler does initialize them to 0. Static variables are initialized just once, at reset. In this example <code><b>TotalCount</b></code> is initialized once to 0, it is shared within the file, so accessible to both functions. <code><b>TotalCount</b></code> contains the total number of times either function has been called. There are two copies of <code><b>Num</b></code>, one for each function. The static <code><b>Num</b></code> variable maintains the number of times each function has been called. The two functions  will return 1 if that function has been called more than 75 times or if the sum of the two calls is more than 100.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+static uint32_t TotalCount=0;<br>
+uint32_t MyFunction2(void){<br>
+static uint32_t Num=0;<br>
+&nbsp;&nbsp;Num++; TotalCount++;<br>
+&nbsp;&nbsp;if((Num > 75)||(Count > 100)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return 0;<br>
+}<br>
+uint32_t MyFunction3(void){<br>
+static uint32_t Num=0;<br>
+&nbsp;&nbsp;Num++; TotalCount++;<br>
+&nbsp;&nbsp;if((Num > 75)||(Count > 100)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return 0;<br>
+}</span></b>
+</p>
+<p class="MsoBodyText">
+A <b>global</b> variable has public scope and permanent persistence. Public scope means any software in the system has access to the variable. Global variables are permanently allocated in RAM. Global variables will be initialized to 0 on software reset, unless we can explicitly initialize it to something else. We will consider I/O port registers as global variables, because they have public scope and permanent persistence. The global variable <code><b>Flag</b></code>  can be accessed by both <code><b>MyFunction4</b></code>  and <code><b>MyFunction5</b></code>, even if the functions are in different files. The <code><b>extern</b></code> definition does not create a second copy of the variable, rather, it provides access to the single shared global.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// Assume Flag and MyFunction 4 are in one file<br>
+uint32_t Flag;<br>
+void MyFunction4(void){<br>
+&nbsp;&nbsp;Flag = 0;<br>
+}<br>
+// Assume MyFunction 5 is in a different file<br>
+extern uint32_t Flag;<br>
+void MyFunction5(void){<br>
+&nbsp;&nbsp;Flag = 1;<br>
+}</span></b>
+</p>
+
+<p class="MsoBodyText">
+In general, the qualifier <b>const</b> added to a variable definition means the software cannot change its value. In embedded systems with RAM and ROM, <b>const</b> added to a global variable means it will be allocated in ROM permanently (permanent persistence). The global constant <code><b>Size</b></code>  can be accessed anywhere in the software system, but cannot be dynamically changed.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+const uint32_t Size=100;<br>
+void MyFunction6(void){<br>
+&nbsp;&nbsp;for(uint32_t i=0; i < Size; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// stuff<br>
+&nbsp;&nbsp;}<br>
+}</span></b>
+</p>
+<p class="MsoBodyText">
+When the qualifier <b>const</b> added to a parameter it means the software cannot change its value within the function. The parameter <code><b>Size</b></code> can be accessed in the function, but cannot be dynamically changed. In this example, the parameter <code><b>Size</b></code> is still passed in Register R0, with temporary allocation and private scope.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+void MyFunction7(const uint32_t Size){<br>
+&nbsp;&nbsp;for(uint32_t i=0; i < Size; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// stuff<br>
+&nbsp;&nbsp;}<br>
+}</span></b>
+</p>
+<p class="MsoBodyText">
+A <b>static</b> function has reduced scope. On an embedded system, all functions are permanentally allocated in ROM. If we add <b>static</b> to a function definition, the scope can be reduced to file in which it is defined. This means only functions also defined in this file can call it. Other names for reduced scope functions are <b>private functions</b> and <b>helper functions</b>. In general, it is good design to reduce scope of data and functions as much as possible. Prototypes for <b>public functions</b> are placed in the header file, whereas prototypes for <b>static functions</b> are not placed in the header file. This way we can separate what a module does (by calling <b>public functions</b>) from how it works (implementation of all functions including <b>static functions</b>). In the following example, the function <code><b>rand</b></code> is static, so it is callable within the file. On the other hand, the function <code><b>Random</b></code> is public and can be called from anywhere.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+uint32_t static M=1;<br>
+uint32_t static rand(void){<br>
+&nbsp;&nbsp;M = 1664525*M+1013904223;<br>
+&nbsp;&nbsp;return(M);<br>
+}<br>
+uint8_t Random(void){<br>
+&nbsp;&nbsp;return(rand()>>24);<br>
+}</span></b>
+</p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_1"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_1')">Checkpoint 17.1</button>:</span></b></a><b>
+</b>How do you create a local variable in C?</p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_2"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_2')">Checkpoint 17.2</button>:</span></b></a><b>
+</b>How do you create a global variable in C?</p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_3"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_3')">Checkpoint 17.3</button>:</span></b></a><b>
+</b>Considering scope and allocation, what changes and what doesn't change when you add static to an otherwise global variable?</p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_4"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_4')">Checkpoint 17.4</button>:</span></b></a><b>
+</b>Considering scope and allocation, what doesn't change when you add static to an otherwise local variable?</p>
+
+
+<p class="Checkpoint"><a href="#Checkpoint17_5"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_5')">Checkpoint 17.5</button>:</span></b></a><b>
+</b>Considering scope and allocation, what changes and what doesn't change when you add const to an otherwise global variable?</p>
+
+
+<p class="Checkpoint"><a href="#Checkpoint17_6"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_6')">Checkpoint 17.6</button>:</span></b></a><b>
+</b>Considering scope and allocation, what changes and what doesn't change when you add const to a function parameter?</p>
+
+<p class="MsoBodyText">The following video presents the implementation of local variables on the stack using SP-relative addressing</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/peHn3R7S4GU?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Locals in assembly.</span></p>
+
+
+<p class="MsoBodyText">Program 17.3 shows the sum.c file used in the video. Program 17.4 shows the main.s file. <a href="LocalVariablesASM.zip">Click this link to download entire project</a>.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+//------------Sum------------<br>
+// Input: num is a 32-bit unsigned int<br>
+// Output: Is the sum: 1+2+...+num<br>
+// Here is the C code<br>
+uint32_t Sum (uint32_t num){<br>
+&nbsp;&nbsp;uint32_t i, result=0;<br>
+&nbsp;&nbsp;for (i=1; i <= num; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result += i;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return(result);<br>
+}
+</span></b>
+</p>
+<p class="MsoCaption">Program 17.3. The sum.c file used in the above video.</p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;&nbsp;&nbsp;AREA    |.text|, CODE, READONLY, ALIGN=2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORT  Start<br>
+Start  <br>
+; Call the non-recursive implementation with locals on stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MOV R0, #10<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BL  Sum        ; R0 must be 55: 1+2+3...+10<br>
+Loop B Loop    ; Loop forever   <br>
+<br>
+;------------Sum------------<br>
+; Input: R0  has input number (num)<br>
+; Output: R0 has the output which is the sum: 1+2+...+num<br>
+; Here is the Assembly Code<br>
+i      equ  0  ; *Binding*: Local variable i is at offset 0 w.r.t SP<br>
+result equ  4  ; Local variable result is at offset 0 w.r.t SP<br>
+Sum <br>
+&nbsp;&nbsp;&nbsp;&nbsp;PUSH {R4,R5,LR} ; push things we will use for scratch<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SUB  SP,#8    ; *Allocation*: Allocate space for <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;  2 local variables both 32-bit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MOV  R4, #0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;STR  R4,[SP,#result] ; *Access* Initialize Result on stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MOV  R4, #1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;STR  R4,[SP,#i]      ; *Access* Initialize index i on stack<br>
+LoopS  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;LDR  R4,[SP,#i]      ; *Access* load i into R4 from Stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CMP  R4,R0        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;BHI  DoneS         <br>
+&nbsp;&nbsp;&nbsp;&nbsp;LDR  R5,[SP,#result]  ; *Access* load result into R5 from Stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ADD  R5,R4              ; Result = Result + i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;STR  R5,[SP,#result]  ; *Access* store result from R5 to Stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ADD  R4,#1            ; i++<br>
+&nbsp;&nbsp;&nbsp;&nbsp;STR  R4,[SP,#i]       ; *Access* store i from R5 to Stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;B    LoopS<br>
+DoneS  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;LDR R0,[SP,#result] ; *Access* load Result in R0 from Stack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ADD SP,#8      ; *DeAllocation* Deallocate space for locals<br>
+&nbsp;&nbsp;&nbsp;&nbsp;POP {R4,R5,PC} ; Restore scratched registers and set pushed <br>
+	                  ; LR to PC to return
+</span></b>
+</p>
+<p class="MsoCaption">Program 17.4. The main.s file used in the above video.</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/VmB-_VqkBME?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Debugging Locals in assembly.</span></p>
+
+<p class="MsoBodyText">
+The following assembly code shows the PUSH and POP instructions can be used to store temporary information on the stack. If a subroutine modifies a register, it is a matter of programmer style as to whether or not it should save and restore the register. According to AAPCS  a subroutine can freely change R0–R3 and R12, but the subroutine must save and restore any other register it changes. In particular, if one subroutine calls another subroutine, then it must save and restore the LR. In the following example, assume the function modifies Register R0, R4, R8 and calls another function. The programming style dictates registers R4, R8, and LR be saved. Notice the return address is pushed on the stack as LR but popped off into PC. When multiple registers are pushed or popped, the data exist in memory with the lowest numbered register using the lowest memory address. In other words, the registers in the {} can be specified in any order, but the order in which they appear on the stack is fixed. According to AAPCS we must push and pop an even number of registers. Of course remember to balance the stack by having the same number of pops as pushes.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+Func PUSH {R4,R5,R8,LR}  ; save registers as needed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;;1) allocate local variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;;2) body of the function, access local variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;;3) deallocate local variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;POP  {R4,R5,R8,PC}  ; restore registers and return<br><br>
+</span></b>
+</p>
+<p class="MsoBodyText">
+The ARM processor has a lot of registers, and we appropriately should use them for temporary information such as function parameters and local variables. However, when there are a lot of parameters or local variables, we can place them on the stack. Program 17.5 has a large data buffer that is private to this function. It is inconvenient to store arrays in registers. Rather it is appropriate to place the array in memory and use indexed addressing mode to access the information. Because this buffer is private and temporary we will place it on the stack. 1) The SUB instruction allocates 10 words on the stack. Figure 17.1 shows the stack before and after the allocation. 2) During the execution of the function, the SP points to the first location of data. The local variable i is held in R0. R1 will contain i*4 as an offset into the buffer, because each buffer entry is 4 bytes. The addressing mode [SP,R1] accesses data on the stack without pushing or popping. 3) The ADD instruction deallocates the local variable, balancing the stack.</p>
+
+<table><tbody>
+<tr><td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+Set&nbsp;&nbsp;SUB   SP,SP,#40&nbsp;&nbsp;;1)allocate 10 words&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOVS  R0,#0x00&nbsp;&nbsp;;2)i=0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B     test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;2)<br>
+loop  LSL   R1,R0,#2&nbsp;&nbsp;&nbsp;;2)4*i<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STR   R0,[SP,R1]&nbsp;;2)access<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADDS  R0,R0,#1&nbsp;&nbsp;;2)i++<br>
+test  CMP   R0,#10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLT   loop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD   SP,SP,#40&nbsp;&nbsp;;3)deallocate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BX    LR<br>
+</p>
+</td>
+<td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// C language implementation<br>
+void Set(void){ <br>
+uint32_t data[10];<br>
+int i;<br>
+&nbsp;&nbsp;for(i=0; i<10; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data[i] = i;<br>
+&nbsp;&nbsp;}<br>
+}</p>
+</td></tr>
+</tbody>
+</table>
+<p class="MsoCaption">Program 17.5. Allocation of a local array on the stack.</p>
+
+<p class="MsoBodyText" style="text-align: center;" align="center"><img
+ src="C17_Local_files/C17_localArray.png" width="400"> </p>
+<p class="MsoCaption">Figure 17.1. Allocation of a local array on the stack.</p>
+
+
+<p class="MsoBodyText">Stack implementation of local variables has four stages: binding, allocation, access, and deallocation. In this section, the software will create two local variables called <b>sum</b> and <b>i</b>.<br>
+<br>
+<b>1. Binding</b> is the assignment of the address (not value) to a symbolic name. In other words, we assign offsets for the variables. In general, we perform binding by drawing a stack picture and deciding the order of the local variables, see Figure 17.2. The symbolic name will be used by the programmer when referring to the local variable. The assembler binds the symbolic name to a stack index, and the computer calculates the physical location during execution. In the following example, the local variable <b>sum</b> will be at address <b>SP+0</b>, and the programmer will access the variable using <b>[SP,#sum]</b> addressing. Similarly, the local variable <b>i</b> will be at address <b>SP+4</b>, and the programmer will access the variable using <b>[SP,#i]</b> addressing:</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+sum&nbsp;EQU&nbsp;0&nbsp;&nbsp;;32-bit local variable, stored on the stack<br>
+i&nbsp;&nbsp;&nbsp;EQU&nbsp;4&nbsp;&nbsp;;32-bit local variable, stored on the stack<br><br>
+</span></b>
+</p>
+<p class="MsoBodyText">
+2. <b>Allocation</b> is the generation of memory storage for the local variable, or assigning space. The computer allocates space during execution by decrementing the SP. In this first example, the software allocates the local variable by pushing a register on the stack. The variable <b>sum</b> is initialized to 0 and the variable <b>i</b> is initialized to 16. According to AAPCS, we must allocate space in multiples of 8 bytes. The contents of the register become the initial value of the variable. </p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;MOV  R0,#0<br>
+&nbsp;&nbsp;MOV  R1,#16<br>
+&nbsp;&nbsp;PUSH {R0,R1}&nbsp;&nbsp;;allocate and initialize two 32-bit variables <br><br>
+</span></b>
+</p>
+<p class="MsoBodyText"> 
+Rather than creating local variables with initialization, the software could allocate the local variables by decrementing the stack pointer. Allocating locals this way creates them uninitialized. This method is most general, allowing the allocation of an arbitrary amount of data.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;SUB SP,#8&nbsp;&nbsp;;allocate two 32-bit variables<br><br>
+</span></b>
+</p>
+<p class="MsoBodyText">
+3. The <b>access</b> to a local variable is a read or write operation that occurs during execution. Because we use SP addressing with offset, we will only use LDR and STR to access local variables on the stack. In the first code fragment, we will add the contents of <b>i</b> to the local variable <b>sum</b>. </p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;LDR R0,[SP,#i]&nbsp;&nbsp;&nbsp;&nbsp;; R0=i<br>
+&nbsp;&nbsp;LDR R1,[SP,#sum]&nbsp;&nbsp;; R1=sum<br>
+&nbsp;&nbsp;ADD R1,R0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; R1=i+sum<br>
+&nbsp;&nbsp;STR R1,[SP,#sum]&nbsp;&nbsp;; sum=i+sum<br><br>
+</span></b>
+</p>
+<p class="MsoBodyText">
+In the next code fragment, the local variable sum is divided by 16. </p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;LDR R0,[SP,#sum]&nbsp;&nbsp;; R0=sum<br>
+&nbsp;&nbsp;LSR R0,R0,#4<br>
+&nbsp;&nbsp;STR R0,[SP,#sum]&nbsp;&nbsp;; sum=sum/16<br><br>
+</span></b>
+</p>
+<p class="MsoBodyText">
+4. <b>Deallocation</b> is the release of memory storage for the location variable. This step frees up space. The computer deallocates space during execution by incrementing SP. The software deallocates two local variables by incrementing the stack pointer. When deallocating, we must balance the stack. I.e., we add to the SP exactly the same number as we decremented during allocation. </p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;ADD SP,#8&nbsp;&nbsp;;deallocate sum
+</span></b>
+</p>
+<p class="MsoBodyText" style="text-align: center;" align="center"><img
+ src="C17_Local_files/C17_localvar.png" width="400"> </p>
+<p class="MsoCaption">Figure 17.2. Allocation of two local variables on the stack.</p>
+
+<p class="MsoBodyText"> 
+Program 17.6 shows a C and assembly function implementing the same function. This assembly implementation
+uses the <b>PUSH</b> instruction to allocate and initialize the local variables.</p>
+<table><tbody>
+<tr><td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+Calculate<br>
+&nbsp;&nbsp;MOV  R0,#0<br>
+&nbsp;&nbsp;MOV  R1,#16<br>
+&nbsp;&nbsp;PUSH {R0,R1}&nbsp;&nbsp;;allocate and initialize&nbsp;&nbsp;&nbsp;&nbsp;<br>
+loop<br>
+&nbsp;&nbsp;LDR R0,[SP,#i]&nbsp;&nbsp;&nbsp;&nbsp;; R0=i<br>
+&nbsp;&nbsp;LDR R1,[SP,#sum]&nbsp;&nbsp;; R1=sum<br>
+&nbsp;&nbsp;ADD R1,R0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; R1=i+sum<br>
+&nbsp;&nbsp;STR R1,[SP,#sum]&nbsp;&nbsp;; sum=i+sum<br>
+&nbsp;&nbsp;LDR R0,[SP,#i]&nbsp;&nbsp;&nbsp;&nbsp;; R0=i<br>
+&nbsp;&nbsp;SUBS R0,R0,#1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; R0=i-1<br>
+&nbsp;&nbsp;STR R0,[SP,#i]<br>
+&nbsp;&nbsp;BNE loop<br>
+&nbsp;&nbsp;LDR R0,[SP,#sum]&nbsp;&nbsp;; R0=sum<br>
+&nbsp;&nbsp;LSR R0,R0,#4<br>
+&nbsp;&nbsp;STR R0,[SP,#sum]&nbsp;&nbsp;; sum=sum/16<br>
+&nbsp;&nbsp;ADD   SP,SP,#8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; deallocate<br>
+&nbsp;&nbsp;BX    LR<br>
+</span></b></p>
+</td>
+<td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// C language implementation<br>
+uint32_t Calculate(void){ <br>
+uint32_t sum=0;<br>
+uint32_t i=16;<br>
+&nbsp;&nbsp;do{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sum = i+sum;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i = i-1;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;while(i != 0)<br>
+&nbsp;&nbsp;sum = sum/16;<br>
+&nbsp;&nbsp;return sum;<br>
+}</span></b></p>
+</td></tr>
+</tbody>
+</table>
+<p class="MsoCaption">Program 17.6. Allocation of two local variables on the stack.</p>
+<p class="MsoBodyText">
+
+
+<p class="Checkpoint"><a href="#Checkpoint17_7"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_7')">Checkpoint 17.7</button>:</span></b></a><b>
+</b>Write code that allocates four 32-bit local variables, uninitialized. </p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_8"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_8')">Checkpoint 17.8</button>:</span></b></a><b>
+</b>Write code that binds four 32-bit local variables to the names a,b,c,d such that a is on top. </p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_9"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_9')">Checkpoint 17.9</button>:</span></b></a><b>
+</b>Assuming the name of a 32-bit local variable is b, write code that sets b to 5. </p>
+
+
+<p class="Checkpoint"><a href="#Checkpoint17_10"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_10')">Checkpoint 17.10</button>:</span></b></a><b>
+</b>Write code that deallocates four 32-bit local variables. </p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_11"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_11')">Checkpoint 17.11</button>:</span></b></a><b>
+</b>Assume Register R0 contains the size in 32-bit words of an array, determined at run-time. Write assembly code to allocate the array on the stack. </p>
+<p></p>
+<h2>Stack frames</h2>
+<p class="MsoBodyText">Each time a function is called a <b>stack frame</b> is created. 
+There are four types of data that may be saved in the stack frame. 
+By convention, if there are more than 4 input parameters, additional parameters above 4 will be pushed on the stack by the calling program. 
+If the function calls another function, the LR (return address) must be pushed on the stack. 
+By convention if the function uses registers R4&ndash;R11, it will push them on the stack so their values are preserved. 
+Lastly, the function may allocate local variables on the stack. 
+</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/-inSNcPCP6c?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Local variables using a stack frame.</span></p>
+<p class="MsoBodyText">Each time a function is called a <b>stack frame</b> is created. 
+There are four types of data that may be saved in the stack frame. 
+By convention, if there are more than 4 input parameters, additional parameters above 4 will be pushed on the stack by the calling program. 
+If the function calls another function, the LR (return address) must be pushed on the stack. 
+By convention if the function uses registers R4&ndash;R11, it will push them on the stack so their values are preserved. 
+Lastly, the function may allocate local variables on the stack. 
+</p>
+
+<p class="MsoBodyText">
+One limitation of SP indexed addressing mode to access local variables is the 
+difficulty of pushing additional data onto the stack during the execution of the function. 
+In particular, if the body of the function pushes additional items on the stack, the symbolic binding becomes incorrect. 
+There are two approaches to this problem. First, we could recompute the binding after each stack push/pop. 
+Second, we could assign a second register to point into the stack.
+To employ a <b>stack frame pointer</b> we execute the initial steps of the function: saving LR, saving registers, 
+and allocating local variables on the stack. Once these initial steps are complete, we set another register to point into the stack. 
+Because R4&ndash;R11 will be saved and restored any of these would be appropriate for the stack frame pointer. E.g.,</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOV R11,SP<br><br>
+</span></b></p>
+
+<p class="MsoBodyText">This stack frame pointer (R11) points to the local variables and parameters of the function. 
+It is important in this implementation that once the stack frame pointer is established 
+(e.g., using the MOV R11,SP instruction), that the stack frame register (R11) not be modified. 
+The term frame refers to the fact that the pointer value is fixed. 
+If R11 is a fixed pointer to the set of local variables, then a fixed binding (using the EQU pseudo op) 
+can be established between Register R11 and the local variables and parameters, even if additional information is pushed on the stack. 
+Because the stack frame pointer should not be modified, every subroutine will save the old 
+stack frame pointer of the function that called the subroutine and restore it before returning. 
+Local variable access uses indexed addressing mode using Register R11. </p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_12"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_12')">Checkpoint 17.12</button>:</span></b></a><b>
+</b>When should we use stack frames with R11 addressing instead of regular local variables with SP addressing? </p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_13"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_13')">Checkpoint 17.13</button>:</span></b></a><b>
+</b>When implementing stack frames with R11 addressing, do we subtract from R11 or from SP when allocating local variables? </p>
+
+<h2>Linking C to assembly</h2>
+<p class="MsoBodyText">One of the advantages of ARM Architecture Procedure Call Standard (AAPCS) is that we can write one function
+in one environment (C or assembly) and invoke it from another environment. Recall the rules of AAPCS:</p>
+<p class="MsoBodyText">
+<ul>
+<li>Pass input parameters in R0, R1, R2, R3 as needed.</li>
+<li>Return output parameter in R0 if needed.</li>
+<li>The function can freely use R0,R1,R2,R3,R12.</li>
+<li>The function can use R4&ndash;R11, but save them at beginning and restore them at the end.</li>
+<li>Push and pop even numbers of registers
+</ul> <br></p>
+<p class="MsoBodyText">To better understand this video, open the Lab 7 starter project. </p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/Iy2eiBTgb70?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Linking C to assembly.</span></p>
+<p><br></p>
+<p class="MsoBodyText">In the following example, Program 17.7, the C function on the left calls an assembly function on the right.
+C needs a function prototype. In Lab 7, you will see we put function prototypes in a separate print.h header file.
+However in this example, the prototype is simply placed above the C program. In the assembly file,
+we specify the assembly function as public by exporting its address. </p>
+<table><tbody>
+<tr><td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// C program that invokes <br>
+// an assembly function<br>
+uint32_t sqrt(uint32_t s); // prototype&nbsp;&nbsp;&nbsp;&nbsp;<br>
+uint32_t HighLevel(void){<br>
+&nbsp;&nbsp;uint32_t input;<br>
+&nbsp;&nbsp;uint32_t output;<br>
+&nbsp;&nbsp;input=ReadInput();<br>
+&nbsp;&nbsp;output=sqrt(input); // invoke<br>
+&nbsp;&nbsp;return output;<br>
+}<br><br><br><br><br><br>
+</span></b></p>
+</td>
+<td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+; low level assembly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORT sqrt <br>
+;Input: R0 unsigned integer<br>
+;Output: R0 squareroot of input<br>
+sqrt&nbsp;MOV&nbsp;&nbsp;r1,r0 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOVS r3,#0x01 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD&nbsp;&nbsp;r0,r3,r1,LSR #4 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOVS&nbsp;r2,#0x10 <br>
+loop MLA&nbsp;&nbsp;r3,r0,r0,r1  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UDIV&nbsp;r3,r3,r0 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LSRS&nbsp;r0,r3,#1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBS&nbsp;r2,r2,#1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CMP&nbsp;&nbsp;r2,#0x00 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BNE&nbsp;&nbsp;loop   <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BX&nbsp;&nbsp;&nbsp;lr <br>             
+
+<br>
+</span></b></p>
+</td></tr>
+</tbody>
+</table>
+<p class="MsoCaption">Program 17.7. C program calls an assembly function.</p>
+<p class="MsoBodyText">In this next example, Program 17.8, the assembly function on the left calls a C function on the right.
+ There is no need for a prototype for an assembly language to call a C function; both do need to follow AAPCS.
+The C compiler automatically creates AAPCS-compliant code.
+To link the C function into the assembly file, we use the IMPORT pseudo-op inside the assembly file. In the C file,
+we simply define the function. </p>
+<table><tbody>
+<tr><td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+; Assembly program that invokes&nbsp;&nbsp;&nbsp;<br>
+;&nbsp;&nbsp;a C function&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IMPORT sqrt<br>
+HighLevel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PUSH&nbsp;{R4,LR}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BL&nbsp;&nbsp;&nbsp;ReadInput<br>
+; R0 has input parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BL&nbsp;&nbsp;&nbsp;sqrt&nbsp;&nbsp;&nbsp;; invoke&nbsp;&nbsp;&nbsp;<br>
+; R0 has output parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;POP&nbsp;&nbsp;{R4,PC}<br><br>
+</span></b></p>
+</td>
+<td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// low level C<br>
+uint32_t sqrt(uint32_t s){<br>
+uint32_t t;   // t*t will become s<br>
+int n;             // loop counter<br>
+&nbsp;&nbsp;t = s/16+1;      // initial guess<br>
+&nbsp;&nbsp;for(n = 16; n; --n){ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;t = ((t*t+s)/t)/2;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return t;<br>
+}<br>
+         
+
+<br>
+</span></b></p>
+</td></tr>
+</tbody>
+</table>
+<p class="MsoCaption">Program 17.8. C program calls an assembly function.</p>
+
+
+<a name="17_2"></a>
+<h2>17.2. ST7735R Interfacing</h2>
+<p class="MsoBodyText">
+In this section we will interface a ST7735R LCD using <b>busy-wait synchronization</b>. See Figures 17.3 and 17.4. Before we output data or commands to the display, we will check a status flag and wait for the previous operation to complete. Busy-wait synchronization is very simple and is appropriate for I/O devices that are fast and predicable.
+</p>
+<p class="MsoBodyText"><img src="C17_Local_files/ST7735.jpg"
+ border="0"  width="200"></p>
+<p class="MsoCaption">Figure 17.3. ST7735R display with 160 by 128 16-bit color pixels.</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/X2vXecGqbeY?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Interfacing the ST7735R LCD.</span></p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_14"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_14')">Checkpoint 17.14</button>:</span></b></a><b>
+</b>How does the ST7735R software driver specify color? </p>
+
+
+
+<p class="MsoBodyText">
+D/C stands for data/command; you will make D/C high to send data and low to send a command. Because the LCD is so fast we will use "busy-wait" synchronization, which means before the software issues an output command to the LCD, it will wait until the display is not busy. In particular, the software will wait for the previous LCD command to complete. 
+</p>
+<p class="MsoBodyText"><img src="C17_Local_files/ST7735Rcircuit.jpg"
+ border="0"  width="600"></p>
+<p class="MsoCaption">Figure 17.4. LCD interface to a TM4C123.</p>
+<p class="Checkpoint"><a href="#Checkpoint17_15"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_15')">Checkpoint 17.15</button>:</span></b></a><b>
+</b>What does the D/C pin do? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_16"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_16')">Checkpoint 17.16</button>:</span></b></a><b>
+</b>What does the TFT_CS pin do? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_17"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_17')">Checkpoint 17.17</button>:</span></b></a><b>
+</b>What does the MOSI pin do? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_18"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_18')">Checkpoint 17.18</button>:</span></b></a><b>
+</b> What does the SCK pin do? </p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/D3bVVoWXfqs?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Synchronizing software to hardware.</span></p>
+<p><br></p>
+<p class="MsoBodyText">
+The following pseudo-code and Figure 17.5 shows the steps to interact with the LCD using
+the SPI module. The SPI module uses a first in first out (<b>FIFO</b>) queue built into the hardware.
+ Bit 4 of the <b>SSI0_SR_R</b> register is busy. If <b>busy</b> is 1, it means it cannot accept another command
+at this point. If <b>busy</b> is 0, it means it ready and can accept another command. 
+Bit 1 of the <b>SSI0_SR_R</b> register is <b>TNF</b>, which stands for transmitter FIFO not full. If <b>TNF</b> is 0, it means the transmitter
+FIFO is full
+and it cannot accept another data output at this point. If <b>TNF</b> is 1, it means the FIFO is not full and can accept another data output. 
+Notice that this 
+interface will wait before and after each command, however multiple data outputs can occur
+as long as there in room in the FIFO.
+</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+writecommand: Involves  6 steps performed to send 8-bit Commands to the LCD<br>
+&nbsp;&nbsp;1. Read SSI0_SR_R and check bit 4, <br>
+&nbsp;&nbsp;2. If bit 4 is high, loop back to step 1 (wait for BUSY bit to be low)<br>
+&nbsp;&nbsp;3. Clear D/C=PA6 to zero (D/C pin configured for COMMAND)<br>
+&nbsp;&nbsp;4. Write the command to SSI0_DR_R <br>
+&nbsp;&nbsp;5. Read SSI0_SR_R and check bit 4, <br>
+&nbsp;&nbsp;6. If bit 4 is high loop back to step 5 (wait for BUSY bit to be low)<br>
+<br>
+writedata: Involves  4 steps performed to send 8-bit Data to the LCD:<br>
+&nbsp;&nbsp;1. Read SSI0_SR_R and check bit 1, <br>
+&nbsp;&nbsp;2. If bit 1 is low, loop back to step 1 (wait for TNF bit to be one)<br>
+&nbsp;&nbsp;3. Set D/C=PA6 to one (D/C pin configured for DATA)<br>
+&nbsp;&nbsp;4. Write the 8-bit data to SSI0_DR_R<br>
+<br></b></span>
+</p>
+<p class="MsoBodyText"><img src="C17_Local_files/busywait.jpg"
+ border="0"  width="325"></p>
+<p class="MsoCaption">Figure 17.5. Busy-wait synchronization is used to send commands and data to the display.</p>
+<p class="Checkpoint"><a href="#Checkpoint17_19"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_19')">Checkpoint 17.19</button>:</span></b></a><b>
+</b> What does busy-wait mean? </p>
+
+
+
+<p class="MsoBodyText">At the lowest level each ASCII character is mapped to an image. This mapping is called a <b>font</b>. The following 
+figure and program shows how the character '6' is created on the screen as a 5 by 8 pixel image. The driver automatically inserts one blank line in between characters,
+so each character requires 6 by 8 pixels on the screen.</p>
+
+<p class="MsoBodyText"><img src="C17_Local_files/font6.jpg"
+ border="0"  width="163"></p>
+      <p class="MsoCaption">Figure 17.6. ST7735R character font is 5 wide by 8-tall pixels.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+static const uint8_t Font[] = {<br>
+&nbsp;&nbsp;0x00, 0x00, 0x00, 0x00, 0x00, // 0x00<br>
+&nbsp;&nbsp;0x3E, 0x5B, 0x4F, 0x5B, 0x3E, // 0x01<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;0x3C, 0x4A, 0x49, 0x49, 0x31, // 0x36= '6'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;0x00, 0x00, 0x00, 0x00, 0x00  // 0xFF<br>
+};<br></b></span>
+</p>
+<p class="MsoCaption">Program 17.9. ST7735R character font is 5 wide by 8-tall pixels. </p>
+
+<p class="MsoBodyText">There is one image for all 8 bit possibilities from 0 to 0xFF. To handle extended ASCII, which are the values 0x80 to 0xFF, 
+make sure to change the compiler settings to select unsigned for the char type.
+Execute Project->Options, in the C/C++ tab deselect the box "Plain char is signed", making char unsigned.</p>
+<p class="Checkpoint"><a href="#Checkpoint17_20"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_20')">Checkpoint 17.20</button>:</span></b></a><b>
+</b> How many characters can fit across one row of the LCD screen? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_21"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_21')">Checkpoint 17.21</button>:</span></b></a><b>
+</b> The ST7735R software driver uses 10 pixels in the vertical direction for each row of characters. How many rows of characters can fit on the LCD screen? </p>
+
+<p class="MsoBodyText">
+There is a rich set of graphics functions available for the ST7735R, allowing you to create amplitude versus time, or bit-mapped graphics. Refer to the ST7735R.h header file for more details.
+</p>
+<a name="17_3"></a>
+<h2>17.3. Nokia 5110 Interfacing</h2>
+<p class="MsoBodyText">
+In this section we will interface a Nokia 5110 LCD using  <b>busy-wait synchronization</b>. See Figures 17.xx and 17.xx. Before we output data or commands to the display, we will check a status flag and wait for the previous operation to complete. Busy-wait synchronization is very simple and is appropriate for I/O devices that are fast and predicable.</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+
+<p class="MsoBodyText"><img src="C17_Local_files/Fg08_13c.jpg"
+ border="0"  width="400"></p></td>
+      <td>
+
+<p class="MsoBodyText"><img src="C17_Local_files/Fg08_13_Nokia.jpg"
+ border="0"  width="200"></p></td>
+    </tr>
+  </tbody>
+</table>
+      <p class="MsoCaption">Figure 17.7. Nokia 5110 display with 84 by 48 monochrome pixels.</p>
+<p class="MsoBodyText">
+The Nokia 5110 uses the synchronous serial interface (SSI) described in the last section to control PA5 (MOSI), PA3 (Fss), and PA2 (Sclk), as shown in Figure 8.14. Pins PA7 and PA6 are regular GPIO pins. The microcontroller will be master and the LCD slave. There are multiple Nokia 5110 displays for sale on the market with the same LCD but different pin locations for the signals. Figure 8.14 shows two of the possible pin configurations. Please look on your actual display for the pin name and not the pin number. The back light is optional.  Be careful when connecting the backlight, because at 3.3V the back light draws 80 mA. If you want a dimmer back light connect 3.3V to a 100 ohm resistor, and the other end of the resistor to the LED/BL pin.
+</p>
+<p class="MsoBodyText"><img src="C17_Local_files/NokiaCircuit.jpg"
+ border="0"  width="600"></p>
+      <p class="MsoCaption">Figure 17.8. Nokia 5110 interface to a TM4C123.</p>
+<p class="MsoBodyText">
+The matrix ASCII[][5] contains the pixel image for each character. Notice the 5 by 8 image for ASCII 0x7F is the University of Texas UT symbol. There is one blank line before the 5 by 8 character and one blank line after making each character 7 wide by 8 pixels tall, see Program 17.10.
+</p>
+<p class="MsoBodyText"><img src="C17_Local_files/font.jpg"
+ border="0"  width="163"></p>
+      <p class="MsoCaption">Figure 17.9. Nokia 5110 character font is 5 wide by 8-tall pixels.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+static const uint8_t ASCII[][5] = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{0x00, 0x00, 0x00, 0x00, 0x00} // 20, space<br>
+&nbsp;&nbsp;&nbsp;,{0x00, 0x00, 0x5f, 0x00, 0x00} // 21 !<br>
+&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;,{0x1f, 0x24, 0x7c, 0x24, 0x1f} // 7f UT sign<br>
+};<br></b></span>
+</p>
+<p class="MsoCaption">Program 17.10. Nokia 5110 character font is 5 wide by 8-tall pixels.</p>
+<p class="MsoBodyText">
+The same busy-wait synchronization described in the section on ST7735R will work for the Nokia 5100. 
+There is a rich set of graphics functions available for the Nokia 5100, allowing you to create amplitude versus time, or bit-mapped graphics. 
+Refer to the Nokia5100.h header file for more details.
+</p>
+<p class="Checkpoint"><a href="#Checkpoint17_22"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_22')">Checkpoint 17.22</button>:</span></b></a><b>
+</b>How does the Nokia 5110 software driver specify color? </p>
+<a name="17_4"></a>
+<h2>17.4. Fixed-point Numbers</h2>
+<p class="MsoBodyText">
+</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/rzpo0UbmbGY?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Fixed-point numbers.</span></p>
+
+<p class="Checkpoint"><a href="#Checkpoint17_23"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_23')">Checkpoint 17.23</button>:</span></b></a><b>
+</b>When do we use decimal fixed point rather than binary fixed point? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_24"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_24')">Checkpoint 17.24</button>:</span></b></a><b>
+</b>We wish to represent the sqrt(2)=1.4142135623730950488016887242097 as a decimal fixed number with a resolution of 0.001. What integer value do we use? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_25"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_25')">Checkpoint 17.25</button>:</span></b></a><b>
+</b>We wish to represent 0.75 as a binary fixed number with a resolution of 2^-3 (1/8). What integer value do we use? </p>
+<a name="17_5"></a>
+<h2>17.5. Numerical Output</h2>
+<p class="MsoBodyText">
+</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/eJ_WPitjWTU?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Converting integers to ASCII characters.</span></p>
+<p><br></p>
+<p class="MsoBodyText">Look up the behavior of the <b>UDIV</b> and <b>MUL</b> assembly instructions. 
+Consider the following assembly program, where <b>R4</b> is an input parameter.</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+&nbsp;&nbsp;&nbsp;&nbsp;MOV&nbsp;&nbsp;R0,#10<br>
+&nbsp;&nbsp;&nbsp;&nbsp;UDIV&nbsp;R1,R4,R0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MUL&nbsp;&nbsp;R2,R1,R0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SUB&nbsp;&nbsp;R3,R4,R2<br><br>
+</span></b></p>
+<p class="MsoBodyText"> For the following three checkpoints, assume
+<b>R4</b> initially contains an unsigned integer of value <b>n</b>.</p>
+<p class="Checkpoint"><a href="#Checkpoint17_26"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_26')">Checkpoint 17.26</button>:</span></b></a><b>
+</b> What is the value of R1 after the UDIV instruction? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_27"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_27')">Checkpoint 17.27</button>:</span></b></a><b>
+</b>What is the value of R2 after the MUL instruction? </p>
+<p class="Checkpoint"><a href="#Checkpoint17_28"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint17_28')">Checkpoint 17.28</button>:</span></b></a><b>
+</b>What is the value of R3 after the SUB instruction? </p>
+<p></p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/SZfHotE9nzY?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video 17. Recursion.</span></p>
+<p></p>
+<p class="MsoBodyText">Program 17.11 shows two implementations of factorial. The one on the top uses iteration, and the one on the bottom uses recursion. It is usually the case that a recursive algorithm can be rewritten in iterative form. Nevertheless, sometimes it is more convenient to implement the algorithm in recursive form.</p>
+<table><tbody>
+<tr><td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+; iterative implementation (22 bytes)<br>
+; Input: R0 is n<br>
+; Output: R0 is Fact(n)<br>
+; Assumes: R0 <= 12 (13! overflows)<br>
+Fact MOV&nbsp;&nbsp;R1, #1  ; R1 = 1 = total<br>
+loop CMP&nbsp;&nbsp;R0, #1  ; is n (R0) <= 1?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLS&nbsp;&nbsp;done    ; if so, skip to done<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MUL&nbsp;&nbsp;R1, R0, R1  ; total = total*n<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUB&nbsp;&nbsp;R0, R0, #1  ; n--<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;&nbsp;loop  <br>
+done MOV&nbsp;&nbsp;R0, R1      ; total = Fact(n)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BX&nbsp;&nbsp;&nbsp;LR         <br>
+; recursive implementation (30 bytes)<br>
+; Input: R0 is n<br>
+; Output: R0 is Fact(n)<br>
+; Assumes: R0 <= 12 (13! overflows)<br>
+Fact CMP&nbsp;&nbsp;R0, #1    ; is n (R0) <= 1?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLS&nbsp;&nbsp;endcase   ; if so, to endcase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PUSH&nbsp;{R0, LR}  ; save R0 and LR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUB&nbsp;&nbsp;R0, R0, #1 ; n--<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BL&nbsp;&nbsp;&nbsp;Fact       ; R0 = Fact(n-1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POP&nbsp;&nbsp;{R1, LR}   ; restore R1, LR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MUL&nbsp;&nbsp;R0, R0, R1 ; R0 = n*Fact(n-1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BX&nbsp;&nbsp;&nbsp;LR         ; normal return<br>
+endcase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOV&nbsp;&nbsp;R0, #1     ; R0 = 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BX&nbsp;&nbsp;&nbsp;LR         ; end case return<br>
+<br>
+</span></b></p>
+</td>
+<td>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+// iterative implementation<br>
+// Assumes: n <= 12<br>
+uint32_t Fact(uint32_t n){<br>
+uint32_t r;<br>
+&nbsp;&nbsp;r = 1;<br>
+&nbsp;&nbsp;for(; n>1; n--){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r = r*n;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return r;<br>
+}<br>
+<br>
+<br>
+<br>
+<br>
+// recursive implementation<br>
+// Assumes: n <= 12<br>
+uint32_t Fact(uint32_t n){<br>
+&nbsp;&nbsp;if(n <= 1){   // end condition<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return n*Fact(n-1); // recursion<br>
+}</span></b></p>
+</td></tr>
+</tbody>
+</table>
+<p class="MsoCaption">Program 17.11. Interative and recursive solutions to factorial.</p>
+
+<div
+ style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth">&nbsp;</p>
+</div>
+<h2>EE319K Lab 7 videos</h2>
+
+<h3>Educational Objectives of Lab 7</h3>
+<p class="MsoBodyText">
+&nbsp;&nbsp;&bull; Variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&mdash; Scope vs persistence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&mdash; Local variables on the stack, stack frame <br>
+&nbsp;&nbsp;&bull; SPI serial interface to LCD<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&mdash; Device driver<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&mdash; Busy-wait synchronization<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&mdash; Serial transmission<br>
+&nbsp;&nbsp;&bull; Fixed-point numbers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&mdash; Value = Integer*Constant<br>
+&nbsp;&nbsp;&bull; Number to ASCII conversion<br>
+&nbsp;&nbsp;&bull; Recursion<br>
+</p>
+<h3>Lab7_Introduction</h3>
+<p class="MsoBodyText">In this video we review the software starter project and overview the design steps for implementing Lab 7.</p>
+
+ <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/d_LZJo-Q420?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+     
+
+<h3>Lab7_ST7735R</h3>
+<p class="MsoBodyText">We begin Lab 7 by running the existing project <b>ST7735_4C123</b>. This allows us to
+explore the features of the LCD as well as test hardware connections.</p>
+
+
+ <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/yu2V2aRYflE?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      
+<h3>Lab7_Nokia</h3>
+<p class="MsoBodyText">If you cannot find a ST7735R LCD, you can complete Labs 7,8, and 10 with the Nokia5110 LCD. Nokia 5110 is available on <a href="https://www.amazon.com/s?k=nokia+5110+lcd&ref=nb_sb_noss" target="_blank">Amazon</a>. If you complete Lab 7 on the Nokia 5110, plan on using it also for Labs 8 and 10. <a href="Nokia5110.zip">Download EE319K starter projects for the Nokia 5110</a>. Unzip this file and place the four projects in the same place as your 
+other EE319K projects.</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/zji0rlD4B-Y?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+<h3>Lab7_Testing</h3>
+<p class="MsoBodyText">Once you implement the two functions writecommand and write data in LCD.s, you can test these
+two function in the simulator or on the real board.</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/TRafooTgSyE?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+<h3>Lab7_Demo</h3>
+<p class="MsoBodyText">Demonstration of Lab 7 final solution</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/T5hodI9NXNA?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+<h3>Lab7_Grading</h3>
+<p class="MsoBodyText">JV will pretend to be a student, TA will be a TA, we will tape both JV screen and TA voice to demonstrate how the lab checkout will flow</p>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/wVO7RBHVuMk?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+
+<div
+ style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth">&nbsp;</p>
+</div>
+<p class="MsoNormal">Reprinted with approval from <u>Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers</u>, 2020, ISBN:
+978-1477508992, <a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"><b>http://users.ece.utexas.edu/~valvano/arm/outline1.htm</b></a></p>
+<p class="MsoNormal">and from <u>Embedded Systems: Real-Time
+Interfacing to ARM&reg; Cortex&trade;-M Microcontrollers</u>, 2020,
+ISBN: 978-1463590154, <b><a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline.htm">http://users.ece.utexas.edu/~valvano/arm/outline.htm</a></b>
+</p>
+</div>
+<a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img
+ alt="Creative Commons License" style="border-width: 0pt;"
+ src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded
+Systems - Shape the World</span> by <a
+ xmlns:cc="http://creativecommons.org/ns#"
+ href="http://users.ece.utexas.edu/%7Evalvano/"
+ property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano
+and Ramesh Yerraballi</a> is licensed under a <a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License</a>.<br>
+Based on a work at <a xmlns:dct="http://purl.org/dc/terms/"
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"
+ rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+</body>
+</html>

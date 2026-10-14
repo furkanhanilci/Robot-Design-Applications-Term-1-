@@ -1,0 +1,217 @@
+Single Use Molds – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Single Use Molds
+Patterns and Molds
+A pattern is a replica of the part that will be cast, with the same (or very similar) shape and dimensions. It is used to create a cavity in a mold material, where molten metal will be poured to form the part. Depending on the casting process, a pattern can be reusable or disposable. Reusable patterns are more durable and can make multiple molds, while disposable patterns are destroyed after making one mold. In sand casting and shell mold casting, the pattern is used to make many molds. While a new pattern is needed for each casting using investment and lost foam casting.
+Green Sand Casting
+Green-sand casting is a process in which a mold is made of moist sand mixed with clay and organic additives based on a multi-use pattern. The mold is then filled with molten metal and allowed to cool. After solidification, the mold is broken and the casting is removed.
+Advantages:
+It is relatively inexpensive and easy to set up
+It can produce large and complex casting
+It can use both ferrous and non-ferrous metals
+Drawbacks:
+It can produce poor surface finish and dimensional accuracy
+It can cause defects such as sand inclusion, gas porosity, and shrinkage
+An example
+of a part commonly manufactured using green-sand casting is an engine block.
+Shell Molding
+Shell molding is a process in which a thin shell of sand and resin is formed around a metal pattern. The pattern is then heated to cure the resin and harden the shell. The pattern is removed and the shell halves are joined together to form a mold. The mold is then filled with molten metal and allowed to cool. After solidification, the shell is broken and the casting is removed.
+Advantages:
+It can produce high dimensional accuracy and surface finish
+It can produce thin and intricate castings
+It can reduce machining and cleaning costs
+It can use both ferrous and non-ferrous metals
+Drawbacks:
+It is more expensive and complex than sand casting
+It can produce limited size and weight of castings
+It can cause defects such as gas porosity, hot tearing, and core shift
+An example
+of a part commonly manufactured using shell molding is a valve body.
+Investment Casting
+Investment casting, also known as lost wax casting, is a process in which a wax pattern is coated with refractory material to create a mold. The wax pattern is then melted out and the mold is filled with molten metal and allowed to cool. After solidification, the mold is broken and the casting is removed.
+Advantages:
+It can produce high dimensional accuracy and surface finish
+It can produce complex and intricate castings
+It can produce near-net-shape castings with minimal machining
+It can use a wide range of metals, including alloys and superalloys
+Drawbacks:
+It is more expensive and time-consuming than other casting methods
+It can produce limited size and weight of castings
+It can cause defects such as gas porosity, shrinkage, and cracking
+An example
+of a part commonly manufactured using investment casting is a turbine blade.
+Lost Foam Casting
+Evaporative casting, also known as lost foam casting, is a process in which a foam pattern is coated with refractory material and placed in a sand mold. The mold is then filled with molten metal and the foam pattern evaporates. After solidification, the sand mold is broken and the casting is removed. This type of casting can also be useful in generate small batches or single parts in the prototyping stage as well as full production.
+Advantages:
+It can produce high dimensional accuracy and surface finish
+It can produce complex and intricate castings
+It can produce near-net-shape castings with minimal machining
+It can eliminate the need for cores or risers
+Drawbacks:
+It can produce poor mechanical properties due to gas entrapment
+It can cause defects such as sand inclusion, gas porosity, and shrinkage
+An example
+of a part commonly manufactured using evaporative casting is an engine cylinder head.
+Previous/next navigation
+Previous: Multiple Use Casting and Molds
+Next: Powder Metal Processes
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

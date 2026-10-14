@@ -1,0 +1,213 @@
+Identify and Define a Product Design Opportunity – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Identify and Define a Product Design Opportunity
+A product design opportunity is a gap or a need in the market that can be addressed by creating a new or improved product. To identify and define a product design opportunity, the following steps can be followed:
+Conduct a market research to understand the current trends, customer needs, competitors, and existing solutions in the domain of interest.
+Define the problem statement that clearly describes the problem to be solved, the target users, and the desired outcomes or benefits of the solution.
+Generate and evaluate ideas for possible solutions that meet the problem statement and the user needs. Consider the feasibility, viability, and desirability of each idea.
+Select the best idea and refine it into a product concept that specifies the main features, functions, and benefits of the product.
+Validate the product concept with potential users and stakeholders to get feedback and improve the design.
+Ideally all of these are completed before significant amount of technical engineering design work is committed. There is an art to committing the right amount of engineering analysis resources and person-hours to completely define a design project opportunity. Committing many person-hours towards detailed analysis prior to commitment from management or external stakeholders can a waste if not pushed forward through the design stage. Alternatively, committing resources to a poorly researched design opportunity is a guaranteed path to failure. Is formalized structure helps to identify the pros and cons of pursuing a potential design project and can help acquire stakeholder buy in. One tool for defining a potential project is called a SWOT (Strength, Weakness, Opportunity, and Threat) analysis.
+SWOT Analysis
+A SWOT analysis is a strategic tool that helps to evaluate the internal and external factors that affect the success of a product design opportunity. It stands for Strengths, Weaknesses, Opportunities and Threats. Strengths are the positive attributes of the product or the organization that give it an advantage over others. Weaknesses are the negative aspects that limit the product’s performance or hinder its development. Opportunities are the favorable situations or trends in the market or environment that create new possibilities for the product. Threats are the unfavorable conditions or risks that pose challenges or threats to the product’s viability or profitability.
+Typical layout of a SWOT Analysis.
+Source
+A SWOT analysis can help to identify and prioritize the key factors that influence the product design opportunity and to generate ideas for improvement or innovation. To conduct a SWOT analysis, follow these steps:
+Define the product design opportunity clearly and specifically.
+Brainstorm and list all the relevant strengths, weaknesses, opportunities and threats for the product design opportunity.
+Analyze and evaluate each factor in terms of its importance and impact on the product design opportunity.
+Organize and summarize the results in a matrix or a table with four quadrants, one for each category of SWOT.
+Use the SWOT analysis to formulate strategies and actions that leverage the strengths, overcome the weaknesses, exploit the opportunities and mitigate the threats.
+For example, suppose a company wants to design a new smartwatch that can monitor health and fitness data. A SWOT analysis for this product design opportunity could look like this:
+Strengths
+Weaknesses
+Innovative features and functions
+Strong brand reputation and customer loyalty
+Experienced and skilled design team
+High cost of production and maintenance
+Limited battery life and compatibility
+Regulatory and ethical issues
+Opportunities
+Threats
+Growing demand and interest in wearable devices
+Potential partnerships with health care providers and fitness centers
+Emerging markets and segments
+Intense competition from existing and new players
+Rapid changes in technology and customer preferences
+Legal and security risks
+Using a SWOT Analysis
+Based on this SWOT analysis, some possible strategies and actions for the product design opportunity could be:
+Differentiate the product from competitors by offering unique features and functions that add value to customers.
+Reduce the cost of production and maintenance by optimizing the design process and using cheaper materials or components.
+Extend the battery life and compatibility by improving the software and hardware integration and offering wireless charging options.
+Address the regulatory and ethical issues by complying with relevant laws and standards and ensuring data privacy and security.
+Promote the product to potential customers by highlighting its benefits and advantages over other products.
+Seek partnerships with health care providers and fitness centers to increase the market reach and credibility of the product.
+Explore new markets and segments by adapting the product to suit different needs and preferences of customers.
+Monitor the market trends and customer feedback to keep up with the changes in technology and customer expectations.
+Anticipate and prepare for possible legal and security risks by implementing appropriate measures and contingency plans.
+Some people have a strong interest and desire to explore the business aspect of new product design. For more content for those interested in entrepreneurship see
+Ch. 5 Introduction – Entrepreneurship | OpenStax
+Previous/next navigation
+Previous: Design Teams and Design Project Management
+Next: Team-Based Design Decision Making
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

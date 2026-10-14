@@ -1,0 +1,26 @@
+{
+  "id": 33,
+  "name": "Hard Real-Time Computing Systems - Giorgio Buttazzo",
+  "type": "Ticari ders kitabı",
+  "url": "https://link.springer.com/book/10.1007/978-3-031-45410-3",
+  "folder": "33_Hard_Real-Time_Computing_Systems_-_Giorgio_Buttazzo",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://link.springer.com/book/10.1007/978-3-031-45410-3",
+      "final_url": "https://link.springer.com/book/10.1007/978-3-031-45410-3",
+      "kind": "html",
+      "bytes": 3038,
+      "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea"
+    }
+  ],
+  "errors": [],
+  "status": "publisher_page_only",
+  "retrieved_at": "2026-10-05T20:47:52+0300",
+  "pdf_count": 0,
+  "status_tr": "Tanıtım sayfası kaydedildi; tam metin yok",
+  "notes": [
+    "Ücretli kitap veya MOOC tam metni indirilmedi. Yayıncı/kurs tanıtım sayfası ve varsa açık ek materyal kaydedildi.",
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

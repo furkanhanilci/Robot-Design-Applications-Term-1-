@@ -1,0 +1,25 @@
+{
+  "id": 59,
+  "name": "Schneider Electric Safe Motion Functions",
+  "type": "Resmi güvenli hareket dokümantasyonu",
+  "url": "https://product-help.schneider-electric.com/Machine%20Expert/V2.2/en/Lx32seSM/Lx32seSM/D-SE-0077572.html",
+  "folder": "59_Schneider_Electric_Safe_Motion_Functions",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://product-help.schneider-electric.com/Machine%20Expert/V2.2/en/Lx32seSM/Lx32seSM/D-SE-0077572.html",
+      "final_url": "https://product-help.se.com/docs/Machine%20Expert/V2.2/en/Lx32seSM/Lx32seSM/D-SE-0077572.html",
+      "kind": "html",
+      "bytes": 11988,
+      "sha256": "bd2bcc25554ec53e100cd23eacb79372751ee9ced39a7a5fb06388ab96669c6d"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:49:09+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

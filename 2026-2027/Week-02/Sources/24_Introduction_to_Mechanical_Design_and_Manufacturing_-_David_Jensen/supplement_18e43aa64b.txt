@@ -1,0 +1,237 @@
+Finishing Treatment Processes – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Finishing Treatment Processes
+Most machined parts need secondary operations including finishing to achieve tolerances and meet desired functional or behavioral requirements. Finishing operations can improve the surface quality, dimensional accuracy, and geometric accuracy of the machined parts.
+Deburring
+Deburring is the removal of metal fragments that are not completely removed in the machining process. These fragments, also known as burrs, can affect the performance, safety, and aesthetics of the machined parts.
+Deburring can be done by different methods depending on the size, shape, and quantity of the machined parts. For small batches of simple parts, deburring can be done manually by using tools such as files, scrapers, brushes, or sandpaper. Manual deburring is labor-intensive, time-consuming, and inconsistent, but it can be suitable for low-volume production or prototyping.
+For large batches of complex parts, deburring can be done by using automated or semi-automated processes that can handle a large number of parts simultaneously. Some of these processes are:
+Tumbling: This process involves placing the parts in a rotating or vibrating barrel along with abrasive media such as ceramic chips, steel balls, or sand. The friction and impact between the parts and the media remove the burrs and polish the surface of the parts.
+Vibratory finishing: This process is similar to tumbling, but instead of rotating, the barrel vibrates at a high frequency and amplitude. This creates a more gentle and uniform action on the parts and reduces the risk of damaging or deforming them.
+Abrasive-flow: This process involves forcing a viscous abrasive paste through the holes, slots, or cavities of the parts. The paste acts as a flexible file that conforms to the shape of the part and removes the burrs from the internal surfaces.
+Thermal energy methods: These methods use heat to melt or vaporize the burrs from the parts. Examples of these methods are flame deburring, plasma deburring, laser deburring, and electron beam deburring. These methods are fast and precise, but they can also affect the metallurgical properties of the parts.
+Electrochemical methods: These methods use an electric current to dissolve the burrs from the parts. Examples of these methods are electrochemical deburring and electrochemical machining. These methods are effective for removing burrs from hard-to-reach areas, but they can also cause corrosion or hydrogen embrittlement of the parts.
+Wire brushing: This process involves using a rotating wire brush to scrape off the burrs from the parts. This method is simple and inexpensive, but it can also leave scratches or marks on the surface of the parts.
+*Watch this
+video
+to learn more about robotic deburring.
+Honing
+Honing is an abrasive process that uses a rotating tool with abrasive particles to remove material from the surface of a workpiece. The purpose of honing is to achieve a precise final size and shape, and to correct any imperfections that may have occurred during the machining process. Honing can improve the surface finish, geometric accuracy, and dimensional tolerance of the workpiece.
+Honing is often needed for tight tolerance fits, such as in bearings, cylinders, valves, and gears. These components require a high degree of precision and smoothness to function properly and reduce friction, wear, and noise. Honing can be used to fix various types of errors that may affect the quality of the machined surface, such as:
+Out-of-roundness: when the diameter of the workpiece varies along its length or circumference.
+Taper: when the diameter of the workpiece changes gradually from one end to another.
+Barrel shape: when the diameter of the workpiece is larger in the middle than at the ends.
+Bell-mouth shape: when the diameter of the workpiece is larger at one end than at the other.
+Ovality: when the cross-section of the workpiece is not circular but elliptical.
+Bore distortion: when the shape of the workpiece is affected by external forces or stresses.
+Surface roughness: when the surface of the workpiece has irregularities or scratches that reduce its smoothness.
+*Watch this
+video
+to learn more about honing.
+Lapping
+Lapping is a finishing process that uses loose abrasives to smooth and refine the surface of a workpiece. Lapping can achieve
+extreme accuracy
+of dimensions, shape, and surface finish, as well as correct minor imperfections and produce a close fit between mating surfaces. Lapping can also reduce the internal stresses in a workpiece by lapping both sides simultaneously, resulting in improved flatness and parallelism.
+Lapping involves rubbing the workpiece against a lapping plate or tool that is coated with abrasive particles. The abrasive particles can be in the form of paste, liquid, or powder. The lapping plate or tool can be either fixed or rotating, depending on the type of lapping machine. Lapping can be done manually or mechanically, depending on the size and quantity of the workpieces.
+https://www.youtube.com/watch?v=6doeORtYeU4
+Shot-Peening
+Shot peening is a method of cold working that improves the mechanical properties of metals and composites by creating a compressive residual stress layer on the surface. This process involves striking the surface with shot, which are round metallic, glass, or ceramic particles, with enough force to cause plastic deformation.
+One of the applications of shot peening is to remove stress concentrations that can lead to fatigue failure or stress corrosion cracking. By inducing compressive stresses on the surface, shot peening prevents the propagation of cracks that can initiate from tensile stresses or defects.
+Shot peening
+is commonly used in mechanical springs, such as coil springs, leaf springs, and torsion bars. These components are subjected to cyclic loading and bending stresses that can cause fatigue damage over time.
+Electropolishing and Electroplating
+Electropolishing
+is a process that removes a thin layer of metal from the surface of a workpiece, using an electrolytic solution and an electric current. Electropolishing treats the whole workpiece uniformly, regardless of its shape or size. Some of the benefits of electropolishing are:
+It improves the surface finish and reduces the roughness, resulting in a smooth and shiny appearance.
+It removes burrs, sharp edges, and other defects that can cause stress concentration and fatigue failure.
+It enhances the corrosion resistance and chemical stability of the metal, by removing impurities and contaminants.
+It reduces the friction and wear of the metal, by creating a lubricious and non-stick surface.
+It increases the cleanliness and hygiene of the metal, by eliminating microorganisms and organic residues.
+Electropolishing
+is widely used in industries that require high-quality metal parts, such as aerospace, medical, pharmaceutical, food, and semiconductor.
+Electroplating
+is a process that uses an electric current to deposit a thin layer of metal on the surface of another metal. Electroplating can be done over the whole workpiece or only on selected areas, depending on the desired outcome. Some of the benefits of electroplating are:
+It can improve the appearance, corrosion resistance, and durability of the metal.
+It can modify the electrical conductivity, magnetic properties, or friction coefficient of the metal.
+It can reduce the cost of using expensive metals by applying them only on the surface of cheaper metals.
+*Watch this
+video
+to learn more about metal plating process.
+Anodizing
+Anodizing is a process that creates a protective oxide layer on the surface of metals, such as aluminum, titanium, and magnesium. The oxide layer is formed by applying an electric current to the metal in an electrolytic solution, which causes the metal to oxidize and form a thin, hard, and corrosion-resistant coating.
+Some of the benefits of anodizing are:
+It enhances the appearance and durability of the metal, giving it a range of colors and finishes that can be customized according to the design specifications.
+It increases the resistance of the metal to wear, abrasion, corrosion, and heat, making it suitable for various applications and environments.
+It improves the adhesion of paints, glues, and other coatings to the metal surface, allowing for better bonding and performance.
+It reduces the maintenance and repair costs of the metal parts, as they are less prone to damage and degradation over time.
+*Watch this
+video
+to learn more about anodizing aluminum.
+Coating
+Polymer coating is a process of applying a thin layer of polymer material on a substrate to enhance its properties and protect it from corrosion. Polymer materials are composed of large molecules that are formed by joining smaller units called monomers. Some examples of polymer materials are resins and plastics. There are different types of polymer coating materials, such as epoxy, polyester, vinyl ester, and phenolic, that have different characteristics and applications. The methods of polymer coating can vary depending on the type of material, the substrate, and the desired performance. Some common methods are spraying, dipping, brushing, and electrostatic deposition.
+*Watch this
+video
+to learn more about to use a Tap and Die to cut threads.
+Previous/next navigation
+Previous: Grinding and Polish
+Next: Design for Machining Processes
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

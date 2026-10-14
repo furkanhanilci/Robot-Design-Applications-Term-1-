@@ -1,0 +1,190 @@
+Design Process Overview – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Design Process Overview
+In this course we will utilize a “systematic” description of the design process. There are several reasons for using this as a model but before getting into those justifications, it is important to note that there are actually many paradigms of engineering design. The way you perceive the design process affects how, when and what type of decisions you make. For an example of a very different paradigm from systematic design, look up C-K theory. Additionally, there are many different variations of the systematic process that help designers focus on one aspect or another. For example, User-Centered design is a popular paradigm that focuses designers’ empathy to satisfy the needs of users or customers.
+So why are focusing on the systematic design process?
+The systematic process is what is most common in industrial practice.
+The systematic nature is conducive to the structure of an academic course with stages, assessments, and regular deliverables.
+5 Stages of Product Design
+Product design processes
+At the most basic form, a systematic design process describes the process of moving between four phases:
+Opportunity Identification
+Project Clarification
+Conceptual Design
+Embodiment and Detail Design
+Design Support
+Opportunity Identification
+The first phase of product design is identifying and clarifying a project opportunity. This phase involves finding a problem or need that can be solved by designing a new or improved product. The problem or need may come from various sources, such as customers, competitors, market trends, regulations, or technological developments. The product designer must research the problem or need and define it clearly and precisely.
+Identifying and clarifying a project opportunity also requires evaluating the feasibility and desirability of the potential product. The product designer must consider the technical, economic, social, and environmental aspects of the product and how they affect its performance, cost, quality, safety, and sustainability. This stage often also includes the identification of stakeholders. Stakeholders are those with an interest in the outcome of the design process. Those can include your company, government regulators, distribution and sales organizations, customers, users, maintenance personnel or organizations, and others depending on the domain. Failing to identify an important stakeholder at this stage can lead to making the wrong product for the wrong stakeholder.
+Project Clarification
+The second phase of engineering design is project clarification. In this phase, the engineer defines the problem and its scope more clearly by determining what these stakeholders need from the design, such as functionality, performance, reliability, safety, cost, aesthetics, etc. These needs are then prioritized and translated into measurable technical targets that can be used to evaluate and compare different design concepts in the next phase. Project clarification is a critical step in engineering design because it ensures that the design meets the expectations and requirements of the intended users and customers, as well as other social, environmental, ethical, and legal factors. The project clarification stage is when we define the evaluation criteria to assess if our design is successful. Successful designs are those that satisfy stakeholder needs by achieving the identified targets within economic, manufacturability, ethical and other constraints.
+Conceptual Design
+The third phase of engineering design is conceptual design. In this phase, the problem is defined by identifying the required functions. The functions are the actions or tasks that the product or system must perform to satisfy the customer needs and specifications.
+Conceptual design involves generating one or more solution principles for each function. The next step of conceptual design is to select the concept for each function and combine them into an overall product or system concept. This synthesis step should be done several times in order to develop a large potential pool of complete concepts. Finally, these complete concepts can be evaluated and a single or few concepts can move forward towards detailed design. This evaluation is done by using various criteria such as stakeholder needs, design targets, concept screening, concept scoring, and decision matrices. The selected concept should meet or exceed the customer expectations and requirements, as well as be feasible, reliable, and cost-effective.
+Embodiment and Detailed Design
+The detailed stage of design is the fourth phase in the mechanical product design process, where the system architecture, assemblies and their arraignments are defined. This stage involves specifying the types of standard components and the material and geometry of custom-made components that will be used to realize the product functionality and performance. The Detailed stage of design requires careful analysis and evaluation of various design alternatives, trade-offs and constraints, as well as consideration of manufacturability, reliability, maintainability and cost aspects. The output of this stage is a complete set of detailed drawings, specifications and documentation that describe the product structure and characteristics.
+Production and Support
+The production and support stage is the fifth and final stage of product design. This stage involves defining the processes and methods for manufacturing and assembling the product. This may require testing and refining different prototypes until the product meets the desired specifications and quality standards. The production and support stage also includes providing ongoing maintenance and service for the product, as well as planning for its disposal or recycling at the end of its life cycle. This is important for minimizing the environmental impact of the product and promoting sustainability.
+Previous/next navigation
+Previous: Typical Types of Product Design
+Next: A Case Study – A Ball Point Pen
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

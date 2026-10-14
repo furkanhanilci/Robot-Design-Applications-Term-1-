@@ -1,0 +1,770 @@
+{
+  "id": 42,
+  "name": "Bootlin Embedded Linux Training Materials",
+  "type": "Açık eğitim notları",
+  "url": "https://bootlin.com/docs/",
+  "folder": "42_Bootlin_Embedded_Linux_Training_Materials",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://bootlin.com/docs/",
+      "final_url": "https://bootlin.com/docs/",
+      "kind": "html",
+      "bytes": 66371,
+      "sha256": "16f26d599e025ad2add779a33b6fc8a32dab74699c60397e73050b05ff655082"
+    },
+    {
+      "file": "lothore-kasan-ebpf.pdf",
+      "url": "https://bootlin.com/pub/conferences/2026/lsfmmbpf/lothore-kasan-ebpf.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2026/lsfmmbpf/lothore-kasan-ebpf.pdf",
+      "kind": "pdf",
+      "bytes": 2125392,
+      "sha256": "aaacf33fce7e1ae9e03e480415b30368d5ba9aedc889651be0f0936c0a66cff7",
+      "pdf_pages": 29
+    },
+    {
+      "file": "lothore-rust-no-std.pdf",
+      "url": "https://bootlin.com/pub/conferences/2026/fosdem/lothore-rust-no-std.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2026/fosdem/lothore-rust-no-std.pdf",
+      "kind": "pdf",
+      "bytes": 5758903,
+      "sha256": "eed99b885171888a19276359cf8ee2eba330794f8e89dc622ead6dc2e56c66d4",
+      "pdf_pages": 53
+    },
+    {
+      "file": "petazzoni-snagboot.pdf",
+      "url": "https://bootlin.com/pub/conferences/2026/fosdem/petazzoni-snagboot.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2026/fosdem/petazzoni-snagboot.pdf",
+      "kind": "pdf",
+      "bytes": 1071848,
+      "sha256": "a1c46ef3c188a3d1d5a2a1bb5271f5225214a87b6d9624b9e2ff58489238e69d",
+      "pdf_pages": 9
+    },
+    {
+      "file": "sbom-cve-check.pdf",
+      "url": "https://bootlin.com/pub/conferences/2026/fosdem/sbom-cve-check.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2026/fosdem/sbom-cve-check.pdf",
+      "kind": "pdf",
+      "bytes": 326281,
+      "sha256": "f6d7035c4849b90f2b68dd9260d9603768dbfccd5619c9f2d40371c1c0d57bac",
+      "pdf_pages": 11
+    },
+    {
+      "file": "033df6a5_sbom-cve-check.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/yocto-virtual-summit/sbom-cve-check.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/yocto-virtual-summit/sbom-cve-check.pdf",
+      "kind": "pdf",
+      "bytes": 389421,
+      "sha256": "4101a9ebf5abe68404f2c40ef346f25bfa65de8e31511277a50e577d774998df",
+      "pdf_pages": 18
+    },
+    {
+      "file": "kernel-review.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/cdl/kernel-review.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/cdl/kernel-review.pdf",
+      "kind": "pdf",
+      "bytes": 3626927,
+      "sha256": "4bd9f452b6318946193b1c9e1d39a627db961d15a689e16805f5e8b588e299f8",
+      "pdf_pages": 49
+    },
+    {
+      "file": "neon-beat-cdl-en.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/cdl/neon-beat-cdl-en.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/cdl/neon-beat-cdl-en.pdf",
+      "kind": "pdf",
+      "bytes": 2604863,
+      "sha256": "d090799afc2ca92f7300c26f08f41e880d7630d6ef52b8f58318eddb2104e6c5",
+      "pdf_pages": 15
+    },
+    {
+      "file": "ebpf-workshop.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/cdl/ebpf-workshop.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/cdl/ebpf-workshop.pdf",
+      "kind": "pdf",
+      "bytes": 1245635,
+      "sha256": "d3b591422e8430b61d72fd6d6ca7a24c9cee170da6d106da18fb2af4f53193af",
+      "pdf_pages": 34
+    },
+    {
+      "file": "tleb-pm2.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/tleb-pm2.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/tleb-pm2.pdf",
+      "kind": "pdf",
+      "bytes": 130302,
+      "sha256": "e8da20dcb4e2cefdc167662cd5ff154d18de2594c530cf08898aa147c69fa706",
+      "pdf_pages": 35
+    },
+    {
+      "file": "chauvet-vkms.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/chauvet-vkms.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/chauvet-vkms.pdf",
+      "kind": "pdf",
+      "bytes": 186537,
+      "sha256": "321cab8c76fe0236dbae5b2f18205894964b3d678badfab8252e4e197d557ece",
+      "pdf_pages": 72
+    },
+    {
+      "file": "gantois-snagfactory.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/gantois-snagfactory.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/gantois-snagfactory.pdf",
+      "kind": "pdf",
+      "bytes": 1474488,
+      "sha256": "befab9d29778912bfd38b5d914bf58e376555fd03f7b52ee33c60d728a6f9f59",
+      "pdf_pages": 45
+    },
+    {
+      "file": "benjamin-security.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/benjamin-security.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/benjamin-security.pdf",
+      "kind": "pdf",
+      "bytes": 835083,
+      "sha256": "1671d4fbd0650f60367197e9528b22ce209c8161ee64538af02ae06eb7140eb4",
+      "pdf_pages": 42
+    },
+    {
+      "file": "codina-pcie-dt-overlay.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/codina-pcie-dt-overlay.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/codina-pcie-dt-overlay.pdf",
+      "kind": "pdf",
+      "bytes": 775192,
+      "sha256": "a4b2acabff2b34950d65d17f99833bf1affac314060abd24101e91b70c6972a5",
+      "pdf_pages": 51
+    },
+    {
+      "file": "raynal-mtd-updates.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/raynal-mtd-updates.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/raynal-mtd-updates.pdf",
+      "kind": "pdf",
+      "bytes": 17930125,
+      "sha256": "d99fdc8bc54d11a1d75326b078fb6abaf5a381657c191c520f71a6e7286b27e6",
+      "pdf_pages": 48
+    },
+    {
+      "file": "ceresoli-hotplug-status.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/ceresoli-hotplug-status.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/ceresoli-hotplug-status.pdf",
+      "kind": "pdf",
+      "bytes": 1342430,
+      "sha256": "e0423dfdae758ce8522f2f80c956de6fd7a47341ff49cc8387bf67abf5a0a487",
+      "pdf_pages": 44
+    },
+    {
+      "file": "lothore-80211.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/elce/lothore-80211.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/elce/lothore-80211.pdf",
+      "kind": "pdf",
+      "bytes": 939540,
+      "sha256": "151cbe0fae27459b29636d3e6cf6fced489c9d1aec6a1f8ea3caf96d6e174939",
+      "pdf_pages": 47
+    },
+    {
+      "file": "vkms.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/display-next-hackfest/vkms.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/display-next-hackfest/vkms.pdf",
+      "kind": "pdf",
+      "bytes": 77679,
+      "sha256": "fd04810bf98f2bc03266bb6139a23bbdbcf0160218a42360244564223f8c4ba1",
+      "pdf_pages": 20
+    },
+    {
+      "file": "gazquez-driver-development-for-zephyr.pdf",
+      "url": "https://bootlin.com/pub/conferences/2025/meetup/gazquez-driver-development-for-zephyr/gazquez-driver-development-for-zephyr.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2025/meetup/gazquez-driver-development-for-zephyr/gazquez-driver-development-for-zephyr.pdf",
+      "kind": "pdf",
+      "bytes": 2332336,
+      "sha256": "e5d30e9268630b2b1049f6bf039899337f1fc938c3c929298666e8cd72fa95de",
+      "pdf_pages": 19
+    },
+    {
+      "file": "ceresoli-codina-hotplug-overlays.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/lpc/ceresoli-codina-hotplug-overlays/ceresoli-codina-hotplug-overlays.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/lpc/ceresoli-codina-hotplug-overlays/ceresoli-codina-hotplug-overlays.pdf",
+      "kind": "pdf",
+      "bytes": 1742668,
+      "sha256": "1ee6e5ba3f4d818a935b13dbc82f9339f87fda389f7e69e41bbd7b89100f716f",
+      "pdf_pages": 25
+    },
+    {
+      "file": "ceresoli-drm-hotplug.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/lpc/ceresoli-drm-hotplug/ceresoli-drm-hotplug.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/lpc/ceresoli-drm-hotplug/ceresoli-drm-hotplug.pdf",
+      "kind": "pdf",
+      "bytes": 1786167,
+      "sha256": "f1f33514149c09c55d6c8e06b153b7d24f7355a3913a7243e847800f78d40697",
+      "pdf_pages": 14
+    },
+    {
+      "file": "chevallier-phy-port.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/lpc/chevallier-phy-port/chevallier-phy-port.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/lpc/chevallier-phy-port/chevallier-phy-port.pdf",
+      "kind": "pdf",
+      "bytes": 1786432,
+      "sha256": "52713405dd958032efba292602ebf7d34efed30b4c97b9c3ac24cdd3737744ad",
+      "pdf_pages": 14
+    },
+    {
+      "file": "lebrun-pm.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/eosseu/lebrun-pm/lebrun-pm.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/eosseu/lebrun-pm/lebrun-pm.pdf",
+      "kind": "pdf",
+      "bytes": 1951347,
+      "sha256": "049be9da900c4dc579ba934d4446484e603be9530b7d15848830278d817ff8c4",
+      "pdf_pages": 54
+    },
+    {
+      "file": "costa-optimizing-memory.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/eosseu/costa-optimizing-memory/costa-optimizing-memory.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/eosseu/costa-optimizing-memory/costa-optimizing-memory.pdf",
+      "kind": "pdf",
+      "bytes": 1867503,
+      "sha256": "d7c05ee23b4facb89bb32bf23b91cfeb79a2f2839703de4e17201402c043fbf9",
+      "pdf_pages": 35
+    },
+    {
+      "file": "maincent-adding-support-for-poe.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/eoss/maincent-adding-support-for-poe/maincent-adding-support-for-poe.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/eoss/maincent-adding-support-for-poe/maincent-adding-support-for-poe.pdf",
+      "kind": "pdf",
+      "bytes": 3724701,
+      "sha256": "240996eeb018e95e1da0c1c81d714a8cf7727b9a92aaae53c3776e41a29a1646",
+      "pdf_pages": 34
+    },
+    {
+      "file": "clement-s2r-dra821.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/eoss/clement-s2r-dra821/clement-s2r-dra821.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/eoss/clement-s2r-dra821/clement-s2r-dra821.pdf",
+      "kind": "pdf",
+      "bytes": 3262437,
+      "sha256": "f40aa5e3d177b08759517256ecfb27aebdb06796aeef109aec43df11125bb70d",
+      "pdf_pages": 29
+    },
+    {
+      "file": "chevallier-anatomy-net-driver.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/eoss/chevallier-anatomy-ethernet-driver/chevallier-anatomy-net-driver.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/eoss/chevallier-anatomy-ethernet-driver/chevallier-anatomy-net-driver.pdf",
+      "kind": "pdf",
+      "bytes": 1833815,
+      "sha256": "c16de50042aba1aaeb7be0233c47c6eb6dd00f32e4a1a82a82a9f61ef29fdc2d",
+      "pdf_pages": 34
+    },
+    {
+      "file": "ceresoli-dapm.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/eoss/ceresoli-dapm/ceresoli-dapm.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/eoss/ceresoli-dapm/ceresoli-dapm.pdf",
+      "kind": "pdf",
+      "bytes": 2077152,
+      "sha256": "33b727492f1631a3116b03f4780ffe897b6475cbe376cb2d1b48355fe226eb68",
+      "pdf_pages": 40
+    },
+    {
+      "file": "lothore-ebpf-howto.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/cdl/lothore-ebpf-howto/lothore-ebpf-howto.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/cdl/lothore-ebpf-howto/lothore-ebpf-howto.pdf",
+      "kind": "pdf",
+      "bytes": 2416846,
+      "sha256": "fe608974270a554e5a535b0d983f121385b6dc3558eb393f96f864ff72ba88fe",
+      "pdf_pages": 42
+    },
+    {
+      "file": "raynal-being-kernel-maintainer.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/cdl/raynal-being-kernel-maintainer/raynal-being-kernel-maintainer.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/cdl/raynal-being-kernel-maintainer/raynal-being-kernel-maintainer.pdf",
+      "kind": "pdf",
+      "bytes": 5969163,
+      "sha256": "d3c3c916e19dbb76817e82da96bf72af1507e94191ce656d88118ccc27c01f60",
+      "pdf_pages": 27
+    },
+    {
+      "file": "multi-port-multi-phy-interfaces.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/netdev/multi-port-multi-phy-interfaces.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/netdev/multi-port-multi-phy-interfaces.pdf",
+      "kind": "pdf",
+      "bytes": 1986964,
+      "sha256": "e4e1496c084eae1222d7f4ec9ad4a182f7001f100b6d8c4553a614244004690d",
+      "pdf_pages": 31
+    },
+    {
+      "file": "codina-a-tour-of-usb-device-controller.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/eoss/codina-a-tour-of-usb-device-controller/codina-a-tour-of-usb-device-controller.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/eoss/codina-a-tour-of-usb-device-controller/codina-a-tour-of-usb-device-controller.pdf",
+      "kind": "pdf",
+      "bytes": 2883865,
+      "sha256": "c661fde4191512aa9b78ed0c8636a00ad451afbf6c235a5fc2546a9931adf331",
+      "pdf_pages": 46
+    },
+    {
+      "file": "kocialkowski-current-overview-drm-kms-driver-side-apis.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/eoss/kocialkowski-current-overview-drm-kms-driver-side-apis/kocialkowski-current-overview-drm-kms-driver-side-apis.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/eoss/kocialkowski-current-overview-drm-kms-driver-side-apis/kocialkowski-current-overview-drm-kms-driver-side-apis.pdf",
+      "kind": "pdf",
+      "bytes": 1751632,
+      "sha256": "26f54fd3d68c2f499ec3c8f7353f3e95030731a0a4a71f23c46510eafe12e5c1",
+      "pdf_pages": 39
+    },
+    {
+      "file": "raynal-ieee802154.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/elce/raynal-ieee802154/raynal-ieee802154.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/elce/raynal-ieee802154/raynal-ieee802154.pdf",
+      "kind": "pdf",
+      "bytes": 7053413,
+      "sha256": "673f63a0c5747f9abeeed45045d46a606c282bbaec8ad5a558dc757f7c64e9d6",
+      "pdf_pages": 32
+    },
+    {
+      "file": "ceresoli-basics-of-i2c-on-linux.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/elce/ceresoli-basics-of-i2c-on-linux/ceresoli-basics-of-i2c-on-linux.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/elce/ceresoli-basics-of-i2c-on-linux/ceresoli-basics-of-i2c-on-linux.pdf",
+      "kind": "pdf",
+      "bytes": 2085605,
+      "sha256": "1b540ef0fe7cb01c0b8fb1740f97efcf1348809b805bbfd57535fcd020940ba2",
+      "pdf_pages": 47
+    },
+    {
+      "file": "kocialkowski-walking-through-the-linux-based-graphics-stack.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/elce/kocialkowski-walking-through-the-linux-based-graphics-stack/kocialkowski-walking-through-the-linux-based-graphics-stack.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/elce/kocialkowski-walking-through-the-linux-based-graphics-stack/kocialkowski-walking-through-the-linux-based-graphics-stack.pdf",
+      "kind": "pdf",
+      "bytes": 1729219,
+      "sha256": "7a15e8f325ae4d5770ac9be8a0d3d19abf98a817c058fc71375bdbe4b2e1baf9",
+      "pdf_pages": 31
+    },
+    {
+      "file": "kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/embedded-recipes/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/embedded-recipes/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux/kocialkowski-advanced-camera-support-allwinner-socs-mainline-linux.pdf",
+      "kind": "pdf",
+      "bytes": 3499897,
+      "sha256": "2d4932300d8f24fec6f56417c1e74e9f156544c9feaa30df3c10f8c119b2edb0",
+      "pdf_pages": 53
+    },
+    {
+      "file": "perrot-optee-pkcs11.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/lee/perrot-optee-pkcs11/perrot-optee-pkcs11.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/lee/perrot-optee-pkcs11/perrot-optee-pkcs11.pdf",
+      "kind": "pdf",
+      "bytes": 3342949,
+      "sha256": "a00ba16358ca6791950dd601e4480f1284c0633d75aeb3424a052eaa0a218c56",
+      "pdf_pages": 19
+    },
+    {
+      "file": "clement-AMP-on-Cortex-A9.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/lee/clement-AMP-on-Cortex-A9/clement-AMP-on-Cortex-A9.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/lee/clement-AMP-on-Cortex-A9/clement-AMP-on-Cortex-A9.pdf",
+      "kind": "pdf",
+      "bytes": 1826534,
+      "sha256": "8575967cce22e618f29bb30472582afdb3aa2ec1b6f3f4a26dc22ec2147385cc",
+      "pdf_pages": 22
+    },
+    {
+      "file": "opdenacker-llvm-tools-for-linux-kernel.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/lee/opdenacker-llvm-tools-for-linux-kernel/opdenacker-llvm-tools-for-linux-kernel.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/lee/opdenacker-llvm-tools-for-linux-kernel/opdenacker-llvm-tools-for-linux-kernel.pdf",
+      "kind": "pdf",
+      "bytes": 2021129,
+      "sha256": "af35b82b74d8455b63b63ad7cf83d33d3cf43286d8e808271366b60bb5a57517",
+      "pdf_pages": 25
+    },
+    {
+      "file": "leger-optee-linux-interaction.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/elc/leger-optee-linux-interaction/leger-optee-linux-interaction.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/elc/leger-optee-linux-interaction/leger-optee-linux-interaction.pdf",
+      "kind": "pdf",
+      "bytes": 1893097,
+      "sha256": "09ba0b562183bc26d0f4c5438a1d76f47a8f923eb7561d6f3c069dbf99583549",
+      "pdf_pages": 45
+    },
+    {
+      "file": "raynal-i3c.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/elc/raynal-i3c/raynal-i3c.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/elc/raynal-i3c/raynal-i3c.pdf",
+      "kind": "pdf",
+      "bytes": 2246532,
+      "sha256": "896ec6e89e36fbef77bb82fe8617ac9167cc3e9c6f6fede2e80c866805698ad8",
+      "pdf_pages": 52
+    },
+    {
+      "file": "petazzoni-device-tree-101.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/webinar/petazzoni-device-tree-101/petazzoni-device-tree-101.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/webinar/petazzoni-device-tree-101/petazzoni-device-tree-101.pdf",
+      "kind": "pdf",
+      "bytes": 6056833,
+      "sha256": "3d50f26ce3ce6f8b5eddf62a70133d756eba4348c6e10e59db8cb87b4b1f4759",
+      "pdf_pages": 81
+    },
+    {
+      "file": "petazzoni-upstreaming-hw-support-in-linux-kernel-why-how.pdf",
+      "url": "https://bootlin.com/pub/conferences/2016/collab-summit/petazzoni-upstreaming-hw-support-in-linux-kernel-why-how.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2016/collab-summit/petazzoni-upstreaming-hw-support-in-linux-kernel-why-how.pdf",
+      "kind": "pdf",
+      "bytes": 1827067,
+      "sha256": "70bf6d0cb5239e024e2bc8448913dfe75c4e368a30ca034abdf946db22c8ec61",
+      "pdf_pages": 18
+    },
+    {
+      "file": "ripard-drm.pdf",
+      "url": "https://bootlin.com/pub/conferences/2016/elc/ripard-drm/ripard-drm.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2016/elc/ripard-drm/ripard-drm.pdf",
+      "kind": "pdf",
+      "bytes": 1882550,
+      "sha256": "0e12b80b9ffe8fabe65369d84e61e87475d32ca787d2dd2e4421f792bb45598a",
+      "pdf_pages": 24
+    },
+    {
+      "file": "embedded-linux-from-scratch-riscv.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/risc-v/embedded-linux-from-scratch-riscv.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/risc-v/embedded-linux-from-scratch-riscv.pdf",
+      "kind": "pdf",
+      "bytes": 7227447,
+      "sha256": "4aa819aab6bafdbc894822448cc865e8749c3c73aced71f6ef3d4acf79d46eb0",
+      "pdf_pages": 67
+    },
+    {
+      "file": "dautheribes-yocto-best-practices.pdf",
+      "url": "https://bootlin.com/pub/conferences/2024/meetup/dautheribes-yocto-best-practices/dautheribes-yocto-best-practices.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2024/meetup/dautheribes-yocto-best-practices/dautheribes-yocto-best-practices.pdf",
+      "kind": "pdf",
+      "bytes": 2279953,
+      "sha256": "18f0c031462ee0b41f80f9224903cb625364508f5c40d60256be87979fec11a8",
+      "pdf_pages": 35
+    },
+    {
+      "file": "ceresoli-simple-layer.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/yp-summit/ceresoli-simple-layer/ceresoli-simple-layer.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/yp-summit/ceresoli-simple-layer/ceresoli-simple-layer.pdf",
+      "kind": "pdf",
+      "bytes": 1696793,
+      "sha256": "be4b565ea1471e852e014f4e7b73bd3fe7a8d9de0d0314f8850af9b1d3129151",
+      "pdf_pages": 20
+    },
+    {
+      "file": "opdenacker-how-to-contribute.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/yp-summit/opdenacker-how-to-contribute.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/yp-summit/opdenacker-how-to-contribute.pdf",
+      "kind": "pdf",
+      "bytes": 2486707,
+      "sha256": "8d230dce21ade74b9f5932da10be86cd8092282b5351e8b8c2da3c0bc56b3664",
+      "pdf_pages": 27
+    },
+    {
+      "file": "petazzoni-discover-understand-embedded-linux.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/cdl/petazzoni-discover-understand-embedded-linux/petazzoni-discover-understand-embedded-linux.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/cdl/petazzoni-discover-understand-embedded-linux/petazzoni-discover-understand-embedded-linux.pdf",
+      "kind": "pdf",
+      "bytes": 9314732,
+      "sha256": "6f41e55b42fc53d70406216dc2753c50ea59af553d293298a10322e898bbea26",
+      "pdf_pages": 46
+    },
+    {
+      "file": "ceresoli-gdb-and-remote-gdb.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/linuxday/ceresoli-gdb-and-remote-gdb/ceresoli-gdb-and-remote-gdb.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/linuxday/ceresoli-gdb-and-remote-gdb/ceresoli-gdb-and-remote-gdb.pdf",
+      "kind": "pdf",
+      "bytes": 1892388,
+      "sha256": "28713a73c8db948832743a5bec77711263fd9033310f8483a8d87916627486ce",
+      "pdf_pages": 25
+    },
+    {
+      "file": "opdenacker-finding-best-block-filesystem.pdf",
+      "url": "https://bootlin.com/pub/conferences/2023/eoss/opdenacker-finding-best-block-filesystem/opdenacker-finding-best-block-filesystem.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2023/eoss/opdenacker-finding-best-block-filesystem/opdenacker-finding-best-block-filesystem.pdf",
+      "kind": "pdf",
+      "bytes": 3348460,
+      "sha256": "88d5ac39cc53750d26358edfab9d1bca8f660fd47d9c0013e55d554b4b96f68f",
+      "pdf_pages": 60
+    },
+    {
+      "file": "opdenacker-bitbaking-spdx-sbom.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/yp-summit/opdenacker-bitbaking-spdx-sbom/opdenacker-bitbaking-spdx-sbom.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/yp-summit/opdenacker-bitbaking-spdx-sbom/opdenacker-bitbaking-spdx-sbom.pdf",
+      "kind": "pdf",
+      "bytes": 515876,
+      "sha256": "a9274215fdbd92c6309fcdfa9d10609a1d887e6e58e82382152dec9d2da57a0e",
+      "pdf_pages": 18
+    },
+    {
+      "file": "opdenacker-implementing-A-B-system-updates-with-u-boot.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/elce/opdenacker-implementing-A-B-system-updates-with-u-boot/opdenacker-implementing-A-B-system-updates-with-u-boot.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/elce/opdenacker-implementing-A-B-system-updates-with-u-boot/opdenacker-implementing-A-B-system-updates-with-u-boot.pdf",
+      "kind": "pdf",
+      "bytes": 1953802,
+      "sha256": "f3a0a7d298f17ed958429706b3880427593eb263d90698922da1f92ae85dcc31",
+      "pdf_pages": 30
+    },
+    {
+      "file": "belloni-yocto-autobuilders-swat.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/elc/belloni-yocto-autobuilders-swat/belloni-yocto-autobuilders-swat.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/elc/belloni-yocto-autobuilders-swat/belloni-yocto-autobuilders-swat.pdf",
+      "kind": "pdf",
+      "bytes": 1735019,
+      "sha256": "57e7e049503c0941215d55d1691c10b2e533abf39c9ae24f42abdd294962f84c",
+      "pdf_pages": 28
+    },
+    {
+      "file": "petazzoni-buildroot-whats-new.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/elc/petazzoni-buildroot-whats-new/petazzoni-buildroot-whats-new.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/elc/petazzoni-buildroot-whats-new/petazzoni-buildroot-whats-new.pdf",
+      "kind": "pdf",
+      "bytes": 4483957,
+      "sha256": "4519703d65bf474d8bb403048dde162757026deaa232243e9f6a9a8ccb9af4b4",
+      "pdf_pages": 58
+    },
+    {
+      "file": "michael-opdenacker-contributing-to-yocto-project-yps2022.05.pdf",
+      "url": "https://bootlin.com/pub/conferences/2022/yp-summit/opdenacker-how-to-contribute-to-the-yocto-project/michael-opdenacker-contributing-to-yocto-project-yps2022.05.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2022/yp-summit/opdenacker-how-to-contribute-to-the-yocto-project/michael-opdenacker-contributing-to-yocto-project-yps2022.05.pdf",
+      "kind": "pdf",
+      "bytes": 2056670,
+      "sha256": "21679ee27ca21d684c6be90ed514d81fac86ef98b94e63e608463dd2cbfff92b",
+      "pdf_pages": 22
+    },
+    {
+      "file": "opdenacker-buildroot-nuggets.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/elc/opdenacker-buildroot-nuggets/opdenacker-buildroot-nuggets.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/elc/opdenacker-buildroot-nuggets/opdenacker-buildroot-nuggets.pdf",
+      "kind": "pdf",
+      "bytes": 3581468,
+      "sha256": "2b1542dca47607203b64a54b1826320cb2e66ad51ea248e7684a1653de457b8d",
+      "pdf_pages": 27
+    },
+    {
+      "file": "petazzoni-buildroot-vulnerability-tracking.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/lee/petazzoni-buildroot-vulnerability-tracking/petazzoni-buildroot-vulnerability-tracking.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/lee/petazzoni-buildroot-vulnerability-tracking/petazzoni-buildroot-vulnerability-tracking.pdf",
+      "kind": "pdf",
+      "bytes": 4658109,
+      "sha256": "a8602e9ff258d0c1bd8655efe97916bd84f7091b8858f53d7d55c0b3ebcce2a3",
+      "pdf_pages": 28
+    },
+    {
+      "file": "perrot-secure-boot.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/lee/perrot-secure-boot/perrot-secure-boot.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/lee/perrot-secure-boot/perrot-secure-boot.pdf",
+      "kind": "pdf",
+      "bytes": 3820680,
+      "sha256": "861134f5caa97a8feaaf6f3ece998ea82ed382cc345ace0d5da5f12947e13047",
+      "pdf_pages": 26
+    },
+    {
+      "file": "maincent-devicetree-overlay-and-uboot-extension-board-management.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/lee/maincent-devicetree-overlay-and-uboot-extension-board-management/maincent-devicetree-overlay-and-uboot-extension-board-management.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/lee/maincent-devicetree-overlay-and-uboot-extension-board-management/maincent-devicetree-overlay-and-uboot-extension-board-management.pdf",
+      "kind": "pdf",
+      "bytes": 2914105,
+      "sha256": "457c0148718a85dbe09d08984176b670ca6d562440a9b427324013ad1253def9",
+      "pdf_pages": 20
+    },
+    {
+      "file": "bouhara-rauc.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/lee/bouhara-rauc/bouhara-rauc.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/lee/bouhara-rauc/bouhara-rauc.pdf",
+      "kind": "pdf",
+      "bytes": 1793682,
+      "sha256": "1624ff5df6f4efe23084fc1c7107e680a1997f38f5e2dac0746e4bada9ac17dc",
+      "pdf_pages": 27
+    },
+    {
+      "file": "opdenacker-understanding-u-boot-falcon-mode.pdf",
+      "url": "https://bootlin.com/pub/conferences/2021/lee/opdenacker-understanding-u-boot-falcon-mode/opdenacker-understanding-u-boot-falcon-mode.pdf",
+      "final_url": "https://bootlin.com/pub/conferences/2021/lee/opdenacker-understanding-u-boot-falcon-mode/opdenacker-understanding-u-boot-falcon-mode.pdf",
+      "kind": "pdf",
+      "bytes": 3368166,
+      "sha256": "269333459281be867ddde22bb03cb9e28565d60a254654a88430e0a0905d7df3",
+      "pdf_pages": 28
+    },
+    {
+      "file": "page_6be2b6d6d0.html",
+      "url": "https://bootlin.com/doc/training/embedded-linux/",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/",
+      "kind": "html",
+      "bytes": 17703,
+      "sha256": "43baea62ed6b9d225c44491ea87ba921d711f4c125aed55d162fa540d35bdfc1"
+    },
+    {
+      "file": "page_6a248d82d1.html",
+      "url": "https://bootlin.com/doc/training/linux-kernel/",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/",
+      "kind": "html",
+      "bytes": 16422,
+      "sha256": "3e8d828a6a1b7852ab88a97ef997292f4d137a1764cde4b75e8b2c2766f78fec"
+    },
+    {
+      "file": "embedded-linux-stm32mp2-labs.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-stm32mp2-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-stm32mp2-labs.pdf",
+      "kind": "pdf",
+      "bytes": 1845627,
+      "sha256": "a1ef0e7247ebfaaf90c548e4c94d0e49b5168c6d56079b34011a93ce45f28be3",
+      "pdf_pages": 70
+    },
+    {
+      "file": "embedded-linux-stm32mp1-labs.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-stm32mp1-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-stm32mp1-labs.pdf",
+      "kind": "pdf",
+      "bytes": 1092601,
+      "sha256": "bcdc423b812c7d76d45d19d60a69c4ab9e61b785ab630310bd3128217a8b99d7",
+      "pdf_pages": 72
+    },
+    {
+      "file": "embedded-linux-slides.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-slides.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-slides.pdf",
+      "kind": "pdf",
+      "bytes": 18864018,
+      "sha256": "4692d005cd2447d584ce5fbb0e0f401fe5b7a211e761fa40e1292428e83c07c4",
+      "pdf_pages": 551
+    },
+    {
+      "file": "embedded-linux-qemu-labs.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-qemu-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-qemu-labs.pdf",
+      "kind": "pdf",
+      "bytes": 225233,
+      "sha256": "3b84b2e1eaa32e979a04c75bf325f3e3bc1c5a66960d23cb56d25d9603d930cb",
+      "pdf_pages": 44
+    },
+    {
+      "file": "embedded-linux-online-fr-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-online-fr-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-online-fr-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 459322,
+      "sha256": "44eb0d5c0050562383dc0ad604d8d882f06e958203b18dec02723de781231ca7",
+      "pdf_pages": 7
+    },
+    {
+      "file": "embedded-linux-online-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-online-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-online-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 457149,
+      "sha256": "1c204674714f7ed9da4c3b877087e3af8984c1f19eb8cec2395118d9724616f9",
+      "pdf_pages": 7
+    },
+    {
+      "file": "embedded-linux-imx93-frdm-labs.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-imx93-frdm-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-imx93-frdm-labs.pdf",
+      "kind": "pdf",
+      "bytes": 1410136,
+      "sha256": "c880f1f98eb49aae3ed4627f898494bba095cdafb3880495a962e9daaf59d2a7",
+      "pdf_pages": 72
+    },
+    {
+      "file": "embedded-linux-fr-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-fr-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-fr-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 472016,
+      "sha256": "2fb818590915971963b6edc32ecb57f8644cc60e25454b74c97ea14d086241f7",
+      "pdf_pages": 7
+    },
+    {
+      "file": "embedded-linux-beagleplay-labs.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-beagleplay-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-beagleplay-labs.pdf",
+      "kind": "pdf",
+      "bytes": 6446443,
+      "sha256": "8156785866dc9ed485e143b5c0445fd4df475baec9ac955af430ac6f33375aa9",
+      "pdf_pages": 75
+    },
+    {
+      "file": "embedded-linux-bbb-labs.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-bbb-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-bbb-labs.pdf",
+      "kind": "pdf",
+      "bytes": 1964435,
+      "sha256": "e6da184adba7a6c068f98543fa61f2f23c93ca56f527fa93de85bae828583d2e",
+      "pdf_pages": 71
+    },
+    {
+      "file": "embedded-linux-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/embedded-linux/embedded-linux-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 469691,
+      "sha256": "cb8b701a2fbeeffaa3f10a61c2da10c1e8b884937baf5a201a9092d08cb26645",
+      "pdf_pages": 7
+    },
+    {
+      "file": "linux-kernel-slides.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-slides.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-slides.pdf",
+      "kind": "pdf",
+      "bytes": 10316502,
+      "sha256": "6cfa456703f737f1a9e98f29a9558e10013f7e28ba062f8b6a4e856c83b7c3db",
+      "pdf_pages": 446
+    },
+    {
+      "file": "linux-kernel-online-fr-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-online-fr-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-online-fr-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 372597,
+      "sha256": "6c5b228536a72f44e0a5e14b6a68c58ead58d120e23958bbd711327e61ca4d95",
+      "pdf_pages": 6
+    },
+    {
+      "file": "linux-kernel-online-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-online-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-online-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 370637,
+      "sha256": "5cf981dac11011a4d9dcfec9cbb2114b285d9acbb222eb638aa168a0235b4de7",
+      "pdf_pages": 6
+    },
+    {
+      "file": "linux-kernel-imx93-frdm-labs.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-imx93-frdm-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-imx93-frdm-labs.pdf",
+      "kind": "pdf",
+      "bytes": 805519,
+      "sha256": "870de20b22e91064514258972679cf7d6006a2106beda0282029beaf247e98e9",
+      "pdf_pages": 52
+    },
+    {
+      "file": "linux-kernel-fr-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-fr-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-fr-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 385241,
+      "sha256": "9b51315ad17d6ef50e05053d5a421fc6abc606d4c092d299fe6d8c2a0953283a",
+      "pdf_pages": 6
+    },
+    {
+      "file": "linux-kernel-beagleplay-labs.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-beagleplay-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-beagleplay-labs.pdf",
+      "kind": "pdf",
+      "bytes": 693575,
+      "sha256": "00feb0d33c00572ae26c0edb322515638f0bfc3363bd0b06006f1d6ee556b2b0",
+      "pdf_pages": 53
+    },
+    {
+      "file": "linux-kernel-bbb-labs.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-bbb-labs.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-bbb-labs.pdf",
+      "kind": "pdf",
+      "bytes": 928909,
+      "sha256": "1d16598c5dd27798d842837c4be1dc9e11ba006f96eee54c4c6c628dfae59651",
+      "pdf_pages": 55
+    },
+    {
+      "file": "linux-kernel-agenda.pdf",
+      "url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-agenda.pdf",
+      "final_url": "https://bootlin.com/doc/training/linux-kernel/linux-kernel-agenda.pdf",
+      "kind": "pdf",
+      "bytes": 383240,
+      "sha256": "2ef76485c800bbb33d66a8b61e235b905963b5d8cc8266da1d6ac9eecf369a96",
+      "pdf_pages": 6
+    }
+  ],
+  "errors": [],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:48:05+0300",
+  "pdf_count": 81,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

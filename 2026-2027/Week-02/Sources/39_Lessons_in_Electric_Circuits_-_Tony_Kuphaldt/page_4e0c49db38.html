@@ -1,0 +1,1741 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume IV (Digital) - Chapter 12</title>
+
+<meta name="description" content="Shift Registers">
+<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="DIGI_11.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_13.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume IV</h1>
+<h1>Chapter 12</h1>
+
+
+
+<!---->
+
+<!--Created 07/01/2004 to 04/09/2005 (DC)-->
+<!--Modified-->
+<!--first table/equation image 14164.eps-->
+<!--last table/equation image  14xxx.eps-->
+<!--first schematic image 04371.eps-->
+<!--last schematic image 043.eps-->
+
+<a name="shift register"></a>
+<a name="sequential logic, shift register"></a>
+
+
+<h1>SHIFT REGISTERS</h1> 
+<!--minitoc-->
+
+
+ 
+
+<ul>
+<li><a href="#xtocid92430"><u>Introduction</u></a></li>
+<li><a href="#xtocid92431"><u>Serial-in/serial-out shift register</u></a></li>
+<ul>
+<li><a href="#xtocid92432"><u>Serial-in/serial-out devices</u></a></li>
+</ul>
+<li><a href="#xtocid92433"><u>Parallel-in, serial-out shift register</u></a></li>
+<ul>
+<li><a href="#xtocid92434"><u>Parallel-in/serial-out devices</u></a></li>
+<li><a href="#xtocid92435"><u>Practical applications</u></a></li>
+</ul>
+<li><a href="#xtocid92436"><u>Serial-in, parallel-out shift register</u></a></li>
+<ul>
+<li><a href="#xtocid92437"><u>Serial-in/ parallel-out devices</u></a></li>
+<li><a href="#xtocid92438"><u>Practical applications</u></a></li>
+</ul>
+<li><a href="#xtocid92439"><u>Parallel-in, parallel-out, universal shift register</u></a></li>
+<ul>
+<li><a href="#xtocid924310"><u>Parallel-in/ parallel-out and universal devices</u></a></li>
+<li><a href="#xtocid924311"><u>Practical applications</u></a></li>
+</ul>
+<li><a href="#xtocid924312"><u>Ring counters</u></a></li>
+<ul>
+<li><a href="#xtocid924313"><u>Johnson counters</u></a></li>
+<ul>
+<li><a href="#xtocid924314">Johnson counter devices</a></li>
+<li><a href="#xtocid924315">Practical applications</a></li>
+</ul>
+</ul>
+<li><a href="#xtocid924316"><u> references</u></a></li></ul>
+
+<p>
+<b>Original author: Dennis Crunkilton</b>
+</p>
+
+<br> </br>
+
+<p>
+<!--inage image after author-->
+</p>
+
+
+
+<h2><u><a name="xtocid92430">Introduction</a></u></h2>
+<p>
+Shift registers, like counters, are a form of <i>sequential logic</i>. Sequential logic, unlike combinational logic is not only affected by the present  inputs, but also, by the prior history. In other words, sequential logic remembers past events.
+</p>
+
+<p>
+Shift registers produce a discrete delay of a digital signal or waveform. A waveform synchronized to a <i>clock</i>, a repeating square wave, is delayed by <b>"n"</b> discrete clock times, where <b>"n"</b> is the number of shift register stages. Thus, a four stage shift register delays "data in" by four clocks to "data out". The stages in a shift register are <i>delay stages</i>, typically type <b>"D"</b> Flip-Flops or type <b>"JK"</b> Flip-flops.
+</p>
+
+<p>
+Formerly, very long (several hundred stages) shift registers served  as digital memory. This obsolete application is reminiscent of the acoustic mercury delay lines used as early computer memory.
+</p>
+
+<p>
+Serial data transmission, over a distance of meters to kilometers, uses shift registers to convert parallel data to serial form. Serial data communications replaces many slow parallel data wires with a single serial high speed circuit.
+</p>
+
+<p>
+Serial data over shorter distances of tens of centimeters, uses shift registers to get data into and out of microprocessors.  Numerous peripherals, including analog to digital converters, digital to analog converters, display drivers, and memory,  use shift registers to reduce the amount of wiring in circuit boards.
+</p>
+
+<a name="pseudo-noise"></a>
+<p>
+Some specialized counter circuits actually use shift registers to generate repeating waveforms. Longer shift registers, with the help of feedback generate patterns so long that they look like random noise, <i>pseudo-noise</i>.
+</p>
+
+<p>
+Basic shift registers are classified by structure according to the following types:
+<ul>
+<li>Serial-in/serial-out</li>
+<li>Parallel-in/serial-out</li>
+<li>Serial-in/parallel-out</li>
+<li>Universal parallel-in/parallel-out</li>
+<li>Ring counter</li>
+</ul>
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04450.png"> </p> <!-- SISO block- number out of sequence -->
+</p>
+<br> </br>
+
+<p>
+Above we show a block diagram of a serial-in/serial-out shift register, which is 4-stages long. Data at the input will be delayed by four clock periods from the input to the output of the shift register.
+</p>
+<p>
+Data at "data in", above,  will be present at the Stage <b>A</b> output after the first clock pulse. After the second pulse stage <b>A</b> data is transfered to stage <b>B</b> output, and "data in" is transfered to stage <b>A</b> output. After the third clock, stage <b>C</b> is replaced by stage <b>B</b>; stage <b>B</b> is replaced by stage <b>A</b>; and stage A is replaced by "data in". After the fourth clock, the data originally present at "data in" is at stage <b>D</b>, "output". The "first in" data is "first out" as it is shifted from "data in" to "data out".
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04372.png"> </p> <!-- PISO block -->
+</p>
+<br> </br>
+
+<p>
+Data is loaded into all stages at once of a parallel-in/serial-out shift register. The data is then shifted out via "data out" by clock pulses. Since a 4- stage shift register is shown above, four clock pulses are required to shift out all of the data. In the diagram above, stage <b>D</b> data will be present at the "data out" up until the first clock pulse; stage <b>C</b> data will be present at "data out"  between the first clock and the second clock pulse; stage <b>B</b> data will be present  between the second clock and the third clock; and stage <b>A</b> data will be present  between the third and the fourth clock. After the fourth clock pulse and thereafter, successive bits of "data in" should appear at "data out" of the shift register after a delay of four clock pulses.
+</p>
+
+<p>
+If four switches were connected to D<sub>A</sub> through D<sub>D</sub>, the status could be read into a microprocessor using only one data pin and a clock pin. Since adding more switches would require no additional pins, this approach looks attractive for many inputs.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04373.png"> </p> <!-- SIPO block -->
+</p>
+<br> </br>
+
+<p>
+Above, four data bits will be shifted in from "data in" by four clock pulses and be available at Q<sub>A</sub> through Q<sub>D</sub> for driving external circuitry such as LEDs, lamps, relay drivers, and horns.
+</p>
+
+<p>
+After the first clock, the data at "data in" appears at Q<sub>A</sub>.
+After the second clock, The old Q<sub>A</sub> data appears at Q<sub>B</sub>; Q<sub>A</sub> receives next data from "data in". After the third clock, Q<sub>B</sub> data is at Q<sub>C</sub>. After the fourth clock, Q<sub>C</sub> data is at Q<sub>D</sub>. This stage contains the data first present at "data in". The shift register should now contain four data bits.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04374.png"> </p> <!-- PIPO block -->
+</p>
+<br> </br>
+
+<p>
+A parallel-in/parallel-out shift register combines the function of the parallel-in, serial-out shift register with the function of the serial-in, parallel-out shift register to yield the universal shift register. The "do anything" shifter comes at a price&ndash; the increased number of I/O (Input/Output) pins may reduce the number of stages which can be packaged.
+</p>
+
+<p>
+Data presented at D<sub>A</sub> through D<sub>D</sub> is parallel loaded into the registers. This data at Q<sub>A</sub> through Q<sub>D</sub> may be shifted by the number of pulses presented at the clock input. The shifted data is available at Q<sub>A</sub> through Q<sub>D</sub>. The "mode" input, which may be more than one input, controls parallel loading of data from D<sub>A</sub> through D<sub>D</sub>, shifting of data, and the direction of shifting. There are shift registers which will shift data either left or right.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04375.png"> </p> <!-- ring counter -->
+</p>
+<br> </br>
+
+<p>
+If the serial output of a shift register is connected to the serial input, data can be perpetually shifted around the ring as long as clock pulses are present.  If the output is inverted before being fed back as shown above, we do not have to worry about loading the initial data into the "ring counter".
+</p>
+
+
+
+
+
+<a name="shift register, serial-in/serial-out"></a>
+<h2><u><a name="xtocid92431">Serial-in/serial-out shift register</a></u></h2>
+
+<p>
+Serial-in, serial-out shift registers delay data by one clock time for each stage. They will store a bit of data for each register. A serial-in, serial-out shift register may be one to 64 bits in length, longer if registers or packages are cascaded.
+</p>
+
+<p>
+Below is a single stage shift register receiving data which is not synchronized to the register clock. The "data in" at the <b>D</b> pin of the type <b>D</b> <b>FF</b> (Flip-Flop) does not change levels when the clock changes for low to high. We may want to synchronize the data to a system wide clock in a circuit board to improve the reliability of a digital logic circuit.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04376.png"> </p> <!-- 1-shift type D-->
+<br> </br>
+
+<p>
+The obvious point (as compared to the figure below) illustrated above is that whatever "data in" is present at the <b>D</b> pin of a type <b>D</b> FF is transfered from D to output Q at clock time. Since our example shift register uses positive edge sensitive storage elements, the output <b>Q</b> follows the <b>D</b> input when the clock transitions from low to high as shown by the up arrows on the diagram above. There is no doubt what logic level is  present at clock time because the data is stable well before and after the clock edge. This is  seldom the case in multi-stage shift registers. But, this was an easy example to start with. We are only concerned with the positive, low to high, clock edge. The falling edge can be ignored. It is very easy to see <b>Q</b> follow <b>D</b> at clock time above. Compare this to the diagram below where the "data in" appears to change with the positive clock edge.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04377.png"> </p> <!-- 1-shift D?? -->
+</p>
+<br> </br>
+
+<p>
+Since "data in" appears to changes at clock time t<sub>1</sub> above,  what does the type <b>D</b> FF see at clock time? The short over simplified answer is that it sees the data that was present at <b>D</b> prior to the clock. That is what is transfered to <b>Q</b> at clock time t<sub>1</sub>. The correct waveform is Q<sub>C</sub>. At t<sub>1</sub> Q goes to a zero if it is not already zero. The <b>D</b> register does not see a one until time t<sub>2</sub>, at which time Q goes high.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04378.png"> </p> <!-- 1-shift correct   -->
+</p>
+<br> </br>
+
+<p>
+Since data, above,  present at <b>D</b> is clocked to <b>Q</b> at clock time, and <b>Q</b> cannot change until the next clock time, the <b>D</b> FF delays data by one clock period, provided that the data is already synchronized to the clock. The Q<sub>A</sub> waveform is the same as "data in" with a one clock period delay.
+</p>
+
+<p>
+A more detailed look at what the input of the type <b>D</b> Flip-Flop sees at clock time follows. Refer to the figure below. Since "data in" appears to changes at clock time (above), we need further information to determine what the <b>D</b> FF sees. If the "data in" is from another shift register stage, another same type <b>D</b> FF, we can draw some conclusions based on <i>data sheet</i> information. Manufacturers of digital logic make available information about their parts in data sheets, formerly only available in a collection called a <i>data book</i>. Data books are still available; though, the manufacturer's web site is the modern source.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04379.png"> </p> <!-- Tsu Thld -->
+</p>
+<br> </br>
+
+<a name="setup time, shift register"></a>
+<a name="hold  time, shift register"></a>
+<a name="propagation delay, shift register"></a>
+
+<p>
+The following data was extracted from the CD4006b data sheet for operation at 5V<sub>DC</sub>, which serves as an example to illustrate timing.
+</p>
+<p>
+<a href="http://focus.ti.com/docs/prod/folders/print/cd4006b.html">[*]</a>
+</p>
+
+<ul>
+<li>t<sub>S</sub>=100ns</li>
+<li>t<sub>H</sub>=60ns</li>
+<li>t<sub>P</sub>=200-400ns typ/max</li>
+</ul>
+<p>
+t<sub>S</sub> is the <i>setup time</i>, the time data must be present before clock time. In this case data must be present at <b>D</b> 100ns prior to the clock. Furthermore, the data must be held for <i>hold time</i> t<sub>H</sub>=60ns after clock time. These two conditions must be met to reliably clock data from <b>D</b> to <b>Q</b> of the Flip-Flop.
+</p>
+
+<p>
+There is no problem meeting the setup time of 60ns as the data at <b>D</b> has been there for the whole previous clock period if it comes from another shift register stage. For example, at a clock frequency of 1 Mhz, the clock period is 1000 &#181;s, plenty of time. Data will actually be present for 1000&#181;s prior to the clock, which is much greater than the minimum required t<sub>S</sub> of 60ns.
+</p>
+
+<p>
+The hold time t<sub>H</sub>=60ns is met because D connected to Q of another stage cannot change any faster than the propagation delay of the previous stage t<sub>P</sub>=200ns.  Hold time is met as long as the propagation delay of the previous <b>D</b> FF is greater than the hold time. Data at <b>D</b> driven by another stage <b>Q</b> will not change any faster than 200ns for the CD4006b.
+</p>
+
+<p>
+To summarize, output  <b>Q</b>  follows input D at nearly clock time if Flip-Flops are cascaded into a multi-stage shift register.
+</p>
+
+
+
+<br> </br>
+<p>
+<p> <img src="04380.png"> </p> <!-- 3-shift type D -->
+</p>
+<br> </br>
+
+<p>
+Three type <b>D</b> Flip-Flops are cascaded Q to D and the clocks paralleled to form a three stage shift register above.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04381.png"> </p> <!-- 3-shift type JK -->
+</p>
+<br> </br>
+
+<p>
+Type <b>JK</b> FFs cascaded Q to J, Q' to K with clocks in parallel to yield an alternate form of the shift register above.
+</p>
+
+<p>
+A serial-in/serial-out shift register has a clock input, a data input, and a data output from the last stage. In general, the other stage outputs are not available Otherwise, it would be a serial-in, parallel-out shift register..
+</p>
+
+<p>
+The waveforms below are applicable to either one of the preceding two versions of the serial-in, serial-out shift register. The three pairs of arrows show that a three stage shift register temporarily stores 3-bits of data and delays it by three clock periods from input to output.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04382.png"> </p> <!-- 3-shift waveforms -->
+</p>
+<br> </br>
+
+<p>
+At clock time t<sub>1</sub> a   "data in"   of <b>0</b> is clocked from <b>D</b> to <b>Q</b> of all three stages. In particular, <b>D</b> of stage <b>A</b> sees a logic <b>0</b>, which is clocked to Q<sub>A</sub> where it remains until time t<sub>2</sub>.
+</p>
+
+<p>
+At clock time t<sub>2</sub> a "data in" of <b>1</b> is clocked from <b>D</b> to Q<sub>A</sub>. At stages <b>B</b> and <b>C</b>, a <b>0</b>, fed from preceding stages is clocked to Q<sub>B</sub> and Q<sub>C</sub>.
+</p>
+
+<p>
+At clock time t<sub>3</sub> a "data in" of <b>0</b> is clocked from <b>D</b> to Q<sub>A</sub>. Q<sub>A</sub> goes low and stays low for the remaining clocks due to "data in" being <b>0</b>. Q<sub>B</sub> goes high at t<sub>3</sub> due to a <b>1</b> from the previous stage. Q<sub>C</sub> is still low after t<sub>3</sub> due to a low from the previous stage.
+</p>
+
+<p>
+Q<sub>C</sub> finally goes high at clock t<sub>4</sub> due to the high fed to <b>D</b> from the previous stage Q<sub>B</sub>. All earlier stages have <b>0</b>s shifted into them. And, after the next clock pulse at t<sub>5</sub>, all logic <b>1</b>s will have been shifted out, replaced by <b>0</b>s
+</p>
+
+
+<h3><u><a name="xtocid92432">Serial-in/serial-out devices</a></u></h3>
+<p>
+We will take a closer look at the following parts available as integrated circuits, courtesy of Texas Instruments. For complete device data sheets follow the links.
+</p>
+
+<ul>
+
+<li>
+CD4006b 18-bit serial-in/ serial-out shift register
+<p>
+<a href="http://focus.ti.com/docs/prod/folders/print/cd4006b.html">[*]</a>
+</p>
+</li>
+
+<li>
+CD4031b 64-bit serial-in/ serial-out shift register
+<p>
+<a href="http://focus.ti.com/docs/prod/folders/print/cd4031b.html">[*]</a>
+</p>
+</li>
+
+<li>
+CD4517b dual 64-bit serial-in/ serial-out shift register
+<p>
+<a href="http://focus.ti.com/docs/prod/folders/print/cd4517b.html">[*]</a>
+</p>
+</li>
+
+</ul>
+
+<p>
+The following serial-in/ serial-out shift registers are 4000 series <i>CMOS</i> (Complementary Metal Oxide Semiconductor) family parts. As such, They will accept a V<sub>DD</sub>, positive power supply of 3-Volts to 15-Volts. The V<sub>SS</sub> pin is grounded. The maximum frequency of the shift clock, which varies with V<sub>DD</sub>, is a few megahertz. See the full data sheet for details.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04383.png"> </p> <!--CD4006b 18-bit -->
+</p>
+<br> </br>
+
+<p>
+The 18-bit CD4006b consists of two stages of 4-bits and two more stages of 5-bits with a an output tap at 4-bits. Thus, the 5-bit stages could be used as 4-bit shift registers. To get a full 18-bit shift register the output of one shift register must be cascaded to the input of another and so on until all stages create a single shift register as shown below.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04384.png"> </p> <!--CD4006b 18-bit DIP -->
+</p>
+<br> </br>
+
+<p>
+A CD4031 64-bit serial-in/ serial-out shift register is shown below.  A number of pins are not connected (nc). Both Q and Q' are available from the 64th stage, actually Q<sub>64</sub> and Q'<sub>64</sub>. There is also a Q<sub>64</sub> "delayed" from a half stage which is delayed by half a clock cycle. A major feature is a data selector which is at the data input to the shift register.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04385.png"> </p> <!--CD40031b 64-bit -->
+</p>
+<br> </br>
+
+<p>
+The "mode control" selects between two inputs: data 1 and data 2. If "mode control" is high, data will be selected from  "data 2" for input to the shift register. In the case of "mode control" being logic low, the "data 1" is selected. Examples of this are shown in the two figures below.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04386.png"> </p> <!--CD4031b recirculate -->
+</p>
+<br> </br>
+
+<p>
+The "data 2" above is wired to the  Q<sub>64</sub> output of the shift register. With "mode control" high, the Q<sub>64</sub> output is routed back to the shifter data input D. Data will <i>recirculate</i> from output to input. The data will repeat every 64 clock pulses as shown above. The question that arises is how did this data pattern get into the shift register in the first place?
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04387.png"> </p> <!--CD4031b load new data -->
+</p>
+<br> </br>
+
+<p>
+With "mode control" low, the CD4031 "data 1" is selected for input to the shifter. The output, Q<sub>64</sub>, is not recirculated because the lower data selector gate is <i>disabled</i>. By disabled we mean that the logic low "mode select" inverted twice to a low at the lower NAND gate prevents it for passing any signal on the lower pin (data 2) to the gate output. Thus, it is disabled.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04388.png"> </p> <!--CD4517b dual 64-wide -->
+</p>
+<br> </br>
+
+<p>
+A CD4517b dual 64-bit shift register is shown above. Note the taps at the 16th, 32nd, and 48th stages. That means that shift registers of those lengths can be configured from one of the 64-bit shifters. Of course, the 64-bit shifters may be cascaded to yield an 80-bit, 96-bit, 112-bit, or 128-bit shift register. The clock CL<sub>A</sub> and CL<sub>B</sub> need to be paralleled when cascading the two shifters. WE<sub>B</sub> and WE<sub>B</sub> are grounded for normal shifting operations. The data inputs to the shift registers A and B  are D<sub>A</sub> and D<sub>B</sub> respectively.
+</p>
+
+<p>
+Suppose that we require a 16-bit shift register. Can this be configured with the CD4517b?  How about a 64-shift register from the same part?
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04389.png"> </p> <!--CD4517b dual 64-wide as 16-bit, 64-bit -->
+</p>
+<br> </br>
+
+<p>
+Above we show A CD4517b wired as a 16-bit shift register for section B. The clock for section B is CL<sub>B</sub>. The data is clocked in at CL<sub>B</sub>. And the data delayed by 16-clocks is picked of off Q<sub>16B</sub>.  WE<sub>B</sub> , the write enable, is grounded.
+</p>
+
+<p>
+Above we also show the same CD4517b wired as a 64-bit shift register for the independent section A. The clock for section A is CL<sub>A</sub>. The data enters at CL<sub>A</sub>. The data delayed by 64-clock pulses is picked up from Q<sub>64A</sub>.  WE<sub>A</sub>, the write enable for section A, is grounded.
+</p>
+
+
+
+
+
+
+<a name="shift register, parallel-in/serial-out"></a>
+<h2><u><a name="xtocid92433">Parallel-in, serial-out shift register</a></u></h2>
+<p>
+</p>
+
+
+<a name="parallel data"></a>
+<a name="serial data"></a>
+<p>
+Parallel-in/ serial-out  shift registers do everything that the previous serial-in/ serial-out shift registers do plus input data to all stages simultaneously.  The parallel-in/ serial-out shift register stores data, shifts it on a clock by clock basis, and delays it by the number of stages times the clock period. In addition, parallel-in/ serial-out really means that we can load data  in parallel into all stages before any shifting ever begins. This is a way to convert data from a <i>parallel</i> format to a <i>serial</i> format. By parallel format we mean that the data bits are present simultaneously on individual wires, one for each data bit as shown below. By serial format we mean that the data bits are presented sequentially in time on a single wire or circuit as in the case of the "data out" on the block diagram below.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04372.png"> </p> <!--CD4517b dual 64-wide -->
+</p>
+<br> </br>
+
+<p>
+Below we take a close look at the internal details of a 3-stage parallel-in/ serial-out shift register. A stage consists of  a type <b>D</b> Flip-Flop for storage, and an AND-OR selector to determine whether data will load in parallel, or shift stored data to the right. In general, these elements will be replicated for the number of stages required. We show three stages due to space limitations. Four, eight or sixteen bits is normal for real parts.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04390.png"> </p> <!--PISO 3-stage -->
+</p>
+<br> </br>
+<p>
+Above we show the parallel load path when SHIFT/LD' is logic low. The upper NAND gates serving D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> are enabled, passing data to the D inputs of type <b>D</b> Flip-Flops Q<sub>A</sub> Q<sub>B</sub> D<sub>C</sub> respectively. At the next positive going clock edge, the data will be clocked from D to Q of the three FFs. Three bits of data will load into Q<sub>A</sub> Q<sub>B</sub> D<sub>C</sub> at the same time.
+</p>
+
+<a name="synchronous load, shift register"></a>
+<a name="asynchronous load, shift register"></a>
+
+<p>
+The type of parallel load just described, where the data loads on a clock pulse is known as <i>synchronous load</i> because the loading of data is synchronized to the clock. This needs to be differentiated from <i>asynchronous load</i> where loading is controlled by the preset and clear pins of the Flip-Flops which does not require the clock. Only one of these load methods is used within an individual device, the synchronous load being more common in newer devices.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04391.png"> </p> <!--PISO 3-stage SI path -->
+</p>
+<br> </br>
+
+<p>
+The shift path is shown above when SHIFT/LD' is logic high. The lower AND gates of the pairs feeding the OR gate are enabled giving us a shift register connection of SI to D<sub>A</sub> , Q<sub>A</sub> to D<sub>B</sub> , Q<sub>B</sub> to D<sub>C</sub> , Q<sub>C</sub> to SO.  Clock pulses will cause data to be right shifted out to SO on successive pulses.
+</p>
+
+<p>
+The waveforms below show both parallel loading of three bits of data and serial shifting of this data. Parallel data at D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> is converted to serial data at SO.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04392.png"> </p> <!--PISO 3-stage load waveforms -->
+</p>
+<br> </br>
+
+<p>
+What we previously described with words for parallel loading and shifting is now set down as waveforms above. As an example we present <b>101</b> to the parallel inputs D<sub>AA</sub> D<sub>BB</sub> D<sub>CC</sub>. Next, the SHIFT/LD' goes low enabling loading of data as opposed to shifting of data. It needs to be low a short time before and after the clock pulse due to setup and hold requirements. It is considerably wider than it has to be. Though, with synchronous logic it is convenient to make it wide. We could have made the active low SHIFT/LD' almost two clocks wide, low almost a clock before t<sub>1</sub> and back high just before t<sub>3</sub>. The important factor is that it needs to be low around clock time t<sub>1</sub> to enable parallel loading of the data by the clock.
+</p>
+
+<p>
+Note that at t<sub>1</sub> the data <b>101</b> at D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> is clocked from D to Q of the Flip-Flops as shown at Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> at time t<sub>1</sub>. This is the parallel loading of the data synchronous with the clock.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04393.png"> </p> <!--PISO 3-stage shift waveforms -->
+</p>
+<br> </br>
+
+<p>
+Now that the data is loaded, we may shift it provided that  SHIFT/LD' is high to enable shifting, which it is prior to t<sub>2</sub>. At t<sub>2</sub> the data <b>0</b> at  Q<sub>C</sub> is shifted out of SO which is the same as the Q<sub>C</sub> waveform. It is either shifted into another integrated circuit, or lost if there is nothing connected to SO. The data at Q<sub>B</sub>, a <b>0</b> is shifted to Q<sub>C</sub>. The <b>1</b> at Q<sub>A</sub> is shifted into Q<sub>B</sub>. With "data in" a <b>0</b>, Q<sub>A</sub> becomes <b>0</b>. After t<sub>2</sub>, Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> = <b>010</b>.
+</p>
+
+<p>
+After t<sub>3</sub>, Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> = <b>001</b>. This <b>1</b>, which was originally present at Q<sub>A</sub> after t<sub>1</sub>, is now present at SO and Q<sub>C</sub>. The last data bit is shifted out to an external integrated circuit if it exists. After t<sub>4</sub> all data from the parallel load is gone. At clock t<sub>5</sub> we show the shifting in of a data <b>1</b> present on the SI, serial input.
+</p>
+
+<p>
+Why provide SI and SO pins on a shift register?  These connections allow us to cascade shift register stages to provide large shifters than available in a single IC (Integrated Circuit) package. They also allow serial connections to and from other ICs like microprocessors.
+</p>
+
+
+
+<h3><u><a name="xtocid92434">Parallel-in/serial-out devices</a></u></h3>
+<p>
+Let's  take a closer look at parallel-in/ serial-out shift registers available as integrated circuits, courtesy of Texas Instruments. For complete device data sheets follow these the links.
+</p>
+
+<ul>
+
+<li>
+SN74ALS166 parallel-in/ serial-out 8-bit shift register, synchronous load
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74als166.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+SN74ALS165 parallel-in/ serial-out 8-bit shift register, asynchronous load
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74als165.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+CD4014B parallel-in/ serial-out 8-bit shift register, synchronous load
+<p>
+<a href="http://www-s.ti.com/sc/ds/cd4014b.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+SN74LS647 parallel-in/ serial-out 16-bit shift register, synchronous load
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74ls674.pdf">[*]</a>
+</p>
+</li>
+
+</ul>
+
+
+<br> </br>
+<p>
+<p> <img src="04394.png"> </p> <!--PISO SN74ALS166 -->
+</p>
+<br> </br>
+
+<a name="166, SN74ALS166"></a>
+
+<p>
+The SN74ALS166 shown above is the closest match of an actual part to the previous parallel-in/ serial out shifter figures. Let us note the minor changes to our figure above. First of all, there are 8-stages. We only show three. All 8-stages are shown on the data sheet available at the link above. The manufacturer labels the data inputs A, B, C, and so on to H. The  SHIFT/LOAD  control is called SH/LD'. It is abbreviated from our previous terminology, but works the same: parallel load if low, shift if high. The shift input (serial data in) is SER on the ALS166 instead of SI. The clock CLK is controlled by an inhibit signal, CLKINH. If CLKINH is high, the clock is inhibited, or disabled. Otherwise, this "real part" is the same as what we have looked at in detail.
+</p>
+
+<p>
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04395.png"> </p> <!--PISO SN74ALS166 ANSI symbol-->
+</p>
+<br> </br>
+
+
+<p>
+Above is the ANSI (American National Standards Institute) symbol for the SN74ALS166 as provided on the data sheet. Once we know how the part operates, it is convenient to hide the details within a symbol. There are many general forms of symbols. The advantage of the ANSI symbol is that the labels provide hints about how the part operates.
+</p>
+
+<p>
+The large notched block at the top of the '74ASL166 is the control section of the ANSI symbol. There is a reset indicted by <b>R</b>. There are three control signals: <b>M1</b> (Shift), <b>M2 </b>(Load), and <b>C3/1 (arrow)</b> (inhibited clock). The clock has two functions. First,  <b>C3</b> for shifting parallel data wherever a prefix of <b></b>3 appears. Second, whenever <b>M1</b> is asserted, as indicated by the <b>1</b> of <b>C3/1 (arrow)</b>, the data is shifted as indicated by the right pointing arrow. The slash (/) is a separator between these two functions.  The 8-shift stages, as indicated by title <b>SRG8</b>, are identified by the external inputs <b>A, B, C,</b> to <b>H</b>. The internal <b>2, 3D</b> indicates that data, <b>D</b>, is controlled by <b>M2</b> [Load] and <b>C3</b> clock. In this case, we can conclude that the parallel data is loaded synchronously with the clock <b>C3</b>. The upper stage at <b>A</b> is a wider block than the others to accommodate the  input <b>SER</b>. The  legend <b>1, 3D</b> implies that <b>SER</b> is controlled by <b>M1</b> [Shift] and <b>C3</b> clock. Thus, we expect to clock in data at <b>SER</b>  when shifting as opposed to parallel loading.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04396.png"> </p> <!--gate symbols, ANSI symbol-->
+</p>
+<br> </br>
+
+<a name="shape symbols, logic gate"></a>
+<a name="ANSI gate symbols"></a>
+<a name="gate shape, ANSI symbols"></a>
+<a name="logic gate shape symbols"></a>
+<a name="rectangular symbols, logic gate"></a>
+
+<p>
+The ANSI/IEEE basic gate <i>rectangular symbols</i> are provided above for comparison to the more familiar <i>shape symbols</i> so that we may decipher the meaning of the symbology associated with the <b>CLKIN</b>H and <b>CLK</b> pins on the previous ANSI SN74ALS166 symbol. The <b>CLK</b> and CLKINH feed an <b>OR</b> gate on the SN74ALS166 ANSI symbol. <b>OR</b> is indicated by <b>=&#62;</b> on the rectangular inset symbol. The long triangle at the output indicates a clock. If there was a  bubble with the arrow this would have indicated  shift on negative clock edge (high to low). Since there is no bubble with the clock arrow, the register shifts on the  positive (low to high transition) clock edge. The long arrow, after the legend <b>C3/1</b> pointing right indicates shift right, which is down the symbol.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04397.png"> </p> <!--PISO async load 74ALS165 internal logic-->
+</p>
+<br> </br>
+
+<a name="165, SN74ALS165"></a>
+
+<p>
+Part of the internal logic of the SN74ALS165 parallel-in/ serial-out, asynchronous load shift register is reproduced from the data sheet above. See the link at the beginning of this section the for the full diagram. We have not looked at asynchronous loading of data up to this point. First of all, the loading is accomplished by application of appropriate signals to the <b>Set</b> (preset) and <b>Reset</b> (clear) inputs of the Flip-Flops. The upper <b>NAND</b> gates feed the <b>Set</b> pins of the FFs and also cascades into the lower <b>NAND</b> gate feeding the <b>Reset</b> pins of the FFs. The lower <b>NAND</b> gate inverts the signal in going from the <b>Set</b> pin to the <b>Reset</b> pin.
+</p>
+
+<p>
+First, <b>SH/LD'</b> must be pulled <b>Low</b> to enable the upper and lower <b>NAND</b> gates.  If <b>SH/LD'</b> were at a logic <b>high</b> instead, the inverter feeding a logic <b>low</b> to all <b>NAND</b> gates would force a <b>High</b> out, releasing the "active low" <b>Set</b> and <b>Reset</b> pins of all FFs. There would be no possibility of loading the FFs.
+</p>
+
+<p>
+With <b>SH/LD'</b> held <b>Low</b>, we can feed, for example, a data <b>1</b> to parallel input <b>A</b>, which inverts to a zero at the upper <b>NAND</b> gate output, setting FF Q<sub>A</sub> to a <b>1</b>. The  <b>0</b> at the <b>Set</b> pin is fed to the lower <b>NAND</b> gate where it is inverted to a <b>1</b> , releasing the <b>Reset</b> pin of <b>Q<sub>A</sub></b>. Thus, a data <b>A=1</b> sets <b>Q<sub>A</sub>=1</b>. Since none of this required the clock, the loading is asynchronous with respect to the clock. We use an asynchronous loading shift register if we cannot wait for a clock to parallel load data, or if it is inconvenient to generate a single clock pulse.
+</p>
+
+<p>
+The only difference in feeding a data <b>0</b> to parallel input <b>A</b> is that it inverts to a <b>1</b> out of the upper gate releasing <b>Set</b>. This <b>1</b> at <b>Set</b> is inverted to a <b>0</b> at the lower gate, pulling <b>Reset</b> to a <b>Low</b>, which resets <b>Q<sub>A</sub>=0</b>.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04398.png"> </p> <!--74ALS165 ANSI symbol-->
+</p>
+<br> </br>
+
+<a name="165, SN74ALS165"></a>
+
+<p>
+The ANSI symbol for the SN74ALS166 above has two internal controls <b>C1</b> [LOAD] and <b>C2</b> clock from the <b>OR</b> function of (<b>CLKINH, CLK</b>).  <b>SRG8</b> says 8-stage shifter. The arrow after <b>C2</b> indicates shifting right or down. <b>SER</b> input is a function of the clock as indicated by internal label <b>2D</b>. The parallel data inputs <b>A, B, C</b> to <b>H</b> are a function of <b>C1</b> [LOAD], indicated by internal label <b>1D</b>.  <b>C1</b> is asserted when <b>sh/LD' =0</b> due to the half-arrow inverter at the input. Compare this to the control of the parallel data inputs by the clock of the previous synchronous ANSI SN75ALS166. Note the differences in the ANSI Data labels.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04399.png"> </p> <!--CD4014b, CD4021b ANSI symbol-->
+</p>
+<br> </br>
+
+<a name="4014, CD4014B"></a>
+
+<p>
+On the CD4014B above, <b>M1</b> is asserted when <b>LD/SH'=0</b>. <b>M2</b> is asserted when <b>LD/SH'=1</b>. Clock <b>C3/1</b> is used for parallel loading data at <b>2, 3D</b> when <b>M2</b> is active as indicated by the <b>2,3</b> prefix labels. Pins <b>P3</b> to <b>P7</b> are understood to have the smae internal <b>2,3</b> prefix labels as <b>P2</b> and <b>P8</b>.  At <b>SER</b>, the <b>1,3D</b> prefix implies that <b>M1</b> and clock <b>C3</b> are necessary to input serial data. Right shifting takes place when M1 active is as indicated by the <b>1</b> in <b>C3/1 arrow</b>.
+</p>
+
+<a name="4021, CD4021B"></a>
+
+<p>
+The CD4021B is a similar part except for asynchronous parallel loading of data as implied by the lack of any <b>2</b> prefix in the data label <b>1D</b> for pins P1, P2, to P8. Of course, prefix <b>2</b> in label <b>2D</b> at input <b>SER</b> says that data is clocked into this pin. The <b>OR</b> gate inset shows that the clock is controlled by <b>LD/SH'</b>.
+</p>
+
+<!-- begin 74ALS674 section could be edited out, as the high priced part is not widely stocked.-->
+<br> </br>
+<p>
+<p> <img src="04400.png"> </p> <!--74ALS674 ANSI symbol-->
+</p>
+<br> </br>
+
+<a name="674, SN74LS674"></a>
+
+<p>
+The above SN74LS674 internal label <b>SRG 16</b> indicates 16-bit shift register. The <b>MODE</b> input to the control section at the top of the symbol is labeled <b>1,2 M3</b>. Internal <b>M3</b> is a function of input <b>MODE</b> and <b>G1</b> and <b>G2</b> as indicated by the <b>1,2</b> preceding <b>M3</b>. The base label <b>G</b> indicates an <b>AND</b> function of any such <b>G</b> inputs. Input <b>R/W'</b> is internally labeled <b>G1/2 EN</b>. This is an enable <b>EN</b> (controlled by <b>G1 AND G2</b>) for tristate devices used elsewhere in the symbol.  We note that <b>CS'</b> on (pin 1) is internal <b>G2</b>. Chip select <b>CS'</b> also is <b>AND</b>ed with the input <b>CLK</b> to give internal clock <b>C4</b>. The bubble within the clock arrow indicates that activity is on the negative (high to low transition) clock edge. The slash (/) is a separator implying two functions for the clock. Before the slash,  <b>C4</b> indicates control of anything with a prefix of <b>4</b>. After the slash, the <b>3' (arrow)</b> indicates shifting. The <b>3'</b> of <b>C4/3'</b> implies shifting when M3 is de-asserted (<b>MODE=0</b>).   The long arrow indicates shift right (down).
+</p>
+
+<p>
+Moving down below the control section to the data section, we have external inputs <b>P0-P15</b>, pins (7-11, 13-23). The prefix  <b>3,4</b>  of internal label <b>3,4D</b> indicates that <b>M3</b> and the clock <b>C4</b> control loading of parallel data. The <b>D</b> stands for Data. This label is assumed to apply to all the parallel inputs, though not explicitly written out. Locate the label <b>3',4D</b> on the right of the <b>P0</b> (pin7) stage. The complemented-<b>3</b> indicates that <b>M3=MODE=0</b> inputs (shifts) <b>SER/Q<sub>15</sub></b> (pin5) at clock time, (<b>4</b> of 3',4D) corresponding to clock <b>C4</b>. In other words, with <b>MODE=0</b>, we shift data into <b>Q<sub>0</sub></b> from  the serial input (pin 6). All other stages shift right (down) at clock time.
+</p>
+
+<p>
+Moving to the bottom of the symbol, the triangle pointing right indicates a buffer between <b>Q</b> and the output pin. The Triangle pointing down indicates a tri-state device. We previously stated that the tristate is controlled by enable <b>EN</b>, which is actually <b>G1 AND G2</b> from the control section. If <b>R/W=0</b>, the tri-state is disabled, and we can shift data into <b>Q<sub>0</sub></b> via <b>SER</b> (pin 6), a detail we omitted above. We actually need <b>MODE=0, R/W'=0, CS'=0</b>
+</p>
+
+<p>
+The internal logic of the SN74LS674 and a table summarizing the operation of the control signals is available in the link in the bullet list, top of section.
+</p>
+
+<p>
+ If <b>R/W'=1</b>, the tristate is enabled, <b>Q<sub>15</sub></b> shifts out <b>SER/Q<sub>15</sub></b>  (pin 6) and recirculates to the <b>Q<sub>0</sub></b> stage via the right hand wire to <b>3',4D</b>.  We have assumed that CS' was low giving us clock C4/3' and G2 to <b>EN</b>able the tri-state.
+</p>
+<!-- end 74ALS674 section could be edited out, as the high priced part is not widely stocked.-->
+
+
+
+<h3><u><a name="xtocid92435">Practical applications</a></u></h3>
+
+<p>
+An application of a  parallel-in/ serial-out shift register is to read data into a microprocessor.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04401.png"> </p> <!--Reading switches into microprocessor-->
+</p>
+<br> </br>
+
+<p>
+The Alarm above is controlled by a remote keypad. The  alarm box supplies +5V and ground to the remote keypad to power it. The alarm reads the remote keypad every few tens of milliseconds by sending shift clocks to the keypad which returns serial data showing the status of the keys via a parallel-in/ serial-out shift register. Thus, we read nine key switches with four wires. How many wires would be required if we had to run a circuit for each of the nine keys?
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04402.png"> </p> <!--Reading switches into microprocessor-->
+</p>
+<br> </br>
+
+<a name="microprocessor, read switches"></a>
+
+<p>
+A practical application of a parallel-in/ serial-out shift register is to read many switch closures into a microprocessor on just a few pins. Some low end microprocessors only have 6-I/O (Input/Output) pins available on an 8-pin package. Or, we may have used most of the pins on an 84-pin package. We may want to reduce the number of wires running around a circuit board, machine, vehicle, or building. This will increase the reliability of our system. It has been reported that manufacturers who have reduced the number of wires in an automobile produce a more reliable product. In any event,  only three microprocessor pins are required to read in 8-bits of data from the switches in the figure above. 
+</p>
+<p>
+We have chosen an asynchronous loading device, the CD4021B because it is easier to control the loading of data without having to generate a single parallel load clock. The parallel data inputs of the shift register are pulled up to +5V with a resistor on each input. If all switches are open, all <b>1</b>s will be loaded into the shift register when the microprocessor moves the <b>LD/SH'</b> line from low to high, then back low in anticipation of shifting. Any switch closures will apply logic <b>0</b>s to the corresponding parallel inputs. The data pattern at P1-P7 will be parallel loaded by the <b>LD/SH'=1</b> generated by the microprocessor software.
+</p>
+
+<p>
+The microprocessor generates shift pulses and reads a data bit for each of the 8-bits. This process may be performed totally with software, or larger microprocessors may have one or more serial interfaces to do the task more quickly with hardware.  With <b>LD/SH'=0</b>, the microprocessor generates a <b>0</b> to <b>1</b> transition on the <b>Shift clock line</b>, then reads a data bit on the <b>Serial data in</b> line. This is repeated for all 8-bits.
+</p>
+
+<p>
+The <b>SER</b> line of the shift register may be driven by another identical CD4021B circuit if more switch contacts need to be read. In which case, the microprocessor generates 16-shift pulses.  More likely, it will be driven by something else compatible with this serial data format, for example, an analog to digital converter, a temperature sensor, a keyboard scanner, a serial read-only memory. As for the switch closures, they may be limit switches on the carriage of a machine, an over-temperature sensor, a magnetic reed switch, a door or window switch, an air or water pressure switch, or a solid state optical interrupter.
+
+</p>
+
+
+
+
+
+<a name="shift register, serial-in/parallel-out"></a>
+<h2><u><a name="xtocid92436">Serial-in, parallel-out shift register</a></u></h2>
+
+<p>
+A serial-in/parallel-out shift register is similar to the serial-in/ serial-out shift register in that it shifts data into internal storage elements and shifts data out at the serial-out, data-out, pin. It is different in that it makes all the internal stages available as outputs. Therefore, a serial-in/parallel-out shift register converts data from serial format to parallel format. If four data bits are shifted in by four clock pulses via a single wire at data-in, below, the data becomes available simultaneously on the four Outputs Q<sub>A</sub> to Q<sub>D</sub> after the fourth clock pulse.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04373.png"> </p> <!--SIPO block diagram-->
+</p>
+<br> </br>
+
+<p>
+The practical application of the serial-in/parallel-out shift register is to convert data from serial format on a single wire to parallel format on multiple wires. Perhaps, we will illuminate four LEDs (Light Emitting Diodes) with the four outputs (<b>Q<sub>A</sub> Q<sub>B</sub>  Q<sub>C</sub>  Q<sub>D</sub> </b>).
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04403.png"> </p> <!--SIPO generic detail-->
+</p>
+<br> </br>
+
+<p>
+The above details of the serial-in/parallel-out shift register are fairly simple. It looks like a serial-in/ serial-out shift register with taps added to each stage output. Serial data shifts in at <b>SI</b> (Serial Input). After  a number of clocks equal to the number of stages, the first data bit in appears at SO (Q<sub>D</sub>) in the above figure. In general, there is no SO pin. The last stage (Q<sub>D</sub> above) serves as SO and is cascaded to the next package if it exists.
+</p>
+
+<p>
+If a serial-in/parallel-out shift register is so similar to a serial-in/ serial-out shift register, why do manufacturers bother to offer both types? Why not just offer the  serial-in/parallel-out shift register? They actually only offer the serial-in/parallel-out shift register, as long as it has no more than 8-bits.  Note that serial-in/ serial-out shift registers come in bigger than 8-bit lengths of 18 to to 64-bits. It is not practical to offer a  64-bit serial-in/parallel-out shift register requiring that many output pins. See waveforms below for above shift register. 
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04404.png"> </p> <!--SIPO waveform m-->
+</p>
+<br> </br>
+
+<p>
+The shift register has been cleared prior to any data by <b>CLR'</b>, an active low signal, which clears all type D Flip-Flops within the shift register. Note the serial data <b>1011</b> pattern presented at the <b>SI</b> input. This data is synchronized with the clock <b>CLK</b>. This would be the case if it is being shifted in from something like another shift register, for example, a parallel-in/ serial-out shift register (not shown here). On the first clock at <b>t1</b>, the data <b>1</b> at <b>SI</b> is shifted from <b>D</b> to <b>Q</b> of the first shift register stage.    After <b>t2</b> this first data bit is at <b>Q<sub>B</sub></b>.  After <b>t3</b> it is at <b>Q<sub>C</sub></b>. After <b>t4</b> it is at <b>Q<sub>D</sub></b>. Four clock pulses have shifted the first data bit all the way to the last stage <b>Q<sub>D</sub></b>. The second data bit a <b>0</b> is at
+<b>Q<sub>C</sub></b> after the 4th clock. The third data bit a <b>1</b> is at <b>Q<sub>B</sub></b>. The fourth data bit another <b>1</b> is at <b>Q<sub>A</sub></b>.  Thus, the serial data input pattern <b>1011</b> is contained in (<b>Q<sub>D</sub> Q<sub>C</sub>  Q<sub>B</sub>  Q<sub>A</sub></b>). It is now available on the four outputs.
+
+</p>
+
+<p>
+It will available on the four outputs from just after clock <b>t<sub>4</sub></b> to just before <b>t<sub>5</sub></b>. This parallel data must be used or stored between these two times, or it will be lost due to shifting out the Q<sub>D</sub> stage on following clocks <b>t<sub>5</sub></b> to <b>t<sub>8</sub></b>  as shown above.
+</p>
+
+
+
+<h3><u><a name="xtocid92437">Serial-in/ parallel-out devices</a></u></h3>
+<p>
+Let's  take a closer look at Serial-in/ parallel-out shift registers available as integrated circuits, courtesy of Texas Instruments. For complete device data sheets follow the links.
+</p>
+
+<ul>
+
+<li>
+SN74ALS164A serial-in/ parallel-out 8-bit shift register
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74als164a.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+SN74AHC594 serial-in/ parallel-out 8-bit shift register with output register
+<p>
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74ahct594.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+SN74AHC595 serial-in/ parallel-out 8-bit shift register with output register
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74ahct595.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+CD4094 serial-in/ parallel-out 8-bit shift register with output register
+<p>
+<a href="http://www-s.ti.com/sc/ds/cd4094b.pdf">[*]</a>
+</p>
+<p>
+<a href="http://www.st.com/stonline/books/pdf/docs/2069.pdf">[*]</a>
+</p>
+</li>
+
+</ul>
+
+
+<br> </br>
+<p>
+<p> <img src="04405.png"> </p> <!--SIPO 74LS164a -->
+</p>
+<br> </br>
+
+<a name="164, SN74ALS164A"></a>
+
+<p>
+The 74ALS164A is almost identical to our prior diagram with the exception of the two serial inputs <b>A</b> and <b>B</b>. The unused input should be pulled high to enable the other input. We do not show all the stages above. However, all the outputs are shown on the ANSI symbol below, along with the pin numbers.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04406.png"> </p> <!--SIP0 74ALS164 ANSI-->
+</p>
+<br> </br>
+
+<p>
+The <b>CLK</b> input to the control section of the above ANSI symbol has two internal functions <b>C1</b>, control of anything with a prefix of <b>1</b>. This would be clocking in of data at <b>1D</b>. The second function, the arrow after  after the slash (/) is right (down) shifting of data within the shift register. The eight  outputs are available to the right of the eight registers below the control section. The first stage is wider than the others to accommodate the <b>A&amp;B</b> input.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04407.png"> </p> <!--SIP0 SIP074HC594 internal-->
+</p>
+<br> </br>
+
+<a name="594, 74AHC594"></a>
+
+<p>
+The above internal logic diagram is adapted from the TI (Texas Instruments) data sheet for the 74AHC594. The type "D" FFs in the top row comprise a serial-in/ parallel-out shift register. This section works like the previously described devices. The outputs (<b>Q<sub>A</sub>'  Q<sub>B</sub>'</b>  to <b>Q<sub>H</sub>' </b>) of the shift register half of the device feed the type "D" FFs in the lower half in parallel. <b>Q<sub>H</sub>'</b> (pin 9) is shifted out to any optional cascaded device package.
+</p>
+<p>
+A single positive clock edge at RCLK will transfer the data from <b> D</b> to <b> Q</b>  of the lower FFs.  All 8-bits transfer in parallel to the output <i>register</i> (a collection of storage elements). The purpose of the output register is to maintain a constant data output while new data is being shifted into the upper shift register section. This is necessary if the outputs drive relays, valves, motors, solenoids, horns, or buzzers. This feature may not be necessary when driving LEDs as long as flicker during shifting is not a problem.
+</p>
+
+<p>
+Note that the 74AHC594 has separate clocks for the shift register (<b>SRCLK</b>) and the output register (<b> RCLK</b>). Also, the shifter may be cleared by  <b> SRCLR</b> and, the output register by <b> RCLR</b>. It desirable to put the outputs in a known state at power-on, in particular, if driving relays, motors, etc.   The waveforms below illustrate shifting and latching of data.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04408.png"> </p> <!--SIP0 SIP074HC594 waveforms-->
+</p>
+<br> </br>
+
+<p>
+The above waveforms show shifting of 4-bits of data into the first four stages of 74AHC594, then the parallel transfer to the output register. In actual fact, the 74AHC594 is an 8-bit shift register, and it would take 8-clocks to shift in 8-bits of data, which would be the normal mode of operation. However, the 4-bits we show saves space and adequately illustrates the operation.
+</p>
+
+<p>
+We clear the shift register half a clock prior to <b>t<sub>0</sub></b> with <b>SRCLR'=0</b>. <b> SRCLR'</b> must be released back high prior to shifting. Just prior to <b>t<sub>0</sub></b> the output register is cleared by <b> RCLR'=0</b>. It, too, is released (<b> RCLR'=1</b>).
+</p>
+
+<p>
+Serial data <b>1011</b> is presented at the SI pin between clocks <b>t<sub>0</sub></b> and <b>t<sub>4</sub></b>. It is shifted in by clocks <b>t<sub>1</sub> t<sub>2</sub> t<sub>3</sub> t<sub>4</sub></b> appearing at internal shift stages <b>Q<sub>A</sub>' Q<sub>B</sub>' Q<sub>C</sub>' Q<sub>D</sub>' </b>. This data is present at these stages between <b>t<sub>4</sub></b> and <b>t<sub>5</sub></b>.  After <b>t<sub>5</sub></b> the desired data (<b>1011</b>) will be unavailable on these internal shifter stages.
+</p>
+
+<p>
+Between <b>t<sub>4</sub></b> and <b>t<sub>5</sub></b> we apply a positive going <b>RCLK</b> transferring data <b>1011</b> to register outputs  <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub> </b>. This data will be frozen here as more data (<b>0</b>s) shifts in during the succeeding <b>SRCLK</b>s (<b>t<sub>5</sub></b> to <b>t<sub>8</sub></b>). There will not be a change in data here until another <b>RCLK</b> is applied.
+</p>
+
+<p>
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04409.png"> </p> <!--SIP074HC595 internal -->
+</p>
+<br> </br>
+
+<a name="595, 74AHC595"></a>
+
+<p>
+The 74AHC595 is identical to the '594 except that the <b>RCLR'</b> is replaced by an <b>OE'</b> enabling a tri-state buffer at the output of each of the eight output register bits. Though the output register cannot be cleared, the outputs may be disconnected by <b>OE'=1</b>. This would allow external pull-up or pull-down resistors to force any relay, solenoid, or valve drivers to a known state during a system power-up. Once the system is powered-up and, say, a microprocessor has shifted and latched data into the '595, the output enable could be asserted  (<b>OE'=0</b>) to drive the relays, solenoids, and valves with valid data, but, not before that time.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04410.png"> </p> <!--SIP0 74HC594/595 ANSI-->
+</p>
+<br> </br>
+<a name="595, 74AHC595 ANSI symbol"></a>
+<a name="594, 74AHC594 ANSI symbol"></a>
+<p>
+Above are the proposed ANSI symbols for these devices. <b>C3</b> clocks data into the serial input (external <b>SER</b>) as indicate by the <b>3</b> prefix of <b>2,3D</b>. The arrow after <b>C3/</b> indicates shifting right (down) of the shift register, the 8-stages to the left of the '595symbol below the control section. The <b>2</b> prefix of <b>2,3D</b> and <b>2D</b> indicates that these stages can be reset by <b>R2</b> (external <b>SRCLR'</b>).
+</p>
+
+<p>
+The <b>1</b> prefix of <b>1,4D</b> on the <b>'594</b> indicates that <b>R1</b> (external <b>RCLR'</b>) may reset the output register, which is to the right of the shift register section. The <b>'595</b>, which has an <b>EN</b> at external <b>OE'</b> cannot reset the output register. But, the <b>EN</b> enables tristate (inverted triangle) output buffers. The right pointing triangle of both the <b>'594</b> and<b>'595</b> indicates internal buffering. Both the <b>'594</b> and<b>'595</b> output registers are clocked by C4 as indicated by <b>4</b> of <b>1,4D</b> and <b>4D</b> respectively.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04445.png"> </p> <!--SIP0 CD4095 ANSI-->
+</p>
+<br> </br>
+
+<a name="4094, 74HCT4094 ANSI symbol"></a>
+
+<p>
+The CD4094B  is a 3 to 15V<sub>DC</sub> capable latching shift register alternative to the previous 74AHC594 devices. <b>CLOCK</b>, <b>C</b>1, shifts data in  at <b>SERIAL IN</b> as implied by the <b>1</b> prefix of <b>1D</b>. It is also the clock of the right shifting shift register (left half of the symbol body) as indicated by the
+/(right-arrow) of <b>C1</b>/(arrow) at the <b>CLOCK</b> input.
+</p>
+
+<p>
+<b>STROBE</b>, <b>C2</b> is the clock for the 8-bit output register to the right of the symbol body. The  <b>2</b> of <b>2D</b> indicates that <b>C2</b> is the clock for the output register. The inverted triangle in the output latch indicates that the output is tristated, being enabled by <b>EN3</b>.  The <b>3</b> preceding the inverted triangle and the <b>3</b> of <b>EN3</b> are often omitted, as any enable (<b>EN</b>) is understood to control the tristate outputs.
+</p>
+
+<p>
+<b>Q<sub>S</sub></b> and <b>Q<sub>S</sub>'</b> are non-latched outputs of the shift register stage. <b>Q<sub>S</sub></b> could be cascaded to <b>SERIAL IN</b> of a succeeding device.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid92438">Practical applications</a></u></h3>
+
+<p>
+A real-world application of the serial-in/ parallel-out shift register is to output data from a microprocessor to a remote panel indicator. Or, another remote output device which accepts serial format data.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04411.png"> </p> <!--SIP074HC595 internal -->
+</p>
+<br> </br>
+
+
+<p>
+The figure "Alarm with remote key pad" is repeated here from the parallel-in/ serial-out section with the addition of the remote display. Thus, we can display, for example, the status of the alarm loops connected to the main alarm box.  If the Alarm detects an open window, it can send serial data to the remote display to let us know. Both the keypad and the display would likely be contained within the same remote enclosure, separate from the main alarm box. However, we will only look at the display panel in this section.
+</p>
+
+<p>
+If the display were on the same board as the Alarm, we could just run eight wires to the eight LEDs along with two wires for power and ground. These eight wires are much less desirable on a long run to a remote panel.  Using shift registers, we only need to run five wires- clock,  serial data, a strobe,  power, and ground. If the panel were just a few inches away from the main board, it might still be desirable to cut down on the number of wires in a connecting cable to improve reliability. Also, we sometimes use up most of  the available pins on a microprocessor and need to use serial techniques to expand the number of outputs.  Some integrated circuit output devices, such as Digital to Analog converters contain serial-in/ parallel-out shift registers to receive data from microprocessors. The techniques illustrated here are applicable to those parts.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04412.png"> </p> <!--SIP074HC595 internal -->
+</p>
+<br> </br>
+
+<p>
+We have chosen the 74AHC594 serial-in/ parallel-out shift register with output register; though, it requires an extra pin, <b>RCLK</b>, to parallel load the shifted-in data to the output pins. This extra pin prevents the outputs from changing while data is shifting in. This is not much of a problem for LEDs. But, it would be a problem if driving relays, valves, motors, etc.
+</p>
+
+<p>
+Code executed within the microprocessor would start with 8-bits of data to be output. One bit would be output on the "Serial data out" pin, driving <b>SER</b> of the remote 74AHC594. Next, the microprocessor generates a low to high transition on "Shift clock", driving <b>SRCLK</b> of the '595 shift register. This positive clock shifts the data bit at <b>SER</b> from "D" to "Q" of the first  shift register stage. This has no effect on the <b>Q<sub>A</sub></b> LED at this time because of the internal 8-bit output register between the shift register and the output pins (<b>Q<sub>A</sub></b> to <b>Q<sub>H</sub></b>). Finally, "Shift clock" is pulled back low by the microprocessor. This completes the shifting of one bit into the '595.
+</p>
+
+<p>
+The above procedure is repeated seven more times to complete the shifting of 8-bits of data from the microprocessor into the  74AHC594 serial-in/ parallel-out shift register.  To transfer the 8-bits of data within the  internal '595 shift register to the output requires that the microprocessor generate a low to high transition on <b>RCLK</b>, the output register clock. This applies new data to the LEDs. The <b>RCLK</b> needs to be pulled back low in anticipation of the next 8-bit transfer of data.
+</p>
+
+<p>
+The data present at the output of the '595 will remain until the process in the above two paragraphs is repeated for a new 8-bits of data. In particular, new data can be shifted into the '595 internal shift register without affecting the LEDs. The LEDs will only be updated with new data with the application of the <b>RCLK</b> rising edge.
+</p>
+
+<p>
+What if we need to drive more than eight LEDs?  Simply cascade another 74AHC594 <b>SER</b> pin to the <b>Q<sub>H</sub>'</b> of the existing shifter. Parallel the <b>SRCLK</b> and <b>RCLK</b> pins.
+The microprocessor would need to transfer 16-bits of data with 16-clocks before generating an <b>RCLK</b> feeding both devices.
+</p>
+
+<p>
+The discrete LED indicators, which we show, could be 7-segment LEDs. Though, there are LSI (Large Scale Integration) devices capable of driving several 7-segment digits. This device accepts data from a microprocessor in a serial format, driving more LED segments than it has pins by by multiplexing the LEDs.   For example, see link below for MAX6955
+</p>
+
+<p>
+<a href="http://www.maxim-ic.com/appnotes.cfm/appnote_number/3211">[*]</a>
+</p>
+
+
+
+
+
+
+
+
+<a name="parallel-in/parallel-out  universal shift register"></a>
+<a name="shift register, parallel-in/parallel-out  universal shift register"></a>
+<h2><u><a name="xtocid92439">Parallel-in, parallel-out, universal shift register</a></u></h2>
+<p>
+</p>
+The purpose of the parallel-in/ parallel-out shift register is to take in parallel data, shift it, then output it as shown below.  A universal shift register is a do-everything device in addition to the parallel-in/ parallel-out function.
+
+<br> </br>
+<p>
+<p> <img src="04374.png"> </p> <!--PIPO block -->
+</p>
+<br> </br>
+
+<p>
+Above we apply four bit of data to a parallel-in/ parallel-out shift register at <b>D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> D<sub>D</sub></b>. The mode control, which may be multiple inputs, controls parallel loading vs shifting. The mode control may also control the direction of shifting in some real devices. The data will be shifted one bit position for each clock pulse. The shifted data is available at the outputs <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub> </b>. The "data in" and "data out" are provided for cascading of multiple stages. Though, above, we can only cascade data for right shifting. We could accommodate cascading of left-shift data by adding a pair of left pointing signals, "data in" and "data out", above.
+</p>
+
+<p>
+The internal details of a right shifting parallel-in/ parallel-out shift register are shown below. The tri-state buffers are not strictly necessary to the parallel-in/ parallel-out shift register, but are part of the real-world device shown below.
+</p>
+
+<a name="395, 74LS395, shift register"></a>
+
+<br> </br>
+<p>
+<p> <img src="04413.png"> </p> <!--PIPO 74LS395 internal -->
+</p>
+<br> </br>
+
+<a name="395, 74LS395"></a>
+
+<p>
+The 74LS395 so closely matches our concept of a hypothetical  right shifting parallel-in/ parallel-out shift register that we use an overly simplified version of the data sheet details above. See the link to the full data sheet more more details, later in this chapter.
+</p>
+
+<p>
+<b>LD/SH'</b> controls the AND-OR multiplexer at the data input to the FF's. If <b>LD/SH'=1</b>, the upper four AND gates are enabled allowing application of parallel inputs <b>D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> D<sub>D</sub></b> to the four FF data inputs. Note the inverter bubble at the clock input of the four FFs. This indicates that the 74LS395 clocks data on the negative going clock, which is the high to low transition. The four bits of data will be clocked in parallel from <b>D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> D<sub>D</sub></b> to <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub> </b> at the next negative going clock. In this "real part", <b>OC'</b> must be low if the data needs to be available at the actual output pins as opposed to only on the internal FFs.
+</p>
+
+<p>
+The previously loaded data may be shifted right by one bit position if <b>LD/SH'=0</b> for the succeeding negative going clock edges. Four clocks would shift the data entirely out of our 4-bit shift register. The data would be lost unless our device was cascaded from <b>Q<sub>D</sub>'</b> to <b>SER</b> of another device.
+
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04414.png"> </p> <!--PIPO 1-shift, 2-shift-->
+</p>
+<br> </br>
+
+<p>
+Above, a data pattern is presented to inputs <b>D<sub>A</sub> D<sub>B</sub> D<sub>C</sub> D<sub>D</sub></b>. The pattern is loaded to  <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub> </b>. Then it is shifted one bit to the right. The incoming data is indicated by <b>X</b>, meaning the we do no know what it is. If the input (<b>SER</b>) were grounded, for example, we would know what data (<b>0</b>) was shifted in. Also shown, is right shifting by two positions, requiring two clocks.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04415.png"> </p> <!--PIPO right shift diagram -->
+</p>
+<br> </br>
+
+<p>
+The above figure serves as a reference for the hardware involved in right shifting of data. It is too simple to even bother with this figure, except for comparison to more complex figures to follow.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04416.png"> </p> <!--PIPO right shift data shift -->
+</p>
+<br> </br>
+
+<p>
+Right shifting of data is provided above  for reference to the previous right shifter.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04417.png"> </p> <!--PIPO left shift diagram-->
+</p>
+<br> </br>
+
+<p>
+If we need to shift left, the FFs need to be  rewired. Compare to the previous right shifter. Also, <b>SI</b> and <b>SO</b> have been reversed. <b>SI</b> shifts to  <b>Q<sub>C</sub></b>. <b>Q<sub>C</sub></b> shifts to <b>Q<sub>B</sub></b>. <b>Q<sub>B</sub></b> shifts to <b>Q<sub>A</sub></b>. <b>Q<sub>A</sub></b> leaves on the <b>SO</b> connection, where it could cascade to another shifter <b>SI</b>. This left shift sequence is backwards from the right shift sequence.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04418.png"> </p> <!--PIPO left shift data -->
+</p>
+<br> </br>
+
+<p>
+Above we shift the same data pattern left by one bit.
+</p>
+
+<p>
+There is one problem with the "shift left" figure above. There is no market for it. Nobody manufactures a shift-left part.  A "real device" which shifts one direction can be wired externally to shift the other direction. Or, should we say there is no left or right in the context of a device which shifts in only one direction. However, there is a market for a device which will shift left or right on command by a control line. Of course, left and right are valid in that context.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04419.png"> </p> <!--PIPO  LR right shift  -->
+</p>
+<br> </br>
+
+<p>
+What we have above is a hypothetical shift register capable of shifting either direction under the control of <b>L'/R</b>. It is setup with <b>L'/R=1</b> to shift the normal direction, right. <b>L'/R=1</b> enables the multiplexer AND gates labeled <b>R</b>. This allows data to follow the path illustrated by the arrows, when a clock is applied. The connection path is the same as the"too simple"  "shift right" figure above.
+</p>
+
+<p>
+Data shifts in at <b>SR</b>, to <b>Q<sub>A</sub></b>, to <b>Q<sub>B</sub></b>, to <b>Q<sub>C</sub></b>, where it leaves at <b>SR cascade</b>. This pin could drive <b>SR</b> of another device to the right.
+</p>
+
+<p>
+What if we change <b>L'/R</b> to <b>L'/R=0</b>?
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04420.png"> </p> <!--PIPO  LR left shift  -->
+</p>
+<br> </br>
+
+<p>
+With  <b>L'/R=0</b>, the multiplexer AND gates labeled  <b>L</b> are enabled, yielding a path, shown by the arrows, the same as the above "shift left" figure. Data shifts in at <b>SL</b>, to <b>Q<sub>C</sub></b>, to <b>Q<sub>B</sub></b>, to <b>Q<sub>A</sub></b>, where it leaves at <b>SL cascade</b>. This pin could drive <b>SL</b> of another device to the left.
+</p>
+
+<p>
+The prime virtue of the above two figures illustrating the "shift left/ right register" is simplicity. The operation of the left right control <b>L'/R=0</b> is easy to follow. A commercial part needs the parallel data loading implied by the section title. This appears in the figure below.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04421.png"> </p> <!--PIPO  LR load -->
+</p>
+<br> </br>
+
+<p>
+ Now that we can shift both left and right via <b>L'/R</b>, let us add <b>SH/LD'</b>, shift/ load, and the AND gates labeled "load" to provide for parallel loading of data from inputs <b>D<sub>A</sub> D<sub>B</sub> D<sub>C</sub></b>. When <b>SH/LD'=0</b>, AND gates <b>R</b> and <b>L</b> are disabled, AND gates "load" are enabled to pass data <b>D<sub>A</sub> D<sub>B</sub> D<sub>C</sub></b> to the FF data inputs. the next clock <b>CLK</b> will clock the data to <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b>. As long as the same data is present it will be re-loaded on succeeding clocks. However, data present for only one clock will be lost from the outputs when it is no longer present on the data inputs. One solution is to load the data on one clock, then proceed to shift on the next four clocks. This problem is remedied in the 74ALS299 by the addition of another AND gate to the multiplexer.
+</p>
+
+<p>
+If <b>SH/LD'</b> is changed to <b>SH/LD'=1</b>, the AND gates labeled "load" are disabled, allowing the left/ right control <b>L'/R</b> to set the direction of shift on the <b>L</b> or <b>R</b> AND gates. Shifting is as in the previous figures.
+</p>
+
+<p>
+The only thing needed to produce a viable integrated device is to add the fourth  AND gate to the multiplexer as alluded for the 74ALS299. This is shown in the next section for that part.
+</p>
+
+
+
+<h3><u><a name="xtocid924310">Parallel-in/ parallel-out and universal devices</a></u></h3>
+<p>
+Let's  take a closer look at Serial-in/ parallel-out shift registers available as integrated circuits, courtesy of Texas Instruments. For complete device data sheets, follow the links.
+</p>
+
+<a name="395, 74LS395, shift register"></a>
+<a name="299, 74ALS299, shift register"></a>
+
+<ul>
+
+
+
+<li>
+SN74LS395A parallel-in/ parallel-out 4-bit shift register
+<p>
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74ls395a.pdf">[*]</a>
+</p>
+</li>
+
+
+<li>
+SN74ALS299 parallel-in/ parallel-out 8-bit universal shift register
+<p>
+<a href="http://www-s.ti.com/sc/ds/sn74als299.pdf">[*]</a>
+</p>
+</li>
+
+
+
+</ul>
+
+
+<br> </br>
+<p>
+<p> <img src="04422.png"> </p> <!--PIPO 74LS395 ansi -->
+</p>
+<br> </br>
+
+<a name="395, 74LS395A ANSI symbol"></a>
+
+<p>
+We have already looked at the internal details of the SN74LS395A, see above previous figure, 74LS395 parallel-in/ parallel-out shift register with tri-state output.  Directly above is the ANSI symbol for the 74LS395.
+</p>
+
+<p>
+Why only 4-bits, as indicated by <b>SRG4</b> above?  Having both parallel inputs, and parallel outputs, in addition to control and power pins, does not allow for any more  I/O (Input/Output) bits in a 16-pin DIP (Dual Inline Package).
+</p>
+
+<p>
+<b>R</b> indicates that the shift register stages are reset by input <b>CLR'</b> (active low- inverting half arrow at input) of the control section at the top of the symbol. <b>OC'</b>, when low, (invert arrow again) will enable (<b>EN4</b>) the four tristate output buffers (<b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub> </b>) in the data section.
+Load/shift' (<b>LD/SH'</b>) at pin (7) corresponds to internals <b>M1</b> (load) and <b>M2</b> (shift). Look for prefixes of <b>1</b> and <b>2</b> in the rest of the symbol to ascertain what is controlled by these.
+</p>
+
+<p>
+ The negative edge sensitive clock (indicated by the invert arrow at pin-10) <b>C3/2</b>has two functions.  First, the <b>3</b> of <b>C3/2</b> affects any input having a prefix of <b>3</b>, say <b>2,3D</b> or <b>1,3D</b> in the data section. This would be parallel load at <b>A, B, C, D</b> attributed to <b>M1</b> and <b>C3</b> for <b>1,3D</b>. Second, <b>2</b> of <b>C3/2</b>-right-arrow indicates data clocking wherever <b>2</b> appears in a prefix (<b>2,3D</b> at pin-2). Thus we have clocking of data at <b>SER</b> into <b>Q<sub>A</sub></b> with mode <b>2</b> . The right arrow after <b>C3/2 </b> accounts for shifting at internal shift register stages <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub></b>.
+</p>
+
+<p>
+The right pointing triangles indicate buffering; the inverted triangle indicates tri-state, controlled by the <b>EN4</b>. Note, all the <b>4</b>s in the symbol associated with the <b>EN</b> are frequently omitted. Stages <b>Q<sub>B</sub> Q<sub>C</sub></b> are understood to have the same attributes as <b>Q<sub>D</sub></b>. <b>Q<sub>D</sub>'</b> cascades to the next package's <b>SER</b> to the right.
+</p>
+
+
+
+<br> </br>
+<p>
+<p> <img src="04423.png"> </p> <!--PIPO 74LS299 chart -->
+</p>
+<br> </br>
+
+<a name="bus, shift register"></a>
+
+<a name="299, 74LS299"></a>
+
+<p>
+The table above, condensed from the data '299 data sheet, summarizes the operation of the 74ALS299 universal shift/ storage register. Follow the '299 link above for full details. The Multiplexer gates <b>R</b>, <b>L</b>, <b>load</b> operate as in the previous "shift left/ right register" figures. The difference is that the mode inputs <b>S1</b> and <b>S0</b> select shift left, shift right, and load with mode set to <b>S1 S0 = </b> to <b>01</b>, <b>10</b>, and <b>11</b>respectively as shown in the table, enabling multiplexer gates <b>L</b>, <b>R</b>,  and <b>load</b> respectively. See table. A minor difference is the parallel load path from the tri-state outputs. Actually the tri-state buffers are (must be) disabled by <b>S1 S0 = 11</b> to float the I/O <i>bus</i> for use as  inputs. A bus is a collection of similar signals. The inputs are applied to <b>A</b>, <b>B</b> through  <b>H</b> (same pins as   <b>Q<sub>A</sub></b>,  <b>Q<sub>B</sub></b>, through <b>Q<sub>H</sub></b>) and routed to the <b>load</b> gate in the multiplexers, and on the the <b>D</b> inputs of the FFs. Data is parallel load on a clock pulse.
+</p>
+
+<p>
+ The one new multiplexer gate is the AND gate labeled
+<b>hold</b>, enabled by  <b>S1 S0 = 00</b>. The <b>hold</b> gate enables a path from the <b>Q</b> output of the FF  back to the <b>hold</b> gate, to the D input of the same FF. The result is that with mode  <b>S1 S0 = 00</b>, the output is continuously re-loaded with each new clock pulse. Thus, data is held. This is summarized in the table.
+</p>
+
+<p>
+To read data from outputs <b>Q<sub>A</sub></b>,  <b>Q<sub>B</sub></b>, through <b>Q<sub>H</sub></b>, the tri-state buffers must be enabled by <b>OE2', OE1' =00</b> and mode =<b>S1 S0 = 00, 01, or 10</b>. That is, mode is anything except <b>load</b>. See second table.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04424.png"> </p> <!--PIPO 74LS299 diagram -->
+</p>
+<br> </br>
+
+<p>
+Right shift data from a package to the left, shifts in on the <b>SR</b> input. Any data shifted out to the right from stage Q<sub>H</sub> cascades to the right via  Q<sub>H</sub>'. This output is unaffected by the tri-state buffers. The shift right sequence for <b>S1 S0 = 10</b> is:
+</p>
+<br> </br>
+<p>
+SR &#62; Q<sub>A</sub> &#62; Q<sub>B</sub> &#62;  Q<sub>C</sub> &#62; Q<sub>D</sub> &#62;   Q<sub>E</sub> &#62; Q<sub>F</sub>  &#62; Q<sub>G</sub>  &#62; Q<sub>H</sub>  (Q<sub>H</sub>')
+</p>
+<br> </br>
+<p>
+Left shift data from a package to the right shifts in on the <b>SL</b> input. Any data shifted out to the left from stage Q<sub>A</sub> cascades to the left via  Q<sub>A</sub>', also unaffected by the tri-state buffers. The shift left sequence for <b>S1 S0 = 01</b> is:
+</p>
+<br> </br>
+<p>
+(Q<sub>A</sub>') Q<sub>A</sub> &#60; Q<sub>B</sub> &#60;  Q<sub>C</sub> &#60; Q<sub>D</sub> &#60;   Q<sub>E</sub> &#60; Q<sub>F</sub>  &#60; Q<sub>G</sub>  &#60; Q<sub>H</sub>  (Q<sub>SL</sub>')
+</p>
+<br> </br>
+<p>
+Shifting may take place with the tri-state buffers disabled by one of <b>OE2'</b> or <b>OE1'  = 1</b>. Though, the register contents outputs will not be accessible. See table.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04425.png"> </p> <!--PIPO 74LS299 ansi-->
+</p>
+<br> </br>
+
+<a name="299, 74LS299 ANSI symbol"></a>
+
+<p>
+The "clean" ANSI symbol for the SN74ALS299 parallel-in/ parallel-out 8-bit universal shift register with tri-state output is shown for reference above.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04426.png"> </p> <!--PIPO 74LS299 ansi-->
+</p>
+<br> </br>
+
+<p>
+The annotated version of the ANSI symbol is shown to clarify the terminology contained therein. Note that the ANSI mode (S0 S1) is reversed from the order (S1 S0) used in the previous table. That reverses the decimal mode numbers (1 &amp; 2). In any event, we are in complete agreement with the official data sheet, copying this inconsistency.
+</p>
+
+
+
+
+<h3><u><a name="xtocid924311">Practical applications</a></u></h3>
+
+<p>
+The Alarm with remote keypad block diagram is repeated below. Previously, we built the keypad reader and the remote display as separate units. Now we will combine both the keypad and display into a single unit using a universal shift register. Though separate in the diagram, the Keypad and Display are both contained within the same remote enclosure.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04411.png"> </p> <!--alarm with remote keypad and display-->
+</p>
+<br> </br>
+
+<p>
+We will parallel load the keyboard data into the shift register on a single clock pulse, then shift it out to the main alarm box. At the same time , we will shift LED data from the main alarm to the remote shift register to illuminate the LEDs. We will be simultaneously shifting keyboard data out and  LED data into the shift register.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04427.png"> </p> <!--PIPO 74LS299 practical ckt-->
+</p>
+<br> </br>
+
+<p>
+Eight LEDs and current limiting resistors are connected to the eight I/O pins of the 74ALS299 universal shift register. The LEDS can only be driven during Mode 3 with <b>S1=0 S0=0</b>. The <b>OE1'</b> and <b>OE2'</b> tristate enables are grounded to permenantly enable the tristate outputs during modes <b>0, 1, 2</b>. That will cause the LEDS to light (flicker) during shifting. If this were a problem the <b>EN1</b>' and  <b>EN2'</b> could be ungrounded and paralleled with <b>S1</b> and <b>S0</b> respectively to only enable the tristate buffers and light the LEDS during hold, mode <b>3</b>. Let's keep it simple for this example.
+</p>
+
+
+
+
+<p>
+During parallel loading, <b>S0=1</b> inverted to a 0, enables the octal tristate buffers to ground the switch wipers. The upper, open, switch contacts are pulled up to logic high by the resister-LED combination at the eight inputs. Any switch closure will short the input low. We parallel load the switch data into the <b>'299</b> at clock <b>t0</b> when both <b>S0</b> and <b>S1</b> are high. See waveforms below.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04428.png"> </p> <!--PIPO 74LS299 practical waveform-->
+</p>
+<br> </br>
+
+<p>
+Once <b>S0</b> goes low, eight clocks (<b>t0</b> to<b>t8</b>) shift switch closure data out of the  <b>'299</b> via the <b>Q<sub>h</sub>'</b> pin. At the same time, new LED data is shifted in at <b>SR</b> of the <b>299</b> by the same eight clocks. The LED data replaces the switch closure data as shifting proceeds.
+</p>
+
+<p>
+After the 8th shift clock, <b>t8</b>, <b>S1</b> goes low to yield hold mode (<b>S1 S0 = 00</b>). The data in the shift register remains the same even if there are more clocks, for example, <b>T9</b>, <b>t10</b>, etc. Where do the waveforms come from?  They could be generated by a microprocessor if the clock rate were not over 100 kHz, in which case, it would be inconvenient to generate any clocks after <b>t8</b>. If the clock was in the megahertz range, the clock would run continuously. The clock,  <b>S1</b> and <b>S0</b> would be generated by digital logic, not shown here.
+</p>
+
+
+
+
+
+
+<a name="ring counters"></a>
+<h2><u><a name="xtocid924312">Ring counters</a></u></h2>
+<p>
+</p>
+
+
+<p>
+If the output of a shift register is fed back to the input. a ring counter results. The data pattern contained within the shift register will recirculate as long as clock pulses are applied. For example,  the data pattern will repeat every four clock pulses in the figure below.  However, we must load a data pattern. All <b>0</b>'s or all <b>1</b>'s doesn't count.  Is a continuous logic level from such a condition useful? 
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04375.png"> </p> <!-- ring counter -->
+</p>
+<br> </br>
+
+<p>
+We make provisions for loading data into the parallel-in/ serial-out shift register configured as a ring counter below. Any random pattern may be loaded.  The most generally useful pattern is a single <b>1</b>.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04429.png"> </p> <!-- parallel-in/ serial-out  -->
+</p>
+<br> </br>
+
+<p>
+Loading binary <b>1000</b> into the ring counter, above,  prior to shifting yields a viewable pattern. The data pattern for a single stage repeats every four clock pulses in our 4-stage example. The waveforms for all four stages look the same, except for the one clock time delay from one stage to the next. See figure below.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04430.png"> </p> <!-- ring counter waveform -->
+</p>
+<br> </br>
+
+
+<p>
+The circuit above is a divide by <b>4</b> counter. Comparing the clock input to any one of the outputs, shows a frequency ratio of 4:1. How may stages would we need for a divide by 10 ring counter?  Ten stages would recirculate the <b>1</b> every <b>10</b> clock pulses.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04431.png"> </p> <!-- ring counter 4-D FFs-->
+</p>
+<br> </br>
+
+<p>
+An alternate method of initializing the ring counter to <b>1000</b> is shown above. The shift waveforms are identical to those above, repeating every fourth clock pulse. The requirement for initialization is a disadvantage of the ring counter over a conventional counter. At a minimum, it must be initialized at power-up since there is no way to predict what state flip-flops will power up in. In theory, initialization should never be required again. In actual practice, the flip-flops could eventually be corrupted by noise, destroying the data pattern. A "self correcting" counter, like a conventional synchronous binary counter would be more reliable.
+</p>
+
+<p>
+
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04432.png"> </p> <!-- compare to binary counter-->
+</p>
+<br> </br>
+
+<p>
+The above binary synchronous counter needs only two stages, but requires decoder gates.  The ring counter had more stages, but was self decoding, saving the decode gates above. Another disadvantage of the ring counter is that it is not "self starting". If we need the decoded outputs, the ring counter looks attractive, in particular, if most of the logic is in a single shift register package. If not, the conventional binary counter is less complex without the decoder.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04433.png"> </p> <!--compare to binary counter, waveform-->
+</p>
+<br> </br>
+
+<p>
+The waveforms decoded from the synchronous binary counter are identical to the previous ring counter waveforms. The counter sequence is (<b>Q<sub>A</sub> Q<sub>B</sub>)</b> = (<b>00 01 10 11</b>). 
+</p>
+
+
+
+
+<a name="Johnson counter"></a>
+<a name="switch-tail ring counter"></a>
+
+<h3><u><a name="xtocid924313">Johnson counters</a></u></h3>
+
+<p>
+The  <i>switch-tail ring counter</i>, also know as the <i>Johnson counter</i>, overcomes some of the limitations of the ring counter.  Like a ring counter a Johnson counter is a shift register fed back on its' self. It requires half the stages of a comparable ring counter for a given division ratio. If the complement output of a ring counter is fed back to the input instead of the true output, a Johnson counter results. The difference between a ring counter and a Johnson counter is which output of the last stage is fed back (Q or Q'). Carefully compare the feedback connection below to the previous ring counter.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04434.png"> </p> <!--johnson 4-stage ckt-->
+</p>
+<br> </br>
+
+<p>
+This "reversed" feedback connection has a profound effect upon the behavior of the otherwise similar circuits. Recirculating a single <b>1</b> around a ring counter divides the input clock by a factor equal to the number of stages. Whereas, a Johnson counter divides by a factor equal to twice the number of stages. For example, a 4-stage ring counter divides by <b>4</b>. A 4-stage Johnson counter divides by <b>8</b>. 
+
+</p>
+
+<p>
+Start a Johnson counter by clearing all stages to <b>0</b>s before the first clock. This is often done at power-up time. Referring to the figure below, the first clock shifts three <b>0</b>s from (<b> Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b>)  to the right into (<b> Q<sub>B</sub> Q<sub>C</sub> Q<sub>D</sub></b>).  The <b>1</b> at <b>Q<sub>D</sub>' </b>(the complement of Q) is shifted back into <b>Q<sub>A</sub></b>. Thus, we start shifting <b>1</b>s to the right, replacing the <b>0</b>s. Where a ring counter recirculated a single <b>1</b>, the 4-stage Johnson counter recirculates four <b>0</b>s then four <b>1</b>s for an 8-bit pattern, then repeats.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04435.png"> </p> <!--johnson 4-stage ckt-->
+</p>
+<br> </br>
+
+<p>
+The above waveforms illustrates that multi-phase square waves are generated by a Johnson counter. The 4-stage unit above generates four overlapping  phases of 50% duty cycle. How many stages would be required to generate a set of three phase waveforms? For example, a three stage Johnson counter, driven by a 360 Hertz clock would generate three 120<sup>o</sup> phased square waves at 60 Hertz.
+</p>
+
+<p>
+The outputs of the flop-flops in a Johnson counter are easy to decode to a single state. Below for example, the eight states of a 4-stage Johnson counter are decoded by no more than a two input gate for each of the states. In our example, eight of the two input gates decode the states for our example Johnson counter.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04436.png"> </p> <!--johnson 4-stage w/decoder-->
+</p>
+<br> </br>
+
+<p>
+ No matter how long the Johnson counter, only 2-input decoder gates are needed.  Note, we could have used uninverted inputs to the <b>AND</b> gates by changing the gate inputs from true to inverted at the FFs,  <b>Q</b> to<b> Q'</b>, (and vice versa). However, we are trying to make the diagram above match the data sheet for the CD4022B, as closely as practical.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04437.png"> </p> <!--johnson 4-stage, decode waveform-->
+</p>
+<br> </br>
+
+<p>
+Above, our four phased square waves <b>Q<sub>A</sub></b>  to <b>Q<sub>D</sub></b> are decoded to eight signals (<b>G<sub>0</sub></b>  to <b>G<sub>7</sub></b>)  active during one clock period out of a complete 8-clock cycle. For example, <b>G<sub>0</sub></b> is active high when both <b>Q<sub>A</sub></b> and <b>Q<sub>D</sub></b> are low. Thus, pairs of the  various register outputs define each of the eight states of our Johnson counter example.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04438.png"> </p> <!--CD4022B johnson 4-stage, disallowed state detector -->
+</p>
+<br> </br>
+
+<a name="disallowed state, Johnson counter"></a>
+<a name="disallowed state detector"></a>
+<p>
+Above is the more complete internal diagram of the CD4022B Johnson counter. See the manufacturers' data sheet for minor details omitted. The major new addition to the diagram as compared to previous figures is the <i>disallowed state detector</i> composed of the two <b>NOR</b> gates. Take a look at the inset state table. There are 8-permissible states as listed in the table. Since our shifter has  four flip-flops, there are a total of 16-states, of which there are 8-disallowed states. That would be the ones not listed in the table.
+</p>
+
+<p>
+In theory, we will not get into any of the disallowed states as long as the shift register is <b>RESET</b> before first use.  However, in the "real world" after many days of continuous operation due to unforeseen noise, power line disturbances, near lightning strikes, etc, the Johnson counter could get into one of the disallowed states. For high reliability applications, we need to plan for this slim possibility. More serious is the case where the circuit is not cleared at power-up. In this case there is no way to know which of the 16-states the circuit will power up in. Once in a disallowed state, the Johnson counter will not return to any of the permissible states without intervention. That is the purpose of the <b>NOR</b> gates.
+</p>
+
+<p>
+Examine the table for the sequence (<b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b>)  = (<b>010</b>). Nowhere does this sequence appear in the table of allowed states. Therefore  (<b>010</b>) is disallowed. It should never occur. If it does, the Johnson counter is in a disallowed state, which it needs to exit to any allowed state. Suppose that (<b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b>)  = (<b>010</b>). The second <b>NOR</b> gate will replace <b>Q<sub>B</sub></b> = <b>1</b> with a <b>0</b> at the <b>D</b> input to FF <b>Q<sub>C</sub></b>. In other words, the offending <b>010</b> is replaced by <b>000</b>. And <b>000</b>, which does appear in the table, will be shifted right. There are may triple-0 sequences in the table. This is how the <b>NOR</b> gates get the Johnson counter out of a disallowed state to an allowed state.
+</p>
+
+<p>
+Not all disallowed states contain a <b>010</b> sequence. However, after a few clocks, this sequence will appear so that any disallowed states will eventually be escaped. If the circuit is powered-up without a <b>RESET</b>,  the outputs will be unpredictable for a few clocks until an allowed state is reached. If this is a problem for a particular application, be sure to <b>RESET</b> on power-up.
+</p>
+
+
+
+
+<h4><a name="xtocid924314">Johnson counter devices</a></h4>
+
+<p>
+A pair of integrated circuit Johnson counter devices with the output states decoded is available.  We have already looked at the CD4017 internal logic in the discussion of Johnson counters. The 4000 series devices can operate from 3V to 15V power supplies. The the 74HC' part, designed for a TTL compatiblity, can operate from a 2V to 6V supply, count faster, and has greater output drive capability. For complete device data sheets, follow the links.
+</p>
+
+<a name="4017, CD4017, 74HC4017, Johnson counter"></a>
+<a name="4022, CD4022, Johnson counter"></a>
+
+<ul>
+
+
+
+<li>
+<p>
+CD4017 Johnson counter with 10 decoded outputs
+</p>
+<p>
+CD4022 Johnson counter  with 8 decoded outputs
+</p>
+<p>
+<a href="http://www-s.ti.com/sc/ds/cd4017b.pdf">[*]</a>
+</p>
+</li>
+
+<li>
+74HC4017 Johnson counter, 10 decoded outputs
+<p>
+<a href="http://www-s.ti.com/sc/ds/cd74hc4017.pdf">[*]</a>
+</p>
+</li>
+
+</ul>
+
+<p>
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04439.png"> </p> <!--CD4017B, CD4022B johnson ctr -->
+</p>
+<br> </br>
+
+<p>
+The ANSI symbols for the <i>modulo</i>-10 (divide by 10) and modulo-8 Johnson counters are shown above. The symbol takes on the characteristics of a counter rather than a shift register derivative, which it is.  Waveforms for the CD4022 modulo-8 and operation were shown previously. The CD4017B/ 74HC4017 decade counter is a 5-stage Johnson counter with ten decoded outputs. The operation and waveforms are similar to the CD4017. In fact, the CD4017 and CD4022 are both detailed on the same data sheet. See above links. The 74HC4017 is a more modern version of the decade counter.
+</p>
+
+<p>
+These devices are used where decoded outputs are needed instead of the binary or BCD (Binary Coded Decimal) outputs found on normal counters. By decoded, we mean one line out of the ten lines is active at a time for the '4017 in place of the four bit BCD code out of conventional counters. See previous waveforms for 1-of-8 decoding for the '4022 Octal Johnson counter.
+</p>
+
+
+
+
+
+
+<h4><a name="xtocid924315">Practical applications</a></h4>
+
+
+<br> </br>
+<p>
+<p> <img src="04440.png"> </p> <!--johnson ctr practical LED -->
+</p>
+<br> </br>
+
+<p>
+The above Johnson counter shifts a lighted LED each fifth of a second around the ring of ten.  Note that the 74HC4017 is used instead of the '40017 because the former part has more current drive capability.  From the data sheet, (at the link above) operating at V<sub>CC</sub>= 5V, the V<sub>OH</sub>= 4.6V at 4ma. In other words, the outputs can supply 4 ma at 4.6 V to drive the LEDs. Keep in mind that LEDs are normally driven with 10 to 20 ma of current. Though, they are visible down to 1 ma. This simple circuit illustrates an application of the 'HC4017. Need a bright display for an exhibit? Then, use inverting buffers to drive the cathodes of the LEDs pulled up to the power supply by lower value anode resistors.
+</p>
+
+<p>
+The 555 timer, serving as an astable multivibrator, generates a clock frequency determined by R<sub>1</sub> R<sub>2</sub> C<sub>1</sub>. This drives the 74HC4017 a step per clock as indicated by a single LED illuminated on the ring. Note, if the 555 does not reliably drive the clock pin of the '4015, run it through a single buffer stage between the 555 and the '4017.  A variable R<sub>2</sub> could change the step rate. The value of decoupling capacitor C<sub>2</sub> is not critical. A similar capacitor should be applied across the power and ground pins of the '4017.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04441.png"> </p> <!--3-ph generator diagram -->
+</p>
+<br> </br>
+
+<a name="stepper motor driver, 3-phase"></a>
+
+<p>
+The Johnson counter above generates 3-phase square waves, phased 60<sup>o</sup> apart with respect to (<b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b>). However, we need 120<sup>o</sup> phased waveforms of power applications (see Volume II, AC). Choosing <b>P<sub>1</sub>=Q<sub>A</sub></b>  <b>P<sub>2</sub>=Q<sub>C</sub></b>   <b>P<sub>3</sub>=Q<sub>B</sub>'</b> yields the 120<sup>o</sup> phasing desired. See figure below. If these (<b>P<sub>1</sub></b> <b>P<sub>2</sub></b>  <b>P<sub>3</sub></b>) are low-pass filtered to sine waves and amplified, this could be the beginnings of a 3-phase power supply. For example, do you need to drive a small 3-phase 400 Hz aircraft motor? Then, feed  6x 400Hz to the above circuit <b>CLOCK</b>. Note that all these waveforms are 50% duty cycle.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04442.png"> </p> <!--3-ph waveforms-->
+</p>
+<br> </br>
+
+<p>
+The circuit below produces 3-phase nonoverlapping, less than 50% duty cycle, waveforms for driving 3-phase stepper motors.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04443.png"> </p> <!--3-ph stepper diagram-->
+</p>
+<br> </br>
+
+<p>
+</p>
+
+<p>
+Above we decode the overlapping outputs <b>  Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b> to non-overlapping outputs <b>P<sub>0</sub> P<sub>1</sub> P<sub>2</sub></b> as shown below. These waveforms drive a 3-phase stepper motor after suitable amplification from the milliamp level to the fractional amp level using the ULN2003 drivers shown above, or the discrete component Darlington pair driver shown in the circuit which follow. Not counting the motor driver, this circuit requires three IC (Integrated Circuit) packages: two dual type "D" FF packages and a quad NAND gate.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04444.png"> </p> <!--new 3-ph stepper waveforms-->
+</p>
+<br> </br>
+
+<br> </br>
+<p>
+<p> <img src="04446.png"> </p> <!--3-ph 4017 diagram stepper diagram-->
+</p>
+
+<p>
+A single CD4017, above,  generates the required 3-phase stepper waveforms in the circuit above by clearing the Johnson counter at count <b>3</b>. Count <b>3</b> persists for less than a microsecond before it clears its' self. The other counts (<b>Q<sub>0</sub>=G<sub>0</sub> Q<sub>1</sub>=G<sub>1</sub> Q<sub>2</sub>=G<sub>2</sub></b>) remain for a full clock period each.
+</p>
+
+<p>
+The Darlington bipolar transistor drivers shown above are a substitute for the internal circuitry of the ULN2003. The design of drivers is beyond the scope of this digital electronics chapter. Either driver may be used with either waveform generator circuit.
+</p>
+
+<!--the image 04445.png is missing from this sequence, inserted after 04410.eps-->
+
+<br> </br>
+<p>
+<p> <img src="04447.png"> </p> <!--3-ph 4017 stepper waveforms-->
+</p>
+
+<p>
+The above waceforms make the most sense in the context of the internal logic of the CD4017 shown earlier in this section. Though, the <b>AND</b> gating equations for the internal decoder are shown. The signals <b>Q<sub>A</sub> Q<sub>B</sub> Q<sub>C</sub></b> are Johnson counter direct shift register outputs not available on pin-outs.  The <b>Q<sub>D</sub></b> waveform shows resetting of the <b>'4017</b> every three clocks.   <b>Q<sub>0</sub> Q<sub>1</sub> Q<sub>2</sub></b>, etc. are decoded outputs which actually are available at output pins.
+</p>
+
+
+<br> </br>
+<p>
+<p> <img src="04448.png"> </p> <!--4-ph 4017 stepper waveforms-->
+</p>
+
+<a name="stepper motor driver, unipolar"></a>
+
+<p>
+Above we generate waveforms for driving a <i>unipolar stepper motor</i>, which only requires one polarity of driving signal. That is, we do not have to reverse the polarity of the drive to the windings. This simplifies the power driver between the '4017 and the motor. Darlington pairs from a prior diagram may be substituted for the ULN3003.
+</p>
+
+<br> </br>
+<p>
+<p> <img src="04449.png"> </p> <!--4-ph 4017 stepper waveforms-->
+</p>
+
+<p>
+Once again, the CD4017B generates the required waveforms with a reset after the teminal count.  The decoded outputs <b>Q<sub>0</sub> Q<sub>1</sub> Q<sub>2</sub> Q<sub>3</sub></b> sucessively drive the stepper motor windings, with  <b>Q<sub>4</sub></b> reseting the counter at the end of each group of four pulses.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid924316"> references</a></u></h2>
+
+<p>
+DataSheetCatalog.com  http://www.datasheetcatalog.com/
+</p>
+
+<p>
+http://www.st.com/stonline/psearch/index.htm select standard logics
+</p>
+http://www.st.com/stonline/books/pdf/docs/2069.pdf
+<p>
+http://www.ti.com/  (Products, Logic, Product Tree)
+</p>
+
+<p>
+</p>
+
+
+
+
+
+
+<br> </br>
+
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2023 Tony R. Kuphaldt, under the terms and conditions of the <a href="DIGI_A3.html">CC BY License</a>.
+</p>
+
+<a href="DIGI_11.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_13.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

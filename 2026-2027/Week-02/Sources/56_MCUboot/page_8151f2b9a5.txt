@@ -1,0 +1,136 @@
+mcuboot | Secure boot for 32-bit Microcontrollers!
+Skip to the content.
+mcuboot
+Secure boot for 32-bit Microcontrollers!
+View on GitHub
+Serial recovery
+MCUboot implements a Simple Management Protocol (SMP) server.
+SMP is a basic transfer encoding for use with the MCUmgr management protocol. 
+See the Zephyr
+Device Management
+documentation for more information about MCUmgr and SMP.
+MCUboot supports the following subset of the MCUmgr commands:
+echo (OS group)
+reset (OS group)
+MCUmgr parameters SMP buffer size (OS group), when
+MCUBOOT_BOOT_MGMT_MCUMGR_PARAMS
+is enabled
+image list (IMG group)
+image upload (IMG group)
+It can also support system-specific MCUmgr commands depending on the given mcuboot-port
+if the
+MCUBOOT_PERUSER_MGMT_GROUP_ENABLED
+option is enabled.
+The serial recovery feature can use any serial interface provided by the platform.
+Transport encoding
+By default, SMP packets are exchanged using the
+SMP over console
+encoding:
+each packet is prefixed with a two-byte length, protected with a CRC16,
+base64-encoded and split into
+\n
+-terminated frames marked with start and
+continuation markers.
+When the
+MCUBOOT_SERIAL_RAW_PROTOCOL
+option is enabled (on Zephyr,
+CONFIG_BOOT_SERIAL_RAW_PROTOCOL
+), the
+raw
+encoding is used instead.
+The SMP packet (header directly followed by the payload) is transferred as
+binary without base64 encoding, length prefix, CRC or console framing. Packet
+boundaries are derived from the length field of the SMP header.
+Compared to SMP over console, the raw encoding uses less flash and RAM and
+allows faster transfers, at the cost of requiring a binary-capable serial link.
+The two encodings are mutually exclusive and selected at build time; the mcumgr
+client must be configured to use a matching raw transport (for example a Zephyr
+application built with
+CONFIG_UART_MCUMGR_RAW_PROTOCOL
+).
+Because the raw encoding has no CRC or framing to detect a truncated packet, a
+stalled or malformed transfer would otherwise wedge serial recovery. To prevent
+this,
+BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT
+(Zephyr:
+CONFIG_BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT
+) discards a partially received
+packet after
+BOOT_SERIAL_RAW_PROTOCOL_INPUT_TIMEOUT_MS
+milliseconds without
+new data and awaits a fresh command. It is enabled by default whenever the raw encoding is used, and
+mirrors Zephyr’s
+CONFIG_MCUMGR_TRANSPORT_RAW_UART_INPUT_TIMEOUT
+.
+Because the raw encoding has no per-line delimiter, each receive interrupt is
+delivered as its own fragment, so the
+BOOT_LINE_BUFS
+receive buffers are
+consumed faster than with the console encoding. If a link can deliver data
+faster than recovery drains it (received bytes are dropped when the buffers are
+exhausted), increase
+BOOT_LINE_BUFS
+.
+Image uploading
+Uploading an image is targeted to the primary slot by default.
+An image can be loaded to other slots only when the
+MCUBOOT_SERIAL_DIRECT_IMAGE_UPLOAD
+option is enabled for the platform.
+MCUboot supports progressive erasing of a slot to which an image is uploaded to if the
+MCUBOOT_ERASE_PROGRESSIVELY
+option is enabled.
+As a result, a device can receive images smoothly, and can erase required part of a flash automatically.
+Configuration of serial recovery
+How to enable and configure the serial recovery feature depends on the given mcuboot-port implementation.
+Refer to the respective documentation and source code for more details.
+Entering serial recovery mode
+Entering the serial recovery mode is usually possible right after a device reset, for instance as a reaction on a GPIO pin state.
+Refer to the given mcuboot-port details to get information on how to enter the serial recovery mode.
+Serial recovery mode usage
+MCU Manager CLI installation
+The MCUmgr command line tool can be used as an SMP client for evaluation purposes.
+The tool is available under the
+MCU Manager
+Github page and is described in the Zephyr
+MCU Manager CLI
+documentation.
+Use the following command to install the MCU Manager CLI tool:
+go install github.com/apache/mynewt-mcumgr-cli/mcumgr@latest
+Enter serial recovery mode in the device and use an SMP client application for communication with the MCUboot’s SMP server.
+Connection configuration
+Use the following command to set the connection configuration,
+for linux:
+mcumgr conn add serial_1 type="serial" connstring="dev=/dev/ttyACM0,baud=115200"
+for windows:
+mcumgr conn add serial_1 type="serial" connstring="COM1,baud=115200"
+Image management
+The connection configuration must be established to perform the following image-related commands:
+Upload the image:
+mcumgr image upload <path-to-signed-image-bin-file>
+-c
+serial_1
+Once done successfully, the following notification will be displayed:
+20.25 KiB / 20.25 KiB [=================================] 100.00% 3.08 KiB/s 6s
+Done
+List all images:
+mcumgr image list -c serial_1
+The terminal will show the response from the module:
+Images:
+ image=0 slot=0
+    version: 0.0.0.0
+    bootable: false
+    flags: 
+    hash: Unavailable
+Split status: N/A (0)
+Device reset
+Reset your device with the following command:
+mcumgr reset -c serial_1
+The terminal should respond:
+Done
+mcuboot
+is maintained by
+mcu-tools
+.
+This page was generated by
+GitHub Pages
+.

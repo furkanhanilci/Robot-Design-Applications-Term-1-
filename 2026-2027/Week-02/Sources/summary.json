@@ -1,0 +1,14 @@
+{
+  "sources": 60,
+  "pdf_files": 679,
+  "unique_pdf_contents": 678,
+  "statuses": {
+    "pdf_downloaded": 29,
+    "web_material_saved": 11,
+    "publisher_page_only": 12,
+    "unavailable": 7,
+    "source_archive_downloaded": 1
+  },
+  "total_bytes": 1221302691,
+  "invalid_pdfs": []
+}

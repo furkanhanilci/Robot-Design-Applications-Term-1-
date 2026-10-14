@@ -1,0 +1,2665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=windows-1252"
+ http-equiv="content-type">
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+  <title>Chapter 13: Digital to Analog Conversion and Sound</title>
+  <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Garamond;
+	panose-1:2 2 4 4 3 3 1 1 8 3;}
+@font-face
+	{font-family:Geneva;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:"ClassGarmnd BT";}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:28.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:16.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+h6
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:8.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:10.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-variant:small-caps;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:49.6pt;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:22.0pt;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:40.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:80.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-link:"Caption Char1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:5.75pt;
+	text-indent:-5.75pt;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoPageNumber
+	{font-weight:bold;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{mso-style-link:"List Bullet Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:74.9pt;
+	text-align:justify;
+	text-indent:-.25in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:78.5pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:96.5pt;
+	text-align:justify;
+	text-indent:-.3in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:1.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:100.1pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:121.7pt;
+	text-align:justify;
+	text-indent:-.3in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:141.75pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	background:black;
+	font-size:36.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-name:"Body Text Indent\,Chapter overview";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:85.05pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:56.7pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:right;
+	font-size:22.0pt;
+	font-family:"Arial Narrow","sans-serif";}
+p.MsoBodyTextFirstIndent, li.MsoBodyTextFirstIndent, div.MsoBodyTextFirstIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:justify;
+	text-indent:10.5pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:200%;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:8.0pt;
+	font-family:"Book Antiqua","serif";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:.25in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:.25in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+em
+	{text-transform:uppercase;
+	font-style:normal;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-top:5.0pt;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+tt
+	{font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Book Antiqua","serif";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman","serif";}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.ListBulletChar
+	{mso-style-name:"List Bullet Char";
+	mso-style-link:"List Bullet";
+	font-family:"Times New Roman","serif";}
+span.CaptionChar1
+	{mso-style-name:"Caption Char1";
+	mso-style-link:Caption;
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+p.PictureWide, li.PictureWide, div.PictureWide
+	{mso-style-name:"Picture Wide";
+	mso-style-link:"Picture Wide Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.PictureWideChar
+	{mso-style-name:"Picture Wide Char";
+	mso-style-link:"Picture Wide";
+	font-family:"Garamond","serif";}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{mso-style-name:"Table Heading";
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:.05in;
+	text-indent:0in;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";
+	font-weight:bold;}
+p.Checkpoint, li.Checkpoint, div.Checkpoint
+	{mso-style-name:Checkpoint;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:1.0in;
+	font-size:10.0pt;
+	font-family:"Garamond","serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+p.BulletList, li.BulletList, div.BulletList
+	{mso-style-name:"Bullet List";
+	mso-style-link:"Bullet List Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";
+	font-family:"Book Antiqua","serif";}
+span.BulletListChar
+	{mso-style-name:"Bullet List Char";
+	mso-style-link:"Bullet List";
+	font-family:"Garamond","serif";}
+p.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, li.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth, div.StyleJustifiedTopSinglesolidlineAuto075ptLinewidth
+	{mso-style-name:"Style Justified Top\: \(Single solid line Auto  0\.75 pt Line width\)";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman","serif";}
+p.BodyText, li.BodyText, div.BodyText
+	{mso-style-name:BodyText;
+	mso-style-link:"BodyText Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.5pt;
+	margin-left:56.9pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+span.BodyTextChar0
+	{mso-style-name:"BodyText Char";
+	mso-style-link:BodyText;
+	font-family:"Times New Roman","serif";}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.5in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Book Antiqua","serif";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman","serif";}
+p.CoverSubHeads, li.CoverSubHeads, div.CoverSubHeads
+	{mso-style-name:"Cover SubHeads";
+	margin-top:28.35pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:16.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+p.Picture, li.Picture, div.Picture
+	{mso-style-name:Picture;
+	mso-style-link:"Picture Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:9.0in;
+	font-size:11.0pt;
+	font-family:"Garamond","serif";}
+span.PictureChar
+	{mso-style-name:"Picture Char";
+	mso-style-link:Picture;
+	font-family:"Garamond","serif";}
+p.TableBodyText, li.TableBodyText, div.TableBodyText
+	{mso-style-name:"Table Body Text";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.TableBullet, li.TableBullet, div.TableBullet
+	{mso-style-name:"Table Bullet";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:110.4pt;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"ClassGarmnd BT","serif";
+	color:black;}
+p.BlockQuotation, li.BlockQuotation, div.BlockQuotation
+	{mso-style-name:"Block Quotation";
+	margin-top:12.0pt;
+	margin-right:.5in;
+	margin-bottom:12.0pt;
+	margin-left:.5in;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Georgia","serif";
+	font-style:italic;}
+p.HeadingBase, li.HeadingBase, div.HeadingBase
+	{mso-style-name:"Heading Base";
+	mso-style-link:"Heading Base Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.HeadingBaseChar
+	{mso-style-name:"Heading Base Char";
+	mso-style-link:"Heading Base";
+	font-family:"Arial","sans-serif";}
+p.FootnoteBase, li.FootnoteBase, div.FootnoteBase
+	{mso-style-name:"Footnote Base";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.SubtitleCover, li.SubtitleCover, div.SubtitleCover
+	{mso-style-name:"Subtitle Cover";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:22.0pt;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Bookman Old Style","serif";
+	text-transform:uppercase;
+	letter-spacing:1.5pt;}
+p.TitleCover, li.TitleCover, div.TitleCover
+	{mso-style-name:"Title Cover";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:36.0pt;
+	page-break-after:avoid;
+	font-size:32.0pt;
+	font-family:"Bookman Old Style","serif";
+	text-transform:uppercase;
+	letter-spacing:3.25pt;}
+p.CaptionCenteredBefore12ptNounderl, li.CaptionCenteredBefore12ptNounderl, div.CaptionCenteredBefore12ptNounderl
+	{mso-style-name:"Caption + Centered Before\:  12 pt + No underl\.\.\.";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.Example, li.Example, div.Example
+	{mso-style-name:Example;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	background:#F3F3F3;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.DefinitionTerm, li.DefinitionTerm, div.DefinitionTerm
+	{mso-style-name:"Definition Term";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+p.DefinitionList, li.DefinitionList, div.DefinitionList
+	{mso-style-name:"Definition List";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+span.Definition
+	{mso-style-name:Definition;
+	font-style:italic;}
+p.Address, li.Address, div.Address
+	{mso-style-name:Address;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;
+	font-style:italic;}
+p.Blockquote, li.Blockquote, div.Blockquote
+	{mso-style-name:Blockquote;
+	margin-top:5.0pt;
+	margin-right:.25in;
+	margin-bottom:5.0pt;
+	margin-left:.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	layout-grid-mode:line;}
+span.CITE
+	{mso-style-name:CITE;
+	font-style:italic;}
+span.CODE0
+	{mso-style-name:CODE;
+	font-family:"Courier New";}
+span.Keyboard
+	{mso-style-name:Keyboard;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.Preformatted, li.Preformatted, div.Preformatted
+	{mso-style-name:Preformatted;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	layout-grid-mode:line;}
+span.Sample
+	{mso-style-name:Sample;
+	font-family:"Courier New";}
+span.Typewriter
+	{mso-style-name:Typewriter;
+	font-family:"Courier New";}
+span.Variable
+	{mso-style-name:Variable;
+	font-style:italic;}
+span.HTMLMarkup
+	{mso-style-name:"HTML Markup";
+	color:red;
+	display:none;}
+span.Comment
+	{mso-style-name:Comment;
+	display:none;}
+p.StyleCourierNew10ptBoldJustified, li.StyleCourierNew10ptBoldJustified, div.StyleCourierNew10ptBoldJustified
+	{mso-style-name:"Style Courier New 10 pt Bold Justified";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+span.texhtml
+	{mso-style-name:texhtml;
+	font-family:"Times New Roman","serif";}
+span.editsection
+	{mso-style-name:editsection;}
+span.CharChar6
+	{mso-style-name:"Char Char6";}
+span.CaptionChar
+	{mso-style-name:"Caption Char";
+	font-family:"Garamond","serif";
+	letter-spacing:.25pt;
+	font-style:italic;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+  </style>
+  <script src="ModuleCheckpoints.js"></script>
+  <script
+ src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="C13_DACSound_files/c13-raphael-min.js"></script>
+  <script src="C13_DACSound_files/c13-html5slider.js"></script>
+  <script src="C13_DACSound_files/c13-nyquist.js"></script>
+  <script src="C13_DACSound_files/c13-dac.js"></script>
+</head>
+<body lang="EN-US" link="blue" vlink="purple">
+<div class="Section1">
+<p class="MsoNormal" style="text-align: center;" align="center"><font
+ size="4">Chapter
+13: Digital to Analog Conversion and Sound</font><br>
+Modified to be compatible with EE319K Lab 6</p>
+<p class="MsoNormal" style="text-align: center; font-style: italic;"
+ align="center"><span style="font-weight: 700;"><font size="4">Embedded
+Systems - Shape The World</font></span><br>
+<font size="4">Jonathan Valvano and Ramesh Yerraballi</font></p>
+<p class="MsoNormal"><b><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;</span></b></p>
+<p class="MsoBodyText">As we have seen throughout this class, an
+embedded
+system uses its input/output devices to interact with the external
+world. Input devices allow the system to gather information about the
+world, and output devices can affect visual, mechanical, chemical,
+auditory, and biologic processes in the world. In this chapter we will
+literally &ldquo;Shape The World&rdquo;. We present a technique for the
+system to generate an analog output using a digital to analog converter
+(DAC). Together with periodic interrupts the system can generate
+waveforms, which are analog voltages that vary in time and in
+amplitude. We will then connect the waveform to a speaker and generate
+sound.</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+      <p class="MsoNormal"><b><span style="font-size: 10pt;">Learning
+Objectives:</span></b><i><span style="font-size: 10pt;"> </span></i></p>
+      <ul style="margin-top: 0in;" type="disc">
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Develop a means for a
+digital computer to interact with the analog world.</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Study digitization:
+Quantization, range, precision and resolution.</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Introduce sampling and
+the Nyquist Theorem.</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Study the basics of
+sound: electromagnets, speakers, AC vs. DC power, perception of sound.</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Understand how to
+create sound: loudness, pitch, envelope, and shape</span></li>
+        <li class="MsoNormal"><span
+ style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Use SysTick to create
+sounds by programming variable frequencies.</span></li>
+      </ul>
+      </td>
+      <td>
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/XOOEUhV9w5I?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>13.0<span lang="en-US">. Introduction to Sound</span></p>
+      <p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoBodyText" style="text-align: center;" align="center"><img
+ src="C13_DACSound_files/c13-image001.png" height="89" width="172"> </p>
+<table class="mbox-small"
+ style="border: 1px solid rgb(170, 170, 170); background-color: rgb(249, 249, 249);"
+ align="center">
+  <tbody>
+    <tr>
+      <td class="mbox-image">
+      <div class="center">
+      <div class="floatnone"><img alt=""
+ src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/50px-Gnome-mime-sound-openclipart.svg.png"
+ srcset="http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/75px-Gnome-mime-sound-openclipart.svg.png 1.5x, http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png 2x"
+ height="50" width="50"></div>
+      </div>
+      </td>
+      <td class="mbox-text plainlist" style="line-height: 1.1em;">
+      <div class="haudio">
+      <div style="padding: 2px 0pt;" class="fn"><a
+ href="http://en.wikipedia.org/wiki/File:220_Hz_sine_wave.ogg"
+ title="File:220 Hz sine wave.ogg">Sine wave</a></div>
+      <div style="padding-right: 4px;">
+      <div class="mediaContainer"
+ style="position: relative; display: block; width: 220px;"><audio
+ id="mwe_player_2" style="width: 220px; height: 23px;"
+ poster="http://bits.wikimedia.org/static-1.23wmf3/skins/common/images/icons/fileicon-ogg.png"
+ controls="" preload="none" class="kskin"
+ data-durationhint="2.3398639455782" data-startoffset="2.6601360544218"
+ data-mwtitle="220_Hz_sine_wave.ogg" data-mwprovider="wikimediacommons"><source
+ src="http://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg"
+ type="audio/ogg; codecs=&quot;vorbis&quot;"
+ data-title="Original Ogg file (39 kbps)" data-shorttitle="Ogg source"
+ data-width="0" data-height="0" data-bandwidth="38983"></source>Sorry,
+your browser either has JavaScript disabled or does not have any
+supported player.<br>
+You can <a
+ href="http://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg">download
+the clip</a> or <a
+ href="http://www.mediawiki.org/wiki/Extension:TimedMediaHandler/Client_download">download
+a player</a> to play the clip in your browser.</audio></div>
+      </div>
+      <div style="padding: 2px 0pt 0pt;" class="description">5 seconds
+of a 220 Hz sine wave</div>
+      </div>
+      <hr></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="mbox-text" style="line-height: 1.1em;"><span
+ style="font-size: smaller;"><i>Problems playing this file? See <a
+ href="http://en.wikipedia.org/wiki/Wikipedia:Media_help"
+ title="Wikipedia:Media help">media help</a>.</i></span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="PictureWide"><span lang="EN-AU">&nbsp;</span></p>
+<div
+ style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="13_1"></a>
+<h2>13.1. Approximating continuous signals in the digital domain</h2>
+</div>
+<p class="MsoBodyText">An <b>analog signal</b>&nbsp;is one that is
+continuous in both amplitude and time.  Neglecting quantum physics, most
+signals in the world exist as continuous functions of time in an analog
+fashion (e.g., voltage, current, position, angle, speed, force,
+pressure, temperature, and flow etc.) In other words, the signal has
+amplitude that can vary over time, but the value cannot instantaneously
+change. To represent a signal in the digital domain we must approximate
+it in two ways: amplitude quantizing and time quantizing (or Sampling).
+From an amplitude perspective, we will first place limits on the signal
+restricting it to exist between a minimum and maximum value (e.g., 0 to
++3.3V), and second, we will divide this amplitude range into a finite set
+of discrete values. The <b>range</b>&nbsp;of the system is the maximum
+minus the minimum value. The <b>precision</b> of the system defines
+the number of values from which the amplitude of the digital signal is
+selected. Precision&nbsp;can be given in number of alternatives, binary
+bits, or decimal digits. The <b>resolution</b>&nbsp;is the smallest
+change in value that is significant. Furthermore, with respect to
+time one considers analog signals to exist from time equals minus
+infinity to plus infinity.&nbsp; Because memory is finite, when representing 
+signals on a digital computer, we will restrict signal to a <b>finite time</b>,
+or we could have a finite set of data that are repeated over and over.</p>
+<p class="BodyText">Figure 13.1 shows a temperature waveform (solid
+line), with a corresponding digital representation sampled at 1 Hz and
+stored as a 5-bit integer number with a range of 0 to 31 <sup>o</sup>C.
+Because it is digitized in both amplitude and time, the digital samples
+(individual dots) in Figure 13.1 must exist at an intersection of grey
+lines. Because it is a time-varying signal (mathematically, this is
+called a function), we have one amplitude for each time, but it is
+possible for there to be 0, 1, or more times for each amplitude. 
+</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+      <p class="MsoBodyText"><img src="C13_DACSound_files/c13-image002.png"
+ border="0" height="470" width="494"></p>
+      <p class="MsoCaption">Figure 13.1. An analog signal is
+represented in
+the digital domain as discrete samples</p>
+      </td>
+      <td><!--- C13_video_1 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/IjNN3gRmmxE?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.1<span lang="en-US">.
+Fundamentals of Digitization </span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoBodyText">The second approximation occurs in the time
+domain. Time quantizing&nbsp;is caused by the finite sampling interval.
+For example, the data are sampled every 1 second in Figure 13.1. In
+practice we will use a periodic timer to trigger an analog to digital
+converter (ADC) to digitize information, converting from the analog to
+the digital domain. Similarly, if we are converting from the digital to
+the analog domain, we use the periodic timer to output new data to a
+digital to analog converter (DAC). The <b>Nyquist Theorem</b>&nbsp;states
+that if the signal is sampled with a frequency of <i>f<sub>s</sub></i>,
+then the digital samples only contain frequency components from 0 to
+&frac12; <i>f<sub>s</sub></i>. Conversely, if the analog signal does
+contain frequency components larger than &frac12; <i>f<sub>s</sub></i>,
+then there will be an <b>aliasing</b>&nbsp;error
+during the sampling process (performed with a frequency of <i>f<sub>s</sub></i>).
+Aliasing is when the digital signal appears to have a different
+frequency than the original analog signal.
+Also note, the digital data has 11 values at times 0 to 10, but
+no information before time=0, and no information after time=10. </p>
+
+<p class="BulletList"><span lang="X-NONE">&nbsp;</span></p>
+<p class="Checkpoint"><a href="#Checkpoint10_1a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_1')">Checkpoint 13.1</button>:</span></b></a><b>
+</b>Why can&rsquo;t the digital samples represent the little wiggles in
+the analog signal?</p>
+<p class="Checkpoint"><a href="#Checkpoint10_2a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_2')">Checkpoint 13.2</button>:</span></b></a><b>
+</b>Why can&rsquo;t the digital samples represent temperatures above 31
+<sup>o</sup>C?</p>
+<p class="Checkpoint"><a href="#Checkpoint10_3a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_3')">Checkpoint 13.3</button>:</span></b></a><b>
+</b>What range of frequencies is represented in the digital samples
+when the ADC is sampled once every millisecond?</p>
+<p class="Checkpoint"><a href="#Checkpoint10_4a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_4')">Checkpoint 13.4</button>:</span></b></a><b>
+</b>If I wanted to create an analog output wave with frequency
+components from 0 to 11 kHz, what is the slowest rate at which I could
+output to the DAC?</p>
+
+<p class="MsoBodyText">Proving the Nyquist Theorem mathematically is
+beyond the scope of this course, but we can present a couple examples
+to support the basic idea of the Nyquist Theorem: we must sample at a
+rate faster than twice the rate at which signal itself is oscillating. </p>
+<!--- Begin C13_video_2 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/mo0kEPlOIvQ?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.2<span lang="en-US">.
+The Nyquist Theorem Illustrated</span></p>
+<!--- End C13_video_2 --->
+<p class="BulletList"><b><span lang="X-NONE">Example 1)</span></b><span
+ lang="X-NONE"> There is a long distance race with runners circling
+around an oval track and it is your job to count the number of times a
+particular runner circles the track. Assume the fastest time a runner
+can make a lap is 60 seconds. You want to read a book and occasionally
+look up to see where your runner is. How often to you have to look at
+your runner to guarantee you properly count the laps? If you look at a
+period faster than every 30 seconds you will see the runner at least
+twice per lap and properly count the laps. If you look at a period
+slower than every 30 seconds, you may only see the runner once per lap
+and not know if the runner is going very fast or very slow. In this
+case, the runner oscillates at most 1 lap per minute and thus you must
+observe the runner at a rate faster than twice per minute.</span></p>
+<p class="BulletList"><span lang="X-NONE">&nbsp;</span></p>
+<p class="BulletList"><b><span lang="X-NONE">Example 2)</span></b><span
+ lang="X-NONE"> You live on an island and want to take the boat back to
+the mainland as soon as possible. There is a boat that arrives at the
+island once a day, waits at the dock for 12 hours and then it sets sail
+to the mainland. Because of weather conditions, the exact time of
+arrival is unknown, but the boat will always wait at the dock for 12
+hours before it leaves. How often do you need to walk down to the dock
+to see if the boat is there? If the boat is at the dock, you get on the
+boat and take the next trip back to the mainland. If you walk down to
+the dock every 13 hours, it is possible to miss the boat. However, if
+you walk down to the dock every 12 hours or less, you&rsquo;ll never
+miss the boat. In this case, the boat frequency is once/day and you
+must sample it (go to the dock) two times/day.&nbsp; </span></p>
+
+
+<p
+ style="font-weight: bold; text-decoration: underline; margin-left: 80px;"><a
+ name="ITool13.1"></a>Interactive
+Tool 13.1</p>
+<p style="font-style: italic; margin-left: 80px;">Discover the Nyquist
+Theorem.
+A Continuous waveform like Figure 13.1 is shown, V = 1.5 +
+1*sin(2pi50t)+0.5*cos(2pi 200t). You may select the sampling
+rate and the precision (in bits) to see the signal captured. Notice
+that at sampling rates above 100 Hz you capture the essence of the 50Hz
+periodic wave, and above 400 Hz you capture the essence of both the 50
+and 200 Hz waves. To &ldquo;capture the essence&rdquo; means the analog
+and digital signal go up and down at the same rate. </p>
+<div class="center">
+<input id="nyquist_slider_freq" style="margin-left: 100px;" min="0"
+ max="16" step="1"
+ oninput="nyquist.update_freq('nyquist_slider_freq','nyquist_slider_prec','nyquist_freq_field','nyquist_prec_field')"
+ type="range"><span> sampling frequency = <span id="nyquist_freq_field"></span>
+Hz</span>
+<br>
+<input id="nyquist_slider_prec" style="margin-left: 100px;" min="1"
+ max="8" step="1"
+ oninput="nyquist.update_freq('nyquist_slider_freq','nyquist_slider_prec','nyquist_freq_field','nyquist_prec_field')"
+ type="range">
+<span> Number of ADC bits = <span id="nyquist_prec_field"></span>
+bit(s)</span>
+<div id="nyquist_graph_parent" style="width: 50%;"></div>
+</div>
+<div
+ style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="13_2"></a>
+<h2>13.2. Digital to Analog Conversion</h2>
+</div>
+<p class="MsoBodyText">A DAC&nbsp;converts digital signals into analog
+form as illustrated in Figure 13.2. Although one can interface a DAC to
+a regular output port, most DACs are interfaced using high-speed
+synchronous protocols, like the SSI. For more information about SSI,
+see Embedded Systems: Real-Time Interfacing to ARM&reg; Cortex&trade;-M
+Microcontrollers, 2020, ISBN: 978-1463590154. The DAC output can be
+current or voltage. Additional analog processing may be required to
+filter, amplify, or modulate the signal. We can also use DACs to design
+variable gain or variable offset analog circuits.</p>
+<p class="MsoBodyText">The DAC <b>precision</b>&nbsp;is the number of
+distinguishable DAC outputs (e.g., 16 alternatives, 4 bits). The DAC <b>range</b>&nbsp;is
+the maximum and minimum DAC output (volts, amps). The DAC <b>resolution</b>&nbsp;is
+the smallest distinguishable change in output. The units of resolution
+are in volts or amps depending on whether the output is voltage or
+current. The <b>resolution</b> is the change in output that occurs
+when the digital input changes by 1. For most DACs there is a simple
+relationship between range precision and resolution.</p>
+<p class="MsoBodyText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Range(volts) = Precision(alternatives) &bull; Resolution(volts)</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+      <p class="MsoBodyText"><img src="C13_DACSound_files/c13-image003.png"
+ border="0" height="350" width="470"></p>
+      <p class="MsoCaption">Figure 13.2. A 4-bit DAC provides analog
+output.</p>
+      </td>
+      <td><!--- C13_video_3 --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/5LveKTMGuEM?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.3<span lang="en-US">.
+Design of a DAC circuit </span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p
+ style="font-weight: bold; text-decoration: underline; margin-left: 80px;"><a
+ name="ITool13.2"></a>Interactive
+Tool 13.2</p>
+<p style="font-style: italic; margin-left: 80px;">Learn about DAC
+precision using this tool.
+The analog output is fixed in the range 0 to 3.3V. You may adjust the
+number of
+bits from 1 to 10 to see how close the fit is to the straight line. </p>
+<span style="margin-left: 300px;">1 </span>
+<input id="dac_slider" oninput="dac.button('dac_slider')" min="1"
+ max="10" style="width: 200px;" type="range"><span
+ style="white-space: pre;">10 Number of DAC bits = </span>
+<span id="dac_bits">0</span>
+<div id="dac_canvas"
+ style="position: relative; width: 650px; height: 400px; left: 50px;"></div>
+<p class="MsoBodyText">The DAC <b>accuracy</b> is (Actual - Ideal) /
+Ideal where Ideal is referred to the National Institute of Standards
+and Technology (NIST). One can choose the full scale <b>range</b> of
+the DAC to simplify the use of fixed-point&nbsp;math. For example, if
+an 8-bit DAC had a full scale range of 0 to 2.55 volts, then the
+resolution would be exactly 10 mV. This means that if the DAC digital
+input were 123, then the DAC output voltage would be 1.23 volts.</p>
+<p class="Checkpoint"><a href="#Checkpoint10_5a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_5')">Checkpoint 13.5</button>:</span></b></a><b>
+</b>A 10-bit DAC has a range of 0 to 2.5V, what is the approximate
+resolution?</p>
+<p class="Checkpoint"><a href="#Checkpoint10_6a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_6')">Checkpoint 13.6</button>:</span></b></a><b>
+</b>You need a DAC with a range of 0 to 2V, and a resolution of 1 mV.
+What is the smallest number of bits could you use for the DAC?</p>
+<div
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color windowtext; border-width: medium medium 1.5pt; padding: 0in 0in 3pt;">
+<p class="MsoNormal"
+ style="border: medium none ; padding: 0in; text-align: justify;"><span
+ style="font-size: 10pt;">&nbsp;</span></p>
+</div>
+<p class="MsoBodyText"><b>Example 13.1.</b><i> </i>Design a 2-bit
+binary-weighted DAC with a range of 0 to +3.3V using resistors. </p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;"><b>Solution</b>:
+We begin by specifying the desired input/output relationship of the
+2-bit DAC. The design specifications are shown in Table 13.1. </p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;"><span
+ style="font-size: 6pt;">&nbsp;</span></p>
+<table class="MsoNormalTable"
+ style="border: medium none ; margin-left: 72.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">N</span></i></p>
+      </td>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 74.7pt;"
+ valign="top" width="149">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Q<sub>1</sub>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q<sub>0</sub></span></p>
+      </td>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">V<sub>out</sub></span></i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> (V)</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">0</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 74.7pt;"
+ valign="top" width="149">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;0</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">0.0</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">1</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 74.7pt;"
+ valign="top" width="149">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;3.3</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">1.1</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">2</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 74.7pt;"
+ valign="top" width="149">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">3.3&nbsp; 0</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">2.2</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">3</span></p>
+      </td>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 74.7pt;"
+ valign="top" width="149">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">3.3&nbsp; 3.3</span></b></p>
+      </td>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">3.3</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="TableHeading" style="margin: 0in 0in 0.0001pt 0.05in;">Table
+13.1. Specifications of the 2-bit binary-weighted DAC.</p>
+<p class="TableHeading" style="margin: 0in 0in 0.0001pt 0.05in;">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">Assume the
+output high voltage (<i>V<sub>OH</sub></i>) of the microcontroller is
+3.3 V, and its output low voltage (<i>V<sub>OL</sub></i>) is 0. With a
+binary-weighted DAC, we choose the resistor ratio to be 2/1 so Q<sub>1</sub>
+bit is twice as significant as the Q<sub>0</sub> bit, as shown in
+Figure 13.3. Considering the circuit on the left (no headphones), if both Q<sub>1 </sub>and
+Q<sub>0</sub> are 0, the output <i>V<sub>out</sub></i> is zero. If Q<sub>1</sub>
+is 0 and Q<sub>0</sub> is +3.3V, the output <i>V<sub>out</sub></i> is
+determined by the resistor divider network </p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="C13_DACSound_files/c13-image004.png" border="0" height="62"
+ width="366">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">Note the total impedance from 3.3V to ground in the above circuit is 18k&#8486;. Using Ohm's Law, with
+the voltage divider equation, we can calculate <i>V<sub>out</sub></i> to be 3.3V*6k&#8486;/18k&#8486;, which is 1.1V.
+If Q<sub>1</sub> is +3.3V and Q<sub>0</sub> is 0, the output <i>V<sub>out</sub></i>
+is determined by the network </p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="C13_DACSound_files/c13-image005.png" border="0" height="62"
+ width="366"></p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">Again notice the total impedance from 3.3V to ground in this second circuit is 18k&#8486;. But this time
+we calculate <i>V<sub>out</sub></i> to be 3.3V*12k&#8486;/18k&#8486;, which is 2.2V.
+If both Q<sub>1 </sub>and Q<sub>0</sub> are +3.3V, the output <i>V<sub>out</sub></i>
+is +3.3V. The output impedance of this DAC is approximately 12 k&#8486;,
+which means it cannot source or sink much current.</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="MsoNormal" style="text-align: center;" align="center"><img
+ src="C13_DACSound_files/c13-image006.png" border="0" height="142"
+ width="849"></p>
+<p class="MsoCaption" style="margin-bottom: 0.0001pt;" ;=""
+ align="center">Figure 13.3. A
+2-bit binary-weighted DAC.</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">If we connect headphones to this DAC, as shown in the right side of Figure 13.3, we could hear sounds generated by software writing a sequence of data to the DAC.
+However, since the impedance of the headphones is much smaller than the impedance of the DAC, the output voltages will be very small, but we could calculate the currents
+into the headphones.  Considering the circuit on the right (with headphones), if both Q<sub>1 </sub>and
+Q<sub>0</sub> are 0, the output current is zero. If Q<sub>1</sub>
+is 0 and Q<sub>0</sub> is +3.3V, the output current, <i>I<sub>out</sub></i>, is 3.3V divided by 12.032k&#8486; which is 0.275mA.
+If Q<sub>0</sub>
+is 0 and Q<sub>1</sub> is +3.3V, the output current, <i>I<sub>out</sub></i>, is 3.3V divided by 6.032k&#8486; which is 0.550mA.
+And finally, if both Q<sub>1 </sub>and
+Q<sub>0</sub> are 3,3V, <i>I<sub>out</sub></i> is the sum of 0.275+0.550 (Kirkhoff's Current Law), which is about 0.825mA. Notice the current into the headphones is linearly related to
+the digital value. In other words, digital values of 0,1,2,3 map to currents of 0,0.275,0.550,0.825mA.</p>
+<p
+ style="font-weight: bold; text-decoration: underline; margin-left: 80px;"><a
+ name="ITool13.3"></a>Interactive
+Tool 13.3</p>
+<p style="font-style: italic; margin-left: 80px;"> Shows how to compute
+Vout for the two scenarios bit1=0;bit0=1 and bit1=1;bit0=0. Using
+superposition, the scenario bit1=1;bit0=1 is simply the sum of the two
+cases: bit1=0;bit0=1 and bit1=1;bit0=0. </p>
+<p class="MsoNormal" style="text-align: center;" align="center">
+<span>bit 0: </span>
+<select id="dac_super_drop1"
+ onchange="(function () {
+dac_super.input(0,document.getElementById('dac_super_drop1').value);
+})(event)">
+<option value="0">0V</option>
+<option value="1">3.3V</option>
+</select>
+<span>bit 1: </span>
+<select id="dac_super_drop2"
+ onchange="(function () {
+dac_super.input(1,document.getElementById('dac_super_drop2').value);
+})(event)">
+<option value="0">0V</option>
+<option value="1">3.3V</option>
+</select>
+</p>
+<div id="superposition_canvas"></div>
+<script>
+document.getElementById('dac_super_drop1').value=0;
+document.getElementById('dac_super_drop2').value=0;
+var dac_super = {
+  counter: 1,
+  paper: null,
+  bits: [0,0,0],
+  q0: null,
+  q1: null,
+  objects: null,
+  vout: null,
+  equation: null,
+  button: null, 
+  update_input: null,
+  update_output: null,
+  update_table: null,
+  update_equation: null,
+  input: null
+};
+
+dac_super.paper = Raphael("superposition_canvas",700,300);
+with (dac_super){
+  paper.image("C13_DACSound_files/c13-image1.png",20,40,337,97);
+  paper.path("M380,30 l280,0");
+  paper.path("M420,10 l0,140");
+  paper.path("M500,10 l0,140");
+  paper.text(400,20,'N').attr({'font-size': '16'});
+  paper.text(530,20,'Q1').attr({'font-size': '16'});
+  paper.text(580,20,'Q0').attr({'font-size': '16'});
+  paper.text(640,20,'Vout').attr({'font-size': '16'});
+  paper.text(400,50,'0').attr({'font-size': '16'});
+  paper.text(400,80,'1').attr({'font-size': '16'});
+  paper.text(400,110,'2').attr({'font-size': '16'});
+  paper.text(400,140,'3').attr({'font-size': '16'});
+  paper.text(460,20,'bits').attr({'font-size': '16'});
+  paper.text(460,50,'0 0').attr({'font-size': '16'});
+  paper.text(460,80,'0 1').attr({'font-size': '16'});
+  paper.text(460,110,'1 0').attr({'font-size': '16'});
+  paper.text(460,140,'1 1').attr({'font-size': '16'});
+
+  //equation = paper.image('equation_0.png',20,150,100,23);
+  //equation = paper.image('equation_2.png',20,150,240,53);
+  equation = paper.image('C13_DACSound_files/c13-equation_0.png',20,150,100,23);
+  
+  paper.text(120,65,"Q1 = ").attr({fill: 'purple', 'font-size': '14', 'text-anchor': 'start'});
+  q1 = paper.text(165,65,"0V").attr({fill: 'purple', 'font-size': '14'});
+  paper.text(120,93,"Q0 = ").attr({fill: 'blue', 'font-size': '14', 'text-anchor': 'start'});
+  q0 = paper.text(165,93,"0V").attr({fill: 'blue', 'font-size': '14'});
+  paper.text(230,65,"Vout = ").attr({fill: 'red', 'font-size': '14', 'text-anchor': 'start'});
+  vout = paper.text(285,65,"0V").attr({fill: 'red', 'font-size': '14'});
+  
+  objects = new Array();
+  for (i=0;i<4;i++){
+    x_values = [580,530,640]
+    objects[i] = new Array();
+    for (j=0;j<3;j++){
+      if (i == 0){
+        objects[i][j] = paper.text(x_values[j],50+i*30,'0V').attr({'font-size': '16', fill: 'blue'});
+      } else {
+        objects[i][j] = paper.text(x_values[j],50+i*30,'0V').attr({'font-size': '16', fill: 'blue', opacity: 0.5});
+        objects[i][j].transform("s0.8");
+      }
+      if (j==1){
+        objects[i][j].attr('fill', 'purple');
+      }
+    }
+  }
+  for (i=0; i<4; i++){
+    voltage = (i*1.1).toFixed(1) + 'V';
+    objects[i][2].attr({'fill': 'red', 'text': voltage});
+  }
+  objects[1][0].attr('text','3.3V');
+  objects[2][1].attr('text','3.3V');
+  objects[3][0].attr('text','3.3V');
+  objects[3][1].attr('text','3.3V');
+}
+
+dac_super.button = function(){
+  /*
+  switch (dac_super.counter){
+    case 1:
+      dac_super.q0.animate({transform: "s0"},500);
+      dac_super.vout.animate({transform: "s0"},500);
+
+      setTimeout(function(){
+        dac_super.q0.attr('text','3.3V');
+        dac_super.vout.attr('text','1.1V');
+        dac_super.q0.animate({transform: "s1"},500);
+        dac_super.vout.animate({transform: "s1"},500);
+
+        for (i=0;i<3;i++){
+          dac_super.objects[i].animate({opacity: '1'},1000);
+        }
+      },500);
+      dac_super.counter = 2;
+      break;
+    case 2:
+      dac_super.q0.animate({transform: "s0"},500);
+      dac_super.q1.animate({transform: "s0"},500);
+      dac_super.vout.animate({transform: "s0"},500);
+
+      setTimeout(function(){
+        dac_super.q0.attr('text','0V');
+        dac_super.q1.attr('text','3.3V');
+        dac_super.vout.attr('text','2.2V');
+
+        dac_super.q0.animate({transform: "s1"},500);
+        dac_super.q1.animate({transform: "s1"},500);
+        dac_super.vout.animate({transform: "s1"},500);
+        for (i=3;i<6;i++){
+          dac_super.objects[i].animate({opacity: '1'},1000);
+        }
+      },500);
+      dac_super.counter = 3;
+      break;
+      case 3:
+      dac_super.q0.animate({transform: "s0"},500);
+      dac_super.vout.animate({transform: "s0"},500);
+
+      setTimeout(function(){
+        dac_super.q0.attr('text','3.3V');
+        dac_super.vout.attr('text','3.3V');
+
+        dac_super.q0.animate({transform: "s1"},500);
+        dac_super.vout.animate({transform: "s1"},500);
+        for (i=6;i<9;i++){
+          dac_super.objects[i].animate({opacity: '1'},1000);
+        }
+      },500);
+      dac_super.counter = 1;
+      break;
+  }*/
+  dac_super.update_labels(2,1);
+} 
+
+dac_super.update_input = function (index, value ){
+  if (dac_super.bits[index]==value){
+    return;
+  }
+  switch (index) {
+  case 0:
+    object = dac_super.q0;
+    break;
+  case 1:
+    object = dac_super.q1;
+    break;
+  default:
+    return ;
+  }
+  dac_super.bits[index]=value;
+  object.animate({transform: "s0.1"},500);
+  setTimeout(function(){
+    if (value == 0) {
+      object.attr('text','0V');
+    } else {
+      object.attr('text','3.3V');
+    }
+    object.animate({transform: "s1"},500);
+  },500);
+}
+
+dac_super.update_output = function ( value ){
+  if (dac_super.bits[2]==value){
+    return;
+  }
+  object2 = dac_super.vout;
+  dac_super.bits[2]=value;
+  object2.animate({transform: "s0.1"},500);
+  setTimeout(function(){
+    if (value == 0) {
+      object2.attr('text','0V');
+    } else if (value == 1) {
+      object2.attr('text','1.1V');
+    } else if (value == 2) {
+      object2.attr('text','2.2V');
+    } else {
+      object2.attr('text','3.3V');
+    }
+    object2.animate({transform: "s1"},500);
+  },500);
+}
+
+dac_super.update_table = function (index) {
+  for (i=0;i<4;i++){
+    for (j=0;j<3;j++){
+      if (i == index) {
+        dac_super.objects[i][j].animate({transform: "s1", opacity: 1},1000);
+      } else {
+        dac_super.objects[i][j].animate({transform: "s0.8", opacity: 0.5},1000);
+      }
+    }
+  }
+}
+
+dac_super.update_equation = function (index){
+  width = [100,240,240,382];
+  height = [23,53,53,45];
+  dac_super.equation.animate({transform: "s0.1"},500);
+  id = 'C13_DACSound_files/c13-equation_'+index+'.png';
+  setTimeout(function(){
+    dac_super.equation.attr({src: id, width: width[index], height: height[index]}); 
+    dac_super.equation.animate({transform: "s1"},500); 
+  },500);
+
+}
+
+dac_super.input = function (index, value){
+  dac_super.update_input(index,value);
+  output = (dac_super.bits[1]*2+parseInt(dac_super.bits[0]));
+  //alert(output);
+  dac_super.update_output(output);
+  dac_super.update_table(output);
+  dac_super.update_equation(output);
+}
+</script>
+<p></p>
+<div
+ style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth">&nbsp;</p>
+</div>
+<p class="MsoBodyText">You can realistically build a 6-bit DAC using
+the binary-weighted method. </p>
+<p class="Checkpoint"><a href="#Checkpoint10_7a"><b><span
+ style="color: windowtext; text-decoration: none;"><button
+ onclick="popitup('Checkpoint13_7')">Checkpoint 13.7</button>:</span></b></a><b>
+</b>How do you build a 3-bit binary-weighted DAC using this method?</p>
+<p class="Checkpoint">&nbsp;</p>
+<div
+ style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="13_3"></a>
+<h2>13.3. Sound Generated by Speakers</h2>
+</div>
+<p class="MsoBodyText">Before we generate sound, let&rsquo;s look at
+how a typical speaker works. Sound exists as varying pressure waves
+that are created when a physical object moves, vibrating the air next to
+it. These air pressure waves travel through the air in all directions
+at about 343 m/sec. Sound can also be generated in water, where it
+travels at 1484 m/sec. Our ears can sense sounds from 20 Hz to about 20
+kHz. In other words, the pressure wave must be oscillating faster than
+20 Hz and slower than 20 kHz for us to hear it. See Figure 13.4.</p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image007.jpg" border="0" height="231"
+ width="491"></span></p>
+<p class="MsoCaption">Figure 13.4. Sound waves exist as pressure waves
+in media such as air, water, and non-porous solids. For more
+information on sound, see <a
+ href="http://www.mediacollege.com/audio/01/sound-waves.html">http://www.mediacollege.com/audio/01/sound-waves.html</a>
+</p>
+<p class="MsoBodyText"><span style="letter-spacing: 0.25pt;">There are
+two magnets in a speaker. There is a large permanent magnetic that
+creates a static magnetic field oriented in the direction the speaker
+is facing, and there is a dynamic electromagnet created by a spiral-wound coil
+oriented in the same direction. Figure 13.5 shows a magnetic field
+generated by a cylindrically-wound coil.</span></p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image008.jpg" border="0" height="510"
+ width="900"></span></p>
+<p class="MsoCaption"><span lang="EN-AU">Figure 13.5. The magnetic
+field produced by a coil is very strong oriented in the direction of
+the cylinder. For more information on magnetic fields produced by a
+coil, see </span><a
+ href="http://www.ndt-ed.org/EducationResources/CommunityCollege/MagParticle/Physics/CoilField.htm"><span
+ lang="EN-AU">http://www.ndt-ed.org/EducationResources/CommunityCollege/MagParticle/Physics/CoilField.htm</span></a><span
+ lang="EN-AU"> </span></p>
+<p class="MsoBodyText"><span lang="EN-AU">The strength and direction of
+the magnetic field are related to the strength and direction of the
+electrical current conducted through the coiled wire. Figure 13.6 shows
+a cut away of a typical speaker. The alternating magnetic field
+generated by the coil interacts with the constant magnetic field
+produced by the permanent magnet. To generate sound we will create an
+oscillating current through the coil, this will create an oscillating
+magnetic field, and will vibrate the voice coil. The diaphragm and
+spider hold the voice coil to the suspension allowing it to vibrate up
+and down. When the voice coil vibrates up and down it creates sound
+waves. The frequency and amplitude of the sound is directly related to
+the frequency and amplitude of the current passing through the coil.
+The resistance of the coil in a typical headphone is 32 &Omega;. </span></p>
+<p class="MsoBodyText"><img src="C13_DACSound_files/c13-image009.jpg"
+ border="0" height="375" width="519"></p>
+<p class="MsoCaption">Figure 13.6. A speaker can generate sound by
+vibrating the voice coil using an electromagnet. For more information
+on speakers, see <a href="http://www.howstuffworks.com/speaker6.htm">http://www.howstuffworks.com/speaker6.htm</a>
+or <a
+ href="http://www.audiocircuit.com/DIY/Dynamic-Speakers/Article:How-dynamic-loudspeakers-work">http://www.audiocircuit.com/DIY/Dynamic-Speakers/Article:How-dynamic-loudspeakers-work</a>
+</p>
+<p class="Checkpoint"><b><button onclick="popitup('Checkpoint13_8')">Checkpoint
+13.8</button>: </b>Some speakers are
+heavier than others. These heavy speakers have larger permanent
+magnets. Why would we want a permanent magnet that can create a larger
+magnetic field?</p>
+<p class="Checkpoint">
+</p>
+<!--- C13_video_6 --->
+
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/cGIpODQyPO4?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.6<span lang="en-US">.
+how the speaker works</span></p>
+<!--- edit of C13_video_6 --->
+<div
+ style="border-style: solid none none; border-color: silver -moz-use-text-color -moz-use-text-color; border-width: 3pt medium medium; padding: 1pt 0in 0in;">
+<a name="13_4"></a>
+<h2>13.4. Music Generation</h2>
+</div>
+<p class="MsoBodyText">Most digital music&nbsp;devices rely on
+high-speed DACs to create the analog waveforms required to produce
+high-quality sound. In this section, we will discuss a very simple
+sound generation system that illustrates this application of the DAC.
+The hardware consists of a DAC and a speaker interface. You can drive
+headphones directly from a DAC output, but to drive a regular speaker,
+you will need to add an audio amplifier, as illustrated in Figure 13.7.
+</p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image010.png" border="0" height="222"
+ width="803"></span></p>
+<p class="MsoCaption">Figure 13.7. DAC allows the software to create
+music. For more information on the audio&nbsp;amplifier, refer to the
+data sheet of the MC34119. <a
+ href="http://users.ece.utexas.edu/%7Evalvano/Datasheets/MC34119.pdf">http://users.ece.utexas.edu/~valvano/Datasheets/MC34119.pdf</a>
+</p>
+<!--- Begin C13_video_4 --->
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/V7mA-2kw_ys?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.4<span lang="en-US">.
+Sound as an analog signal: Loudness, pitch and shape</span></p>
+<!--- End C13_video_4 --->
+<p class="MsoBodyText">The quality of the music&nbsp;will depend on
+both hardware and software factors. The precision of the DAC, external
+noise, and the dynamic range of the speaker are some of the hardware
+factors. Software factors include the DAC output rate and the
+complexity of the stored sound data. If you output a sequence of
+numbers to the DAC that form a sine wave, then you will hear a
+continuous tone on the speaker, as shown in Figure 13.8. The <b>loudness</b>
+of the tone is determined by the amplitude of the wave. The <b>pitch</b>&nbsp;is
+defined as the frequency of the wave. Table 13.2 contains frequency
+values for the notes in one octave. The frequency of the wave, <i>f<sub>sin</sub></i>,
+will be determined by the frequency of the interrupt, <i>f<sub>int</sub></i>,
+divided by the size of the table <i>n</i>. The size of the table in
+Program 13.1 is <i>n</i>=16. </p>
+<p class="MsoNormal" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">f<sub>sin</sub></span></i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> = <i>f<sub>int</sub></i>
+/<i>n</i></span></p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image011.png" border="0" height="152"
+ width="864"></span></p>
+<p class="MsoCaption">Figure 13.8. The loudness and pitch are
+controlled by the amplitude and frequency.</p>
+<p class="MsoBodyText">The frequency of each musical note can be
+calculated by multiplying the previous frequency by<span
+ style="position: relative; top: 3pt;"><img
+ src="C13_DACSound_files/c13-image012.png" border="0" height="34" width="40"></span>.
+You can use this method to determine the frequencies of additional
+notes above and below the ones in Table 13.2. There are twelve notes in
+an octave, therefore moving up one octave doubles the frequency.</p>
+<table class="MsoNormalTable"
+ style="border: medium none ; margin-left: 131.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Note</span></p>
+      </td>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">frequency</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">C</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">523
+Hz </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">B</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">494 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">B<sup>b</sup></span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">466 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">A</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">440 Hz</span></i></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">A<sup>b</sup></span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">415 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">G</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">392 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">G<sup>b</sup>&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">370 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">F&nbsp;&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">349 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">E&nbsp;&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">330 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">E<sup>b</sup>&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">311 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">D&nbsp;&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">294 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">D<sup>b</sup>&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">277 Hz</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 72.9pt;"
+ valign="top" width="146">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">C&nbsp;
+      </span></p>
+      </td>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 85.5pt;"
+ valign="top" width="171">
+      <p class="MsoNormal" style="text-align: justify;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">262 Hz</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="TableHeading">Table 13.2. Fundamental frequencies of standard
+musical notes. The frequency for &lsquo;A&rsquo; is exact.</p>
+<p class="MsoNormal" style="text-align: justify;">&nbsp;</p>
+<p class="MsoBodyText">&nbsp;</p>
+<p class="MsoBodyText">Figure 13.9 illustrates the concept of<b>
+instrument</b>. You can define the type of sound by the shape of the
+voltage versus time waveform. Brass instruments have a very large first
+harmonic frequency.</p>
+<p class="MsoNormal" style="text-align: justify;">&nbsp;</p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image013.png" border="0" height="132"
+ width="755"></span></p>
+<p class="MsoCaption">Figure 13.9. A waveform shape that generates a
+trumpet sound.</p>
+<p class="MsoNormal" style="text-align: justify;">&nbsp;</p>
+<p class="MsoBodyText">The <b>tempo</b> of the music defines the speed
+of the song. In 2/4 3/4 or 4/4 music, a <b>beat</b> is defined as a
+quarter note. A moderate tempo is 120 beats/min, which means a quarter
+note has a duration of &frac12; second. A sequence of notes can be
+separated by pauses (silences) so that each note is heard separately.
+The <b>envelope</b> of the note defines the amplitude versus time
+relationship. A very simple envelope is illustrated in Figure 13.10.
+The Cortex&trade;-M processor has plenty of processing power to create
+these types of waves.</p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image014.png" border="0" height="176"
+ width="861"></span></p>
+<p class="MsoCaption">Figure 13.10. You can control the amplitude,
+frequency and duration of each note (not drawn to scale).</p>
+<p class="MsoBodyText">The smooth-shaped envelope, as illustrated in
+Figure 13.11, causes a less staccato and more melodic sound. This type
+of sound generation is possible to produce in real time on the
+Cortex&trade;-M microcontroller. </p>
+<p class="MsoNormal" style="text-align: center;" align="center"><img
+ src="C13_DACSound_files/c13-image015.png" border="0" height="178"
+ width="861"></p>
+<p class="MsoCaption">Figure 13.11. The amplitude of a plucked string
+drops exponentially in time.</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">A <b>chord</b>
+is created by playing multiple notes simultaneously. When two piano
+keys are struck simultaneously both notes are created, and the sounds
+are mixed arithmetically. You can create the same effect by adding two
+waves together in software, before sending the wave to the DAC. Figure
+13.12 plots the mathematical addition of a 262 Hz (low C) and a 392 Hz
+sine wave (G), creating a simple chord. </p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image016.png" border="0" height="338"
+ width="740"></span></p>
+<p class="MsoCaption">Figure 13.12. A simple chord mixing the notes C
+and G.</p>
+<div
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color windowtext; border-width: medium medium 1.5pt; padding: 0in 0in 3pt;">
+<p class="MsoNormal"
+ style="border: medium none ; padding: 0in; text-align: justify;"><span
+ style="font-size: 10pt;">&nbsp;</span></p>
+</div>
+<p class="MsoBodyText"><b>Example 13.2.</b><i> </i>Design a 3-bit R-2R
+DAC and use it to create a 100 Hz sine wave. </p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td><!--- Begin C13_video_5a --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/BHLSiifPEes?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.5a<span lang="en-US">.
+Design of a System that produces a 100Hz Sine Wave.</span></p>
+<!--- End C13_video_5a ---> </td>
+      <td><!--- C13_video_5d --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/bTRFsB3nBDs?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.5d<span lang="en-US">.
+Construction of the DAC Circuit</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;"><b>Solution</b>:
+We begin by specifying the desired input/output relationship of the
+3-bit DAC. Table 13.3 shows the design specification. It will be able
+to generate 8 different current outputs with a resolution of about 12.5
+&mu;A. The circuit is presented in Figure 13.13. </p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;"><span
+ style="font-size: 6pt;">&nbsp;</span></p>
+<table class="MsoNormalTable"
+ style="border: medium none ; margin-left: 72.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">N</span></i></p>
+      </td>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Q<sub>2</sub>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q<sub>1</sub>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q<sub>0</sub></span></p>
+      </td>
+      <td
+ style="border-style: solid none; border-color: green -moz-use-text-color; border-width: 1.5pt medium 1pt; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">I<sub>out</sub></span></i><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">
+(&mu;A)</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">0</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">0.0</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">1</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;3.3</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">12.5</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">2</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;3.3&nbsp; 0</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">25.0</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">3</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;3.3&nbsp; 3.3</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">37.5</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">4</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">3.3&nbsp; </span></b><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">0&nbsp;
+&nbsp;&nbsp;0</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">50.0</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">5</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">3.3&nbsp; 0&nbsp;
+&nbsp;&nbsp;3.3</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">62.5</span></p>
+      </td>
+    </tr>
+    <tr style="height: 0.05in;">
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 0.4in; height: 0.05in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">6</span></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 119.7pt; height: 0.05in;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">3.3&nbsp;
+3.3&nbsp; 0</span></b></p>
+      </td>
+      <td
+ style="border: medium none ; padding: 0in 5.4pt; width: 57.5pt; height: 0.05in;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">75.0</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 0.4in;"
+ valign="top" width="58">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">7</span></p>
+      </td>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 119.7pt;"
+ valign="top" width="239">
+      <p class="MsoNormal"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;;">3.3&nbsp;
+3.3&nbsp; 3.3</span></b></p>
+      </td>
+      <td
+ style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color green; border-width: medium medium 1.5pt; padding: 0in 5.4pt; width: 57.5pt;"
+ valign="top" width="115">
+      <p class="MsoNormal"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">87.5</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="TableHeading" style="margin: 0in 0in 0.0001pt 0.05in;">Table
+13.3. Specifications of the 3-bit R-2R DAC.</p>
+<p class="TableHeading" style="margin: 0in 0in 0.0001pt 0.05in;">&nbsp;</p>
+<p class="MsoBodyText" style="margin-bottom: 0.0001pt;">We assume the
+output high voltage (<i>V<sub>OH</sub></i>) of the microcontroller is
+3.3 V, and its output low voltage (<i>V<sub>OL</sub></i>) is 0. A 3-bit
+R-2R DAC will use two R resistors (11k&Omega;) and five 2R resistors
+(22k&Omega;), as shown in Figure 13.13. The maximum current output will
+be (1/2 + 1/4 + 1/8)*3.3V/33k&Omega; = 87.5 &mu;A. </p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image017.png" border="0" height="286"
+ width="881"></span></p>
+<!---<p class="MsoBodyText"><span
+ style="background: yellow none repeat scroll 0%; color: red; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">Animation:
+Law of superposition </span><span style="color: red;">Demonstrate how
+this 3-bit R-2R DAC works statically. Let student adjust the digital
+value (from 0 to 7) and show the voltages and currents. Make a second
+one with a 32ohm speaker attached to the DAC output. Feel free to
+enhance learning</span></p> --->
+<p class="MsoCaption" style="margin-bottom: 0.0001pt;">Figure 13.13. A
+3-bit R-2R DAC.</p>
+<p class="MsoBodyText">&nbsp;</p>
+<p class="MsoBodyText">The way to analyze an R-2R DAC is to employ the
+Law of Superposition. We will consider the three basis elements (1, 2,
+and 4). If these three cases are demonstrated, then the Law of
+Superposition guarantees the other five will work. When one of the
+digital inputs is true then <i>V<sub>ref</sub></i> (3.3V) is connected
+to the R-2R ladder, and when the digital input is false, then the
+connection is grounded. See Figure 13.14. Since 22,000 is much bigger
+than 32, we can neglect the 32-&Omega; resistance when calculating
+current.</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+      <p class="MsoBodyText"><img src="C13_DACSound_files/c13-image018.png"
+ border="0" height="200" width="474"></p>
+      <p class="MsoCaption">Figure 13.14. Analysis of the three basis
+elements {001, 010, 100} of the 3-bit unsigned R-2R DAC.</p>
+      </td>
+      <td><!--- C13_video_5b --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/DfuhVG5LKxA?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.5b<span lang="en-US">.
+Analysis of a R-2R Ladder circuit </span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoBodyText">In each of the three test cases, the current
+across the active switch is <i>I<sub>0</sub></i>=<i>V<sub>ref</sub></i>
+/ (3<i>R</i>). This current is divided by 2 at each branch point. I.e.,
+<i>I<sub>1</sub></i> = <i>I<sub>0</sub></i>/2, and I<sub>2</sub> = <i>I<sub>1</sub></i>/2.
+Current injected from the lower bits will be divided more times. Since
+each stage divides by two, the exponential behavior is produced. An
+actual DAC is implemented with a current switch rather than a voltage
+switch. Nevertheless, this simple circuit illustrates the operation of
+the R-2R ladder function. When the input is 001, <i>V<sub>ref</sub></i>
+is presented to the left. The effective impedance to ground is 3<i>R</i>,
+so the current injected into the R-2R ladder is <i>I<sub>0</sub></i>=<i>V<sub>ref</sub></i>
+/ (3<i>R</i>). The current is divided in half three times, and <i>I<sub>001</sub></i>=<i>V<sub>ref</sub></i>
+/ (24<i>R</i>).</p>
+<p class="MsoBodyText">When the input is 010, <i>V<sub>ref</sub></i>
+is presented in the middle. The effective impedance to ground is still 3<i>R</i>,
+so the current injected into the R-2R ladder is <i>I<sub>0</sub></i>=<i>V<sub>ref</sub></i>
+/ (3<i>R</i>). The current is divided in half twice, and <i>I<sub>010</sub></i>=<i>V<sub>ref</sub></i>
+/ (12<i>R</i>).</p>
+<p class="MsoBodyText">When the input is 100, <i>V<sub>ref</sub></i>
+is presented on the right. The effective impedance to ground is once
+again 3<i>R</i>, so the current injected into the R-2R ladder is <i>I<sub>0</sub></i>=<i>V<sub>ref</sub></i>
+/ (3<i>R</i>). The current is divided in half once, and <i>I<sub>100</sub></i>=<i>V<sub>ref</sub></i>
+/ (6<i>R</i>).</p>
+<p class="MsoBodyText">Using the Law of Superposition, the output
+voltage is a linear combination of the three digital inputs, <i>I<sub>out</sub></i>=(4<i>b<sub>2</sub></i>
++ 2<i>b<sub>1</sub></i> + <i>b<sub>0</sub></i>)<i>V<sub>ref</sub></i>
+/ (24<i>R</i>). A current to voltage circuit is used to create a
+voltage output. To increase the precision one simply adds more stages
+to the R-2R ladder.</p>
+<p class="MsoBodyText">To generate sound we need a table of data and a
+periodic interrupt. Program 13.1 shows C code that defines a 16-element
+3-bit sine wave. The frequency of the sound will be the interrupt
+frequency divided by 16 (size of the table). So, to create a 100 Hz
+wave we need SysTick to interrupt at 16*100 Hz, 1600 Hz. If the bus
+clock is 80 MHz, then the initialization should be called with an input
+parameter of value 50000. The <b><span
+ style="font-family: &quot;Courier New&quot;;">const</span></b> modifier will
+place the data in ROM.&nbsp; The interrupt software will output one
+value to the DAC. See Figure 13.15. In this example, the 3-bit DAC is
+interfaced to output pins PB2-0. To output to this DAC we simply write
+to Port B. In order to create the sound, it is necessary to output just
+one number to the DAC upon each interrupt. The DAC range is 0 to 87.5
+&mu;A.</p>
+<p class="PictureWide"><span lang="EN-AU"><img
+ src="C13_DACSound_files/c13-image019.png" border="0" height="254"
+ width="299"><img src="C13_DACSound_files/c13-image020.png" border="0"
+ height="247" width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="C13_DACSound_files/c13-image021.png" border="0" height="257"
+ width="222"></span></p>
+<p class="MsoCaption">Figure 13.15. A DAC and a periodic interrupt are
+used to create sound. Output is discrete in time and voltage.</p>
+<p class="MsoBodyText" style="margin: 0in 0in 0.0001pt;"><b><span
+ style="font-family: &quot;Courier New&quot;;">const uint8_t SineWave[16] =
+{4,5,6,7,7,7,6,5,4,3,2,1,1,1,2,3};</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">uint8_t 
+Index=0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+Index varies from 0 to 15</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+**************DAC_Init*********************</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Initialize 3-bit DAC </span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Input: none</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Output: none</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">void
+DAC_Init(void){uint32_t volatile delay;</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+SYSCTL_RCGCGPIO_R |= 0x02; // activate port B</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+delay = SYSCTL_RCGCGPIO_R;&nbsp;&nbsp;&nbsp; // allow time to finish PortB clock
+activating</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;"
+ lang="PT-BR">&nbsp;&nbsp;GPIO_PORTB_DIR_R |=
+0x07;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // make PB2-0 out</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;"
+ lang="PT-BR">&nbsp; </span></b><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">GPIO_PORTB_DEN_R
+|= 0x07;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // enable digital I/O on PB2-0</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">}</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+**************Sound_Init*********************</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Initialize Systick periodic interrupts</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Input: interrupt period</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Units of period are 12.5ns</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Maximum is 2^24-1</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Minimum is determined by length of ISR</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Output: none</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">void
+Sound_Init(uint32_t period){</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+DAC_Init();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+Port B is DAC</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+Index = 0;</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+NVIC_ST_CTRL_R = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+disable SysTick during setup</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+NVIC_ST_RELOAD_R = period-1;// reload value</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+NVIC_ST_CURRENT_R = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // any write to
+current clears it</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+NVIC_SYS_PRI3_R = (NVIC_SYS_PRI3_R&amp;0x00FFFFFF)|0x20000000; //
+priority 1</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;&nbsp;NVIC_ST_CTRL_R
+= 0x0007; // enable SysTick with core clock and interrupts</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">}</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+**************DAC_Out*********************</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+output to DAC</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Input: 3-bit data, 0 to 7 </span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+Output: none</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">void
+DAC_Out(uint32_t data){</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+</span></b><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;"
+ lang="PT-BR">GPIO_PORTB_DATA_R = data;</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">}</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">//
+the sound frequency will be (interrupt frequency)/(size of the table)</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">void
+</span></b><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">SysTick_Handler</span></b><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">(void){</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">&nbsp;
+Index = (Index+1)&amp;0x0F; &nbsp; &nbsp; &nbsp;//
+4,5,6,7,7,7,6,5,4,3,2,1,1,1,2,3,...&nbsp; </span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">&nbsp;
+DAC_Out(SineWave[Index]);&nbsp; &nbsp;&nbsp;// output one value each
+interrupt </span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">}
+</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">void
+main(void){</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">&nbsp;
+PLL_Init();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+bus clock at 80 MHz</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">&nbsp;
+Switch_Init();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Port F is onboard
+switches, LEDs, profiling</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(24, 21, 18);">&nbsp;
+Sound_Init(50000);&nbsp;&nbsp; // initialize SysTick timer, 1.6kHz</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+while(1){</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">&nbsp;
+}</span></b></p>
+<p class="MsoNormal"
+ style="margin-right: -41pt; text-align: justify; line-height: 10pt;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">}</span></b></p>
+<p class="MsoCaption">Program 13.1. The periodic interrupt outputs one
+value to the DAC.</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td><!--- Begin C13_video_5c --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/FTOcCjC5gbU?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.5c<span lang="en-US">.
+Program walkthrough</span></p>
+<!--- End C13_video_5c ---> </td>
+      <td><!--- C13_video_5e --->
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/7YvyQfn7s1o?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+      <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Video </span>13.5e<span lang="en-US">.
+Demonstration of the Solution using a Scope</span></p>
+<!--- End C13_video_5e ---> </td>
+    </tr>
+  </tbody>
+</table>
+<div
+ style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth">&nbsp;</p>
+</div>
+<h2>EE319K Lab 6 videos</h2>
+<h3>Lab6_Introduction</h3>
+<p>In this video we review the software starter project and overview the design steps for implementing Lab 6.</p>
+ <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/ITyjs14BZBU?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+     <ul>
+<li>Read: Book Chapter 6, eBook Chapters 12, 13</li>
+<li>Read: Lab 6 assignment</li>
+<li>Review: Lab 6 starter code</li>
+<li>Project structure, files, dac.xls</li>
+<li>Design/test: DAC_Init DAC_Out software</li>
+<li>Design/build/test: DAC circuit</li>
+<li>Design/test: Piano_Init Piano_In software</li>
+<li>Design/build/test: piano keyboard</li>
+<li>Design/test: Sound_Init, Sound_Play</li>
+<li>Design/test: main program </li>
+</ul>
+
+<h3>Lab6_Voltmeter</h3>
+<p>In this video we present the building and static testing of the DAC using a real voltmeter.</p>
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/uTSYuEEEgQ0?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p>This video used the following main program</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+int main(void){ // use this if you have a voltmeter<br>    
+&nbsp;&nbsp;TExaS_Init(SW_PIN_PE3210,DAC_PIN_PB3210,ScopeOn);&nbsp;&nbsp;// bus clock at 80 MHz<br>
+&nbsp;&nbsp;DAC_Init(); // your lab 6 solution<br>
+&nbsp;&nbsp;Testdata = 15;<br>
+&nbsp;&nbsp;EnableInterrupts();<br>
+&nbsp;&nbsp;while(1){ <br>  
+&nbsp;&nbsp;&nbsp;&nbsp;Testdata = (Testdata+1)&amp;0x0F;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DAC_Out(Testdata);&nbsp;&nbsp;// your lab 6 solution<br>
+&nbsp;&nbsp;}<br>
+}</span></b></p>
+</p>
+<p class="MsoCaption">Program 13.2. Main program for static testing if you have a voltmeter.</p>
+<h3>Lab6_Static	</h3>
+<p>Building and static testing of the DAC using TExasDisplay as a voltmeter</p>
+ <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/jk2QvKRAKFQ?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p>This video used the following main program</p>
+<p class="MsoNormal" style="text-align: justify;"><b><span
+ style="font-size: 10pt; font-family: &quot;Courier New&quot;; color: black;">
+int main(void){ // use this if you do NOT have a voltmeter<br>    
+uint32_t last,now;  <br>
+&nbsp;&nbsp;TExaS_Init(SW_PIN_PE3210,DAC_PIN_PB3210,ScopeOn);    // bus clock at 80 MHz<br>
+&nbsp;&nbsp;LaunchPad_Init(); // Initialized switches on PF0,PF4<br>
+&nbsp;&nbsp;DAC_Init(); // your lab 6 solution<br>
+&nbsp;&nbsp;Testdata = 15;<br>
+&nbsp;&nbsp;EnableInterrupts();<br>
+&nbsp;&nbsp;last = Switch_In();// read switches on PF0,PF4 (0x01 means PF0 touched)<br>
+&nbsp;&nbsp;while(1){<br>     
+&nbsp;&nbsp;&nbsp;&nbsp;now = Switch_In();// 0 if no switch touched<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if((last != now)&amp;&amp;now){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Testdata = (Testdata+1)&amp;0x0F;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DAC_Out(Testdata); // your lab 6 solution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;last = now;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Delay1ms(25);   // debounces switch<br>
+&nbsp;&nbsp;}<br>
+}</span></b></p>
+</p>
+<p class="MsoCaption">Program 13.3. Main program for static testing if you do NOT have a voltmeter.</p>
+<h3>Lab6_Dynamic</h3>
+<p>In this video we present the making of sound and dynamic testing of the DAC, using TExaSdisplay as a scope. The video includes a demonstration of a complete Lab 6 solution, including extra credit part.</p>
+ <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/CbkwRC9TToE?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+<h3>Lab6_Extra Credit</h3>
+<p>Extra credit Option 1 required you to create a data structure to hold music, convert sheet music to a sequence of notes, and to deploy a second periodic interrupt to manage the notes.</p>
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/fvo9E9I676E?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+<p>There are two options for extra credit. This video outlines the approach to complete option 1. You can only complete only one of the options.</p>
+
+<h3>Lab6_Grading</h3>
+<p>Valvano pretends to be a student, Yerraballi pretends to be a TA, we show Valvano's screen and include Yerraballi's voice to demonstrate how the lab checkout will flow. For more flexibility you can connect to zoom with both your computer (to show deliverables, Keil, and TExaSdisplay) and your phone. You may find it easier to show your circuit with video from the phone.</p>
+      <p class="MsoNormal">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <iframe
+ src="http://www.youtube.com/embed/EsSdr1UbPJA?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe> </p>
+
+<div
+ style="border-style: solid none none; border-color: windowtext -moz-use-text-color -moz-use-text-color; border-width: 1pt medium medium; padding: 1pt 0in 0in;">
+<p class="StyleJustifiedTopSinglesolidlineAuto075ptLinewidth">&nbsp;</p>
+</div>
+<p class="MsoNormal">Reprinted with approval from <u>Embedded Systems:
+Introduction to ARM Cortex-M Microcontrollers</u>, 2020, ISBN:
+978-1477508992, <a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"><b>http://users.ece.utexas.edu/~valvano/arm/outline1.htm</b></a></p>
+<p class="MsoNormal">and from <u>Embedded Systems: Real-Time
+Interfacing to ARM&reg; Cortex&trade;-M Microcontrollers</u>, 2020,
+ISBN: 978-1463590154, <b><a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline.htm">http://users.ece.utexas.edu/~valvano/arm/outline.htm</a></b>
+</p>
+</div>
+<a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img
+ alt="Creative Commons License" style="border-width: 0pt;"
+ src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded
+Systems - Shape the World</span> by <a
+ xmlns:cc="http://creativecommons.org/ns#"
+ href="http://users.ece.utexas.edu/%7Evalvano/"
+ property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano
+and Ramesh Yerraballi</a> is licensed under a <a rel="license"
+ href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative
+Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+License</a>.<br>
+Based on a work at <a xmlns:dct="http://purl.org/dc/terms/"
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"
+ rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+</body>
+</html>

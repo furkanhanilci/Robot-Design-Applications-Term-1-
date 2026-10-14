@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>mcuboot | Secure boot for 32-bit Microcontrollers!</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="mcuboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/custom_crypto.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/custom_crypto.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="mcuboot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"mcuboot","url":"https://docs.mcuboot.com/custom_crypto.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">mcuboot</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <!--
+  - SPDX-License-Identifier: Apache-2.0
+-->
+
+<h1 id="custom-crypto-backend">Custom Crypto Backend</h1>
+
+<p>MCUboot’s crypto abstraction layer supports several open source backends like
+<code class="language-plaintext highlighter-rouge">MCUBOOT_USE_MBED_TLS</code>, <code class="language-plaintext highlighter-rouge">MCUBOOT_USE_TINYCRYPT</code>, etc. The
+<code class="language-plaintext highlighter-rouge">MCUBOOT_USE_CUSTOM_CRYPTO</code> option allows to implement a custom backend that
+lets users plug in any crypto library —
+hardware accelerator, proprietary SDK, or another software implementation —
+without modifying MCUboot’s own source.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>When <code class="language-plaintext highlighter-rouge">MCUBOOT_USE_CUSTOM_CRYPTO</code> is defined, the crypto abstraction headers
+(<code class="language-plaintext highlighter-rouge">sha.h</code>, <code class="language-plaintext highlighter-rouge">ecdsa.h</code>, <code class="language-plaintext highlighter-rouge">hmac_sha256.h</code>, <code class="language-plaintext highlighter-rouge">aes_ctr.h</code>, <code class="language-plaintext highlighter-rouge">ecdh_p256.h</code>) do not
+define any types or functions for the custom crypto path. Instead, you must
+provide them via your platform’s custom crypto header.</p>
+
+<p>Your custom header must be included <strong>before</strong> any bootutil crypto headers.
+The simplest approach is to add your header’s directory to the compiler include
+path and have every translation unit include your custom header first (e.g.,
+via a force-include compiler flag or by including it at the top of
+<code class="language-plaintext highlighter-rouge">mcuboot_config.h</code>).</p>
+
+<h2 id="enabling-the-custom-backend">Enabling the custom backend</h2>
+
+<p>Define exactly one crypto backend macro in your <code class="language-plaintext highlighter-rouge">mcuboot_config.h</code> (or via a
+compiler flag):</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MCUBOOT_USE_CUSTOM_CRYPTO
+</span></code></pre></div></div>
+
+<p>Do <strong>not</strong> define any other <code class="language-plaintext highlighter-rouge">MCUBOOT_USE_*</code> crypto backend at the same time —
+that is a compile-time error.</p>
+
+<h2 id="implementing-mcuboot_custom_cryptoh">Implementing <code class="language-plaintext highlighter-rouge">mcuboot_custom_crypto.h</code></h2>
+
+<p>Your custom crypto header must define the context types and functions before
+any bootutil crypto headers are included. The sections below cover the symbols
+required by each MCUboot feature; if a required symbol is missing, the
+compiler will fail at the first use.</p>
+
+<h3 id="required-always-image-hash">Required always: image hash</h3>
+
+<p>MCUboot uses the <code class="language-plaintext highlighter-rouge">bootutil_sha_*</code> interface for image hashing. Your custom
+implementation must match the hash algorithm selected by your MCUboot
+configuration.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Context type */</span>
+<span class="k">typedef</span> <span class="o">&lt;</span><span class="n">your_sha_ctx_type</span><span class="o">&gt;</span> <span class="n">bootutil_sha_context</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_sha_init</span><span class="p">(</span><span class="n">bootutil_sha_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_sha_drop</span><span class="p">(</span><span class="n">bootutil_sha_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_sha_update</span><span class="p">(</span><span class="n">bootutil_sha_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                      <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data_len</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_sha_finish</span><span class="p">(</span><span class="n">bootutil_sha_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                      <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">output</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="required-for-signature-verification-ecdsa">Required for signature verification: ECDSA</h3>
+
+<p>Your custom ECDSA implementation must match the curve selected by your
+MCUboot signing configuration. For <code class="language-plaintext highlighter-rouge">MCUBOOT_SIGN_EC256</code>, implement P-256.
+For <code class="language-plaintext highlighter-rouge">MCUBOOT_SIGN_EC384</code>, implement P-384, including parsing <code class="language-plaintext highlighter-rouge">secp384r1</code>
+public keys and verifying signatures against the selected hash.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Context type */</span>
+<span class="k">typedef</span> <span class="o">&lt;</span><span class="n">your_ecdsa_ctx_type</span><span class="o">&gt;</span> <span class="n">bootutil_ecdsa_context</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_ecdsa_init</span><span class="p">(</span><span class="n">bootutil_ecdsa_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_ecdsa_drop</span><span class="p">(</span><span class="n">bootutil_ecdsa_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+
+<span class="cm">/* Parse the SubjectPublicKeyInfo blob; advance *cp past the wrapper. */</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_ecdsa_parse_public_key</span><span class="p">(</span><span class="n">bootutil_ecdsa_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                                  <span class="kt">uint8_t</span> <span class="o">**</span><span class="n">cp</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">end</span><span class="p">);</span>
+
+<span class="cm">/* Verify a signature over hash[0..hash_len). Returns 0 on success. */</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_ecdsa_verify</span><span class="p">(</span><span class="n">bootutil_ecdsa_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                        <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pk</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">pk_len</span><span class="p">,</span>
+                                        <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">hash</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">hash_len</span><span class="p">,</span>
+                                        <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">sig</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">sig_len</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The helper interfaces below are not direct MCUboot entry points. They are only
+needed if your custom encrypted-image implementation reuses the same helper
+abstractions as MCUboot’s stock <code class="language-plaintext highlighter-rouge">boot/bootutil/src/encrypted.c</code> logic.</p>
+
+<h3 id="helpers-used-by-the-stock-image-encryption-implementation-hmac-sha256">Helpers used by the stock image encryption implementation: HMAC-SHA256</h3>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="o">&lt;</span><span class="n">your_hmac_ctx_type</span><span class="o">&gt;</span> <span class="n">bootutil_hmac_sha256_context</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_hmac_sha256_init</span><span class="p">(</span>
+        <span class="n">bootutil_hmac_sha256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_hmac_sha256_drop</span><span class="p">(</span>
+        <span class="n">bootutil_hmac_sha256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span>  <span class="nf">bootutil_hmac_sha256_set_key</span><span class="p">(</span>
+        <span class="n">bootutil_hmac_sha256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">key_len</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span>  <span class="nf">bootutil_hmac_sha256_update</span><span class="p">(</span>
+        <span class="n">bootutil_hmac_sha256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+        <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data_len</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span>  <span class="nf">bootutil_hmac_sha256_finish</span><span class="p">(</span>
+        <span class="n">bootutil_hmac_sha256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+        <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">output</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">output_len</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="helpers-used-by-the-stock-image-encryption-implementation-aes-ctr">Helpers used by the stock image encryption implementation: AES-CTR</h3>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="o">&lt;</span><span class="n">your_aes_ctx_type</span><span class="o">&gt;</span> <span class="n">bootutil_aes_ctr_context</span><span class="p">;</span>
+
+<span class="cp">#define BOOT_ENC_BLOCK_SIZE  16  </span><span class="cm">/* must equal 16 */</span><span class="cp">
+</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_aes_ctr_init</span><span class="p">(</span><span class="n">bootutil_aes_ctr_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_aes_ctr_drop</span><span class="p">(</span><span class="n">bootutil_aes_ctr_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span>  <span class="nf">bootutil_aes_ctr_set_key</span><span class="p">(</span><span class="n">bootutil_aes_ctr_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                             <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">key</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span>  <span class="nf">bootutil_aes_ctr_encrypt</span><span class="p">(</span><span class="n">bootutil_aes_ctr_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                             <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">counter</span><span class="p">,</span>
+                                             <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">mlen</span><span class="p">,</span>
+                                             <span class="kt">size_t</span> <span class="n">blk_off</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">output</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span>  <span class="nf">bootutil_aes_ctr_decrypt</span><span class="p">(</span><span class="n">bootutil_aes_ctr_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                                             <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">counter</span><span class="p">,</span>
+                                             <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">clen</span><span class="p">,</span>
+                                             <span class="kt">size_t</span> <span class="n">blk_off</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">output</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="helpers-used-by-the-stock-image-encryption-implementation-ecdh-p256">Helpers used by the stock image encryption implementation: ECDH-P256</h3>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="o">&lt;</span><span class="n">your_ecdh_ctx_type</span><span class="o">&gt;</span> <span class="n">bootutil_ecdh_p256_context</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">bootutil_ecdh_p256_context</span> <span class="n">bootutil_key_exchange_ctx</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_ecdh_p256_init</span><span class="p">(</span><span class="n">bootutil_ecdh_p256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">bootutil_ecdh_p256_drop</span><span class="p">(</span><span class="n">bootutil_ecdh_p256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+
+<span class="cm">/* Compute the shared secret z = ECDH(sk, pk). Returns 0 on success. */</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">bootutil_ecdh_p256_shared_secret</span><span class="p">(</span>
+        <span class="n">bootutil_ecdh_p256_context</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pk</span><span class="p">,</span>  <span class="cm">/* 65 bytes, uncompressed */</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">sk</span><span class="p">,</span>  <span class="cm">/* 32 bytes */</span>
+        <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">z</span><span class="p">);</span>        <span class="cm">/* 32 bytes out */</span>
+</code></pre></div></div>
+
+<h3 id="image-encryption-entry-points">Image encryption entry points</h3>
+
+<p>When <code class="language-plaintext highlighter-rouge">MCUBOOT_ENC_IMAGES</code> is defined and you supply a custom backend, you are
+also responsible for providing the <code class="language-plaintext highlighter-rouge">boot_enc_*</code> symbols and
+<code class="language-plaintext highlighter-rouge">boot_decrypt_key()</code> that MCUboot normally gets from
+<code class="language-plaintext highlighter-rouge">boot/bootutil/src/encrypted.c</code>. That file guards its entire body with
+<code class="language-plaintext highlighter-rouge">#if !defined(MCUBOOT_USE_CUSTOM_CRYPTO)</code> so it will not be compiled, and no
+manual exclusion from the build is required. Your translation unit must
+export:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span>  <span class="nf">boot_decrypt_key</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">enckey</span><span class="p">);</span>
+<span class="kt">int</span>  <span class="nf">boot_enc_init</span><span class="p">(</span><span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">);</span>
+<span class="kt">int</span>  <span class="nf">boot_enc_drop</span><span class="p">(</span><span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">);</span>
+<span class="kt">int</span>  <span class="nf">boot_enc_set_key</span><span class="p">(</span><span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">key</span><span class="p">);</span>
+<span class="kt">int</span>  <span class="nf">boot_enc_load</span><span class="p">(</span><span class="k">struct</span> <span class="n">boot_loader_state</span> <span class="o">*</span><span class="n">state</span><span class="p">,</span> <span class="kt">int</span> <span class="n">slot</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="k">struct</span> <span class="n">image_header</span> <span class="o">*</span><span class="n">hdr</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="k">struct</span> <span class="n">flash_area</span> <span class="o">*</span><span class="n">fap</span><span class="p">,</span>
+                   <span class="k">struct</span> <span class="n">boot_status</span> <span class="o">*</span><span class="n">bs</span><span class="p">);</span>
+<span class="n">bool</span> <span class="nf">boot_enc_valid</span><span class="p">(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">boot_enc_encrypt</span><span class="p">(</span><span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">,</span>
+                      <span class="kt">uint32_t</span> <span class="n">off</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">sz</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">blk_off</span><span class="p">,</span>
+                      <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">boot_enc_decrypt</span><span class="p">(</span><span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">,</span>
+                      <span class="kt">uint32_t</span> <span class="n">off</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">sz</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">blk_off</span><span class="p">,</span>
+                      <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">boot_enc_zeroize</span><span class="p">(</span><span class="k">struct</span> <span class="n">enc_key_data</span> <span class="o">*</span><span class="n">enc_state</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="build-requirements">Build requirements</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Compiler define</td>
+      <td><code class="language-plaintext highlighter-rouge">-DMCUBOOT_USE_CUSTOM_CRYPTO</code></td>
+    </tr>
+    <tr>
+      <td>2. Include order</td>
+      <td>Ensure your custom header is included before <code class="language-plaintext highlighter-rouge">bootutil/crypto/*.h</code></td>
+    </tr>
+    <tr>
+      <td>3. Source files</td>
+      <td>Compile <code class="language-plaintext highlighter-rouge">.c</code> files that back your custom implementations</td>
+    </tr>
+    <tr>
+      <td>4. Link</td>
+      <td>Link any required libraries from your crypto SDK</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> The simplest way to ensure correct include order is to use a
+force-include compiler flag (e.g., <code class="language-plaintext highlighter-rouge">-include mcuboot_custom_crypto.h</code> with GCC)
+or include your custom header at the top of <code class="language-plaintext highlighter-rouge">mcuboot_config.h</code>.</p>
+
+<h2 id="minimal-example-structure">Minimal example structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_board/
+  crypto/
+    mcuboot_custom_crypto.h   ← dispatcher — includes the headers below
+    my_sha.h                  ← SHA-256 context + functions
+    my_ecdsa.h                ← ECDSA-P256 context + functions
+    my_enc.c                  ← boot_enc_* symbols (if MCUBOOT_ENC_IMAGES)
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">mcuboot_custom_crypto.h</code>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef MCUBOOT_CUSTOM_CRYPTO_H
+#define MCUBOOT_CUSTOM_CRYPTO_H
+</span>
+<span class="cp">#include</span> <span class="cpf">"my_sha.h"</span><span class="cp">
+#include</span> <span class="cpf">"my_ecdsa.h"</span><span class="cp">
+#if defined(MCUBOOT_ENC_IMAGES)
+#include</span> <span class="cpf">"my_hmac_sha256.h"</span><span class="cp">
+#include</span> <span class="cpf">"my_aes_ctr.h"</span><span class="cp">
+#include</span> <span class="cpf">"my_ecdh_p256.h"</span><span class="cp">
+#endif
+</span>
+<span class="cp">#endif </span><span class="cm">/* MCUBOOT_CUSTOM_CRYPTO_H */</span><span class="cp">
+</span></code></pre></div></div>
+
+<p>Add <code class="language-plaintext highlighter-rouge">my_board/crypto/</code> to the include path and compile <code class="language-plaintext highlighter-rouge">my_enc.c</code> when
+<code class="language-plaintext highlighter-rouge">MCUBOOT_ENC_IMAGES</code> is enabled.  MCUboot will resolve all crypto calls
+through the types and functions you define.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

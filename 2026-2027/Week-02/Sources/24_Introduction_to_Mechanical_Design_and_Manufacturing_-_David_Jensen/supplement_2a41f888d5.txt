@@ -1,0 +1,192 @@
+Design Drivers – What is a “Good” solution in the Product Design Context – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Design Drivers – What is a “Good” solution in the Product Design Context
+Good Enough
+One of the key challenges in product design is how to make optimal decisions that balance the needs and preferences of the users, the constraints and resources of the project, and the goals and vision of the stakeholders. However, finding the optimal solution is often impossible or impractical, as it would require exploring all possible alternatives and evaluating them against multiple criteria. This is where the concept of
+satisficing
+comes in handy. Satisficing is a term coined by the economist and Nobel laureate Herbert Simon, who argued that human decision makers often settle for satisfactory solutions rather than optimal ones, due to their limited information, time, and cognitive abilities. In product design, satisficing means choosing a design option that meets a minimum level of acceptability or adequacy, rather than searching for the best possible option. Satisficing can help designers avoid analysis paralysis, reduce uncertainty and risk, and speed up the design process. However, satisficing also has some drawbacks, such as missing out on potentially better solutions, compromising on quality or innovation, and settling for suboptimal outcomes. Therefore, satisficing should be used with caution and judgment, and not as an excuse for laziness or mediocrity.
+There are three high-level categories of satisficing for product design: Project Cost, Product Quality features, and Time to Market. These categories represent the main factors that influence the design decisions and outcomes of a product development process.
+Project Cost
+The project cost for product design is composed of different parts, such as design, manufacturing, testing, marketing, and distribution. Each of these parts has a significant impact on the success of a design project, as they affect the quality, functionality, usability, and appeal of the product. However, among these parts, design is the most influential and critical one. Design decisions themselves have very little cost compared to other parts of the project, but they determine the requirements and specifications for the rest of the project. For example, a design decision about the shape, size, or material of a product can affect the manufacturing process, the testing methods, the marketing strategy, and the distribution channels.
+Cost committed and cost incurred are two important concepts in the design and manufacturing process. Cost committed refers to the amount of money that is allocated or obligated for a project or activity, regardless of whether it has been spent or not. Cost incurred refers to the actual expenditure of money for a project or activity, which may be less than or equal to the cost committed.
+The difference between cost committed and cost incurred can have significant implications for the design and manufacturing process. For example, Figure # shows the relationship between cost committed and cost incurred over the different stages of the design and manufacturing process, from conceptual design to production. The figure shows that the majority of the cost of manufacturing is already committed at the end of the conceptual design stage, even though the actual cost incurred is still low. This means that any changes or modifications made after the conceptual design stage will have a limited impact on reducing the cost of manufacturing but may increase the cost incurred due to rework or delays. Therefore, it is important to make optimal decisions and trade-offs during the conceptual design stage, when the cost committed is still low and flexible, and avoid unnecessary changes or errors in later stages, when the cost committed is high and fixed.
+As a product is refined the cost of development increase while design freedom decreases.
+Project Quality Features
+A product affords a capability to a particular level of performance for a period of time. These three things (capability, level of performance, and time period) can all be summarized as feature qualities. For example, a consumer might compare two vehicles based on safety. They might look at rollover resistance (a capability and a performance level) as well as a perceived reliability (how long it should continue to provide that performance. When designing a product there are design decisions that affect the quality of the features in the product. Further, the law of diminishing returns affects these choices. A cell phone that offers 1 terabyte of storage is not much different than a phone that offers 100 terabytes as both are week beyond what the typical consumer needs. The satisfactory quality of different features are not equal, that is, designers do not try and optimize every feature.
+The
+Kano model
+is a framework for prioritizing features of a product based on the level of customer satisfaction they can bring. The Kano model was introduced by Noriaki Kano, a quality management professor at the Tokyo University of Science, in 1984. According to the Kano model, there are three types of features: basic, performance, and attractive. Basic features are the ones that customers expect and take for granted, such as the brakes of a car. They do not increase satisfaction if present, but they cause dissatisfaction if absent. Performance features are the ones that customers are aware of and can compare with competitors, such as the speed of a car. They increase satisfaction if present and decrease satisfaction if absent. Attractive features are the ones that customers do not expect and are pleasantly surprised by, such as a sunroof of a car. They increase satisfaction if present, but do not cause dissatisfaction if absent. The Kano model helps product managers and designers identify the optimal mix of features that can satisfy and delight customers while being feasible to implement.
+Kano Model.
+Source
+Time to Market
+Time to market (TTM) is the measure of how long it takes your product team to usher an idea from inception to full public release. It gives you a way to conceptualize the amount of time required to complete various tasks throughout product development. In a competitive and fast-changing market, reducing TTM can provide significant advantages for your product, such as gaining a competitive edge, early revenue generation, and maximizing product lifecycle.
+The performance evolution of a product over time can often be described by an S-curve, which shows how the product evolves from its introduction to its maturity and decline.  One example of a product that follows an S-curve is the lightbulb. The lightbulb was invented in the late 19th century and improved gradually over time, reaching its peak performance in the mid-20th century. The lightbulb’s performance is measured by its efficiency, which is the ratio of light output to power input. The efficiency of a lightbulb depends on the type of filament, the gas inside the bulb, and the shape and size of the bulb. New innovations drive the improvement in efficiency.
+The S-curve of the lightbulb’s efficiency shows that in the early stages, the rate of progress was slow, as inventors experimented with different materials and designs. As the technology became more mature, the rate of progress increased, as engineers optimized the existing solutions and discovered new ones. However, as the technology approached its physical limits, the rate of progress slowed down again, as further improvements became more difficult and costly. Without introduction of a completely new technology that utilizes different underlying physics (such as LEDs), the performance tends to follow this curve.
+Depending on the maturity of a product, the time to market constraints differ. For a new type of product, the time to market constraints are longer, as it requires more research and development, testing, and validation. Being the first to enter the market is important, but only if the functionality is adequality implemented. Legal protections such as patents help provide companies time to develop new technology products.
+For a mature product based on well-established technology, the time to market is shorter, as it relies on incremental innovations and adaptations. Taking a long time to make an incremental improvement will often result in losing out on market share as others will have provided that improvement (or comparative performance) earlier.
+See the following article from Jason Crawford on how to understand innovation using the S-curve model –
+Teasing apart the S-curves
+These three categories (Cost, Quality of Features, and Time to Market) define and constrain most of the product design decisions. Further, they interact with each other. Spending more time to make improvements in quality increases cost and obviously extends the time to market. Shorter time to market goals may lead to selecting more costly manufacturing choices, thus reducing the value of more market share. Therefore, we define a “good design” as one which satisfies our cost, quality and time frame constraints.
+Previous/next navigation
+Previous: Design Primitives and Fundamentals
+Next: Tangible and Intangible Properties of Product Design
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

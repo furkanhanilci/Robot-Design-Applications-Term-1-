@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+<head>   
+<title>ECE445M: EMBEDDED AND REAL-TIME OPERATING SYSTEMS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+body { font-family:arial, helvetica, sans-serif; font-size:small }
+h1 { font-size: x-large }
+h2 { font-size: medium }
+h4 { font-size: small }
+
+#menu {
+  width: 100%;
+  height: 20px;
+  text-align: center
+  background-color: #cccccc;
+}
+
+#menu ul {
+  padding: 0px;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap;
+  list-style-type: none;
+  text-decoration:none; 
+  font-weight:bold; 
+  font-size: small; 
+  color:#000000;
+  background-color: #cccccc;
+  line-height: 20px;
+
+  width: 100%;
+  display: inline;
+  float: left;
+}
+
+#menu ul li { 
+  display: block; 
+  float: left;
+  width: 100px;
+  border-right: 1px solid #666666;
+  background-color: #cccccc;
+}
+
+#menu ul li a {
+  display: block; 
+  float: left;
+  width: 100px;
+  text-decoration:none; 
+  color:#CC5500;
+  background-color: #cccccc;
+}
+
+#menu ul li a:hover {
+  background-color: #eeeeee;
+  text-decoration: underline;
+  color: #CC5500;
+}
+
+</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" vlink="#663399" link="#333399" alink="#990033">
+
+<p>
+<h1>Embedded and Real-Time Systems / Real-Time Operating Systems</h1>
+<h4>ECE445M, Unique: 18305, 18310, 18320, 18325<br>
+ <br>
+Semester: Spring 2026</h4>
+</p>
+
+<hr noshade>
+
+<div id="menu">
+<ul>
+<li><a href="index.html">Home</a>
+<li><a href="syllabus.html">Syllabus</a>
+<li>Lectures
+<li><a href="labs.html">Labs</a>
+<li><a href="resources.html">Resources</a>
+<li><a target="blank" href="https://utexas.instructure.com/courses/1435536"
+target="_top">Canvas</a>
+</ul>
+</div>
+
+<hr noshade>
+
+<p>
+<h2>Lecture Schedule</h2>
+
+<p>
+<table border="1" cellpadding="4" cellspacing="0" style="font-size:small">
+<tbody><tr>
+<th bgcolor="#c0c0c0">Week</th>
+<th bgcolor="#c0c0c0">Notes</th>
+<th bgcolor="#c0c0c0">Reading</th>
+<th bgcolor="#c0c0c0">Topics</th>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">1<br>
+<span style="font-size:small; font-weight:normal">1/13</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/4oioh008ztj8p7ktwnxtd/Lec01.pptx?rlkey=e8f37pox9gz9znlokz6ftby3a&dl=1">Lecture 1</a>&nbsp;</td>
+<td align="center">1, 2.1-2.5, 2.10,<br>2.12</td>
+<td>
+Introduction - ARM architecture, instruction set, stack, CCS compiler, GPIO, timer, UART, device drivers<br>
+Software design & debugging - Modular programming, call & data flow graphs, debugging instruments, intrusiveness
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">2<br>
+<span style="font-size:small; font-weight:normal">1/20</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/yhm5tlpx7bbrkw1gow2fe/Lec02.pptx?rlkey=iup9mbg5norhablea8kxb35l0&dl=1">Lecture 2</a>&nbsp;</td>
+<td align="center">4.1-4.2</td>
+<td>
+RTOS - Multi-threading/-tasking, OS architecture, OS kernel<br>
+Threads - Context switching, TCB, cooperative &amp; preemptive multitasking, round-robin scheduler
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">3<br>
+<span style="font-size:small; font-weight:normal">1/27</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/nw3qun1r0q3xq984t2g50/Lec03.pptx?rlkey=va9kw50x78tnbvpjcwawa2hk3&dl=1">Lecture 3</a>&nbsp;</td>
+<td align="center">4.3-4.6</td>
+<td>
+Threads - Thread states, suspending/sleeping/killing, operating modes, protection<br>
+Thread communication &amp; synchronization - Critical sections, reentrance, FIFO, mailbox<br>
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">4<br>
+<span style="font-size:small; font-weight:normal">2/3</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/d2vob8upfut3185ah12b2/Lec04.pptx?rlkey=gzeb057vw0orbj2qw1jnnvv6a&dl=1">Lecture 4</a>&nbsp;</td>
+<td align="center">5<br>2.11</td>
+<td>  
+Semaphores - Spinlock &amp; blocking semaphores, deadlock, monitors, process networks<br>
+Debugging - Testing, performance measures (response time, jitter, throughput)
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">5<br>
+<span style="font-size:small; font-weight:normal">2/10</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/m0oxyvc4vgs00d7trx8fj/Lec05.pptx?rlkey=hgfrrkrrx7cl0p11k1jt5b96f&dl=1">Lecture 5</a>&nbsp;</td>
+<td align="center">6</td>
+<td>
+Scheduling - Real-time scheduling, priority scheduler, scheduling anomalies, fixed-rate scheduler<br>
+<b>Exam 1 is 2/19</b>, 12:30-2:00pm, in class
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">6<br>
+<span style="font-size:small; font-weight:normal">2/17</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/8ag2aflah4kpkrgsfow9d/Lec06.pptx?rlkey=akrutpywhqit6fg7c4lk0kbkv&dl=1">Lecture 6</a>&nbsp;</td>
+<td align="center">2.6, 3<br>8</td>
+<td>
+SD interface - flash disk interface using SSI, high-speed interfacing, DMA<br>
+File system - file system management
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">7<br>
+<span style="font-size:small; font-weight:normal">2/24</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/ir1f3c0p4buel8e5o9c5z/Lec07.pptx?rlkey=qmj7grm8qfj863je50pz5emsg&dl=1">Lecture 7</a>&nbsp;</td>
+<td align="center">7</td>
+<td>
+Memory management - heap, processes<br>
+Process management - process images, loading, linking, relocation, PCBs
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">8<br>
+<span style="font-size:small; font-weight:normal">3/3</span></th>
+<td align="center">&nbsp;</td>
+<td align="center"><b>1-6</b></td>
+<td>
+Finish Lectures 6 and 7
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">9<br>
+<span style="font-size:small; font-weight:normal">3/10</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/4ny6v4cmrolzrvy21o05x/Lec08.pptx?rlkey=bzoinzg79t16iizr4k3ovg811&dl=1">Lecture 8</a>&nbsp;</td>
+<td align="center">2.7, 10<br>2.8, 11.2</td>
+<td>
+Sensing interfacing - Input capture, period measurement, signal processing<br>
+Motor interfacing - Transistor interfaces, pulse width modulation (PWM)
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">Break<br>
+<span style="font-size:small; font-weight:normal">3/17</span></th>
+<td align="center" colspan=3><em>Spring Break</em></td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">10<br>
+<span style="font-size:small; font-weight:normal">3/24</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/gehwo2gg8ons0we6724zi/Lec09.pptx?rlkey=47304jssqw7pxmf5rijh9c6x6&dl=1">Lecture 9</a>&nbsp;</td>
+<td align="center">9.1-9.4</td>
+<td>
+Microcontroller networking - Controller Area Network (CAN), Ethernet, Wifi<br>
+Internet - Protocol stacks, ISO/OSI model, TCP/IP, IoT
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">11<br>
+<span style="font-size:small; font-weight:normal">3/31</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/pgoa81dyz3f2q2uueproz/Lec10.pptx?rlkey=ljbn2s0rgzw22hu75dawuh2i4&dl=1">Lecture 10</a>&nbsp;</td>
+<td align="center">11</td>
+<td>
+Robots - Team work, testing and debugging, design process<br>
+Control systems - PID control, fuzzy logic and control
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">12<br>
+<span style="font-size:small; font-weight:normal">4/7</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/kiqlnibqy5sozja07w20f/Lec11.pptx?rlkey=sm8zolzr50xijfswckqmpq493&dl=1">Lecture 11</a>&nbsp;</td>
+<td align="center"></td>
+<td>
+Memory management (cont'd) - Protection, virtual memory, paging<br>
+<b>Exam 2 is 4/9</b>, 12:30-2:00pm, in class
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">13<br>
+<span style="font-size:small; font-weight:normal">4/14</span></th>
+<td align="center">&nbsp;<a href="https://www.dropbox.com/scl/fi/8w905n43zz0xuhkb8iw3v/Lec12.pptx?rlkey=b06ni07pmj61h05qy7fsujdvp&dl=1">Lecture 12</a>&nbsp;</td>
+<td align="center">12<br>1-11</td>
+<td>
+Commerical RTOS - &micro;C/OS, VxWorks<br>
+Final exam review
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">14<br>
+<span style="font-size:small; font-weight:normal">4/21</span></th>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td>
+<b>Robot competitions (preliminary and final), EER Atrium</b>
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#c0c0c0">Finals<br>
+<span style="font-size:small; font-weight:normal">4/28</span></th>
+<td align="center">&nbsp;</td>
+<td align="center"><b>1-11</b></td>
+<td>
+<b>Final exam, Monday, 5/4, 1:00-3:00pm, UTC 3.104</b> (regularly scheduled)
+</td>
+</tr>
+
+</table>
+
+<br>&nbsp;
+
+</p>
+
+<hr noshade>
+
+<table width="100%" border="0" summary="Footer information">
+<tr>
+<td align="left"> <font
+ face="arial, geneva, helvetica, sans-serif" size="-2">Contents
+&copy; Copyright 2026 Andreas Gerstlauer and Jonathan
+Valvano </font> </td>
+      <td align="right"> <font
+ face="arial, geneva, helvetica, sans-serif" size="-2"> <em>http://www.ece.utexas.edu/~valvano/EE445M/
+&nbsp;&nbsp;</em></font><font
+ face="arial, geneva, helvetica, sans-serif" size="-2"><em></em></font><font
+ face="arial, geneva, helvetica, sans-serif" size="-2"><em>http://www.ece.utexas.edu/~gerstl/ee445m_s25</em>
+      </font></t
+</tr>
+</table>
+
+
+</body>
+</html>

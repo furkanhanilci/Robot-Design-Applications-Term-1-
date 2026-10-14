@@ -1,0 +1,115 @@
+Queues — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Data Passing
+Queues
+Cancelling a Wait
+Configuration Options
+API Reference
+FIFOs
+LIFOs
+Stacks
+Message Queues
+Mailboxes
+Pipes
+Memory Management
+Timing
+Other
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Queues
+Open on GitHub
+Report an issue with this page
+Queues
+A Queue in Zephyr is a kernel object that implements a traditional queue, allowing
+threads and ISRs to add and remove data items of any size. The queue is similar
+to a FIFO and serves as the underlying implementation for both
+k_fifo
+and
+k_lifo
+. For more information on usage see
+k_fifo
+.
+Cancelling a Wait
+A thread that is blocked waiting to retrieve an item from a queue can be released
+without an item by calling
+k_queue_cancel_wait()
+from another thread or
+an ISR. The first thread pending on the queue returns from its
+k_queue_get()
+call with a
+NULL
+value, exactly as if its timeout had
+expired. If the queue is instead being waited on through
+k_poll()
+, that
+call returns
+-EINTR
+with the poll event in the cancelled state.
+This mechanism is also available to the queue-based primitives through
+k_fifo_cancel_wait
+and
+k_lifo_cancel_wait
+.
+Configuration Options
+Related configuration options:
+None
+API Reference
+Queue
+APIs
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Jun 29, 2026.

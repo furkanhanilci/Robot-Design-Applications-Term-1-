@@ -1,0 +1,1028 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="Generator" content="Microsoft Word 15 (filtered)">
+  <title>Chapter 3: Basic
+Electronics</title>
+  <style>
+<!--
+/* Font Definitions */
+@font-face
+{font-family:"Cambria Math";
+panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+{font-family:Garamond;
+panose-1:2 2 4 4 3 3 1 1 8 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+{margin:0in;
+margin-bottom:.0001pt;
+font-size:12.0pt;
+font-family:"Times New Roman","serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+{mso-style-link:"Caption Char";
+margin-top:3.0pt;
+margin-right:0in;
+margin-bottom:12.0pt;
+margin-left:5.75pt;
+text-indent:-5.75pt;
+font-size:11.0pt;
+font-family:"Garamond","serif";
+letter-spacing:.25pt;
+font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+{mso-style-link:"Body Text Char";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:56.9pt;
+text-align:justify;
+font-size:10.0pt;
+font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+{font-family:"Times New Roman","serif";
+color:#FF8700;
+font-weight:bold;
+text-decoration:none;}
+a:visited, span.MsoHyperlinkFollowed
+{color:#954F72;
+text-decoration:underline;}
+span.BodyTextChar
+{mso-style-name:"Body Text Char";
+mso-style-link:"Body Text";}
+span.CaptionChar
+{mso-style-name:"Caption Char";
+mso-style-link:Caption;
+font-family:"Garamond","serif";
+letter-spacing:.25pt;
+font-style:italic;}
+p.PictureWide, li.PictureWide, div.PictureWide
+{mso-style-name:"Picture Wide";
+mso-style-link:"Picture Wide Char";
+margin:0in;
+margin-bottom:.0001pt;
+text-align:center;
+font-size:11.0pt;
+font-family:"Garamond","serif";}
+span.PictureWideChar
+{mso-style-name:"Picture Wide Char";
+mso-style-link:"Picture Wide";
+font-family:"Garamond","serif";}
+p.Checkpoint, li.Checkpoint, div.Checkpoint
+{mso-style-name:Checkpoint;
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:1.0in;
+font-size:10.0pt;
+font-family:"Garamond","serif";}
+p.BulletList, li.BulletList, div.BulletList
+{mso-style-name:"Bullet List";
+mso-style-link:"Bullet List Char";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:0in;
+margin-left:1.0in;
+margin-bottom:.0001pt;
+font-size:11.0pt;
+font-family:"Garamond","serif";}
+span.BulletListChar
+{mso-style-name:"Bullet List Char";
+mso-style-link:"Bullet List";
+font-family:"Garamond","serif";}
+p.BodyText, li.BodyText, div.BodyText
+{mso-style-name:BodyText;
+mso-style-link:"BodyText Char";
+margin-top:0in;
+margin-right:0in;
+margin-bottom:7.5pt;
+margin-left:56.9pt;
+text-align:justify;
+font-size:10.0pt;
+font-family:"Times New Roman","serif";}
+span.BodyTextChar0
+{mso-style-name:"BodyText Char";
+mso-style-link:BodyText;}
+@page WordSection1
+{size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+{page:WordSection1;}
+/* List Definitions */
+ol
+{margin-bottom:0in;}
+ul
+{margin-bottom:0in;}
+h2
+{margin-top:12.0pt;
+margin-right:0in;
+margin-bottom:3.0pt;
+margin-left:0in;
+page-break-after:avoid;
+font-size:14.0pt;
+font-family:Arial;
+font-weight:bold;
+font-style:italic;}
+-->
+  </style>
+  <script src="ModuleCheckpoints.js"></script>
+  <meta content="Jonathan Valvano and Ramesh Yerraballi" name="author">
+</head>
+<body lang="EN-US" link="#ff8700" vlink="#954f72">
+<div class="WordSection1">
+<p class="MsoNormal" style="text-align: center;" align="center"><span
+ style="font-size: 14pt;">Chapter
+3. Introduction to
+Electronics<br>
+</span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><span
+ style="font-weight: 700;"><font size="4">Embedded Systems - Shape
+The World</font></span></p>
+<p class="MsoNormal" style="text-align: center; font-style: italic;"
+ align="center">
+<font size="4">Jonathan
+Valvano
+and Ramesh Yerraballi</font></p>
+<p class="MsoNormal" style="text-align: center;" align="center">&nbsp;</p>
+<p class="MsoBodyText" style="margin-left: 0in;"><span
+ style="font-size: 12pt;">This
+chapter introduces electronics. We will learn Ohm&rsquo;s Law. This
+chapter is
+foundational, laying the ground work for the remainder of the book.</span></p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td>
+<p class="MsoNormal"><b><span style="font-size: 10pt;">Learning
+Objectives:</span></b><i><span style="font-size: 10pt;"> </span></i></p>
+<ul style="margin-top: 0in;" type="disc">
+  <li class="MsoNormal">Understand
+current, voltage, power, energy. </li>
+  <li class="MsoNormal">Learn
+Ohm&rsquo;s Law. </li>
+  <li class="MsoNormal">Understand Kirchoffs Voltage and Current Laws for circuit analysis</li>
+  <li class="MsoNormal">Learn to recognize common circuit configurations like "voltage dividers" and "current dividers"  </li>
+</ul>
+      </td>
+      <td>
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/_DgexVhva9E?start=0&end=31&feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+ <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>3.0<span
+ lang="en-US">. Introduction to Circuit Analysis</span></p>
+</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a name="3_0"></a> 
+<h2>3.0. Introduction</h2>
+<p class="MsoBodyText"><span style="font-size: 12pt;">Most students
+reading this
+will have had some prior training in electronics. However, this brief
+section
+will provide an overview of the electronics needed to understand
+electric
+circuits in this class. <b>Current</b>, <i>I</i>,
+is defined as the movement of
+electrons. In particular, 1 ampere (A) of current is 6.241&times;10<sup>18</sup>
+electrons per second, or one coulomb per second. Current</span><span
+ style="font-size: 12pt;">&nbsp;is measured at one
+point as the number of electrons
+travelling per second. Current has an amplitude and a direction.
+Because
+electrons are negatively charged, if the electrons are moving to the
+left, we
+define current as flowing to the right. <b>Voltage</b>,<i> V</i>,
+is an
+electrical term representing the potential difference between two
+points. The
+units of voltage are volts (V), and it is always measured as a
+difference.
+Voltage</span><span style="font-size: 12pt;">&nbsp;is the
+electromotive force or
+potential to produce current. We will see two types of conducting
+media: a <b>wire</b>
+and a <b>resistor</b>.
+Wires, made from copper, will allow current to freely
+flow, but forcing current to flow through a resistor</span><span
+ style="font-size: 12pt;">&nbsp;will require
+energy. The electrical property of a
+resistor is resistance in ohms (&#8486;). Ideally, a wire is simply a
+resistor
+with a resistance of 0 &#8486;. The basic relation between voltage, current,
+and resistance for a resistor is known as <b>Ohm&rsquo;s
+Law</b></span><span style="font-size: 12pt;">, which can be written
+three
+ways:</span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+V</span></i><span style="font-size: 12pt;" lang="X-NONE"> = <i>I
+</i>* <i>R
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Voltage</i>
+= <i>Current </i>*
+<i>Resistance</i></span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+I
+</span></i><span style="font-size: 12pt;" lang="X-NONE">= <i>V</i>
+/ <i>R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Current
+</i>= <i>Voltage</i>
+/ <i>Resistance</i></span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+R
+</span></i><span style="font-size: 12pt;" lang="X-NONE">= <i>V</i>
+/ <i>I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Resistance
+</i>= <i>Voltage</i>
+/ <i>Current</i></span></p>
+<p class="BulletList"><span style="font-size: 12pt;" lang="X-NONE">&nbsp;</span></p>
+<p class="BodyText"><span style="font-size: 12pt;" lang="X-NONE"></span></p>
+<p class="MsoNormal"><b>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe src="http://www.youtube.com/embed/_DgexVhva9E?start=32&feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe>
+&nbsp;</b>
+ <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>3.1<span
+ lang="en-US">. Circuit Basics</span></p>
+</p>
+<p class="BodyText">&nbsp;</p>
+<p class="BodyText"><span style="font-size: 12pt;" lang="X-NONE">The
+left side of
+Figure 3.1 shows a circuit element representation of a resistor, of
+resistance <i>R</i>.
+Whenever we define voltage, we must clearly specify the two points
+across which
+the potential is defined. Typically we label voltages with + and
+&ndash;, defining
+the voltage<i> V</i>
+as the potential to produce current from the + down to the
+</span><span style="font-size: 12pt;">&ndash;</span><span
+ style="font-size: 12pt;" lang="X-NONE">. When
+defining current we draw an arrow
+signifying
+the direction of the current. If the voltage <i>V</i>
+is positive, then the
+current<i> I</i>
+will be positive meaning the current is down in this figure.
+However, because electrons have negative charge, the electrons are
+actually
+flowing up. According to the passive sign convention</span><span
+ style="font-size: 12pt;" lang="X-NONE">, we
+define positive current as the
+direction of the flow of positive charge (or the opposite direction of
+the flow
+of negative charge). The middle of Figure 3.1 shows a circuit with a</span><span
+ style="font-size: 12pt;"> 1 k&#8486; resistor placed across
+a 3.7V battery.
+1 </span><span
+ style="font-size: 12pt;"> k&#8486;</span><span
+ style="font-size: 12pt;"> exactly the same as 1000 </span><span
+ style="font-size: 12pt;"> &#8486;</span><span
+ style="font-size: 12pt;">, just like 1 km is the same as 1000 m. According to Ohm&rsquo;s Law, 3.7 mA of current will flow down
+across the resistor.
+</span><span
+ style="font-size: 12pt;"> 1 </span><font size="3">mA</font><span
+ style="font-size: 12pt;"> exactly the same as 0.001 A, just like 1 mm is the 
+same as 0.001 m. In this circuit, current flows clockwise from the + terminal of the
+battery,
+down across the resistor, and then back to the &ndash; terminal of
+the battery.</span></p>
+<p class="BodyText"><span style="font-size: 12pt;">&nbsp;</span></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image001.gif" height="148" width="164">&nbsp;
+<img src="C3_Electronics_files/image002.gif" height="154" width="326">&nbsp;&nbsp;<img
+ id="rg_hi" src="C3_Electronics_files/image003.jpg" height="161"
+ width="161"></span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.1. The
+voltage and
+current definitions; a circuit with a battery; and a drawing of a
+resistor.</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_1')">Checkpoint
+3.1</button>:</span></span></b><span style="font-size: 12pt;"> There is
+1 V across a
+resistor, and 5 mA is flowing.
+What
+is the resistance?</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_2')">Checkpoint
+3.2</button>:</span></span></b><span style="font-size: 12pt;"> There is
+2 V across a 100</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;"> resistor. How much current
+is flowing?</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_3')">Checkpoint
+3.3</button>:</span></span></b><span style="font-size: 12pt;"> What
+happens if you place a
+wire directly from +
+terminal to the &ndash;terminal of a battery?</span></p>
+<p class="BodyText"><span style="font-size: 12pt;">There are two
+analogous
+physical scenarios that might help you understand the concept of
+voltage,
+current, and resistance. The first analogy is flowing water through a
+pipe. We
+place a large reservoir of water in a tower, connect the water through
+a pipe,
+and attach a faucet at the bottom of the pipe, see Figure 3.2. In this
+case pressure
+is analogous to voltage, water flow is analogous to current, and fluid
+resistance of the faucet is analogous to electrical resistance. Notice
+that
+water pressure is defined as the potential to cause water to flow, and
+it is
+measured between two places. Pressure has a polarity and water flow has
+a
+direction. If the faucet is turned all the way off, its resistance is
+infinite,
+and no water flows. If the faucet is turned all the way on, its
+resistance is
+not zero, but some finite amount. As we turn the faucet we are varying
+the
+fluid resistance. The fluid resistance will determine the amount of
+flow:</span></p>
+<p class="BodyText"><span
+ style="font-size: 12pt; font-family: &quot;Garamond&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>Flow</i>
+= <i>Pressure</i>/<i>Resistance</i>&nbsp;
+</span></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image004.gif" border="0" height="300"
+ width="809"></span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.2. Three
+analogous
+physical systems demonstrating Ohm&rsquo;s Law.</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_4')">Checkpoint
+3.4</button>:</span></span></b><span style="font-size: 12pt;"> If
+pressure is measured in
+Newtons/m<sup>2</sup>
+(Pascal) and flow measured in m<sup>3</sup>/sec,
+what are the units of fluid
+resistance?</span></p>
+<p class="BodyText"><span style="font-size: 12pt;">A second analogy is
+heat
+flow
+across a solid. If we generate a temperature gradient across a solid,
+heat will
+flow from the hot side to the cold side (right side of Figure 3.2).
+This solid
+could be a glass window on a house or the wall of your coffee cup. In
+this case
+temperature gradient is analogous to voltage, heat flow is analogous to
+current, and thermal resistance of the solid is analogous to electrical
+resistance. Notice that potential is defined as the temperature
+difference
+between two places. Heat flow also has a direction. If the coffee cup
+is made
+from metal, its thermal resistance is low, lots of heat will flow, and
+the
+coffee cools off quickly. If the coffee cup is made of Styrofoam, its
+resistance is high, little heat will flow, and the coffee remains hot
+for a
+long time. The temperature difference divided by the thermal resistance will determine the amount of flow:</span></p>
+<p class="MsoBodyText"><span
+ style="font-size: 12pt; font-family: &quot;Garamond&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>Flow</i>
+= <i>(T1-T2)</i>/<i>Resistance</i></span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_5')">Checkpoint
+3.5</button>:</span></span></b><span style="font-size: 12pt;"> If heat
+flow is measured in
+watts (Joules/sec) and
+temperature measured in &ordm;C, what are the units of thermal
+resistance?</span></p>
+<p class="BodyText"><span style="font-size: 12pt;">The R-value of
+insulation
+put
+in the walls and ceiling of a house is usually given in units per
+square area,
+e.g., m<sup>2</sup>&#8729;&ordm;C/W.
+The amount of heat flow across a wall is:</span></p>
+<p class="MsoBodyText"><span
+ style="font-size: 12pt; font-family: &quot;Garamond&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>Flow</i>
+= <i>Area </i></span><span style="font-size: 12pt;">*</span><i><span
+ style="font-size: 12pt; font-family: &quot;Garamond&quot;,&quot;serif&quot;;">
+(T1-T2)</span></i><span
+ style="font-size: 12pt; font-family: &quot;Garamond&quot;,&quot;serif&quot;;">/<i>R-value</i></span></p>
+<p class="MsoBodyText"><span style="font-size: 12pt;">Another important
+parameter
+occurring when current flows through a resistor is <b>power</b>.
+The power</span><span style="font-size: 12pt;">&nbsp;(<i>P</i>
+in watts) dissipated in a resistor can be
+calculated from voltage (<i>V</i>
+in volts), current (<i>I</i>
+in amps), and
+resistance (<i>R</i>
+in ohms). Interestingly, although voltage has a polarity
+(+ and &ndash;) and current has a direction, power has neither a
+polarity nor a
+direction.</span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+P</span></i><span style="font-size: 12pt;" lang="X-NONE"> = <i>V
+</i>* <i>I
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Power</i>
+= <i>Voltage&nbsp; </i>*
+<i>Current</i></span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+P
+</span></i><span style="font-size: 12pt;" lang="X-NONE">= <i>V<sup>2</sup></i>
+/ <i>R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Power</i>
+= <i>Voltage<sup>2</sup>
+</i>/ <i>Resistance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i></span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+P
+</span></i><span style="font-size: 12pt;" lang="X-NONE">= <i>I<sup>2</sup></i>
+* <i>R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Power</i>
+= <i>Current<sup>2</sup></i>
+* <i>Resistance</i></span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></i></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_6')">Checkpoint
+3.6</button>:</span></span></b><span style="font-size: 12pt;"> There is
+1 V across a
+resistor, and 5 mA is flowing.
+How much power is being dissipated?</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_7')">Checkpoint
+3.7</button>:</span></span></b><span style="font-size: 12pt;"> There is
+2 V across a 100</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;"> resistor. How much power is
+being dissipated?</span></p>
+<p class="MsoBodyText"><span style="font-size: 12pt;">The <b>energy</b>
+(<i>E</i>
+in joules) stored in a battery can be calculated from voltage (<i>V</i>
+in
+volts), current (<i>I</i>
+in amps), and time (<i>t</i>
+in seconds). In a manner
+similar to power, energy has neither a polarity nor a direction.</span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+E</span></i><span style="font-size: 12pt;" lang="X-NONE"> = <i>V
+</i>* <i>I
+* t
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Energy</i>
+= <i>Voltage&nbsp; </i>*
+<i>Current&nbsp; </i>*
+<i>time</i></span></p>
+<p class="BulletList"><i><span style="font-size: 12pt;" lang="X-NONE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+E</span></i><span style="font-size: 12pt;" lang="X-NONE"> = <i>P
+* t
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Energy</i>
+= <i>Power&nbsp; </i>*
+<i>time</i></span></p>
+<p class="MsoBodyText"><span style="font-size: 12pt;">&nbsp;</span></p>
+<p class="MsoNormal"><b>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/xpiamDPXQrI?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe>&nbsp;</b>
+  <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>3.2<span
+ lang="en-US">. Batteries, Power and Energy</span></p>
+ </p>
+<p class="MsoBodyText">&nbsp;</p>
+<a name="3_1"></a>
+<h2>3.1. Electric Circuits</h2>
+<p class="MsoBodyText"><span style="font-size: 12pt;">A switch is an
+element used
+to modify the behavior of the circuit (Figure 3.3). If the switch is
+pressed,
+its resistance is 0, and current can flow across the switch. If the
+switch is
+not pressed, its resistance is infinite, and no current will flow. In
+reality,
+the ON-resistance of a switch is less than 0.1&#8486;, but this is so close
+to
+zero, we can assume the ideal value of 0 in most cases. Similarly, the
+OFF-resistance is actually greater than 100M&#8486;, but this is so close to
+infinity that we can again assume the ideal value of infinity. The
+classic
+electrical circuit involves a battery, a light bulb (modeled in this
+circuit as
+a 100&#8486; resistor), and a switch. </span></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image005.gif" border="0" height="186"
+ width="803"></span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.3. When
+the switch
+is open, no current can flow, and the bulb does not emit light. When
+the switch
+is closed, 90 mA of current will flow, and the bulb emits light.</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_8')">Checkpoint
+3.8</button>:</span></span></b><span style="font-size: 12pt;"> If the
+switch is on, how
+much power is being
+dissipated in the bulb?</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_9')">Checkpoint
+3.9</button>:</span></span></b><span style="font-size: 12pt;"> If the
+battery has 1000
+joules stored in it, how long
+will the light be illuminated, assuming the voltage is constant?</span></p>
+<p class="MsoBodyText"><span style="font-size: 12pt;">There are a few
+basic rules
+that allow us to solve for voltages and currents within a circuit
+comprised
+with batteries, switches, and resistors. </span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">Current always
+flows in
+a loop. </span></i><span style="font-size: 12pt;">In Figure 3.3 when
+the
+switch
+is pressed, current flows out of the + side of battery, across the
+switch,
+through the light and back to the &ndash; side of the battery. When
+there is no loop,
+no current can flow. In Figure 3.3 when the switch is off, the loop is
+broken,
+and no current will flow.</span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">Kirchhoff's
+Voltage Law</span></i><i><span style="font-size: 12pt;">&nbsp;(KVL</span></i><i><span
+ style="font-size: 12pt;">). </span></i><span style="font-size: 12pt;">The
+sum
+of the voltages around the loop is zero.<i>
+</i>For a battery, we label the +
+and &ndash; sides exactly the way the battery is labeled. For a
+resistor, we label
+the current arrow and the voltage + &ndash; like the left side of
+Figure 3.1. The
+important step is the direction of the current arrow must match the
+polarity of
+the corresponding voltage. It is common practice to draw arrows in the
+direction the currents actually flow, so the voltages will be positive.
+However, sometimes we don&rsquo;t know which way the current will
+flow, so we can
+just guess. If we happen to guess wrong, both the current and voltage
+will
+calculate to be negative and the correct behavior will still be
+obtained. We can
+think of the switch as a resistor of either 0 or infinity resistance,
+so it too
+can be labeled with a current arrow and a voltage polarity. Figure 3.4
+shows
+the light circuit redrawn to show voltages and currents. As we are
+going around
+a circle and pass from + to &ndash;, we add that voltage. However,
+if we pass across
+an element from &ndash; to + we subtract that voltage.</span></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image006.gif" border="0" height="158"
+ width="588"></span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.4. The
+voltages
+around a loop will sum to zero (KVL).</span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">Kirchhoff's
+Current Law</span></i><i><span style="font-size: 12pt;">&nbsp;(KCL). </span></i><span
+ style="font-size: 12pt;">The
+sum of the currents into a node equal the sum of the currents leaving a
+node as
+shown in Figure 3.5. To solve circuits using KCL</span><span
+ style="font-size: 12pt;">&nbsp;and KVL, the
+current arrow across a resistor goes
+from the + voltage to the &ndash; voltage. Conversely, the current
+arrow across a battery
+goes from the &ndash; voltage to the + voltage. This is the same
+thing as saying
+current comes out of the battery&rsquo;s + terminal and into the
+battery&rsquo;s &ndash;
+terminal. At Node A, there is one incoming current and one outgoing
+current.
+This is a simple but important fact that <i>I1</i>
+= <i>I2</i>.
+At Node B,
+there is one incoming current and two outgoing currents. Therefore, <i>I3</i>
+=
+<i>I4+I5</i>.
+There are two currents into NodeC and two currents out of NodeC;
+thus, <i>I6+I7</i>
+= <i>I8+I9</i>.</span></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image007.gif" border="0" height="313"
+ width="881"></span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.5. The
+sum of the
+currents into a node will equal the sum of the currents leaving (KCL).</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;">Observation:</span></b><span
+ style="font-size: 12pt;"> If at all possible, draw
+the circuit so current flows
+down across the resistors and switches. As a secondary rule have
+currents go
+left to right across resistors and switches.&nbsp;</span></p>
+<p class="Checkpoint"><span style="font-size: 12pt;"></span></p>
+<p class="MsoNormal"><b>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; <iframe
+ src="http://www.youtube.com/embed/FnG0vOYMu3Q?feature=player_detailpage"
+ allowfullscreen="" frameborder="0" height="240" width="320"></iframe>&nbsp;</b>
+  <p class="MsoCaption"><span lang="en-US">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;Video </span>3.3<span
+ lang="en-US">Voltage and Current Division</span></p>
+ </p>
+<p class="MsoBodyText">&nbsp;</p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">Series
+resistance. </span></i><span style="font-size: 12pt;">If resistor <i>R1</i>
+is in series</span><span style="font-size: 12pt;">&nbsp;with resistor <i>R2</i>,
+this combination behaves like
+one resistor with a value equal to <i>R1</i>+<i>R2</i>.
+See Figure 3.6. This
+means if replace the two series resistors in a circuit with one
+resistor at <i>R</i>=<i>
+R1</i>+<i>R2</i>,
+the behavior will be the same. The <i>V</i>
+equals <i>V1</i>+<i>V2</i>.
+By KCL, the currents through the two resistors are the same. These two
+facts
+can be used to derive the <b>voltage
+divider rule</b></span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></i><i><span style="font-size: 12pt;" lang="PT-BR">V2 =
+I*R2 = (V/R)*R2 = V*R2/(R1+R2)</span></i></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image008.gif" border="0" height="260"
+ width="536"></span><span style="font-size: 12pt;">&nbsp;</span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.6. The
+series
+combination of two resistors, R1 R2, is equivalent to one resistor at
+R1+R2.</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_10')">Checkpoint
+3.10</button>:</span></span></b><span style="font-size: 12pt;"> Using
+Figure 3.6, assume I
+is 1mA, R1 is 2k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;"> and R2 is 3k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;">, what is V?</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_11')">Checkpoint
+3.11</button>:</span></span></b><span style="font-size: 12pt;"> Using
+Figure 3.6, assume V
+is 10V, R1 is 2k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;"> and R2 is 3k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;">, what is V2?</span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">Parallel
+resistance. </span></i><span style="font-size: 12pt;">If resistor <i>R1</i>
+is in parallel</span><span style="font-size: 12pt;">&nbsp;with resistor
+<i>R2</i>,
+this combination behaves like
+one resistor with a value equal to </span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></i><i><span style="font-size: 12pt;" lang="PT-BR"><sub><img
+ src="C3_Electronics_files/image009.gif" border="0" height="78"
+ width="232"></sub></span></i><span style="font-size: 12pt;">&nbsp;</span></p>
+<p class="MsoBodyText"><span style="font-size: 12pt;">See Figure 3.7.
+This means
+we can replace the two parallel resistors in a circuit with one
+resistor at <i>R</i>=<i>
+R1*R2/(R1</i>+<i>R2)</i>.
+The voltages across <i>R1</i>
+and <i>R2</i>
+will be
+the same because of KVL. Due to KCL, <i>I</i>=<i>I1</i>+<i>I2</i>.
+These facts
+can be used to derive the <b>current
+divider rule</b></span></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></i><i><span style="font-size: 12pt;" lang="PT-BR">I1 =
+V/R1= (I*R)/R1 = I*(R1*R2/(R1+R2))/R1
+= I*R2/(R1+R2)</span></i></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+I2
+= V/R2= (I*R)/R2 = I*(R1*R2/(R1+R2))/R2 = I*R1/(R1+R2)</span></i></p>
+<p class="MsoBodyText"><i><span style="font-size: 12pt;" lang="PT-BR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></i><i><span style="font-size: 12pt;">I = I1+I2</span></i></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image010.gif" border="0" height="250"
+ width="821"></span><span style="font-size: 12pt;">&nbsp;</span></p>
+<p class="MsoCaption"><span style="font-size: 12pt;">Figure 3.7. The
+parallel
+combination of two resistors, R1 R2, is equivalent to one resistor at
+R1*R2/(R1+R2).</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_12')">Checkpoint
+3.12</button>:</span></span></b><span style="font-size: 12pt;"> Using
+Figure 3.7, assume I
+is 1mA, R1 is 2k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;"> and R2 is 4k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;">, what is V?</span></p>
+<p class="Checkpoint"><b><span style="font-size: 12pt;"><span
+ style="color: windowtext;"><button onclick="popitup('Checkpoint3_13')">Checkpoint
+3.13</button>:</span></span></b><span style="font-size: 12pt;"> Using
+Figure 3.7, assume V
+is 10V, R1 is 2k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;"> and R2 is 4k</span><span
+ style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&#8486;</span><span
+ style="font-size: 12pt;">, what is I2?</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<a name="3_2"></a>
+<h2>3.2. Chapter 3 Quiz</h2>
+<p class="BodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><b>
+<span
+ style="font-size: 12pt;">3.1</span></b><span style="font-size: 12pt;">
+Make this a matching definition with the word</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">a) Voltage 
+----------------------------------------------------- an electrical potential.
+</font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">b) Current 
+----------------------------------------------------- the flow of charge 
+(electrons) </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">c) Power 
+----------------------------------------------------- the rate of energy change.
+</font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">d) Energy 
+----------------------------------------------------- defines the amount of work 
+that can be done </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">e) 
+Resistance ----------------------------------------------------- potential 
+divided by flow</font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><b>
+<span
+ style="font-size: 12pt;">3.</span></b><font size="3"><b>2</b></font><span style="font-size: 12pt;">
+Make this a matching definition with the word</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">a) Ohm's Law 
+.-----------------------------&nbsp; Voltage equals current times resistance
+</font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">b) 
+Kirchhoff's Current Law (KCL).-----------------------------&nbsp; The sum of the 
+currents into a node equal the sum of the currents leaving a node </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">c) 
+Kirchhoff's Voltage Law (KVL). ----------------------------- The sum of the 
+voltages around the loop is zero. </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;">
+<span
+ style="font-size: 12pt;" lang="PT-BR">&nbsp;</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><b>
+<span
+ style="font-size: 12pt;">3.3</span></b><span style="font-size: 12pt;">
+Know the formula (multiple choice for each)</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">a) Voltage 
+current power .-----------------------------&nbsp; P = V*I </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">b) Energy 
+voltage current time.-----------------------------&nbsp; E = V*I*time </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><font size="3">c) Power 
+voltage resistance. ----------------------------- P = V<sup>2</sup>/R. </font></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;">
+<span
+ style="font-size: 12pt;" lang="PT-BR">&nbsp;</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><b><span
+ style="font-size: 12pt;">3.4</span></b><span style="font-size: 12pt;">
+Fill in
+this table with the equivalent resistance (all values are in ohms)</span></p>
+<table class="MsoNormalTable"
+ style="border: medium none ; margin-left: 77.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 1pt solid windowtext; padding: 0in 5.4pt; width: 56.5pt;"
+ valign="top" width="113">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;R1 </span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 51.5pt;"
+ valign="top" width="103">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">R2</span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="243">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">R1 in series with R2</span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="252">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">R1 in parallel with R2</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 56.5pt;"
+ valign="top" width="113">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">1000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 51.5pt;"
+ valign="top" width="103">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><font size="3">4</font><span
+ style="font-size: 12pt;">000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="243">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="252">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 56.5pt;"
+ valign="top" width="113">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">1000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 51.5pt;"
+ valign="top" width="103">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;">
+		<span
+ style="font-size: 12pt;">9000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="243">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="252">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 56.5pt;"
+ valign="top" width="113">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">1000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 51.5pt;"
+ valign="top" width="103">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="243">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;">
+		<span
+ style="font-size: 12pt;">5000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="252">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 56.5pt;"
+ valign="top" width="113">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">1000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 51.5pt;"
+ valign="top" width="103">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="243">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="252">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><font size="3">750</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 56.5pt;"
+ valign="top" width="113">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 51.5pt;"
+ valign="top" width="103">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="243">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;">
+		<span
+ style="font-size: 12pt;">4000</span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="252">
+      <p class="BodyText" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 12pt;">1000</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+<p class="BodyText" style="margin-bottom: 0.0001pt;"><span
+ style="font-size: 12pt;">&nbsp;</span></p>
+<p class="BodyText"><b><span style="font-size: 12pt;">3.5</span></b><span
+ style="font-size: 12pt;"> 2 V is applied across the
+parallel combination of a
+1000&#8486; and a 4000&#8486; resistor. What is the voltage across the
+4000&#8486; resistor?<span class="BodyTextChar">
+</span>What is the current
+through the 4000&#8486; resistor?<span class="BodyTextChar"> </span></span></p>
+<p class="BodyText"><font size="3"><b>3</b></font><b><span style="font-size: 12pt;">.6 </span></b><span
+ style="font-size: 12pt;">Consider this 3-bit digital
+to analog converter. We
+define the logic state of each switch as 0 or 1, where 0 means not
+pushed and 1
+means pushed. Define a 3-bit number <i>n</i>
+(0 to 7) which specifies the three
+switch positions. <i>n</i>
+= 0 means none are pushed. <i>n</i>
+= 1 means Sw0 is
+pushed. <i>n</i>
+= 2 means Sw1 is pushed. <i>n</i>
+= 3 means Sw1 and Sw0 are
+pushed. <i>n</i>
+= 4 means Sw2 is pushed. <i>n</i>
+= 5 means Sw2 and Sw0 are
+pushed. <i>n</i>
+= 6 means Sw2 and Sw1 are pushed. <i>n</i>
+= 7 means all are
+pushed. Derive a relationship between the current <i>I</i>
+and the number <i>n</i>. Multiple choice</span></p>
+<p class="BodyText"><font size="3">a) <i>I</i> = 0</font></p>
+<p class="BodyText"><font size="3">b) <i>I</i> = <i>n</i>*20mA (answer)</font></p>
+<p class="BodyText"><font size="3">c) <i>I</i> = <i>n</i><sup>2</sup>+10mA</font></p>
+<p class="BodyText"><font size="3">d) <i>I</i> = 140 mA</font></p>
+<p class="BodyText"><font size="3">e) none of the above</font></p>
+<p class="PictureWide"><span style="font-size: 12pt;" lang="EN-AU"><img
+ src="C3_Electronics_files/image013.gif" border="0" height="284"
+ width="450">&nbsp;</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Reprinted
+with approval from <u>Embedded
+Systems:
+Introduction to ARM Cortex-M Microcontrollers</u>,
+2014, ISBN: 978-1477508992, <a
+ href="http://users.ece.utexas.edu/%7Evalvano/arm/outline1.htm"><b>http://users.ece.utexas.edu/~valvano/arm/outline1.htm</b></a></p>
+</div>
+</body>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Embedded Systems - Shape the World</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://users.ece.utexas.edu/~valvano/" property="cc:attributionName" rel="cc:attributionURL">Jonathan Valvano and Ramesh Yerraballi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://users.ece.utexas.edu/~valvano/arm/outline1.htm" rel="dct:source">http://users.ece.utexas.edu/~valvano/arm/outline1.htm</a>.
+
+
+</html>

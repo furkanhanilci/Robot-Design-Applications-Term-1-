@@ -1,0 +1,866 @@
+PDF PAGE 1
+
+Department
+Computer Engineering
+
+Academic Term
+Fall Semester 2025-2026
+
+LinkedIn
+furkanhanilci
+
+GitHub
+furkanhanilci
+Furkan HANİLÇİ
+Instructor
+Based on lecture materials from the University of Tübingen - Self-Driving Cars (Prof. Dr. Andreas Geiger)
+ROBOT DESIGN AND APPLICATIONS
+
+
+PDF PAGE 2
+Agenda
+5.1 Introduction
+5.2 Kinematic Bicycle Model
+5.3 Tire Models
+5.4 Dynamic Bicycle Model
+2
+
+
+PDF PAGE 3
+5.1
+Introduction
+
+
+PDF PAGE 4
+Credits
+▶We cover parts of “Vehicle Dynamics & Control” by Prof. Schildbach (Uni L¨ubeck)
+https://youtu.be/Cg0L_HZYxP4
+4
+
+
+PDF PAGE 5
+Electronic Stability Program
+Knowledge of vehicle dynamics enables accurate vehicle control
+5
+
+
+PDF PAGE 6
+Kinematics vs. Kinetics
+Kinematics:
+▶Greek origin: “motion”, “moving”
+▶Describes motion of points and bodies
+▶Considers position, velocity, acceleration, ..
+▶Examples: Celestial bodies, particle
+systems, robotic arm, human skeleton
+Kinetics:
+▶Describes causes of motion
+▶Effects of forces/moments
+▶Newton’s laws, e.g., F = ma
+6
+
+
+PDF PAGE 7
+Holonomic Constraints
+Holonomic constraints are constraints on the conﬁguration:
+▶Assume a particle in three dimensions (x, y, z) ∈R3
+▶We can constrain the particle to the x/y plane via:
+z = 0
+⇔
+f(x, y, z) = 0
+with
+f(x, y, z) = z
+x/y plane
+▶Constraints of the form f(x, y, z) = 0 are called holonomic constraints
+▶They constrain the conﬁguration space
+▶But the system can move freely in that space
+▶Controllable degrees of freedom equal total degrees of freedom (2)
+7
+
+
+PDF PAGE 8
+Non-Holonomic Constraints
+Non-Holonomic constraints are constraints on the velocity:
+▶Assume a vehicle that is parameterized by (x, y, ψ) ∈R2 × [0, 2π]
+▶The 2D vehicle velocity is given by:
+˙x = v cos(ψ)
+˙y = v sin(ψ)
+⇒
+˙x sin(ψ) −˙y cos(ψ) = 0
+▶This non-holonomic constraint cannot be expressed in the form f(x, y, ψ) = 0
+▶The car cannot freely move in any direction (e.g., sideways)
+▶It constrains the velocity space, but not the conﬁguration space
+▶Controllable degrees of freedom less than total degrees of freedom (2 vs. 3)
+8
+
+
+PDF PAGE 9
+Holonomic vs. Non-Holonomic Systems
+Holonomic Systems
+▶Constrain conﬁguration space
+▶Can freely move in any direction
+▶Controllable degrees of freedom
+equal to total degrees of freedom
+▶Constraints can be described by
+f(x1, . . . , xN) = 0
+Example:
+3D Particle
+z = 0
+x/y plane
+Nonholonomic Systems
+▶Constrain velocity space
+▶Cannot freely move in any direction
+▶Controllable degrees of freedom less
+than total degrees of freedom
+▶Constraints cannot be described by
+f(x1, . . . , xN) = 0
+Example:
+Car
+˙x sin(ψ) −˙y cos(ψ) = 0
+9
+
+
+PDF PAGE 10
+Holonomic vs. Non-Holonomic Systems
+▶A robot can be subject to both holonomic and non-holonomic constraints
+▶A car (rigid body in 3D) is kept on the ground by 3 holonomic constraints
+▶One additional non-holonomic constraint prevents sideways sliding
+10
+
+
+PDF PAGE 11
+Coordinate Systems
+Inertial Frame
+Horizontal Frame
+Horizontal Plane
+Vehicle
+Reference
+Point
+Vehicle Frame
+▶Inertial Frame: Fixed to earth with vertical Z-axis and X/Y horizontal plane
+▶Vehicle Frame: Attached to vehicle at ﬁxed reference point; xv points towards
+the front, yv to the side and zv to the top of the vehicle (ISO 8855)
+▶Horizontal Frame: Origin at vehicle reference point (like vehicle frame) but x-
+and y-axes are projections of xv- and yv-axes onto the X/Y horizontal plane
+11
+
+
+PDF PAGE 12
+Kinematics of a Point
+The position rP (t) ∈R3 of point P at time t ∈R is given by 3 coordinates.
+Velocity and acceleration are the ﬁrst and second derivatives of the position rP (t).
+rP (t) =
+
+
+
+x(t)
+y(t)
+z(t)
+
+
+
+vP (t) = ˙rP (t) =
+
+
+
+˙x(t)
+˙y(t)
+˙z(t)
+
+
+
+aP (t) = ¨rP (t) =
+
+
+
+¨x(t)
+¨y(t)
+¨z(t)
+
+
+
+Trajectory of point P
+12
+
+
+PDF PAGE 13
+Kinematics of a Rigid Body
+A rigid body refers to a collection of inﬁnitely many inﬁnitesimally small mass points
+which are rigidly connected, i.e., their relative position remains unchanged over time.
+It’s motion can be compactly described by the motion of an (arbitrary) reference point
+C of the body plus the relative motion of all other points P with respect to C.
+▶C: Reference point ﬁxed to rigid body
+▶P: Arbitrary point on rigid body
+▶ω: Angular velocity of rigid body
+▶Position: rP = rC + rCP
+▶Velocity: vP = vC + ω × rCP
+▶Due to rigidity, points P can only rotate wrt. C
+▶Thus a rigid body has 6 DoF (3 pos., 3 rot.)
+13
+
+
+PDF PAGE 14
+Instantaneous Center of Rotation
+At each time instance t ∈R, there exists a particular reference point O (called the
+instantaneous center of rotation) for which vO(t) = 0. Each point P of the rigid body
+performs a pure rotation about O:
+vP = vO + ω × rOP = ω × rOP
+Example 1: Turning Wheel
+▶Wheel is completely lifted off the ground
+▶Wheel does not move in x or y direction
+▶Ang. vel. vector ω points into x/y plane
+▶Velocity of point P: vP = ωR with radius R
+14
+
+
+PDF PAGE 15
+Instantaneous Center of Rotation
+At each time instance t ∈R, there exists a particular reference point O (called the
+instantaneous center of rotation) for which vO(t) = 0. Each point P of the rigid body
+performs a pure rotation about O:
+vP = vO + ω × rOP = ω × rOP
+Example 2: Rolling Wheel
+▶Wheel is rolling on the ground without slip
+▶Ground is ﬁxed in x/y plane
+▶Ang. vel. vector ω points into x/y plane
+▶Velocity of point P: vP = 2ωR with radius R
+14
+
+
+PDF PAGE 16
+5.2
+Kinematic Bicycle Model
+
+
+PDF PAGE 17
+Rigid Body Motion
+Rotation Center
+▶Different points on the rigid body move along different circular trajectories
+16
+
+
+PDF PAGE 18
+Kinematic Bicycle Model
+▶The kinematic bicycle model approximates the 4 wheels with 2 imaginary wheels
+17
+
+
+PDF PAGE 19
+Kinematic Bicycle Model
+▶The kinematic bicycle model approximates the 4 wheels with 2 imaginary wheels
+17
+
+
+PDF PAGE 20
+Kinematic Bicycle Model
+Rotation
+Center
+Wheelbase
+Vehicle
+Velocity
+Front Wheel
+Velocity
+Back Wheel
+Velocity
+Slip
+Angle
+Front
+Steering
+Angle
+Center of
+Gravity
+Heading
+Angle
+Back
+Steering
+Angle
+Turning
+Radius
+Course Angle
+Assumptions:
+- Planar motion (no roll, no pitch)
+- Low speed => No wheel slip
+  (wheel orientation = wheel velocity)
+▶The kinematic bicycle model approximates the 4 wheels with 2 imaginary wheels
+17
+
+
+PDF PAGE 21
+Kinematic Bicycle Model
+Model
+Rotation Center
+Motion Equations
+˙X = v cos(ψ + β)
+˙Y = v sin(ψ + β)
+˙ψ = v cos(β)
+ℓf + ℓr
+(tan(δf) −tan(δr))
+β = tan−1
+ℓf tan(δr) + ℓr tan(δf)
+ℓf + ℓr
+
+(proof as exercise)
+18
+
+
+PDF PAGE 22
+Kinematic Bicycle Model
+Model
+Rotation Center
+Motion Equations
+˙X = v cos(ψ + β)
+˙Y = v sin(ψ + β)
+˙ψ = v cos(β)
+ℓf + ℓr
+tan(δ)
+β = tan−1
+ℓr tan(δ)
+ℓf + ℓr
+
+(only front steering)
+tan δ = lf + lr
+R′
+⇒
+1
+R′ = tan δ
+lf + lr
+⇒
+tan β = lr
+R′ = lr tan δ
+lf + lr
+cos β = R′
+R
+⇒
+1
+R = cos β
+R′
+⇒
+˙ψ = ω = v
+R = v cos(β)
+R′
+= v cos(β)
+lf + lr
+tan(δ)
+18
+
+
+PDF PAGE 23
+Kinematic Bicycle Model
+Model
+Rotation Center
+Motion Equations
+˙X = v cos(ψ)
+˙Y = v sin(ψ)
+˙ψ =
+vδ
+ℓf + ℓr
+(assuming β and δ are very small)
+19
+
+
+PDF PAGE 24
+Kinematic Bicycle Model
+Model
+Rotation Center
+Motion Equations
+Xt+1 = Xt + v cos(ψt) ∆t
+Yt+1 = Yt + v sin(ψt) ∆t
+ψt+1 = ψt +
+vδ
+ℓf + ℓr
+∆t
+(time discretized model)
+19
+
+
+PDF PAGE 25
+Ackermann Steering Geometry
+Front Steering Angles
+Turning Radius
+Rotation Center
+Wheelbase
+Track
+▶In practice, the left and right wheel steering angles are not equal if no wheel slip
+▶Combination of admissible steering angles called Ackerman steering geometry
+▶If angles are small, the left/right steering wheel angles can be approximated:
+δl ≈tan
+
+L
+R + 0.5B
+
+≈
+L
+R + 0.5B
+δr ≈tan
+
+L
+R −0.5B
+
+≈
+L
+R −0.5B
+20
+
+
+PDF PAGE 26
+Ackermann Steering Geometry
+Trapezoidal Geometry
+Left Turn
+Right Turn
+▶In practice, this setup can be realized using a trapezoidal tie rod arrangement
+21
+
+
+PDF PAGE 27
+5.3
+Tire Models
+
+
+PDF PAGE 28
+Kinematics is not enough ..
+Which assumption of our model is violated in this case?
+23
+
+
+PDF PAGE 29
+Tire Models
+vl
+ω
+Rd
+Contact
+▶Tire models describe the lateral and longitudinal forces at the tires
+▶There exist many different tire models at various levels of complexity
+▶For a simple qualitative description we consider the tread block model
+▶Question: Why do tires “slip”?
+24
+
+
+PDF PAGE 30
+Tread Block Model
+Static
+Friction
+Circumferential Force
+Sliding
+Friction
+Static
+Friction
+Sliding
+Friction
+Longitudinal Force:
+▶As soon as the wheel is driven externally, the
+tire tread blocks start deforming and slipping
+▶The tire tread blocks adhere to the ground,
+deform and slip when loosing contact
+▶When the driving force increases and static
+friction is exceeded the blocks slip earlier
+▶As sliding friction is smaller than static friction,
+this decreases the transmitted driving force
+▶If the tire tread blocks start sliding at the
+beginning, only sliding friction can be applied
+25
+
+
+PDF PAGE 31
+Tread Block Model
+Slippage s
+Force F
+Static Friction
+Sliding Friction
+▶Slippage: Difference between surface speed of the wheel and vehicle speed
+▶The force F grows linearly with the slippage s in the beginning (linear deform.)
+▶Large slippage s leads to a reduction of F (sliding friction < static friction)
+26
+
+
+PDF PAGE 32
+Tread Block Model
+Slippage s
+Force F
+Static Friction
+Same slope at beginning
+(no sliding & same elasticity of rubber)
+Some blocks slip earlier due to lower friction
+Point of highest friction is reached earlier
+Sliding Friction
+Low Friction
+High Friction
+How does the force curve F(s) change for slippery terrain (low friction)?
+▶Start of the curve doesn’t change as the elasticity of the blocks doesn’t change
+▶However, the maximum reduces due to the decreased static friction, i.e.,
+the tread blocks start sliding earlier due to a decrease in friction
+27
+
+
+PDF PAGE 33
+Tread Block Model
+Slippage
+Force
+Static Friction
+Sliding Friction
+Lateral Force: (the ﬁgure above shows a top view onto a wheel)
+▶Lateral force Fy analogous to longitudinal force but blocks move laterally now
+▶Lateral force for small s and α given by: Fy = c s = c tan(α) ≈c α
+▶v = wheel velocity, vx = longitudinal vel., vy = lateral vel., c = cornering stiffness
+28
+
+
+PDF PAGE 34
+Circle of Forces
+Circle of Forces:
+▶Lateral Fy and longitudinal Fx force cannot exceed max. friction force ∥F∥max
+▶More long. force implies less lat. force; max. acceleration only for straight driving
+▶Allows to make statements about maximal possible vehicle accelerations
+29
+
+
+PDF PAGE 35
+5.4
+Dynamic Bicycle Model
+
+
+PDF PAGE 36
+Dynamics of a Rigid Body
+Translatory Motion of a Point:
+▶Consider point P with mass m in R3
+▶Let rP (t) ∈R3 be its position in an inertial reference frame
+▶Let vP (t) denote its velocity and aP (t) its acceleration
+▶The linear momentum of P is deﬁned as pP (t) = mvP (t)
+▶By Newton’s second law we have
+d
+dtpP (t) = m aP (t) = Fnet(t) =
+X
+i
+Fi(t)
+where Fi(t) represent all forces acting on the point mass P
+Trajectory of point P
+31
+
+
+PDF PAGE 37
+Dynamics of a Rigid Body
+Translatory Motion of a Rigid Body:
+▶Consider a rigid body B with mass m in R3
+▶Let rC(t) ∈R3 be the position of its center of gravity C
+▶Let vC(t) denote its velocity and aC(t) its acceleration
+▶The linear momentum of B is deﬁned as pB(t) = mvC(t)
+▶The center of gravity of a rigid body behaves like a point
+mass with mass m and as if all forces act on that point
+d
+dtpB(t) = m aC(t) = Fnet(t) =
+X
+i
+Fi(t)
+where Fi(t) represent all forces acting on the rigid body B
+32
+
+
+PDF PAGE 38
+Dynamics of a Rigid Body
+Rotatory Motion of a Rigid Body:
+▶For the rotatory motion, also the geometric shape of B
+and the spatial distribution of its mass is important
+▶Let ρ(x, y, z) be the body’s density function:
+m =
+Z
+B
+ρ(x, y, z) dx dy dz =
+Z
+B
+dm
+▶The inertia tensor of B is deﬁned as
+Θ =
+
+
+Ix
+Ixy
+Ixz
+Iyx
+Iy
+Iyz
+Izx
+Izy
+Iz
+
+
+Ix =
+R
+B(y2 + z2) dm
+Iy =
+R
+B(x2 + z2) dm
+Iz =
+R
+B(x2 + y2) dm
+|
+{z
+}
+moments of inertia
+Ixy = Iyx = −
+R
+B xy dm
+Ixz = Izx = −
+R
+B xz dm
+Iyz = Izy = −
+R
+B yz dm
+|
+{z
+}
+moments of deviation
+33
+
+
+PDF PAGE 39
+Dynamics of a Rigid Body
+Rotatory Motion of a Rigid Body:
+▶Let ω be the vector of angular velocities:
+ω = (ωx ωy ωz)⊤
+▶The angular momentum LC of the rigid body B is given by
+LC = Θ ω
+▶By the angular momentum principle
+d
+dtLC(t) = Θ ˙ω = Mnet(t) =
+X
+i
+Mi(t)
+where Mi(t) are the moments of all forces acting on B
+with respect to the center of gravity C.
+34
+
+
+PDF PAGE 40
+Dynamics of a Rigid Body
+Rotatory Motion of a Rigid Body with Canonical Coordinates:
+▶If the body frame is chosen as a principal axis system for the
+rigid body (symmetry axes), the inertia tensor is diagonal:
+Θ =
+
+
+Ix
+0
+0
+0
+Iy
+0
+0
+0
+Iz
+
+
+▶For the planar motion of a rigid body in the x/y-plane:
+ωx = ωy = 0
+and
+Mx = My = 0
+▶Hence the angular momentum becomes Lz = Iz ωz(t)
+and the angular momentum principle yields Iz ˙ωz = P
+i Mi
+35
+
+
+PDF PAGE 41
+Dynamic Bicycle Model
+Center of Gravity
+Assumptions:
+▶The vehicle’s motion is restricted to the X/Y plane
+▶The vehicle is considered as a rigid body
+▶Only lateral tire forces, generated by a linear tire model
+▶Small steering angle δ:
+sin δ ≈δ
+tan δ ≈δ
+cos δ ≈1
+▶Constant longitudinal velocity vx
+36
+
+
+PDF PAGE 42
+Dynamic Bicycle Model
+Center of Gravity
+Lateral Dynamics:
+may =
+X
+i
+Fy,i = Fr + Ff cos δ ≈Fr + Ff
+ay = ˙vy + ω vx
+(ω vx = centripetal acc.)
+⇒
+m(˙vy + ωvx) = Fr + Ff
+37
+
+
+PDF PAGE 43
+Dynamic Bicycle Model
+Center of Gravity
+Yaw Dynamics:
+Iz ˙ω =
+X
+i
+Mi = −lrFr + lfFf cos δ
+|{z}
+≈1
+⇒
+Iz ˙ω = −lrFr + lfFf
+38
+
+
+PDF PAGE 44
+Dynamic Bicycle Model
+Center of Gravity
+Tire Forces:
+Fr = −crαr ≈−cr tan(αr) = −cr
+vB,y
+vB,x
+Ff = −cfαf ≈−cf tan(αf) = −cf
+vA,η
+vA,ξ
+vB,x = vx
+vB,y = vy −ωlr
+vA,x = vx
+vA,y = vy + ωlf
+vA,ξ = vA,x cos(δ)
+| {z }
+≈1
++vA,y sin(δ)
+| {z }
+≈δ
+vA,η = −vA,x sin(δ)
+| {z }
+≈δ
++vA,y cos(δ)
+| {z }
+≈1
+39
+
+
+PDF PAGE 45
+Dynamic Bicycle Model
+Center of Gravity
+Tire Forces:
+Fr = −cr
+vB,y
+vB,x
+= −cr
+vy −ωlr
+vx
+Ff = −cf
+vA,η
+vA,ξ
+= −cf
+−vxδ + vy + ωlf
+vx + (vy + ωlf)δ ≈cfδ −cf
+vy + ωlf
+vx
+Last approximation due to: vx ≫(vy + ωlf)δ
+40
+
+
+PDF PAGE 46
+Dynamic Bicycle Model
+Center of Gravity
+State Space Representation:
+m(˙vy + ωvx) = −cr
+vy −ωlr
+vx
+|
+{z
+}
+=Fr
++ cfδ −cf
+vy + ωlf
+vx
+|
+{z
+}
+=Ff
+Iz ˙ω = −lr
+
+−cr
+vy −ωlr
+vx
+
+|
+{z
+}
+Fr
++ lf
+
+cfδ −cf
+vy + ωlf
+vx
+
+|
+{z
+}
+=Ff
+41
+
+
+PDF PAGE 47
+Dynamic Bicycle Model
+Center of Gravity
+State Space Representation:
+
+
+˙vy
+˙ψ
+˙ω
+
+=
+
+
+−cr+cf
+mvx
+0
+crlr−cflf
+mvx
+−vx
+0
+0
+1
+lrcr−lfcf
+Izvx
+0
+−
+l2
+fcf+l2
+rcr
+Izvx
+
+
+
+
+vy
+ψ
+ω
+
+
+| {z }
+State
++
+
+
+cf
+m
+0
+cf
+Iz lf
+
+
+δ
+|{z}
+Input
+Can be augmented by the global position to a nonlinear state space model
+42
+
+
+PDF PAGE 48
+Summary
+▶A vehicle can be modeled as a rigid body
+▶It is subject to holonomic and non-holonomic constraints
+▶The bicycle model approximates the vehicle using 2 wheels
+▶The kinematic bicycle model assumes no wheel slip (low speeds)
+▶However, modeling tires requires to consider slip
+▶Sliding friction is smaller than static friction
+▶We want to operate in the static friction area of the force curve
+▶The circle of forces tells us that lat. and long. forces are dependent
+▶The dynamic bicycle model takes into account tire foces and wheel slip
+43

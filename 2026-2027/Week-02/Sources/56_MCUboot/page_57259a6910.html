@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MCUboot test plan | mcuboot</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="MCUboot test plan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Secure boot for 32-bit Microcontrollers!" />
+<meta property="og:description" content="Secure boot for 32-bit Microcontrollers!" />
+<link rel="canonical" href="https://docs.mcuboot.com/testplan-mynewt.html" />
+<meta property="og:url" content="https://docs.mcuboot.com/testplan-mynewt.html" />
+<meta property="og:site_name" content="mcuboot" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MCUboot test plan" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Secure boot for 32-bit Microcontrollers!","headline":"MCUboot test plan","url":"https://docs.mcuboot.com/testplan-mynewt.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba2099fa7da41c0f9bfbb8270278da41297121cd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">MCUboot test plan</h1>
+      <h2 class="project-tagline">Secure boot for 32-bit Microcontrollers!</h2>
+      
+        <a href="https://github.com/mcu-tools/mcuboot" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h2 id="mcuboot-test-plan">MCUboot test plan</h2>
+
+<p>The current target for running the tests is the Freedom K64F board.</p>
+
+<h3 id="basic-sign-support-rsaecec256">Basic sign support (RSA/EC/EC256)</h3>
+
+<p>For each supported signing algorithm, check that non-signed, and signed
+with wrong key images are not swapped to, and image signed with correct key
+is swapped to.</p>
+
+<p>For the 3 algorithms supported, rsa, ec and ec256, two files are provided:
+key_<sign-algo>.pem, key_<sign-algo>_2.pem. And a keys file with the C public
+key data for key_<sign-algo>.pem.</sign-algo></sign-algo></sign-algo></p>
+
+<p>Build and load MCUboot:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt build k64f_boot_&lt;sign-algo&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_boot_&lt;sign-algo&gt;</code></li>
+</ul>
+
+<p>Build and load good image in slot 0:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1 key_&lt;sign-algo&gt;.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_blinky</code></li>
+</ul>
+
+<hr />
+<p><strong><em>Note</em></strong></p>
+
+<p><em>If testing RSA/PSS <code class="language-plaintext highlighter-rouge">newt create-image</code> needs to be passed in the extra</em>
+<em>flag <code class="language-plaintext highlighter-rouge">--rsa-pss</code> eg:</em></p>
+
+<p><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1 key_rsa.pem --rsa-pss</code></p>
+
+<hr />
+
+<p>Build and load image in slot 1 with no signing, signed with
+key_<sign-algo>_2.pem and signed with key_<sign-algo>.pem. Mark each one as
+test image and check that swap only happens for image signed with
+key_<sign-algo>.pem. Both others should be erased.</sign-algo></sign-algo></sign-algo></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky2 1.0.2 &lt;one-of-the-sign-keys-or-none&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image upload k64f_blinky2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image list</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image test &lt;hash of slot 1&gt;</code></li>
+</ul>
+
+<h3 id="image-signed-with-more-than-one-key">Image signed with more than one key</h3>
+
+<p>FIXME: this is currently not functional, skip this section!</p>
+
+<p>Build and load MCUboot:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt build k64f_boot_rsa_ec</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_boot_rsa_ec</code></li>
+</ul>
+
+<p>Build and load good image in slot 0:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1 key_rsa.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_blinky</code></li>
+</ul>
+
+<p>Build and load image in slot 1 with no signing, signed with
+key_<sign-algo>_2.pem and signed with key_<sign-algo>.pem. Mark each one as
+test image and check that swap only happens for image signed with
+key_<sign-algo>.pem. Both others should be erased.</sign-algo></sign-algo></sign-algo></p>
+
+<p>Use all of this options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky2 1.0.2</code></li>
+</ul>
+
+<p>And load</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image upload k64f_blinky2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image list</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image test &lt;hash of slot 1&gt;</code></li>
+</ul>
+
+<h3 id="overwrite-only-functionality">Overwrite only functionality</h3>
+
+<p>Build/load MCUboot:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt build k64f_boot_rsa_noswap</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_boot_rsa_noswap</code></li>
+</ul>
+
+<p>Build/load blinky to slot 0:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1 key_rsa.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_blinky</code></li>
+</ul>
+
+<p>Build/load blinky2 both with bad and good key, followed by a permanent swap
+request:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky2 1.0.2 &lt;bad and good rsa keys&gt;.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image upload k64f_blinky2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image list</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image confirm &lt;hash of slot 1&gt;</code></li>
+</ul>
+
+<p>This should not swap and delete the image in slot 1 when signed with the wrong
+key, otherwise the image in slot 1 should be <em>moved</em> to slot 0 and slot 1 should
+be empty.</p>
+
+<h3 id="validate-slot-0-option">Validate slot 0 option</h3>
+
+<p>Build/load MCUboot:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt build k64f_boot_rsa_validate0</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_boot_rsa_validate0</code></li>
+</ul>
+
+<p>Build non-signed image:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_blinky</code></li>
+  <li>Reset and no image should be run</li>
+</ul>
+
+<p>Build signed image with invalid key:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1 key_rsa_2.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_blinky</code></li>
+  <li>Reset and no image should be run</li>
+</ul>
+
+<p>Build signed image with <em>valid</em> key:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_blinky 1.0.1 key_rsa.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_blinky</code></li>
+  <li>Reset and image <em>should</em> run</li>
+</ul>
+
+<h3 id="swap-with-random-failures">Swap with random failures</h3>
+
+<p>DISCLAIMER: be careful with copy/paste of commands, this test uses another
+target/app!</p>
+
+<p>Build/load MCUboot:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt build k64f_boot_rsa</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_boot_rsa</code></li>
+</ul>
+
+<p>Build/load slinky to slot 0:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_slinky 1.0.1 key_rsa.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newt load k64f_slinky</code></li>
+</ul>
+
+<p>Build/load slinky2 to slot 1:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newt create-image k64f_slinky2 1.0.2 key_rsa.pem</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image upload k64f_slinky2</code></li>
+</ul>
+
+<p>Confirm that both images are installed, request a permanent request to the
+image in slot 1 and check that it works.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image list</code></li>
+  <li><code class="language-plaintext highlighter-rouge">newtmgr image confirm &lt;hash of slot 1&gt;</code></li>
+</ul>
+
+<p>If everything works, now proceed with requests for permanent swap to the image
+in slot 1 and do random swaps (as much as you like!). When the swap finishes
+confirm that the swap was finished with the previous slot 1 image now in
+slot 0 and vice-versa.</p>
+
+<h3 id="help">Help</h3>
+
+<ul>
+  <li>
+    <p>Mass erase MCU</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ pyocd erase --chip
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Flashing image in slot 1:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ pyocd flash -e sector -a 0x80000 ${IMG_FILE} bin
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/mcu-tools/mcuboot">mcuboot</a> is maintained by <a href="https://github.com/mcu-tools">mcu-tools</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+Lecture Notes | Electrochemical Energy Systems | Chemical Engineering | MIT OpenCourseWare
+Browse Course Material
+Syllabus
+Calendar
+Instructor Insights
+Lecture Notes
+Assignments
+Exams
+Study Materials
+Course Info
+Instructor
+Prof. Martin Bazant
+Departments
+Chemical Engineering
+As Taught In
+Spring
+            
+              2014
+Level
+Graduate
+Topics
+Engineering
+Chemical Engineering
+Materials Science and Engineering
+Electronic Materials
+Science
+Chemistry
+Analytical Chemistry
+Physical Chemistry
+Learning Resource Types
+grading
+Exam Solutions
+grading
+Exams
+co_present
+Instructor Insights
+notes
+Lecture Notes
+assignment
+Problem Sets
+Download Course
+menu
+search
+Give Now
+About OCW
+Help & Faqs
+Contact Us
+search
+GIVE NOW
+about ocw
+help & faqs
+contact us
+10.626 | Spring 2014 | Graduate
+Electrochemical Energy Systems
+Menu
+More Info
+Syllabus
+Calendar
+Instructor Insights
+Lecture Notes
+Assignments
+Exams
+Study Materials
+Lecture Notes
+Topics covered in lectures in 2014 are listed below. In some cases, links are given to new lecture notes by student scribes. All scribed lecture notes are used with the permission of the  anonymous student author. The recommended reading refers to the lectures notes and exam solutions from previous years or to the books listed below. Lecture notes from previous years are also found in the
+study materials
+section.
+[Newman] = Newman, John, and Karen E. Thomas-Alyea.
+Electrochemical Systems
+. 3rd ed. Wiley-Interscience, 2004. ISBN: 9780471477563. [Preview with
+Google Books
+]
+[Bard] = Bard, Allen J., and Larry R. Faulkner.
+Electrochemical Methods: Fundamentals and Applications
+. 2nd ed. Wiley, 2000. ISBN: 9780471043720.
+[O’ Hayre] = O’ Hayre, Ryan, Suk-Won Cha, et al.
+Fuel Cell Fundamentals
+. 2nd ed. Wiley, 2009. ISBN: 9780470258439.
+[Huggins] = Huggins, Robert A.
+Advanced Batteries: Materials Science Aspects
+. Springer, 2008. ISBN: 9780387764238. [Preview with
+Google Books
+]
+SES #
+2014 TOPICS AND LECTURE NOTES
+2014 READINGS
+I. Introduction
+1
+Syllabus, Overview
+None
+2
+Basic Physics of Galvanic Cells, Electrochemical Energy Conversion (PDF)
+2011 Lecture 1: Basic Physics of Galvanic Cells (PDF)
+2011 Lecture 2: Electrochemical Energy Conversion (PDF)
+[Newman] Chapter 1.
+[O’Hayre] Chapter 2.
+3
+Electrochemical Energy Storage (PDF)
+2011 Lecture 3: Electrochemical Energy Storage (PDF)
+[Huggins] Chapter 1.
+II. Circuit Models
+4
+Equivalent Circuit Dynamics
+2011 Lecture 4: Dynamics of Equivalent Circuits (PDF)
+5
+Impedance I
+2011 Lecture 5: Impedance spectroscopy (PDF - 1.6MB)
+[Bard] Chapter 10.
+[O’Hayre] Chapter 7, sec. 3.4.
+6-7
+Impedance II & Impedance III
+2011 Lecture 6: Impedance of Electrode (PDF)
+III. Thermodynamics
+8
+Statistical Thermodynamics, Regular Solution Model
+2011 Lecture 7: Statistical Thermodynamics (PDF)
+9
+Nernst Equation, Open Circuit Voltage
+2011 Lecture 8: The Nernst Equation (PDF)
+[Newman] Chapter 2.
+10
+Fuel Cells and Batteries
+2011 Lecture 9: Fuel Cells and Lead-Acid Batteries (PDF)
+[O’Hayre] Chapter 2.
+11
+Pourbaix Diagram (PDF)
+2011 Lecture 9: Fuel Cells and Lead-Acid Batteries (PDF)
+Prentice, Geoffrey A. Chapter 3 in
+Electrochemical Engineering Principles
+. Prentice Hall, 1990. ISBN: 9780132490382.
+12
+Metal Acid Batteries, Lemon Battery Demo (PDF)
+None
+13
+Li-ion Batteries, Pseudocapacitance (PDF - 1.3MB)
+2011 Lecture 10: Li-ion Batteries (PDF)
+2011 Lecture 37: Pseudocapacitors and Batterie (PDF - 2.1MB)
+[Huggins] Chapters 2 and 6.
+14
+Ideal Solution Model, Linear Sweep Voltammetry (PDF)
+2011 Lecture 11: Reconstitution Electrodes (PDF)
+[Huggins] Chapters 3 and 6.
+15
+Regular Solution Model, Phase Separation
+2011 Lecture 11: Reconstitution Electrodes (PDF)
+IV. Kinetics
+16
+Reactions in Concentrated Solutions
+2011 Lecture 14: Faradaic Reactions in Concentrated Solutions (PDF)
+Bazant, M. Z. “
+Theory of Chemical Kinetics and Charge Transfer Based on Nonequilibrium Thermodynamics
+.”
+Accounts of Chemical Research
+46, no. 5 (2013): 1146–47.
+17
+Faradaic Reactions
+2011 Lecture 12: Faradaic Reactions in Dilute Solutions (PDF)
+2011 Lecture 13: Butler-Volmer Equation (PDF)
+Bazant, M. Z. “
+Theory of Chemical Kinetics and Charge Transfer Based on Nonequilibrium Thermodynamics
+.”
+Accounts of Chemical Research
+46, no. 5 (2013): 1148–49.
+18
+Butler-Volmer Equation
+[O’Hayre] Chapter 3.
+[Newman] Chapter 8.
+[Bard] Chapter 3.
+19
+Electrocatalysis (PDF)
+2011 Lecture 15: Ion Adsorption and Intercalation (PDF)
+Bazant, M. Z. “
+Theory of Chemical Kinetics and Charge Transfer Based on Nonequilibrium Thermodynamics
+.”
+Accounts of Chemical Research
+46, no. 5 (2013): 1155–57.
+20-21
+Electrochemical Phase Transformations (PDF - 1.5MB)
+Bai, P., D. A. Cogswell, et al. “
+Suppression of Phase Separation in LiFePO4 Nanoparticles During Battery Discharge
+.”
+Nano Letters
+11, no. 11 (2011): 4890–96.
+22
+Homogeneous Charge Transfer (PDF)
+[Bard] Chapter 3, sec. 6.
+23
+Heterogeneous Charge Transfer (PDF)
+Bazant, M. Z. “
+Theory of Chemical Kinetics and Charge Transfer Based on Nonequilibrium Thermodynamics
+.”
+Accounts of Chemical Research
+46, no. 5 (2013): 1149–50.
+24
+Charge Transfer at Metal Electrodes (PDF)
+Bai, P., and M. Z. Bazant. “
+Charge Transfer Kinetics at the Solid/Solid Interface in Porous Electrodes
+.”
+Nature Communications
+5, no. 3585 (2014).
+Zeng, Y., R. Smith, P. Bai, and M.Z. Bazant. “
+Simple Formula for Marcus-Hush-Chidsey Kinetics
+.”
+J. Electroanal. Chem.
+735(2014): 77-83.
+V. Transport Phenomena
+25
+Concentration Polarization
+2011 Lecture 16: Concentration Polarization (PDF)
+[O’Hayre] Chapter 5.2.
+26
+Transient Diffusion
+2011 Lecture 19: Transient Diffusion (PDF)
+[Bard] Chapters 7 and 8.
+27
+Warburg Impedance
+2011 Lecture 20: Warburg Impedance (PDF)
+[Bard] Chapter 10.
+28
+Forced Convection I (PDF)
+2011 Lecture 17: Forced Convection in Fuel Cells (I) (PDF)
+[O’Hayre] Chapter 5.3.
+[Newman] Chapter 17.
+Deen, William M.
+Analysis of Transport Phenomena
+. Oxford University Press, 1998. ISBN: 9780195084948.
+Braff, W. A., C. R. Buie, et al. “
+Boundary Layer Analysis of Electrochemical Cells
+.”
+Journal of the Electrochemical Society
+160, no. 11 (2013): A2056–63.
+29
+Forced Convection II (PDF)
+Braff, W. A., C. R. Buie, et al. “
+Boundary Layer Analysis of Electrochemical Cells
+.”
+Journal of the Electrochemical Society
+160, no. 11 (2013): A2056–63.
+30
+Forced Convection III
+2011 Lecture 18: Forced Convection in Fuel Cells II (PDF)
+31
+Transport in Solids
+2011 Lecture 21: Solids and Concentrated Solutions (PDF)
+Bazant, M. Z. “
+Theory of Chemical Kinetics and Charge Transfer Based on Nonequilibrium Thermodynamics
+.”
+Accounts of Chemical Research
+46, no. 5 (2013): 1147.
+32
+Concentrated Solutions, Bulk Electrolytes
+2011 Lecture 22: Transport in Bulk Electrolytes (PDF)
+[Newman] Chapter 11.
+33
+Homogeneous Reaction-diffusion (PDF)
+None
+34
+Ion Concentration Polarization
+2011 Lecture 22: Transport in Bulk Electrolytes (PDF)
+2011 Lecture 23: Ion Concentration Polarization (PDF)
+[Newman] Chapter 11.
+[Newman] Chapter 4.
+35
+Double Layers, Supercapacitors
+2011 Lecture 24: Diffuse Charge in Electrolyte (PDF)
+2011 Lecture 25: Diffuse Double Layer Structure (PDF)
+[Newman] Chapter 7.
+36
+Transport in Porous Media
+2011 Lecture 32: Percolation (PDF)
+2011 Lecture 33: Macroscopic Conductivity of Composite (PDF - 1.5MB)
+2011 Lecture 34: Transport in Porous Media (PDF - 1.5MB)
+37
+Scaling Analysis of Energy Storage
+2012 Lecture 36–37: Scaling Analysis of Energy Storage by Porous Electrodes (PDF)
+38
+Porous Electrodes (Overview)
+2011 Lecture 35: Porous Electrodes (I. Supercapacitors) (PDF - 1.1MB)
+2011 Lecture 36: Electrochemical Supercapacitor (PDF - 1.3MB)
+2011 Lecture 37: Pseudocapacitors and Batteries (PDF - 2.1MB)
+[Newman] Chapter 22.
+Ferguson, T. R., and M. Z. Bazant. “
+Nonequilibrium Thermodynamics of Porous Electrodes
+.”
+Journal Electrochemical Society
+159, no. 12 (2012): A1967–A1985.
+Course Info
+Instructor
+Prof. Martin Bazant
+Departments
+Chemical Engineering
+As Taught In
+Spring
+            
+              2014
+Level
+Graduate
+Topics
+Engineering
+Chemical Engineering
+Materials Science and Engineering
+Electronic Materials
+Science
+Chemistry
+Analytical Chemistry
+Physical Chemistry
+Learning Resource Types
+grading
+Exam Solutions
+grading
+Exams
+co_present
+Instructor Insights
+notes
+Lecture Notes
+assignment
+Problem Sets
+Download Course
+Over 2,500 courses & materials
+Freely sharing knowledge with learners and educators around the world.
+Learn more
+© 2001–2026 Massachusetts Institute of Technology
+Accessibility
+Creative Commons License
+Terms and Conditions
+Proud member of:
+© 2001–2026 Massachusetts Institute of Technology
+You are leaving MIT OpenCourseWare
+close
+Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+Stay Here
+Continue

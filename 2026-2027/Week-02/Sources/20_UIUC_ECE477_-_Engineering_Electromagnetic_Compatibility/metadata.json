@@ -1,0 +1,119 @@
+{
+  "id": 20,
+  "name": "UIUC ECE477 - Engineering Electromagnetic Compatibility",
+  "type": "Üniversite dersi",
+  "url": "https://courses.grainger.illinois.edu/ECE477/fa2026/",
+  "folder": "20_UIUC_ECE477_-_Engineering_Electromagnetic_Compatibility",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://courses.grainger.illinois.edu/ECE477/fa2026/",
+      "final_url": "https://courses.grainger.illinois.edu/ECE477/fa2026/",
+      "kind": "html",
+      "bytes": 13668,
+      "sha256": "e0ea1c050d8bb56fe6f5bbd77068c98812888e80f1f10e3a809d38a3228107b0"
+    },
+    {
+      "file": "Lect1.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect1.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect1.pdf",
+      "kind": "pdf",
+      "bytes": 12617988,
+      "sha256": "a13417da47940f39955b15400d39dde32868394e935436873efe578d037ecd54",
+      "pdf_pages": 80
+    },
+    {
+      "file": "Lect1-after.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect1-after.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect1-after.pdf",
+      "kind": "pdf",
+      "bytes": 12118377,
+      "sha256": "14d434f53a0b57dd116d58a1c08d21babe00f70b34b30cbdfc8ee0b8149eec4c",
+      "pdf_pages": 80
+    },
+    {
+      "file": "Lect2.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect2.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect2.pdf",
+      "kind": "pdf",
+      "bytes": 6409543,
+      "sha256": "587d1deca065db3285f867e1abb5c7ebbd093b2dc239e96baed7f1011cc5e6b3",
+      "pdf_pages": 57
+    },
+    {
+      "file": "Lect2-after.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect2-after.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect2-after.pdf",
+      "kind": "pdf",
+      "bytes": 6480706,
+      "sha256": "c21791b54050001ff80499809a59d5a2df923239c838d2727a6146d45d33217c",
+      "pdf_pages": 57
+    },
+    {
+      "file": "Lect3.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect3.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect3.pdf",
+      "kind": "pdf",
+      "bytes": 5906404,
+      "sha256": "2f262536ad728bbeb69c0ff96d35328d21d54855c20f1c13f0dc394817b726b4",
+      "pdf_pages": 80
+    },
+    {
+      "file": "Lect3-after.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect3-after.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect3-after.pdf",
+      "kind": "pdf",
+      "bytes": 10180222,
+      "sha256": "1a9181b618c0038411ece8eabf3e7facd44eb15976e9d2d34e8aa8ac30ccd402",
+      "pdf_pages": 80
+    },
+    {
+      "file": "Lect4.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect4.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect4.pdf",
+      "kind": "pdf",
+      "bytes": 6120599,
+      "sha256": "fe25ff23b413d94c7787ba1c85d0d372b179b74bf10061e87fccf23b4af0da4c",
+      "pdf_pages": 61
+    },
+    {
+      "file": "Lect4-after.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect4-after.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect4-after.pdf",
+      "kind": "pdf",
+      "bytes": 10040160,
+      "sha256": "0980feda91f5fc1a3491cc35773ee2211641557bdc82f8b82312e4f7d8fa673c",
+      "pdf_pages": 61
+    },
+    {
+      "file": "Lect5.pdf",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect5.pdf",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect5.pdf",
+      "kind": "pdf",
+      "bytes": 7385696,
+      "sha256": "35ac9fe8362610287a6b1e8857e8a6ce7b802aef12d7a9a6ef139480f46beb4b",
+      "pdf_pages": 87
+    },
+    {
+      "file": "LTspice.zip",
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/LTspice.zip",
+      "final_url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/LTspice.zip",
+      "kind": "asset",
+      "bytes": 7786,
+      "sha256": "8b848944c132c38e9cab0c3720ba905f4892afdba8cc286ba35716a363812ff6"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://courses.grainger.illinois.edu/ece477/fa2026/notes/Lect5-after.pdf",
+      "error": "HTTP Error 404: "
+    }
+  ],
+  "status": "pdf_downloaded",
+  "retrieved_at": "2026-10-05T20:47:17+0300",
+  "pdf_count": 9,
+  "status_tr": "PDF materyalleri indirildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

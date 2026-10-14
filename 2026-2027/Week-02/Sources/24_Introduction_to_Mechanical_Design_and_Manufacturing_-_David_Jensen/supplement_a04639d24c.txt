@@ -1,0 +1,208 @@
+Design for Assembly Principles – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Design for Assembly Principles
+Primary Objective of DFA
+Design for assembly (DFA) is a product design process that aims to optimize the product structure and the assembly process by reducing the number of components and minimizing the number of assembly operations required. The main objectives of DFA are to lower the assembly costs, improve the product quality and reliability, and shorten the time to market. DFA involves analyzing each part in an assembly and determining whether it is necessary for the product functionality, aesthetics, or maintenance. If a part does not meet any of these criteria, it should be eliminated or combined with another part. DFA also considers the ease of grasping, orienting, and inserting each part during the assembly process, and provides numerical evaluation methods to estimate the assembly time and cost for manual or automatic assembly.
+Principles of DFA
+DFA is a set of best practices and tools to support those best practices. While not objective physical laws that must always be followed, in general, time spent implementing these practices and analysis of the assembly process can reduce those associated costs.
+Minimizing part count
+This is the first and most important and effective best practice of DFA. This principle involves reducing the number of components in a product, which simplifies the product structure and the assembly process. Fewer parts also mean less material, inventory, handling, tooling and maintenance costs. For example, a plastic bottle cap can be designed as a single piece instead of having a separate seal and cap.
+One of the best ways to implement this principle is to perform an analysis of
+part count efficiency.
+This is a process that involves defining essential and non-essential parts and calculating a part count efficiency as the ratio of essential over total parts.
+Essential parts
+are those that are necessary for the function, performance or appearance of the product or system.
+Non-essential parts
+are those that can be eliminated, integrated or replaced without compromising the function, performance or appearance of the product or system. To identify essential and non-essential parts use a checklist of criteria:
+Does the part move relative to other parts?
+Does the part have to be made of a different material than other parts?
+Does the part have to be separated from other parts for maintenance or repair?
+Does the part affect the aesthetics or ergonomics of the product or system?
+Does the part have a specific regulatory or safety requirement?
+Based on these criteria, classify each part as essential or non-essential and then count the number of each type. The
+part count efficiency
+is then calculated by dividing the number of essential parts by the total number of parts. The higher the part count efficiency, the more optimized the product or system is in terms of minimizing part count. Practically speaking, no real products have
+only
+essential parts based on the above criteria. Aim for efficiencies greater than 80%.
+Modularize
+This principle involves designing a product as a collection of independent modules that can be easily assembled, disassembled, replaced or upgraded. Modular design allows for parallel assembly, mass customization, easier testing and repair. For example, a laptop computer can be designed as a modular product with separate modules for the screen, keyboard, battery, hard drive, etc.
+Built-in fasteners or Designing Self-Fastening Features
+This principle involves integrating fasteners into the parts that need to be joined, eliminating the need for separate fasteners such as screws, nuts, bolts, washers, etc. Built-in fasteners reduce part count, assembly time and tooling costs. For example, a plastic case can be designed with snap-fits or tabs that lock into place without requiring any screws.
+Use Symmetry Wisely
+This principle involves designing parts that are symmetrical or have rotational symmetry, so that they can be oriented in any way during assembly. Symmetrical parts reduce the need for reorientation, alignment and orientation verification. For example, a cylindrical battery can be inserted into a battery holder in any direction. Anti symmetry can also be used. If it is important that parts mate in only one direction, add asymmetric features that make is impossible to miss-assemble. This is discussed more in the following principle.
+Mistake-proofing (see
+Poka-Yoke
+)
+This principle involves designing parts and assembly processes that prevent or detect errors and defects. Mistake-proofing can be achieved by using features such as color coding, shape coding, keying, interlocking, etc. that ensure correct part selection, orientation and insertion. For example, a USB connector can be designed with a trapezoidal shape that prevents incorrect insertion.
+Use Commercially Available Standardized Parts (COTS)
+This principle involves using parts that are readily available in the market and conform to industry standards, instead of customizing or making them in-house. Standardized parts reduce design time, material costs, inventory costs and compatibility issues. For example, a circuit board can be designed with standard components such as resistors, capacitors, transistors, etc.
+Keep Tolerances Realistic
+This principle involves specifying tolerances that are appropriate for the function and quality of the product, without being too tight or too loose. Tolerances affect the fit, function and performance of the parts and the product. Too tight tolerances increase manufacturing costs and defects, while too loose tolerances reduce product quality and reliability. For example, a shaft can be designed with a tolerance of +/- 0.01 mm if it needs to fit into a bearing with minimal clearance.
+Assembly Process Considerations
+This principle involves designing parts and products that are easy to handle, manipulate and join during assembly. Assembly process considerations include minimizing handling steps, avoiding sharp edges or burrs that can injure workers or damage parts, using self-aligning or self-locating features that reduce alignment errors, using easy-to-access fasteners that reduce tooling costs and assembly time, etc. For example, a furniture piece can be designed with pre-drilled holes and screws that are easy to access and tighten.
+See below for
+examples
+of implementing these principles:
+Previous/next navigation
+Previous: Design for Manufacturing Principles
+Next: Introduction to Geometric Dimensions and Tolerances
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

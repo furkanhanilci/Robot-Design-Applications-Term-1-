@@ -1,0 +1,181 @@
+Configuration and Architecture – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Configuration and Architecture
+D
+efine the system architecture refers to how the assemblies and components are arranged and connected. The system architecture decision should take into account the constraints that apply to the product, such as size, weight, functionality, safety, cost, etc.
+A common mistake that beginner designers make is to create designs that have too many separate parts. This can lead to problems such as increased complexity, difficulty in manufacturing and assembly, higher cost, lower reliability, and more waste. A better approach is to try to design parts that are complex but elegant, meaning that they have multiple functions or features integrated into one piece. This can reduce the number of parts, simplify the assembly process, lower the cost, improve the performance, and enhance the aesthetics of the product.
+For example, consider a bicycle frame. A novice designer might design a frame that consists of many tubes and joints that are welded or bolted together. This would result in a heavy, bulky, and weak frame that is hard to produce and maintain. A more experienced designer would design a frame that is made of fewer tubes that are shaped and curved to fit together smoothly and securely. This would result in a lighter, sleeker, and stronger frame that is easier to produce and maintain.
+Modules
+Modules are self-contained units that perform specific functions or provide a specific feature. Modules can be designed independently, tested separately, and integrated easily into larger systems. Modules can also be modified, replaced, or upgraded without affecting the rest of the system. This reduces the complexity, cost, and time of product development and maintenance.
+An example of a modular product design, smartphone consists of several modules, such as the screen, camera, battery, processor, etc. These modules can be swapped or upgraded to improve the performance or functionality of the phone. This can also enable the development of product families, where similar modules are used to generate similar products with different features.
+Here are some of the good reasons for chunking components into modules:
+Enabling standardization: Standard modules can help reduce the number of different parts and interfaces in a product, which simplifies the design, manufacturing, and maintenance processes. For example, a modular power supply can be used for different electronic devices with different voltage and current requirements.
+Precise geometric location requirements: Modules can help achieve precise alignment and positioning of components that are critical for the function or appearance of the product. Specifically, when one or more components needs to be precisely located with respect to another, it often is helpful to combine those parts into a single module.
+Sharing of functions: Modules can help avoid duplication of components or assemblies that perform similar or multiple functions in a product. For example, a mechanism for moving product on a manufacturing line can be constructed as a single module to more precisely control movement and clamping.
+When vendors are limited to specific capabilities or expertise: Modules can help outsource some parts of the product design or manufacturing to external vendors who have specialized skills or equipment. For example, a modular battery pack can be purchased from a vendor who has expertise in battery technology and safety. Power conversion modules like motors will have a different underlying expertise for development.
+Similarity of the manufacturing or assembly process: Modules can help streamline the production process by grouping components that have similar fabrication or assembly methods. For example, a vehicle chassis can be made from the same material and process as other structural components of a car.
+Localization of future changes: Modules can help reduce the impact of design changes or updates on the rest of the product by isolating the affected components in one module. For example, a display screen can be upgraded to a higher resolution or size without affecting the other parts of a device.
+Enabling variety or customization: Modules can help increase the diversity and flexibility of the product by allowing different combinations or configurations of components to suit different user needs or preferences. For example, a furniture system can be assembled into different shapes and sizes according to the available space and style.
+Previous/next navigation
+Previous: Constraints
+Next: Connections and Interfaces
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

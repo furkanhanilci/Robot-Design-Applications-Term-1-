@@ -1,0 +1,720 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mutexes &mdash; Zephyr Project Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/doxytooltip.css?v=07852572" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=1679f004" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.zephyrproject.org/latest/kernel/services/synchronization/mutexes.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=830b4a95"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/tippy/popper.min.js?v=f051b558"></script>
+      <script src="../../../_static/tippy/tippy-bundle.umd.min.js?v=873d6056"></script>
+      <script src="../../../_static/doxytooltip.js?v=ab77ca7a"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=761fddf6"></script>
+      <script src="../../../_static/js/custom.js?v=4daa9211"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Condition Variables" href="condvar.html" />
+    <link rel="prev" title="Semaphores" href="semaphores.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <noscript id="dark-mode-toggle-stylesheets">
+    <link rel="stylesheet" href="../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+    <link rel="stylesheet" href="../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+  </noscript>
+  <script src="../../../_static/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+  <script type="module" src="../../../_static/js/dark-mode-toggle.min.mjs"></script>
+  
+  <script async src="https://widget.kapa.ai/kapa-widget.bundle.js"
+    data-website-id="231c2d18-d9cd-4296-bbcd-971a391dfe34"
+    data-color-scheme-selector="[data-theme='dark']"
+    data-search-mode-enabled="true"
+    data-project-name="Zephyr"
+    data-modal-title="Zephyr Chatbot"
+    data-view-mode="sidebar"
+    data-search-result-target="_self"
+    data-modal-open-on-command-k="true"
+    data-project-color="#7929d2"
+    data-project-logo="../../../_static/images/logo.svg"
+    data-modal-logo-hidden="true"
+    data-user-analytics-cookie-enabled="false"
+    data-button-bg-color="transparent"
+    data-button-hover-bg-color="transparent"
+    data-button-box-shadow="none"
+    data-button-border="none"
+    data-button-width="6rem"
+    data-button-image-height="50px"
+    data-button-image-width="50px"
+    data-button-hover-animation-enabled="false"
+    data-button-image="../../../_static/images/chatbot.webp"
+    data-button-text=" "
+    data-consent-required="true"
+    data-consent-screen-title="How does this AI Chat work?"
+    data-consent-screen-disclaimer="This AI assistant uses your questions to provide answers based
+      on the Zephyr documentation, source code, and GitHub issues and pull requests. Your questions
+      and interactions may be anonymously collected and analyzed to improve the quality of the
+      documentation by identifying areas for improvement. We don't collect any personally
+      identifiable information.
+      By clicking &quot;Accept&quot;, you consent to using this AI-powered feature and the
+      collection of your data. AI-generated responses may contain inaccuracies, please verify
+      important information with the official documentation."
+    data-mcp-enabled="true"
+    data-mcp-server-url="https://zephyrproject.mcp.kapa.ai"
+  ></script>
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div class="search-container" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="search" name="q" placeholder="Search docs"
+           aria-label="Search docs" />
+    <span id="search-se-settings-icon" class="fa fa-gear" role="button" tabindex="0"
+          title="Search settings" aria-label="Search settings"
+          aria-haspopup="menu" aria-controls="search-se-menu" aria-expanded="false"
+          onclick="toggleSearchEngineSettingsMenu()">
+    </span>
+    <div id="search-se-menu" role="menu" aria-labelledby="search-se-settings-icon">
+      <ul>
+        <li id="search-se-menuitem-sphinx" role="menuitemradio" tabindex="-1"
+            aria-label="Built-in search" onclick="switchSearchEngine('sphinx')">
+          Built-in search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-google" role="menuitemradio" tabindex="-1"
+            aria-label="Google search" onclick="switchSearchEngine('google')">
+          Google search <span class="fa fa-check"></span>
+        </li>
+        <li id="search-se-menuitem-kapa" role="menuitemradio" tabindex="-1"
+            aria-label="Kapa AI search" onclick="switchSearchEngine('kapa')">
+          Kapa AI search <span class="fa fa-check"></span>
+        </li>
+      </ul>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+(function () {
+  var hasGoogleSearch = true;
+  var hasKapaSearch = true;
+
+  var form = document.getElementById("rtd-search-form");
+  var searchMenu = document.getElementById("search-se-menu");
+  var isBrowsingLatest = window.location.pathname.startsWith("/latest");
+  var preferenceKey = "search-se-" + (isBrowsingLatest ? "latest" : "default");
+  var query = new URLSearchParams(window.location.search).get("q");
+  var searchEngines = ["sphinx"];
+  if (hasGoogleSearch) {
+    searchEngines.push("google");
+  }
+  if (hasKapaSearch) {
+    searchEngines.push("kapa");
+  }
+
+  if (query !== null) {
+    form.q.value = query;
+    form.q.focus();
+  }
+
+  // Load the saved search preference. On "/latest", default to Google when enabled in this build;
+  // otherwise default to built-in Sphinx search.
+  var engine = localStorage.getItem(preferenceKey);
+  if (engine === null) {
+    engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+  }
+  setActiveSearchEngine(engine);
+
+  setSearchEngineSettingsMenuVisibility = function (visible) {
+    searchMenu.style.display = visible ? "block" : "none";
+    document
+      .getElementById("search-se-settings-icon")
+      .setAttribute("aria-expanded", visible ? "true" : "false");
+  };
+  setSearchEngineSettingsMenuVisibility(false);
+
+  window.toggleSearchEngineSettingsMenu = function () {
+    isVisible = searchMenu.style.display === "block";
+    setSearchEngineSettingsMenuVisibility(!isVisible);
+  };
+
+  function setActiveSearchEngine(engine) {
+    if (searchEngines.indexOf(engine) === -1) {
+      engine = isBrowsingLatest && hasGoogleSearch ? "google" : "sphinx";
+    }
+
+    if (engine === "sphinx") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (built-in search)";
+    } else if (hasGoogleSearch && engine === "google") {
+      form.action = "../../../gsearch.html";
+      form.q.placeholder = "Search docs (powered by Google)";
+    } else if (hasKapaSearch && engine === "kapa") {
+      form.action = "../../../search.html";
+      form.q.placeholder = "Search docs (Kapa AI)";
+    }
+
+    searchEngines.forEach(function (searchEngine) {
+      var menuItem = document.getElementById("search-se-menuitem-" + searchEngine);
+      if (!menuItem) {
+        return;
+      }
+      var isSelected = searchEngine === engine;
+      menuItem.classList.toggle("selected", isSelected);
+      menuItem.setAttribute("aria-checked", isSelected ? "true" : "false");
+    });
+  }
+
+  var openKapaSearch;
+  var openKapaSearchWhenReady;
+
+  if (hasKapaSearch) {
+    openKapaSearch = function (q) {
+      if (!window.Kapa || typeof window.Kapa.open !== "function") {
+        return false;
+      }
+      var text = (q != null && q !== "" ? String(q) : "").trim();
+      if (text !== "") {
+        window.Kapa.open({ mode: "search", query: text, submit: true });
+      } else {
+        window.Kapa.open({ mode: "search" });
+      }
+      return true;
+    };
+
+    openKapaSearchWhenReady = function (q, remainingAttempts) {
+      if (openKapaSearch(q) || remainingAttempts <= 0) {
+        return;
+      }
+      window.setTimeout(function () {
+        openKapaSearchWhenReady(q, remainingAttempts - 1);
+      }, 250);
+    };
+
+    form.addEventListener("submit", function (event) {
+      if (localStorage.getItem(preferenceKey) !== "kapa") {
+        return;
+      }
+      event.preventDefault();
+      openKapaSearchWhenReady(form.q.value, 40);
+    });
+  }
+
+  window.switchSearchEngine = function (engine) {
+    setActiveSearchEngine(engine);
+    localStorage.setItem(preferenceKey, engine);
+    setSearchEngineSettingsMenuVisibility(false);
+    form.q.focus();
+    if (form.q.value !== "") {
+      if (hasKapaSearch && engine === "kapa") {
+        openKapaSearchWhenReady(form.q.value, 40);
+      } else {
+        form.submit();
+      }
+    }
+  };
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches("#search-se-settings-icon")) {
+      if (searchMenu.style.display === "block") {
+        setSearchEngineSettingsMenuVisibility(false);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if(searchMenu.style.display === "none") return;
+
+    let menuItems = document.querySelectorAll('[role="menuitemradio"]');
+    let currentIndex = Array.from(menuItems).findIndex((item) => item === document.activeElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      let nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+
+      if (nextIndex >= menuItems.length) nextIndex = 0;
+      if (nextIndex < 0) nextIndex = menuItems.length - 1;
+
+      menuItems[nextIndex].focus();
+      event.preventDefault();
+    } else if (event.key === "Enter") {
+      let activeItem = document.activeElement;
+      if (activeItem && activeItem.getAttribute("role") === "menuitemradio") {
+        activeItem.click();
+        event.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  <div data-nosnippet>
+    
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/4.4.0/">4.4.0</a></dd>
+        
+          <dd><a href="/4.3.0/">4.3.0</a></dd>
+        
+          <dd><a href="/3.7.0/">3.7.0 (LTS)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/latest/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">Developing with Zephyr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kernel</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Kernel Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#scheduling-interrupts-and-synchronization">Scheduling, Interrupts, and Synchronization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../threads/index.html">Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html">Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../scheduling/index.html#cpu-idling">CPU Idling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../threads/system_threads.html">System Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../threads/workqueue.html">Workqueue Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../threads/nothread.html">Operation without Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../interrupts.html">Interrupts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../polling.html">Polling API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="semaphores.html">Semaphores</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Mutexes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#reentrant-locking">Reentrant Locking</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#priority-inheritance">Priority Inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#defining-a-mutex">Defining a Mutex</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#locking-a-mutex">Locking a Mutex</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#unlocking-a-mutex">Unlocking a Mutex</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#suggested-uses">Suggested Uses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#api-reference">API Reference</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#futex-api-reference">Futex API Reference</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#user-mode-mutex-api-reference">User Mode Mutex API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="condvar.html">Condition Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spinlocks.html">Spinlocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../smp/smp.html">Symmetric Multiprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#data-passing">Data Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#memory-management">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#timing">Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/index.html">Device Driver Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermode/index.html">User Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../memory_management/index.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_structures/index.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing_functions/index.html">Executing Time Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../object_cores/index.html">Object Cores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeutil.html">Time Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../precision_timing.html">Precision Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../util/index.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iterable_sections/index.html">Iterable Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code-relocation.html">Code And Data Relocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cleanup.html">Scope-based Cleanup Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/index.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">Contributing to Zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project/index.html">Project and Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety/index.html">Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../boards/index.html">Supported Boards and Shields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+</ul>
+
+    
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/doxygen/html/index.html">API</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/kconfig.html">Kconfig Options</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/dts/api/bindings.html">Devicetree Bindings</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/build/cmake-ref/index.html">CMake modules</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/develop/manifest/index.html">West Projects</a>
+        </li>
+        
+        <li class="toctree-l1">
+          <a class="reference internal" href="/latest/glossary.html">Glossary</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Zephyr Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+  <!-- Docs / Latest -->
+  
+  
+
+  <li><a href="../../../index.html">Docs / Latest</a> &raquo;</li>
+  
+     <li><a href="../../index.html">Kernel</a> &raquo;</li>
+  
+     <li><a href="../index.html">Kernel Services</a> &raquo;</li>
+  
+  <li>Mutexes</li>
+
+
+  <li class="wy-breadcrumbs-aside">
+    <dark-mode-toggle id="dark-mode-toggle" appearance="three-way" permanent="true"/>
+  </li>
+  <li class="wy-breadcrumbs-aside">
+      
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/doc/kernel/services/synchronization/mutexes.rst" class="fa fa-github"> Open on GitHub</a>
+      
+        <a href="https://github.com/zephyrproject-rtos/zephyr/issues/new?template=001_bug_report.yml&title=doc%3A+Documentation+issue+in+%27kernel%2Fservices%2Fsynchronization%2Fmutexes%27&labels=bug%2Carea%3A+Documentation%2Carea%3A+Kernel&env=-+Page%3A+kernel%2Fservices%2Fsynchronization%2Fmutexes%0A-+Version%3A+main%0A-+SHA-1%3A+3cce2033df239568b20ebe07cefe222ba59ae056&context=This+issue+was+reported+from+the+online+documentation+page+using+the+%27Report+an+issue%27+button." class="fa fa-bug">
+          Report an issue with this page
+        </a>
+      
+    
+  </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="mutexes">
+<span id="mutexes-v2"></span><h1>Mutexes<a class="headerlink" href="#mutexes" title="Link to this heading"></a></h1>
+<p>A <em class="dfn">mutex</em> is a kernel object that implements a traditional
+reentrant mutex. A mutex allows multiple threads to safely share
+an associated hardware or software resource by ensuring mutually exclusive
+access to the resource.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#concepts" id="id1">Concepts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#reentrant-locking" id="id2">Reentrant Locking</a></p></li>
+<li><p><a class="reference internal" href="#priority-inheritance" id="id3">Priority Inheritance</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implementation" id="id4">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#defining-a-mutex" id="id5">Defining a Mutex</a></p></li>
+<li><p><a class="reference internal" href="#locking-a-mutex" id="id6">Locking a Mutex</a></p></li>
+<li><p><a class="reference internal" href="#unlocking-a-mutex" id="id7">Unlocking a Mutex</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#suggested-uses" id="id8">Suggested Uses</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id9">Configuration Options</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id10">API Reference</a></p></li>
+<li><p><a class="reference internal" href="#futex-api-reference" id="id11">Futex API Reference</a></p></li>
+<li><p><a class="reference internal" href="#user-mode-mutex-api-reference" id="id12">User Mode Mutex API Reference</a></p></li>
+</ul>
+</nav>
+<section id="concepts">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<p>Any number of mutexes can be defined (limited only by available RAM). Each mutex
+is referenced by its memory address.</p>
+<p>A mutex has the following key properties:</p>
+<ul class="simple">
+<li><p>A <strong>lock count</strong> that indicates the number of times the mutex has been locked
+by the thread that has locked it. A count of zero indicates that the mutex
+is unlocked.</p></li>
+<li><p>An <strong>owning thread</strong> that identifies the thread that has locked the mutex,
+when it is locked.</p></li>
+</ul>
+<p>A mutex must be initialized before it can be used. This sets its lock count
+to zero.</p>
+<p>A thread that needs to use a shared resource must first gain exclusive rights
+to access it by <strong>locking</strong> the associated mutex. If the mutex is already locked
+by another thread, the requesting thread may choose to wait for the mutex
+to be unlocked.</p>
+<p>After locking a mutex, the thread may safely use the associated resource
+for as long as needed; however, it is considered good practice to hold the lock
+for as short a time as possible to avoid negatively impacting other threads
+that want to use the resource. When the thread no longer needs the resource
+it must <strong>unlock</strong> the mutex to allow other threads to use the resource.</p>
+<p>A mutex must not be freed, or have its memory reused, while it is locked
+or while threads are waiting on it. A mutex embedded in a dynamically
+allocated object must be unlocked before that object is released;
+otherwise the owning thread is left tracking a mutex in memory that no
+longer belongs to it.</p>
+<p>Any number of threads may wait on a locked mutex simultaneously.
+When the mutex becomes unlocked it is then locked by the highest-priority
+thread that has waited the longest.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mutex objects are <em>not</em> designed for use by ISRs.</p>
+</div>
+<section id="reentrant-locking">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Reentrant Locking</a><a class="headerlink" href="#reentrant-locking" title="Link to this heading"></a></h3>
+<p>A thread is permitted to lock a mutex it has already locked.
+This allows the thread to access the associated resource at a point
+in its execution when the mutex may or may not already be locked.</p>
+<p>A mutex that is repeatedly locked by a thread must be unlocked an equal number
+of times before the mutex becomes fully unlocked so it can be claimed
+by another thread.</p>
+</section>
+<section id="priority-inheritance">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Priority Inheritance</a><a class="headerlink" href="#priority-inheritance" title="Link to this heading"></a></h3>
+<p>The thread that has locked a mutex is eligible for <em class="dfn">priority inheritance</em>.
+This means the kernel will <em>temporarily</em> elevate the thread’s priority
+if a higher priority thread begins waiting on the mutex. This allows the owning
+thread to complete its work and release the mutex more rapidly by executing
+at the same priority as the waiting thread. Once the mutex has been unlocked,
+the unlocking thread resets its priority to the level it had before locking
+that mutex.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="../../../kconfig.html#CONFIG_PRIORITY_CEILING" title="CONFIG_PRIORITY_CEILING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_PRIORITY_CEILING</span></code></a> configuration option limits
+how high the kernel can raise a thread’s priority due to priority
+inheritance. The default value of -128 permits unlimited. Setting this
+to a priority level that is at or lower than the priority of the idle
+thread disables it.</p>
+</div>
+<p>A thread’s priority prior to any mutex-related boost is saved on the thread
+itself the first time it is raised, and each mutex it holds is tracked in a
+per-thread list. Each time a higher priority thread waits on a mutex, the
+kernel adjusts the owning thread’s priority. When the owning thread releases
+a lock (or if the high priority waiting thread times out), the kernel
+rescans the thread’s remaining held mutexes and recalculates its priority
+from the highest-priority waiter still pending on any of them, falling back
+to the thread’s original priority if none remain. This gives correct
+results regardless of the order in which held mutexes are unlocked.</p>
+<p>If the owner of a mutex is itself blocked waiting on another mutex, a
+priority boost is propagated along that ownership chain so that every
+thread blocking progress towards the waiter is raised in turn, up to an
+implementation-defined limit on the number of chain hops walked per lock
+attempt. Owners beyond that limit keep their pre-boost priority until a
+later lock attempt walks the chain again.</p>
+</section>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
+<section id="defining-a-mutex">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Defining a Mutex</a><a class="headerlink" href="#defining-a-mutex" title="Link to this heading"></a></h3>
+<p>A mutex is defined using a variable of type <a class="reference internal" href="../../../doxygen/html/structk__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_mutex</span></code></a>.
+It must then be initialized by calling <a class="reference internal" href="../../../doxygen/html/group__mutex__apis.html#ga56b64952fb8b78b00268a21c28b41480" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_mutex_init()</span></code></a>.</p>
+<p>The following code defines and initializes a mutex.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">k_mutex</span><span class="w"> </span><span class="n">my_mutex</span><span class="p">;</span>
+
+<span class="n">k_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mutex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, a mutex can be defined and initialized at compile time
+by calling <a class="reference internal" href="../../../doxygen/html/group__mutex__apis.html#gab6f3d98fabbdc0918bbc9934d61d63f3" title=""><code class="xref c c-macro docutils literal notranslate"><span class="pre">K_MUTEX_DEFINE</span></code></a>.</p>
+<p>The following code has the same effect as the code segment above.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">K_MUTEX_DEFINE</span><span class="p">(</span><span class="n">my_mutex</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="locking-a-mutex">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Locking a Mutex</a><a class="headerlink" href="#locking-a-mutex" title="Link to this heading"></a></h3>
+<p>A mutex is locked by calling <a class="reference internal" href="../../../doxygen/html/group__mutex__apis.html#ga850549358645249c285669baa49c33b0" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_mutex_lock()</span></code></a>.</p>
+<p>The following code builds on the example above, and waits indefinitely
+for the mutex to become available if it is already locked by another thread.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mutex</span><span class="p">,</span><span class="w"> </span><span class="n">K_FOREVER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The following code waits up to 100 milliseconds for the mutex to become
+available, and gives a warning if the mutex does not become available.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mutex</span><span class="p">,</span><span class="w"> </span><span class="n">K_MSEC</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* mutex successfully locked */</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Cannot lock XYZ display</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="unlocking-a-mutex">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Unlocking a Mutex</a><a class="headerlink" href="#unlocking-a-mutex" title="Link to this heading"></a></h3>
+<p>A mutex is unlocked by calling <a class="reference internal" href="../../../doxygen/html/group__mutex__apis.html#ga360f4c0e7258b0d7030cdb1f452b2c31" title=""><code class="xref c c-func docutils literal notranslate"><span class="pre">k_mutex_unlock()</span></code></a>.</p>
+<p>The following code builds on the example above,
+and unlocks the mutex that was previously locked by the thread.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_mutex</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="suggested-uses">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Suggested Uses</a><a class="headerlink" href="#suggested-uses" title="Link to this heading"></a></h2>
+<p>Use a mutex to provide exclusive access to a resource, such as a physical
+device.</p>
+</section>
+<section id="configuration-options">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p>Related configuration options:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../kconfig.html#CONFIG_PRIORITY_CEILING" title="CONFIG_PRIORITY_CEILING"><code class="xref kconfig kconfig-option docutils literal notranslate"><span class="pre">CONFIG_PRIORITY_CEILING</span></code></a></p></li>
+</ul>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__mutex__apis.html" title=""><span class="pre">Mutex</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+<div class="related-code-samples dropdown toggle-shown admonition">
+<p class="admonition-title">Related code samples</p>
+<ul class="code-sample-list">
+<li><span class="code-sample-name"><a class="reference internal" href="../../../samples/philosophers/README.html#dining-philosophers" title="Implement a solution to the Dining Philosophers problem using Zephyr kernel services.">Dining Philosophers</a></span><span class="code-sample-description">Implement a solution to the Dining Philosophers problem using Zephyr kernel services.</span></li>
+</ul>
+</div>
+</section>
+<section id="futex-api-reference">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Futex API Reference</a><a class="headerlink" href="#futex-api-reference" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../doxygen/html/structk__futex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_futex</span></code></a> is a lightweight mutual exclusion primitive designed to minimize
+kernel involvement. Uncontended operation relies only on atomic access
+to shared memory. <a class="reference internal" href="../../../doxygen/html/structk__futex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_futex</span></code></a> are not kernel objects and do not use the
+kernel object permission management. They live in user memory and can be
+used by any thread which has read-write access to this memory.</p>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__futex__apis.html" title=""><span class="pre">FUTEX</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+<section id="user-mode-mutex-api-reference">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">User Mode Mutex API Reference</a><a class="headerlink" href="#user-mode-mutex-api-reference" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../doxygen/html/structsys__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">sys_mutex</span></code></a> behaves almost exactly like <a class="reference internal" href="../../../doxygen/html/structk__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_mutex</span></code></a>, with the added advantage
+that a <a class="reference internal" href="../../../doxygen/html/structsys__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">sys_mutex</span></code></a> instance can reside in user memory. When user mode isn’t
+enabled, <a class="reference internal" href="../../../doxygen/html/structsys__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">sys_mutex</span></code></a> behaves like <a class="reference internal" href="../../../doxygen/html/structk__mutex.html" title=""><code class="xref c c-struct docutils literal notranslate"><span class="pre">k_mutex</span></code></a>.</p>
+<dl>
+<dt class="sig sig-object c">
+<a class="doxygroup reference internal" href="../../../doxygen/html/group__user__mutex__apis.html" title=""><span class="pre">User</span> <span class="pre">mode</span> <span class="pre">mutex</span> <span class="pre">APIs</span></a></dt>
+</dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<p>
+  &#169; Copyright 2015-2026 Zephyr Project members and individual contributors.
+  <div class="lastupdated">
+    Last generated: Oct 04, 2026.
+    Last source update: Sep 21, 2026.
+  </div></p>
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

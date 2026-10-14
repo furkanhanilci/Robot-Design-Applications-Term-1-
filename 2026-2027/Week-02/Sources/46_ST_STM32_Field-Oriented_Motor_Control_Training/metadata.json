@@ -1,0 +1,21 @@
+{
+  "id": 46,
+  "name": "ST STM32 Field-Oriented Motor Control Training",
+  "type": "Üretici teknik eğitimi",
+  "url": "https://www.st.com/content/st_com/en/support/learning/stm32-moocs/Motor-Control-Part-5-STM32-Field-Oriented-motor-control-training.html",
+  "folder": "46_ST_STM32_Field-Oriented_Motor_Control_Training",
+  "files": [],
+  "errors": [
+    {
+      "url": "https://www.st.com/content/st_com/en/support/learning/stm32-moocs/Motor-Control-Part-5-STM32-Field-Oriented-motor-control-training.html",
+      "error": "The read operation timed out"
+    }
+  ],
+  "status": "unavailable",
+  "retrieved_at": "2026-10-05T20:48:14+0300",
+  "pdf_count": 0,
+  "status_tr": "Dosya erişimi sağlanamadı",
+  "notes": [
+    "İndirme istekleri zaman aşımı veya HTTP erişim engeli ile sonuçlandı. Bu kaynak için indirilmiş içerik varmış gibi gösterilmemiştir."
+  ]
+}

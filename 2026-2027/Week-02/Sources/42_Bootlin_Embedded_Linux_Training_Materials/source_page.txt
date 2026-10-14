@@ -1,0 +1,505 @@
+Docs – Bootlin
+Skip to content
+Bootlin
+Embedded Linux and kernel engineering
+Menu
+Home
+Engineering
+Training
+Docs
+Community
+Company
+Youtube
+LinkedIn
+Docs
+Free training materials and conference presentations from Bootlin, covering kernel, real-time, Android, embedded Linux system and device driver development.
+License
+All
+our documents are available under the terms of the
+Creative Commons Attribution-ShareAlike 3.0 license
+. This essentially means that you are free to download, distribute and even modify them, provided you mention us as the original authors and that you share these documents under the same conditions.
+Complete training materials
+Embedded Linux system development course
+Linux kernel and driver development course
+Yocto Project and OpenEmbedded development course
+Buildroot development course
+Embedded Linux boot time reduction course
+Understanding the Linux graphics stack
+Real-time Linux with PREEMPT_RT
+Linux debugging, profiling, tracing and performance analysis
+Embedded Linux audio
+Presentations at technical conferences
+Here are the most recent versions of presentations we made at technical conferences.
+LSFMMBPF 2026 (Zagreb)
+Adding KASAN support for JITed programs, Alexis Lothoré (
+slides
+)
+FOSDEM 2026 (Brussels)
+From C to Rust on the ESP32: A Developer’s Journey into no_std, Alexis Lothoré
+(
+slides
+)
+Snagboot: vendor-agnostic, open-source and developer-friendly recovery and reflashing tool, Thomas Petazzoni
+(
+slides
+)
+sbom-cve-check: Lightweight Python tooling for out-of-build CVE analysis of SPDX3 SBOMs, Benjamin Robin
+(
+slides
+)
+Yocto Project Summit 2025 (virtual)
+sbom-cve-check: Lightweight Python tooling for out-of-build CVE analysis of SPFX3 SBOMs, Olivier Benjamin & Benjamin Robin
+(
+slides
+)
+Capitole du libre 2025 (Toulouse)
+What’s new in the Linux kernel ? A year in review, Thomas Petazzoni
+(
+slides
+)
+A Free Blind Test game from A to Z: when FOSS animate your parties ! Alexis Lothoré
+(
+slides
+)
+Mastering eBPF: creating a high performance ad-blocker, Maxime Chevallier, Alexis Lothoré
+slides
+workshop instructions
+Embedded Linux Conference 2025 (Amsterdam)
+Linux Power Management Features and Their Interactions, Part 2, Théo Lebrun
+(
+slides
+)
+Graphic Testing Without Hardware: Discovering the Power of VKMS! Louis Chauvet
+(
+slides
+)
+Snag It, Flash It, Ship It: Rethinking Factory Flashing, Romain Gantois, Paresh Bhagat
+(
+slides
+)
+Navigating Security Tradeoffs in Embedded Linux Systems, Olivier Benjamin
+(
+slides
+)
+Bridging Worlds: Using Device Tree Overlays to Support Complex PCI Devices in Linux, Hervé Codina
+(
+slides
+)
+From Raw to Refined: The Evolution of Raw Flash Support in Linux, Miquèl Raynal
+(
+slides
+)
+Hotplug of Non-Discoverable Hardware: Status And Future Directions, Luca Ceresoli
+(
+slides
+)
+Unpacking the Linux WiFi stack: Writing and Integrating Wireless Drivers, Alexis Lothoré
+(
+slides
+)
+Display Next Hackfest 2025 (Toronto)
+VKMS: the new ConfigFS interface (
+slides
+)
+Embedded Linux Meetup 2025 (Toulouse)
+Driver development for Zephyr, Miguel Gazquez (
+slides
+)
+Keynotes
+Linux kernel SoC mainlining: Some success factors
+(2015)
+Linux kernel, bootloaders and hardware support
+Runtime hotplug on non-discoverable busses with device tree overlays
+(2024)
+Hotplug DRM pipeline components on non-discoverable video busses
+(2024)
+Representing the front-facing ports of Ethernet interfaces
+(2024)
+Linux Power Management Features, Their Relationships and Interactions
+(2024)
+Inspecting and Optimizing Memory Usage in Linux
+(2024)
+Adding Support for Power Over Ethernet (PoE or IEEE Clause 33) to Linux Network Stack
+(2024)
+Unlocking the Potential of Suspend to RAM Using Linux in a Multi-Core, Multi-Firmware Automotive SoC
+(2024)
+In the Kernel Trenches: Mastering Ethernet Drivers on Linux
+(2024)
+Introduction to DAPM, Linux Power Management for Embedded Audio Devices
+(2024)
+Modifier le noyau Linux en live avec eBPF !
+(2024)
+Etre mainteneur dans le noyau Linux
+(2024)
+Multi-port and Multi-PHY Ethernet interfaces
+(2023)
+A tour of USB Device Controller (UDC) in Linux
+(
+video
+, 2023)
+A Current Overview of the DRM KMS Driver-Side APIs
+(
+video
+, 2023)
+Improving IEEE 802.15.4 MAC management support in the Linux kernel
+(2022)
+Basics of I2C on Linux
+(
+video
+, 2022)
+Walking Through the Linux-Based Graphics Stack
+(
+video
+, 2022)
+Advanced camera support on Allwinner SoCs with mainline Linux
+(
+video
+, 2022)
+PKCS#11 with OP-TEE
+(
+video
+, 2022)
+AMP on Cortex A9 with Linux and OpenAMP
+(2022)
+LLVM tools for the Linux kernel
+(
+video
+, 2022)
+OP-Tee: when Linux loses control
+(
+video
+, 2021)
+I3C in tomorrow’s designs
+(
+video
+, 2021)
+Device Tree 101
+(
+video
+, 2021)
+Network Performance in the Linux Kernel, Getting the most out of the Hardware
+(
+video
+, 2021)
+An overview of the Linux kernel and user-space graphics stack
+(
+video
+, 2020)
+ASoC: Supporting Audio on an Embedded Board
+(
+video
+, 2020)
+From the camera sensor to the user: the journey of a video frame
+(
+video
+, 2020)
+Supporting hardware-accelerated video encoding with mainline Linux
+(
+video
+, 2020)
+Understand ECC support for NAND flash devices in Linux
+(
+video
+, 2020)
+Precision Time Protocol (PTP) and packet timestamping in Linux
+(
+video
+, 2020)
+Integrating HW-Accelerated Video Decoding with the Display Stack
+(
+video
+, 2019)
+Memory Technology Devices: what’s new?
+(2019)
+RTC subsystem, recent changes and where it is heading
+(
+video
+, 2019)
+Offloading Network Traffic Classification
+(
+video
+, 2019)
+Introduction to Linux kernel driver programming: device model
+(2019)
+Understand your NAND and drive it within Linux
+(
+video
+, 2018)
+Introduction to the DRM subsystem
+(
+video
+, 2017)
+Power Management Integrated Circuits: Keep the Power in Your Hands
+(
+video
+, 2017)
+A tour of the ARM architecture and its Linux support
+(
+video
+, 2017)
+Upstreaming hardware support in the Linux kernel: why and how?
+(2016)
+Supporting the Camera Interface on the C.H.I.P
+(
+video
+, 2016)
+Bringing display and 3D to the C.H.I.P computer
+(
+video
+, 2016)
+Your newer ARM64 SoC Linux check list!
+(
+video
+, 2016)
+Using DT overlays to support the C.H.I.P.’s capes
+(
+video
+, 2016)
+Porting Linux on an ARM board
+(2015)
+Supporting multi-function devices in the Linux kernel
+(
+video
+, 2015)
+Kernel maintainership: an oral tradition
+(
+video
+, 2015)
+An overview of the DMAEngine subsystem
+(
+video
+, 2015)
+Device Tree as a stable ABI: a fairy tale?
+(
+video
+, 2015)
+Two years of ARM SoC support mainlining: lessons learned
+(2014)
+Supporting a new ARM platform: the Allwinner example
+(
+video
+, 2014)
+The DRM/KMS subsystem from a newbie’s point of view
+(2014)
+SMP bring up on ARM SoCs
+(2014)
+Common clock framework: how to use it
+(
+video
+, 2013)
+ARM support in the Linux kernel
+(
+video
+, 2013)
+Your new ARM SoC Linux support check-list
+(
+video from earlier session
+, 2013)
+IIO, a new subsystem
+(2012)
+Embedded Linux
+Embedded Linux from scratch in 50 minutes (on RISC-V)
+(2024)
+10 best practices for Yocto
+(2024)
+Keep your layer simple – and here’s how
+(
+video
+, 2023)
+How to Contribute to OpenEmbedded, Yocto, and Many Other Open Source Projects
+(
+video
+, 2023)
+Discover and understand Embedded Linux
+(2023)
+How to reduce power consumption with GNU/Linux
+(2023)
+Debugging with GDB and remote GDB
+(2023)
+Finding the Best Block Filesystem
+(
+video
+, 2023)
+Bitbaking SPDX SBoM
+(
+video
+, 2022)
+Implementing A/B System Updates with U-Boot
+(
+video
+, 2022)
+Yocto Project Autobuilders and the SWAT team
+(
+video
+, 2022)
+Buildroot – What’s new?
+(
+video
+, 2022)
+How do I start contributing to Yocto Project?
+(
+video
+, 2022)
+Embedded Linux nuggets found in Buildroot package eldorado
+(
+video
+, 2021)
+Security vulnerability tracking tools in Buildroot
+(
+video
+, 2021)
+Secure boot in embedded Linux systems
+(
+video
+, 2021)
+Device tree overlays and U-Boot extension board management
+(
+video
+, 2021)
+Getting started with RAUC
+(
+video
+, 2021)
+Understanding U-Boot Falcon mode
+(
+video
+, 2021)
+Embedded Linux from Scratch in 45 minutes, on RISC-V
+(
+video
+, 2021)
+OpenEmbedded and Yocto Project best practices
+(
+video
+, 2020)
+Building embedded Debian/Ubuntu systems with ELBE
+(
+video
+, 2020)
+Using Visual Studio Code for Embedded Linux Development
+(
+video
+, 2020)
+Getting started with Buildroot
+(2019)
+Timing boot time reduction techniques
+(2019)
+Introduction to Yocto Project and OpenEmbedded
+(2017)
+Understanding D-Bus
+(2016)
+Embedded Building a board farm: Continuous Integration and remote control
+(
+video
+, 2016)
+Anatomy of cross-compilation toolchains
+(
+video
+, 2016)
+Running UBI/UBIFS on MLC NAND
+(
+video
+, 2016)
+Buildroot vs. OpenEmbedded/Yocto Project: A Four Hands Discussion
+(
+video
+, 2016)
+GNU Autotools: a tutorial
+(
+video
+, 2016)
+Using Yocto Project for module manufacturers
+(2014)
+Buildroot: a deep dive into the core
+(2014)
+Introduction to Buildroot
+(2013)
+Buildroot: a nice, simple and efficient embedded Linux build system
+(2012)
+Qt for non-graphical applications
+(2012)
+Using Buildroot for real projects
+(
+video
+, 2011)
+Android
+Introduction to Android and system bring-up
+(2012)
+Legacy documents
+These documents are not actively maintained any more. Therefore, they are likely to contain obsolete parts.
+Android
+Android system development course
+Kernel
+Linux serial drivers
+New features in Linux 2.6
+(since 2.6.10)
+Linux PCI drivers
+Block device drivers
+Network device drivers
+USB drivers
+What’s new in Linux 2.6?
+Architecture specific documents
+ARM Linux specifics
+Linux on TI OMAP processors
+Embedded Linux system development
+Accessing hardware from user-space
+Using the POSIX API – Threads, real­time and IPC
+Embedded Linux optimizations
+Porting U-boot to new hardware
+The udev device manager
+The GRUB bootloader
+The blob bootloader
+Introduction to uClinux
+Java in embedded Linux
+Audio in embedded Linux systems
+Multimedia in embedded Linux systems
+The Scratchbox development environment
+Miscellaneous
+Introduction to the Unix command line
+SSH
+Linux virtualization solutions
+(with an embedded perspective)
+Advantages of Free Software and Open Source in embedded systems
+Introduction to GNU/Linux and Free Software
+Linux and ecology
+Porting to a new PDA
+Search for:
+Search
+Next training sessions dates
+Embedded Linux
+Linux kernel
+Buildroot
+Yocto / OpenEmbedded
+Embedded Linux audio
+Real-time Linux with PREEMPT_RT
+Debugging, profiling, tracing in Linux
+Embedded Linux Security
+Embedded Linux Networking
+Linux graphics
+Useful links
+Version française
+Youtube
+LinkedIn
+Follow new articles
+Recent articles
+Device tree addons: describing non-discoverable addon boards and connectors
+Welcome to Thomas Païta and Paul Cercueil
+audio-iio-aux: when IIO meets audio
+Bootlin toolchains 2026.08 released
+Bootlin’s Yocto training course updated to Wrynose
+sbom-cve-check 1.3.2 and 1.3.3: improved SBOM handling and more robust CVE analysis
+yocto-kiss: updated to the Wrynose Yocto LTS release
+Snagboot v3.0 is released!
+Linux 7.2 released, Bootlin contributions inside
+Understanding the Linux Graphics Stack is now available as a self-paced video course
+Home
+Engineering
+Training
+Docs
+Community
+Company
+Youtube
+LinkedIn
+Bootlin
+Privacy Policy
+Proudly powered by WordPress

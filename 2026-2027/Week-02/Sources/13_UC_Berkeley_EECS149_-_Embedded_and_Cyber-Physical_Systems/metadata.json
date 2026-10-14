@@ -1,0 +1,25 @@
+{
+  "id": 13,
+  "name": "UC Berkeley EECS149 - Embedded and Cyber-Physical Systems",
+  "type": "Üniversite dersi",
+  "url": "https://www2.eecs.berkeley.edu/Courses/EECS149/",
+  "folder": "13_UC_Berkeley_EECS149_-_Embedded_and_Cyber-Physical_Systems",
+  "files": [
+    {
+      "file": "source_page.html",
+      "url": "https://www2.eecs.berkeley.edu/Courses/EECS149/",
+      "final_url": "https://www2.eecs.berkeley.edu/Courses/EECS149/",
+      "kind": "html",
+      "bytes": 95849,
+      "sha256": "1d20153cfddf6c32708eaeb90594895801c28bf39d5f38df5dbc81fb7ae64431"
+    }
+  ],
+  "errors": [],
+  "status": "web_material_saved",
+  "retrieved_at": "2026-10-05T20:47:05+0300",
+  "pdf_count": 0,
+  "status_tr": "Web sayfası/metni kaydedildi",
+  "notes": [
+    "HTML dosyaları sayfa anlık görüntüsüdür; bağlı görsel, video ve etkileşimli içerikler internet bağlantısı gerektirebilir. Düz metin eşleri çevrimdışı okunabilir."
+  ]
+}

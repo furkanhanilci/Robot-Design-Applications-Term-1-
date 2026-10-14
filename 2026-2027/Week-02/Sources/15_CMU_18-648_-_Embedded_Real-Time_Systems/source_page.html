@@ -1,0 +1,555 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>18-648: Embedded Real-Time Systems -     Electrical and Computer Engineering -     College of Engineering - Carnegie Mellon University</title>
+    <meta content="Carnegie Mellon’s Department of Electrical and Computer Engineering is widely recognized as one of the best programs in the world. Students are rigorously trained in fundamentals of engineering, with a strong bent towards the maker culture of learning and doing." name="description"/>
+    <meta content="Carnegie Mellon University" name="author"/>
+
+    <meta content="18-648: Embedded Real-Time Systems - Electrical and Computer Engineering - College of Engineering - Carnegie Mellon University" property="og:title"/>
+    <meta content="Carnegie Mellon’s Department of Electrical and Computer Engineering is widely recognized as one of the best programs in the world. Students are rigorously trained in fundamentals of engineering, with a strong bent towards the maker culture of learning and doing." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://courses.ece.cmu.edu/18648" property="og:url"/>
+
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic" rel="stylesheet" type="text/css"/>
+    <link href="/common/standard-v5.2/css/main.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/vendor/bower-asset/jquery.tablesorter/dist/css/theme.default.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="//www.cmu.edu/favicon.ico" rel="icon"/>
+    <link href="//www.cmu.edu/favicon-152.png" rel="apple-touch-icon-precomposed"/>
+    <meta content="#9f0000" name="msapplication-TileColor"/>
+    <meta content="//www.cmu.edu/favicon-144.png" name="msapplication-TileImage"/>
+
+    </head>
+<body class="no-js">
+<div id="container">
+
+    <header>
+        <div class="roof red invert">
+            <div>
+                <a class="wordmark" href="http://www.cmu.edu/">Carnegie Mellon University</a>
+                <a aria-label="Jump to navigation" class="menu-btn" href="#nav"><b>—</b><b>—</b><b>—</b></a>
+                <form action="https://web-search.andrew.cmu.edu/search" class="search">
+                    <input name="entqr" type="hidden" value="3"/>
+                    <input name="entsp" type="hidden" value="a"/>
+                    <input name="sort" type="hidden" value="date:D:L:d1"/>
+                    <input name="output" type="hidden" value="xml_no_dtd"/>
+                    <input name="client" type="hidden" value="default_frontend"/>
+                    <input name="ud" type="hidden" value="1"/>
+                    <input name="oe" type="hidden" value="UTF-8"/>
+                    <input name="ie" type="hidden" value="UTF-8"/>
+                    <input name="proxystylesheet" type="hidden" value="default_frontend"/>
+                    <label><span>Search</span>
+                        <input name="q" placeholder="Search" title="Type keywords into this box, then press enter."/>
+                    </label>                                      <button title="Submit" type="submit">Search</button>                                                                      <label class="searchSite"> <span>Search this site only</span>     <input checked="checked" name="site" type="checkbox" value="http://"/>
+                    </label>
+
+                </form>
+            </div>
+        </div>
+
+
+        <div id="sitename">
+            <h1><a href="https://www.ece.cmu.edu/index.html">Electrical and Computer Engineering</a></h1>                                                                 <h2>College of Engineering</h2>
+        </div>
+
+    </header>
+
+    <div id="content"><style>
+    .semester-list li{
+        padding: 0;
+    }
+</style>
+<div class="content">
+        <div>
+                <h1 class="page-title">Course Information</h1>
+
+                <div>
+                    <h2 style="padding-bottom: 8px;">18-648: Embedded Real-Time Systems</h2>
+                    <div>
+                        <h4 style="display: inline;">Units:</h4> 12
+<br/><br/>
+                                                      <h4>Description:</h4>
+                           <p>Real-time embedded systems pervade many aspects of modern life ranging from household appliances, transportation and motion control systems, medical systems and devices, robotics, multimedia and mobile communications, video-games, energy generation/distribution/management, to aerospace and defense systems. This course has three complementary goals. One, it will cover the core concepts and principles underlying these systems, including resource management, scheduling, dependability and safety. Implications to multi-core platforms, SoCs, networks and communication buses will also be discussed. Mathematical models and analysis techniques will be presented. Two, the course will offer hands-on experience with implementing real-time embedded systems on realistic platforms. This will be facilitated by detailed discussions of hardware-software interfaces, concurrency and communications. Finally, application-level concepts such as signal processing, image processing, computer vision, sensor fusion and feedback control will complete an overview of the breadth and depth of real-time embedded systems. Knowledge of the C programming language, basic computer architecture and an assembly language will be assumed.</p>
+                                                                                                                        <br />
+
+                      <p>
+                      <strong>Last Modified:</strong> 2025-07-17 10:05AM                      </p>
+
+                                                                        <h4>Semesters offered:</h4>
+                        <ul class="semester-list">
+                                                  <li>Fall 2025</li>
+                                                  <li>Fall 2024</li>
+                                                  <li>Fall 2023</li>
+                                                  <li>Fall 2022</li>
+                                                  <li>Fall 2021</li>
+                                                  <li>Fall 2020</li>
+                                                  <li>Fall 2019</li>
+                                                  <li>Fall 2018</li>
+                                                  <li>Fall 2017</li>
+                                                  <li>Fall 2016</li>
+                                                  <li>Fall 2015</li>
+                                                  <li>Fall 2014</li>
+                                                  <li>Fall 2013</li>
+                                                  <li>Fall 2012</li>
+                                                  <li>Fall 2011</li>
+                                                  <li>Fall 2010</li>
+                                                  <li>Fall 2009</li>
+                                                </ul>
+                                            </div>
+                </div>
+        </div>
+    
+
+<div class="sidebar" style="float: right;">
+    <div class=" grey">
+        <h1>Helpful links</h1>
+        <hr>
+        <p><a href="/" title="Course List">Course List</a></p>
+        <p><a href="/prerequisites-corequisites.html" title="Prerequisites &amp; Corequisites">Prerequisites &amp; Corequisites</a></p>
+        <p><a href="https://www.ece.cmu.edu/academics/phd-ece/breadth-areas.html" title="Ph.D Breadth Areas">Ph.D Breadth Areas</a></p>
+        <p><a href="https://www.ece.cmu.edu/insider/index.html" title="Online Learning Information">Online Learning Information</a></p>
+        <p><a href="https://www.ece.cmu.edu/insider/index.html" title="Laboratory locations">Lab locations</a></p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+</div>
+<footer class="grid column3 invert">
+
+    <div>
+        <p>
+            Electrical and Computer Engineering<br/>
+            College of Engineering<br/>
+            Carnegie Mellon University<br/> 5000 Forbes Avenue<br/>
+            Pittsburgh, PA 15213<br/>
+        </p>
+        <ul>
+            <li><a href="http://www.cmu.edu/legal/" target="_blank">Legal Info</a></li>
+            <li><a href="http://www.cmu.edu/">www.cmu.edu</a></li>
+        </ul>
+        <ul>
+            <li>© 2016 Carnegie Mellon University</li>
+        </ul>
+    </div>
+
+    <div>
+
+
+    </div>
+
+
+    <div>
+        <nav id="nav">
+
+
+            <ul>
+                <li class=""><a href="https://www.ece.cmu.edu/about/index.html" target="_self"> About
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/about/faculty-staff.html" target="_self"> Faculty and staff
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/contact.html" target="_self"> Contact
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/alumni-council.html" target="_self"> Alumni council
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/employment-opportunities.html" target="_self"> Employment opportunities
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/history.html" target="_self"> History
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/visitor-info.html" target="_self"> Visitor information
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/giving.html" target="_self"> Giving
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/strategic-plan.html" target="_self"> Strategic plan
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/facts-rankings.html" target="_self"> Facts and rankings
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/faculty-awards.html" target="_self"> Faculty awards
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/recruiting.html" target="_self"> Recruiting
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/corporate-relations.html" target="_self"> Corporate relations
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/about/sponsorships.html" target="_self"> Sponsorships
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/admissions/index.html" target="_self"> Admissions
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/admissions/graduate-application-deadlines.html" target="_self"> Graduate
+                                application deadlines
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/admissions/graduate-requirements.html" target="_self"> Graduate requirements
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/admissions/graduate-faq.html" target="_self"> Graduate FAQ
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/admissions/california-bppe.html" target="_self"> Additional information for
+                                California programs
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/academics/index.html" target="_self"> Academics
+
+                    </a>
+
+
+                    <ul>
+                        <li class=""><a href="https://www.ece.cmu.edu/academics/bs-in-ece/index.html" target="_self"> B.S. in ECE
+
+                            </a>
+
+
+                            <ul>
+                                <li><a href="https://www.ece.cmu.edu/academics/bs-in-ece/courses.html" target="_self"> Courses
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/bs-in-ece/academic-guide.html" target="_self"> Academic guide
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/bs-in-ece/research.html" target="_self"> Research
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/bs-in-ece/study-abroad.html" target="_self"> Study abroad
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/bs-in-ece/coop-edu-program.html" target="_self"> Cooperative
+                                        education program
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/bs-in-ece/summer-internship.html" target="_self"> Summer
+                                        internship
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/academics/integrated.html" target="_self"> Integrated B.S./M.S
+
+                            </a>
+                        </li>
+
+                        <li class=""><a href="https://www.ece.cmu.edu/academics/ms-ece/index.html" target="_self"> M.S. in ECE
+
+                            </a>
+
+
+                            <ul>
+                                <li class=""><a href="https://www.ece.cmu.edu/academics/ms-ece/locations/index.html" target="_self"> Locations
+
+                                    </a>
+
+
+                                    <ul>
+                                        <li><a href="https://www.ece.cmu.edu/academics/ms-ece/locations/africa.html" target="_self"> Africa
+
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.ece.cmu.edu/academics/ms-ece/locations/sv.html" target="_self"> Silicon Valley
+
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.ece.cmu.edu/academics/ms-ece/locations/kmitl.html" target="_self"> Thailand
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/ms-ece/requirements.html" target="_self"> Requirements
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/ms-ece/concentrations.html" target="_self"> Concentrations
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/ms-ece/courses.html" target="_self"> Courses
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/ms-ece/project-report.html" target="_self"> Project report
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class=""><a href="https://www.ece.cmu.edu/academics/ms-se/index.html" target="_self"> M.S. in Software Engineering
+
+                            </a>
+
+
+                            <ul>
+                                <li><a href="https://www.ece.cmu.edu/academics/ms-se/requirements.html" target="_self"> Requirements
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/ms-se/courses.html" target="_self"> Courses
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/academics/ms-mba.html" target="_self"> M.S./MBA
+
+                            </a>
+                        </li>
+
+                        <li class=""><a href="https://www.ece.cmu.edu/academics/phd-ece/index.html" target="_self"> Ph.D. in ECE
+
+                            </a>
+
+
+                            <ul>
+                                <li class=""><a href="https://www.ece.cmu.edu/academics/phd-ece/locations/index.html" target="_self"> Locations
+
+                                    </a>
+
+
+                                    <ul>
+                                        <li><a href="https://www.ece.cmu.edu/academics/phd-ece/locations/pittsburgh.html" target="_self">
+                                                Pittsburgh
+
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.ece.cmu.edu/academics/phd-ece/locations/portugal.html" target="_self">
+                                                Portugal
+
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.ece.cmu.edu/academics/phd-ece/locations/sv.html" target="_self"> Silicon
+                                                Valley
+
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.ece.cmu.edu/academics/phd-ece/locations/thailand.html" target="_self">
+                                                Thailand
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/requirements.html" target="_self"> Requirements
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/course-breadth-requirements.html" target="_self"> Course
+                                        breadth requirements
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/breadth-areas.html" target="_self"> Breadth areas
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/progress-review.html" target="_self"> Progress review
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/qualifying-exam.html" target="_self"> Qualifying exam
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/prospectus.html" target="_self"> Prospectus
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/thesis-and-defense.html" target="_self"> Thesis and
+                                        defense
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/fellowships.html" target="_self"> Fellowship
+                                        opportunities
+
+                                    </a>
+                                </li>
+                                <li><a href="https://www.ece.cmu.edu/academics/phd-ece/courses.html" target="_self"> Courses
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/student-resources/index.html" target="_self"> Student resources
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/student-resources/alumni-advising.html" target="_self"> Alumni advising
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/student-resources/career-opportunities.html" target="_self"> Career opportunities
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/student-resources/commencement-awards.html" target="_self"> Commencement awards
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/student-resources/traditions.html" target="_self"> Traditions
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/student-resources/orgs.html" target="_self"> Organizations
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/research/index.html" target="_self"> Research
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/research/labs.html" target="_self"> Research labs
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/research/centers.html" target="_self"> Research centers
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/alumni/index.html" target="_self"> Alumni
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/alumni/events.html" target="_self"> Alumni events
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/alumni/headlines.html" target="_self"> Alumni headlines
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/alumni/mentoring.html" target="_self"> Mentoring for alumni
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/news-and-events/index.html" target="_self"> News and events
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/news-and-events/news.html" target="_self"> News
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/news-and-events/seminars.html" target="_self"> Seminars
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/news-and-events/diploma.html" target="_self"> Diploma ceremony
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class=""><a href="https://www.ece.cmu.edu/directory/index.html" target="_self"> Directory
+
+                    </a>
+
+
+                    <ul>
+                        <li><a href="https://www.ece.cmu.edu/directory/faculty.html" target="_self"> Faculty
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/directory/courtesy-faculty.html" target="_self"> Courtesy faculty
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/directory/adjunct-faculty.html" target="_self"> Adjunct faculty
+
+                            </a>
+                        </li>
+                        <li><a href="https://www.ece.cmu.edu/directory/staff.html" target="_self"> Staff
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+</footer>
+</div> <!-- ID content div ends -->
+
+</div> <!-- ID container div ends -->
+
+
+<script src="/common/standard-v5.2/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="/common/standard-v5.2/js/main.min.js" type="text/javascript"></script>
+<script src="/vendor/bower-asset/jquery.tablesorter/js/jquery.tablesorter.js" type="text/javascript"></script>
+<script src="/vendor/bower-asset/jquery.tablesorter/js/jquery.tablesorter.widgets.js" type="text/javascript"></script>
+
+</body>
+</html>

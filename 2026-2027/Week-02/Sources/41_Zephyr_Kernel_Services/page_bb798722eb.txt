@@ -1,0 +1,190 @@
+Operation without Threads — Zephyr Project Documentation
+Built-in search
+Google search
+Kapa AI search
+Zephyr Project
+v: latest
+Document Release Versions
+latest
+4.4.0
+4.3.0
+3.7.0 (LTS)
+Downloads
+PDF
+zephyrproject.org Links
+Project Home
+SDK
+Releases
+Introduction
+Developing with Zephyr
+Kernel
+Kernel Services
+Scheduling, Interrupts, and Synchronization
+Threads
+Scheduling
+CPU Idling
+System Threads
+Workqueue Threads
+Operation without Threads
+What Can be Expected to Work
+What Cannot be Expected to Work
+Subsystem Behavior Without Thread Support
+Flash
+GPIO
+UART
+Interrupts
+Polling API
+Semaphores
+Mutexes
+Condition Variables
+Events
+Spinlocks
+Symmetric Multiprocessing
+Data Passing
+Memory Management
+Timing
+Other
+Device Driver Model
+User Mode
+Memory Management
+Data Structures
+Executing Time Functions
+Object Cores
+Time Utilities
+Precision Timing
+Utilities
+Iterable Sections
+Code And Data Relocation
+Scope-based Cleanup Helpers
+Services
+Build and Configuration Systems
+Hardware Support
+Contributing to Zephyr
+Project and Governance
+Security
+Safety
+Samples and Demos
+Supported Boards and Shields
+Releases
+Reference
+API
+Kconfig Options
+Devicetree Bindings
+CMake modules
+West Projects
+Glossary
+Zephyr Project
+Docs / Latest
+»
+Kernel
+»
+Kernel Services
+»
+Operation without Threads
+Open on GitHub
+Report an issue with this page
+Operation without Threads
+Thread support is not necessary in some applications:
+Bootloaders
+Simple event-driven applications
+Examples intended to demonstrate core functionality
+Thread support can be disabled by setting
+CONFIG_MULTITHREADING
+to
+n
+.  Since this configuration has
+a significant impact on Zephyr’s functionality and testing of it has
+been limited, there are conditions on what can be expected to work in
+this configuration.
+What Can be Expected to Work
+These core capabilities shall function correctly when
+CONFIG_MULTITHREADING
+is disabled:
+The
+build system
+The ability to boot the application to
+main()
+Interrupt management
+The system clock including
+k_uptime_get()
+Timers, i.e.
+k_timer()
+Non-sleeping delays e.g.
+k_busy_wait()
+.
+Sleeping
+k_cpu_idle()
+.
+Pre
+main()
+drivers and subsystems initialization e.g.
+SYS_INIT
+.
+Memory Management
+Specifically identified drivers in certain subsystems, listed below.
+The expectations above affect selection of other features; for example
+CONFIG_SYS_CLOCK_EXISTS
+cannot be set to
+n
+.
+What Cannot be Expected to Work
+Functionality that will not work when
+CONFIG_MULTITHREADING
+is disabled includes majority of the kernel API:
+Threads
+Scheduling
+Workqueue Threads
+Polling API
+Semaphores
+Mutexes
+Condition Variables
+Data Passing
+Subsystem Behavior Without Thread Support
+The sections below list driver and functional subsystems that are
+expected to work to some degree when
+CONFIG_MULTITHREADING
+is
+disabled.  Subsystems that are not listed here should not be expected to
+work.
+Some existing drivers within the listed subsystems do not work when
+threading is disabled, but are within scope based on their subsystem, or
+may be sufficiently isolated that supporting them on a particular
+platform is low-impact.  Enhancements to add support to existing
+capabilities that were not originally implemented to work with threads
+disabled will be considered.
+Flash
+The
+Flash
+is expected to work for all SoC flash peripheral
+drivers.  Bus-accessed devices like serial memories may not be
+supported.
+List/table of supported drivers to go here
+GPIO
+The
+General-Purpose Input/Output (GPIO)
+is expected to work for all SoC GPIO peripheral
+drivers.  Bus-accessed devices like GPIO extenders may not be supported.
+List/table of supported drivers to go here
+UART
+A subset of the
+Universal Asynchronous Receiver-Transmitter (UART)
+is expected to work for all SoC UART
+peripheral drivers.
+Applications that select
+CONFIG_UART_INTERRUPT_DRIVEN
+may
+work, depending on driver implementation.
+Applications that select
+CONFIG_UART_ASYNC_API
+may
+work, depending on driver implementation.
+Applications that do not select either
+CONFIG_UART_ASYNC_API
+or
+CONFIG_UART_INTERRUPT_DRIVEN
+are expected to work.
+List/table of supported drivers to go here, including which API options
+are supported
+© Copyright 2015-2026 Zephyr Project members and individual contributors.
+Last generated: Oct 04, 2026.
+    Last source update: Jan 06, 2026.

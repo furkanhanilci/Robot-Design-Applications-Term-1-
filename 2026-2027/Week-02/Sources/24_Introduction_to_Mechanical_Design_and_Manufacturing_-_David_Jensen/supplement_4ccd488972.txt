@@ -1,0 +1,195 @@
+Prototyping Methods and Technologies – Introduction to Mechanical Design and Manufacturing
+Skip to content
+Menu
+Primary Navigation
+Home
+Read
+Sign in
+Search in book:
+Search
+Want to create or adapt books like this?
+Learn more
+about how Pressbooks supports open publishing practices.
+Book Contents Navigation
+Contents
+Introduction
+I.
+Product Design from a Mechanical Engineering Perspective
+Three Views of Product Design
+Typical Types of Product Design
+Design Process Overview
+A Case Study - A Ball Point Pen
+Why Integrate Design and Manufacturing?
+Wrap up - Product Design from a Mechanical Engineering Perspective
+II.
+Design Primitives and Fundamentals
+Design Drivers - What is a “Good” solution in the Product Design Context
+Tangible and Intangible Properties of Product Design
+Case Study - Design Vision
+Models – The Language of Design
+Wrap up - Design Primitives and Fundamentals
+III.
+Design Teams and Design Project Management
+Identify and Define a Product Design Opportunity
+Team-Based Design Decision Making
+Individual Design Decision Making
+Project Timeline Management
+Project Team Managment
+Wrap up - Design Teams and Design Project Managment
+IV.
+Defining and Managing Design Requirements
+Who are the Stakeholders and What do they Want?
+Methods to Gather Stakeholder Needs
+Checklist for Generating Requirements
+Engineering Requirements
+House of Quality Tool for Needs and Specification Managment
+Wrap Up - Defining and Managing Design Requirements
+V.
+Conceptual Design Process and Tool
+Creativity Techniques
+Tools for Supporting Creative Design Solutioning
+Functional Analysis
+Morphological Chart
+Decision and Selection
+Develop Prototypes to Further Define Concepts
+Wrap Up - Conceptual Design and Tools
+VI.
+Systematic and Iterative Process of Embodiment Design
+Overview of the Design Embodiment Process
+Constraints
+Configuration and Architecture
+Connections and Interfaces
+Define Components
+Iterate and Refine
+Wrap Up - Detailed Design
+VII.
+Specification of Standard Mechanical Components
+Generalized Process for Standard Specifications
+Fasteners
+Pins and Joints
+Bearings
+Mechanical Springs
+Motors and Controllers
+Warp Up - Common Mechanical Component Specification
+VIII.
+Assemblies for Motion and Power Delivery
+Machines and the Control of Work
+Linkages and Mechanisms
+Motion and Control of Mechanisms
+Mechanism Synthesis
+Mechanism Posture and Position Analysis
+Mechanism Force, Velocity and Acceleration Analysis
+Cam Systems and Cam Design
+Gearing Systems
+Pulleys and Belts and Chain and Sprocket Systems
+Wrap Up - Assemblies for Motion and Power
+IX.
+Product Design Prototyping
+Types of Prototypes and Prototyping Strategy
+Prototyping Methods and Technologies
+Building and Testing Prototypes
+Wrap-Up - Prototyping Product Concepts
+X.
+Design for Manufacturing and Assembly Principles and Methods
+Design for Manufacturing Principles
+Design for Assembly Principles
+Introduction to Geometric Dimensions and Tolerances
+Fits and Tolerances
+Wrap-Up - Design for Manufacturing and Assembly
+XI.
+Manufacturing - Casting and Molding Process
+Metal Casting Fundamentals and Terms
+Types of Casting Process and Excepted Tolerances
+Multiple Use Casting and Molds
+Single Use Molds
+Powder Metal Processes
+Design for Casting and Molding Principles and Best Practices
+XII.
+Manufacturing - Forming and Shaping Processes
+Metal Forming Process Types and Tolerances
+Rolling
+Drawing
+Forging
+Extrusion
+Sheet Metal Work
+Design for Forming Principles and Practices
+XIII.
+Manufacturing - Machining Processes
+Types of Cutting and Machining Pocess and Tolerances
+Milling
+Drilling, Boring, Broaching, and Tapping
+Turning
+Grinding and Polish
+Finishing Treatment Processes
+Design for Machining Processes
+XIV.
+Manufacturing - Joining Processes
+Welding Methods
+Brazing and Soldering
+XV.
+Manufacturing - Plastic Processes
+Plastic Materials
+Molding
+Plastic Extrusion
+Plastic 3D Printing at Large Scale
+Machining
+Design for Plastic Manufacturing
+XVI.
+Taking the Next Steps
+Preliminary Patent Applications
+Professional Licensure and Consulting
+Final Thoughts
+Introduction to Mechanical Design and Manufacturing
+Prototyping Methods and Technologies
+Cost Minimization and Value Maximization
+The main goal of building physical prototypes is to find the optimal trade-off between meeting the prototype’s objectives and minimizing its cost and maximizing its informational value. In other words, we want to create the most affordable prototype that can give us useful feedback on the design with a reasonable degree of uncertainty. Depending on the stage of the design process, different types of prototypes may be more suitable. For example, a simple proof-of-concept prototype can be made by hand from materials like cardboard. This type of prototype can help us evaluate the size, layout of components, and general idea of the design, but it cannot tell us much about the manufacturing process or the functionality. On the other hand, a scaled functional prototype of an aircraft turbine engine can provide a lot of information about the performance, but it is very expensive to make. It would not make sense to use this kind of prototype to answer questions about the size or arrangement of components. Therefore, we need to first identify the purpose of the prototype and then choose the technology or method that will produce the prototype with the lowest cost and highest value. We also need to consider the additional costs of secondary processes, such as sanding and removing support material, and assembly that may affect the prototype development.
+Rough Mock-Ups
+Proof-of-concept prototypes are often built in the early design stage to explore and compare different concept solutions. Since the main goal is communication of concept and limited functionality, these types of prototypes are often made with craft materials. Cardboard, hardboard, wood, plastic and metal building blocks, and clay are common materials.
+Best Practices for Mock-Ups
+Focus on communicating the key concept. If the goal is to demonstrate how the product would move, focus on the movement not necessarily the size or color.
+Be careful about unintentionally inheriting design fixation based on the material. For example, using pre-made toy building blocks may lead to inadvertent design for simple rectangular structural elements.
+Give the time needed for building an effective model. Crafting can be a longer than expected process. Invest additional time and resources if using this prototype for securing stakeholder buy-in.
+See many more practical tips for mock-ups and other types of prototypes in the
+following video
+:
+Additive Manufacturing Methods
+Additive manufacturing (AM) is a process of creating three-dimensional objects by adding material layer by layer, following a digital model. AM can be used for both full-scale production and prototype development, depending on the design, material, and application. AM offers several advantages for prototyping, such as speed, flexibility, and cost-effectiveness.
+Some of the common technologies for prototype manufacturing using AM are:
+Fused deposition modeling (FDM): This technology uses a heated nozzle to extrude thermoplastic filaments onto a build platform, forming the desired shape. FDM is suitable for prototyping functional parts that require strength and durability.
+Stereolithography (SLA): This technology uses a laser beam to selectively cure liquid resin into solid layers, creating high-resolution and smooth-surfaced models. SLA is suitable for prototyping complex geometries and fine details that require accuracy and aesthetics.
+Selective laser sintering (SLS): This technology uses a laser beam to fuse powdered material, such as nylon or metal, into solid layers, forming dense and robust parts. SLS is suitable for prototyping parts that require high mechanical performance and thermal resistance.
+*Watch this
+video
+to learn more about the 7 Categories of Additive Manufacturing and 3D Printing.
+Best Practice for Prototype Development with AM
+Consolidate multi-part assemblies into single parts whenever possible. This can reduce the number of interfaces, joints, fasteners, and supports needed, and improve the structural integrity, functionality, and aesthetics of the prototype. However, this also requires careful consideration of the design constraints, such as printability, accessibility, and assembly/ disassembly.
+Use the right design software that can handle the complexity and diversity of AM processes and materials. Traditional CAD software may not be sufficient for designing parts that exploit the full potential of AM, such as lattice structures, organic shapes, or multi-materials. Therefore, it is advisable to use software that can support AM-specific features, such as topology optimization, generative design, or slicing. Some CAD tools can simulate the manufacturing process, helping to identify potential issues such as thermal stress concentrations.
+Pay attention to the printing orientation of the part. The printing orientation can affect the dimensional accuracy, surface roughness, layer visibility, support structures, and mechanical properties of the part. For example, printing a part horizontally can minimize the need for supports and reduce the layer visibility, but it can also increase the surface roughness and decrease the strength along the layer direction. Therefore, it is important to choose the optimal printing orientation that balances these factors according to the design requirements.
+design based on the printing resolution of the chosen AM technology. The printing resolution determines how fine or coarse the layers are, and how well the part matches the digital model. Different AM technologies have different printing resolutions, depending on the type and size of the material used. For example, fused deposition modeling (FDM) uses thermoplastic filaments that are extruded through a nozzle, resulting in relatively low resolution and high layer visibility. Stereolithography (SLA) uses liquid photopolymer resin that is cured by a laser beam, resulting in relatively high resolution and smooth surface finish. Selective laser sintering (SLS) uses powder material that is fused by a laser beam, resulting in moderate resolution and rough surface texture. Therefore, it is important to design the part according to the capabilities and limitations of the chosen AM technology.
+Subtractive Manufacturing Methods
+Subtractive manufacturing is a process that removes material from a solid piece of raw material to create a desired shape or form. Subtractive methods are widely used in traditional or mass manufacturing, such as machining, cutting, drilling, and carving. However, some subtractive technologies are also suitable for rapid prototyping.
+Laser cutting uses a high-powered beam of light to cut through various materials, such as metal, wood, plastic, and paper. Laser cutting can produce precise and complex shapes with smooth edges and fine details. Laser cutting is also fast and efficient, as it can cut multiple layers of material at once. A similar approach is water jet cutting.
+Another subtractive method that can be used for rapid prototyping is desktop milling, drilling, and turning. These are small-scale versions of the machining processes that use rotating tools to remove material from a workpiece. Desktop milling, drilling, and turning can be used for small batch production of prototypes that require high accuracy and quality. These processes can work with different materials, such as metal, wood, plastic, and composite.
+Previous/next navigation
+Previous: Types of Prototypes and Prototyping Strategy
+Next: Building and Testing Prototypes
+Back to top
+License
+Introduction to Mechanical Design and Manufacturing
+Copyright © 2024 by
+David Jensen
+is licensed under a
+Creative Commons Attribution-NonCommercial 4.0 International License
+, except where otherwise noted.
+Share This Book
+Share on X
+Share on LinkedIn
+Share via Email
+Pressbooks
+Powered by
+Pressbooks
+Pressbooks User Guide
+|
+Pressbooks Directory
+Pressbooks on YouTube
+Pressbooks on LinkedIn

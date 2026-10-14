@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ch. 13 - Robust and
+  Stochastic Control</title>
+    <meta name="Ch. 13 - Robust and
+  Stochastic Control" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/robust.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+    <script type="text/javascript" src="notebooks.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script src="htmlbook/mathjax-loader.js" defer></script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2024<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="https://underactuated.csail.mit.edu/Spring2024/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2024 semester.  <a
+href="https://www.youtube.com/playlist?list=PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=planning.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=feedback_motion_planning.html>Next Chapter</a></td>
+</tr></table>
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter style="counter-reset: chapter 12"><h1>Robust and
+  Stochastic Control</h1>
+
+  <p>My goal of presenting a relatively consumable survey of a few of the main
+  ideas is perhaps more important in this chapter than any other.  It's been
+  said that "robust control is encrypted" (as in you need to know the secret
+  code to get in). The culture in the robust control community has been to
+  leverage high-powered mathematics, sometimes at the cost of offering more
+  simple explanations.  This is unfortunate, I think, because robotics and
+  machine learning would benefit from a richer connection to these tools, and
+  are perhaps destined to reinvent many of them.</p>
+  
+  <p>The classic reference for robust control is <elib>Zhou97</elib>.
+  <elib>Petersen00</elib> has a treatment that does more of its development in
+  the time-domain and via Riccati equations; I will do the same here.</p>
+
+  <section><h1>Stochastic models</h1>
+  
+    <p>So far in the notes, we have concerned ourselves primarily with known,
+    deterministic systems.  In the <a href="stochastic.html">stochastic
+    systems</a> chapter, we started our study of nonlinear dynamics of
+    stochastic systems, which can be beautiful!  In this chapter we will begin
+    to consider computational tools for analysis and control of those systems.
+    Stochasticity can come in many forms... we may not know the governing
+    equations (e.g. the coefficient of friction in the joints), our robot may
+    be <a href="https://youtu.be/cNZPRsrwumQ?t=32">walking on unknown terrain,
+    subject to unknown disturbances</a>, or even be picking up unknown objects.
+    There are a number of mathematical frameworks for considering this
+    uncertainty; for our purposes this chapter will generalizing our thinking
+    to equations of the form: $$\dot\bx = {\bf f}(\bx, \bu, \bw, t) \qquad
+    \text{or} \qquad \bx[n+1] = {\bf f}(\bx[n], \bu[n], \bw[n], n),$$ where
+    $\bw$ is a new <i>random</i> input signal to the equations capturing all of
+    this potential variability. Although it is certainly possible to work in
+    continuous time, and treat $\bw(t)$ as a continuous-time random signal
+    (c.f. <a href="https://en.wikipedia.org/wiki/Wiener_process">Wiener
+    process</a>), the notation and intuition is a bit simpler when we work with
+    $\bw[n]$ as a discrete-time random signal. For this reason, we'll devote
+    our attention in this chapter to the discrete-time systems.</p>
+
+    <p>In order to simulate equations of this form, or to design controllers
+    against them, we need to define the random process that generates $\bw[n]$.
+    It is typical to assume the values $\bw[n]$ are independent and identically
+    distributed (i.i.d.), meaning that $\bw[i]$ and $\bw[j]$ are uncorrelated
+    when $i \neq j$.  As a result, we typically define our distribution via a
+    probability density $\bw[n] \sim p_\bw(\bw)$<sidenote>The notation $\bw[n]
+    \sim p_\bw(\bw)$ denotes that $\bw[n]$ is "drawn from" the distribution
+    $p_\bw(\bw).$</sidenote>.  This is not as limiting as it may sound... if we
+    wish to treat temporally-correlated noise (e.g. "colored noise") the format
+    of our equations is rich enough to support this by adding additional state
+    variables; we'll give an example below of a "whitening filter" for modeling
+    wind gusts.  The other source of randomness that we will now consider in
+    the equations is randomness in the initial conditions; we will similarly
+    define a probability density $\bx[0] \sim p_0(\bx).$</p>
+      
+    <p>This modeling framework is rich enough for us to convey the key ideas;
+    but it is not quite sufficient for all of the systems I am interested in.
+    In <drake></drake> we go to additional lengths to support more general
+    cases of <a
+    href="https://drake.mit.edu/doxygen_cxx/group__stochastic__systems.html">stochastic
+    systems</a>.  This includes modeling system parameters that are drawn from
+    random each time the model is initialized, but are fixed over the duration
+    of a simulation; it is possible but inefficient to model these as
+    additional state variables that have no dynamics.  In other problems, even
+    the <i>dimension of the state vector</i> may change in different
+    realizations of the problem!  Consider, for instance, the case of a robot
+    manipulating random numbers of dishes in a sink. I do not know many control
+    formulations that handle this type of randomness well, and I consider this
+    a top priority to think more about!  (We'll begin to address it in the <a
+    href="output_feedback.html">output feedback chapter</a>.)</p>
+
+  </section>
+
+  <section><h1>Costs and constraints for stochastic systems</h1>
+  
+    <p>Given a stochastic model, what sort of cost function should we write in
+    order to capture the desired aspect of performance?  There are a number of
+    natural choices, which provide nice trade-offs between capturing the
+    desired phenomena and computational tractability.</p>
+
+    <todo>Airplane flying through the canyon figure?</todo>
+
+    <p>Remember that $\bx[n]$ is now a random variable, so we want to write our
+    cost and constraints using the distribution described e.g. $p_n(\bx)$.
+    Broadly speaking, one might specify a cost in a handful of ways:</p>
+    <ul>
+      <li><b>Desired state distribution.</b> One could specify a goal in terms of a desired state distribution, $p_n^d(\bx)$, and then try to minimize a measure of the difference between the actual and desired distributions.</li>
+      <li><b>Average cost</b>, $E[ \sum_n \ell(\bx[n], \bu[n]) ]$, or some
+      time-averaged/discounted variant.  This is by far the most popular choice
+      (especially in reinforcement learning), because it preserves the dynamic
+      programming recursion for additive cost.</li>
+      <li><b>Worst-case cost</b>, e.g. $\min_{\bu[\cdot]}\max_{\bx[0], {\bf
+      w}[\cdot]} \sum_n \ell(\bx[n], \bu[n]).$ When we are able to upper-bound
+      this cost and push down on that bound, then this is sometimes call
+      <i>guaranteed cost control</i>.</li>
+      <li><b>Relative worst-case</b> (aka "gain bounds"). Even for linear
+      systems, bounding the absolute performance (for all $\bw$) leads to
+      vacuous bounds; we can do much better by evaluating our performance
+      metric relative to the magnitude of the disturbance input.</li>
+      <li><b>Value at Risk (VaR)</b> and other related metrics from economics
+      and operations research. $\text{VaR}(\alpha)$ is the maximum cost if we ignore
+      the tails of the distribution (worse outcomes whose combined probability
+      is at most $\alpha$). Note that VaR is easy to understand, but the related
+      quantity "conditional value at risk" (CVaR) has superior mathematical
+      properties, including connections to convex optimization
+      <elib>Majumdar20</elib>.</li>
+      <li><b>Regret</b> formulations try to minimize the difference between the
+      designed controller and e.g. an optimal controller in some class that has
+      access to privileged information, such as knowing a priori the
+      disturbances $\bw[n].$ These formulations have become popular in the
+      field of online optimization, and we are now starting to see "regret
+      bounds" for control.
+      </li>
+    </ul>
+    Similarly, we can think about how to generalize our deterministic
+    constraints, e.g. $g(\bx) \le 0,$ into a the stochastic framework:
+    <ul>
+      <li><b>Chance constraints</b>, which take the form e.g. $P(g(\bx) >
+      0 ) \le \alpha.$  For instance, we might like to guarantee that the
+      probability that our airplane will crash into a tree is less that
+      $\alpha$. Even for Gaussian uncertainty and polytopic constraints, these
+      quantities can be hard to evaluate exactly; we often end up making
+      approximations<elib>Scher22</elib> though there is some hope to provide
+      rigorous bounds with Lyapunov-like arguments
+      <elib>Steinhardt11a</elib>.</li>
+      <li><b>Worst-case constraints</b>, which are the limit of the chance
+      constraints when we take $\alpha \rightarrow 0$, tend to be much more
+      amenable to computation, and connect directly to <a
+      href="lyapunov.html#finite-time">reachability analysis</a>.</li>
+    </ul>
+    </p>
+
+    <p>The term "robust control" is typically associated with the class of
+    techniques that try to guarantee some <i>worst-case</i> performance or a
+    worst-case bound (e.g. the gain bounds). The term "stochastic optimal
+    control" or "stochastic control" is typically used as a catch-all for other
+    methods that reason about stochasticity, without necessarily providing the
+    strict robustness guarantees.</p>
+    
+    <p>It's important to realize that proponents of robust control are not
+    necessarily pessimistic by nature; there is a philosophical stance about
+    how difficult it can be to model the true distribution of randomness that a
+    control system will face in the world. Worst-case analysis typically
+    requires only a definition of the <i>set</i> of possible values that the
+    random variable can take, and not a detailed <i>distribution</i> over those
+    possible values.  It may be more practical to operationalize a concept like
+    "this UAV will not crash so long as the peak wind gusts are below 35 mph"
+    than requiring a detailed distribution over wind gust probabilities. But
+    this simpler specification does come at some cost -- worst-case
+    certificates are often pessimistic about the true performance of a system,
+    and optimizing worst-case performance can lead to conservatism in the
+    control design.</p>
+
+  </section>
+
+  <section><h1>Finite Markov Decision Processes</h1>
+
+    <p>We already had quick preview into stochastic optimal control in one of the cases
+    where it is particularly easy: <a href="dp.html#mdp">finite Markov Decision
+    Processes (MDPs)</a>. And we have seen that <a
+    href="stochastic.html#mdp">finite-state approximations</a> can give us insights into
+    even very complex nonlinear dynamics. Let's make sure that we understand how to do
+    control design again the various cost and constraint formulations we've proposed
+    above...</p>
+
+    <todo>Discounted cost. Infinite-horizon average cost.</todo>
+
+    <todo>Perhaps a example of something other than expected-value cost
+    (worst case, e.g. Katie's metastability?)</todo>
+
+  </section>
+
+  <section><h1>Linear optimal control</h1>
+    <subsection><h1>Stochastic LQR</h1>
+
+      <p>Let's consider a stochastic extension of the (discrete-time) LQR
+      problem, where the system is now subjected to additive Gaussian white
+      noise: \begin{gather*} \bx[n+1] = \bA\bx[n] + \bB\bu[n] + \bw[n],\\
+      E\left[\bw[i]\right] = 0, \quad E\left[ \bw[i]\bw^T[j] \right] =
+      \delta_{ij}{\bf \Sigma_w},\end{gather*} where $\delta_{ij}$ is one if
+      $i=j$ and zero otherwise, and ${\bf \Sigma_w}$ is the covariance matrix
+      of the disturbance, and we take the average cost: $$\min E\left[
+      \sum_{n=0}^\infty \bx^T[n]\bQ\bx[n] + \bu^T[n] \bR\bu[n] \right], \qquad
+      \bQ=\bQ^T \succeq 0, \bR = \bR^T \succ 0.$$ Note that we saw one version
+      of this already when we discussed <a href="policy_search.html#lqr">policy
+      search for LQR</a>.</p>
+
+      <p>In the standard LQR derivation, we started by assuming a quadratic
+      form for the cost-to-go function. Is that a suitable starting place for
+      this stochastic version? We've already <a
+      href="stochastic.html#linear_gaussian">studied the dynamics of a linear
+      system subjected to Gaussian noise</a>, and learned that (at best) we
+      should expect it to have a Gaussian stationary distribution. But that
+      sounds problematic, no? If the system can not drive the system to zero
+      and stay at zero in order to stop accruing cost, then won't the
+      infinite-horizon cost be infinite (regardless of the controller)?</p>
+
+      <p>Yes. The cost-to-go for this problem is infinite! But it turns out
+      that it still has enough structure for us to work with. In particular,
+      let's "guess" a cost-to-go function of the form: $$J_n(\bx) = \bx^T {\bf
+      S}_n \bx + c_n,$$ where $c_n$ is a (scalar) constant. Now we can write
+      the Bellman equation and do some algebra: \begin{align*} J_n(\bx) &=
+      \min_\bu E_\bw\left[\bx^T \bQ \bx + \bu^T\bR\bu + [\bA\bx + \bB\bu +
+      \bw]^T{\bf S}_{n+1}[\bA\bx + \bB\bu + \bw] + c_{n+1}\right] \\ &
+      \begin{split}= \min_\bu &[\bx^T \bQ \bx + \bu^T\bR\bu + [\bA\bx +
+      \bB\bu]^T{\bf S}_{n+1}[\bA\bx + \bB\bu] + c_{n+1} \\ &+ E_\bw\left[
+      [\bA\bx + \bB\bu]^T{\bf S}_{n+1} \bw + \bw^T{\bf S}_{n+1}[\bA\bx +
+      \bB\bu]\right] + E_\bw[\bw^T \bw]]\end{split} \\ &= \min_\bu [\bx^T \bQ
+      \bx + \bu^T\bR\bu + [\bA\bx + \bB\bu]^T{\bf S}_{n+1}[\bA\bx + \bB\bu] +
+      c_{n+1} + \tr({\bf \Sigma_w})]. \end{align*} The second line follows by
+      simply pulling all of the deterministic terms outside of the expected
+      value. The third line follows by observing that $\bx$ and $\bu$ are
+      uncorrelated with $\bw,$ and $E[\bw] = 0$, so those cross terms are zero
+      in expectation. Notice that, apart from the $c_{n+1}$ and ${\bf
+      \Sigma_w}$, the remaining terms are exactly the same as the deterministic
+      (discrete-time) LQR version.
+      </p>
+
+      <p>Remarkably, we can therefore achieve our dynamic programming recursion
+      by using ${\bf S}_n$ as the solution of the discrete Riccati equation,
+      and $c_n = c_{n+1} + \tr({\bf \Sigma_w}).$ As we take $n\rightarrow
+      \infty$, ${\bf S}_n$ converges to the steady-state solution to the
+      algebraic Riccati equation, and only $c_n$ grows to infinity.  As a
+      result, even though the cost-to-go is infinite, the optimal control is
+      still well defined: it is the same $\bu^* = -{\bf K}\bx$ that we obtain
+      from the deterministic LQR problem!</p>
+
+      <p>Take note of the fact that the true cost-to-go blows up to infinity.
+      In reinforcement learning, for instance, it is common practice to avoid
+      this blow-up by considering discounted-cost formulations,
+      $$\sum_{n=0}^\infty \gamma^n \ell(\bx[n], \bu[n]),\quad 0 < \gamma \le
+      1,$$ or average-cost formulations, $$\lim_{N\rightarrow \infty}
+      \frac{1}{N} \sum_{n=0}^N \ell(\bx[n], \bu[n]).$$ These are satisfactory
+      solutions to the problem, but please make sure to understand why they
+      <i>must</i> be used.</p>
+
+      <subsubsection id="whitening_filter"><h1>Non-i.i.d. disturbances</h1>
+    
+        <p>The LQR derivation above assumed that the disturbances $\bw[n]$ were
+        independent and identically distributed (i.i.d.). But many of the
+        disturbances we would like to model are not i.i.d..  For instance,
+        consider a UAV flying in the wind. The wind is correlated over time,
+        sometimes building up to gusts but even those gusts are relatively long
+        compared to any the sampling rate of a control system.</p>
+
+        <p>In fact, the standard models of wind are typically the output of a
+        Gaussian i.i.d. random signal passed through a linear low-pass filter
+        <elib sect="Ch. 9">Moore14b</elib>. This suggests a very natural
+        approach to using LQR to stabilize a UAV in the wind: design the
+        controller for the joint wind + UAV system. The state of this system
+        contains both the state of the UAV and the state of the wind, so the
+        resulting controller will have the form $$\bu = -{\bf K}
+        \begin{bmatrix}\bx_{uav} \\ \bx_{wind} \end{bmatrix}.$$ In practice,
+        this means that the controller will need to rely on an online estimator
+        for the wind state in addition to the standard (UAV) state
+        estimator.</p>
+
+        <todo>definitely need a diagram here.</todo>
+    
+        <example><h1>A quadrotor flying in the wind.</h1>
+
+          <p>I've adapted our simple 2D quadrotor model to have an (optional) additional
+          input port for Cartesian force disturbances. For the wind, I've added a
+          <code>RandomSource</code> to generate the output of iid Gaussain random
+          process, multiplied that by a scalar <code>Gain</code> to scale the
+          covariance, and then put it through a <code>FirstOrderLowPassFilter</code> to
+          make the colored noise wind model.</p>
+
+          <p>In the notebook, I've implemented LQR both ways: first the traditional LQR
+          on the quadrotor system <i>only</i> (ignoring the wind), and second on the
+          diagram that includes the <code>Gain</code> and <code>LowPassFilter</code>
+          systems in addition to the quadrotor.</p>
+
+          <p>
+          <script>document.write(notebook_link('robust', 'quadrotor_in_wind'))</script>
+          </p>
+
+        </example>
+      </subsubsection>
+
+      <subsubsection><h1>Stochastic linear MPC</h1>
+      
+        <p>Coming soon...</p>
+
+        <todo>(conservative) chance constraints. e.g. lars blackmore.</todo>
+        <todo>Maybe Guy's ellipsoidal slice sampling <elib>Scher22</elib>.</todo>
+
+      </subsubsection>
+
+    </subsection>
+
+    <subsection id="linear_worst_case"><h1>Worst-case control w/ bounded
+    uncertainty</h1>
+    
+      <subsubsection><h1>Common Lyapunov functions</h1>
+        <p>We've already seen one nice example of robustness analysis for linear
+        systems when we wrote a small optimization to find a <a
+        href="lyapunov.html#common-lyapunov-linear">common Lyapunov function for
+        uncertain linear systems</a>.  That example studied the dynamics
+        $\bx[n+1] = \bA \bx[n]$ where the coefficients of $\bA$ were unknown but
+        bounded.</p>  
+      
+        <p><a href="lyapunov.html#common-lyapunov">We also saw</a> that
+        essentially the same technique can be used to certify stability against
+        disturbances, e.g.: $$\bx[n+1] = \bA\bx[n] + \bw[n], \qquad \bw[n] \in
+        \mathcal{W},$$ where $\mathcal{W}$ describes some bounded set of possible
+        uncertainties.  In order to be compatible with convex optimization, we
+        often choose to describe $\mathcal{W}$ as either an ellipsoid or as a
+        convex polytope<elib>Boyd04a</elib>.  But let's remember a very important
+        point: in this situation with additive disturbances, we can no longer
+        expect the system to converge stably to the origin.  Our example before
+        used the common Lyapunov function only to certify the <i>invariance</i>
+        of a region (if I start inside some region, then I'll never leave).</p>
+  
+      </subsubsection>
+
+      <!-- note: Sadra says ellipsoidal containment is too messy under the Minkowski sum
+for ellipsoids and so is too messy for stochastic dynamics. "Ellipsoids are good at
+deterministic dynamics where there is no minkowski sum needed." -->
+
+      <subsubsection><h1>Polytope dynamics</h1>
+
+        <p>A polytope is a bounded polyhedron. Let's take a moment to understand how a
+        polytope propagates through a linear dynamical system. There are a number of
+        possible representations for a polytope. The most common the so-called "H-rep",
+        or half-space representations, which is described by the linear constraints
+        ${\bf H}\bx \le {\bf h}$, or the "V-rep", or vertex representation, which is
+        described by the convex hull of a set of vertices. For optimization, we often
+        also study "zonotopes", which are defined as the affine projection of a unit
+        cube, or the more general "AH-polytopes" which are the affine projection of an
+        H-polytope <elib>Sadraddini19a+Sadraddini21</elib>. In Drake we have a <a
+        href="https://drake.mit.edu/doxygen_cxx/group__geometry__optimization.html">
+        library of these convex sets</a> with many of the most common operations
+        implemented and made compatible with <code>MathematicalProgram</code>.</p>
+
+        <p>Let's develop our notation for H-polytope and AH-polytopes here. We'll define
+        a polytope, $\mathbb{P} \subset \Re^n,$ as an H-polytope using $$\mathbb{P} =
+        \mathcal{H}({\bf H}, {\bf h}) := \{\bx \in \Re^n | {\bf H} \bx \le {\bf h} \}.$$
+        For an AH-polytope, we write $$\mathbb{X} := \mathcal{AH}({\bf T}, {\bf t},
+        \mathbb{P}) := \{{\bf T}\bx + {\bf t} \in \Re^n | \bx \in \mathbb{P} \subset
+        \Re^m \},$$ where ${\bf T} \in \Re^{n \times m}$ and ${\bf t} \in \Re^n$ define
+        the affine transform. Note that AH-polytope can be the projection of an
+        H-polytope with a different ambient dimension.</p>
+
+        <p>AH-polytopes are closed under many of the essential operations we need for
+        linear dynamical systems<elib>Sadraddini21</elib>. Using set notation, this
+        includes (further) affine transformations: $$\bA \mathbb{X} + {\bf b} =
+        \mathcal{AH}(\bA {\bf T}, \bA{\bf t} + {\bf b}, \mathbb{P}),$$ and the <a
+        href="https://en.wikipedia.org/wiki/Minkowski_addition">Minkowski sum</a>. Given
+        two AH-polytopes, $\mathbb{X}$ and $\mathbb{Y}$ both in $\Re^n$, their Minkowski
+        sum is given by: $$\mathbb{X} \oplus \mathbb{Y} = \mathcal{AH}\left([{\bf T}_x,
+        {\bf T}_y], {\bf t}_x + {\bf t}_y, \mathcal{H}\left(\begin{bmatrix} {\bf H}_x &
+        0 \\ 0 & {\bf H}_y \end{bmatrix}, \begin{bmatrix} {\bf h}_x \\ {\bf h}_y
+        \end{bmatrix}\right)\right).$$
+        </p>
+
+        <p>We can actually use this set notation now directly to write the dynamics of a
+        polytope (over state) as it propagates through an uncertain linear dynamical
+        system: $$\bx[n+1] = \bA \bx[n] + \bw[n], \quad \bx[0] \in \mathbb{X}_0, \bw[n]
+        \in \mathbb{W}.$$ The result is $$\mathbb{X}_{n+1} = \bA \mathbb{X}_n \oplus
+        \mathbb{W}.$$ Beautiful! But please notice one important detail: the description
+        size of the polytope (via the ambient dimension of the underlying H-polytope) is
+        growing on each time step, due to the Minkowski sum with $\mathbb{W}$. The sets
+        can get complicated for long-horizon rollouts.</p>
+
+        <todo>van der pol oscillator example, where the nonlinearities are bounded? or where I simply linearize?</todo>
+
+      </subsubsection>
+
+      <subsubsection><h1>Robust MPC</h1>
+  
+        <p>Although I've written out polytopic reachability for a closed-loop linear
+        system (+ noise) so far, one can similarly propagate the polytopic dynamics
+        under a feedback control of the form \begin{gather*}\bx[n+1] = \bA\bx[n] +
+        \bB\bu[n] + \bw[n], \\
+        \mathbb{X}_{n+1} = (\bA\mathbb{X}_n + \bB\bu_n) \oplus \mathbb{W}.\end{gather*} This leads to a form of
+        robust model-predictive control commonly referred to as "TubeMPC"
+        <elib>Mayne05</elib>. One can optimize $\bu_n$ and the descriptions of
+        $\mathbb{X}_n$ using convex optimization subject to these linear dynamics.
+        Furthermore, this can be combined with <a
+        href="#disturbance-based">disturbance-based feedback parameterizations</a> to
+        simulataneously search for time-varying feedback gains, $\bK_n$
+        <elib>Sadraddini20</elib>.</p>
+      
+        <example><h1>Tube MPC</h1>
+        
+          <p>Coming soon...</p>
+
+        </example>
+
+      </subsubsection>
+
+      <subsubsection><h1>Polytopic containment</h1>
+        
+        <p>One objective we might like to specify in our optimization is that the entire
+        reachable set at the final time is inside a goal set, e.g. $\mathbb{X}_N
+        \subseteq \mathbb{X}_{goal}.$  Checking this condition is a "polytopic
+        containment" problem -- a classic problem in computational geometry. But we want
+        to be able to optimize the form of $\mathbb{X}_N$ (via optimizing the sequence
+        of control decisions), so we want to be able to embed the polytopic containment
+        problem as just an additional set of constraints in our MPC problem.</p>
+
+        <p><elib>Sadraddini19a</elib> gave an efficient encoding of the polytopic
+        containment problem using only linear constraints that is sufficient to certify
+        the containment, and <elib>Sadraddini21</elib> gave an additional condition
+        which is both necessary and sufficient, but requires potentially an exponential
+        number of linear constraints. The specific equations are slightly messy, so I've
+        omitted them here, but in these linear constraints, the terms ${\bf T}_x, {\bf
+        t}_x, {\bf t}_\hat{x},$ and ${\bf h}_\hat{x}$ also appear linearly and so can be
+        optimized simultaneously.  Unfortunately, the terms ${\bf T}_\hat{x}, {\bf H}_x,
+        {\bf h}_x, $ and $\hat{\bf H}_\hat{x}$ appear bilinearly with the containment
+        decision variables, so we typically treat them as fixed.</p>
+
+        <example><h1>Polytopic containment</h1>
+        
+          <p>Coming soon...</p>
+
+        </example>
+
+        <p>If one is simply performing reachability analysis (not joint with control
+        design), then polytopic containment can also be used on each time step to limit
+        the growth of the description length of the polytopes. We can attempt to replace
+        $\mathbb{X}_n$ with a minimal volume polytope, $\hat{\mathbb{X}}_n$ with a fixed
+        number of faces, subject to $\mathbb{X}_n \subseteq \hat{\mathbb{X}}_n.$ This,
+        of course, comes at the cost of conservatism (larger reachable sets).</p>
+
+        <example><h1>TubeMPC with a goal polytope</h1>
+        
+          <p>Coming soon...</p>
+
+        </example>
+
+      </subsubsection>
+    
+      <subsubsection><h1>Robust constrained LQR</h1>
+      
+        <p>Coming soon...</p>
+
+      </subsubsection>
+
+    </subsection>
+
+    <subsection id="disturbance-based"><h1>Disturbance-based feedback
+    parameterizations</h1>
+    
+      <p>Although it would be tempting to parameterize the feedback gains $\bK_n$ as
+      decision variables in our Robust MPC framework, searching for both $\bK_n$ and
+      $\bx_n$ in the traditional parameterization of $\bK_n\bx_n$ would result in terms
+      that are bilinear (and therefor nonconvex) in the decision variables. The
+      disturbance-based feedback parameterizations get around this. This is an old but
+      important idea which was made famous first as the <a
+      href="https://en.wikipedia.org/wiki/Youla%E2%80%93Kucera_parametrization">Youla
+      parameterization</a> (alternatively "Q-parameterization"). In the time domain this
+      typically leads to controllers which are "unrolled in time" and depend on a
+      potentially infinite history of disturbances; common practice it to approximate
+      these with a finite-impulse response (FIR) truncation. One could imagine
+      extracting a state-space realization of these FIR responses using the techniques
+      from <a href="sysid.html#linear">linear system identification</a>
+      <elib>Anderson17</elib>.</p>
+    
+      <p>We can understand the essence of this idea with a simple extension of
+      the <a href="lqr.html#sls">LQR with least-squares derivation</a>... (it's a
+      work in progress!)</p>
+        
+      <p>Given the state space equations: \begin{gather*} \bx[n+1] = \bA\bx[n] +
+      \bB\bu[n] + \bw[n],\end{gather*} Consider parameterizing an output feedback
+      policy of the form $$\bu[n] = \bK_0[n] \bx_0 +
+      \sum_{i=1}^{n-1}\bK_i[n]\bw[n-i],$$ then the closed-loop state is convex in
+      the control parameters, $\bK$: \begin{align*}\bx[n] =& \left( {\bf A}^n +
+      \sum_{i=0}^{n-1}{\bf A}^{n-i-1}{\bf B}{\bf K}_0[i] \right) \bx_0 +
+      \sum_{j=0}^{n-1} \sum_{i=0}^{n-1}{\bf A}^{n-i-1}{\bf B}{\bf K}_{j}[i]
+      \bw[i-j],\end{align*} and therefore objectives that are convex in $\bx$ and
+      $\bu$ (like LQR) are also convex in $\bK$.  Moreover, we can calculate
+      $\bw[n]$ by the time that it is needed given our observations of $\bx[n+1],
+      \bx[n],$ and knowledge of $\bu[n].$</p>
+    
+      <todo>SLS</todo>
+    
+    </subsection>
+
+    <subsection><h1>$L_2$ gain</h1>
+
+      <p>By limiting $\bw$ to be drawn from a bounded (polytopic) set, we were able to
+      perform efficient reachability analysis. But knowing that the dependency on $\bw$
+      is linear allows us to do something potentially even more natural, which can lead
+      to tighter bounds. In particular, we expect the <i>magnitude</i> of the deviation
+      in $\bx$ compared to the undisturbed case to be proportional to the
+      <i>magnitude</i> of the disturbance, $\bw$.  So a perhaps more natural bound for a
+      linear system is a <i>relative</i> bound on the magnitude of the response (from
+      zero initial conditions) relative to the magnitude of the disturbance.
+      </p>
+        
+      <!--
+      <example><h1>Gain bounds for linear maps</h1>
+        <p>Allow me to make the point with a much simpler problem.  Imagine I
+        have just a affine function (not even a system): $x = aw$.  One could certainly make the statement: if $|w|\le 1$, then $|x| \le |a|$</p>
+      </example>
+      -->
+      <p>
+      Typically, this is done with the a scalar "$L_2$
+      gain", $\gamma$, defined as: \begin{align*}\argmin_\gamma \quad
+      \subjto& \quad \sup_{\bw(\cdot) \in \int \|\bw(t)\|^2 dt\le \infty}
+      \frac{\int_0^T \| \bx(t) \|^2 dt}{\int_0^T \| \bw(t) \|^2dt} \le
+      \gamma^2, \qquad \text{or} \\ \argmin_\gamma \quad \subjto&
+      \sup_{\bw[\cdot] \in \sum_n \|\bw[n]\|^2 \le \infty} \frac{\sum_0^N
+      \|\bx[n]\|^2}{\sum_0^N \| \bw[n] \|^2} \le \gamma^2.\end{align*} The
+      name "$L_2$ gain" comes from the use of the $\ell_2$ norm on the
+      signals $\bw(t)$ and $\bx(t)$, which is assumed only to be finite.</p>
+    
+      <p>More often, these gains are written not in terms of $\bx[n]$ directly,
+      but in terms of some "performance output", $\bz[n]$.  For instance, if
+      would would like to bound the cost of a quadratic regulator objective as
+      a function of the magnitude of the disturbance, we can minimize $$
+      \min_\gamma \quad \subjto \quad \sup_{\bw[n]} \frac{\sum_0^N
+      \|\bz[n]\|^2}{\sum_0^N \| \bw[n] \|^2} \le \gamma^2, \qquad \bz[n] =
+      \begin{bmatrix}\sqrt{\bQ} \bx[n] \\ \sqrt{\bR} \bu[n]\end{bmatrix}.$$
+      This is a simple but important idea, and understanding it is the key to
+      understanding the language around robust control.  In particular the
+      $\mathcal{H}_2$ norm of a system (from input $\bw$ to output $\bz$) is
+      the energy of the impulse response; when $\bz$ is chosen to represent the
+      quadratic regulator cost as above, it corresponds to the expected LQR
+      cost.  The $\mathcal{H}_\infty$ norm of a system (from $\bw$ to $\bz$) is
+      the largest singular value of the transfer function; it corresponds to
+      the $L_2$ gain.</p>
+      
+      <subsubsection id="dissipation"><h1>Dissipation inequalities</h1>
+    
+        <p>One of the mechanisms for certifying an $L_2$ gain for a system
+        comes from a generalization of Lyapunov analysis to consider the contributions of system inputs via the so-called "dissipation
+        inequalities".  Dissipation inequalities are a general tool, and
+        $L_2$-gain analysis is only one application of them; for a broader
+        treatment see <elib>Ebenbauer09</elib> or <elib part="Ch.
+        2">Scherer15</elib>.</p>
+
+        <p>Informally, the idea is to generalize the Lyapunov conditions,
+        $V(\bx) \succ 0, \dot{V}(\bx) \preceq 0,$ into the more general form
+        $$V(\bx) \succ 0, \quad \dot{V}(\bx) \preceq s(\bx, \bw),$$ where $\bw$
+        is the input of interest in this setting, and $s()$ is a scalar
+        quantity representing a "supply rate". Once a system has input, the
+        value of $V$ may go up or it may go down, but if we can bound the way
+        that it goes up by a simple function of the input, then we may still be
+        able to provide input-to-state or input-output bounds for the system.
+        Integrating both sides of the derivative condition with respect to time
+        yields: $$\forall \bx(0),\quad V(\bx(T)) \le V(\bx(0)) + \int_0^T
+        s(\bx(t), \bw(t))dt.$$ </p>
+
+        <p>To obtain a bound on the $L_2$ gain between input $\bw(t)$ and
+        output $\bz(t)$, the supply rate of interest is $$s(\bx,\bw) = \gamma^2
+        \|\bw\|^2 - \|\bz\|^2,$$ which yields $$\forall \bx(0),\quad V(\bx(T))
+        \le V(\bx(0)) + \int_0^T \gamma^2 \|\bw(t)\|^2dt - \int_0^T
+        \|\bz(t)\|^2dt .$$ Now, since this must hold for all $\bx(0)$, it holds
+        for $\bx(0) = 0$.  Furthermore, we know $V(\bx(T))$ is non-negative, so
+        we also have $$0 \le V(\bx(T)) \le \int_0^T \gamma^2 \|\bw(t)\|^2dt -
+        \int_0^T \|\bz(t)\|^2dt .$$  Therefore, if we can find a $V$ that
+        satisfied the dissipation inequality for this storage function, we have
+        certified the $\gamma$ is an $L_2$ gain for the system: $$
+        \frac{\int_0^T \| \bz(t) \|^2 dt}{\int_0^T \| \bw(t) \|^2dt} \le
+        \gamma^2.$$</p>
+  
+      </subsubsection>
+  
+      <subsubsection><h1>Small-gain theorem</h1>
+      
+        <todo>Robust control diagram</todo>
+        <p>Coming soon...</p>
+        <todo>I like the statement of the basic result from Sasha:
+        http://web.mit.edu/6.241/ameg_www_fall2006/www/images/L06smallgain.pdf
+        </todo>
+        
+      </subsubsection>
+  
+      <subsubsection><h1>Model uncertainty as a special case.</h1>
+
+        <todo>Diagram in my notes (e.g. from 2022). In the special case of w
+        being the output of a Delta block (which is itself a function of the
+        output z), and that uncertainty block has bounded L2 gain, then we can
+        recover deterministic stability.</todo>
+
+      </subsubsection>
+
+      <todo>IQCs</todo>
+
+      <todo>Steinhardt11a</todo>
+
+    </subsection>
+
+    <subsection><h1>Robust LQR as $\mathcal{H}_\infty$</h1>
+
+      <p>Let's consider a robust variant of the LQR problem: \begin{gather*}
+      \min_{\bu[\cdot]} \max_{\bw[\cdot]} \sum_{n=0}^\infty \bx^T[n]\bQ\bx[n] +
+      \bu^T[n] \bR\bu[n] - \gamma^2 \bw^T[n]\bw[n],\\ \bx[n+1] = \bA\bx[n] +
+      \bB\bu[n] + \bB_\bw \bw[n],\\ \bQ=\bQ^T \succeq 0, \bR = \bR^T \succ 0.
+      \end{gather*} The reason for this choice of cost function will become
+      clear in the derivation, but the intuition is that we want to reward the
+      controller for having a small response to large $\bw[\cdot]$. Note that
+      unlike the stochastic LQR formulation, here we do not specify the
+      distribution over $\bw[n]$, and in fact we don't even restrict it to a
+      bounded set.  All we know is that at each time step, an omniscient
+      adversary is allowed to choose the $\bw[n]$ that tries to maximize this
+      objective.</p>
+
+      <p>In fact, since we don't need to specify a continuous-time random
+      process and the continuous-time derivation is both cleaner and by now, I
+      think, more familiar, let's do this one in continuous time.
+      \begin{gather*} \min_{\bu[\cdot]} \max_{\bw[\cdot]} \int_{n=0}^\infty dt
+      \left[\bx^T(t)\bQ\bx(t) + \bu^T(t) \bR\bu(t) - \gamma^2
+      \bw^T(t)\bw(t)\right],\\ \dot\bx(t) = \bA\bx(t) + \bB\bu(t) + \bB_\bw
+      \bw(t),\\ \bQ=\bQ^T \succeq 0, \bR = \bR^T \succ 0. \end{gather*} We will
+      once again guess a quadratic cost-to-go function: $$J(\bx) = \bx^T {\bf
+      S} \bx, \quad {\bf S} = {\bf S}^T \succ 0.$$ The dynamic programming
+      recursion still holds for this problem , resulting in the Bellman
+      equation: $$\forall \bx,\quad 0 = \min_\bu \max_\bw \left[\bx^T\bQ\bx +
+      \bu^T\bR\bu - \gamma^2 \bw^T\bw + \pd{J^*}{\bx}[\bA\bx + \bB\bu + \bB_\bw
+      \bw]\right].$$ Since the inside is a concave quadratic form over $\bw$,
+      we can solve for the adversary by finding the maximum: \begin{gather*}
+      \pd{}{\bw} = -2 \gamma^2 \bw^T + 2\bx^T {\bf S} \bB_\bw,\\ \bw^* =
+      \frac{1}{\gamma^2} \bB_\bw^T {\bf S} \bx.\end{gather*} This is the
+      disturbance input that can cause the largest cost; the optimal play for
+      the adversary. Now we can solve the remainder as we did with the original
+      LQR problem: \begin{gather*} \pd{}{\bu} = 2 \bu^T \bR + 2\bx^T {\bf S}
+      \bB,\\ \bu^* = -\bR^{-1} \bB^T {\bf S} \bx = -\bK \bx.\end{gather*}
+      Substituting this back into the Bellman equation gives: $$0 = \bQ + {\bf
+      S}\left[ \gamma^{-2} \bB_\bw \bB_\bw^T - \bB \bR^{-1} \bB^T \right]{\bf
+      S} + {\bf S}^T \bA + \bA^T {\bf S},$$ which is the original LQR Riccati
+      equation with one additional term involving $\gamma.$ And like the
+      original LQR Riccati equation, we must ask whether it has a
+      positive-definite solution for ${\bf S}$. It turns out that if the system
+      is stabilizable and $\gamma$ large enough, then it does have a PD
+      solution. However, as we reduce $\gamma$ towards zero, there will be some
+      threshold $\gamma$ beneath which this Riccati equation does not have a PD
+      solution.  Intuitively, if $\gamma$ is too small, then the adversary is
+      rewarded for injecting disturbances that are so large as to break the
+      convergence.</p>
+
+      <p>Here is the fascinating thing: the $\gamma$ in this robust LQR cost
+      function can be interpreted as an $L_2$ gain for the system. Recall that
+      when we were making connections between the Bellman equation and Lyapunov
+      equations, we observed that the Bellman equation can be written as
+      $\forall \bx, \quad \dot{J}^*(\bx) \le -\ell(\bx,\bu)$? Here this yields:
+      $$\forall \bx, \quad \dot{J}^*(\bx) \le \gamma^2 \bw^T(t)\bw(t) -
+      \bx^T(t)\bQ\bx(t) - \bu^T(t) \bR\bu(t).$$ This means that the cost-to-go
+      is a valid dissipation inequality for the supply rate that provides an
+      $L_2$ gain for the performance output $\bz = \begin{bmatrix}\sqrt{\bQ}
+      \bx \\ \sqrt{\bR} \bu\end{bmatrix}.$  Moreover, we can find the minimal
+      $L_2$ gain by finding the minimal $\gamma > 0$ for which the Riccati
+      equation has a positive-definite solution. And given the properties of
+      the Riccati equation, this can be done with a line search in
+      $\gamma$.</p>
+
+      <p>Because the $L_2$ gain is the $\mathcal{H}_\infty$-norm of the system,
+      this recipe of searching for the smallest $\gamma$ and taking the Riccati
+      solution is an instance of $\mathcal{H}_\infty$ control design.</p>
+    </subsection>
+
+    <todo>  Loftberg 2003 for
+      constrained version (w/ disturbance feedback). 
+    </todo>
+
+    <subsection><h1>Linear Exponential-Quadratic Gaussian (LEQG)</h1>
+
+      <p><elib>Jacobson73</elib> observed that it is also straight-forward to
+      minimize the objective: $$J = E\left[ \prod_{n=0}^\infty e^{\bx^T[n] {\bf
+      Q} \bx[n]} e^{\bu^T[n] {\bf R} \bu[n]} \right] = E\left[
+      e^{\sum_{n=0}^\infty \bx^T[n] {\bf Q} \bx[n] + \bu^T[n] {\bf R} \bu[n]}
+      \right],$$ with ${\bf Q} = {\bf Q}^T \ge {\bf 0}, {\bf R} = {\bf R}^T >
+      0,$ by observing that the cost is monotonically related to $\log{J}$, and
+      therefore has the same minima (this same trick forms the basis for
+      "geometric programming" <elib>Boyd07</elib>). This is known as the
+      "Linear Exponential-Quadratic Gaussian" (LEG or LEQG), and for the
+      deterministic version of the problem (no process nor measurement noise)
+      the solution is identical to the LQR problem; it adds no new modeling
+      power.  But with noise, the LEQG optimal controllers are different from
+      the LQG controllers; they depend explicitly on the covariance of the
+      noise.  
+        
+      <todo>introduce the coefficient \sigma here, instead of just throwing it
+      in from the start. The coefficient $\sigma$ in the objective is referred
+      to as the "risk-sensitivity parameter" <elib>Whittle90</elib>.
+      </todo>
+      </p>
+
+      <todo>Insert simplest form of the derivation here, plus an example.</todo>
+
+      <p><elib>Whittle90</elib> provides an extensive treatment of this framework;
+      nearly all of the analysis from LQR/LQG (including Riccati equations,
+      Hamiltonian formulations, etc) have analogs for their versions with
+      exponential cost, and he argues that LQG and H-infinity control can
+      (should?) be understood as special cases of this approach.</p>
+    </subsection>
+
+    <subsection><h1>Adaptive control</h1>
+
+      <p>The standard criticism of $\mathcal{H}_2$ optimal control is that minimizing the
+      expected value does not allow any guarantees on performance.  The
+      standard criticism of $\mathcal{H}_\infty$ optimal control is that it concerns
+      itself with the worst case, and may therefore be conservative, especially
+      because distributions over possible disturbances chosen a priori may be
+      unnecessarily conservative.  One might hope that we could get some of
+      this performance back if we are able to update our models of uncertainty
+      online, adapting to the statistics of the disturbances we actually
+      receive.  This is one of the goals of adaptive control.</p> 
+
+      <p>One of the fundamental problems in online adaptive control is the
+      trade-off between exploration and exploitation.  Some inputs might drive
+      the system to build more accurate models of the dynamics / uncertainty
+      quickly, which could lead to better performance.  But how can we
+      formalize this trade-off?
+      </p>
+
+      <p>There has been some nice progress on this challenge in machine
+      learning in the setting of (contextual) <a
+      href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed
+      bandit</a>  problems.  For our purposes, you can think of bandits as a
+      limiting case of an optimal control problem where there are no dynamics
+      (the effects of one control action do not effect the results of the next
+      control action).  In this simpler setting, the online optimization
+      community has developed exploration-exploitation strategies based on the
+      notion of minimizing <i>regret</i> -- typically the accumulated
+      difference in the performance achieved by my online algorithm vs the
+      performance that would have been achieved if I had been privy to the data
+      from my experiments before I started.  This has led to methods that make
+      use of concepts like upper-confidence bound (UCB) and more recently
+      bounds using a least-squares squares confidence bound
+      <elib>Foster20</elib> to provide bounds on the regret.</p>
+
+      <p>In the last few years, we've see these results translated into the setting of linear optimal control... </p>
+
+      <todo>finish this... cite Elad / Max</todo>
+    
+    </subsection>
+
+    <subsection><h1>Structured uncertainty</h1>
+    
+      <todo>$\mu$ synthesis. D-K iterations.</todo>
+
+    </subsection>
+
+    <subsection><h1>Linear parameter-varying (LPV) control</h1>
+
+      <todo>
+      Pendulum example from Briat15 1.4.1 (and the references therein).
+      </todo>
+    
+    </subsection>
+
+  </section>
+
+  <section><h1>Trajectory optimization</h1>
+  
+    <subsection><h1>Monte-carlo trajectory optimization</h1>
+
+      <todo>Bregman divergence ADMM in guided policy search from Sergey?  Abhi recommended this paper for it: https://arxiv.org/abs/1504.00702 <elib>Levine16</elib> </todo>
+
+    </subsection>
+    <subsection><h1>Iterative $\mathcal{H}_2$/iLQG</h1>
+
+      <todo>cover iLQR and perhaps Scott's UKF version in the output-feedback chapter?</todo>
+    </subsection>
+
+    <todo>iLEQG/iLEG.</todo>
+
+  </section>
+
+  <section><h1>Nonlinear analysis and control</h1>
+  
+
+    <todo>Stochastic verification of nonlinear systems. (Having bounds on
+    expected value does yield bounds on system state).
+
+    Uncertainty quantification (e.g., linear guassian
+    approximation; discretize then closed form solutions using the transition
+    matrix....).  Monte-Carlo. Particle sim/filter. Rare event simulation </p>
+
+    <p>L2-gain with dissipation inequalities.  Finite-time verification with
+    sums of squares.</p>
+
+    <p>Occupation Measures</p>
+
+
+    SOS-based design
+    </todo>
+
+  </section>
+
+  <section><h1>Domain randomization</h1>
+    <todo>and empirical risk?</todo>
+  </section>
+
+  <section><h1>Extensions</h1>
+  
+    <subsection><h1>Alternative risk/robustness metrics</h1>
+    
+      <todo>e.g. Ani + Pavone</todo>
+    </subsection>
+
+  </section>
+
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Zhou97>
+<span class="author">Kemin Zhou and John C. Doyle</span>, 
+<span class="title">"Essentials of Robust Control"</span>, Prentice Hall
+, <span class="year">1997</span>.
+
+</li><br>
+<li id=Petersen00>
+<span class="author">I. R. Petersen and V. A. Ugrinovskii and A. V. Savkin</span>, 
+<span class="title">"Robust Control Design using H-infinity Methods"</span>, Springer-Verlag
+, <span class="year">2000</span>.
+
+</li><br>
+<li id=Majumdar20>
+<span class="author">Anirudha Majumdar and Marco Pavone</span>, 
+<span class="title">"How should a robot assess risk? towards an axiomatic theory of risk in robotics"</span>, 
+<span class="publisher">Robotics Research</span> , pp. 75--84, <span class="year">2020</span>.
+
+</li><br>
+<li id=Scher22>
+<span class="author">Guy Scher and Sadra Sadraddini and Russ Tedrake and Hadas Kress-Gazit</span>, 
+<span class="title">"Elliptical Slice Sampling for Probabilistic Verification of Stochastic Systems with Signal Temporal Logic Specifications"</span>, 
+<span class="publisher">To appear in the Proceedings of Hybrid Systems: Computation and Control (HSCC)</span> , <span class="year">2022</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Scher22.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Steinhardt11a>
+<span class="author">Jacob Steinhardt and Russ Tedrake</span>, 
+<span class="title">"Finite-time Regional Verification of Stochastic Nonlinear Systems"</span>, 
+<span class="publisher">International Journal of Robotics Research</span>, vol. 31, no. 7, pp. 901-923, June, <span class="year">2012</span>.
+[&nbsp;<a href="http://ijr.sagepub.com/content/31/7/901.abstract">link</a>&nbsp;]
+
+</li><br>
+<li id=Moore14b>
+<span class="author">Joseph Moore</span>, 
+<span class="title">"Robust Post-Stall Perching with a Fixed-Wing UAV"</span>, 
+PhD thesis, Massachusetts Institute of Technology, September, <span class="year">2014</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Moore14b.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Boyd04a>
+<span class="author">Stephen Boyd and Lieven Vandenberghe</span>, 
+<span class="title">"Convex Optimization"</span>, Cambridge University Press
+, <span class="year">2004</span>.
+
+</li><br>
+<li id=Sadraddini19a>
+<span class="author">Sadra Sadraddini and Russ Tedrake</span>, 
+<span class="title">"Linear Encodings for Polytope Containment Problems"</span>, 
+<span class="publisher">Proceedings of the 2019 IEEE 58th Conference on Decision and Control (CDC)</span> , pp. 8, <span class="year">2019</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini19a.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Sadraddini21>
+<span class="author">Sadra Sadraddini and Russ Tedrake</span>, 
+<span class="title">"Linear Encodings for Polytope Containment Problems: Theoretical Foundations and Applications"</span>, 
+, Feb, <span class="year">2021</span>.
+
+</li><br>
+<li id=Mayne05>
+<span class="author">D.Q. Mayne and M.M. Seron and SV Rakovic</span>, 
+<span class="title">"Robust model predictive control of constrained linear systems with bounded disturbances"</span>, 
+<span class="publisher">Automatica</span>, vol. 41, no. 2, pp. 219--224, <span class="year">2005</span>.
+
+</li><br>
+<li id=Sadraddini20>
+<span class="author">Sadra Sadraddini and Russ Tedrake</span>, 
+<span class="title">"Robust Output Feedback Control with Guaranteed Constraint Satisfaction"</span>, 
+<span class="publisher">In the Proceedings of 23rd ACM International Conference on Hybrid Systems: Computation and Control</span> , pp. 12, April, <span class="year">2020</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini20.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Anderson17>
+<span class="author">James Anderson and Nikolai Matni</span>, 
+<span class="title">"Structured state space realizations for SLS distributed controllers"</span>, 
+<span class="publisher">2017 55th Annual Allerton Conference on Communication, Control, and Computing (Allerton)</span> , pp. 982-987, <span class="year">2017</span>.
+
+</li><br>
+<li id=Ebenbauer09>
+<span class="author">Christian Ebenbauer and Tobias Raff and Frank Allgower</span>, 
+<span class="title">"Dissipation inequalities in systems theory: An introduction and recent results"</span>, 
+<span class="publisher">Invited Lectures of the International Congress on Industrial and Applied Mathematics 2007</span> , pp. 23-42, <span class="year">2009</span>.
+
+</li><br>
+<li id=Scherer15>
+<span class="author">Carsten Scherer and Siep Weiland</span>, 
+<span class="title">"Linear Matrix Inequalities in Control"</span>, Online Draft
+, pp. 293, <span class="year">2015</span>.
+
+</li><br>
+<li id=Jacobson73>
+<span class="author">D. Jacobson</span>, 
+<span class="title">"Optimal stochastic linear systems with exponential performance criteria and their relation to deterministic differential games"</span>, 
+<span class="publisher">IEEE Transactions on Automatic Control</span>, vol. 18, no. 2, pp. 124--131, apr, <span class="year">1973</span>.
+
+</li><br>
+<li id=Boyd07>
+<span class="author">S. Boyd and S.-J. Kim and L. Vandenberghe and A. Hassibi</span>, 
+<span class="title">"A Tutorial on Geometric Programming"</span>, 
+<span class="publisher">Optimization and Engineering</span>, vol. 8, no. 1, pp. 67-127, <span class="year">2007</span>.
+
+</li><br>
+<li id=Whittle90>
+<span class="author">Peter Whittle</span>, 
+<span class="title">"Risk-sensitive optimal control"</span>, Wiley New York
+, vol. 20, <span class="year">1990</span>.
+
+</li><br>
+<li id=Foster20>
+<span class="author">Dylan Foster and Alexander Rakhlin</span>, 
+<span class="title">"Beyond UCB: Optimal and Efficient Contextual Bandits with Regression Oracles"</span>, 
+<span class="publisher">Proceedings of the 37th International Conference on Machine Learning</span> , vol. 119, pp. 3199--3210, 13--18 Jul, <span class="year">2020</span>.
+
+</li><br>
+<li id=Levine16>
+<span class="author">Sergey Levine and Chelsea Finn and Trevor Darrell and Pieter Abbeel</span>, 
+<span class="title">"End-to-end training of deep visuomotor policies"</span>, 
+<span class="publisher">The Journal of Machine Learning Research</span>, vol. 17, no. 1, pp. 1334--1373, <span class="year">2016</span>.
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=planning.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=feedback_motion_planning.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2024</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>
